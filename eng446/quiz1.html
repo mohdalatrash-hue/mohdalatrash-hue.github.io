@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 1 Practice Bank | ENG 446</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+  body { background: var(--off-white); }
+  /* Quiz-specific styles */
+  .quiz-topbar {
+    position: sticky; top: var(--nav-h); z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--border-light);
+    padding: 10px 22px;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+  .quiz-progress { display: flex; align-items: center; gap: 10px; flex: 1; }
+  .progress-bar { flex: 1; height: 4px; background: var(--off-white); border-radius: 2px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--green); transition: width .3s; }
+  .q-counter-sm { font-size: 12px; color: var(--text-3); font-weight: 600; white-space: nowrap; }
+  .timer-pill {
+    background: var(--off-white); border: 1px solid var(--border);
+    border-radius: var(--r-pill); padding: 5px 12px;
+    font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums;
+    cursor: pointer; color: var(--text-2); white-space: nowrap;
+  }
+  .timer-pill.inactive { opacity: .45; }
+  .timer-pill.warning { color: var(--amber); border-color: var(--amber); }
+  .timer-pill.danger { color: var(--red); border-color: var(--red); animation: pulse .9s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.6} }
+
+  .quiz-wrap { max-width: 620px; margin: 0 auto; padding: 32px 22px 80px; }
+
+  /* Start screen */
+  .start-card { background: var(--white); border-radius: var(--r-xl); box-shadow: var(--shadow-md); padding: 40px 32px; text-align: center; }
+  .start-icon { font-size: 48px; margin-bottom: 16px; }
+  .start-title { font-size: 24px; font-weight: 700; letter-spacing: -.025em; margin-bottom: 8px; }
+  .start-sub { font-size: 15px; color: var(--text-2); margin-bottom: 28px; }
+  .start-details { text-align: left; background: var(--off-white); border-radius: var(--r-md); padding: 16px 20px; margin-bottom: 20px; }
+  .start-details li { font-size: 14px; color: var(--text-2); line-height: 1.8; list-style: none; }
+  .start-details li::before { content: "✓ "; color: var(--green); font-weight: 700; }
+  .timer-toggle-row {
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--white); border: 1.5px solid var(--border); border-radius: var(--r-md);
+    padding: 14px 16px; margin-bottom: 20px;
+  }
+  .toggle { position: relative; width: 42px; height: 24px; flex-shrink: 0; }
+  .toggle input { opacity: 0; width: 0; height: 0; }
+  .slider { position: absolute; cursor: pointer; inset: 0; background: var(--border); border-radius: 24px; transition: .2s; }
+  .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background: #fff; border-radius: 50%; transition: .2s; }
+  input:checked + .slider { background: var(--green); }
+  input:checked + .slider:before { transform: translateX(18px); }
+
+  /* Question screen */
+  .q-card { background: var(--white); border-radius: var(--r-xl); box-shadow: var(--shadow-sm); overflow: hidden; }
+  .q-card-head { padding: 24px 24px 0; }
+  .q-source-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--green); background: var(--green-light); padding: 4px 10px; border-radius: var(--r-pill); margin-bottom: 14px; }
+  .q-text { font-size: 16px; font-weight: 600; line-height: 1.5; color: var(--text); margin-bottom: 20px; }
+  .options { display: flex; flex-direction: column; gap: 8px; padding: 0 24px; }
+  .feedback-box { margin: 16px 24px; border-radius: var(--r-md); padding: 14px 16px; font-size: 14px; line-height: 1.6; display: none; }
+  .feedback-box.correct { background: #f0fdf4; border: 1.5px solid #86efac; color: #166534; }
+  .feedback-box.wrong { background: var(--red-light); border: 1.5px solid #fca5a5; color: #991b1b; }
+  .q-card-foot { padding: 16px 24px 24px; }
+
+  /* Results */
+  .results-card { background: var(--white); border-radius: var(--r-xl); box-shadow: var(--shadow-md); padding: 40px 32px; text-align: center; }
+  .score-ring { width: 120px; height: 120px; border-radius: 50%; border: 6px solid var(--green); display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 20px; }
+  .score-num { font-size: 28px; font-weight: 800; color: var(--green); }
+  .score-lbl { font-size: 11px; color: var(--text-3); }
+  .results-title { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+  .results-sub { font-size: 14px; color: var(--text-2); margin-bottom: 28px; }
+  .review-list { text-align: left; display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
+  .review-item { background: var(--off-white); border-radius: var(--r-md); padding: 12px 16px; border-left: 3px solid var(--border); }
+  .review-item.r-correct { border-left-color: #16a34a; }
+  .review-item.r-wrong { border-left-color: var(--red); }
+  .review-q { font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .review-a { font-size: 12px; color: var(--text-2); }
+  .review-a .ra-wrong { color: var(--red); }
+  .review-a .ra-right { color: #166534; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 446</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Week 1 Practice Bank</span>
+  </div>
+</nav>
+
+<div class="quiz-topbar" id="quiz-topbar" style="display:none;">
+  <div class="quiz-progress">
+    <span class="q-counter-sm" id="q-counter-sm">1 / 12</span>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+  </div>
+  <div class="timer-pill inactive" id="timer-pill">⏱ 10:00</div>
+</div>
+
+<div class="quiz-wrap">
+  <!-- START -->
+  <div id="start-screen">
+    <div class="start-card">
+      <div class="start-icon">📖</div>
+      <div class="start-title">Week 1 Reading Practice Bank</div>
+      <div class="start-sub">Introduction + Chapter 1 + Chapter 2<br>Lambert (2012) · 12 questions</div>
+      <div class="info-box info-blue mb-20" style="text-align:left;">
+        <h3>📋 Graded quiz is in Blackboard</h3>
+        <p>This is your free practice bank — unlimited attempts, explanations after each answer, no grade recorded here. The <strong>graded quiz</strong> is in Blackboard Ultra.</p>
+      </div>
+      <div class="start-details">
+        <ul>
+          <li>12 multiple-choice questions</li>
+          <li>Covers: what research is, types, paradigms, and ethics</li>
+          <li>Explanations shown after every answer</li>
+          <li>Retry as many times as you like</li>
+        </ul>
+      </div>
+      <div class="timer-toggle-row">
+        <div>
+          <div style="font-size:14px;font-weight:600;">⏱ 10-minute challenge mode</div>
+          <div style="font-size:12px;color:var(--text-3);margin-top:2px;">Optional — simulates in-class time pressure</div>
+        </div>
+        <label class="toggle"><input type="checkbox" id="timer-toggle"><span class="slider"></span></label>
+      </div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="startQuiz()">Start Practice →</button>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="quiz-screen" style="display:none;">
+    <div class="q-card">
+      <div class="q-card-head">
+        <div class="q-source-tag" id="q-source"></div>
+        <div class="q-text" id="q-text"></div>
+      </div>
+      <div class="options" id="options"></div>
+      <div class="feedback-box" id="feedback"></div>
+      <div class="q-card-foot">
+        <button class="btn btn-primary" style="width:100%;justify-content:center;display:none;" id="btn-next" onclick="nextQuestion()">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results-screen" style="display:none;">
+    <div class="results-card">
+      <div class="score-ring" id="score-ring">
+        <div class="score-num" id="score-num">0/12</div>
+        <div class="score-lbl">Score</div>
+      </div>
+      <div class="results-title" id="results-title">Well done!</div>
+      <div class="results-sub" id="results-sub"></div>
+      <div class="review-list" id="review-list"></div>
+      <button class="btn btn-primary mb-12" style="width:100%;justify-content:center;" onclick="retryQuiz()">🔄 Try Again</button>
+      <a class="btn btn-outline" style="width:100%;justify-content:center;" href="week1.html">← Back to Week 1</a>
+    </div>
+  </div>
+</div>
+
+<script>
+const QUESTIONS = [
+  { source:"Introduction", q:"According to Lambert (2012), how does research differ from everyday curiosity or information-gathering?", options:["Research requires expensive equipment and a university setting","Research follows a systematic, purposeful, and rigorous approach","Research is only done by professional academics","Research must always result in a published journal article"], correct:1, feedback:"Lambert distinguishes research from casual inquiry by its systematic and rigorous nature — it follows deliberate procedures designed to produce trustworthy knowledge." },
+  { source:"Introduction", q:"The main purpose of a beginner's research project, as framed in the Introduction, is to:", options:["Produce a publishable paper that changes the field","Develop skills in planning, executing, and reporting a study","Collect as much data as possible on a topic","Repeat a study that has already been done to verify results"], correct:1, feedback:"Lambert frames the beginner project as a learning exercise in the research process — developing skills, not producing groundbreaking findings." },
+  { source:"Chapter 1", q:"Which of the following is the most accurate definition of 'research' as used in academic contexts?", options:["Browsing the internet to find information on a topic","A systematic inquiry designed to generate new knowledge or understanding","Writing a summary of what other scholars have said","Asking questions in a classroom discussion"], correct:1, feedback:"Academic research is distinguished by being systematic, purposeful, and aimed at producing new knowledge — not just locating existing information." },
+  { source:"Chapter 1", q:"'Applied research' is best described as research that:", options:["Is conducted only in laboratory settings","Aims to build theory without immediate practical application","Is designed to solve a specific real-world problem","Uses only quantitative methods"], correct:2, feedback:"Applied research has a practical goal — it aims to solve or improve a specific problem, as opposed to basic/pure research which primarily builds theoretical knowledge." },
+  { source:"Chapter 1", q:"Quantitative research is primarily characterised by:", options:["In-depth interviews exploring participants' lived experiences","Collection and analysis of numerical data to identify patterns or test hypotheses","Observing communities over an extended period","Analysing texts, documents, and discourse"], correct:1, feedback:"Quantitative research deals with numbers, measurement, and statistical analysis — in contrast to qualitative research which focuses on meaning, experience, and interpretation." },
+  { source:"Chapter 1", q:"Which of the following is NOT a characteristic of good research according to Lambert?", options:["Systematic","Anecdotal","Purposeful","Rigorous"], correct:1, feedback:"Good research is systematic, purposeful, and rigorous. 'Anecdotal' means based on personal stories without controlled evidence — the opposite of what research should be." },
+  { source:"Chapter 1", q:"The 'research cycle' is best described as:", options:["A single linear path from question to conclusion","A flexible, iterative process that may loop back to earlier stages","A fixed government-approved procedure","A process that only applies to large-scale studies"], correct:1, feedback:"The research process is iterative — researchers often revisit and refine earlier stages as their understanding develops. It is flexible, not a rigid one-way path." },
+  { source:"Chapter 2", q:"In research methodology, a 'paradigm' refers to:", options:["A specific data collection instrument like a questionnaire","A shared set of assumptions and beliefs about the nature of knowledge and reality","A type of statistical analysis","The section of a research paper that describes the methodology"], correct:1, feedback:"A paradigm is a worldview — a framework of shared beliefs about what reality is (ontology) and how we can know it (epistemology). It shapes the whole research approach." },
+  { source:"Chapter 2", q:"The positivist paradigm assumes that:", options:["Reality is socially constructed and varies between individuals","The researcher's identity and values must shape the findings","There is an objective reality that exists independently and can be measured","Research should primarily challenge social inequalities"], correct:2, feedback:"Positivism holds that an objective, measurable reality exists independently of the observer — knowledge comes from observation and measurement, ideally in controlled conditions." },
+  { source:"Chapter 2", q:"Interpretivist research is most focused on:", options:["Testing hypotheses through large-scale statistical surveys","Understanding how individuals construct meaning and interpret their social world","Discovering universal laws that apply across all cultures","Identifying cause-and-effect relationships through controlled experiments"], correct:1, feedback:"Interpretivism holds that social reality is constructed and context-dependent. It seeks to understand how participants make meaning, not to measure or generalise." },
+  { source:"Chapter 2", q:"'Informed consent' in research ethics requires that:", options:["The researcher informs their department head before collecting data","All participants read and sign a legal contract","Participants are fully informed about the study and agree to take part voluntarily","The findings are published open-access"], correct:2, feedback:"Informed consent means participants understand what the research involves, what will happen to their data, and that they participate freely — without coercion." },
+  { source:"Chapter 2", q:"Which of the following best describes the ethical principle of 'confidentiality' in research?", options:["The researcher keeps all findings secret and does not publish them","Participants' identities and responses are protected and not revealed without consent","Only the research supervisor may access the raw data","Participants may not discuss the study with anyone"], correct:1, feedback:"Confidentiality means protecting participant identities and personal information — typically by anonymising data and storing it securely. It is a core ethical obligation." }
+];
+
+let current=0, answers=new Array(QUESTIONS.length).fill(null), timerInterval=null, secondsLeft=600, timerEnabled=false;
+
+document.getElementById('timer-toggle').addEventListener('change', function() {
+  timerEnabled = this.checked;
+  document.getElementById('timer-pill').classList.toggle('inactive', !timerEnabled);
+});
+
+function startQuiz() {
+  document.getElementById('start-screen').style.display='none';
+  document.getElementById('quiz-screen').style.display='block';
+  document.getElementById('quiz-topbar').style.display='flex';
+  renderQuestion();
+  if(timerEnabled) startTimer();
+}
+
+function startTimer() {
+  timerInterval = setInterval(()=>{
+    secondsLeft--;
+    const m=Math.floor(secondsLeft/60), s=secondsLeft%60;
+    const pill=document.getElementById('timer-pill');
+    pill.textContent=`⏱ ${m}:${s.toString().padStart(2,'0')}`;
+    pill.className='timer-pill'+(secondsLeft<=60?' danger':secondsLeft<=180?' warning':'');
+    if(secondsLeft<=0) clearInterval(timerInterval);
+  },1000);
+}
+
+function renderQuestion() {
+  const q=QUESTIONS[current];
+  document.getElementById('q-counter-sm').textContent=`${current+1} / ${QUESTIONS.length}`;
+  document.getElementById('progress-fill').style.width=`${(current/QUESTIONS.length)*100}%`;
+  document.getElementById('q-source').textContent=q.source;
+  document.getElementById('q-text').textContent=q.q;
+  const letters=['A','B','C','D'], optEl=document.getElementById('options');
+  optEl.innerHTML='';
+  q.options.forEach((opt,i)=>{
+    const btn=document.createElement('button');
+    btn.className='option'; if(answers[current]===i) btn.classList.add('selected');
+    btn.innerHTML=`<span class="opt-letter">${letters[i]}</span><span>${opt}</span>`;
+    btn.onclick=()=>selectOption(i); optEl.appendChild(btn);
+  });
+  const fb=document.getElementById('feedback'); fb.style.display='none'; fb.className='feedback-box';
+  const bn=document.getElementById('btn-next'); bn.style.display='none';
+  bn.textContent=current===QUESTIONS.length-1?'See Results →':'Next →';
+  if(answers[current]!==null) revealAnswer(answers[current]);
+}
+
+function selectOption(idx) {
+  if(answers[current]!==null) return;
+  answers[current]=idx; revealAnswer(idx);
+}
+
+function revealAnswer(sel) {
+  const q=QUESTIONS[current];
+  document.querySelectorAll('.option').forEach((opt,i)=>{
+    opt.onclick=null;
+    if(i===q.correct) opt.classList.add('reveal-correct');
+    if(i===sel&&sel!==q.correct) opt.classList.add('wrong');
+    if(i===sel&&sel===q.correct) opt.classList.add('correct');
+  });
+  const fb=document.getElementById('feedback'); fb.style.display='block';
+  if(sel===q.correct) { fb.className='feedback-box correct'; fb.innerHTML=`✓ Correct! ${q.feedback}`; }
+  else { fb.className='feedback-box wrong'; fb.innerHTML=`✗ Not quite. ${q.feedback}`; }
+  document.getElementById('btn-next').style.display='block';
+}
+
+function nextQuestion() {
+  if(current<QUESTIONS.length-1) { current++; renderQuestion(); window.scrollTo(0,0); }
+  else showResults();
+}
+
+function showResults() {
+  clearInterval(timerInterval);
+  document.getElementById('quiz-screen').style.display='none';
+  document.getElementById('results-screen').style.display='block';
+  document.getElementById('progress-fill').style.width='100%';
+  const correct=answers.filter((a,i)=>a===QUESTIONS[i].correct).length, total=QUESTIONS.length, pct=Math.round(correct/total*100);
+  document.getElementById('score-num').textContent=`${correct}/${total}`;
+  const ring=document.getElementById('score-ring');
+  ring.style.borderColor=pct>=80?'#16a34a':pct>=60?'#d97706':'#dc2626';
+  const msgs=pct>=80?['Excellent! Well prepared.','Outstanding work!']:pct>=60?['Good effort — review missed questions.']:['Review the chapters and try again.'];
+  document.getElementById('results-title').textContent=msgs[0];
+  document.getElementById('results-sub').textContent=`${correct} of ${total} correct (${pct}%). The graded version is in Blackboard.`;
+  const rl=document.getElementById('review-list'); rl.innerHTML='';
+  QUESTIONS.forEach((q,i)=>{
+    const ua=answers[i], ok=ua===q.correct;
+    const div=document.createElement('div'); div.className=`review-item ${ok?'r-correct':'r-wrong'}`;
+    div.innerHTML=`<div class="review-q">${ok?'✓':'✗'} Q${i+1} · ${q.source}</div><div class="review-a">${ua===null?'<span style="color:var(--text-3)">Not answered</span>':ok?`<span class="ra-right">✓ ${q.options[ua]}</span>`:`<span class="ra-wrong">✗ ${q.options[ua]}</span><br><span class="ra-right">✓ ${q.options[q.correct]}</span>`}</div>`;
+    rl.appendChild(div);
+  });
+}
+
+function retryQuiz() {
+  answers=new Array(QUESTIONS.length).fill(null); current=0; secondsLeft=600; clearInterval(timerInterval);
+  document.getElementById('results-screen').style.display='none';
+  document.getElementById('quiz-screen').style.display='block';
+  renderQuestion(); if(timerEnabled) startTimer();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APA 7 Quick Reference | ENG 446</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+  body { background: var(--off-white); }
+  .lang-btn { padding: 6px 14px; border-radius: var(--r-pill); border: 1.5px solid var(--border); background: var(--white); font-size: 13px; font-weight: 600; cursor: pointer; color: var(--text-2); transition: all .15s; }
+  .lang-btn.active { background: var(--green); color: #fff; border-color: var(--green); }
+  .search-wrap { position: relative; margin-bottom: 32px; }
+  .search-wrap input { width: 100%; padding: 12px 16px 12px 44px; border-radius: var(--r-lg); border: 1.5px solid var(--border); font-size: 15px; background: var(--white); color: var(--text); box-sizing: border-box; }
+  .search-wrap input:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(26,107,60,.1); }
+  .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-3); font-size: 16px; pointer-events: none; }
+  .cite-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 14px; margin-bottom: 40px; }
+  .cite-card { background: var(--white); border-radius: var(--r-lg); box-shadow: var(--shadow-xs); overflow: hidden; }
+  .cite-card-head { padding: 14px 16px 10px; border-bottom: 1px solid var(--border-light); }
+  .cite-card-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--green); margin-bottom: 4px; }
+  .cite-card-title { font-size: 14px; font-weight: 700; color: var(--text); }
+  .cite-card-body { padding: 12px 16px 16px; }
+  .cite-example { font-family: 'Georgia', serif; font-size: 13px; color: var(--text-2); background: var(--off-white); border-radius: var(--r-sm); padding: 10px 12px; line-height: 1.7; margin-bottom: 8px; }
+  .cite-note { font-size: 12px; color: var(--text-3); line-height: 1.5; }
+  .ref-section { margin-bottom: 28px; }
+  .ref-type-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--green); margin-bottom: 8px; }
+  .ref-box { background: var(--white); border-radius: var(--r-md); box-shadow: var(--shadow-xs); padding: 16px 20px; }
+  .ref-template { font-family: 'Georgia', serif; font-size: 13px; color: var(--text-2); line-height: 1.8; padding-left: 24px; text-indent: -24px; margin-bottom: 8px; border-bottom: 1px solid var(--border-light); padding-bottom: 12px; }
+  .ref-template:last-of-type { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .ref-field { font-style: italic; color: var(--text-3); }
+  .ref-note-sm { font-size: 11px; color: var(--text-3); margin-top: 8px; }
+  .mistake-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+  .mistake-wrong, .mistake-right { border-radius: var(--r-md); padding: 12px 14px; font-size: 13px; font-family: 'Georgia', serif; line-height: 1.6; }
+  .mistake-wrong { background: var(--red-light); border-left: 3px solid var(--red); color: #7f1d1d; }
+  .mistake-right { background: #f0fdf4; border-left: 3px solid #16a34a; color: #14532d; }
+  .mistake-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; opacity: .7; }
+  table.format-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  table.format-table th { background: var(--off-white); font-weight: 700; color: var(--text-2); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; padding: 10px 14px; text-align: left; border-bottom: 2px solid var(--border); }
+  table.format-table td { padding: 10px 14px; border-bottom: 1px solid var(--border-light); color: var(--text-2); vertical-align: top; line-height: 1.5; }
+  table.format-table tr:last-child td { border-bottom: none; }
+  table.format-table tr:hover td { background: var(--off-white); }
+  table.format-table td:first-child { font-weight: 600; color: var(--text); white-space: nowrap; }
+  @media(max-width:580px) { .mistake-row { grid-template-columns: 1fr; } .cite-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 446</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">APA 7 Quick-Ref</span>
+    <div class="nav-spacer"></div>
+    <div class="nav-links" style="gap:8px;">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">English</button>
+      <button class="lang-btn" id="btn-ar" onclick="setLang('ar')">العربية</button>
+    </div>
+  </div>
+</nav>
+
+<div class="hero" style="padding-bottom:40px;">
+  <div class="hero-eyebrow" id="h-eyebrow">ENG 446 · APA 7th Edition</div>
+  <h1 id="h-title">APA Quick-Reference Card</h1>
+  <p class="hero-sub" id="h-sub">In-text citations · Reference list formats · Formatting rules · Common mistakes</p>
+</div>
+
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search-box" placeholder="Search — e.g. 'three authors', 'book chapter', 'no date'…" oninput="filterCitations()">
+  </div>
+
+  <h2 style="font-size:18px;font-weight:700;margin-bottom:16px;" id="s-formatting">Page Formatting Rules</h2>
+  <div class="card mb-40" style="overflow:hidden;">
+    <div style="overflow-x:auto;">
+      <table class="format-table">
+        <thead><tr><th id="th-element">Element</th><th id="th-rule">APA 7 Rule</th></tr></thead>
+        <tbody id="format-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <h2 style="font-size:18px;font-weight:700;margin-bottom:16px;" id="s-intext">In-Text Citation Patterns</h2>
+  <div class="cite-grid" id="cite-grid"></div>
+
+  <h2 style="font-size:18px;font-weight:700;margin-bottom:16px;" id="s-reflist">Reference List Formats</h2>
+  <div id="ref-sections" class="mb-40"></div>
+
+  <h2 style="font-size:18px;font-weight:700;margin-bottom:16px;" id="s-mistakes">Common Mistakes</h2>
+  <div id="mistakes-wrap"></div>
+</div>
+</div>
+
+<footer>
+  <strong>ENG 446 Research Methods</strong> · APA 7 Quick-Ref · Qassim University · Summer 2026<br>
+  <a href="index.html">Course Hub</a> · <a href="syllabus.html">Syllabus</a>
+</footer>
+
+<script>
+const D = {
+  en: {
+    eyebrow:"ENG 446 · APA 7th Edition", title:"APA Quick-Reference Card", sub:"In-text citations · Reference list formats · Formatting rules · Common mistakes",
+    ph:"Search — e.g. 'three authors', 'book chapter', 'no date'…",
+    sF:"Page Formatting Rules", sI:"In-Text Citation Patterns", sR:"Reference List Formats", sM:"Common Mistakes",
+    thEl:"Element", thRu:"APA 7 Rule",
+    fmt:[
+      ["Font","12 pt Times New Roman, Calibri 11, Arial 11, or Georgia 11"],
+      ["Margins","1 inch (2.54 cm) on all four sides"],
+      ["Spacing","Double-spaced throughout, including the reference list"],
+      ["Indent","First line of each paragraph indented 0.5 in (Tab key)"],
+      ["Hanging indent","Reference list: second and subsequent lines indented 0.5 in"],
+      ["Page numbers","Top right corner of every page, starting at 1"],
+      ["Title case","Capitalise all major words in headings"],
+      ["Sentence case","Only first word, proper nouns, and post-colon word capitalised in reference titles"],
+      ["DOI","Include as hyperlink: https://doi.org/xxxxx · No 'Retrieved from' needed"],
+      ["Running head","Not required for student papers in APA 7"],
+      ["Reference list","New page, headed 'References' (centred, bold) — not 'Bibliography'"]
+    ],
+    pats:[
+      { lbl:"One author", ttl:"Paraphrase", ex:"Research has shown that qualitative methods provide richer insight into learner experience (Ahmed, 2021).", nt:"Author surname + year in parentheses." },
+      { lbl:"One author", ttl:"Direct quote", ex:'Lambert (2012) argues that "all research begins with a question" (p. 3).', nt:"Include page number (p. X) for all direct quotes." },
+      { lbl:"Two authors", ttl:"Paraphrase", ex:"Critical thinking and academic writing are closely linked (Chen & Park, 2020).", nt:"Use & inside parentheses, and in running text." },
+      { lbl:"Three or more authors", ttl:"Et al.", ex:"The study found significant differences across age groups (Rivera et al., 2019).", nt:"Use et al. from the first citation when there are 3+ authors." },
+      { lbl:"No author", ttl:"Short title", ex:'The report indicated a rise in enrolment ("University Trends," 2022).', nt:'First words of title in quotes (article) or italics (book).' },
+      { lbl:"No date", ttl:"n.d.", ex:"The policy remains unchanged (Ministry of Education, n.d.).", nt:"Use n.d. in place of the year." },
+      { lbl:"Secondary source", ttl:"As cited in", ex:"Vygotsky's ZPD (as cited in Ahmed, 2021, p. 14).", nt:"Only list the source you actually read in your reference list." },
+      { lbl:"Multiple works", ttl:"Semicolon-separated", ex:"Several studies support this finding (Liu, 2018; Patel & Singh, 2020; Yamamoto, 2022).", nt:"Alphabetical order by first author surname, separated by semicolons." }
+    ],
+    refs:[
+      { tp:"Journal Article", tmpl:'<span class="ref-field">Author, A. A., & Author, B. B.</span> (<span class="ref-field">Year</span>). <span class="ref-field">Article title in sentence case</span>. <em><span class="ref-field">Journal Name</span></em>, <em><span class="ref-field">Volume</span></em>(<span class="ref-field">Issue</span>), <span class="ref-field">pp–pp</span>. https://doi.org/<span class="ref-field">xxxxx</span>', nt:"Italicise: journal name and volume. Issue number NOT italicised." },
+      { tp:"Book", tmpl:'<span class="ref-field">Author, A. A.</span> (<span class="ref-field">Year</span>). <em><span class="ref-field">Title of book in sentence case</span></em>. <span class="ref-field">Publisher</span>.', nt:"Do not include place of publication in APA 7." },
+      { tp:"Book Chapter (edited volume)", tmpl:'<span class="ref-field">Author, A. A.</span> (<span class="ref-field">Year</span>). <span class="ref-field">Chapter title</span>. In <span class="ref-field">E. Editor</span> (Ed.), <em><span class="ref-field">Book title</span></em> (pp. <span class="ref-field">XX–XX</span>). <span class="ref-field">Publisher</span>.', nt:"Chapter title not italicised; book title IS italicised." },
+      { tp:"Webpage / Online Source", tmpl:'<span class="ref-field">Author, A. A.</span> (<span class="ref-field">Year, Month Day</span>). <span class="ref-field">Title of page</span>. <span class="ref-field">Website Name</span>. <span class="ref-field">URL</span>', nt:"Include retrieval date only if content changes frequently." },
+      { tp:"Thesis / Dissertation", tmpl:'<span class="ref-field">Author, A. A.</span> (<span class="ref-field">Year</span>). <em><span class="ref-field">Title</span></em> [Doctoral dissertation / Master\'s thesis, <span class="ref-field">University</span>]. <span class="ref-field">Repository</span>. <span class="ref-field">URL</span>', nt:"Include the repository name (e.g. ProQuest)." },
+      { tp:"Conference Paper", tmpl:'<span class="ref-field">Author, A. A.</span> (<span class="ref-field">Year, Month</span>). <em><span class="ref-field">Title</span></em> [Paper presentation]. <span class="ref-field">Conference Name</span>, <span class="ref-field">City, Country</span>.', nt:"Use 'Paper presentation', 'Poster session', or 'Keynote address'." },
+      { tp:"Report (Government / Organisation)", tmpl:'<span class="ref-field">Author, A. A.</span> (<span class="ref-field">Year</span>). <em><span class="ref-field">Title of report</span></em> (<span class="ref-field">Report No.</span>). <span class="ref-field">Publisher</span>. <span class="ref-field">URL</span>', nt:"If author and publisher are the same, list only once as author." },
+      { tp:"Newspaper Article", tmpl:'<span class="ref-field">Author, A. A.</span> (<span class="ref-field">Year, Month Day</span>). <span class="ref-field">Title of article</span>. <em><span class="ref-field">Newspaper Name</span></em>, <span class="ref-field">p. X / URL</span>', nt:"For online articles, include URL instead of page number." }
+    ],
+    mist:[
+      { lbl:"Author & date order", w:"(2021, Ahmed)", r:"(Ahmed, 2021)" },
+      { lbl:"Two authors — ampersand", w:"(Chen and Park, 2020)", r:"(Chen & Park, 2020)" },
+      { lbl:"Three authors — no et al.", w:"(Rivera, Kim, and Patel, 2019)", r:"(Rivera et al., 2019)" },
+      { lbl:"Direct quote — no page", w:'Research is described as "systematic inquiry" (Lambert, 2012).', r:'Research is described as "systematic inquiry" (Lambert, 2012, p. 5).' },
+      { lbl:"Reference title case", w:"Lambert, S. (2012). Qualitative and Quantitative Research Methods.", r:"Lambert, S. (2012). Qualitative and quantitative research methods." },
+      { lbl:"Journal name — no italics", w:"Journal of Applied Linguistics, 15(2), 44–60.", r:"<em>Journal of Applied Linguistics</em>, <em>15</em>(2), 44–60." }
+    ]
+  },
+  ar: {
+    eyebrow:"ENG 446 · الإصدار السابع من نظام APA", title:"بطاقة المرجع السريع — APA", sub:"الاستشهادات داخل النص · قوائم المراجع · قواعد التنسيق · الأخطاء الشائعة",
+    ph:"ابحث — مثلاً: 'ثلاثة مؤلفين' أو 'فصل كتاب'…",
+    sF:"قواعد تنسيق الصفحة", sI:"أنماط الاستشهاد داخل النص", sR:"تنسيقات قائمة المراجع", sM:"الأخطاء الشائعة",
+    thEl:"العنصر", thRu:"قاعدة APA 7",
+    fmt:[
+      ["الخط","Times New Roman 12، أو Calibri 11، أو Arial 11، أو Georgia 11"],
+      ["الهوامش","بوصة واحدة (2.54 سم) من الجهات الأربع"],
+      ["التباعد","مسافة مزدوجة في كل النص بما فيه قائمة المراجع"],
+      ["المسافة البادئة","مسافة بادئة 0.5 بوصة لأول سطر في كل فقرة"],
+      ["المسافة المعلّقة","في قائمة المراجع: تُبادر السطور الثانية وما بعدها بمسافة 0.5 بوصة"],
+      ["ترقيم الصفحات","أعلى يمين كل صفحة ابتداءً من 1"],
+      ["Title Case","الكلمات الرئيسية بحرف كبير في العناوين"],
+      ["Sentence Case","الكلمة الأولى فقط + الأسماء الخاصة في عناوين المراجع"],
+      ["DOI","يُدرج كرابط: https://doi.org/xxxxx — لا يلزم 'Retrieved from'"],
+      ["الترويسة الجارية","غير مطلوبة في الأوراق الطلابية وفق APA 7"],
+      ["قائمة المراجع","صفحة جديدة بعنوان 'References' وسّطه وبخطٍ عريض"]
+    ],
+    pats:[
+      { lbl:"مؤلف واحد", ttl:"إعادة صياغة", ex:"Research has shown that qualitative methods provide richer insight (Ahmed, 2021).", nt:"اسم عائلة المؤلف + السنة داخل قوسين." },
+      { lbl:"مؤلف واحد", ttl:"اقتباس مباشر", ex:'Lambert (2012) argues that "all research begins with a question" (p. 3).', nt:"أضف رقم الصفحة في جميع الاقتباسات المباشرة." },
+      { lbl:"مؤلفان", ttl:"إعادة صياغة", ex:"Critical thinking and academic writing are closely linked (Chen & Park, 2020).", nt:"استخدم & داخل القوسين، وand في متن النص." },
+      { lbl:"ثلاثة مؤلفين أو أكثر", ttl:"et al.", ex:"The study found significant differences (Rivera et al., 2019).", nt:"استخدم et al. من أول استشهاد عند وجود 3 مؤلفين أو أكثر." },
+      { lbl:"بلا مؤلف", ttl:"عنوان مختصر", ex:'("University Trends," 2022).', nt:'أول كلمات العنوان بين علامتَي اقتباس (مقالة) أو بخط مائل (كتاب).' },
+      { lbl:"بلا تاريخ", ttl:"n.d.", ex:"(Ministry of Education, n.d.).", nt:"اكتب n.d. بدلاً من السنة." },
+      { lbl:"مصدر ثانوي", ttl:"as cited in", ex:"Vygotsky's ZPD (as cited in Ahmed, 2021, p. 14).", nt:"أدرج في قائمة مراجعك المصدر الذي قرأته فعلاً." },
+      { lbl:"أعمال متعددة", ttl:"فصل بفاصلة منقوطة", ex:"(Liu, 2018; Patel & Singh, 2020; Yamamoto, 2022).", nt:"رتّبها أبجدياً مع فصلها بفاصلة منقوطة." }
+    ],
+    refs:[
+      { tp:"مقالة في دورية علمية", tmpl:'<span class="ref-field">Author, A. A.</span> (<span class="ref-field">Year</span>). <span class="ref-field">Title</span>. <em><span class="ref-field">Journal</span></em>, <em><span class="ref-field">Vol</span></em>(<span class="ref-field">Iss</span>), pp–pp. https://doi.org/…', nt:"يُطبع بخط مائل: اسم الدورية ورقم المجلد فقط." },
+      { tp:"كتاب", tmpl:'<span class="ref-field">Author, A. A.</span> (<span class="ref-field">Year</span>). <em><span class="ref-field">Title</span></em>. <span class="ref-field">Publisher</span>.', nt:"لا تُدرج مكان النشر في APA 7." },
+      { tp:"فصل في كتاب محرَّر", tmpl:'<span class="ref-field">Author, A. A.</span> (<span class="ref-field">Year</span>). <span class="ref-field">Chapter</span>. In <span class="ref-field">E. Ed.</span> (Ed.), <em><span class="ref-field">Book</span></em> (pp. XX–XX). <span class="ref-field">Publisher</span>.', nt:"عنوان الفصل بدون خط مائل؛ عنوان الكتاب بخط مائل." },
+      { tp:"موقع إلكتروني", tmpl:'<span class="ref-field">Author, A. A.</span> (<span class="ref-field">Year</span>). <span class="ref-field">Title</span>. <span class="ref-field">Website</span>. <span class="ref-field">URL</span>', nt:"أضف تاريخ الاسترجاع فقط إذا كان المحتوى يتغير باستمرار." },
+      { tp:"رسالة علمية", tmpl:'<span class="ref-field">Author, A. A.</span> (<span class="ref-field">Year</span>). <em><span class="ref-field">Title</span></em> [Dissertation, <span class="ref-field">University</span>]. <span class="ref-field">Repository</span>.', nt:"أذكر اسم المستودع الإلكتروني." },
+      { tp:"ورقة مؤتمر", tmpl:'<span class="ref-field">Author, A. A.</span> (<span class="ref-field">Year</span>). <em><span class="ref-field">Title</span></em> [Paper presentation]. <span class="ref-field">Conference</span>, <span class="ref-field">City</span>.', nt:'استخدم "Paper presentation" أو "Poster session" حسب نوع المشاركة.' },
+      { tp:"تقرير حكومي", tmpl:'<span class="ref-field">Author, A. A.</span> (<span class="ref-field">Year</span>). <em><span class="ref-field">Report title</span></em>. <span class="ref-field">Publisher</span>. <span class="ref-field">URL</span>', nt:"إذا كان المؤلف والناشر ذاتهما، اذكرهما مرة واحدة." },
+      { tp:"مقالة صحفية", tmpl:'<span class="ref-field">Author, A. A.</span> (<span class="ref-field">Year, Month Day</span>). <span class="ref-field">Title</span>. <em><span class="ref-field">Newspaper</span></em>, <span class="ref-field">URL</span>', nt:"للمقالات الإلكترونية: أدرج الرابط بدلاً من رقم الصفحة." }
+    ],
+    mist:[
+      { lbl:"ترتيب المؤلف والتاريخ", w:"(2021, Ahmed)", r:"(Ahmed, 2021)" },
+      { lbl:"مؤلفان داخل قوسين", w:"(Chen and Park, 2020)", r:"(Chen & Park, 2020)" },
+      { lbl:"ثلاثة مؤلفين بدون et al.", w:"(Rivera, Kim, and Patel, 2019)", r:"(Rivera et al., 2019)" },
+      { lbl:"اقتباس مباشر بدون صفحة", w:'Research is described as "systematic inquiry" (Lambert, 2012).', r:'Research is described as "systematic inquiry" (Lambert, 2012, p. 5).' },
+      { lbl:"صياغة عنوان المرجع", w:"Lambert, S. (2012). Qualitative and Quantitative Research Methods.", r:"Lambert, S. (2012). Qualitative and quantitative research methods." },
+      { lbl:"اسم الدورية بدون خط مائل", w:"Journal of Applied Linguistics, 15(2), 44–60.", r:"<em>Journal of Applied Linguistics</em>, <em>15</em>(2), 44–60." }
+    ]
+  }
+};
+
+let lang = 'en';
+
+function setLang(l) {
+  lang = l;
+  document.getElementById('btn-en').classList.toggle('active', l==='en');
+  document.getElementById('btn-ar').classList.toggle('active', l==='ar');
+  document.documentElement.setAttribute('dir', l==='ar'?'rtl':'ltr');
+  document.documentElement.setAttribute('lang', l);
+  render();
+}
+
+function render() {
+  const d = D[lang];
+  document.getElementById('h-eyebrow').textContent = d.eyebrow;
+  document.getElementById('h-title').textContent = d.title;
+  document.getElementById('h-sub').textContent = d.sub;
+  document.getElementById('search-box').placeholder = d.ph;
+  document.getElementById('s-formatting').textContent = d.sF;
+  document.getElementById('s-intext').textContent = d.sI;
+  document.getElementById('s-reflist').textContent = d.sR;
+  document.getElementById('s-mistakes').textContent = d.sM;
+  document.getElementById('th-element').textContent = d.thEl;
+  document.getElementById('th-rule').textContent = d.thRu;
+  document.getElementById('format-body').innerHTML = d.fmt.map(([el,ru])=>`<tr><td>${el}</td><td>${ru}</td></tr>`).join('');
+  document.getElementById('cite-grid').innerHTML = d.pats.map(p=>`<div class="cite-card" data-search="${p.lbl} ${p.ttl} ${p.ex} ${p.nt}"><div class="cite-card-head"><div class="cite-card-label">${p.lbl}</div><div class="cite-card-title">${p.ttl}</div></div><div class="cite-card-body"><div class="cite-example">${p.ex}</div><div class="cite-note">${p.nt}</div></div></div>`).join('');
+  document.getElementById('ref-sections').innerHTML = d.refs.map(r=>`<div class="ref-section"><div class="ref-type-label">${r.tp}</div><div class="ref-box"><p class="ref-template">${r.tmpl}</p><div class="ref-note-sm">💡 ${r.nt}</div></div></div>`).join('');
+  document.getElementById('mistakes-wrap').innerHTML = d.mist.map(m=>`<div style="margin-bottom:20px;"><div style="font-size:12px;font-weight:700;color:var(--text-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;">${m.lbl}</div><div class="mistake-row"><div class="mistake-wrong"><div class="mistake-label">✗ Wrong</div>${m.w}</div><div class="mistake-right"><div class="mistake-label">✓ Correct</div>${m.r}</div></div></div>`).join('');
+  filterCitations();
+}
+
+function filterCitations() {
+  const q = (document.getElementById('search-box').value||'').toLowerCase().trim();
+  document.querySelectorAll('.cite-card').forEach(c => { c.style.display = (!q||c.dataset.search.toLowerCase().includes(q)) ? '' : 'none'; });
+}
+
+render();
+</script>
+</body>
+</html>
