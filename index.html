@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Summer 2026 — Dr. Muhammad Alatrash</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body { background: var(--off-white); }
+
+  /* Course cards */
+  .course-card {
+    background: var(--white);
+    border-radius: var(--r-xl);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow .2s, transform .2s;
+    cursor: pointer;
+  }
+  .course-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); text-decoration: none; }
+  .course-card.inactive { cursor: default; }
+  .course-card.inactive:hover { box-shadow: var(--shadow-md); transform: none; }
+  .course-stripe { height: 5px; }
+  .stripe-green  { background: var(--green); }
+  .stripe-gold   { background: linear-gradient(90deg, #b8960c, #e6b93e); }
+  .course-inner { padding: 28px 28px 20px; flex: 1; }
+  .course-code { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 10px; padding: 4px 10px; border-radius: var(--r-pill); }
+  .code-green { background: var(--green-light); color: var(--green-dark); }
+  .code-gold  { background: #fef9c3; color: #7a4800; }
+  .course-inner h2 { font-size: 22px; font-weight: 700; letter-spacing: -.02em; color: var(--text); margin-bottom: 10px; }
+  .course-inner p { font-size: 14px; color: var(--text-2); line-height: 1.6; margin-bottom: 20px; }
+  .course-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+  .course-pill { font-size: 11px; color: var(--text-2); background: var(--off-white); border: 1px solid var(--border); padding: 4px 10px; border-radius: var(--r-pill); }
+  .course-footer { padding: 16px 28px; border-top: 1px solid var(--border-light); display: flex; align-items: center; justify-content: space-between; }
+  .course-cta { font-size: 14px; font-weight: 600; color: var(--green); }
+  .course-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 700px) { .course-grid { grid-template-columns: 1fr; } }
+
+  /* Quick links */
+  .ql { display: flex; align-items: center; gap: 10px; padding: 14px 18px; background: var(--white); border-radius: var(--r-md); box-shadow: var(--shadow-xs); text-decoration: none; color: var(--text); font-size: 14px; font-weight: 500; transition: box-shadow .15s, transform .1s; }
+  .ql:hover { box-shadow: var(--shadow-sm); transform: translateY(-1px); text-decoration: none; }
+  .ql-icon { font-size: 20px; }
+  .ql-text { font-size: 13px; color: var(--text-2); margin-top: 1px; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">
+      <span>🎓</span>
+      <span>Qassim University</span>
+    </a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Summer 2026</span>
+    <div class="nav-spacer"></div>
+    <div class="nav-links">
+      <a class="nav-link" href="eng446/index.html">ENG 446</a>
+      <a class="nav-link" href="eng446/syllabus.html">Syllabus</a>
+      <a class="nav-link" href="eng446/apa-quickref.html">APA 7</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">Qassim University · Department of English</div>
+  <h1>Summer 2026<br>Course Hub</h1>
+  <p class="hero-sub">Study materials, reading guides, practice banks, and group resources — no login required.</p>
+  <div class="hero-meta">
+    <span>Dr. Muhammad Alatrash</span>
+    <span class="hero-meta-dot">·</span>
+    <span>Jun 28 – Aug 9, 2026</span>
+    <span class="hero-meta-dot">·</span>
+    <span>Two sections</span>
+  </div>
+</div>
+
+<div class="section-alt" style="padding: 0 0 48px;">
+<div class="section-inner">
+
+  <!-- Blackboard note -->
+  <div class="info-box info-blue mb-32" style="display:flex;gap:14px;align-items:flex-start;">
+    <span style="font-size:22px;flex-shrink:0;margin-top:2px">🎓</span>
+    <div>
+      <h3>Graded work is in Blackboard Ultra</h3>
+      <p>All quizzes, assignment submissions, and your official gradebook are in Blackboard. This site is your <strong>free study hub</strong> — reading guides, practice banks, APA tools, and group resources. Open from any device, no login needed.</p>
+    </div>
+  </div>
+
+  <!-- Course cards -->
+  <div class="section-label">Your Courses</div>
+  <div class="course-grid mb-48">
+
+    <a class="course-card" href="eng446/index.html">
+      <div class="course-stripe stripe-green"></div>
+      <div class="course-inner">
+        <div class="course-meta-row" style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px;">
+          <span class="course-code code-green">ENG 446</span>
+          <span class="badge badge-green badge-live">Live</span>
+        </div>
+        <h2>Research Methods</h2>
+        <p>A practical introduction to research design, data collection, analysis, and academic writing. Based on Lambert (2012).</p>
+        <div class="course-pills">
+          <span class="course-pill">📖 7 weeks</span>
+          <span class="course-pill">👥 10 groups</span>
+          <span class="course-pill">🧠 4 practice banks</span>
+          <span class="course-pill">📄 APA 7</span>
+        </div>
+      </div>
+      <div class="course-footer">
+        <span class="course-cta">Open course →</span>
+        <span style="font-size:20px">🔬</span>
+      </div>
+    </a>
+
+    <div class="course-card inactive">
+      <div class="course-stripe stripe-gold"></div>
+      <div class="course-inner">
+        <div class="course-meta-row" style="display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px;">
+          <span class="course-code code-gold">ENG 494</span>
+          <span class="badge badge-amber">Coming Soon</span>
+        </div>
+        <h2>Literary Translation</h2>
+        <p>Theory and practice of translating literary texts between Arabic and English — workshops, text comparison, and translation critique.</p>
+        <div class="course-pills">
+          <span class="course-pill">📖 7 weeks</span>
+          <span class="course-pill">✍️ Translation workshops</span>
+          <span class="course-pill">🔤 Arabic ↔ English</span>
+        </div>
+      </div>
+      <div class="course-footer">
+        <span style="font-size:13px;color:var(--text-3)">Materials added before term begins</span>
+        <span style="font-size:20px">🌐</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Quick links -->
+  <div class="section-label">Quick Access — ENG 446</div>
+  <div class="grid-auto gap-12">
+    <a class="ql" href="eng446/index.html"><span class="ql-icon">🏠</span><div><div>Course Hub</div><div class="ql-text">ENG 446 home</div></div></a>
+    <a class="ql" href="eng446/syllabus.html"><span class="ql-icon">📋</span><div><div>Syllabus</div><div class="ql-text">Schedule & grades</div></div></a>
+    <a class="ql" href="eng446/groups.html"><span class="ql-icon">👥</span><div><div>My Group</div><div class="ql-text">Roster & deadlines</div></div></a>
+    <a class="ql" href="eng446/apa-quickref.html"><span class="ql-icon">📄</span><div><div>APA 7 Guide</div><div class="ql-text">Citations & format</div></div></a>
+    <a class="ql" href="eng446/week1.html"><span class="ql-icon">📖</span><div><div>Week 1</div><div class="ql-text">Intro + Ch1 + Ch2</div></div></a>
+    <a class="ql" href="eng446/week7.html"><span class="ql-icon">🎓</span><div><div>Exam Prep</div><div class="ql-text">Full review · Week 7</div></div></a>
+  </div>
+
+</div>
+</div>
+
+<footer>
+  <strong>Dr. Muhammad Alatrash</strong> · Qassim University, Department of English · Summer 2026<br>
+  This site is for study support only. Grades and official submissions are in Blackboard Ultra.
+</footer>
+
+</body>
+</html>
