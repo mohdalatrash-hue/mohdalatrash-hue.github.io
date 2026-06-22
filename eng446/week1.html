@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 1 — Foundations | ENG 446</title>
+<link rel="stylesheet" href="../style.css">
+<style>body{background:var(--off-white);}</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 446</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Week 1</span>
+    <div class="nav-spacer"></div>
+    <div class="nav-links">
+      <a class="nav-link" href="week2.html">Week 2 →</a>
+      <a class="nav-link" href="quiz1.html">Practice Bank</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero" style="padding-bottom:40px;">
+  <div class="hero-eyebrow">Week 1 · Jun 28–30</div>
+  <h1>Foundations of Research</h1>
+  <p class="hero-sub">Introduction + Chapter 1 + Chapter 2 · Lambert (2012)</p>
+  <div class="hero-meta">
+    <span>Day 1 · Sun Jun 28</span>
+    <span class="hero-meta-dot">·</span>
+    <span>Day 2 · Mon Jun 29</span>
+    <span class="hero-meta-dot">·</span>
+    <span>Quiz 1 · Tue Jun 30 · first 10 min</span>
+  </div>
+</div>
+
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+
+  <!-- Quiz Banner -->
+  <div class="card mb-32" style="background:var(--green);border-radius:var(--r-lg);">
+    <div class="card-body" style="display:flex;gap:16px;align-items:flex-start;">
+      <span style="font-size:32px;flex-shrink:0;">⏱️</span>
+      <div>
+        <h3 style="font-size:17px;font-weight:700;color:#fff;margin-bottom:6px;">Quiz 1 — Tuesday Jun 30 · First 10 Minutes</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,.8);margin-bottom:14px;">12 questions on Introduction + Ch1 + Ch2. Covers what research is, research types, paradigms, and ethics. Warm up with the practice bank before class.</p>
+        <a class="btn btn-secondary btn-sm" href="quiz1.html">Open Practice Bank →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pre-class checklist -->
+  <div class="card mb-24">
+    <div class="card-header"><span class="card-icon">✅</span><h2>Before You Come to Class</h2></div>
+    <div class="card-body">
+      <ul class="checklist">
+        <li><input type="checkbox" id="c1"><label class="check-label" for="c1">Read the <strong>Introduction</strong> — Why do research? What makes inquiry "systematic"?</label></li>
+        <li><input type="checkbox" id="c2"><label class="check-label" for="c2">Read <strong>Chapter 1</strong> — definition of research, types (qualitative/quantitative, basic/applied), core characteristics</label></li>
+        <li><input type="checkbox" id="c3"><label class="check-label" for="c3">Read <strong>Chapter 2</strong> — research paradigms (positivism, interpretivism, critical) and ethics</label></li>
+        <li><input type="checkbox" id="c4"><label class="check-label" for="c4">Complete the <strong>practice bank</strong> above (ungraded, unlimited retries)</label></li>
+        <li><input type="checkbox" id="c5"><label class="check-label" for="c5">Bring a <strong>research topic idea</strong> — anything you're curious about in language, education, or culture</label></li>
+        <li><input type="checkbox" id="c6"><label class="check-label" for="c6">Join your <strong>assigned group</strong> WhatsApp/Teams before Day 1 (group list posted by instructor)</label></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Chapter Summaries -->
+  <div class="card mb-24">
+    <div class="card-header"><span class="card-icon">📖</span><h2>Chapter Summaries</h2></div>
+    <div class="card-body" style="padding-top:8px;">
+      <div class="accordion">
+
+        <div class="acc-item">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <span class="acc-title">Introduction — Why Research?</span>
+            <span class="acc-right"><span class="badge badge-blue">Intro</span><span class="acc-toggle">▼</span></span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-section">
+              <div class="acc-section-label">Core Idea</div>
+              <p>Lambert opens by distinguishing research from casual curiosity. Research is <em>systematic, purposeful, and rigorous</em> — it follows deliberate procedures designed to produce trustworthy knowledge. The Introduction frames the student project as a learning exercise in the full research process, not a demand for groundbreaking discovery.</p>
+            </div>
+            <div class="acc-section">
+              <div class="acc-section-label">Key Quote</div>
+              <div class="info-box info-green" style="font-style:italic;">"Doing a research project develops skills in planning, carrying out, and reporting an investigation — that is the main goal." <span style="font-style:normal;font-size:12px;opacity:.7;">— Lambert (2012), Introduction (paraphrased)</span></div>
+            </div>
+            <div class="acc-section">
+              <div class="acc-section-label">Key Terms</div>
+              <div class="terms">
+                <span class="term">Systematic inquiry</span>
+                <span class="term">Rigour</span>
+                <span class="term">Purposeful investigation</span>
+                <span class="term">Research project</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <span class="acc-title">Chapter 1 — What Is Research?</span>
+            <span class="acc-right"><span class="badge badge-green">Ch 1</span><span class="acc-toggle">▼</span></span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-section">
+              <div class="acc-section-label">Core Idea</div>
+              <p>Chapter 1 defines research as <em>systematic inquiry that generates new knowledge or understanding</em>. Lambert distinguishes it from internet browsing by its deliberate, structured approach. It introduces the spectrum of research types.</p>
+            </div>
+            <div class="acc-section">
+              <div class="acc-section-label">Types of Research</div>
+              <ul>
+                <li><strong>Basic / Pure</strong> — builds theoretical knowledge; no immediate practical application</li>
+                <li><strong>Applied</strong> — designed to solve a real-world problem</li>
+                <li><strong>Qualitative</strong> — explores meaning, experience, interpretation; words and themes</li>
+                <li><strong>Quantitative</strong> — measures, counts, tests hypotheses; numbers and statistics</li>
+                <li><strong>Mixed methods</strong> — combines both approaches</li>
+              </ul>
+            </div>
+            <div class="acc-section">
+              <div class="acc-section-label">Characteristics of Good Research</div>
+              <ul>
+                <li><strong>Systematic</strong> — follows structured, transparent procedures</li>
+                <li><strong>Purposeful</strong> — driven by a clear question or aim</li>
+                <li><strong>Rigorous</strong> — evidence-based, not anecdotal or opinion-driven</li>
+                <li><strong>Iterative</strong> — the research cycle loops back; not always linear</li>
+              </ul>
+            </div>
+            <div class="acc-section">
+              <div class="acc-section-label">Key Terms</div>
+              <div class="terms">
+                <span class="term">Research</span><span class="term">Basic research</span><span class="term">Applied research</span>
+                <span class="term">Qualitative</span><span class="term">Quantitative</span><span class="term">Mixed methods</span>
+                <span class="term">Research cycle</span><span class="term">Rigour</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <span class="acc-title">Chapter 2 — Paradigms &amp; Ethics</span>
+            <span class="acc-right"><span class="badge badge-amber">Ch 2</span><span class="acc-toggle">▼</span></span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-section">
+              <div class="acc-section-label">What Is a Paradigm?</div>
+              <p>A paradigm is a <em>worldview</em> — shared beliefs about the nature of reality (ontology) and how we can know it (epistemology). It is the invisible framework shaping every research decision you make.</p>
+            </div>
+            <div class="acc-section">
+              <div class="acc-section-label">The Three Main Paradigms</div>
+              <ul>
+                <li><strong>Positivism</strong> — reality is objective and measurable; knowledge comes from observation; favours quantitative methods; researcher stays neutral</li>
+                <li><strong>Interpretivism</strong> — reality is socially constructed and context-dependent; focuses on meaning; favours qualitative methods; researcher acknowledges subjectivity</li>
+                <li><strong>Critical / Transformative</strong> — research should challenge power structures and promote social justice; researcher takes an advocacy stance</li>
+              </ul>
+            </div>
+            <div class="acc-section">
+              <div class="acc-section-label">Core Ethical Principles</div>
+              <ul>
+                <li><strong>Informed consent</strong> — participants understand the study and agree voluntarily</li>
+                <li><strong>Confidentiality</strong> — identities and data are protected; anonymisation used where needed</li>
+                <li><strong>No harm</strong> — physical, psychological, and social risks minimised</li>
+                <li><strong>Honesty</strong> — data reported accurately; no fabrication or deception</li>
+              </ul>
+            </div>
+            <div class="acc-section">
+              <div class="acc-section-label">Key Terms</div>
+              <div class="terms">
+                <span class="term">Paradigm</span><span class="term">Ontology</span><span class="term">Epistemology</span>
+                <span class="term">Positivism</span><span class="term">Interpretivism</span><span class="term">Critical paradigm</span>
+                <span class="term">Informed consent</span><span class="term">Confidentiality</span><span class="term">Ethics</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Studio Preview -->
+  <div class="card mb-24">
+    <div class="card-header"><span class="card-icon">🏗️</span><h2>What We Do in Class This Week</h2></div>
+    <div class="card-body">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-day">Sun<br>Jun 28</div>
+          <div class="tl-content">
+            <strong>Day 1 — Course Orientation + Group Formation</strong>
+            <p>Syllabus walkthrough, mark scheme explained, groups announced by instructor. Each group picks 3 possible research topics and discusses which paradigm fits each. Groups register on the <a href="groups.html">group tracker page</a>.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-day">Mon<br>Jun 29</div>
+          <div class="tl-content">
+            <strong>Day 2 — Research Design Studio</strong>
+            <p>Groups finalise their research topic. Class discusses: Is it basic or applied? Qualitative or quantitative? Which paradigm applies? Group submits a one-paragraph "topic snapshot" at the end of class (ungraded — preparation for Proposal due Jul 7).</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-day">Tue<br>Jun 30</div>
+          <div class="tl-content">
+            <strong>Day 3 — Quiz 1 + Proposal Workshop</strong>
+            <p>First 10 minutes: Quiz 1 (individual, in Blackboard). Remaining time: instructor-led workshop on writing a research proposal — structure, research questions, scope. Groups begin drafting.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Week nav -->
+  <div class="week-nav">
+    <span class="disabled">← No previous week</span>
+    <a href="week2.html">Week 2 →</a>
+  </div>
+
+</div>
+</div>
+
+<footer>
+  <strong>ENG 446 Research Methods</strong> · Week 1 · Qassim University · Summer 2026<br>
+  <a href="index.html">Course Hub</a> · <a href="syllabus.html">Syllabus</a> · <a href="quiz1.html">Practice Bank</a>
+</footer>
+
+<script>
+function toggleAcc(header) {
+  const body = header.nextElementSibling;
+  const toggle = header.querySelector('.acc-toggle');
+  const open = body.classList.toggle('open');
+  if (toggle) { toggle.textContent = '▼'; toggle.style.transform = open ? 'rotate(180deg)' : ''; }
+}
+</script>
+</body>
+</html>

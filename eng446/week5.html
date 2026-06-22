@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 5 — Data Analysis | ENG 446</title>
+<link rel="stylesheet" href="../style.css">
+<style>body{background:var(--off-white);}</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 446</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Week 5</span>
+    <div class="nav-spacer"></div>
+    <div class="nav-links">
+      <a class="nav-link" href="week4.html">← Week 4</a>
+      <a class="nav-link" href="week6.html">Week 6 →</a>
+    </div>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:40px;">
+  <div class="hero-eyebrow">Week 5 · Jul 26–28</div>
+  <h1>Data Analysis<br>&amp; Closing the Project</h1>
+  <p class="hero-sub">Chapters 10 &amp; 11 · Lambert (2012)</p>
+  <div class="hero-meta">
+    <span>Quiz 4 · Sun Jul 26</span>
+    <span class="hero-meta-dot">·</span>
+    <span style="color:var(--red);font-weight:600;">Methods + Analysis due · Tue Jul 28</span>
+  </div>
+</div>
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+  <div class="grid-2 gap-16 mb-32">
+    <div class="info-box info-blue" style="display:flex;gap:12px;align-items:flex-start;">
+      <span style="font-size:22px;flex-shrink:0;">📝</span>
+      <div><strong>Quiz 4 — Sun Jul 26</strong><br>First 10 min · Blackboard · Ch9 + Ch10 + Ch11</div>
+    </div>
+    <div class="info-box info-red" style="display:flex;gap:12px;align-items:flex-start;">
+      <span style="font-size:22px;flex-shrink:0;">📊</span>
+      <div><strong>Methods + Analysis due — Tue Jul 28</strong><br>Group submission · 5% · Blackboard</div>
+    </div>
+  </div>
+  <div class="card mb-24">
+    <div class="card-header"><span class="card-icon">✅</span><h2>Before You Come to Class</h2></div>
+    <div class="card-body">
+      <ul class="checklist">
+        <li><input type="checkbox" id="c1"><label class="check-label" for="c1">Read <strong>Chapter 10</strong> — qualitative analysis: thematic analysis, coding, themes, interpretation</label></li>
+        <li><input type="checkbox" id="c2"><label class="check-label" for="c2">Read <strong>Chapter 11</strong> — quantitative analysis: descriptive statistics, frequency, mean, charts</label></li>
+        <li><input type="checkbox" id="c3"><label class="check-label" for="c3">Collect your group's <strong>data</strong> (distribute questionnaire or conduct interviews)</label></li>
+        <li><input type="checkbox" id="c4"><label class="check-label" for="c4">Organise your data: coded responses, frequency tables, or interview transcripts</label></li>
+        <li><input type="checkbox" id="c5"><label class="check-label" for="c5">Draft your group's <strong>Methodology section</strong> (from your approved design in Week 4)</label></li>
+      </ul>
+    </div>
+  </div>
+  <div class="card mb-24">
+    <div class="card-header"><span class="card-icon">📖</span><h2>Chapter Summaries</h2></div>
+    <div class="card-body" style="padding-top:8px;">
+      <div class="accordion">
+        <div class="acc-item">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <span class="acc-title">Chapter 10 — Qualitative Analysis</span>
+            <span class="acc-right"><span class="badge badge-green">Ch 10</span><span class="acc-toggle">▼</span></span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-section"><div class="acc-section-label">Core Idea</div><p>Qualitative analysis makes sense of words, images, and non-numerical data by identifying patterns and meanings. Thematic analysis is the most accessible approach for beginner researchers.</p></div>
+            <div class="acc-section"><div class="acc-section-label">Thematic Analysis Steps</div><ul>
+              <li><strong>Step 1 — Familiarise:</strong> Read and re-read your data; note initial ideas</li>
+              <li><strong>Step 2 — Code:</strong> Label segments with a short descriptive word or phrase</li>
+              <li><strong>Step 3 — Search for themes:</strong> Group related codes into potential themes</li>
+              <li><strong>Step 4 — Review themes:</strong> Check themes against the full dataset; refine</li>
+              <li><strong>Step 5 — Define &amp; name:</strong> Write a clear definition for each theme</li>
+              <li><strong>Step 6 — Write up:</strong> Report themes with illustrative quotations from your data</li>
+            </ul></div>
+            <div class="acc-section"><div class="acc-section-label">Key Terms</div><div class="terms"><span class="term">Qualitative analysis</span><span class="term">Thematic analysis</span><span class="term">Coding</span><span class="term">Theme</span><span class="term">Interpretation</span><span class="term">Saturation</span></div></div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <div class="acc-header" onclick="toggleAcc(this)">
+            <span class="acc-title">Chapter 11 — Quantitative Analysis</span>
+            <span class="acc-right"><span class="badge badge-amber">Ch 11</span><span class="acc-toggle">▼</span></span>
+          </div>
+          <div class="acc-body">
+            <div class="acc-section"><div class="acc-section-label">Core Idea</div><p>Quantitative analysis summarises and describes numerical data using statistics. At beginner level, descriptive statistics are sufficient — you describe what the data shows, rather than inferring beyond your sample.</p></div>
+            <div class="acc-section"><div class="acc-section-label">Key Descriptive Statistics</div><ul>
+              <li><strong>Frequency</strong> — how many times each response occurred; expressed as a count or percentage</li>
+              <li><strong>Mean</strong> — the arithmetic average; sum all values ÷ number of values</li>
+              <li><strong>Mode</strong> — the most frequently occurring value</li>
+              <li><strong>Range</strong> — highest value minus lowest value; shows spread</li>
+            </ul></div>
+            <div class="acc-section"><div class="acc-section-label">Presenting Data</div><ul>
+              <li>Use tables for exact numbers and frequency distributions</li>
+              <li>Use bar charts or pie charts to show proportions visually</li>
+              <li>Always label axes, include units, and title every figure</li>
+            </ul></div>
+            <div class="acc-section"><div class="acc-section-label">Key Terms</div><div class="terms"><span class="term">Descriptive statistics</span><span class="term">Frequency</span><span class="term">Mean</span><span class="term">Mode</span><span class="term">Range</span><span class="term">Bar chart</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-24">
+    <div class="card-header"><span class="card-icon">🏗️</span><h2>What We Do in Class This Week</h2></div>
+    <div class="card-body">
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-day">Sun<br>Jul 26</div><div class="tl-content"><strong>Day 13 — Quiz 4 + Analysis Workshop</strong><p>First 10 min: Quiz 4 in Blackboard. Then: qualitative and quantitative analysis techniques workshop — groups identify which approach matches their data type and begin analysis.</p></div></div>
+        <div class="tl-item"><div class="tl-day">Mon<br>Jul 27</div><div class="tl-content"><strong>Day 14 — Analysis Studio</strong><p>Groups analyse their collected data and draft the findings section — themes + supporting quotes (qualitative) or frequency tables + charts (quantitative). Instructor circulates for guidance.</p></div></div>
+        <div class="tl-item"><div class="tl-day">Tue<br>Jul 28</div><div class="tl-content"><strong>Day 15 — Methods + Analysis Peer Review + Submission</strong><p>Groups exchange drafts for peer feedback on methodology description and analysis clarity. Final edits. <strong>Submitted on Blackboard by end of day.</strong></p></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="card mb-24">
+    <div class="card-header"><span class="card-icon">📋</span><h2>Methods + Analysis Checklist (5%)</h2></div>
+    <div class="card-body">
+      <div class="info-box info-blue mb-16">Group submission · Blackboard Ultra · Due Tue Jul 28 · ~600–900 words</div>
+      <ul class="checklist">
+        <li><input type="checkbox" id="p1"><label class="check-label" for="p1"><strong>Research design</strong> — clearly named and justified (qualitative / quantitative / mixed)</label></li>
+        <li><input type="checkbox" id="p2"><label class="check-label" for="p2"><strong>Participants / sample</strong> — who, how many, how selected?</label></li>
+        <li><input type="checkbox" id="p3"><label class="check-label" for="p3"><strong>Instrument</strong> — described (questionnaire or interview schedule); copy appended</label></li>
+        <li><input type="checkbox" id="p4"><label class="check-label" for="p4"><strong>Data collection procedure</strong> — how and when was data collected?</label></li>
+        <li><input type="checkbox" id="p5"><label class="check-label" for="p5"><strong>Analysis approach</strong> — thematic analysis or descriptive statistics; clearly described</label></li>
+        <li><input type="checkbox" id="p6"><label class="check-label" for="p6"><strong>Findings presented</strong> — themes with quotes, or tables/charts with labels</label></li>
+        <li><input type="checkbox" id="p7"><label class="check-label" for="p7"><strong>Ethics statement</strong> — consent, confidentiality, no harm noted</label></li>
+      </ul>
+    </div>
+  </div>
+  <div class="week-nav">
+    <a href="week4.html">← Week 4</a>
+    <a href="week6.html">Week 6 →</a>
+  </div>
+</div>
+</div>
+<footer>
+  <strong>ENG 446 Research Methods</strong> · Week 5 · Qassim University · Summer 2026<br>
+  <a href="index.html">Course Hub</a> · <a href="syllabus.html">Syllabus</a> · <a href="apa-quickref.html">APA 7</a>
+</footer>
+<script>
+function toggleAcc(header) {
+  const body = header.nextElementSibling;
+  const toggle = header.querySelector('.acc-toggle');
+  const open = body.classList.toggle('open');
+  if (toggle) toggle.style.transform = open ? 'rotate(180deg)' : '';
+}
+</script>
+</body>
+</html>

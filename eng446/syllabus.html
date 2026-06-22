@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Syllabus — ENG 446 Research Methods</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+  body { background: var(--off-white); }
+
+  /* Grade bar */
+  .grade-bar { display: flex; border-radius: var(--r-md); overflow: hidden; height: 18px; margin: 16px 0 8px; }
+  .gb-seg { display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #fff; }
+  .gb-quiz   { background: #2d9659; flex: 20; }
+  .gb-prop   { background: #1a6b3c; flex: 10; }
+  .gb-lit    { background: #166534; flex: 10; }
+  .gb-meth   { background: #14532d; flex: 5; }
+  .gb-pres   { background: #15803d; flex: 5; }
+  .gb-exam   { background: #1d1d1f; flex: 50; }
+
+  .grade-legend { display: flex; flex-wrap: wrap; gap: 8px; }
+  .gl-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-2); }
+  .gl-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+  /* Schedule table */
+  .sched-card { background: var(--white); border-radius: var(--r-lg); box-shadow: var(--shadow-sm); overflow: hidden; }
+  .sched-week { border-bottom: 1px solid var(--border-light); }
+  .sched-week:last-child { border-bottom: none; }
+  .sw-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  .sw-head:hover { background: var(--off-white); }
+  .sw-num {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--off-white);
+    border: 1.5px solid var(--border);
+    font-size: 13px; font-weight: 700; color: var(--text-2);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .sw-num.active { background: var(--green); border-color: var(--green); color: #fff; }
+  .sw-info { flex: 1; }
+  .sw-title { font-size: 14px; font-weight: 600; color: var(--text); }
+  .sw-dates { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+  .sw-pills { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+  .sw-pill { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: var(--r-pill); }
+  .sp-quiz { background: var(--blue-light); color: #004999; }
+  .sp-due  { background: var(--red-light); color: #a01010; }
+  .sp-exam { background: #f3e8ff; color: #581c87; }
+  .sp-ok   { background: var(--green-light); color: var(--green-dark); }
+  .sw-body { padding: 0 20px 20px 66px; display: none; }
+  .sw-body.open { display: block; }
+  .sw-body-inner { padding-top: 14px; border-top: 1px solid var(--border-light); }
+  .sw-body ul { padding-left: 18px; margin-top: 8px; }
+  .sw-body li { font-size: 13px; color: var(--text-2); line-height: 1.7; }
+  .sw-body p  { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+  .sw-body strong { color: var(--text); }
+
+  /* CLO table */
+  .clo-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .clo-table th { background: var(--off-white); padding: 8px 14px; text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--text-2); border-bottom: 1px solid var(--border); }
+  .clo-table td { padding: 11px 14px; border-bottom: 1px solid var(--border-light); vertical-align: top; color: var(--text-2); }
+  .clo-table tr:last-child td { border-bottom: none; }
+  .clo-num { font-weight: 700; color: var(--green); white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html">
+      <span>🎓</span>
+      <span>Qassim University</span>
+    </a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 446</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Syllabus</span>
+    <div class="nav-spacer"></div>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html">Course Hub</a>
+      <a class="nav-link" href="groups.html">Groups</a>
+      <a class="nav-link" href="apa-quickref.html">APA 7</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero" style="padding-bottom:48px;">
+  <div class="hero-eyebrow">Official Course Syllabus</div>
+  <h1>ENG 446<br>Research Methods</h1>
+  <p class="hero-sub">A Beginner's Guide to Education Research · Summer 2026</p>
+  <div class="hero-meta">
+    <span>Dr. Muhammad Alatrash</span>
+    <span class="hero-meta-dot">·</span>
+    <span>3 Credit Hours</span>
+    <span class="hero-meta-dot">·</span>
+    <span>Jun 28 – Aug 9, 2026</span>
+    <span class="hero-meta-dot">·</span>
+    <span>Term 472</span>
+  </div>
+</div>
+
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+
+  <!-- Course info -->
+  <div class="grid-2 gap-20 mb-32">
+    <div class="card card-pad">
+      <div class="section-label" style="margin-bottom:14px;">Course Information</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;gap:12px;font-size:14px;">
+          <span style="color:var(--text-3);min-width:100px;">Course code</span>
+          <strong>ENG 446</strong>
+        </div>
+        <div style="display:flex;gap:12px;font-size:14px;">
+          <span style="color:var(--text-3);min-width:100px;">Credits</span>
+          <strong>3 credit hours</strong>
+        </div>
+        <div style="display:flex;gap:12px;font-size:14px;">
+          <span style="color:var(--text-3);min-width:100px;">Term</span>
+          <strong>Summer 2026 · Term 472</strong>
+        </div>
+        <div style="display:flex;gap:12px;font-size:14px;">
+          <span style="color:var(--text-3);min-width:100px;">Dates</span>
+          <strong>Jun 28 – Aug 9, 2026</strong>
+        </div>
+        <div style="display:flex;gap:12px;font-size:14px;">
+          <span style="color:var(--text-3);min-width:100px;">Schedule</span>
+          <strong>Sun + Mon + Tue</strong>
+        </div>
+        <div style="display:flex;gap:12px;font-size:14px;">
+          <span style="color:var(--text-3);min-width:100px;">Exam</span>
+          <strong>Aug 16–17 (university calendar)</strong>
+        </div>
+      </div>
+    </div>
+    <div class="card card-pad">
+      <div class="section-label" style="margin-bottom:14px;">Instructor</div>
+      <div style="font-size:18px;font-weight:700;margin-bottom:6px;">Dr. Muhammad Alatrash</div>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px;">
+        <div style="display:flex;gap:12px;font-size:14px;">
+          <span style="color:var(--text-3);min-width:100px;">Office</span>
+          <strong>English Dept. 3-020</strong>
+        </div>
+        <div style="display:flex;gap:12px;font-size:14px;">
+          <span style="color:var(--text-3);min-width:100px;">Email</span>
+          <a href="mailto:atrsh@qu.edu.sa" style="font-weight:600;">atrsh@qu.edu.sa</a>
+        </div>
+        <div style="display:flex;gap:12px;font-size:14px;">
+          <span style="color:var(--text-3);min-width:100px;">Hours</span>
+          <strong>Mon–Tue–Thu · 10:30–11:30 AM</strong>
+        </div>
+        <div style="display:flex;gap:12px;font-size:14px;">
+          <span style="color:var(--text-3);min-width:100px;">LMS</span>
+          <strong>Blackboard Ultra (all graded work)</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Required text -->
+  <div class="card card-pad mb-32">
+    <div class="section-label" style="margin-bottom:10px;">Required Textbook</div>
+    <div style="display:flex;gap:16px;align-items:flex-start;">
+      <div style="font-size:36px;flex-shrink:0;">📗</div>
+      <div>
+        <div style="font-size:16px;font-weight:700;margin-bottom:4px;">A Beginner's Guide to Doing Your Education Research Project</div>
+        <div style="font-size:14px;color:var(--text-2);margin-bottom:8px;">Lambert, M. (2012) · Sage Publications · ISBN 978-1-4462-0831-1</div>
+        <div style="font-size:13px;color:var(--text-3);">All chapters are assigned in sequence across Weeks 1–6. A PDF copy may be available through the university library. Chapters are covered Mon before the Tuesday class session.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Grade breakdown -->
+  <div class="card card-pad mb-32">
+    <div class="section-label" style="margin-bottom:14px;">Grade Breakdown (100%)</div>
+    <div class="grade-bar">
+      <div class="gb-seg gb-quiz" title="Quizzes 20%">20%</div>
+      <div class="gb-seg gb-prop" title="Proposal 10%">10%</div>
+      <div class="gb-seg gb-lit" title="Lit Review 10%">10%</div>
+      <div class="gb-seg gb-meth" title="Meth+Analysis 5%">5%</div>
+      <div class="gb-seg gb-pres" title="Presentation 5%">5%</div>
+      <div class="gb-seg gb-exam" title="Final Exam 50%">50%</div>
+    </div>
+    <div class="grade-legend mt-12">
+      <span class="gl-item"><span class="gl-dot" style="background:#2d9659"></span>Quizzes × 4 (5% each = 20%)</span>
+      <span class="gl-item"><span class="gl-dot" style="background:#1a6b3c"></span>Research Proposal 10%</span>
+      <span class="gl-item"><span class="gl-dot" style="background:#166534"></span>Literature Review 10%</span>
+      <span class="gl-item"><span class="gl-dot" style="background:#14532d"></span>Methods + Analysis 5%</span>
+      <span class="gl-item"><span class="gl-dot" style="background:#15803d"></span>Group Presentation 5%</span>
+      <span class="gl-item"><span class="gl-dot" style="background:#1d1d1f"></span>Final Exam 50%</span>
+    </div>
+    <hr class="divider" style="margin:20px 0;">
+    <div class="table-wrap">
+      <table class="clean">
+        <thead>
+          <tr>
+            <th>Component</th>
+            <th>Type</th>
+            <th>Due</th>
+            <th>%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Quiz 1 — Intro + Ch1 + Ch2</td><td>Individual · Blackboard</td><td>Tue Jun 30 · first 10 min</td><td>5%</td></tr>
+          <tr><td>Quiz 2 — Ch3 + Ch4 + Ch5</td><td>Individual · Blackboard</td><td>Mon Jul 6 · first 10 min</td><td>5%</td></tr>
+          <tr><td>Quiz 3 — Ch6 + Ch7 + Ch8</td><td>Individual · Blackboard</td><td>Mon Jul 13 · first 10 min</td><td>5%</td></tr>
+          <tr><td>Quiz 4 — Ch9 + Ch10 + Ch11</td><td>Individual · Blackboard</td><td>Sun Jul 26 · first 10 min</td><td>5%</td></tr>
+          <tr><td>Research Proposal</td><td>Group · Blackboard</td><td>Tue Jul 7</td><td>10%</td></tr>
+          <tr><td>Literature Review</td><td>Group · Blackboard</td><td>Tue Jul 14</td><td>10%</td></tr>
+          <tr><td>Methodology + Analysis Section</td><td>Group · Blackboard</td><td>Tue Jul 28</td><td>5%</td></tr>
+          <tr><td>Group Presentation</td><td>Group · in class</td><td>Aug 9–10</td><td>5%</td></tr>
+          <tr><td>Final Examination</td><td>Individual</td><td>Aug 16–17</td><td>50%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="info-box info-amber mt-16">
+      <strong>Quizzes:</strong> 10 minutes at the start of class in Blackboard Ultra. Closed book, individual. Use the practice banks on this site to prepare — they are ungraded and unlimited.
+    </div>
+  </div>
+
+  <!-- Course description + CLOs -->
+  <div class="card card-pad mb-32">
+    <div class="section-label" style="margin-bottom:10px;">Course Description</div>
+    <p style="font-size:15px;line-height:1.7;color:var(--text-2);margin-bottom:20px;">ENG 446 introduces students to the principles and practice of educational research. Working through Lambert (2012), students learn to formulate a research question, select an appropriate methodology, collect and analyse data, and present findings in the conventions of academic writing. The course culminates in a group research paper developed across three submitted artefacts (Proposal, Literature Review, and Methodology &amp; Analysis) and an individual final examination.</p>
+    <hr class="divider" style="margin-bottom:20px;">
+    <div class="section-label" style="margin-bottom:12px;">Course Learning Outcomes (CLOs)</div>
+    <table class="clo-table">
+      <thead>
+        <tr><th style="width:60px;">CLO</th><th>On successful completion, students will be able to:</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="clo-num">CLO 1</td><td>Define research, distinguish research types (qualitative, quantitative, mixed), and identify characteristics of rigorous inquiry.</td></tr>
+        <tr><td class="clo-num">CLO 2</td><td>Explain major research paradigms (positivism, interpretivism, critical) and their implications for research design and ethics.</td></tr>
+        <tr><td class="clo-num">CLO 3</td><td>Construct a focused, feasible research proposal with a clear title, research questions, and rationale.</td></tr>
+        <tr><td class="clo-num">CLO 4</td><td>Locate, evaluate, synthesise, and cite academic sources in APA 7th edition format.</td></tr>
+        <tr><td class="clo-num">CLO 5</td><td>Design appropriate data-collection instruments (questionnaires, interview guides) aligned with the chosen methodology.</td></tr>
+        <tr><td class="clo-num">CLO 6</td><td>Analyse data using basic qualitative (thematic analysis) or quantitative (descriptive statistics) techniques.</td></tr>
+        <tr><td class="clo-num">CLO 7</td><td>Write and present a coherent research report following academic conventions, demonstrating validity, reliability, and ethical compliance.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Weekly schedule -->
+  <div class="section-label" style="margin-bottom:14px;">Weekly Schedule</div>
+  <div class="sched-card mb-32">
+    <div class="sched-week">
+      <div class="sw-head" onclick="toggleWeek(this)">
+        <div class="sw-num active">1</div>
+        <div class="sw-info">
+          <div class="sw-title">Foundations &amp; Getting a Research Topic</div>
+          <div class="sw-dates">Jun 28–30 · Lambert: Introduction + Chapters 1 &amp; 2</div>
+          <div class="sw-pills">
+            <span class="sw-pill sp-quiz">Quiz 1 — Tue Jun 30</span>
+            <span class="sw-pill sp-ok">Groups assigned Day 1</span>
+          </div>
+        </div>
+        <span style="color:var(--text-3);font-size:12px;transition:transform .2s;" class="sw-toggle">▼</span>
+      </div>
+      <div class="sw-body">
+        <div class="sw-body-inner">
+          <p><strong>Readings:</strong> Introduction (Why research? Systematic inquiry, rigour) · Chapter 1 (What is research? Types: qualitative, quantitative, mixed, basic, applied. Characteristics of good research.) · Chapter 2 (Research paradigms: positivism, interpretivism, critical. Core ethics: consent, confidentiality, no harm.)</p>
+          <ul>
+            <li><strong>Day 1 (Sun Jun 28):</strong> Course orientation · syllabus walkthrough · groups announced · group picks 3 topic ideas · paradigm discussion</li>
+            <li><strong>Day 2 (Mon Jun 29):</strong> Research Design Studio — finalise topic, classify research type and paradigm, submit one-paragraph "topic snapshot" (ungraded)</li>
+            <li><strong>Day 3 (Tue Jun 30):</strong> Quiz 1 (first 10 min, Blackboard) · Proposal workshop: structure, research questions, scope</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="sched-week">
+      <div class="sw-head" onclick="toggleWeek(this)">
+        <div class="sw-num">2</div>
+        <div class="sw-info">
+          <div class="sw-title">Research Proposal + In-Text Citation Studio</div>
+          <div class="sw-dates">Jul 5–7 · Lambert: Chapters 3, 4 &amp; 5</div>
+          <div class="sw-pills">
+            <span class="sw-pill sp-quiz">Quiz 2 — Mon Jul 6</span>
+            <span class="sw-pill sp-due">Proposal due — Tue Jul 7</span>
+          </div>
+        </div>
+        <span style="color:var(--text-3);font-size:12px;" class="sw-toggle">▼</span>
+      </div>
+      <div class="sw-body">
+        <div class="sw-body-inner">
+          <p><strong>Readings:</strong> Chapter 3 (Research questions, aims, and objectives) · Chapter 4 (Literature searching and evaluating sources) · Chapter 5 (In-text citation, paraphrasing, quotation in APA 7)</p>
+          <ul>
+            <li><strong>Day 4 (Sun Jul 5):</strong> Proposal structure workshop — title, research questions, rationale, methodology overview</li>
+            <li><strong>Day 5 (Mon Jul 6):</strong> Quiz 2 (first 10 min) · APA in-text citation studio: author-date system, paraphrase vs. quote</li>
+            <li><strong>Day 6 (Tue Jul 7):</strong> Proposal peer review + final edits · <strong>Proposal submitted by end of day (Blackboard)</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="sched-week">
+      <div class="sw-head" onclick="toggleWeek(this)">
+        <div class="sw-num">3</div>
+        <div class="sw-info">
+          <div class="sw-title">Literature Review Analysis + Reference Lists</div>
+          <div class="sw-dates">Jul 12–14 · Lambert: Chapters 6 &amp; 7</div>
+          <div class="sw-pills">
+            <span class="sw-pill sp-quiz">Quiz 3 — Mon Jul 13</span>
+            <span class="sw-pill sp-due">Lit Review due — Tue Jul 14</span>
+          </div>
+        </div>
+        <span style="color:var(--text-3);font-size:12px;" class="sw-toggle">▼</span>
+      </div>
+      <div class="sw-body">
+        <div class="sw-body-inner">
+          <p><strong>Readings:</strong> Chapter 6 (Structuring a literature review: thematic, chronological, comparative) · Chapter 7 (APA reference list: journal articles, books, chapters, web sources)</p>
+          <ul>
+            <li><strong>Day 7 (Sun Jul 12):</strong> Literature review structures workshop — identifying gaps, synthesising sources</li>
+            <li><strong>Day 8 (Mon Jul 13):</strong> Quiz 3 (first 10 min) · APA reference list studio</li>
+            <li><strong>Day 9 (Tue Jul 14):</strong> Lit Review peer review + final edits · <strong>Literature Review submitted (Blackboard)</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="sched-week">
+      <div class="sw-head" onclick="toggleWeek(this)">
+        <div class="sw-num">4</div>
+        <div class="sw-info">
+          <div class="sw-title">Methods, Instruments &amp; Cumulative APA</div>
+          <div class="sw-dates">Jul 19–21 · Lambert: Chapters 8 &amp; 9</div>
+          <div class="sw-pills">
+            <span class="sw-pill sp-ok">No quiz this week</span>
+            <span class="sw-pill sp-ok">APA Cumulative Challenge</span>
+          </div>
+        </div>
+        <span style="color:var(--text-3);font-size:12px;" class="sw-toggle">▼</span>
+      </div>
+      <div class="sw-body">
+        <div class="sw-body-inner">
+          <p><strong>Readings:</strong> Chapter 8 (Research design: surveys, interviews, observations, experiments) · Chapter 9 (Designing questionnaires and interview schedules)</p>
+          <ul>
+            <li><strong>Day 10 (Sun Jul 19):</strong> Research design matching — which method fits which question?</li>
+            <li><strong>Day 11 (Mon Jul 20):</strong> Instrument design workshop — groups draft questionnaire or interview guide</li>
+            <li><strong>Day 12 (Tue Jul 21):</strong> APA Cumulative Challenge (ungraded) — full paper audit exercise</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="sched-week">
+      <div class="sw-head" onclick="toggleWeek(this)">
+        <div class="sw-num">5</div>
+        <div class="sw-info">
+          <div class="sw-title">Data Analysis &amp; Closing the Project</div>
+          <div class="sw-dates">Jul 26–28 · Lambert: Chapters 10 &amp; 11</div>
+          <div class="sw-pills">
+            <span class="sw-pill sp-quiz">Quiz 4 — Sun Jul 26</span>
+            <span class="sw-pill sp-due">Methods + Analysis due — Tue Jul 28</span>
+          </div>
+        </div>
+        <span style="color:var(--text-3);font-size:12px;" class="sw-toggle">▼</span>
+      </div>
+      <div class="sw-body">
+        <div class="sw-body-inner">
+          <p><strong>Readings:</strong> Chapter 10 (Qualitative analysis: thematic analysis, coding, themes, interpretation) · Chapter 11 (Quantitative analysis: descriptive statistics, frequency, mean, charts)</p>
+          <ul>
+            <li><strong>Day 13 (Sun Jul 26):</strong> Quiz 4 (first 10 min, Blackboard) · Analysis techniques workshop</li>
+            <li><strong>Day 14 (Mon Jul 27):</strong> Groups analyse collected data and draft findings section</li>
+            <li><strong>Day 15 (Tue Jul 28):</strong> Methods + Analysis peer review · <strong>Submitted by end of day (Blackboard)</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="sched-week">
+      <div class="sw-head" onclick="toggleWeek(this)">
+        <div class="sw-num">6</div>
+        <div class="sw-info">
+          <div class="sw-title">Writing Up &amp; Presentation Preparation</div>
+          <div class="sw-dates">Aug 2–4 · Lambert: Chapter 12 + Conclusion</div>
+          <div class="sw-pills">
+            <span class="sw-pill sp-ok">No quiz · writing polish week</span>
+          </div>
+        </div>
+        <span style="color:var(--text-3);font-size:12px;" class="sw-toggle">▼</span>
+      </div>
+      <div class="sw-body">
+        <div class="sw-body-inner">
+          <p><strong>Readings:</strong> Chapter 12 (Writing up: structure of a research report — abstract, introduction, methodology, findings, discussion, conclusion) · Conclusion chapter (Reflections on the research process)</p>
+          <ul>
+            <li><strong>Day 16 (Sun Aug 2):</strong> Research report structure walkthrough — assembling the three artefacts into a coherent paper</li>
+            <li><strong>Day 17 (Mon Aug 3):</strong> Final APA polish session — full paper reference list audit</li>
+            <li><strong>Day 18 (Tue Aug 4):</strong> Presentation rehearsal — 10-minute dry run per group; peer feedback</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="sched-week">
+      <div class="sw-head" onclick="toggleWeek(this)">
+        <div class="sw-num">7</div>
+        <div class="sw-info">
+          <div class="sw-title">Group Presentations &amp; Exam Review</div>
+          <div class="sw-dates">Aug 9–11 · No new reading</div>
+          <div class="sw-pills">
+            <span class="sw-pill sp-due">Presentations Aug 9–10</span>
+            <span class="sw-pill sp-exam">Exam review Aug 11</span>
+          </div>
+        </div>
+        <span style="color:var(--text-3);font-size:12px;" class="sw-toggle">▼</span>
+      </div>
+      <div class="sw-body">
+        <div class="sw-body-inner">
+          <ul>
+            <li><strong>Day 19 (Sun Aug 9):</strong> Group presentations — Groups 1–5 present (10 min + 3 min Q&amp;A each)</li>
+            <li><strong>Day 20 (Mon Aug 10):</strong> Group presentations — Groups 6–10 present (10 min + 3 min Q&amp;A each)</li>
+            <li><strong>Day 21 (Tue Aug 11):</strong> Full course exam review — all chapters, key terms, sample questions; instructor Q&amp;A</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="sched-week">
+      <div class="sw-head" style="cursor:default;opacity:.6;">
+        <div class="sw-num">8</div>
+        <div class="sw-info">
+          <div class="sw-title">Final Examination</div>
+          <div class="sw-dates">Aug 16–17 · Per university calendar</div>
+          <div class="sw-pills"><span class="sw-pill sp-exam">Final Exam — 50%</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Policies -->
+  <div class="section-label" style="margin-bottom:14px;">Course Policies</div>
+  <div class="grid-2 gap-20 mb-32">
+    <div class="card card-pad">
+      <h3 style="font-size:15px;font-weight:700;margin-bottom:12px;">📝 Assessments</h3>
+      <ul style="padding-left:18px;">
+        <li style="font-size:13px;color:var(--text-2);line-height:1.7;">Quizzes are taken <strong>in class</strong> via Blackboard Ultra — no make-up quizzes.</li>
+        <li style="font-size:13px;color:var(--text-2);line-height:1.7;">Group artefacts are submitted on Blackboard. All group members must be listed on submissions.</li>
+        <li style="font-size:13px;color:var(--text-2);line-height:1.7;">Late submissions lose <strong>10% per day</strong> unless a medical or official excuse is submitted in advance.</li>
+        <li style="font-size:13px;color:var(--text-2);line-height:1.7;">The final exam is closed-book. All chapters (Intro–Ch12) and key terms are examinable.</li>
+      </ul>
+    </div>
+    <div class="card card-pad">
+      <h3 style="font-size:15px;font-weight:700;margin-bottom:12px;">👥 Group Work</h3>
+      <ul style="padding-left:18px;">
+        <li style="font-size:13px;color:var(--text-2);line-height:1.7;">Groups are assigned by the instructor on Day 1 — you cannot change groups.</li>
+        <li style="font-size:13px;color:var(--text-2);line-height:1.7;">All group members receive the same grade for group artefacts.</li>
+        <li style="font-size:13px;color:var(--text-2);line-height:1.7;">Any student not contributing may be separated and given an individual project (instructor's discretion).</li>
+        <li style="font-size:13px;color:var(--text-2);line-height:1.7;">All submitted work must be original. Plagiarism results in zero for the component and referral to the dean.</li>
+      </ul>
+    </div>
+    <div class="card card-pad">
+      <h3 style="font-size:15px;font-weight:700;margin-bottom:12px;">📱 Technology</h3>
+      <ul style="padding-left:18px;">
+        <li style="font-size:13px;color:var(--text-2);line-height:1.7;">Phones allowed for Blackboard quizzes and reference to this study site only.</li>
+        <li style="font-size:13px;color:var(--text-2);line-height:1.7;">Laptops welcome for studio sessions.</li>
+        <li style="font-size:13px;color:var(--text-2);line-height:1.7;">AI writing tools must be declared; undeclared use is treated as plagiarism.</li>
+      </ul>
+    </div>
+    <div class="card card-pad">
+      <h3 style="font-size:15px;font-weight:700;margin-bottom:12px;">📖 Academic Integrity</h3>
+      <ul style="padding-left:18px;">
+        <li style="font-size:13px;color:var(--text-2);line-height:1.7;">Cite all sources using APA 7th edition — see the <a href="apa-quickref.html">APA Quick-Ref card</a>.</li>
+        <li style="font-size:13px;color:var(--text-2);line-height:1.7;">Paraphrase rather than copy; when quoting directly, use quotation marks and a page number.</li>
+        <li style="font-size:13px;color:var(--text-2);line-height:1.7;">All work submitted must be your own (or your group's) original work.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="info-box info-green">
+    <h3>📚 Study Resources</h3>
+    <p>All study materials are on this site — no login required. Reading guides, chapter summaries, practice question banks, and APA reference cards are open from any device. <strong>Grades and official submissions are in Blackboard Ultra only.</strong></p>
+  </div>
+
+</div>
+</div>
+
+<footer>
+  <strong>ENG 446 Research Methods · Syllabus</strong><br>
+  Dr. Muhammad Alatrash · Qassim University, Department of English · Summer 2026 · Term 472<br>
+  Qassim, Saudi Arabia
+</footer>
+
+<script>
+function toggleWeek(header) {
+  const body = header.nextElementSibling;
+  const toggle = header.querySelector('.sw-toggle');
+  const open = body.classList.toggle('open');
+  if (toggle) toggle.style.transform = open ? 'rotate(180deg)' : '';
+}
+</script>
+</body>
+</html>

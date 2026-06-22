@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENG 446 Research Methods — Summer 2026</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+  body { background: var(--off-white); }
+
+  /* Deadline rows */
+  .dl-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 14px;
+  }
+  .dl-row:last-child { border-bottom: none; }
+  .dl-date { font-size: 12px; font-weight: 700; color: var(--text-3); min-width: 72px; }
+  .dl-name { flex: 1; font-weight: 500; color: var(--text); }
+  .dl-name span { font-size: 12px; color: var(--text-3); font-weight: 400; }
+  .dl-w { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: var(--r-pill); }
+  .w-green { background: var(--green-light); color: var(--green-dark); }
+  .w-purple { background: #f3e8ff; color: #581c87; }
+  .dl-row.urgent .dl-date { color: var(--red); }
+  .dl-row.urgent .dl-name { color: var(--text); }
+
+  /* Week cards */
+  .week-cards { display: flex; flex-direction: column; gap: 8px; }
+  .week-card {
+    background: var(--white);
+    border-radius: var(--r-md);
+    box-shadow: var(--shadow-xs);
+    text-decoration: none;
+    color: var(--text);
+    display: block;
+    overflow: hidden;
+    transition: box-shadow .15s, transform .1s;
+  }
+  .week-card:hover { box-shadow: var(--shadow-sm); transform: translateY(-1px); text-decoration: none; }
+  .week-card.current { box-shadow: var(--shadow-sm); border-left: 3px solid var(--green); }
+  .week-card.locked { opacity: .45; pointer-events: none; }
+  .wc-row { display: flex; align-items: center; gap: 12px; padding: 14px 16px; }
+  .wc-num {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--off-white); border: 1.5px solid var(--border);
+    font-size: 13px; font-weight: 700; color: var(--text-2);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .week-card.current .wc-num { background: var(--green); border-color: var(--green); color: #fff; }
+  .wc-info { flex: 1; }
+  .wc-title { font-size: 14px; font-weight: 600; color: var(--text); }
+  .wc-meta { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+  .wc-tags { display: flex; gap: 6px; flex-wrap: wrap; padding: 0 16px 12px 62px; }
+  .wc-tag { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: var(--r-pill); }
+  .t-quiz { background: var(--blue-light); color: #004999; }
+  .t-due  { background: var(--red-light); color: #a01010; }
+  .t-studio { background: var(--amber-light); color: #7a4500; }
+  .t-ok { background: var(--green-light); color: var(--green-dark); }
+
+  /* App mini-cards */
+  .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
+  .app-card {
+    background: var(--white);
+    border-radius: var(--r-md);
+    box-shadow: var(--shadow-xs);
+    padding: 16px;
+    text-decoration: none;
+    color: var(--text);
+    display: block;
+    transition: box-shadow .15s, transform .1s;
+  }
+  .app-card:hover { box-shadow: var(--shadow-sm); transform: translateY(-1px); text-decoration: none; }
+  .app-card.soon { opacity: .5; pointer-events: none; }
+  .app-icon { font-size: 24px; margin-bottom: 8px; }
+  .app-name { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+  .app-desc { font-size: 11px; color: var(--text-3); line-height: 1.4; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html">
+      <span>🎓</span>
+      <span>Qassim University</span>
+    </a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">ENG 446</span>
+    <div class="nav-spacer"></div>
+    <div class="nav-links">
+      <a class="nav-link" href="syllabus.html">Syllabus</a>
+      <a class="nav-link" href="groups.html">Groups</a>
+      <a class="nav-link" href="apa-quickref.html">APA 7</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">ENG 446 · Summer 2026</div>
+  <h1>Research Methods</h1>
+  <p class="hero-sub">Lambert (2012) · 7 weeks · Group project + individual exam · Dr. Muhammad Alatrash</p>
+  <div class="hero-meta">
+    <span>Jun 28 – Aug 9, 2026</span>
+    <span class="hero-meta-dot">·</span>
+    <span>Term 472</span>
+    <span class="hero-meta-dot">·</span>
+    <span>10 groups</span>
+    <span class="hero-meta-dot">·</span>
+    <a href="syllabus.html" style="color:var(--green);font-weight:600;">View Syllabus →</a>
+  </div>
+</div>
+
+<div class="section-alt" style="padding:0 0 56px;">
+<div class="section-inner">
+
+  <!-- Now active banner -->
+  <div class="info-box info-green mb-32" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+    <div>
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;opacity:.7;">Now active</div>
+      <div style="font-size:16px;font-weight:700;">Week 1 — Foundations &amp; Getting a Topic</div>
+    </div>
+    <span class="badge badge-red">Quiz 1 · Tue Jun 30</span>
+  </div>
+
+  <div class="grid-2 gap-20 mb-48">
+    <!-- Deadlines -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-icon">📅</span>
+        <h2>All Deadlines</h2>
+      </div>
+      <div class="card-body" style="padding-top:8px;padding-bottom:8px;">
+        <div class="dl-row urgent">
+          <div class="dl-date">Tue Jun 30</div>
+          <div class="dl-name">📝 Quiz 1 — Intro + Ch1 + Ch2 <span>(in class, first 10 min)</span></div>
+          <div class="dl-w w-green">5%</div>
+        </div>
+        <div class="dl-row">
+          <div class="dl-date">Mon Jul 6</div>
+          <div class="dl-name">📝 Quiz 2 — Ch3 + Ch4 + Ch5 <span>(in class)</span></div>
+          <div class="dl-w w-green">5%</div>
+        </div>
+        <div class="dl-row">
+          <div class="dl-date">Tue Jul 7</div>
+          <div class="dl-name">📄 Research Proposal (GROUP)</div>
+          <div class="dl-w w-green">10%</div>
+        </div>
+        <div class="dl-row">
+          <div class="dl-date">Mon Jul 13</div>
+          <div class="dl-name">📝 Quiz 3 — Ch6 + Ch7 + Ch8 <span>(in class)</span></div>
+          <div class="dl-w w-green">5%</div>
+        </div>
+        <div class="dl-row">
+          <div class="dl-date">Tue Jul 14</div>
+          <div class="dl-name">📄 Literature Review (GROUP)</div>
+          <div class="dl-w w-green">10%</div>
+        </div>
+        <div class="dl-row">
+          <div class="dl-date">Sun Jul 26</div>
+          <div class="dl-name">📝 Quiz 4 — Ch9 + Ch10 + Ch11 <span>(in class)</span></div>
+          <div class="dl-w w-green">5%</div>
+        </div>
+        <div class="dl-row">
+          <div class="dl-date">Tue Jul 28</div>
+          <div class="dl-name">📄 Methodology + Analysis (GROUP)</div>
+          <div class="dl-w w-green">5%</div>
+        </div>
+        <div class="dl-row">
+          <div class="dl-date">Aug 9–10</div>
+          <div class="dl-name">🎤 Group Presentation</div>
+          <div class="dl-w w-green">5%</div>
+        </div>
+        <div class="dl-row">
+          <div class="dl-date">Aug 16–17</div>
+          <div class="dl-name">📋 Final Exam (individual)</div>
+          <div class="dl-w w-purple">50%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group info -->
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div class="card card-pad">
+        <div style="font-size:20px;margin-bottom:10px;">👥</div>
+        <h3 style="font-size:17px;font-weight:700;margin-bottom:8px;">Your Group</h3>
+        <p style="font-size:14px;color:var(--text-2);line-height:1.6;margin-bottom:16px;">Groups of 5–6 assigned on Day 1 (Jun 28). You collaborate on one research paper — Proposal → Literature Review → Methodology &amp; Analysis. Quizzes and the final exam are individual.</p>
+        <a class="btn btn-primary btn-sm" href="groups.html">View Group Roster →</a>
+      </div>
+      <div class="info-box info-blue">
+        <h3>📋 Graded work is in Blackboard</h3>
+        <p>All 4 quizzes, submissions, and your gradebook are in Blackboard Ultra. This site is study support only.</p>
+      </div>
+      <div class="card card-pad" style="text-align:center;">
+        <div style="font-size:24px;margin-bottom:6px;">📋</div>
+        <a href="syllabus.html" style="font-size:15px;font-weight:700;color:var(--green);display:block;margin-bottom:4px;">Full Syllabus →</a>
+        <span style="font-size:12px;color:var(--text-3);">CLOs · mark scheme · policies</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Weekly schedule -->
+  <div class="section-label">Weekly Schedule</div>
+  <div class="week-cards mb-48">
+    <a class="week-card current" href="week1.html">
+      <div class="wc-row">
+        <div class="wc-num">1</div>
+        <div class="wc-info">
+          <div class="wc-title">Foundations &amp; Getting a Topic</div>
+          <div class="wc-meta">Jun 28–30 · Intro + Chapter 1 + Chapter 2</div>
+        </div>
+        <span style="color:var(--text-3);font-size:18px;">›</span>
+      </div>
+      <div class="wc-tags">
+        <span class="wc-tag t-quiz">Quiz 1 — Tue Jun 30</span>
+        <span class="wc-tag t-studio">Groups assigned Day 1</span>
+      </div>
+    </a>
+    <a class="week-card" href="week2.html">
+      <div class="wc-row">
+        <div class="wc-num">2</div>
+        <div class="wc-info">
+          <div class="wc-title">Proposal + In-Text Citation Studio</div>
+          <div class="wc-meta">Jul 5–7 · Chapters 3 + 4 + 5</div>
+        </div>
+        <span style="color:var(--text-3);font-size:18px;">›</span>
+      </div>
+      <div class="wc-tags">
+        <span class="wc-tag t-quiz">Quiz 2 — Mon Jul 6</span>
+        <span class="wc-tag t-due">Proposal due — Tue Jul 7</span>
+      </div>
+    </a>
+    <a class="week-card" href="week3.html">
+      <div class="wc-row">
+        <div class="wc-num">3</div>
+        <div class="wc-info">
+          <div class="wc-title">Lit Review Analysis + Reference Lists</div>
+          <div class="wc-meta">Jul 12–14 · Chapters 6 + 7</div>
+        </div>
+        <span style="color:var(--text-3);font-size:18px;">›</span>
+      </div>
+      <div class="wc-tags">
+        <span class="wc-tag t-quiz">Quiz 3 — Mon Jul 13</span>
+        <span class="wc-tag t-due">Lit Review due — Tue Jul 14</span>
+      </div>
+    </a>
+    <a class="week-card" href="week4.html">
+      <div class="wc-row">
+        <div class="wc-num">4</div>
+        <div class="wc-info">
+          <div class="wc-title">Methods, Instruments &amp; Cumulative APA</div>
+          <div class="wc-meta">Jul 19–21 · Chapters 8 + 9</div>
+        </div>
+        <span style="color:var(--text-3);font-size:18px;">›</span>
+      </div>
+      <div class="wc-tags">
+        <span class="wc-tag t-ok">No quiz this week</span>
+        <span class="wc-tag t-studio">APA Cumulative Challenge</span>
+      </div>
+    </a>
+    <a class="week-card" href="week5.html">
+      <div class="wc-row">
+        <div class="wc-num">5</div>
+        <div class="wc-info">
+          <div class="wc-title">Analysis &amp; Closing the Project</div>
+          <div class="wc-meta">Jul 26–28 · Chapters 10 + 11</div>
+        </div>
+        <span style="color:var(--text-3);font-size:18px;">›</span>
+      </div>
+      <div class="wc-tags">
+        <span class="wc-tag t-quiz">Quiz 4 — Sun Jul 26</span>
+        <span class="wc-tag t-due">Methods + Analysis due — Tue Jul 28</span>
+      </div>
+    </a>
+    <a class="week-card" href="week6.html">
+      <div class="wc-row">
+        <div class="wc-num">6</div>
+        <div class="wc-info">
+          <div class="wc-title">Writing Up + Presentation Prep</div>
+          <div class="wc-meta">Aug 2–4 · Chapter 12 + Conclusion</div>
+        </div>
+        <span style="color:var(--text-3);font-size:18px;">›</span>
+      </div>
+      <div class="wc-tags">
+        <span class="wc-tag t-ok">No quiz · polish week</span>
+        <span class="wc-tag t-studio">Final APA polish</span>
+      </div>
+    </a>
+    <a class="week-card" href="week7.html">
+      <div class="wc-row">
+        <div class="wc-num">7</div>
+        <div class="wc-info">
+          <div class="wc-title">Presentations &amp; Exam Review</div>
+          <div class="wc-meta">Aug 9–11 · No new reading</div>
+        </div>
+        <span style="color:var(--text-3);font-size:18px;">›</span>
+      </div>
+      <div class="wc-tags">
+        <span class="wc-tag t-due">Presentations Aug 9–10</span>
+        <span class="wc-tag t-studio">Exam review Aug 11</span>
+      </div>
+    </a>
+    <div class="week-card locked">
+      <div class="wc-row">
+        <div class="wc-num">8</div>
+        <div class="wc-info">
+          <div class="wc-title">Final Examination</div>
+          <div class="wc-meta">Aug 16–17 · Per university calendar</div>
+        </div>
+      </div>
+      <div class="wc-tags"><span class="wc-tag t-due">Final Exam (50%)</span></div>
+    </div>
+  </div>
+
+  <!-- Self-practice apps -->
+  <div class="section-label">Self-Practice Tools</div>
+  <div class="app-grid mb-32">
+    <a class="app-card" href="quiz1.html">
+      <div class="app-icon">📝</div>
+      <div class="app-name">Week 1 Practice Bank</div>
+      <div class="app-desc">Intro + Ch1 + Ch2 · 12 questions</div>
+      <span class="badge badge-green mt-8">Live</span>
+    </a>
+    <a class="app-card" href="quiz2.html">
+      <div class="app-icon">📝</div>
+      <div class="app-name">Week 2 Practice Bank</div>
+      <div class="app-desc">Ch3 + Ch4 + Ch5</div>
+      <span class="badge badge-gray mt-8">Opens Week 2</span>
+    </a>
+    <a class="app-card" href="quiz3.html">
+      <div class="app-icon">📝</div>
+      <div class="app-name">Week 3 Practice Bank</div>
+      <div class="app-desc">Ch6 + Ch7 + Ch8</div>
+      <span class="badge badge-gray mt-8">Opens Week 3</span>
+    </a>
+    <a class="app-card" href="quiz4.html">
+      <div class="app-icon">📝</div>
+      <div class="app-name">Week 4 Practice Bank</div>
+      <div class="app-desc">Ch9 + Ch10 + Ch11</div>
+      <span class="badge badge-gray mt-8">Opens Week 4</span>
+    </a>
+    <a class="app-card soon" href="#">
+      <div class="app-icon">✍️</div>
+      <div class="app-name">APA SpotFix</div>
+      <div class="app-desc">Find &amp; fix in-text citation errors</div>
+      <span class="badge badge-gray mt-8">Opens Week 2</span>
+    </a>
+    <a class="app-card" href="apa-quickref.html">
+      <div class="app-icon">📖</div>
+      <div class="app-name">APA Quick-Ref Card</div>
+      <div class="app-desc">Bilingual APA 7 · always available</div>
+      <span class="badge badge-green mt-8">Always live</span>
+    </a>
+  </div>
+
+  <!-- Contact -->
+  <div class="card card-pad" style="background:var(--green);color:#fff;border-radius:var(--r-lg);">
+    <h3 style="font-size:17px;font-weight:700;margin-bottom:10px;">Dr. Muhammad Alatrash</h3>
+    <p style="font-size:13px;opacity:.85;line-height:1.8;">
+      Office: English Dept. 3-020 &nbsp;·&nbsp;
+      Email: <a href="mailto:atrsh@qu.edu.sa" style="color:rgba(255,255,255,.8)">atrsh@qu.edu.sa</a><br>
+      Office Hours: Mon–Tue–Thu · 10:30–11:30 AM (or by appointment)
+    </p>
+  </div>
+
+</div>
+</div>
+
+<footer>
+  <strong>ENG 446 Research Methods</strong> · Qassim University · Summer 2026 · Term 472<br>
+  Study support site — grades and submissions in Blackboard Ultra.
+</footer>
+
+</body>
+</html>
