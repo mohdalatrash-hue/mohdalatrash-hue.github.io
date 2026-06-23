@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Proposal Workshop | ENG 446</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+body { background: var(--off-white); }
+.tab-bar { display:flex; gap:4px; background:var(--white); border-radius:var(--r-xl); box-shadow:var(--shadow-xs); padding:6px; margin-bottom:28px; flex-wrap:wrap; }
+.tab-btn { flex:1; min-width:140px; padding:10px 16px; border:none; background:transparent; border-radius:var(--r-md); font-size:13px; font-weight:600; color:var(--text-2); cursor:pointer; transition:all .15s; }
+.tab-btn:hover { background:var(--off-white); }
+.tab-btn.active { background:#0071e3; color:#fff; }
+.tab-panel { display:none; }
+.tab-panel.active { display:block; }
+
+.ex-card { background:var(--white); border-radius:var(--r-xl); box-shadow:var(--shadow-sm); padding:24px; margin-bottom:20px; }
+.ex-num { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:#0071e3; margin-bottom:8px; }
+.ex-q { font-size:15px; font-weight:600; color:var(--text); margin-bottom:16px; line-height:1.6; }
+.ex-options { display:flex; flex-direction:column; gap:8px; }
+.ex-opt { padding:12px 16px; border:1.5px solid var(--border); border-radius:var(--r-md); font-size:14px; cursor:pointer; transition:all .15s; background:var(--white); color:var(--text); text-align:left; }
+.ex-opt:hover { border-color:var(--text-2); }
+.ex-opt.correct-ans { border-color:#30d158; background:#f0fff4; color:#1a7f45; }
+.ex-opt.correct-ans::after { content:" ✓"; font-weight:800; }
+.ex-opt.wrong-ans { border-color:#e53935; background:#fef2f2; color:#c0392b; }
+.ex-opt.wrong-ans::after { content:" ✗"; font-weight:800; }
+.ex-feedback { margin-top:14px; padding:12px 16px; border-radius:var(--r-md); font-size:13px; line-height:1.7; display:none; }
+.ex-feedback.show { display:block; }
+.fb-correct { background:#f0fff4; border:1px solid #a2d9b0; color:#14532d; }
+.fb-wrong   { background:#fef2f2; border:1px solid #fca5a5; color:#7f1d1d; }
+
+.tip-box { background:#eff6ff; border:1.5px solid #93c5fd; border-radius:var(--r-md); padding:14px 16px; font-size:13px; line-height:1.7; color:#1e3a5f; margin-bottom:20px; }
+.tip-box strong { color:#0071e3; }
+.prog-bar-wrap { height:6px; background:var(--off-white); border-radius:var(--r-pill); margin-bottom:24px; overflow:hidden; }
+.prog-bar { height:100%; background:#0071e3; border-radius:var(--r-pill); transition:width .4s; }
+.score-summary { text-align:center; padding:32px 20px; }
+.score-big { font-size:56px; font-weight:800; color:#0071e3; line-height:1; margin-bottom:8px; }
+.score-sub { font-size:14px; color:var(--text-2); }
+
+/* RQ Builder */
+.rq-builder { display:flex; flex-direction:column; gap:16px; }
+.rq-field { display:flex; flex-direction:column; gap:6px; }
+.rq-label { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:#0071e3; }
+.rq-input { padding:12px 14px; border:1.5px solid var(--border); border-radius:var(--r-md); font-size:14px; color:var(--text); font-family:inherit; transition:border-color .15s; width:100%; }
+.rq-input:focus { outline:none; border-color:#0071e3; }
+.rq-select { padding:12px 14px; border:1.5px solid var(--border); border-radius:var(--r-md); font-size:14px; color:var(--text); font-family:inherit; background:var(--white); width:100%; }
+.rq-output { background:var(--off-white); border-left:3px solid #0071e3; padding:16px; border-radius:0 var(--r-md) var(--r-md) 0; font-size:14px; line-height:1.8; color:var(--text); margin-top:8px; min-height:50px; }
+
+/* Scope slider */
+.scope-wrap { display:flex; flex-direction:column; gap:16px; }
+.scope-slider { width:100%; margin:8px 0; accent-color:#0071e3; }
+.scope-label { display:flex; justify-content:space-between; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-3); }
+.scope-verdict { font-size:14px; font-weight:600; padding:12px 16px; border-radius:var(--r-md); margin-top:4px; }
+.scope-narrow  { background:#fef2f2; color:#c0392b; }
+.scope-good    { background:#f0fff4; color:#1a7f45; }
+.scope-broad   { background:#fff8e7; color:#92400e; }
+
+/* Rubric */
+.rubric-grid { display:flex; flex-direction:column; gap:10px; }
+.rubric-row { display:flex; align-items:flex-start; gap:12px; }
+.rubric-check { width:22px; height:22px; border-radius:5px; border:2px solid var(--border); cursor:pointer; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:13px; transition:all .15s; }
+.rubric-check.checked { background:#0071e3; border-color:#0071e3; color:#fff; }
+.rubric-text { font-size:14px; color:var(--text-2); line-height:1.5; padding-top:1px; }
+.rubric-score { font-size:24px; font-weight:800; color:#0071e3; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 446</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Proposal Workshop</span>
+  </div>
+</nav>
+
+<div class="hero" style="padding-bottom:40px;">
+  <div class="hero-eyebrow">Workshop · Days 3 · 4 · 6</div>
+  <h1>Research Proposal Workshop</h1>
+  <p class="hero-sub">Build your research question, test its scope, scaffold the rationale, run a peer-review checklist</p>
+  <div class="hero-meta">
+    <span class="badge" style="background:#eff6ff;color:#0071e3;border:1px solid #93c5fd;">📄 Proposal due Tue Jul 7</span>
+  </div>
+</div>
+
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('rq',this)">🔍 Research Question Builder</button>
+    <button class="tab-btn" onclick="switchTab('scope',this)">⚖️ Scope Tester</button>
+    <button class="tab-btn" onclick="switchTab('quiz',this)">📝 Proposal Quiz</button>
+    <button class="tab-btn" onclick="switchTab('rubric',this)">✅ Peer-Review Rubric</button>
+  </div>
+
+  <!-- ══ TAB 1 — RESEARCH QUESTION BUILDER ══ -->
+  <div id="tab-rq" class="tab-panel active">
+    <div class="tip-box">
+      <strong>A strong research question</strong> is specific (not vague), researchable (answerable with data you can collect), and significant (it matters). It usually contains a phenomenon, a context, and a relationship or outcome to investigate.
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Step 1 — Define your research</div>
+      <div class="rq-builder">
+        <div class="rq-field">
+          <label class="rq-label" for="rq-topic">General topic area</label>
+          <input class="rq-input" id="rq-topic" placeholder="e.g. social media use among university students" oninput="buildRQ()">
+        </div>
+        <div class="rq-field">
+          <label class="rq-label" for="rq-focus">Specific focus or variable you are investigating</label>
+          <input class="rq-input" id="rq-focus" placeholder="e.g. academic performance, anxiety, motivation" oninput="buildRQ()">
+        </div>
+        <div class="rq-field">
+          <label class="rq-label" for="rq-context">Participants or context</label>
+          <input class="rq-input" id="rq-context" placeholder="e.g. EFL learners at Saudi universities" oninput="buildRQ()">
+        </div>
+        <div class="rq-field">
+          <label class="rq-label" for="rq-type">Research type</label>
+          <select class="rq-select" id="rq-type" onchange="buildRQ()">
+            <option value="relationship">Relationship / correlation</option>
+            <option value="effect">Effect / impact</option>
+            <option value="perception">Perception / attitude</option>
+            <option value="comparison">Comparison between groups</option>
+            <option value="explore">Exploration / description</option>
+          </select>
+        </div>
+        <div class="rq-field">
+          <label class="rq-label">Generated research question</label>
+          <div class="rq-output" id="rq-output">Fill in the fields above to generate your question…</div>
+        </div>
+        <div class="rq-field">
+          <label class="rq-label">Sub-question suggestions</label>
+          <div class="rq-output" id="rq-subs" style="font-size:13px;color:var(--text-2);"></div>
+        </div>
+      </div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">What makes a GOOD research question?</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:13px;">
+        <div style="background:#f0fff4;border-radius:var(--r-md);padding:14px;">
+          <div style="font-weight:700;color:#1a7f45;margin-bottom:8px;">✓ Strong examples</div>
+          <ul style="padding-left:16px;display:flex;flex-direction:column;gap:6px;color:var(--text-2);line-height:1.5;">
+            <li>To what extent does social media use correlate with academic achievement among EFL students at Qassim University?</li>
+            <li>How do Saudi undergraduate students perceive the effectiveness of peer feedback in academic writing?</li>
+          </ul>
+        </div>
+        <div style="background:#fef2f2;border-radius:var(--r-md);padding:14px;">
+          <div style="font-weight:700;color:#c0392b;margin-bottom:8px;">✗ Weak examples</div>
+          <ul style="padding-left:16px;display:flex;flex-direction:column;gap:6px;color:var(--text-2);line-height:1.5;">
+            <li>Is social media bad? <em style="color:#c0392b">(too vague, binary)</em></li>
+            <li>What are the effects of everything on student learning? <em style="color:#c0392b">(too broad)</em></li>
+            <li>Is cheating wrong? <em style="color:#c0392b">(not researchable — ethical claim, not empirical)</em></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TAB 2 — SCOPE TESTER ══ -->
+  <div id="tab-scope" class="tab-panel">
+    <div class="tip-box">
+      <strong>Scope</strong> refers to how broad or narrow your research is. Too broad = you cannot realistically collect all the data needed. Too narrow = your findings are trivial and ungeneralisable. Good scope: achievable in the time frame, with the participants you have access to, with real findings that matter.
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Scope Calibrator</div>
+      <div class="scope-wrap">
+        <div class="rq-field">
+          <label class="rq-label" for="sc-topic">Your research question</label>
+          <input class="rq-input" id="sc-topic" placeholder="Paste or type your research question here" oninput="evalScope()">
+        </div>
+        <div>
+          <div class="scope-label"><span>Too Narrow</span><span>Just Right</span><span>Too Broad</span></div>
+          <input class="scope-slider" id="scope-slider" type="range" min="1" max="10" value="5" oninput="showScopeVerdict()">
+        </div>
+        <div id="scope-verdict" class="scope-verdict scope-good">Slide to mark your assessment of this question's scope.</div>
+      </div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Scope checklist — answer each question</div>
+      <div class="rubric-grid" id="scope-checklist">
+      </div>
+      <div style="margin-top:16px;font-size:14px;color:var(--text-2);" id="scope-score"></div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Common scope problems and fixes</div>
+      <div style="display:flex;flex-direction:column;gap:14px;font-size:13px;">
+        <div><strong style="color:#c0392b;">Problem: Too many variables</strong><br><span style="color:var(--text-2);">"The effect of social media, peer pressure, family background, and teaching style on student motivation."</span><br><strong>Fix:</strong> Pick one independent variable. Focus on what your group can measure.</div>
+        <div><strong style="color:#c0392b;">Problem: Entire country as context</strong><br><span style="color:var(--text-2);">"EFL learners in Saudi Arabia" → millions of people.</span><br><strong>Fix:</strong> "EFL undergraduate students at Qassim University, Department of English" — specific, accessible.</div>
+        <div><strong style="color:#c0392b;">Problem: Too small a context</strong><br><span style="color:var(--text-2);">"The two students in my study group." → findings are trivial.</span><br><strong>Fix:</strong> Aim for enough participants that patterns emerge (qualitative: 6–15; quantitative: 30+).</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TAB 3 — PROPOSAL QUIZ ══ -->
+  <div id="tab-quiz" class="tab-panel">
+    <div class="tip-box">
+      <strong>Proposal structure (APA 7):</strong> Title · Introduction/Background · Research questions · Literature overview · Methodology · Significance · References. Each section serves a specific purpose — this quiz tests whether you know what goes where.
+    </div>
+    <div class="prog-bar-wrap"><div class="prog-bar" id="pq-prog" style="width:0%"></div></div>
+    <div id="pq-container"></div>
+    <div id="pq-score" class="score-summary" style="display:none;"></div>
+  </div>
+
+  <!-- ══ TAB 4 — PEER-REVIEW RUBRIC ══ -->
+  <div id="tab-rubric" class="tab-panel">
+    <div class="tip-box">
+      Use this rubric on <strong>Day 6 (Tue Jul 7)</strong> to evaluate another group's proposal before submission. Tick each item that is clearly met. Your score gives a quick indication of proposal quality.</div>
+    <div class="ex-card">
+      <div class="ex-num">Research Proposal Peer-Review Checklist</div>
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
+        <div><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:2px;">Score</div><div class="rubric-score" id="rubric-score-display">0 / 16</div></div>
+        <div style="flex:1;height:8px;background:var(--off-white);border-radius:var(--r-pill);overflow:hidden;"><div id="rubric-bar" style="height:100%;background:#0071e3;border-radius:var(--r-pill);transition:width .3s;width:0%"></div></div>
+      </div>
+      <div class="rubric-grid" id="rubric-items"></div>
+      <div style="margin-top:20px;" id="rubric-verdict"></div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<footer>
+  <strong>ENG 446 Research Methods</strong> · Proposal Workshop · Qassim University · Summer 2026<br>
+  <a href="index.html">Course Hub</a> · <a href="syllabus.html">Syllabus</a> · <a href="workshop-apa.html">APA Workshop</a>
+</footer>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── RESEARCH QUESTION BUILDER ───────────────────────────────────────────────
+const RQ_STARTERS = {
+  relationship: ["To what extent does", "What is the relationship between", "How does"],
+  effect:       ["What is the effect of", "How does", "To what extent does"],
+  perception:   ["How do", "What are the perceptions of", "What attitudes do"],
+  comparison:   ["Is there a significant difference between", "How do", "To what degree do"],
+  explore:      ["What are the characteristics of", "How is", "What factors influence"]
+};
+const RQ_ENDINGS = {
+  relationship: ["on", "and", "correlate with"],
+  effect:       ["on", "influence", "affect"],
+  perception:   ["perceive", "feel about", "think about"],
+  comparison:   ["differ in", "compare in terms of", "vary in"],
+  explore:      ["among", "within", "in the context of"]
+};
+
+function buildRQ() {
+  const topic = document.getElementById('rq-topic').value.trim() || '[topic]';
+  const focus = document.getElementById('rq-focus').value.trim() || '[focus variable]';
+  const ctx   = document.getElementById('rq-context').value.trim() || '[your participants]';
+  const type  = document.getElementById('rq-type').value;
+  const starters = RQ_STARTERS[type];
+  const starter = starters[0];
+  let question = '';
+  if (type === 'relationship') question = `${starter} ${topic} ${RQ_ENDINGS[type][0]} ${focus} among ${ctx}?`;
+  else if (type === 'effect') question = `${starter} ${topic} ${RQ_ENDINGS[type][0]} ${focus} among ${ctx}?`;
+  else if (type === 'perception') question = `${starter} ${ctx} ${RQ_ENDINGS[type][0]} ${topic} in relation to ${focus}?`;
+  else if (type === 'comparison') question = `${starter} ${ctx} ${RQ_ENDINGS[type][0]} ${focus} based on their experience with ${topic}?`;
+  else question = `${starter} ${focus} in ${topic} among ${ctx}?`;
+  document.getElementById('rq-output').textContent = question;
+  const subs = [
+    `SQ1: What is the extent of ${topic} among ${ctx}?`,
+    `SQ2: What is the level of ${focus} among ${ctx}?`,
+    `SQ3: Is there a statistically/thematically significant link between ${topic} and ${focus}?`
+  ];
+  document.getElementById('rq-subs').innerHTML = subs.join('<br>');
+}
+
+// ── SCOPE CHECKER ───────────────────────────────────────────────────────────
+const SCOPE_CHECKS = [
+  "Can you collect the data needed in 4–6 weeks?",
+  "Do you have access to the participants described?",
+  "Is the number of variables manageable (1–2 main variables)?",
+  "Is the participant group specific enough (not 'all students in the world')?",
+  "Will the findings be meaningful beyond a single individual?",
+  "Is the question answerable with a questionnaire, interview, or observation?",
+  "Is the scope narrow enough to reach a clear conclusion?",
+  "Does the question avoid requiring specialised equipment or large funding?"
+];
+
+function initScopeChecklist() {
+  const grid = document.getElementById('scope-checklist');
+  grid.innerHTML = SCOPE_CHECKS.map((c,i) =>
+    `<div class="rubric-row">
+       <div class="rubric-check" id="sc-${i}" onclick="toggleCheck('sc-${i}','scope-score',SCOPE_CHECKS.length)">—</div>
+       <div class="rubric-text">${c}</div>
+     </div>`
+  ).join('');
+}
+
+function showScopeVerdict() {
+  const v = parseInt(document.getElementById('scope-slider').value);
+  const el = document.getElementById('scope-verdict');
+  if (v <= 3) { el.className='scope-verdict scope-narrow'; el.textContent='⚠️ Too narrow — your findings may be trivial or ungeneralisable. Broaden the context or add a meaningful comparison.'; }
+  else if (v <= 7) { el.className='scope-verdict scope-good'; el.textContent='✓ Scope looks reasonable — specific enough to complete, significant enough to matter.'; }
+  else { el.className='scope-verdict scope-broad'; el.textContent='⚠️ Too broad — you will not be able to collect enough data for this study in one term. Narrow the population, variables, or context.'; }
+}
+
+function evalScope() { /* optional: could add keyword analysis */ }
+
+// ── PROPOSAL QUIZ ───────────────────────────────────────────────────────────
+const PQ_Q = [
+  {
+    q: "What is the PRIMARY purpose of the Introduction section in a research proposal?",
+    opts: ["To establish the research problem, context, and why the study is needed", "To list all the sources the researcher has read", "To describe the data collection instruments in detail", "To present the findings of similar studies"],
+    ans: 0,
+    fb: "The Introduction establishes the problem and justifies the need for the study. Literature review and methods come later. The introduction hooks the reader with the 'why'."
+  },
+  {
+    q: "A research question should be:",
+    opts: [
+      "Specific, researchable, and significant",
+      "As broad as possible so you have many things to discuss",
+      "A yes/no question that can be answered directly",
+      "A moral or ethical statement about a problem"
+    ],
+    ans: 0,
+    fb: "Correct. The three criteria: specific (not vague), researchable (answerable with data), significant (the answer matters). Broad questions and yes/no questions are weak."
+  },
+  {
+    q: "What should the Methodology section of a proposal describe?",
+    opts: [
+      "Who the participants are, what data will be collected, and how it will be analysed",
+      "All published studies on the topic",
+      "The final results of the study",
+      "The researcher's personal opinion on the topic"
+    ],
+    ans: 0,
+    fb: "The methodology describes the research design: participants, instruments (questionnaire? interview?), data collection procedure, and analysis method (thematic analysis? descriptive statistics?)."
+  },
+  {
+    q: "Which of these is the strongest research title for ENG 446?",
+    opts: [
+      "The effect of peer feedback on EFL writing quality at Qassim University",
+      "Social media",
+      "A study of things related to students",
+      "Is peer feedback good or bad?"
+    ],
+    ans: 0,
+    fb: "A strong title is specific (peer feedback + EFL writing + Qassim University), descriptive (signals what the study measures), and avoids yes/no framing."
+  },
+  {
+    q: "What goes in the Significance section of a proposal?",
+    opts: [
+      "Who will benefit from the findings and why the research matters",
+      "A list of all the researcher's qualifications",
+      "The detailed data analysis results",
+      "A copy of the questionnaire"
+    ],
+    ans: 0,
+    fb: "Significance explains the 'so what' — who benefits (students? teachers? policymakers?), what gap the study fills, and why this question hasn't been adequately answered before."
+  },
+  {
+    q: "A research proposal is different from a research report because a proposal:",
+    opts: [
+      "Describes planned research that has not yet been conducted",
+      "Presents findings and discusses results",
+      "Only contains a reference list",
+      "Is written after all data has been collected"
+    ],
+    ans: 0,
+    fb: "Correct. A proposal is forward-looking — it says 'here is what I plan to do and why.' A research report looks backward — it says 'here is what I did and what I found.'"
+  }
+];
+
+let pqIndex = 0, pqScore = 0, pqAnswered = false;
+
+function renderPQ() {
+  if (pqIndex >= PQ_Q.length) { showPQScore(); return; }
+  const q = PQ_Q[pqIndex];
+  document.getElementById('pq-prog').style.width = (pqIndex/PQ_Q.length*100)+'%';
+  document.getElementById('pq-container').innerHTML = `
+    <div class="ex-card">
+      <div class="ex-num">Question ${pqIndex+1} of ${PQ_Q.length}</div>
+      <div class="ex-q">${q.q}</div>
+      <div class="ex-options" id="pq-opts">
+        ${q.opts.map((o,i) => `<button class="ex-opt" onclick="answerPQ(${i})">${o}</button>`).join('')}
+      </div>
+      <div class="ex-feedback" id="pq-fb"></div>
+      <div><button class="btn btn-primary btn-sm" id="pq-next" style="display:none;margin-top:14px" onclick="nextPQ()">Next →</button></div>
+    </div>`;
+  pqAnswered = false;
+}
+
+function answerPQ(i) {
+  if (pqAnswered) return;
+  pqAnswered = true;
+  const q = PQ_Q[pqIndex];
+  document.querySelectorAll('#pq-opts .ex-opt').forEach((b,j) => {
+    b.disabled = true;
+    if (j === q.ans) b.classList.add('correct-ans');
+    else if (j === i && i !== q.ans) b.classList.add('wrong-ans');
+  });
+  if (i === q.ans) pqScore++;
+  const fb = document.getElementById('pq-fb');
+  fb.textContent = q.fb;
+  fb.className = 'ex-feedback show ' + (i === q.ans ? 'fb-correct' : 'fb-wrong');
+  document.getElementById('pq-next').style.display = 'inline-block';
+}
+
+function nextPQ() { pqIndex++; renderPQ(); }
+
+function showPQScore() {
+  document.getElementById('pq-prog').style.width = '100%';
+  document.getElementById('pq-container').style.display = 'none';
+  const pct = Math.round(pqScore/PQ_Q.length*100);
+  document.getElementById('pq-score').style.display = 'block';
+  document.getElementById('pq-score').innerHTML = `<div class="score-big">${pct}%</div><div class="score-sub">${pqScore} / ${PQ_Q.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct>=80?"Your proposal structure knowledge is solid.":"Review the proposal section descriptions above."}</p><button class="btn btn-primary" onclick="resetPQ()">Retry</button>`;
+}
+function resetPQ() { pqIndex=0; pqScore=0; document.getElementById('pq-container').style.display='block'; document.getElementById('pq-score').style.display='none'; renderPQ(); }
+
+// ── RUBRIC ──────────────────────────────────────────────────────────────────
+const RUBRIC_ITEMS = [
+  "The title is specific and clearly signals the study's topic, variable, and context.",
+  "A clear and focused main research question is stated.",
+  "At least 2 sub-questions or objectives are included.",
+  "The introduction establishes a genuine research problem — not just 'this topic is important'.",
+  "The introduction identifies a gap in the literature.",
+  "The significance section explains who benefits and how.",
+  "At least 4 relevant sources are cited in the literature overview.",
+  "Sources are cited in APA 7 format (in-text citations correct).",
+  "The methodology section states the research design (qualitative / quantitative / mixed).",
+  "Participants are described (who, how many, how selected).",
+  "The data collection instrument is identified (questionnaire, interview, etc.).",
+  "A data analysis approach is stated (thematic analysis, descriptive statistics, etc.).",
+  "A reference list is included at the end.",
+  "References are formatted in APA 7 (hanging indent, correct order).",
+  "The proposal is written in academic register (no informal language).",
+  "The proposal is free of major grammatical or spelling errors."
+];
+
+let rubricChecked = 0;
+
+function initRubric() {
+  const grid = document.getElementById('rubric-items');
+  grid.innerHTML = RUBRIC_ITEMS.map((item, i) =>
+    `<div class="rubric-row">
+       <div class="rubric-check" id="rub-${i}" onclick="toggleRubric(${i})">—</div>
+       <div class="rubric-text">${item}</div>
+     </div>`
+  ).join('');
+}
+
+function toggleRubric(i) {
+  const el = document.getElementById('rub-' + i);
+  const isChecked = el.classList.toggle('checked');
+  el.textContent = isChecked ? '✓' : '—';
+  rubricChecked = document.querySelectorAll('#rubric-items .rubric-check.checked').length;
+  const total = RUBRIC_ITEMS.length;
+  const pct = Math.round(rubricChecked / total * 100);
+  document.getElementById('rubric-score-display').textContent = `${rubricChecked} / ${total}`;
+  document.getElementById('rubric-bar').style.width = pct + '%';
+  const vd = document.getElementById('rubric-verdict');
+  if (pct >= 80) vd.innerHTML = '<div class="ex-feedback show fb-correct">Strong proposal — most criteria met. Review the unchecked items before submission.</div>';
+  else if (pct >= 50) vd.innerHTML = '<div class="ex-feedback show fb-wrong">Several criteria are missing. Focus on the unchecked items before submitting.</div>';
+  else vd.innerHTML = '<div class="ex-feedback show fb-wrong">The proposal needs significant work. Review the structure guide and address each unchecked item.</div>';
+}
+
+// ── SCOPE TOGGLE helper ──────────────────────────────────────────────────────
+function toggleCheck(id, scoreId, total) {
+  const el = document.getElementById(id);
+  const isChecked = el.classList.toggle('checked');
+  el.textContent = isChecked ? '✓' : '—';
+  const checked = document.querySelectorAll('#scope-checklist .rubric-check.checked').length;
+  document.getElementById(scoreId).textContent = `${checked} / ${total} scope criteria met`;
+}
+
+// ── Init ────────────────────────────────────────────────────────────────────
+initScopeChecklist();
+showScopeVerdict();
+renderPQ();
+initRubric();
+buildRQ();
+</script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instrument Design Workshop | ENG 446</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+body{background:var(--off-white);}
+.tab-bar{display:flex;gap:4px;background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-xs);padding:6px;margin-bottom:28px;flex-wrap:wrap;}
+.tab-btn{flex:1;min-width:130px;padding:10px 16px;border:none;background:transparent;border-radius:var(--r-md);font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;transition:all .15s;}
+.tab-btn:hover{background:var(--off-white);}
+.tab-btn.active{background:#059669;color:#fff;}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.ex-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:24px;margin-bottom:20px;}
+.ex-num{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#059669;margin-bottom:8px;}
+.ex-q{font-size:15px;font-weight:600;color:var(--text);margin-bottom:16px;line-height:1.6;}
+.ex-opt{padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:14px;cursor:pointer;transition:all .15s;background:var(--white);color:var(--text);text-align:left;display:block;width:100%;margin-bottom:8px;}
+.ex-opt:hover{border-color:var(--text-2);}
+.ex-opt.correct-ans{border-color:#30d158;background:#f0fff4;color:#1a7f45;}
+.ex-opt.correct-ans::after{content:" ✓";font-weight:800;}
+.ex-opt.wrong-ans{border-color:#e53935;background:#fef2f2;color:#c0392b;}
+.ex-opt.wrong-ans::after{content:" ✗";font-weight:800;}
+.ex-feedback{margin-top:14px;padding:12px 16px;border-radius:var(--r-md);font-size:13px;line-height:1.7;display:none;}
+.ex-feedback.show{display:block;}
+.fb-correct{background:#f0fff4;border:1px solid #a2d9b0;color:#14532d;}
+.fb-wrong{background:#fef2f2;border:1px solid #fca5a5;color:#7f1d1d;}
+.tip-box{background:#f0fdf4;border:1.5px solid #a2d9b0;border-radius:var(--r-md);padding:14px 16px;font-size:13px;line-height:1.7;color:#14532d;margin-bottom:20px;}
+.tip-box strong{color:#059669;}
+.prog-bar-wrap{height:6px;background:var(--off-white);border-radius:var(--r-pill);margin-bottom:24px;overflow:hidden;}
+.prog-bar{height:100%;background:#059669;border-radius:var(--r-pill);transition:width .4s;}
+.score-summary{text-align:center;padding:32px 20px;}
+.score-big{font-size:56px;font-weight:800;color:#059669;line-height:1;margin-bottom:8px;}
+.score-sub{font-size:14px;color:var(--text-2);}
+
+/* Likert demo */
+.likert-wrap{margin:16px 0;}
+.likert-q{font-size:14px;font-weight:600;color:var(--text);margin-bottom:12px;}
+.likert-scale{display:flex;gap:6px;flex-wrap:wrap;}
+.likert-btn{flex:1;min-width:60px;padding:10px 8px;border:1.5px solid var(--border);border-radius:var(--r-md);text-align:center;cursor:pointer;transition:all .15s;background:var(--white);}
+.likert-btn:hover{border-color:#059669;}
+.likert-btn.selected{border-color:#059669;background:#f0fdf4;}
+.likert-label{font-size:10px;color:var(--text-3);margin-top:3px;display:block;}
+.likert-num{font-size:16px;font-weight:700;color:var(--text);}
+.likert-result{font-size:13px;color:var(--text-2);margin-top:10px;}
+
+/* Bad question fixer */
+.bq-item{background:var(--off-white);border-radius:var(--r-md);padding:16px;margin-bottom:14px;}
+.bq-bad{font-size:13px;font-style:italic;color:#c0392b;margin-bottom:8px;}
+.bq-problem{font-size:12px;color:var(--text-3);margin-bottom:10px;}
+.bq-fix{display:none;background:#f0fdf4;padding:12px;border-radius:var(--r-md);font-size:13px;line-height:1.6;color:#14532d;}
+.bq-fix.show{display:block;}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 446</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Instrument Design Workshop</span>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:40px;">
+  <div class="hero-eyebrow">Workshop · Day 11</div>
+  <h1>Instrument Design Workshop</h1>
+  <p class="hero-sub">Question type identifier, Likert scale demo, bad-question fixer, and design quiz</p>
+</div>
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('types',this)">📋 Question Types</button>
+    <button class="tab-btn" onclick="switchTab('likert',this)">📊 Likert Demo</button>
+    <button class="tab-btn" onclick="switchTab('fixer',this)">🔧 Bad Question Fixer</button>
+    <button class="tab-btn" onclick="switchTab('quiz',this)">📝 Instrument Quiz</button>
+  </div>
+
+  <!-- TAB 1 — QUESTION TYPES -->
+  <div id="tab-types" class="tab-panel active">
+    <div class="tip-box"><strong>Three main question types for a questionnaire:</strong> Closed (pre-set answers, easy to analyse quantitatively), Open (free text, rich but harder to analyse), Likert scale (5 or 7-point agreement scale — the most common in EFL research).</div>
+    <div class="ex-card">
+      <div class="ex-num">Identify the question type</div>
+      <div id="type-qs"></div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Question type guide</div>
+      <div style="display:flex;flex-direction:column;gap:12px;font-size:13px;">
+        <div style="background:var(--off-white);padding:14px;border-radius:var(--r-md);">
+          <strong style="color:var(--text);">Closed question</strong> — gives participants fixed options to choose from<br>
+          <span style="color:var(--text-3);">Example: "How often do you use English outside of class? □ Never □ Sometimes □ Often □ Always"</span><br>
+          <em>Advantage:</em> Easy to tally and compare. <em>Limitation:</em> Does not capture nuance or unexpected responses.
+        </div>
+        <div style="background:var(--off-white);padding:14px;border-radius:var(--r-md);">
+          <strong style="color:var(--text);">Likert scale</strong> — measures strength of agreement or attitude on a numbered scale<br>
+          <span style="color:var(--text-3);">Example: "Peer feedback helps me improve my writing." (1=Strongly Disagree → 5=Strongly Agree)"</span><br>
+          <em>Advantage:</em> Captures degree of opinion. Widely used and accepted. Produces ordinal data for statistical analysis.
+        </div>
+        <div style="background:var(--off-white);padding:14px;border-radius:var(--r-md);">
+          <strong style="color:var(--text);">Open question</strong> — participants answer in their own words<br>
+          <span style="color:var(--text-3);">Example: "Describe a time when peer feedback was particularly helpful or unhelpful."</span><br>
+          <em>Advantage:</em> Rich, unexpected data. <em>Limitation:</em> Harder to analyse — requires thematic coding.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2 — LIKERT DEMO -->
+  <div id="tab-likert" class="tab-panel">
+    <div class="tip-box"><strong>Likert scale tips:</strong> Use 5 or 7 points (not 3 or 10). Label both ends AND the midpoint. Keep the scale consistent throughout the questionnaire (don't mix 5-point and 7-point scales). Reverse-score some items to catch inattentive responses.</div>
+    <div class="ex-card">
+      <div class="ex-num">Try a sample Likert questionnaire</div>
+      <p style="font-size:13px;color:var(--text-2);margin-bottom:20px;">Answer as if you are a student. Notice how the scale captures degree of agreement, not just yes/no.</p>
+      <div id="likert-qs"></div>
+      <button class="btn btn-primary" onclick="showLikertResults()" style="margin-top:16px;">Show my results</button>
+      <div id="likert-results" style="display:none;margin-top:16px;padding:16px;background:var(--off-white);border-radius:var(--r-md);font-size:13px;line-height:1.8;color:var(--text-2);"></div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Likert scale design rules</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px;">
+        <div style="background:#f0fdf4;padding:12px;border-radius:var(--r-md);"><strong style="color:#059669;">✓ Do</strong><ul style="padding-left:14px;margin-top:6px;display:flex;flex-direction:column;gap:4px;"><li>Use 5 or 7 points</li><li>Label all anchor points clearly</li><li>Include a neutral midpoint (e.g. "3 = Neither")</li><li>Pilot the questionnaire with 2–3 peers first</li><li>Group items by theme</li></ul></div>
+        <div style="background:#fef2f2;padding:12px;border-radius:var(--r-md);"><strong style="color:#c0392b;">✗ Don't</strong><ul style="padding-left:14px;margin-top:6px;display:flex;flex-direction:column;gap:4px;"><li>Use double-barrelled items ("I enjoy and benefit from peer feedback")</li><li>Use leading language ("Don't you agree that…")</li><li>Make all items positively worded (include some reversed)</li><li>Use too many items (20 max for questionnaires)</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3 — BAD QUESTION FIXER -->
+  <div id="tab-fixer" class="tab-panel">
+    <div class="tip-box"><strong>Common questionnaire design errors:</strong> Double-barrelled questions, leading questions, ambiguous wording, jargon, and yes/no items where a scale is needed. Click "Reveal fix" to see how each should be corrected.</div>
+    <div class="ex-card">
+      <div class="ex-num">Identify the problem and see the fix</div>
+      <div id="fixer-qs"></div>
+    </div>
+  </div>
+
+  <!-- TAB 4 — QUIZ -->
+  <div id="tab-quiz" class="tab-panel">
+    <div class="prog-bar-wrap"><div class="prog-bar" id="iq-prog" style="width:0%"></div></div>
+    <div id="iq-container"></div>
+    <div id="iq-score" class="score-summary" style="display:none;"></div>
+  </div>
+</div>
+</div>
+<footer><strong>ENG 446 Research Methods</strong> · Instrument Design · Qassim University · Summer 2026<br><a href="index.html">Course Hub</a> · <a href="syllabus.html">Syllabus</a></footer>
+<script>
+function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
+
+// QUESTION TYPE IDENTIFIER
+const TYPE_QS = [
+  {q:'"Do you use peer feedback in your writing class? □ Yes □ No"', type:'closed', explain:'Closed question — forces a yes/no choice. Fast to answer and easy to tally, but loses nuance.'},
+  {q:'"Peer feedback is an effective learning strategy." (1=Strongly Disagree · 5=Strongly Agree)', type:'likert', explain:'Likert scale — measures degree of agreement on a 5-point scale. Produces ordinal quantitative data.'},
+  {q:'"Describe what you find most challenging about receiving feedback from peers."', type:'open', explain:'Open question — invites a free-text response. Rich qualitative data that must be coded thematically.'},
+  {q:'"How often do you revise your writing after receiving peer feedback? □ Never □ Rarely □ Sometimes □ Often □ Always"', type:'closed', explain:'Closed question with fixed ordinal options (a checklist or multiple-choice). Still structured and easy to quantify.'},
+  {q:'"In your own words, explain how peer feedback has affected your confidence as a writer."', type:'open', explain:'Open question — asks participants to narrate their experience. Qualitative, requires coding.'}
+];
+
+let typeScore=0;
+function initTypeQs(){
+  document.getElementById('type-qs').innerHTML=TYPE_QS.map((item,i)=>`
+    <div style="margin-bottom:20px;">
+      <div style="font-size:14px;font-style:italic;color:var(--text);background:var(--off-white);padding:12px 14px;border-radius:var(--r-md);margin-bottom:10px;">${item.q}</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="ex-opt" style="width:auto;display:inline-block;" id="t-c-${i}" onclick="answerType(${i},'closed')">📋 Closed</button>
+        <button class="ex-opt" style="width:auto;display:inline-block;" id="t-l-${i}" onclick="answerType(${i},'likert')">📊 Likert</button>
+        <button class="ex-opt" style="width:auto;display:inline-block;" id="t-o-${i}" onclick="answerType(${i},'open')">✍️ Open</button>
+      </div>
+      <div class="ex-feedback" id="t-fb-${i}"></div>
+    </div>`).join('');
+}
+function answerType(i,chosen){
+  const map={closed:'c',likert:'l',open:'o'};
+  ['closed','likert','open'].forEach(t=>{
+    const b=document.getElementById(`t-${map[t]}-${i}`);
+    b.disabled=true;
+    if(t===TYPE_QS[i].type)b.classList.add('correct-ans');
+    else if(t===chosen&&chosen!==TYPE_QS[i].type)b.classList.add('wrong-ans');
+  });
+  const fb=document.getElementById('t-fb-'+i);
+  fb.textContent=TYPE_QS[i].explain;
+  fb.className='ex-feedback show '+(chosen===TYPE_QS[i].type?'fb-correct':'fb-wrong');
+  if(chosen===TYPE_QS[i].type)typeScore++;
+}
+
+// LIKERT DEMO
+const LIKERT_QS=[
+  'Peer feedback helps me identify weaknesses in my writing.',
+  'I feel confident when giving feedback to my peers.',
+  'I prefer teacher feedback to peer feedback. (reversed)',
+  'Participating in peer feedback activities wastes my time. (reversed)',
+  'Peer feedback has improved my overall writing quality.'
+];
+const LIKERT_LABELS=['Strongly Disagree','Disagree','Neither','Agree','Strongly Agree'];
+let likertAnswers=new Array(LIKERT_QS.length).fill(null);
+
+function initLikert(){
+  document.getElementById('likert-qs').innerHTML=LIKERT_QS.map((q,qi)=>`
+    <div class="likert-wrap">
+      <div class="likert-q">${qi+1}. ${q}</div>
+      <div class="likert-scale">${[1,2,3,4,5].map(n=>`<div class="likert-btn" id="lk-${qi}-${n}" onclick="selectLikert(${qi},${n})"><div class="likert-num">${n}</div><div class="likert-label">${LIKERT_LABELS[n-1]}</div></div>`).join('')}</div>
+    </div>`).join('');
+}
+function selectLikert(qi,n){
+  [1,2,3,4,5].forEach(j=>{const el=document.getElementById(`lk-${qi}-${j}`);if(el)el.classList.remove('selected');});
+  document.getElementById(`lk-${qi}-${n}`).classList.add('selected');
+  likertAnswers[qi]=n;
+}
+function showLikertResults(){
+  const answered=likertAnswers.filter(a=>a!==null);
+  if(answered.length<LIKERT_QS.length){alert('Answer all 5 items first.');return;}
+  // Reverse items 3 and 4 (index 2 and 3)
+  const scores=likertAnswers.map((a,i)=>(i===2||i===3)?6-a:a);
+  const mean=(scores.reduce((s,a)=>s+a,0)/scores.length).toFixed(1);
+  const res=document.getElementById('likert-results');
+  res.style.display='block';
+  res.innerHTML=`<strong>Your scores:</strong> ${scores.join(', ')} (reversed items adjusted)<br><strong>Mean score: ${mean}/5</strong><br><br>${mean>=4?'High positive attitude toward peer feedback (mean ≥ 4.0)':mean>=3?'Neutral to moderate attitude (mean 3.0–3.9)':'Low or negative attitude toward peer feedback (mean < 3.0)'}<br><br><em>In a real study, you would calculate this for all participants and report: M = ${mean}, SD = [calculated]</em>`;
+}
+
+// BAD QUESTION FIXER
+const BAD_QS=[
+  {bad:'"I enjoy and benefit from peer feedback activities."',problem:'Double-barrelled — asks two things at once (enjoying vs. benefiting). A participant might agree with one but not the other.',fix:'Split into two items: (1) "I enjoy peer feedback activities." and (2) "Peer feedback helps me improve my writing."'},
+  {bad:'"Don\'t you agree that peer feedback is helpful for all students?"',problem:"Leading question — the phrasing pressures participants to agree. Produces biased data.",fix:'"Peer feedback is helpful for improving student writing." (1=Strongly Disagree → 5=Strongly Agree)'},
+  {bad:'"Do you often use socially-constructed interactional scaffolding during peer review tasks?"',problem:'Jargon — most EFL undergraduates will not understand "socially-constructed interactional scaffolding".',fix:'"During peer review, I help my classmates understand their mistakes by explaining them in detail." (Likert scale)'},
+  {bad:'"Is peer feedback good? □ Yes □ No"',problem:'Binary yes/no for a nuanced attitude question. Does not measure degree of agreement.',fix:'"Peer feedback is an effective strategy for developing writing skills." (1=Strongly Disagree → 5=Strongly Agree)'},
+  {bad:'"How much do you sometimes write?"',problem:'Vague and ambiguous — "how much," "sometimes," and "write" are all undefined. Participants will interpret this differently.',fix:'"How many hours per week do you spend on academic writing tasks outside of class? □ 0 □ 1–2 □ 3–4 □ 5+"'}
+];
+
+function initFixer(){
+  document.getElementById('fixer-qs').innerHTML=BAD_QS.map((item,i)=>`
+    <div class="bq-item">
+      <div class="bq-bad">✗ "${item.bad}"</div>
+      <div class="bq-problem">Problem: ${item.problem}</div>
+      <button class="btn btn-outline btn-sm" onclick="showFix(${i},this)">Reveal fix</button>
+      <div class="bq-fix" id="bq-fix-${i}">✓ Better version: ${item.fix}</div>
+    </div>`).join('');
+}
+function showFix(i,btn){document.getElementById('bq-fix-'+i).classList.add('show');btn.style.display='none';}
+
+// INSTRUMENT QUIZ
+const IQ=[
+  {q:"Which of these is an example of a double-barrelled question?",opts:["'I enjoy and benefit from peer feedback activities.'","'Peer feedback is helpful for improving my writing.'","'How often do you revise your writing after peer feedback?'","'Rate your satisfaction with peer feedback sessions.'"],ans:0,fb:"Double-barrelled = two questions in one ('enjoy' AND 'benefit'). A participant might strongly agree with benefiting but not enjoy it. Always split into two separate items."},
+  {q:"A Likert scale questionnaire should typically have how many scale points?",opts:["5 or 7","2 (yes/no)","10","As many as needed — there is no rule"],ans:0,fb:"5-point and 7-point Likert scales are standard in educational research. 2 points (yes/no) is not a Likert scale. 10 points is unnecessarily fine-grained and harder to interpret."},
+  {q:"Why should you include some 'reversed' items in a Likert questionnaire?",opts:["To detect participants who are not reading carefully and ticking the same number throughout","To make the questionnaire longer","To collect negative data only","Reversed items are not recommended in APA 7 research"],ans:0,fb:"Reversed items (e.g. 'Peer feedback wastes my time') require the participant to think before answering. If someone circles '5' for every item including a reversed one, they are likely not engaging. You reverse-score these items in analysis."},
+  {q:"What is the main advantage of open questions over closed questions in a research instrument?",opts:["They produce rich, unexpected responses that reveal how participants think and feel","They are easier to analyse statistically","They guarantee higher response rates","They do not require ethical approval"],ans:0,fb:"Open questions let participants respond in their own words — revealing attitudes, explanations, and perspectives you didn't anticipate. The trade-off is that they are harder to analyse (require thematic coding)."},
+  {q:"You are studying how often students use peer feedback. Which instrument is MOST appropriate?",opts:["A questionnaire with frequency items (Never / Rarely / Sometimes / Often / Always)","An observation protocol with coding categories","A semi-structured interview with 6 participants","A document analysis of students' essays"],ans:0,fb:"Frequency of behaviour = closed questionnaire with ordinal response options. Observation would also work but is more time-consuming for a large group. Interviews and document analysis don't efficiently capture frequency."}
+];
+let iqIndex=0,iqScore=0,iqAnswered=false;
+function renderIQ(){if(iqIndex>=IQ.length){showIQScore();return;}const q=IQ[iqIndex];document.getElementById('iq-prog').style.width=(iqIndex/IQ.length*100)+'%';document.getElementById('iq-container').innerHTML=`<div class="ex-card"><div class="ex-num">Question ${iqIndex+1} of ${IQ.length}</div><div class="ex-q">${q.q}</div><div class="ex-options" id="iq-opts">${q.opts.map((o,i)=>`<button class="ex-opt" onclick="answerIQ(${i})">${o}</button>`).join('')}</div><div class="ex-feedback" id="iq-fb"></div><div><button class="btn btn-primary btn-sm" id="iq-next" style="display:none;margin-top:14px" onclick="nextIQ()">Next →</button></div></div>`;iqAnswered=false;}
+function answerIQ(i){if(iqAnswered)return;iqAnswered=true;const q=IQ[iqIndex];document.querySelectorAll('#iq-opts .ex-opt').forEach((b,j)=>{b.disabled=true;if(j===q.ans)b.classList.add('correct-ans');else if(j===i&&i!==q.ans)b.classList.add('wrong-ans');});if(i===q.ans)iqScore++;const fb=document.getElementById('iq-fb');fb.textContent=q.fb;fb.className='ex-feedback show '+(i===q.ans?'fb-correct':'fb-wrong');document.getElementById('iq-next').style.display='inline-block';}
+function nextIQ(){iqIndex++;renderIQ();}
+function showIQScore(){document.getElementById('iq-prog').style.width='100%';document.getElementById('iq-container').style.display='none';const pct=Math.round(iqScore/IQ.length*100);document.getElementById('iq-score').style.display='block';document.getElementById('iq-score').innerHTML=`<div class="score-big">${pct}%</div><div class="score-sub">${iqScore}/${IQ.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct>=80?"Strong instrument design knowledge.":"Review the Likert demo and bad-question fixer tabs."}</p><button class="btn btn-primary" onclick="resetIQ()">Retry</button>`;}
+function resetIQ(){iqIndex=0;iqScore=0;document.getElementById('iq-container').style.display='block';document.getElementById('iq-score').style.display='none';renderIQ();}
+
+initTypeQs();initLikert();initFixer();renderIQ();
+</script>
+</body>
+</html>

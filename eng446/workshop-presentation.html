@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presentation Workshop | ENG 446</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+body{background:var(--off-white);}
+.tab-bar{display:flex;gap:4px;background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-xs);padding:6px;margin-bottom:28px;flex-wrap:wrap;}
+.tab-btn{flex:1;min-width:110px;padding:10px 16px;border:none;background:transparent;border-radius:var(--r-md);font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;transition:all .15s;}
+.tab-btn:hover{background:var(--off-white);}
+.tab-btn.active{background:#0ea5e9;color:#fff;}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.ex-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:24px;margin-bottom:20px;}
+.ex-num{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#0ea5e9;margin-bottom:8px;}
+.ex-q{font-size:15px;font-weight:600;color:var(--text);margin-bottom:16px;line-height:1.6;}
+.ex-opt{padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:14px;cursor:pointer;transition:all .15s;background:var(--white);color:var(--text);text-align:left;display:block;width:100%;margin-bottom:8px;}
+.ex-opt:hover{border-color:var(--text-2);}
+.ex-opt.correct-ans{border-color:#30d158;background:#f0fff4;color:#1a7f45;}
+.ex-opt.correct-ans::after{content:" ✓";font-weight:800;}
+.ex-opt.wrong-ans{border-color:#e53935;background:#fef2f2;color:#c0392b;}
+.ex-opt.wrong-ans::after{content:" ✗";font-weight:800;}
+.ex-feedback{margin-top:14px;padding:12px 16px;border-radius:var(--r-md);font-size:13px;line-height:1.7;display:none;}
+.ex-feedback.show{display:block;}
+.fb-correct{background:#f0fff4;border:1px solid #a2d9b0;color:#14532d;}
+.fb-wrong{background:#fef2f2;border:1px solid #fca5a5;color:#7f1d1d;}
+.tip-box{background:#f0f9ff;border:1.5px solid #93c5fd;border-radius:var(--r-md);padding:14px 16px;font-size:13px;line-height:1.7;color:#0c4a6e;margin-bottom:20px;}
+.tip-box strong{color:#0ea5e9;}
+.prog-bar-wrap{height:6px;background:var(--off-white);border-radius:var(--r-pill);margin-bottom:24px;overflow:hidden;}
+.prog-bar{height:100%;background:#0ea5e9;border-radius:var(--r-pill);transition:width .4s;}
+.score-summary{text-align:center;padding:32px 20px;}
+.score-big{font-size:56px;font-weight:800;color:#0ea5e9;line-height:1;margin-bottom:8px;}
+.score-sub{font-size:14px;color:var(--text-2);}
+
+/* Timer */
+.timer-display{font-size:72px;font-weight:800;color:var(--text);text-align:center;letter-spacing:-2px;font-variant-numeric:tabular-nums;transition:color .3s;}
+.timer-display.warning{color:#f59e0b;}
+.timer-display.danger{color:#e53935;}
+.timer-controls{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
+.slide-plan{display:flex;flex-direction:column;gap:8px;margin-top:16px;}
+.slide-row{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--off-white);border-radius:var(--r-md);}
+.slide-num{width:28px;height:28px;border-radius:50%;background:#0ea5e9;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.slide-info{flex:1;font-size:13px;}
+.slide-title{font-weight:600;color:var(--text);}
+.slide-time{font-size:11px;color:var(--text-3);}
+
+/* Q&A practice */
+.qa-card{background:var(--off-white);border-radius:var(--r-md);padding:16px;margin-bottom:14px;}
+.qa-question{font-size:14px;font-weight:600;color:var(--text);margin-bottom:10px;}
+.qa-answer{display:none;background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-md);padding:12px 14px;font-size:13px;line-height:1.7;color:var(--text-2);}
+.qa-answer.show{display:block;}
+
+/* Rubric */
+.rubric-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px;}
+.rubric-check{width:22px;height:22px;border-radius:5px;border:2px solid var(--border);cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;transition:all .15s;}
+.rubric-check.checked{background:#0ea5e9;border-color:#0ea5e9;color:#fff;}
+.rubric-text{font-size:14px;color:var(--text-2);line-height:1.5;padding-top:1px;}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 446</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Presentation Workshop</span>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:40px;">
+  <div class="hero-eyebrow">Workshop · Day 18 · Tue Aug 4</div>
+  <h1>Presentation Workshop</h1>
+  <p class="hero-sub">10-minute timer, slide planner, Q&amp;A practice, and self-assessment rubric</p>
+  <div class="hero-meta">
+    <span class="badge" style="background:#f0f9ff;color:#0ea5e9;border:1px solid #93c5fd;">🎤 Presentations: Aug 9–10</span>
+  </div>
+</div>
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('timer',this)">⏱️ Timer + Plan</button>
+    <button class="tab-btn" onclick="switchTab('qa',this)">❓ Q&amp;A Practice</button>
+    <button class="tab-btn" onclick="switchTab('rubric',this)">✅ Self-Assessment</button>
+    <button class="tab-btn" onclick="switchTab('quiz',this)">📝 Quiz</button>
+  </div>
+
+  <!-- TAB 1 — TIMER + SLIDE PLANNER -->
+  <div id="tab-timer" class="tab-panel active">
+    <div class="tip-box"><strong>Your presentation: 10 minutes + 3 minutes Q&amp;A.</strong> Use the timer below for dry runs on Day 18. The slide plan shows how long to spend on each section. Practice stopping at or before 10:00.</div>
+    <div class="ex-card" style="text-align:center;">
+      <div class="ex-num">Presentation Timer</div>
+      <div class="timer-display" id="timer-display">10:00</div>
+      <div style="font-size:12px;color:var(--text-3);margin-top:8px;" id="timer-status">Ready to start</div>
+      <div class="timer-controls">
+        <button class="btn btn-primary" id="timer-start" onclick="startTimer()">▶ Start</button>
+        <button class="btn btn-outline" id="timer-pause" onclick="pauseTimer()" style="display:none;">⏸ Pause</button>
+        <button class="btn btn-outline" onclick="resetTimer()">↺ Reset</button>
+      </div>
+      <div style="margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+        <button class="btn btn-outline btn-sm" onclick="setTimer(600)">10 min</button>
+        <button class="btn btn-outline btn-sm" onclick="setTimer(180)">3 min (Q&amp;A)</button>
+        <button class="btn btn-outline btn-sm" onclick="setTimer(60)">1 min</button>
+      </div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Recommended slide breakdown for 10 minutes</div>
+      <div class="slide-plan">
+        <div class="slide-row"><div class="slide-num">1</div><div class="slide-info"><div class="slide-title">Title slide + hook</div><div class="slide-time">~30 sec — state your research topic compellingly</div></div></div>
+        <div class="slide-row"><div class="slide-num">2</div><div class="slide-info"><div class="slide-title">Research problem + research question</div><div class="slide-time">~1 min — what gap exists? what did you investigate?</div></div></div>
+        <div class="slide-row"><div class="slide-num">3</div><div class="slide-info"><div class="slide-title">Literature overview</div><div class="slide-time">~1.5 min — 2–3 key findings from prior research</div></div></div>
+        <div class="slide-row"><div class="slide-num">4</div><div class="slide-info"><div class="slide-title">Methodology</div><div class="slide-time">~1.5 min — research design, participants, instrument, analysis</div></div></div>
+        <div class="slide-row"><div class="slide-num">5–6</div><div class="slide-info"><div class="slide-title">Findings</div><div class="slide-time">~3 min — 2–3 main findings with data (chart or table on screen)</div></div></div>
+        <div class="slide-row"><div class="slide-num">7</div><div class="slide-info"><div class="slide-title">Discussion</div><div class="slide-time">~1.5 min — what do findings mean? connect back to literature</div></div></div>
+        <div class="slide-row"><div class="slide-num">8</div><div class="slide-info"><div class="slide-title">Conclusion + recommendations</div><div class="slide-time">~30 sec — brief, punchy takeaway</div></div></div>
+      </div>
+      <div style="margin-top:16px;font-size:12px;color:var(--text-3);">Total: ~10 min. Aim for 7–9 slides. Avoid reading from the slides — use them as visual anchors only.</div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Opening hook ideas — choose one for your presentation</div>
+      <div style="display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--text-2);">
+        <div style="background:var(--off-white);padding:12px;border-radius:var(--r-md);"><strong style="color:var(--text);">Surprising statistic:</strong> "A 2021 survey found that 80% of university students in Saudi Arabia use social media for more than 4 hours per day — yet its effect on academic writing has received almost no attention in the literature."</div>
+        <div style="background:var(--off-white);padding:12px;border-radius:var(--r-md);"><strong style="color:var(--text);">Rhetorical question:</strong> "Have you ever spent more time revising a peer's essay than your own? If so, you may already know why giving feedback can sometimes teach more than receiving it."</div>
+        <div style="background:var(--off-white);padding:12px;border-radius:var(--r-md);"><strong style="color:var(--text);">Define the gap directly:</strong> "Despite decades of peer feedback research, almost no study has examined its effectiveness specifically among Saudi EFL learners at the undergraduate level. Our study begins to fill that gap."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2 — Q&A PRACTICE -->
+  <div id="tab-qa" class="tab-panel">
+    <div class="tip-box"><strong>During the 3-minute Q&A:</strong> Listen carefully, repeat or rephrase the question, answer directly (don't ramble), and if you don't know — say so honestly. Practise with these likely questions from your audience and Dr. Alatrash.</div>
+    <div class="ex-card">
+      <div class="ex-num">Likely Q&A questions — click to reveal a model answer strategy</div>
+      <div id="qa-items"></div>
+    </div>
+  </div>
+
+  <!-- TAB 3 — SELF-ASSESSMENT RUBRIC -->
+  <div id="tab-rubric" class="tab-panel">
+    <div class="tip-box"><strong>Use this rubric on Day 18</strong> after your dry run to identify what to polish before the real presentation on Aug 9–10.</div>
+    <div class="ex-card">
+      <div class="ex-num">Presentation self-assessment</div>
+      <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
+        <div><div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:2px;">Score</div><div id="pres-score" style="font-size:24px;font-weight:800;color:#0ea5e9;">0 / 15</div></div>
+        <div style="flex:1;height:8px;background:var(--off-white);border-radius:var(--r-pill);overflow:hidden;"><div id="pres-bar" style="height:100%;background:#0ea5e9;border-radius:var(--r-pill);transition:width .3s;width:0%"></div></div>
+      </div>
+      <div id="rubric-items"></div>
+      <div style="margin-top:16px;" id="pres-verdict"></div>
+    </div>
+  </div>
+
+  <!-- TAB 4 — QUIZ -->
+  <div id="tab-quiz" class="tab-panel">
+    <div class="prog-bar-wrap"><div class="prog-bar" id="pq-prog" style="width:0%"></div></div>
+    <div id="pq-container"></div>
+    <div id="pq-score" class="score-summary" style="display:none;"></div>
+  </div>
+</div>
+</div>
+<footer><strong>ENG 446 Research Methods</strong> · Presentation Workshop · Qassim University · Summer 2026<br><a href="index.html">Course Hub</a> · <a href="syllabus.html">Syllabus</a></footer>
+<script>
+function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
+
+// ── TIMER ────────────────────────────────────────────────────────────────────
+let timerSec=600,timerInterval=null,timerRunning=false;
+function pad(n){return String(n).padStart(2,'0');}
+function updateTimerDisplay(){
+  const m=Math.floor(timerSec/60),s=timerSec%60;
+  const disp=document.getElementById('timer-display');
+  disp.textContent=pad(m)+':'+pad(s);
+  if(timerSec<=30)disp.className='timer-display danger';
+  else if(timerSec<=120)disp.className='timer-display warning';
+  else disp.className='timer-display';
+}
+function startTimer(){
+  if(timerRunning)return;
+  timerRunning=true;
+  document.getElementById('timer-start').style.display='none';
+  document.getElementById('timer-pause').style.display='inline-block';
+  document.getElementById('timer-status').textContent='Presenting…';
+  timerInterval=setInterval(()=>{
+    if(timerSec<=0){clearInterval(timerInterval);timerRunning=false;document.getElementById('timer-status').textContent='Time up!';document.getElementById('timer-display').className='timer-display danger';document.getElementById('timer-pause').style.display='none';document.getElementById('timer-start').style.display='inline-block';return;}
+    timerSec--;updateTimerDisplay();
+  },1000);
+}
+function pauseTimer(){clearInterval(timerInterval);timerRunning=false;document.getElementById('timer-pause').style.display='none';document.getElementById('timer-start').style.display='inline-block';document.getElementById('timer-status').textContent='Paused';}
+function resetTimer(){clearInterval(timerInterval);timerRunning=false;timerSec=600;updateTimerDisplay();document.getElementById('timer-pause').style.display='none';document.getElementById('timer-start').style.display='inline-block';document.getElementById('timer-status').textContent='Ready to start';}
+function setTimer(sec){resetTimer();timerSec=sec;updateTimerDisplay();}
+
+// ── Q&A ──────────────────────────────────────────────────────────────────────
+const QA_ITEMS=[
+  {q:"Why did you choose this specific research topic?",a:"Answer strategy: Link to a genuine observation or gap. 'We noticed that [observation] in our own experience as students/learners, and when we searched the literature, we found that very few studies had examined this specifically among [your participants]. That gap motivated us.'"},
+  {q:"How did you ensure your results are reliable and valid?",a:"Answer strategy: Mention piloting (if done), triangulation (if mixed methods), or member checking (qualitative). 'We piloted the questionnaire with three peers before distributing it. We also checked our thematic codes by reviewing them against the original transcripts.'"},
+  {q:"What would you do differently if you repeated this study?",a:"Answer strategy: Mention sample size, instrument refinement, or a different method. 'We would increase the sample size to improve generalisability, and we would add follow-up interviews to explain the patterns we found in the survey data.'"},
+  {q:"Can your findings be generalised to all Saudi EFL students?",a:"Answer strategy: Be honest about limitations. 'Our sample was limited to [N] students at Qassim University, so we cannot claim broad generalisation. However, our findings may be transferable to similar institutional contexts. Further research with larger, more diverse samples is needed.'"},
+  {q:"What is the practical implication of your research for teachers?",a:"Answer strategy: Connect findings directly to pedagogical action. 'Based on our findings, we recommend that instructors [specific action]. For example, since students reported [finding], teachers could [practical intervention].'"},
+  {q:"Why did you choose a questionnaire rather than interviews?",a:"Answer strategy: Justify by research question. 'Our research question asked about the frequency and extent of [phenomenon] across a group — questionnaires allow us to gather data from a larger sample efficiently. If we had wanted to explore individual experiences in depth, interviews would have been more appropriate.'"}
+];
+
+function initQA(){
+  document.getElementById('qa-items').innerHTML=QA_ITEMS.map((item,i)=>`
+    <div class="qa-card">
+      <div class="qa-question">❓ "${item.q}"</div>
+      <button class="btn btn-outline btn-sm" onclick="showQA(${i},this)">See answer strategy</button>
+      <div class="qa-answer" id="qa-ans-${i}">${item.a}</div>
+    </div>`).join('');
+}
+function showQA(i,btn){document.getElementById('qa-ans-'+i).classList.add('show');btn.style.display='none';}
+
+// ── RUBRIC ────────────────────────────────────────────────────────────────────
+const RUBRIC_ITEMS=[
+  "The presentation opens with a clear hook (statistic, question, or gap statement).",
+  "The research question is stated clearly and early.",
+  "The literature overview synthesises sources (not just lists them).",
+  "The methodology slide covers design, participants, instrument, and analysis.",
+  "At least 2 findings are presented with supporting data (table, chart, or quote).",
+  "Findings are interpreted — not just stated.",
+  "The conclusion links back to the research question.",
+  "All group members speak during the presentation.",
+  "The group leader introduces the team and manages transitions smoothly.",
+  "Slides are not overcrowded — bullet points, not full paragraphs.",
+  "The group stays within the 10-minute time limit.",
+  "The group is prepared for Q&A with substantive answers.",
+  "Language is academic and clear — no informal register.",
+  "Visuals (charts, tables) are readable from the audience's distance.",
+  "The group can explain their methodology choices if asked."
+];
+
+let rubricScore=0;
+function initRubric(){
+  document.getElementById('rubric-items').innerHTML=RUBRIC_ITEMS.map((item,i)=>`
+    <div class="rubric-row">
+      <div class="rubric-check" id="pr-${i}" onclick="toggleRubric(${i})">—</div>
+      <div class="rubric-text">${item}</div>
+    </div>`).join('');
+}
+function toggleRubric(i){
+  const el=document.getElementById('pr-'+i);
+  const checked=el.classList.toggle('checked');
+  el.textContent=checked?'✓':'—';
+  rubricScore=document.querySelectorAll('#rubric-items .rubric-check.checked').length;
+  const total=RUBRIC_ITEMS.length;
+  const pct=Math.round(rubricScore/total*100);
+  document.getElementById('pres-score').textContent=`${rubricScore} / ${total}`;
+  document.getElementById('pres-bar').style.width=pct+'%';
+  const vd=document.getElementById('pres-verdict');
+  if(pct>=80)vd.innerHTML='<div class="ex-feedback show fb-correct">Presentation ready — strong on most criteria. Polish the unchecked items.</div>';
+  else if(pct>=50)vd.innerHTML='<div class="ex-feedback show fb-wrong">Several areas need work. Focus on the unchecked items before Aug 9.</div>';
+  else vd.innerHTML='<div class="ex-feedback show fb-wrong">Significant preparation needed. Work through each unchecked item systematically.</div>';
+}
+
+// ── QUIZ ──────────────────────────────────────────────────────────────────────
+const PQ=[
+  {q:"How long is each group's presentation?",opts:["10 minutes + 3 minutes Q&A","15 minutes with no Q&A","5 minutes + open discussion","20 minutes total"],ans:0,fb:"Each group presents for 10 minutes followed by 3 minutes of Q&A. Practice stopping at exactly 10 minutes."},
+  {q:"Which groups present on Day 19 (Sun Aug 9)?",opts:["Groups 1–5","Groups 6–10","All groups present both days","Groups are randomly assigned on the day"],ans:0,fb:"Groups 1–5 present on Sunday Aug 9; Groups 6–10 on Monday Aug 10. Check which group you are in via the Groups page."},
+  {q:"What is the best strategy if you don't know the answer to a Q&A question?",opts:["Acknowledge that you don't know and explain what further research would be needed","Make up an answer confidently","Say nothing and move on","Blame another group member"],ans:0,fb:"Saying 'we don't have sufficient data to answer that definitively — future research could...' is academically honest and demonstrates research literacy. Making up answers is much worse than admitting a limitation."},
+  {q:"How many slides should a 10-minute academic presentation typically have?",opts:["7–9 slides","20–25 slides","2–3 slides","As many as possible to show thoroughness"],ans:0,fb:"7–9 slides is the standard for a 10-minute presentation. Too few = rushed and thin. Too many = rushed through and overwhelming. Each slide should support ~1–1.5 minutes of speaking."},
+  {q:"Which of these is the WEAKEST opening for a research presentation?",opts:["'Our presentation title is The Effect of Peer Feedback on Writing Quality. We will now begin.'","'80% of EFL students report receiving unclear feedback from peers — yet feedback quality is rarely studied in Saudi contexts.'","'Have you ever wondered why some feedback helps you improve while other feedback feels useless?'","'Despite extensive research on peer feedback, almost no study has focused on Saudi undergraduates.'"],ans:0,fb:"The weakest opening simply states the title and says 'we will now begin' — it is mechanical and fails to engage the audience. The other options use a statistic, rhetorical question, or gap statement — all effective hooks."}
+];
+let pqIndex=0,pqScore=0,pqAnswered=false;
+function renderPQ(){if(pqIndex>=PQ.length){showPQScore();return;}const q=PQ[pqIndex];document.getElementById('pq-prog').style.width=(pqIndex/PQ.length*100)+'%';document.getElementById('pq-container').innerHTML=`<div class="ex-card"><div class="ex-num">Question ${pqIndex+1} of ${PQ.length}</div><div class="ex-q">${q.q}</div><div class="ex-options" id="pq-opts">${q.opts.map((o,i)=>`<button class="ex-opt" onclick="answerPQ(${i})">${o}</button>`).join('')}</div><div class="ex-feedback" id="pq-fb"></div><div><button class="btn btn-primary btn-sm" id="pq-next" style="display:none;margin-top:14px" onclick="nextPQ()">Next →</button></div></div>`;pqAnswered=false;}
+function answerPQ(i){if(pqAnswered)return;pqAnswered=true;const q=PQ[pqIndex];document.querySelectorAll('#pq-opts .ex-opt').forEach((b,j)=>{b.disabled=true;if(j===q.ans)b.classList.add('correct-ans');else if(j===i&&i!==q.ans)b.classList.add('wrong-ans');});if(i===q.ans)pqScore++;const fb=document.getElementById('pq-fb');fb.textContent=q.fb;fb.className='ex-feedback show '+(i===q.ans?'fb-correct':'fb-wrong');document.getElementById('pq-next').style.display='inline-block';}
+function nextPQ(){pqIndex++;renderPQ();}
+function showPQScore(){document.getElementById('pq-prog').style.width='100%';document.getElementById('pq-container').style.display='none';const pct=Math.round(pqScore/PQ.length*100);document.getElementById('pq-score').style.display='block';document.getElementById('pq-score').innerHTML=`<div class="score-big">${pct}%</div><div class="score-sub">${pqScore}/${PQ.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">Good luck on Aug ${pqIndex===0?'9–10':'9–10'}!</p><button class="btn btn-primary" onclick="resetPQ()">Retry</button>`;}
+function resetPQ(){pqIndex=0;pqScore=0;document.getElementById('pq-container').style.display='block';document.getElementById('pq-score').style.display='none';renderPQ();}
+
+initQA();initRubric();renderPQ();
+</script>
+</body>
+</html>

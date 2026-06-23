@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Design Workshop | ENG 446</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+body { background: var(--off-white); }
+.tab-bar { display:flex; gap:4px; background:var(--white); border-radius:var(--r-xl); box-shadow:var(--shadow-xs); padding:6px; margin-bottom:28px; flex-wrap:wrap; }
+.tab-btn { flex:1; min-width:130px; padding:10px 16px; border:none; background:transparent; border-radius:var(--r-md); font-size:13px; font-weight:600; color:var(--text-2); cursor:pointer; transition:all .15s; }
+.tab-btn:hover { background:var(--off-white); }
+.tab-btn.active { background:#7c3aed; color:#fff; }
+.tab-panel { display:none; }
+.tab-panel.active { display:block; }
+.ex-card { background:var(--white); border-radius:var(--r-xl); box-shadow:var(--shadow-sm); padding:24px; margin-bottom:20px; }
+.ex-num { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:#7c3aed; margin-bottom:8px; }
+.ex-q { font-size:15px; font-weight:600; color:var(--text); margin-bottom:16px; line-height:1.6; }
+.ex-options { display:flex; flex-direction:column; gap:8px; }
+.ex-opt { padding:12px 16px; border:1.5px solid var(--border); border-radius:var(--r-md); font-size:14px; cursor:pointer; transition:all .15s; background:var(--white); color:var(--text); text-align:left; }
+.ex-opt:hover { border-color:var(--text-2); }
+.ex-opt.correct-ans { border-color:#30d158; background:#f0fff4; color:#1a7f45; }
+.ex-opt.correct-ans::after { content:" ✓"; font-weight:800; }
+.ex-opt.wrong-ans { border-color:#e53935; background:#fef2f2; color:#c0392b; }
+.ex-opt.wrong-ans::after { content:" ✗"; font-weight:800; }
+.ex-feedback { margin-top:14px; padding:12px 16px; border-radius:var(--r-md); font-size:13px; line-height:1.7; display:none; }
+.ex-feedback.show { display:block; }
+.fb-correct { background:#f0fff4; border:1px solid #a2d9b0; color:#14532d; }
+.fb-wrong   { background:#fef2f2; border:1px solid #fca5a5; color:#7f1d1d; }
+.tip-box { background:#f5f0ff; border:1.5px solid #c4b5fd; border-radius:var(--r-md); padding:14px 16px; font-size:13px; line-height:1.7; color:#3b0764; margin-bottom:20px; }
+.tip-box strong { color:#7c3aed; }
+.prog-bar-wrap { height:6px; background:var(--off-white); border-radius:var(--r-pill); margin-bottom:24px; overflow:hidden; }
+.prog-bar { height:100%; background:#7c3aed; border-radius:var(--r-pill); transition:width .4s; }
+.score-summary { text-align:center; padding:32px 20px; }
+.score-big { font-size:56px; font-weight:800; color:#7c3aed; line-height:1; margin-bottom:8px; }
+.score-sub { font-size:14px; color:var(--text-2); }
+
+/* Paradigm quiz */
+.pq-option { display:flex; align-items:flex-start; gap:14px; padding:16px; border:1.5px solid var(--border); border-radius:var(--r-md); margin-bottom:10px; cursor:pointer; transition:all .15s; background:var(--white); }
+.pq-option:hover { border-color:#7c3aed; }
+.pq-option.selected { border-color:#7c3aed; background:#f5f0ff; }
+.pq-radio { width:20px; height:20px; border-radius:50%; border:2px solid var(--border); flex-shrink:0; margin-top:2px; transition:all .15s; }
+.pq-option.selected .pq-radio { border-color:#7c3aed; background:#7c3aed; }
+.pq-label { font-size:14px; color:var(--text); line-height:1.5; }
+
+/* Method matching */
+.match-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.match-question { background:var(--off-white); padding:14px; border-radius:var(--r-md); font-size:13px; line-height:1.6; color:var(--text); }
+.match-select { width:100%; padding:8px 10px; border:1.5px solid var(--border); border-radius:var(--r-md); font-size:13px; font-family:inherit; margin-top:8px; background:var(--white); }
+.match-select.correct { border-color:#30d158; background:#f0fff4; }
+.match-select.wrong   { border-color:#e53935; background:#fef2f2; }
+
+/* Paradigm result */
+.paradigm-result { border-radius:var(--r-lg); padding:20px; margin-top:20px; display:none; }
+.paradigm-result.show { display:block; }
+.pr-positivist { background:#eff6ff; border:2px solid #93c5fd; }
+.pr-interpretivist { background:#f5f0ff; border:2px solid #c4b5fd; }
+.pr-constructivist { background:#f0fff4; border:2px solid #a2d9b0; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 446</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Research Design Workshop</span>
+  </div>
+</nav>
+
+<div class="hero" style="padding-bottom:40px;">
+  <div class="hero-eyebrow">Workshop · Days 2 · 10</div>
+  <h1>Research Design Workshop</h1>
+  <p class="hero-sub">Paradigm questionnaire, method-to-question matching, and design identification quiz</p>
+</div>
+
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('paradigm',this)">🔭 Paradigm Sorter</button>
+    <button class="tab-btn" onclick="switchTab('matching',this)">🎯 Method Matching</button>
+    <button class="tab-btn" onclick="switchTab('quiz',this)">📝 Design Quiz</button>
+  </div>
+
+  <!-- ══ TAB 1 — PARADIGM SORTER ══ -->
+  <div id="tab-paradigm" class="tab-panel active">
+    <div class="tip-box">
+      <strong>Research paradigm</strong> = your philosophical stance on how knowledge is produced. Three paradigms matter for ENG 446: <strong>Positivist</strong> (objective reality, measurable, quantitative), <strong>Interpretivist</strong> (subjective experience, meaning-making, qualitative), <strong>Constructivist</strong> (knowledge built through interaction and context). Your paradigm shapes every other design decision.
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Paradigm Questionnaire — for your group's research</div>
+      <p style="font-size:13px;color:var(--text-2);margin-bottom:20px;">Answer these 6 questions based on your group's research topic and goals. Your paradigm will be revealed at the end.</p>
+      <div id="paradigm-qs"></div>
+      <button class="btn btn-primary" onclick="revealParadigm()" style="margin-top:16px;">Reveal my paradigm →</button>
+      <div class="paradigm-result" id="paradigm-result"></div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Paradigm comparison table</div>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:13px;">
+          <thead><tr style="background:var(--off-white);">
+            <th style="padding:10px;text-align:left;border-bottom:2px solid var(--border);">Feature</th>
+            <th style="padding:10px;text-align:left;border-bottom:2px solid var(--border);color:#0071e3;">Positivist</th>
+            <th style="padding:10px;text-align:left;border-bottom:2px solid var(--border);color:#7c3aed;">Interpretivist</th>
+            <th style="padding:10px;text-align:left;border-bottom:2px solid var(--border);color:#059669;">Constructivist</th>
+          </tr></thead>
+          <tbody>
+            <tr><td style="padding:10px;border-bottom:1px solid var(--border-light);">Nature of reality</td><td style="padding:10px;border-bottom:1px solid var(--border-light);">Single, objective</td><td style="padding:10px;border-bottom:1px solid var(--border-light);">Multiple, subjective</td><td style="padding:10px;border-bottom:1px solid var(--border-light);">Socially constructed</td></tr>
+            <tr><td style="padding:10px;border-bottom:1px solid var(--border-light);">Typical method</td><td style="padding:10px;border-bottom:1px solid var(--border-light);">Surveys, experiments</td><td style="padding:10px;border-bottom:1px solid var(--border-light);">Interviews, observations</td><td style="padding:10px;border-bottom:1px solid var(--border-light);">Case studies, ethnography</td></tr>
+            <tr><td style="padding:10px;border-bottom:1px solid var(--border-light);">Data type</td><td style="padding:10px;border-bottom:1px solid var(--border-light);">Numbers, statistics</td><td style="padding:10px;border-bottom:1px solid var(--border-light);">Words, themes, meanings</td><td style="padding:10px;border-bottom:1px solid var(--border-light);">Context, interaction</td></tr>
+            <tr><td style="padding:10px;border-bottom:1px solid var(--border-light);">Researcher role</td><td style="padding:10px;border-bottom:1px solid var(--border-light);">Detached, objective</td><td style="padding:10px;border-bottom:1px solid var(--border-light);">Engaged, interprets</td><td style="padding:10px;border-bottom:1px solid var(--border-light);">Co-constructor of meaning</td></tr>
+            <tr><td style="padding:10px;">Goal</td><td style="padding:10px;">Generalise findings</td><td style="padding:10px;">Understand experience</td><td style="padding:10px;">Build contextual theory</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TAB 2 — METHOD MATCHING ══ -->
+  <div id="tab-matching" class="tab-panel">
+    <div class="tip-box">
+      <strong>The method must fit the question.</strong> If your RQ asks "how many?" → quantitative. If it asks "why?" or "how do people experience?" → qualitative. If you need both → mixed methods. Select the best method for each research question below.
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Match each research question to the best method</div>
+      <div class="match-grid" id="match-grid"></div>
+      <button class="btn btn-primary" style="margin-top:20px;" onclick="checkMatches()">Check my answers</button>
+      <div class="ex-feedback" id="match-fb" style="margin-top:14px;"></div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Research design decision tree</div>
+      <div style="font-size:13px;line-height:2;color:var(--text-2);">
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="background:var(--off-white);padding:12px;border-radius:var(--r-md);"><strong style="color:var(--text);">Does your RQ ask about amounts, frequencies, or relationships between measurable variables?</strong><br>→ <strong>Quantitative</strong> (survey with Likert scale, statistical analysis)</div>
+          <div style="background:var(--off-white);padding:12px;border-radius:var(--r-md);"><strong style="color:var(--text);">Does your RQ ask about experiences, perceptions, meanings, or processes?</strong><br>→ <strong>Qualitative</strong> (semi-structured interviews, observation, document analysis)</div>
+          <div style="background:var(--off-white);padding:12px;border-radius:var(--r-md);"><strong style="color:var(--text);">Do you need both breadth (numbers) and depth (meaning)?</strong><br>→ <strong>Mixed methods</strong> (survey + follow-up interviews; analyse numbers first, then explain with words)</div>
+          <div style="background:var(--off-white);padding:12px;border-radius:var(--r-md);"><strong style="color:var(--text);">Do you want to study one case in rich detail?</strong><br>→ <strong>Case study</strong> (can be qualitative or mixed; good for bounded contexts like one classroom)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TAB 3 — DESIGN QUIZ ══ -->
+  <div id="tab-quiz" class="tab-panel">
+    <div class="prog-bar-wrap"><div class="prog-bar" id="dq-prog" style="width:0%"></div></div>
+    <div id="dq-container"></div>
+    <div id="dq-score" class="score-summary" style="display:none;"></div>
+  </div>
+
+</div>
+</div>
+
+<footer>
+  <strong>ENG 446 Research Methods</strong> · Research Design Workshop · Qassim University · Summer 2026<br>
+  <a href="index.html">Course Hub</a> · <a href="syllabus.html">Syllabus</a>
+</footer>
+
+<script>
+function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
+
+// ── PARADIGM SORTER ─────────────────────────────────────────────────────────
+const PQ = [
+  { q:"My research question asks about:", opts:["How many / how much / to what extent (measurable)","Why / how do people feel or experience something","How knowledge is built in a specific social context"], scores:[2,0,1] },
+  { q:"I want to collect:", opts:["Numbers and statistics (Likert scale, frequency counts)","In-depth descriptions, stories, and explanations","A mix of both numbers and participant descriptions"], scores:[2,0,1] },
+  { q:"My analysis will primarily:", opts:["Use statistical tools (mean, frequency, correlation)","Identify themes and meanings in textual data","Combine statistical patterns with thematic interpretation"], scores:[2,0,1] },
+  { q:"I believe the phenomenon I am studying:", opts:["Has an objective reality that exists independently of the people I study","Is shaped by individuals' subjective interpretations and experiences","Is produced through social interaction and shared meaning-making"], scores:[2,0,1] },
+  { q:"My role as a researcher is to:", opts:["Be as objective and neutral as possible — keep myself out of the data","Actively interpret and make sense of participants' perspectives","Co-construct understanding with participants in their natural context"], scores:[2,0,1] },
+  { q:"I want my findings to:", opts:["Generalise to a larger population (statistical inference)","Understand the unique experience of a specific group (transferability)","Generate theory that explains how something works in a specific setting"], scores:[2,0,1] }
+];
+
+let paradigmAnswers = new Array(PQ.length).fill(null);
+
+function initParadigm() {
+  document.getElementById('paradigm-qs').innerHTML = PQ.map((q,qi) =>
+    `<div style="margin-bottom:20px;">
+      <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:10px;">${qi+1}. ${q.q}</div>
+      ${q.opts.map((o,oi) => `<div class="pq-option" id="pq-${qi}-${oi}" onclick="selectPQ(${qi},${oi})"><div class="pq-radio"></div><div class="pq-label">${o}</div></div>`).join('')}
+    </div>`
+  ).join('');
+}
+
+function selectPQ(qi, oi) {
+  PQ[qi].opts.forEach((_,j) => {
+    const el = document.getElementById(`pq-${qi}-${j}`);
+    if (el) el.classList.remove('selected');
+  });
+  document.getElementById(`pq-${qi}-${oi}`).classList.add('selected');
+  paradigmAnswers[qi] = oi;
+}
+
+function revealParadigm() {
+  const answered = paradigmAnswers.filter(a => a !== null).length;
+  if (answered < PQ.length) { alert(`Please answer all ${PQ.length} questions first.`); return; }
+  let totalScore = 0;
+  paradigmAnswers.forEach((ans, qi) => { totalScore += PQ[qi].scores[ans]; });
+  const result = document.getElementById('paradigm-result');
+  let paradigm, className, desc, method, analysis;
+  if (totalScore >= 9) {
+    paradigm = 'Positivist'; className = 'pr-positivist';
+    desc = 'Your research aims to measure an objective reality with quantitative tools. You believe your findings can be generalised.';
+    method = 'Survey (questionnaire with Likert scale or rating items)';
+    analysis = 'Descriptive statistics: frequency counts, mean scores, correlation (if comparing groups)';
+  } else if (totalScore >= 5) {
+    paradigm = 'Mixed / Pragmatist'; className = 'pr-constructivist';
+    desc = 'Your research blends quantitative measurement with qualitative understanding. You use what works for the question — this is a pragmatic, mixed-methods approach.';
+    method = 'Survey for breadth + semi-structured interviews for depth';
+    analysis = 'Descriptive statistics for survey data + thematic analysis for interview data';
+  } else {
+    paradigm = 'Interpretivist'; className = 'pr-interpretivist';
+    desc = 'Your research prioritises understanding subjective experience and meaning. You want to hear participants\' voices, not count them.';
+    method = 'Semi-structured interviews or focus groups';
+    analysis = 'Thematic analysis (Braun & Clarke): read, code, identify themes, write up';
+  }
+  result.className = `paradigm-result show ${className}`;
+  result.innerHTML = `<div style="font-size:20px;font-weight:800;margin-bottom:8px;">🔭 Your paradigm: ${paradigm}</div><p style="font-size:14px;margin-bottom:12px;">${desc}</p><div style="font-size:13px;"><strong>Recommended method:</strong> ${method}<br><strong>Recommended analysis:</strong> ${analysis}</div>`;
+}
+
+// ── METHOD MATCHING ─────────────────────────────────────────────────────────
+const MATCH_ITEMS = [
+  { rq:"To what extent does social media use correlate with academic GPA among EFL undergraduates at Qassim University?", correct:"quantitative", why:"This RQ asks 'to what extent' — a measurable relationship. A Likert-scale survey and correlation analysis fit best." },
+  { rq:"How do Saudi EFL students experience anxiety when participating in oral presentations?", correct:"qualitative", why:"This RQ asks 'how do students experience' — a question about subjective meaning. Semi-structured interviews reveal depth." },
+  { rq:"What is the frequency of peer feedback use in EFL writing classes, and how do students perceive its effectiveness?", correct:"mixed", why:"The first part ('what is the frequency') = quantitative (survey). The second ('how do they perceive') = qualitative (interviews). Mixed methods best." },
+  { rq:"How do teachers and students interact during writing conferences in an EFL classroom?", correct:"qualitative", why:"'How do they interact' asks about process and behaviour in context. Observation or case study is the right tool." },
+  { rq:"Is there a significant difference in writing scores between students who receive peer feedback and those who receive only teacher feedback?", correct:"quantitative", why:"'Is there a significant difference' and 'writing scores' point directly to a quasi-experimental quantitative design with pre/post measurements." },
+  { rq:"What are students' perceptions of and attitudes toward using AI writing tools in academic tasks?", correct:"mixed", why:"'Perceptions' and 'attitudes' can be measured on Likert scale (quantitative) and explored in depth through interviews (qualitative). Both give complementary insight." }
+];
+
+function initMatches() {
+  document.getElementById('match-grid').innerHTML = MATCH_ITEMS.map((item,i) =>
+    `<div class="match-question">
+       <div style="font-style:italic;margin-bottom:8px;">"${item.rq}"</div>
+       <select class="match-select" id="match-${i}">
+         <option value="">— Select method —</option>
+         <option value="quantitative">Quantitative</option>
+         <option value="qualitative">Qualitative</option>
+         <option value="mixed">Mixed Methods</option>
+       </select>
+     </div>`
+  ).join('');
+}
+
+function checkMatches() {
+  let score = 0;
+  let explanations = [];
+  MATCH_ITEMS.forEach((item,i) => {
+    const sel = document.getElementById('match-'+i);
+    const val = sel.value;
+    if (!val) { sel.className = 'match-select'; return; }
+    if (val === item.correct) { sel.className = 'match-select correct'; score++; }
+    else { sel.className = 'match-select wrong'; explanations.push(`Q${i+1}: ${item.why}`); }
+  });
+  const pct = Math.round(score/MATCH_ITEMS.length*100);
+  const fb = document.getElementById('match-fb');
+  fb.style.display = 'block';
+  fb.className = 'ex-feedback show ' + (pct >= 80 ? 'fb-correct' : 'fb-wrong');
+  fb.innerHTML = `<strong>${score}/${MATCH_ITEMS.length} correct (${pct}%)</strong>${explanations.length ? '<br><br>' + explanations.join('<br>') : '<br><br>All correct — strong method awareness!'}`;
+}
+
+// ── DESIGN QUIZ ─────────────────────────────────────────────────────────────
+const DQ = [
+  { q:"A researcher wants to generalise findings from 100 EFL students to the broader Saudi EFL learner population. Which design is most appropriate?",
+    opts:["A survey-based quantitative design with inferential statistics","An in-depth interview study with 6 participants","An ethnographic observation over two semesters","A case study of one classroom"],
+    ans:0, fb:"Generalisation requires large samples and statistical inference. A survey design with a sample large enough for inferential statistics (t-test, ANOVA, correlation) fits this goal." },
+  { q:"Which of the following best describes a 'quasi-experimental' research design?",
+    opts:["A design that measures the effect of an intervention but without random assignment to groups","A design that uses only qualitative data collected informally","A design based entirely on existing published data","A design that involves only observation with no intervention"],
+    ans:0, fb:"Quasi-experimental = intervention exists, but participants are not randomly assigned to groups (which would make it a true experiment). It's common in educational research where you can't control group assignment." },
+  { q:"A researcher conducts 10 semi-structured interviews with students and analyses the transcripts for recurring themes. This is an example of:",
+    opts:["Qualitative research using thematic analysis","Quantitative research using content analysis","Mixed methods research","Survey-based descriptive research"],
+    ans:0, fb:"Semi-structured interviews + thematic analysis = qualitative research. Note: 'content analysis' can be qualitative or quantitative; 'thematic analysis' (Braun & Clarke) is specifically qualitative." },
+  { q:"What does 'triangulation' mean in research methods?",
+    opts:["Using multiple data sources, methods, or perspectives to strengthen findings","Organising data into three main themes","Interviewing three participants instead of one","Using a triangular diagram to present findings"],
+    ans:0, fb:"Triangulation = cross-checking findings from multiple sources or methods. Example: survey + interviews + document analysis. If all three converge on the same finding, you have greater confidence in it." },
+  { q:"A group decides to collect survey data from 40 students AND then interview 6 students from that group to explain the survey results. This is called:",
+    opts:["Mixed methods (explanatory sequential design)","Comparative design","Action research","Longitudinal study"],
+    ans:0, fb:"Explanatory sequential design: first quantitative (survey), then qualitative (interviews to explain the numbers). It's one of the most common mixed-methods designs in education research." },
+  { q:"Which of these sampling methods is most appropriate for a qualitative study where you want participants who have direct experience of the phenomenon?",
+    opts:["Purposive sampling","Random sampling","Systematic sampling","Cluster sampling"],
+    ans:0, fb:"Purposive sampling = deliberately selecting participants who have the experience, knowledge, or characteristic relevant to your research question. Random sampling is for quantitative studies aimed at statistical generalisation." }
+];
+
+let dqIndex=0, dqScore=0, dqAnswered=false;
+function renderDQ(){
+  if(dqIndex>=DQ.length){showDQScore();return;}
+  const q=DQ[dqIndex];
+  document.getElementById('dq-prog').style.width=(dqIndex/DQ.length*100)+'%';
+  document.getElementById('dq-container').innerHTML=`<div class="ex-card"><div class="ex-num">Question ${dqIndex+1} of ${DQ.length}</div><div class="ex-q">${q.q}</div><div class="ex-options" id="dq-opts">${q.opts.map((o,i)=>`<button class="ex-opt" onclick="answerDQ(${i})">${o}</button>`).join('')}</div><div class="ex-feedback" id="dq-fb"></div><div><button class="btn btn-primary btn-sm" id="dq-next" style="display:none;margin-top:14px" onclick="nextDQ()">Next →</button></div></div>`;
+  dqAnswered=false;
+}
+function answerDQ(i){if(dqAnswered)return;dqAnswered=true;const q=DQ[dqIndex];document.querySelectorAll('#dq-opts .ex-opt').forEach((b,j)=>{b.disabled=true;if(j===q.ans)b.classList.add('correct-ans');else if(j===i&&i!==q.ans)b.classList.add('wrong-ans');});if(i===q.ans)dqScore++;const fb=document.getElementById('dq-fb');fb.textContent=q.fb;fb.className='ex-feedback show '+(i===q.ans?'fb-correct':'fb-wrong');document.getElementById('dq-next').style.display='inline-block';}
+function nextDQ(){dqIndex++;renderDQ();}
+function showDQScore(){document.getElementById('dq-prog').style.width='100%';document.getElementById('dq-container').style.display='none';const pct=Math.round(dqScore/DQ.length*100);document.getElementById('dq-score').style.display='block';document.getElementById('dq-score').innerHTML=`<div class="score-big">${pct}%</div><div class="score-sub">${dqScore}/${DQ.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct>=80?"Solid design knowledge.":"Review the method matching tab and paradigm table."}</p><button class="btn btn-primary" onclick="resetDQ()">Retry</button>`;}
+function resetDQ(){dqIndex=0;dqScore=0;document.getElementById('dq-container').style.display='block';document.getElementById('dq-score').style.display='none';renderDQ();}
+
+initParadigm();
+initMatches();
+renderDQ();
+</script>
+</body>
+</html>

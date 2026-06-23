@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Analysis Workshop | ENG 446</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+body{background:var(--off-white);}
+.tab-bar{display:flex;gap:4px;background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-xs);padding:6px;margin-bottom:28px;flex-wrap:wrap;}
+.tab-btn{flex:1;min-width:130px;padding:10px 16px;border:none;background:transparent;border-radius:var(--r-md);font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;transition:all .15s;}
+.tab-btn:hover{background:var(--off-white);}
+.tab-btn.active{background:#ea580c;color:#fff;}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.ex-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:24px;margin-bottom:20px;}
+.ex-num{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#ea580c;margin-bottom:8px;}
+.ex-q{font-size:15px;font-weight:600;color:var(--text);margin-bottom:16px;line-height:1.6;}
+.ex-opt{padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:14px;cursor:pointer;transition:all .15s;background:var(--white);color:var(--text);text-align:left;display:block;width:100%;margin-bottom:8px;}
+.ex-opt:hover{border-color:var(--text-2);}
+.ex-opt.correct-ans{border-color:#30d158;background:#f0fff4;color:#1a7f45;}
+.ex-opt.correct-ans::after{content:" ✓";font-weight:800;}
+.ex-opt.wrong-ans{border-color:#e53935;background:#fef2f2;color:#c0392b;}
+.ex-opt.wrong-ans::after{content:" ✗";font-weight:800;}
+.ex-feedback{margin-top:14px;padding:12px 16px;border-radius:var(--r-md);font-size:13px;line-height:1.7;display:none;}
+.ex-feedback.show{display:block;}
+.fb-correct{background:#f0fff4;border:1px solid #a2d9b0;color:#14532d;}
+.fb-wrong{background:#fef2f2;border:1px solid #fca5a5;color:#7f1d1d;}
+.tip-box{background:#fff7ed;border:1.5px solid #fed7aa;border-radius:var(--r-md);padding:14px 16px;font-size:13px;line-height:1.7;color:#7c2d12;margin-bottom:20px;}
+.tip-box strong{color:#ea580c;}
+.prog-bar-wrap{height:6px;background:var(--off-white);border-radius:var(--r-pill);margin-bottom:24px;overflow:hidden;}
+.prog-bar{height:100%;background:#ea580c;border-radius:var(--r-pill);transition:width .4s;}
+.score-summary{text-align:center;padding:32px 20px;}
+.score-big{font-size:56px;font-weight:800;color:#ea580c;line-height:1;margin-bottom:8px;}
+.score-sub{font-size:14px;color:var(--text-2);}
+
+/* Coding activity */
+.quote-text{background:var(--off-white);border-left:3px solid #ea580c;padding:14px 16px;border-radius:0 var(--r-md) var(--r-md) 0;font-size:13px;line-height:1.9;font-style:italic;color:var(--text-2);margin-bottom:12px;}
+.code-select{padding:8px 12px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:13px;font-family:inherit;background:var(--white);margin-top:6px;width:100%;}
+.code-select.correct{border-color:#30d158;background:#f0fff4;}
+.code-select.wrong{border-color:#e53935;background:#fef2f2;}
+
+/* Data table reader */
+.data-table{width:100%;border-collapse:collapse;font-size:13px;}
+.data-table th{background:var(--off-white);font-weight:700;color:var(--text-2);font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding:10px 12px;text-align:left;border-bottom:2px solid var(--border);}
+.data-table td{padding:10px 12px;border-bottom:1px solid var(--border-light);color:var(--text-2);}
+.data-table tr:last-child td{border-bottom:none;}
+.data-table td:first-child{font-weight:600;color:var(--text);}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 446</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Data Analysis Workshop</span>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:40px;">
+  <div class="hero-eyebrow">Workshop · Days 13 · 14</div>
+  <h1>Data Analysis Workshop</h1>
+  <p class="hero-sub">Qualitative coding, quantitative table reading, method matching, and analysis quiz</p>
+</div>
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('coding',this)">🏷️ Qualitative Coding</button>
+    <button class="tab-btn" onclick="switchTab('tables',this)">📊 Reading Data Tables</button>
+    <button class="tab-btn" onclick="switchTab('quiz',this)">📝 Analysis Quiz</button>
+  </div>
+
+  <!-- TAB 1 — QUALITATIVE CODING -->
+  <div id="tab-coding" class="tab-panel active">
+    <div class="tip-box"><strong>Thematic analysis (Braun & Clarke, 2006):</strong> Step 1 — Familiarise. Step 2 — Generate initial codes. Step 3 — Search for themes. Step 4 — Review themes. Step 5 — Define and name themes. Step 6 — Write up. A 'code' is a short label for a unit of meaning. A 'theme' is a pattern across codes.</div>
+    <div class="ex-card">
+      <div class="ex-num">Assign a code to each interview excerpt</div>
+      <p style="font-size:13px;color:var(--text-2);margin-bottom:20px;">These excerpts are from interviews about peer feedback. Choose the most appropriate code from the dropdown for each. Click "Check codes" when done.</p>
+      <div id="coding-qs"></div>
+      <button class="btn btn-primary" onclick="checkCodes()" style="margin-top:16px;">Check codes</button>
+      <div class="ex-feedback" id="coding-fb" style="margin-top:12px;"></div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">From codes to themes — how it works</div>
+      <div style="font-size:13px;line-height:1.8;color:var(--text-2);">
+        <strong style="color:var(--text);">Example codes from 10 interviews about peer feedback:</strong><br>
+        Confidence boost · Embarrassment · Feeling judged · Helpful suggestions · Unclear comments · Trust in peers · Preference for teacher feedback · Learning from giving feedback · Time pressure · Lack of training<br><br>
+        <strong style="color:var(--text);">Grouping into themes:</strong><br>
+        → <em>Theme 1: Emotional responses to peer feedback</em> (Confidence boost, Embarrassment, Feeling judged)<br>
+        → <em>Theme 2: Perceived quality of feedback</em> (Helpful suggestions, Unclear comments, Preference for teacher feedback)<br>
+        → <em>Theme 3: Structural challenges</em> (Time pressure, Lack of training)<br>
+        → <em>Theme 4: Learning through giving feedback</em> (Learning from giving feedback, Trust in peers)<br><br>
+        Each theme needs at least 3 data points across different participants to be credible.
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2 — READING DATA TABLES -->
+  <div id="tab-tables" class="tab-panel">
+    <div class="tip-box"><strong>Reading quantitative data tables:</strong> Check N (number of participants), M (mean = average), SD (standard deviation = spread of scores), and any significance values (p). Scores above the scale midpoint indicate agreement; below = disagreement.</div>
+    <div class="ex-card">
+      <div class="ex-num">Sample descriptive statistics table — read and answer questions</div>
+      <div style="overflow-x:auto;margin-bottom:20px;">
+        <table class="data-table">
+          <thead><tr><th>Statement</th><th>N</th><th>M</th><th>SD</th><th>Interpretation</th></tr></thead>
+          <tbody>
+            <tr><td>Peer feedback improves my writing quality.</td><td>45</td><td>4.12</td><td>0.73</td><td>Strong agreement</td></tr>
+            <tr><td>I feel confident giving feedback to peers.</td><td>45</td><td>3.18</td><td>1.04</td><td>Slightly agree</td></tr>
+            <tr><td>I prefer peer feedback to teacher feedback.</td><td>45</td><td>2.31</td><td>1.22</td><td>Disagree</td></tr>
+            <tr><td>Peer feedback sessions are a good use of class time.</td><td>45</td><td>3.87</td><td>0.88</td><td>Agree</td></tr>
+            <tr><td>I learn from giving feedback to others.</td><td>45</td><td>4.24</td><td>0.65</td><td>Strong agreement</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="font-size:12px;color:var(--text-3);margin-bottom:20px;">Scale: 1 = Strongly Disagree · 3 = Neutral · 5 = Strongly Agree</div>
+      <div id="table-qs"></div>
+      <button class="btn btn-primary" onclick="checkTableQs()" style="margin-top:16px;">Check answers</button>
+      <div class="ex-feedback" id="table-fb" style="margin-top:12px;"></div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">How to report descriptive statistics in your findings section</div>
+      <div style="background:var(--off-white);padding:14px;border-radius:var(--r-md);font-size:13px;font-style:italic;line-height:1.9;color:var(--text-2);">
+        "Participants strongly agreed that peer feedback improves their writing quality (M = 4.12, SD = 0.73) and that they learn from giving feedback to others (M = 4.24, SD = 0.65). However, participants disagreed with preferring peer feedback over teacher feedback (M = 2.31, SD = 1.22), suggesting that while they value peer feedback as a learning tool, they continue to regard teacher feedback as the primary authoritative source. The relatively high SD for this item (1.22) indicates considerable variability in student preferences."
+      </div>
+      <div style="font-size:12px;color:var(--text-3);margin-top:10px;">Notice: state the mean → describe what it means → compare items → explain what the SD tells you.</div>
+    </div>
+  </div>
+
+  <!-- TAB 3 — QUIZ -->
+  <div id="tab-quiz" class="tab-panel">
+    <div class="prog-bar-wrap"><div class="prog-bar" id="aq-prog" style="width:0%"></div></div>
+    <div id="aq-container"></div>
+    <div id="aq-score" class="score-summary" style="display:none;"></div>
+  </div>
+</div>
+</div>
+<footer><strong>ENG 446 Research Methods</strong> · Data Analysis · Qassim University · Summer 2026<br><a href="index.html">Course Hub</a> · <a href="syllabus.html">Syllabus</a></footer>
+<script>
+function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
+
+// QUALITATIVE CODING
+const CODING_QS=[
+  {quote:'"When my group member told me my argument was unclear, I felt embarrassed in front of everyone. I didn\'t want to present after that."',codes:['Emotional response to feedback','Learning from feedback','Preference for teacher feedback','Structural challenges'],correct:0,why:"The participant describes an emotional reaction (embarrassment) — this maps to a code about emotional responses to peer feedback."},
+  {quote:'"I actually learned more about my own mistakes by trying to explain them to someone else. It\'s strange — giving feedback taught me more than receiving it."',codes:['Time pressure','Learning through giving feedback','Unclear feedback','Confidence in peers'],correct:1,why:"The participant describes a metacognitive learning experience from the act of giving feedback — a 'learning through giving' code."},
+  {quote:'"The comments were too vague. My peer just wrote \'good\' or \'improve this\' without telling me what to change or how."',codes:['Positive peer feedback experience','Unclear or unhelpful feedback','Preference for peer feedback','Emotional engagement'],correct:1,why:"The participant specifically criticises the quality of feedback as vague and unhelpful — a code about unclear or low-quality feedback."},
+  {quote:'"We only had 15 minutes for the whole feedback session. It was rushed and I couldn\'t give proper comments on three different essays."',codes:['Lack of trust in peers','Unclear comments','Structural challenges / time pressure','Confidence boost'],correct:2,why:"The participant identifies a practical, structural constraint — insufficient time — which is a code about structural challenges or time pressure."}
+];
+
+function initCoding(){
+  document.getElementById('coding-qs').innerHTML=CODING_QS.map((item,i)=>`
+    <div style="margin-bottom:24px;">
+      <div class="quote-text">"${item.quote}"</div>
+      <label style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#ea580c;">Assign a code:</label>
+      <select class="code-select" id="code-${i}">
+        <option value="">— Select code —</option>
+        ${item.codes.map((c,ci)=>`<option value="${ci}">${c}</option>`).join('')}
+      </select>
+      <div class="ex-feedback" id="code-fb-${i}"></div>
+    </div>`).join('');
+}
+
+function checkCodes(){
+  let score=0;
+  CODING_QS.forEach((item,i)=>{
+    const sel=document.getElementById('code-'+i);
+    const val=parseInt(sel.value);
+    const fb=document.getElementById('code-fb-'+i);
+    if(isNaN(val)){fb.className='ex-feedback show fb-wrong';fb.textContent='Please select a code.';return;}
+    if(val===item.correct){sel.className='code-select correct';fb.className='ex-feedback show fb-correct';fb.textContent='✓ Correct. '+item.why;score++;}
+    else{sel.className='code-select wrong';fb.className='ex-feedback show fb-wrong';fb.textContent='✗ Not quite. '+item.why;}
+  });
+  const fb=document.getElementById('coding-fb');
+  fb.className='ex-feedback show '+(score===CODING_QS.length?'fb-correct':'fb-wrong');
+  fb.textContent=`${score}/${CODING_QS.length} codes correct.`;
+}
+
+// TABLE READING
+const TABLE_QS=[
+  {q:"Which statement had the highest level of agreement among participants?",opts:["Peer feedback improves my writing quality (M=4.12)","I learn from giving feedback to others (M=4.24)","Peer feedback sessions are a good use of class time (M=3.87)","I feel confident giving feedback to peers (M=3.18)"],ans:1,why:"The highest mean (M=4.24) is for 'I learn from giving feedback to others' — the largest number = strongest agreement."},
+  {q:"What does the high standard deviation (SD=1.22) for 'I prefer peer feedback to teacher feedback' suggest?",opts:["All students strongly disagreed","Participants' opinions on this item varied considerably","The mean is inaccurate","This item was not answered by enough participants"],ans:1,why:"High SD = wide spread of scores around the mean. Some students agreed, others disagreed — the SD tells us there is high variability in this attitude."},
+  {q:"A mean of 2.31 on a 5-point scale (where 3 = neutral) indicates:",opts:["Participants generally disagreed with the statement","Participants were neutral","Participants agreed with the statement","The data is insufficient to draw conclusions"],ans:0,why:"2.31 < 3 (neutral midpoint) = below-neutral = disagreement. The further below 3, the stronger the disagreement."},
+  {q:"How would you interpret the finding that M=4.12 with SD=0.73 for 'Peer feedback improves my writing'?",opts:["Strong agreement with relatively consistent opinions across participants","Weak agreement with very mixed opinions","Most participants strongly disagreed","The scores were spread equally across all five options"],ans:0,why:"M=4.12 (well above neutral 3.0) = strong agreement. SD=0.73 (relatively low) = participants' responses clustered near the mean — consistent agreement across the group."}
+];
+
+function initTableQs(){
+  document.getElementById('table-qs').innerHTML=TABLE_QS.map((q,qi)=>`
+    <div style="margin-bottom:20px;">
+      <div style="font-size:14px;font-weight:600;margin-bottom:10px;">${qi+1}. ${q.q}</div>
+      ${q.opts.map((o,oi)=>`<button class="ex-opt" id="tq-${qi}-${oi}" onclick="answerTQ(${qi},${oi})">${o}</button>`).join('')}
+      <div class="ex-feedback" id="tq-fb-${qi}"></div>
+    </div>`).join('');
+}
+
+function answerTQ(qi,chosen){
+  const q=TABLE_QS[qi];
+  const already=document.getElementById(`tq-${qi}-0`).disabled;
+  if(already)return;
+  q.opts.forEach((_,oi)=>{const b=document.getElementById(`tq-${qi}-${oi}`);b.disabled=true;if(oi===q.ans)b.classList.add('correct-ans');else if(oi===chosen&&chosen!==q.ans)b.classList.add('wrong-ans');});
+  const fb=document.getElementById('tq-fb-'+qi);
+  fb.className='ex-feedback show '+(chosen===q.ans?'fb-correct':'fb-wrong');
+  fb.textContent=q.why;
+}
+
+function checkTableQs(){
+  document.getElementById('table-fb').className='ex-feedback show fb-correct';
+  document.getElementById('table-fb').textContent='Check each question above — answers are revealed individually when you click.';
+}
+
+// ANALYSIS QUIZ
+const AQ=[
+  {q:"In thematic analysis, what is the difference between a 'code' and a 'theme'?",opts:["A code is a short label for a unit of meaning; a theme is a broader pattern across multiple codes","A code is a theme; the terms are interchangeable","A theme is used in quantitative analysis; a code in qualitative","A code is a statistical formula; a theme is a narrative description"],ans:0,fb:"Code = a label for one unit of meaning in the data (e.g. 'embarrassment'). Theme = a broader category that groups multiple related codes (e.g. 'emotional responses to peer feedback')."},
+  {q:"What does 'data saturation' mean in qualitative research?",opts:["No new codes or themes emerge from additional interviews — the data has reached a point of redundancy","The researcher has collected more data than needed","All 30 participants have been interviewed","The findings have been statistically verified"],ans:0,fb:"Saturation = the point at which new interviews are no longer producing new codes or themes. It signals that you have collected sufficient data for the study's scope. Typically reached after 8–15 interviews in small qualitative studies."},
+  {q:"Which of these is an appropriate finding statement for a quantitative study?",opts:["'Participants strongly agreed that peer feedback is beneficial (M=4.18, SD=0.71).'","'Peer feedback is definitely effective, as all students liked it.'","'There were some interesting patterns in the data.'","'According to our feelings, peer feedback worked well.'"],ans:0,fb:"Quantitative findings report statistics (M, SD, N) and interpret them objectively. Option A does this correctly. Options B–D are vague, subjective, or informal."},
+  {q:"A researcher finds that 78% of participants agreed that peer feedback improves writing. This is an example of:",opts:["A descriptive statistical finding (frequency/percentage)","A thematic analysis finding","A correlation coefficient","An inferential statistic"],ans:0,fb:"Percentage and frequency data = descriptive statistics. Descriptive statistics describe what the data shows without testing for significance between groups (which would be inferential statistics)."},
+  {q:"In your group's findings section, what should come BEFORE your interpretation?",opts:["The data itself — state what the numbers or quotes show before saying what they mean","Your opinion on the topic","The research question again","A list of all participants"],ans:0,fb:"Findings section structure: present the evidence first (quote or statistic), then interpret what it means in relation to your research question. Never lead with interpretation before showing the data."}
+];
+let aqIndex=0,aqScore=0,aqAnswered=false;
+function renderAQ(){if(aqIndex>=AQ.length){showAQScore();return;}const q=AQ[aqIndex];document.getElementById('aq-prog').style.width=(aqIndex/AQ.length*100)+'%';document.getElementById('aq-container').innerHTML=`<div class="ex-card"><div class="ex-num">Question ${aqIndex+1} of ${AQ.length}</div><div class="ex-q">${q.q}</div><div class="ex-options" id="aq-opts">${q.opts.map((o,i)=>`<button class="ex-opt" onclick="answerAQ(${i})">${o}</button>`).join('')}</div><div class="ex-feedback" id="aq-fb"></div><div><button class="btn btn-primary btn-sm" id="aq-next" style="display:none;margin-top:14px" onclick="nextAQ()">Next →</button></div></div>`;aqAnswered=false;}
+function answerAQ(i){if(aqAnswered)return;aqAnswered=true;const q=AQ[aqIndex];document.querySelectorAll('#aq-opts .ex-opt').forEach((b,j)=>{b.disabled=true;if(j===q.ans)b.classList.add('correct-ans');else if(j===i&&i!==q.ans)b.classList.add('wrong-ans');});if(i===q.ans)aqScore++;const fb=document.getElementById('aq-fb');fb.textContent=q.fb;fb.className='ex-feedback show '+(i===q.ans?'fb-correct':'fb-wrong');document.getElementById('aq-next').style.display='inline-block';}
+function nextAQ(){aqIndex++;renderAQ();}
+function showAQScore(){document.getElementById('aq-prog').style.width='100%';document.getElementById('aq-container').style.display='none';const pct=Math.round(aqScore/AQ.length*100);document.getElementById('aq-score').style.display='block';document.getElementById('aq-score').innerHTML=`<div class="score-big">${pct}%</div><div class="score-sub">${aqScore}/${AQ.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct>=80?"Strong analysis knowledge.":"Review the coding and table-reading tabs."}</p><button class="btn btn-primary" onclick="resetAQ()">Retry</button>`;}
+function resetAQ(){aqIndex=0;aqScore=0;document.getElementById('aq-container').style.display='block';document.getElementById('aq-score').style.display='none';renderAQ();}
+
+initCoding();initTableQs();renderAQ();
+</script>
+</body>
+</html>
