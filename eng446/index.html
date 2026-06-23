@@ -5,6 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ENG 446 Research Methods — Summer 2026</title>
 <link rel="stylesheet" href="../style.css">
+<meta name="description" content="Your ENG 446 Research Methods hub — today&#x27;s class, all deadlines, interactive workshops, and self-practice banks. Qassim University, Summer 2026.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 446">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 446 Research Methods">
+<meta property="og:title" content="ENG 446 Research Methods — Summer 2026">
+<meta property="og:description" content="Your ENG 446 Research Methods hub — today&#x27;s class, all deadlines, interactive workshops, and self-practice banks. Qassim University, Summer 2026.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng446/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng446/index.html">
+<meta name="twitter:card" content="summary">
 <style>
   body { background: var(--off-white); }
 
@@ -138,6 +153,7 @@
     <div class="nav-links">
       <a class="nav-link" href="syllabus.html">Syllabus</a>
       <a class="nav-link" href="groups.html">Groups</a>
+      <a class="nav-link" href="resources.html">Resources</a>
       <a class="nav-link" href="apa-quickref.html">APA 7</a>
     </div>
   </div>
@@ -168,17 +184,8 @@
     <!-- Deadlines -->
     <div class="card">
       <div class="card-header"><span class="card-icon">📅</span><h2>All Deadlines</h2></div>
-      <div class="card-body" style="padding-top:8px;padding-bottom:8px;" id="deadlines-list">
-        <div class="dl-row" data-iso="2026-06-30"><div class="dl-date">Tue Jun 30</div><div class="dl-name">📝 Quiz 1 — Intro + Ch1 + Ch2 <span>(in class, first 10 min)</span></div><div class="dl-w w-green">5%</div></div>
-        <div class="dl-row" data-iso="2026-07-06"><div class="dl-date">Mon Jul 6</div><div class="dl-name">📝 Quiz 2 — Ch3 + Ch4 + Ch5 <span>(in class)</span></div><div class="dl-w w-green">5%</div></div>
-        <div class="dl-row" data-iso="2026-07-07"><div class="dl-date">Tue Jul 7</div><div class="dl-name">📄 Research Proposal <span>(GROUP · Blackboard)</span></div><div class="dl-w w-green">10%</div></div>
-        <div class="dl-row" data-iso="2026-07-13"><div class="dl-date">Mon Jul 13</div><div class="dl-name">📝 Quiz 3 — Ch6 + Ch7 + Ch8 <span>(in class)</span></div><div class="dl-w w-green">5%</div></div>
-        <div class="dl-row" data-iso="2026-07-14"><div class="dl-date">Tue Jul 14</div><div class="dl-name">📄 Literature Review <span>(GROUP · Blackboard)</span></div><div class="dl-w w-green">10%</div></div>
-        <div class="dl-row" data-iso="2026-07-26"><div class="dl-date">Sun Jul 26</div><div class="dl-name">📝 Quiz 4 — Ch9 + Ch10 + Ch11 <span>(in class)</span></div><div class="dl-w w-green">5%</div></div>
-        <div class="dl-row" data-iso="2026-07-28"><div class="dl-date">Tue Jul 28</div><div class="dl-name">📄 Methodology + Analysis <span>(GROUP · Blackboard)</span></div><div class="dl-w w-green">5%</div></div>
-        <div class="dl-row" data-iso="2026-08-09"><div class="dl-date">Aug 9–10</div><div class="dl-name">🎤 Group Presentations</div><div class="dl-w w-green">5%</div></div>
-        <div class="dl-row" data-iso="2026-08-16"><div class="dl-date">Aug 16–17</div><div class="dl-name">📋 Final Exam <span>(individual)</span></div><div class="dl-w w-purple">50%</div></div>
-      </div>
+      <!-- Rows are rendered from the single DEADLINES source of truth in JS below -->
+      <div class="card-body" style="padding-top:8px;padding-bottom:8px;" id="deadlines-list"></div>
     </div>
 
     <!-- Group + info -->
@@ -296,6 +303,17 @@
   <!-- ── Practice banks ── -->
   <div class="section-label">Self-Practice Banks</div>
   <p style="font-size:14px;color:var(--text-2);margin-bottom:16px;line-height:1.6;">Unlimited attempts · medium → ultra-hard · no grade recorded here. Graded quizzes are in Blackboard Ultra.</p>
+
+  <!-- Final exam featured bank -->
+  <a href="quiz-final.html" style="display:flex;gap:16px;align-items:center;background:linear-gradient(120deg,#7c3aed,#5b21b6);color:#fff;border-radius:var(--r-lg);padding:20px 22px;text-decoration:none;box-shadow:var(--shadow-sm);margin-bottom:14px;">
+    <div style="font-size:34px;">🎓</div>
+    <div style="flex:1;">
+      <div style="font-size:16px;font-weight:800;letter-spacing:-.01em;">Final Exam Review Bank</div>
+      <div style="font-size:13px;opacity:.9;line-height:1.5;margin-top:2px;">36 questions across all 12 chapters · mirrors the unified exam format &amp; CLOs · the final is worth 50%.</div>
+    </div>
+    <span style="font-size:12px;font-weight:700;background:rgba(255,255,255,.18);padding:6px 12px;border-radius:var(--r-pill);white-space:nowrap;">Start review →</span>
+  </a>
+
   <div class="app-grid mb-32">
     <a class="app-card" href="quiz1.html">
       <div class="app-icon">📝</div>
@@ -326,6 +344,12 @@
       <div class="app-name">APA Quick-Ref Card</div>
       <div class="app-desc">Bilingual APA 7 · always available</div>
       <span class="badge badge-green mt-8">Always live</span>
+    </a>
+    <a class="app-card" href="resources.html">
+      <div class="app-icon">📂</div>
+      <div class="app-name">Resources &amp; Downloads</div>
+      <div class="app-desc">Proposal template, guides, APA handout, sample papers</div>
+      <span class="badge badge-green mt-8">Live</span>
     </a>
   </div>
 
@@ -374,17 +398,32 @@ const SESSIONS = [
   { iso:"2026-08-11", day:21, label:"Day 21 — Exam Review",             desc:"All chapters · Key terms · Sample questions · Instructor Q&A",                                            tags:["review"] }
 ];
 
+// ─── SINGLE SOURCE OF TRUTH for deadlines ────────────────────────────────────
+// Edit ONLY this array; both the countdown bar and the "All Deadlines" list
+// render from it, so they can never drift out of sync.
 const DEADLINES = [
-  { iso:"2026-06-30", name:"Quiz 1" },
-  { iso:"2026-07-06", name:"Quiz 2" },
-  { iso:"2026-07-07", name:"Proposal due" },
-  { iso:"2026-07-13", name:"Quiz 3" },
-  { iso:"2026-07-14", name:"Lit Review due" },
-  { iso:"2026-07-26", name:"Quiz 4" },
-  { iso:"2026-07-28", name:"Methods & Analysis due" },
-  { iso:"2026-08-09", name:"Presentations" },
-  { iso:"2026-08-16", name:"Final Exam" }
+  { iso:"2026-06-30", short:"Quiz 1",        date:"Tue Jun 30", label:"📝 Quiz 1 — Intro + Ch1 + Ch2",  detail:"in class, first 10 min", weight:"5%",  wClass:"w-green"  },
+  { iso:"2026-07-06", short:"Quiz 2",        date:"Mon Jul 6",  label:"📝 Quiz 2 — Ch3 + Ch4 + Ch5",    detail:"in class",               weight:"5%",  wClass:"w-green"  },
+  { iso:"2026-07-07", short:"Proposal due",  date:"Tue Jul 7",  label:"📄 Research Proposal",           detail:"GROUP · Blackboard",     weight:"10%", wClass:"w-green"  },
+  { iso:"2026-07-13", short:"Quiz 3",        date:"Mon Jul 13", label:"📝 Quiz 3 — Ch6 + Ch7 + Ch8",    detail:"in class",               weight:"5%",  wClass:"w-green"  },
+  { iso:"2026-07-14", short:"Lit Review due",date:"Tue Jul 14", label:"📄 Literature Review",           detail:"GROUP · Blackboard",     weight:"10%", wClass:"w-green"  },
+  { iso:"2026-07-26", short:"Quiz 4",        date:"Sun Jul 26", label:"📝 Quiz 4 — Ch9 + Ch10 + Ch11",  detail:"in class",               weight:"5%",  wClass:"w-green"  },
+  { iso:"2026-07-28", short:"Methods & Analysis due", date:"Tue Jul 28", label:"📄 Methodology + Analysis", detail:"GROUP · Blackboard",  weight:"5%",  wClass:"w-green"  },
+  { iso:"2026-08-09", short:"Presentations", date:"Aug 9–10",   label:"🎤 Group Presentations",         detail:"",                       weight:"5%",  wClass:"w-green"  },
+  { iso:"2026-08-16", short:"Final Exam",    date:"Aug 16–17",  label:"📋 Final Exam",                  detail:"individual",             weight:"50%", wClass:"w-purple" }
 ];
+
+// ─── Render the deadline list from the single source ─────────────────────────
+function renderDeadlines() {
+  const now = todayISO();
+  const el = document.getElementById('deadlines-list');
+  if (!el) return;
+  el.innerHTML = DEADLINES.map(d => {
+    const cls = d.iso < now ? ' past' : (d.iso === now ? ' urgent' : '');
+    const det = d.detail ? ` <span>(${d.detail})</span>` : '';
+    return `<div class="dl-row${cls}" data-iso="${d.iso}"><div class="dl-date">${d.date}</div><div class="dl-name">${d.label}${det}</div><div class="dl-w ${d.wClass}">${d.weight}</div></div>`;
+  }).join('');
+}
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 function parseISO(s) {
@@ -419,7 +458,7 @@ function initCountdown() {
   if (!next) { document.getElementById('countdown-bar').style.display='none'; return; }
   const cbName = document.getElementById('cb-name');
   const cbTime = document.getElementById('cb-time');
-  cbName.textContent = next.name;
+  cbName.textContent = next.short;
   function tick() {
     const ms = msTo(next.iso);
     if (ms <= 0) { cbTime.textContent = 'Due today'; return; }
@@ -511,11 +550,13 @@ function markCurrentWeek() {
 }
 
 // ─── Init ────────────────────────────────────────────────────────────────────
+renderDeadlines();
 initCountdown();
 markDeadlines();
 initTodayWidget();
 markCurrentWeek();
 </script>
 
+<script src="site.js" defer></script>
 </body>
 </html>

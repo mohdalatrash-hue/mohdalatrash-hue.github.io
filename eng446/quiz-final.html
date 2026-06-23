@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Exam Review Bank | ENG 446</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="Comprehensive final-exam review bank for ENG 446, mirroring the unified exam format across all course learning outcomes.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 446">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 446 Research Methods">
+<meta property="og:title" content="Final Exam Review Bank | ENG 446">
+<meta property="og:description" content="Comprehensive final-exam review bank mirroring the unified exam format across all course learning outcomes.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng446/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng446/quiz-final.html">
+<meta name="twitter:card" content="summary">
+<style>
+  body { background: var(--off-white); }
+  .quiz-topbar { position:sticky;top:var(--nav-h);z-index:100;background:var(--white);border-bottom:1px solid var(--border-light);padding:10px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px; }
+  .quiz-progress { display:flex;align-items:center;gap:10px;flex:1; }
+  .progress-bar { flex:1;height:4px;background:var(--off-white);border-radius:2px;overflow:hidden; }
+  .progress-fill { height:100%;background:var(--purple);transition:width .3s; }
+  .q-counter-sm { font-size:12px;color:var(--text-3);font-weight:600;white-space:nowrap; }
+  .timer-pill { background:var(--off-white);border:1px solid var(--border);border-radius:var(--r-pill);padding:5px 12px;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;cursor:pointer;color:var(--text-2);white-space:nowrap; }
+  .timer-pill.inactive{opacity:.45} .timer-pill.warning{color:var(--amber);border-color:var(--amber)} .timer-pill.danger{color:var(--red);border-color:var(--red);animation:pulse .9s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+  .quiz-wrap{max-width:620px;margin:0 auto;padding:32px 22px 80px}
+  .start-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-md);padding:40px 32px;text-align:center}
+  .start-icon{font-size:48px;margin-bottom:16px} .start-title{font-size:24px;font-weight:700;letter-spacing:-.025em;margin-bottom:8px} .start-sub{font-size:15px;color:var(--text-2);margin-bottom:28px}
+  .start-details{text-align:left;background:var(--off-white);border-radius:var(--r-md);padding:16px 20px;margin-bottom:20px}
+  .start-details li{font-size:14px;color:var(--text-2);line-height:1.8;list-style:none} .start-details li::before{content:"✓ ";color:var(--purple);font-weight:700}
+  .timer-toggle-row{display:flex;align-items:center;justify-content:space-between;background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-md);padding:14px 16px;margin-bottom:20px}
+  .toggle{position:relative;width:42px;height:24px;flex-shrink:0} .toggle input{opacity:0;width:0;height:0}
+  .slider{position:absolute;cursor:pointer;inset:0;background:var(--border);border-radius:24px;transition:.2s} .slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.2s}
+  input:checked+.slider{background:var(--purple)} input:checked+.slider:before{transform:translateX(18px)}
+  .q-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);overflow:hidden}
+  .q-card-head{padding:24px 24px 0}
+  .q-source-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#6d28d9;background:#f3e8ff;padding:4px 10px;border-radius:var(--r-pill);margin-bottom:14px}
+  .q-text{font-size:16px;font-weight:600;line-height:1.5;color:var(--text);margin-bottom:20px}
+  .options{display:flex;flex-direction:column;gap:8px;padding:0 24px}
+  .feedback-box{margin:16px 24px;border-radius:var(--r-md);padding:14px 16px;font-size:14px;line-height:1.6;display:none}
+  .feedback-box.correct{background:#f0fdf4;border:1.5px solid #86efac;color:#166534} .feedback-box.wrong{background:var(--red-light);border:1.5px solid #fca5a5;color:#991b1b}
+  .q-card-foot{padding:16px 24px 24px}
+  .results-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-md);padding:40px 32px;text-align:center}
+  .score-ring{width:120px;height:120px;border-radius:50%;border:6px solid var(--purple);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px}
+  .score-num{font-size:28px;font-weight:800;color:var(--purple)} .score-lbl{font-size:11px;color:var(--text-3)}
+  .results-title{font-size:22px;font-weight:700;margin-bottom:6px} .results-sub{font-size:14px;color:var(--text-2);margin-bottom:28px}
+  .review-list{text-align:left;display:flex;flex-direction:column;gap:8px;margin-bottom:28px}
+  .review-item{background:var(--off-white);border-radius:var(--r-md);padding:12px 16px;border-left:3px solid var(--border)}
+  .review-item.r-correct{border-left-color:#16a34a} .review-item.r-wrong{border-left-color:var(--red)}
+  .review-q{font-size:12px;font-weight:600;color:var(--text);margin-bottom:4px} .review-a{font-size:12px;color:var(--text-2)}
+  .review-a .ra-wrong{color:var(--red)} .review-a .ra-right{color:#166534;font-weight:600}
+  .blueprint{display:flex;flex-direction:column;gap:6px;text-align:left;margin-top:4px}
+  .bp-row{display:flex;justify-content:space-between;font-size:13px;color:var(--text-2);padding:6px 0;border-bottom:1px solid var(--border-light)}
+  .bp-row:last-child{border-bottom:none} .bp-row b{color:var(--text)}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 446</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Final Exam Review Bank</span>
+  </div>
+</nav>
+<div class="quiz-topbar" id="quiz-topbar" style="display:none;">
+  <div class="quiz-progress">
+    <span class="q-counter-sm" id="q-counter-sm">1 / 36</span>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+  </div>
+  <div class="timer-pill inactive" id="timer-pill">⏱ 40:00</div>
+</div>
+<div class="quiz-wrap">
+  <div id="start-screen">
+    <div class="start-card">
+      <div class="start-icon">🎓</div>
+      <div class="start-title">Final Exam Review Bank</div>
+      <div class="start-sub">All 12 chapters · 36 questions · mirrors the unified exam format</div>
+      <div class="info-box info-amber mb-20" style="text-align:left;">
+        <h3>📋 The Final Exam is worth 50%</h3>
+        <p>The graded final is an individual, paper-based exam in the university exam period (Aug 16–17). This bank is free practice that rehearses the <strong>exact question types and CLOs</strong> of the unified exam — unlimited attempts, no grade recorded here.</p>
+      </div>
+      <div class="start-details"><ul>
+        <li>Part I — Knowledge: terminology, paradigms, the research process</li>
+        <li>Part II — Skills: methods &amp; data types, APA error-hunting, critical evaluation</li>
+        <li>Project design: research questions, instruments, ethics, operationalisation</li>
+        <li>Presentation: structuring and sequencing a final talk</li>
+        <li>Detailed explanation after every answer · retry unlimited times</li>
+      </ul></div>
+      <div class="info-box info-blue mb-20" style="text-align:left;">
+        <h3>🗺️ Exam blueprint (what the real paper weights)</h3>
+        <div class="blueprint">
+          <div class="bp-row"><span>Part I — Knowledge &amp; Understanding (CLO 1.1–1.2)</span><b>12 marks</b></div>
+          <div class="bp-row"><span>Identification &amp; Referencing (CLO 2.1, 2.4)</span><b>9 marks</b></div>
+          <div class="bp-row"><span>Critical Evaluation (CLO 2.2)</span><b>9 marks</b></div>
+          <div class="bp-row"><span>Project Design &amp; Presentation (CLO 2.3, 2.5)</span><b>20 marks</b></div>
+          <div class="bp-row"><span>Final exam total</span><b>50 marks</b></div>
+        </div>
+      </div>
+      <div class="timer-toggle-row">
+        <div><div style="font-size:14px;font-weight:600;">⏱ 40-minute challenge mode</div><div style="font-size:12px;color:var(--text-3);margin-top:2px;">Optional — simulates exam time pressure</div></div>
+        <label class="toggle"><input type="checkbox" id="timer-toggle"><span class="slider"></span></label>
+      </div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;background:var(--purple);" onclick="startQuiz()">Start Review →</button>
+    </div>
+  </div>
+  <div id="quiz-screen" style="display:none;">
+    <div class="q-card">
+      <div class="q-card-head">
+        <div class="q-source-tag" id="q-source"></div>
+        <div class="q-text" id="q-text"></div>
+      </div>
+      <div class="options" id="options"></div>
+      <div class="feedback-box" id="feedback"></div>
+      <div class="q-card-foot">
+        <button class="btn btn-primary" style="width:100%;justify-content:center;display:none;background:var(--purple);" id="btn-next" onclick="nextQuestion()">Next →</button>
+      </div>
+    </div>
+  </div>
+  <div id="results-screen" style="display:none;">
+    <div class="results-card">
+      <div class="score-ring" id="score-ring"><div class="score-num" id="score-num">0/36</div><div class="score-lbl">Score</div></div>
+      <div class="results-title" id="results-title"></div>
+      <div class="results-sub" id="results-sub"></div>
+      <div class="review-list" id="review-list"></div>
+      <button class="btn btn-primary mb-12" style="width:100%;justify-content:center;background:var(--purple);" onclick="retryQuiz()">🔄 Try Again</button>
+      <a class="btn btn-outline" style="width:100%;justify-content:center;" href="index.html">← Back to Course Hub</a>
+    </div>
+  </div>
+</div>
+<script>
+const QUESTIONS=[
+  /* ── Part I · CLO 1.1 — Terminology, paradigms, ethics ── */
+  {source:"CLO 1.1 · Paradigms",q:"A researcher assumes reality is single, stable, and measurable independently of the observer, and tests hypotheses with numerical data. Which paradigm is this?",options:["Interpretivist","Positivist","Constructivist","Critical-emancipatory"],correct:1,feedback:"Positivism treats reality as objective and measurable, favouring quantitative methods and hypothesis testing. Interpretivism/constructivism, by contrast, hold that reality is socially constructed through participants' perceptions."},
+  {source:"CLO 1.1 · Paradigms",q:"Which statement best reflects an INTERPRETIVIST stance?",options:["Reality can be reduced to variables that are measured objectively","Reality is socially constructed and understood through participants' perceptions","The researcher must remain fully detached to eliminate all bias","Only randomised experiments yield trustworthy knowledge"],correct:1,feedback:"Interpretivists hold that reality is socially constructed and best understood through the meanings people give to their experiences — hence the preference for interviews, observation, and qualitative data."},
+  {source:"CLO 1.1 · Validity & Reliability",q:"A bathroom scale reads exactly 3 kg too heavy every single time you step on it. The scale is:",options:["Valid but not reliable","Reliable but not valid","Both valid and reliable","Neither valid nor reliable"],correct:1,feedback:"Reliability = consistency (it gives the same reading every time). Validity = measuring the true value (it does not — it is always 3 kg off). So the scale is reliable but not valid. A measure can be consistent yet consistently wrong."},
+  {source:"CLO 1.1 · Validity & Reliability",q:"'The instrument measures exactly what it is intended to measure.' This defines:",options:["Reliability","Validity","Generalizability","Objectivity"],correct:1,feedback:"That is the definition of validity. Reliability is about producing consistent results when the instrument is used repeatedly — a different property."},
+  {source:"CLO 1.1 · Research Ethics",q:"Participants are told the purpose, risks, and their right to withdraw, and they then agree in writing to take part. This is:",options:["Anonymity","Confidentiality","Informed consent","Debriefing"],correct:2,feedback:"Informed consent means participants understand the study and voluntarily agree to take part. Anonymity (identities concealed) and confidentiality (data kept private) are separate ethical safeguards."},
+  {source:"CLO 1.1 · Research Ethics",q:"A questionnaire is distributed so that responses cannot be linked to any individual — not even the researcher can tell who answered what. This protects participants':",options:["Informed consent","Anonymity","Right to withdraw","Debriefing"],correct:1,feedback:"Anonymity means identities are concealed and responses cannot be traced to individuals. (Confidentiality is weaker: the researcher CAN identify participants but promises not to disclose their identities.)"},
+
+  /* ── Part I · CLO 1.2 — The research process ── */
+  {source:"CLO 1.2 · Research Process",q:"Place the four stages of a research project in the correct order.",options:["Doing → Planning → Writing up → Analyzing","Planning → Doing → Analyzing → Writing up","Analyzing → Planning → Doing → Writing up","Planning → Analyzing → Doing → Writing up"],correct:1,feedback:"The logical sequence is Planning (choose topic, RQs, design instruments) → Doing (collect data) → Analyzing (organise data, draw conclusions) → Writing up (finalise and proofread)."},
+  {source:"CLO 1.2 · Research Process",q:"Choosing a topic, formulating research questions, and designing your instruments all belong to which stage?",options:["Doing","Planning","Analyzing","Writing up"],correct:1,feedback:"These are Planning activities — everything done before data collection begins. 'Doing' is the fieldwork stage where data is actually collected."},
+  {source:"CLO 1.2 · Research Process",q:"Organising the collected data, looking for patterns, and drawing conclusions occurs in which stage?",options:["Planning","Doing","Analyzing","Writing up"],correct:2,feedback:"Analyzing is where raw data is organised and interpreted to answer the research questions. Writing up then turns those conclusions into the final report and presentation."},
+  {source:"CLO 1.2 · Research Process",q:"What is the main purpose of the literature review WITHIN the research process?",options:["To increase the page count of the report","To map what is already known and locate the gap your study will address","To replace the need for collecting your own data","To list every source you read, with no commentary"],correct:1,feedback:"A literature review surveys existing research to show what is already known, synthesise it critically, and identify the gap the study addresses — it justifies why the research is needed. A bare list with no synthesis is an annotated bibliography, not a review."},
+
+  /* ── Part II · CLO 2.1 — Methods & data types ── */
+  {source:"CLO 2.1 · Data Types",q:"Test scores and counts of how often something occurs are examples of:",options:["Qualitative data","Quantitative data","Anecdotal data","Secondary data"],correct:1,feedback:"Numbers, scores, and frequency counts are quantitative data. Qualitative data is non-numerical — words, transcripts, images, field notes."},
+  {source:"CLO 2.1 · Data Types",q:"Interview transcripts and field notes are best classified as:",options:["Quantitative data","Qualitative data","Statistical data","Experimental data"],correct:1,feedback:"Transcripts and field notes are textual, meaning-rich, non-numerical — i.e. qualitative data, typically analysed thematically rather than statistically."},
+  {source:"CLO 2.1 · Methods",q:"Participants change their behaviour because they know they are being watched. This 'Hawthorne effect' is a particular risk in which method?",options:["Literature review","Observation","Document analysis","Reviewing test scores"],correct:1,feedback:"The Hawthorne effect — people behaving differently because they know they are observed — is a reactivity threat specific to observation. It is not relevant to a literature review or to analysing existing documents."},
+  {source:"CLO 2.1 · Methods",q:"Which design requires RANDOM ASSIGNMENT of participants to conditions in order to claim a cause–effect relationship?",options:["Case study","Survey","True experiment","Naturalistic observation"],correct:2,feedback:"Random assignment to treatment/control groups is the defining feature of a true experiment and is what allows causal claims. A quasi-experiment compares groups without random assignment; surveys and case studies do not manipulate variables."},
+  {source:"CLO 2.1 · Data Sources",q:"A team analyses census figures and previously published datasets rather than collecting their own. They are using:",options:["Primary data","Secondary data","Experimental data","Pilot data"],correct:1,feedback:"Secondary data already exists and was gathered by someone else (census records, published datasets). Primary data is collected first-hand by the researcher for the current study."},
+  {source:"CLO 2.1 · Methods",q:"A researcher wants rich, in-depth understanding of one school's experience of a new curriculum, bounded in time and place. The most fitting design is a:",options:["Large-scale survey","Case study","True experiment","Cross-sectional questionnaire"],correct:1,feedback:"A case study gives an in-depth, holistic account of a single bounded unit (one school, one class). Surveys and experiments trade depth for breadth or causal control."},
+
+  /* ── Part II · CLO 2.4 — APA referencing (error-hunt) ── */
+  {source:"CLO 2.4 · APA In-Text",q:"Find the error: the in-text citation reads (Smith & Brown 2012). The correct APA 7 form is:",options:["(Smith and Brown, 2012)","(Smith & Brown, 2012)","(Smith & Brown: 2012)","(Smith, Brown, 2012)"],correct:1,feedback:"The error is the missing comma between the authors and the year. Inside parentheses APA uses the ampersand '&' (not 'and') and a comma before the year: (Smith & Brown, 2012)."},
+  {source:"CLO 2.4 · APA Reference",q:"A reference reads: Smith, J. (2012) Doing Research. London. Which fully corrected APA 7 entry is right?",options:["Smith, J. (2012) Doing Research. London: Sage.","Smith, J. (2012). Doing Research. Sage.","Smith, J. (2012). <i>Doing Research</i>. Sage.","Smith, J. 2012. Doing Research. Sage."],correct:2,feedback:"Three APA 7 errors must be fixed: (1) a period after the year (2012). (2) the book title in italics, and (3) APA 7 omits the place of publication — give the publisher only (Sage). So: Smith, J. (2012). <i>Doing Research</i>. Sage."},
+  {source:"CLO 2.4 · APA In-Text",q:"An article has three authors — Wang, Chen, and Ali (2020). From the FIRST citation onward APA 7 uses:",options:["(Wang, Chen, & Ali, 2020)","(Wang et al., 2020)","(Wang & Chen, 2020)","(Wang, 2020)"],correct:1,feedback:"APA 7 changed the rule: for three or more authors you use 'et al.' from the very first citation. Spelling out all names (the APA 6 first-mention rule) is no longer used."},
+  {source:"CLO 2.4 · APA In-Text",q:"You paraphrase an idea from Hassan (2021). What does APA 7 require?",options:["Author, year, and page number are all mandatory","Author and year; a page number is optional for a paraphrase","No citation, because the words are your own","A footnote with the full reference"],correct:1,feedback:"A paraphrase requires author + year; the page number is optional (helpful but not mandatory). A page number becomes mandatory only for DIRECT quotations."},
+  {source:"CLO 2.4 · APA In-Text",q:"You cite two different sources in one parenthetical citation. APA 7 separates them with:",options:["A comma","A semicolon, in alphabetical order","The word 'and'","A slash"],correct:1,feedback:"Multiple works in one parenthesis are separated by semicolons and ordered alphabetically: (Ali, 2019; Smith, 2021)."},
+  {source:"CLO 2.4 · APA Reference",q:"A web page has no named author. In APA 7 the reference begins with:",options:["Anonymous","The URL","The title of the page moved to the author position","The website's access date"],correct:2,feedback:"With no author, the title moves to the author position (the entry begins with the title, then the date). 'Anonymous' is used only if the source literally names the author as 'Anonymous'."},
+
+  /* ── Part II · CLO 2.2 — Critical evaluation ── */
+  {source:"CLO 2.2 · Critical Evaluation",q:"An abstract states: 'A study of 5 students at Qassim University concludes that ALL students in Saudi Arabia have high ethical standards.' Claiming the whole country from one small group is primarily a flaw of:",options:["Reliability","Generalizability","Informed consent","Currency"],correct:1,feedback:"Generalizability concerns whether findings can be extended beyond the sample. Results from 5 students at one university cannot represent every student in the country — that is an over-generalisation."},
+  {source:"CLO 2.2 · Critical Evaluation",q:"In that same study, the figure of only 5 participants is itself a problem of:",options:["Sample size","Researcher bias","Validity","Triangulation"],correct:0,feedback:"Five participants is too few to support a reliable conclusion — a sample-size problem. (Sample size and generalizability are linked: a tiny, unrepresentative sample undermines any broad claim.)"},
+  {source:"CLO 2.2 · Critical Evaluation",q:"A survey asks: 'Don't you agree that our excellent new program is highly effective?' This wording introduces:",options:["A double-barrelled question","Researcher bias through a leading (loaded) question","A reliability error","An anonymity breach"],correct:1,feedback:"The phrasing pushes respondents toward a 'good' answer — a leading or loaded question, a form of researcher bias that threatens the validity of the data."},
+  {source:"CLO 2.2 · Critical Evaluation",q:"A reviewer notes that a study's questionnaire never actually measures 'motivation', the construct it claims to study. This is a criticism of the study's:",options:["Reliability","Validity","Sample size","Response rate"],correct:1,feedback:"If the instrument does not capture the intended construct, the study lacks validity (specifically construct validity). Reliability would concern whether the flawed instrument at least produces consistent results."},
+
+  /* ── Part II · CLO 2.3 — Project design ── */
+  {source:"CLO 2.3 · Research Questions",q:"For a study on 'Student Anxiety and Oral Presentations', which is the best-formed research question?",options:["Is anxiety bad for students?","Why do students hate presentations?","How does pre-presentation anxiety relate to the oral performance of EFL undergraduates at Qassim University?","What is anxiety?"],correct:2,feedback:"A strong RQ is specific, researchable, and bounded — it names the variables (pre-presentation anxiety, oral performance) and the population (EFL undergraduates at a named site). The others are vague, leading, or merely definitional."},
+  {source:"CLO 2.3 · Instruments",q:"In that study, which tool best captures the construct 'anxiety'?",options:["A grammar test","A validated anxiety questionnaire / Likert self-report scale","A reference list audit","A plagiarism checker"],correct:1,feedback:"Anxiety is a self-reported affective state, well measured by a validated Likert-type anxiety scale (optionally triangulated with physiological measures). A grammar test measures a different construct."},
+  {source:"CLO 2.3 · Instruments",q:"To measure the number and type of 'errors' students make while speaking, the most appropriate tool is:",options:["A self-esteem inventory","An observation/recording checklist coded by the researcher","An anonymous attitude survey","A literature review"],correct:1,feedback:"Counting and classifying speech errors requires direct observation — typically audio/video recording analysed with a coding checklist — not a self-report survey."},
+  {source:"CLO 2.3 · Ethics in Design",q:"Before collecting any data from students, the essential ethical step is to:",options:["Publish the results","Obtain informed consent (and any required ethics approval)","Calculate the mean and standard deviation","Design the presentation slides"],correct:1,feedback:"Informed consent (plus institutional ethics approval where required) must be secured before data collection. Analysis and dissemination come later in the process."},
+  {source:"CLO 2.3 · Instruments",q:"What is the main purpose of running a PILOT study before full data collection?",options:["To publish preliminary findings quickly","To trial and refine the instrument, catching unclear or faulty questions","To increase the sample size automatically","To replace the literature review"],correct:1,feedback:"A pilot tests the instrument on a small group to expose ambiguous, leading, or malfunctioning items so they can be fixed before the main study — protecting reliability and validity."},
+  {source:"CLO 2.3 · Operationalisation",q:"Turning an abstract concept such as 'speaking confidence' into something concrete that can actually be measured is called:",options:["Triangulation","Operationalisation","Generalisation","Saturation"],correct:1,feedback:"Operationalisation defines an abstract construct in measurable terms (e.g. confidence = scores on a 10-item Likert scale). Triangulation is combining multiple data sources; saturation is a qualitative sampling concept."},
+  {source:"CLO 2.3 · Design",q:"A study collects both questionnaire scores AND interview accounts to understand a problem from two angles. This combination is called:",options:["A pilot study","Triangulation / mixed methods","Random sampling","A literature review"],correct:1,feedback:"Using more than one method or data source to study the same question is triangulation, characteristic of a mixed-methods design — it strengthens the credibility of the findings."},
+
+  /* ── Part II · CLO 2.5 — Presentation ── */
+  {source:"CLO 2.5 · Presentation",q:"Number the slides for a final research presentation in the correct order.",options:["Introduction → Methodology → Research Questions → Literature Review → Findings → References → Conclusions","Introduction → Research Questions → Literature Review → Methodology → Findings → Conclusions → References","Literature Review → Introduction → Research Questions → Findings → Methodology → Conclusions → References","Research Questions → Introduction → Methodology → Literature Review → Conclusions → Findings → References"],correct:1,feedback:"The logical flow mirrors the report: Introduction/Topic → Research Questions → Literature Review → Methodology → Data Analysis & Findings → Conclusions & Recommendations → References."},
+  {source:"CLO 2.5 · Presentation",q:"In a well-structured talk, which slide should come IMMEDIATELY AFTER the Methodology slide?",options:["Introduction","Literature Review","Data Analysis and Findings","References"],correct:2,feedback:"Once you have explained HOW you studied it (Methodology), you present WHAT you found (Data Analysis and Findings). References close the presentation."},
+  {source:"CLO 2.5 · Presentation",q:"During Q&A, an audience member asks something you genuinely don't know. The most professional response is to:",options:["Make up a plausible answer to look confident","Acknowledge the limit honestly and offer to follow up, or relate it to what your data does show","Ignore the question and move on","End the presentation immediately"],correct:1,feedback:"Academic integrity applies in the room too: it is better to acknowledge the boundary of your study honestly — and connect the question to what your evidence does support — than to fabricate an answer."}
+];
+
+let current=0,answers=new Array(QUESTIONS.length).fill(null),timerInterval=null,secondsLeft=2400,timerEnabled=false;
+document.getElementById('timer-toggle').addEventListener('change',function(){timerEnabled=this.checked;document.getElementById('timer-pill').classList.toggle('inactive',!timerEnabled);});
+function startQuiz(){document.getElementById('start-screen').style.display='none';document.getElementById('quiz-screen').style.display='block';document.getElementById('quiz-topbar').style.display='flex';renderQuestion();if(timerEnabled)startTimer();}
+function startTimer(){timerInterval=setInterval(()=>{secondsLeft--;const m=Math.floor(secondsLeft/60),s=secondsLeft%60;const pill=document.getElementById('timer-pill');pill.textContent=`⏱ ${m}:${s.toString().padStart(2,'0')}`;pill.className='timer-pill'+(secondsLeft<=120?' danger':secondsLeft<=300?' warning':'');if(secondsLeft<=0)clearInterval(timerInterval);},1000);}
+function renderQuestion(){const q=QUESTIONS[current];document.getElementById('q-counter-sm').textContent=`${current+1} / ${QUESTIONS.length}`;document.getElementById('progress-fill').style.width=`${(current/QUESTIONS.length)*100}%`;document.getElementById('q-source').textContent=q.source;document.getElementById('q-text').textContent=q.q;const letters=['A','B','C','D'],optEl=document.getElementById('options');optEl.innerHTML='';q.options.forEach((opt,i)=>{const btn=document.createElement('button');btn.className='option';if(answers[current]===i)btn.classList.add('selected');btn.innerHTML=`<span class="opt-letter">${letters[i]}</span><span>${opt}</span>`;btn.onclick=()=>selectOption(i);optEl.appendChild(btn);});const fb=document.getElementById('feedback');fb.style.display='none';fb.className='feedback-box';const bn=document.getElementById('btn-next');bn.style.display='none';bn.textContent=current===QUESTIONS.length-1?'See Results →':'Next →';if(answers[current]!==null)revealAnswer(answers[current]);}
+function selectOption(idx){if(answers[current]!==null)return;answers[current]=idx;revealAnswer(idx);}
+function revealAnswer(sel){const q=QUESTIONS[current];document.querySelectorAll('.option').forEach((opt,i)=>{opt.onclick=null;if(i===q.correct)opt.classList.add('reveal-correct');if(i===sel&&sel!==q.correct)opt.classList.add('wrong');if(i===sel&&sel===q.correct)opt.classList.add('correct');});const fb=document.getElementById('feedback');fb.style.display='block';if(sel===q.correct){fb.className='feedback-box correct';fb.innerHTML=`✓ Correct! ${q.feedback}`;}else{fb.className='feedback-box wrong';fb.innerHTML=`✗ Not quite. ${q.feedback}`;}document.getElementById('btn-next').style.display='block';}
+function nextQuestion(){if(current<QUESTIONS.length-1){current++;renderQuestion();window.scrollTo(0,0);}else showResults();}
+function showResults(){clearInterval(timerInterval);document.getElementById('quiz-screen').style.display='none';document.getElementById('results-screen').style.display='block';document.getElementById('progress-fill').style.width='100%';const correct=answers.filter((a,i)=>a===QUESTIONS[i].correct).length,total=QUESTIONS.length,pct=Math.round(correct/total*100);document.getElementById('score-num').textContent=`${correct}/${total}`;const ring=document.getElementById('score-ring');ring.style.borderColor=pct>=80?'#16a34a':pct>=60?'#d97706':'#dc2626';document.getElementById('results-title').textContent=pct>=80?'Excellent — exam-ready.':pct>=60?'Good — review what you missed.':'Revisit the chapters and retry.';document.getElementById('results-sub').textContent=`${correct} of ${total} correct (${pct}%). The graded final exam is individual and paper-based (Aug 16–17).`;const rl=document.getElementById('review-list');rl.innerHTML='';QUESTIONS.forEach((q,i)=>{const ua=answers[i],ok=ua===q.correct;const div=document.createElement('div');div.className=`review-item ${ok?'r-correct':'r-wrong'}`;div.innerHTML=`<div class="review-q">${ok?'✓':'✗'} Q${i+1} · ${q.source}</div><div class="review-a">${ua===null?'<span style="color:var(--text-3)">Not answered</span>':ok?`<span class="ra-right">✓ ${q.options[ua]}</span>`:`<span class="ra-wrong">✗ ${q.options[ua]}</span><br><span class="ra-right">✓ ${q.options[q.correct]}</span>`}</div>`;rl.appendChild(div);});}
+function retryQuiz(){answers=new Array(QUESTIONS.length).fill(null);current=0;secondsLeft=2400;clearInterval(timerInterval);document.getElementById('results-screen').style.display='none';document.getElementById('quiz-screen').style.display='block';renderQuestion();if(timerEnabled)startTimer();}
+</script>
+<footer>
+  <strong>ENG 446 Research Methods</strong> · Final Exam Review Bank · Qassim University · Summer 2026<br>
+  <a href="index.html">Course Hub</a> · <a href="syllabus.html">Syllabus</a> · <a href="apa-quickref.html">APA 7</a>
+</footer>
+<script src="site.js" defer></script>
+</body>
+</html>
