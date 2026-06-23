@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APA 7 Workshop | ENG 446</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+body { background: var(--off-white); }
+
+/* ── Tab bar ──────────────────────────────── */
+.tab-bar { display:flex; gap:4px; background:var(--white); border-radius:var(--r-xl); box-shadow:var(--shadow-xs); padding:6px; margin-bottom:28px; flex-wrap:wrap; }
+.tab-btn { flex:1; min-width:130px; padding:10px 16px; border:none; background:transparent; border-radius:var(--r-md); font-size:13px; font-weight:600; color:var(--text-2); cursor:pointer; transition:all .15s; white-space:nowrap; }
+.tab-btn:hover { background:var(--off-white); color:var(--text); }
+.tab-btn.active { background:#e53935; color:#fff; box-shadow:0 1px 4px rgba(229,57,53,.3); }
+.tab-panel { display:none; }
+.tab-panel.active { display:block; }
+
+/* ── Exercise cards ───────────────────────── */
+.ex-card { background:var(--white); border-radius:var(--r-xl); box-shadow:var(--shadow-sm); padding:24px; margin-bottom:20px; }
+.ex-num { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:#e53935; margin-bottom:8px; }
+.ex-q { font-size:15px; font-weight:600; color:var(--text); margin-bottom:16px; line-height:1.6; }
+.ex-citation { font-family:'Courier New',monospace; font-size:13px; background:var(--off-white); border-left:3px solid var(--border); padding:12px 16px; border-radius:0 var(--r-md) var(--r-md) 0; margin-bottom:16px; line-height:1.8; color:var(--text); }
+.ex-citation .error { background:#fef2f2; color:#c0392b; border-bottom:2px solid #e53935; cursor:pointer; border-radius:2px; padding:0 2px; }
+.ex-citation .correct { background:#f0fff4; color:#1a7f45; border-bottom:2px dashed #30d158; border-radius:2px; padding:0 2px; }
+.ex-options { display:flex; flex-direction:column; gap:8px; }
+.ex-opt { padding:12px 16px; border:1.5px solid var(--border); border-radius:var(--r-md); font-size:14px; cursor:pointer; transition:all .15s; background:var(--white); color:var(--text); text-align:left; }
+.ex-opt:hover { border-color:var(--text-2); background:var(--off-white); }
+.ex-opt.correct-ans { border-color:#30d158; background:#f0fff4; color:#1a7f45; }
+.ex-opt.wrong-ans   { border-color:#e53935; background:#fef2f2; color:#c0392b; }
+.ex-opt.correct-ans::after { content:" ✓"; font-weight:800; }
+.ex-opt.wrong-ans::after   { content:" ✗"; font-weight:800; }
+.ex-feedback { margin-top:14px; padding:12px 16px; border-radius:var(--r-md); font-size:13px; line-height:1.7; display:none; }
+.ex-feedback.show { display:block; }
+.fb-correct { background:#f0fff4; border:1px solid #a2d9b0; color:#14532d; }
+.fb-wrong   { background:#fef2f2; border:1px solid #fca5a5; color:#7f1d1d; }
+.ex-next { margin-top:14px; }
+
+/* ── Citation Builder ─────────────────────── */
+.builder-form { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px; }
+@media(max-width:600px){.builder-form{grid-template-columns:1fr;}}
+.bf-group { display:flex; flex-direction:column; gap:4px; }
+.bf-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--text-3); }
+.bf-input { padding:10px 12px; border:1.5px solid var(--border); border-radius:var(--r-md); font-size:14px; color:var(--text); background:var(--white); transition:border-color .15s; font-family:inherit; }
+.bf-input:focus { outline:none; border-color:#e53935; }
+.bf-select { padding:10px 12px; border:1.5px solid var(--border); border-radius:var(--r-md); font-size:14px; color:var(--text); background:var(--white); cursor:pointer; font-family:inherit; }
+.bf-output { background:var(--off-white); border-left:3px solid #e53935; padding:16px; border-radius:0 var(--r-md) var(--r-md) 0; font-family:'Courier New',monospace; font-size:13px; line-height:2; color:var(--text); min-height:60px; margin-bottom:12px; }
+.bf-output em { font-style:italic; }
+
+/* ── Error spotter ────────────────────────── */
+.spotfix-wrap { margin-bottom:20px; }
+.spotfix-text { font-family:'Courier New',monospace; font-size:13px; background:var(--white); border:1.5px solid var(--border); padding:16px; border-radius:var(--r-md); line-height:2.2; margin-bottom:12px; }
+.spotfix-text .spot-err { background:#fef2f2; color:#c0392b; border-bottom:2px solid #e53935; cursor:pointer; border-radius:2px; padding:1px 4px; transition:background .15s; }
+.spotfix-text .spot-err:hover { background:#fee2e2; }
+.spotfix-text .spot-err.found { background:#f0fff4; color:#1a7f45; border-bottom-color:#30d158; cursor:default; }
+.spot-counter { font-size:13px; color:var(--text-2); margin-bottom:8px; }
+.spot-explain { font-size:13px; background:#f0fff4; border:1px solid #a2d9b0; color:#14532d; padding:12px 16px; border-radius:var(--r-md); line-height:1.7; display:none; }
+.spot-explain.show { display:block; }
+
+/* ── Score ring ───────────────────────────── */
+.score-summary { text-align:center; padding:32px 20px; }
+.score-big { font-size:56px; font-weight:800; color:#e53935; line-height:1; margin-bottom:8px; }
+.score-sub { font-size:14px; color:var(--text-2); }
+
+/* ── Misc ────────────────────────────────── */
+.section-label-red { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:#e53935; margin-bottom:16px; display:block; }
+.tip-box { background:#fff8f8; border:1.5px solid #fca5a5; border-radius:var(--r-md); padding:14px 16px; font-size:13px; line-height:1.7; color:#7f1d1d; margin-bottom:20px; }
+.tip-box strong { color:#c0392b; }
+.prog-bar-wrap { height:6px; background:var(--off-white); border-radius:var(--r-pill); margin-bottom:24px; overflow:hidden; }
+.prog-bar { height:100%; background:#e53935; border-radius:var(--r-pill); transition:width .4s; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 446</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">APA 7 Workshop</span>
+  </div>
+</nav>
+
+<div class="hero" style="padding-bottom:40px;">
+  <div class="hero-eyebrow">Workshop · Days 5 · 8 · 12 · 17</div>
+  <h1>APA 7 Workshop</h1>
+  <p class="hero-sub">Four interactive modes — in-text citations, reference lists, error-spotting, and a cumulative challenge</p>
+  <div class="hero-meta">
+    <span class="badge" style="background:#fef2f2;color:#c0392b;border:1px solid #fca5a5;">✍️ In-class studio</span>
+    <span class="hero-meta-dot">·</span>
+    <span>Unlimited practice · no grade recorded</span>
+  </div>
+</div>
+
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+
+  <!-- Tab bar -->
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('intext',this)">📌 In-Text Citations</button>
+    <button class="tab-btn" onclick="switchTab('reflist',this)">📚 Reference Lists</button>
+    <button class="tab-btn" onclick="switchTab('builder',this)">🔧 Citation Builder</button>
+    <button class="tab-btn" onclick="switchTab('cumulative',this)">🏆 Cumulative Challenge</button>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       TAB 1 — IN-TEXT CITATIONS
+  ══════════════════════════════════════════════ -->
+  <div id="tab-intext" class="tab-panel active">
+    <div class="tip-box">
+      <strong>APA 7 In-Text Rule:</strong> Use author–date: (Last, Year) for a paraphrase, or (Last, Year, p. X) for a direct quote. Two authors: both names every time. Three or more: first author + et al. No author: use shortened title in quotes.
+    </div>
+    <div class="prog-bar-wrap"><div class="prog-bar" id="it-prog" style="width:0%"></div></div>
+    <div id="it-container"></div>
+    <div id="it-score" class="score-summary" style="display:none;"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       TAB 2 — REFERENCE LISTS
+  ══════════════════════════════════════════════ -->
+  <div id="tab-reflist" class="tab-panel">
+    <div class="tip-box">
+      <strong>APA 7 Reference List Rules:</strong> Hanging indent · sentence case for titles · italicise journal name and volume · DOI as hyperlink · alphabetical by first author's surname · date in parentheses after author · no "Retrieved from" unless no DOI.
+    </div>
+    <div class="prog-bar-wrap"><div class="prog-bar" id="rl-prog" style="width:0%"></div></div>
+    <div id="rl-container"></div>
+    <div id="rl-score" class="score-summary" style="display:none;"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       TAB 3 — CITATION BUILDER
+  ══════════════════════════════════════════════ -->
+  <div id="tab-builder" class="tab-panel">
+    <div class="tip-box">Enter the source details below and watch a formatted APA 7 reference appear instantly. Switch the source type to see how the format changes.</div>
+    <div class="ex-card">
+      <span class="section-label-red">Source type</span>
+      <div style="margin-bottom:20px;">
+        <select class="bf-select" id="src-type" onchange="buildCitation()" style="width:100%">
+          <option value="journal">Journal article</option>
+          <option value="book">Book (whole)</option>
+          <option value="chapter">Book chapter</option>
+          <option value="website">Webpage</option>
+        </select>
+      </div>
+      <div class="builder-form" id="builder-fields"></div>
+      <span class="section-label-red">Generated APA 7 Reference</span>
+      <div class="bf-output" id="builder-output">Fill in the fields above…</div>
+      <button class="btn btn-outline" onclick="copyRef()" id="copy-btn">Copy reference</button>
+      <div style="margin-top:20px;">
+        <span class="section-label-red">Matching in-text citation</span>
+        <div class="bf-output" id="intext-output" style="min-height:40px;">—</div>
+      </div>
+    </div>
+    <div class="ex-card">
+      <span class="section-label-red">Format guide</span>
+      <div style="font-size:13px;line-height:2;color:var(--text-2);">
+        <strong style="color:var(--text);">Journal article:</strong><br>
+        Author, A. A., &amp; Author, B. B. (Year). Title of article in sentence case. <em>Journal Name in Title Case, Volume</em>(Issue), pages. https://doi.org/xxx<br><br>
+        <strong style="color:var(--text);">Book:</strong><br>
+        Author, A. A. (Year). <em>Title in sentence case</em> (Xth ed.). Publisher.<br><br>
+        <strong style="color:var(--text);">Book chapter:</strong><br>
+        Author, A. A. (Year). Chapter title. In B. B. Editor (Ed.), <em>Book title</em> (pp. X–X). Publisher.<br><br>
+        <strong style="color:var(--text);">Webpage:</strong><br>
+        Author, A. A. (Year, Month Day). Title of page. Site Name. URL
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       TAB 4 — CUMULATIVE CHALLENGE
+  ══════════════════════════════════════════════ -->
+  <div id="tab-cumulative" class="tab-panel">
+    <div class="tip-box">
+      <strong>Cumulative Challenge:</strong> Each item below contains a reference with one or more deliberate APA 7 errors. Click on the highlighted text to reveal what's wrong and the correct form. Track your score as you go.
+    </div>
+    <div id="cum-score-bar" style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
+      <span class="section-label-red" style="margin-bottom:0;">Errors found:</span>
+      <span id="cum-found" style="font-size:22px;font-weight:800;color:#e53935;">0</span>
+      <span style="color:var(--text-3);">/ <span id="cum-total">—</span></span>
+    </div>
+    <div id="cum-container"></div>
+  </div>
+
+</div>
+</div>
+
+<footer>
+  <strong>ENG 446 Research Methods</strong> · APA 7 Workshop · Qassim University · Summer 2026<br>
+  <a href="index.html">Course Hub</a> · <a href="apa-quickref.html">APA Quick-Ref</a> · <a href="syllabus.html">Syllabus</a>
+</footer>
+
+<script>
+// ─── Tab switching ─────────────────────────────────────────────────────────
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ─── IN-TEXT CITATION QUESTIONS ────────────────────────────────────────────
+const IT_Q = [
+  {
+    q: "A student paraphrases an idea from a 2019 article by Ahmed Al-Rashidi. Which in-text citation is correct?",
+    opts: ["(Al-Rashidi, 2019)", "(Ahmed Al-Rashidi, 2019)", "(Al-Rashidi 2019)", "(2019, Al-Rashidi)"],
+    ans: 0,
+    fb: "Correct. APA 7 in-text citations use (Last, Year) for paraphrases. First name is never included, and the comma between author and year is required."
+  },
+  {
+    q: "A student directly quotes (p. 45) from a 2021 book by Nora Hassan and Khalid Mansour. Which citation is correct?",
+    opts: ["(Hassan et al., 2021, p. 45)", "(Hassan & Mansour, 2021, p. 45)", "(Hassan and Mansour, 2021, p. 45)", "(Hassan & Mansour, 2021)"],
+    ans: 1,
+    fb: "Correct. Two authors: use & (not 'and') between names, and include p. for page numbers on direct quotes. 'Et al.' only applies when there are 3 or more authors."
+  },
+  {
+    q: "A source has five authors (Li, Park, Osei, Rivera, and Müller, 2020). How do you cite it in-text?",
+    opts: ["(Li et al., 2020)", "(Li, Park, Osei, et al., 2020)", "(Li, Park, Osei, Rivera, & Müller, 2020)", "(Li, 2020)"],
+    ans: 0,
+    fb: "Correct. APA 7 rule: three or more authors → first author surname + et al., from the very first citation. You do not list all names first."
+  },
+  {
+    q: "An article has no author. The title is 'Academic Integrity in Higher Education'. Which in-text citation is correct?",
+    opts: ['("Academic Integrity," 2021)', '(Academic Integrity in Higher Education, 2021)', '(Anon., 2021)', '(No author, 2021)'],
+    ans: 0,
+    fb: 'Correct. When there is no author, use a shortened title in double quotation marks (first few significant words), followed by the year.'
+  },
+  {
+    q: "Which sentence correctly integrates a signal phrase with an APA 7 citation?",
+    opts: [
+      "Al-Otaibi (2022) argues that qualitative methods offer richer contextual data.",
+      "Al-Otaibi (2022) argues, that qualitative methods offer richer contextual data.",
+      "(Al-Otaibi, 2022) argues that qualitative methods offer richer contextual data.",
+      "Al-Otaibi argues (2022) that qualitative methods offer richer contextual data."
+    ],
+    ans: 0,
+    fb: "Correct. In a signal phrase, the author's surname appears as part of the sentence and the year follows in parentheses immediately after the name. The citation in parentheses should not appear mid-sentence after the verb."
+  },
+  {
+    q: "A student cites the same source twice in one paragraph (Lambert, 2012). What is the APA 7 rule for the second citation?",
+    opts: [
+      "Repeat (Lambert, 2012) every time.",
+      "Use (ibid.) for the second mention.",
+      "Use (Lambert) without the year the second time.",
+      "Omit the citation once the source has been established."
+    ],
+    ans: 0,
+    fb: "Correct. APA 7 does not use 'ibid.' or allow dropping the year. Repeat the full (Author, Year) citation every time you cite that source."
+  },
+  {
+    q: "A student quotes from a secondary source — an idea from Smith (2005) cited in Jones (2018). Which citation is correct?",
+    opts: [
+      "(Smith, 2005, as cited in Jones, 2018)",
+      "(Smith, 2005; Jones, 2018)",
+      "(Jones, 2018, citing Smith, 2005)",
+      "(Smith as cited in Jones, 2018)"
+    ],
+    ans: 0,
+    fb: "Correct. For secondary sources, cite the original author and year, then 'as cited in' the source you actually read. List only the source you read (Jones, 2018) in the reference list."
+  },
+  {
+    q: "Which correctly cites two different sources supporting the same claim?",
+    opts: [
+      "(Al-Harbi, 2020; Ngo, 2021)",
+      "(Al-Harbi, 2020 and Ngo, 2021)",
+      "(Al-Harbi 2020; Ngo 2021)",
+      "(Ngo, 2021; Al-Harbi, 2020)"
+    ],
+    ans: 0,
+    fb: "Correct. Multiple sources in one citation are separated by semicolons and ordered alphabetically by first author's surname. Option D has the wrong alphabetical order."
+  }
+];
+
+let itIndex = 0, itScore = 0, itAnswered = false;
+
+function renderIT() {
+  if (itIndex >= IT_Q.length) { showITScore(); return; }
+  const q = IT_Q[itIndex];
+  const pct = (itIndex / IT_Q.length * 100).toFixed(0);
+  document.getElementById('it-prog').style.width = pct + '%';
+  document.getElementById('it-container').innerHTML = `
+    <div class="ex-card">
+      <div class="ex-num">Question ${itIndex+1} of ${IT_Q.length}</div>
+      <div class="ex-q">${q.q}</div>
+      <div class="ex-options" id="it-opts">
+        ${q.opts.map((o,i) => `<button class="ex-opt" onclick="answerIT(${i})">${o}</button>`).join('')}
+      </div>
+      <div class="ex-feedback" id="it-fb"></div>
+      <div class="ex-next"><button class="btn btn-primary btn-sm" id="it-next" style="display:none" onclick="nextIT()">Next question →</button></div>
+    </div>`;
+  itAnswered = false;
+}
+
+function answerIT(i) {
+  if (itAnswered) return;
+  itAnswered = true;
+  const q = IT_Q[itIndex];
+  const opts = document.querySelectorAll('#it-opts .ex-opt');
+  opts.forEach((b,j) => {
+    b.disabled = true;
+    if (j === q.ans) b.classList.add('correct-ans');
+    else if (j === i && i !== q.ans) b.classList.add('wrong-ans');
+  });
+  if (i === q.ans) itScore++;
+  const fb = document.getElementById('it-fb');
+  fb.textContent = q.fb;
+  fb.className = 'ex-feedback show ' + (i === q.ans ? 'fb-correct' : 'fb-wrong');
+  document.getElementById('it-next').style.display = 'inline-block';
+}
+
+function nextIT() { itIndex++; renderIT(); }
+
+function showITScore() {
+  document.getElementById('it-prog').style.width = '100%';
+  document.getElementById('it-container').style.display = 'none';
+  const pct = Math.round(itScore / IT_Q.length * 100);
+  document.getElementById('it-score').style.display = 'block';
+  document.getElementById('it-score').innerHTML = `
+    <div class="score-big">${pct}%</div>
+    <div class="score-sub">${itScore} / ${IT_Q.length} correct</div>
+    <p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct >= 80 ? "Strong performance — your in-text citations are solid." : pct >= 60 ? "Good effort. Review the feedback above for the questions you missed." : "Keep practising — re-read the tip box above and try the Citation Builder."}</p>
+    <button class="btn btn-primary" onclick="resetIT()">Retry</button>`;
+}
+
+function resetIT() {
+  itIndex = 0; itScore = 0;
+  document.getElementById('it-container').style.display = 'block';
+  document.getElementById('it-score').style.display = 'none';
+  renderIT();
+}
+
+// ─── REFERENCE LIST QUESTIONS ──────────────────────────────────────────────
+const RL_Q = [
+  {
+    q: "Which of these is a correctly formatted APA 7 journal article reference?",
+    opts: [
+      "Al-Ghamdi, S. (2020). The effect of peer feedback on writing quality. Journal of Second Language Writing, 48, 100–112. https://doi.org/10.1016/j.jslw.2020.100712",
+      "Al-Ghamdi, S. (2020). The Effect of Peer Feedback on Writing Quality. Journal of Second Language Writing, 48, 100–112.",
+      "Al-Ghamdi, S., 2020. The effect of peer feedback on writing quality. Journal of Second Language Writing, 48(1), pp. 100–112.",
+      "S. Al-Ghamdi (2020). The effect of peer feedback on writing quality. Journal of Second Language Writing. Vol. 48. pp. 100–112."
+    ],
+    ans: 0,
+    fb: "Correct. Key markers: sentence case for article title, italicised journal name and volume, DOI as hyperlink. Option B has title case in the article title. Options C and D use wrong punctuation or format."
+  },
+  {
+    q: "A book reference should look like which of the following?",
+    opts: [
+      "Lambert, M. (2012). A beginner's guide to doing your education research project (2nd ed.). SAGE.",
+      "Lambert, M. (2012). A Beginner's Guide to Doing Your Education Research Project. SAGE Publications, London.",
+      "Lambert, M. 2012. A beginner's guide to doing your education research project. 2nd edition. SAGE.",
+      "M. Lambert. (2012). A beginner's guide to doing your education research project. (2nd ed.). SAGE."
+    ],
+    ans: 0,
+    fb: "Correct. Book title is italicised in sentence case. Edition is in parentheses before the publisher. No city is needed with APA 7 (removed from 6th edition). Option D has a misplaced full stop before the edition."
+  },
+  {
+    q: "Which correctly lists authors when a reference has six authors?",
+    opts: [
+      "Hassan, N., Osei, K., Park, J., Rivera, M., Al-Sayed, F., & Müller, T.",
+      "Hassan, N., et al. (when 6 authors)",
+      "Hassan, N., Osei, K., Park, J., … & Müller, T.",
+      "Hassan, N., Osei, K., Park, J., Rivera, M., Al-Sayed, F., Müller, T., ..."
+    ],
+    ans: 0,
+    fb: "Correct. APA 7 lists up to 20 authors in full in the reference list. 'Et al.' in the reference list is only used when there are 21 or more authors (list first 19, then ..., then the last author)."
+  },
+  {
+    q: "Where do italics go in a journal article reference?",
+    opts: [
+      "On the journal name and volume number",
+      "On the article title only",
+      "On both the article title and journal name",
+      "Nowhere — APA 7 no longer uses italics"
+    ],
+    ans: 0,
+    fb: "Correct. In a journal article reference, italicise the journal name and the volume number. The article title is NOT italicised (it is written in sentence case with no formatting)."
+  },
+  {
+    q: "A webpage has no publication date. How do you handle this in the reference?",
+    opts: [
+      "Write (n.d.) in place of the year",
+      "Write (unknown) in place of the year",
+      "Use the date you accessed the page",
+      "Omit the date entirely"
+    ],
+    ans: 0,
+    fb: "Correct. When no date is available, APA 7 uses (n.d.) — meaning 'no date' — in the position where the year normally appears."
+  },
+  {
+    q: "Which of the following correctly describes a hanging indent in a reference list?",
+    opts: [
+      "The first line of each entry is flush left; all subsequent lines are indented 1.27 cm (0.5 in).",
+      "Every line of every entry is indented equally.",
+      "The first line is indented; subsequent lines are flush left.",
+      "Only entries without a DOI require a hanging indent."
+    ],
+    ans: 0,
+    fb: "Correct. A hanging indent means the first line is flush left (no indent) and all additional lines of the same entry are indented. Every entry in the reference list uses this format."
+  }
+];
+
+let rlIndex = 0, rlScore = 0, rlAnswered = false;
+
+function renderRL() {
+  if (rlIndex >= RL_Q.length) { showRLScore(); return; }
+  const q = RL_Q[rlIndex];
+  const pct = (rlIndex / RL_Q.length * 100).toFixed(0);
+  document.getElementById('rl-prog').style.width = pct + '%';
+  document.getElementById('rl-container').innerHTML = `
+    <div class="ex-card">
+      <div class="ex-num">Question ${rlIndex+1} of ${RL_Q.length}</div>
+      <div class="ex-q">${q.q}</div>
+      <div class="ex-options" id="rl-opts">
+        ${q.opts.map((o,i) => `<button class="ex-opt" onclick="answerRL(${i})" style="font-family:'Courier New',monospace;font-size:12px;text-align:left;">${o}</button>`).join('')}
+      </div>
+      <div class="ex-feedback" id="rl-fb"></div>
+      <div class="ex-next"><button class="btn btn-primary btn-sm" id="rl-next" style="display:none" onclick="nextRL()">Next question →</button></div>
+    </div>`;
+  rlAnswered = false;
+}
+
+function answerRL(i) {
+  if (rlAnswered) return;
+  rlAnswered = true;
+  const q = RL_Q[rlIndex];
+  const opts = document.querySelectorAll('#rl-opts .ex-opt');
+  opts.forEach((b,j) => {
+    b.disabled = true;
+    if (j === q.ans) b.classList.add('correct-ans');
+    else if (j === i && i !== q.ans) b.classList.add('wrong-ans');
+  });
+  if (i === q.ans) rlScore++;
+  const fb = document.getElementById('rl-fb');
+  fb.textContent = q.fb;
+  fb.className = 'ex-feedback show ' + (i === q.ans ? 'fb-correct' : 'fb-wrong');
+  document.getElementById('rl-next').style.display = 'inline-block';
+}
+
+function nextRL() { rlIndex++; renderRL(); }
+
+function showRLScore() {
+  document.getElementById('rl-prog').style.width = '100%';
+  document.getElementById('rl-container').style.display = 'none';
+  const pct = Math.round(rlScore / RL_Q.length * 100);
+  document.getElementById('rl-score').style.display = 'block';
+  document.getElementById('rl-score').innerHTML = `
+    <div class="score-big">${pct}%</div>
+    <div class="score-sub">${rlScore} / ${RL_Q.length} correct</div>
+    <p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct >= 80 ? "Excellent — your reference list formatting is accurate." : "Review the APA Quick-Ref Card for formatting details."}</p>
+    <button class="btn btn-primary" onclick="resetRL()">Retry</button>`;
+}
+
+function resetRL() {
+  rlIndex = 0; rlScore = 0;
+  document.getElementById('rl-container').style.display = 'block';
+  document.getElementById('rl-score').style.display = 'none';
+  renderRL();
+}
+
+// ─── CITATION BUILDER ─────────────────────────────────────────────────────
+const BUILDER_FIELDS = {
+  journal: [
+    {id:'b-author', label:'Author(s)', ph:'e.g. Al-Ghamdi, S., & Hassan, N.'},
+    {id:'b-year',   label:'Year', ph:'e.g. 2021'},
+    {id:'b-title',  label:'Article title (sentence case)', ph:'e.g. The role of peer feedback'},
+    {id:'b-journal',label:'Journal name (title case)', ph:'e.g. Journal of Writing Research'},
+    {id:'b-vol',    label:'Volume', ph:'e.g. 13'},
+    {id:'b-issue',  label:'Issue', ph:'e.g. 2 (optional)'},
+    {id:'b-pages',  label:'Pages', ph:'e.g. 45–78'},
+    {id:'b-doi',    label:'DOI', ph:'e.g. 10.1234/jwr.2021.01'}
+  ],
+  book: [
+    {id:'b-author', label:'Author(s)', ph:'e.g. Lambert, M.'},
+    {id:'b-year',   label:'Year', ph:'e.g. 2012'},
+    {id:'b-title',  label:'Book title (sentence case, italicised)', ph:'e.g. A beginner\'s guide to research'},
+    {id:'b-edition',label:'Edition (optional)', ph:'e.g. 2nd ed.'},
+    {id:'b-publisher', label:'Publisher', ph:'e.g. SAGE'}
+  ],
+  chapter: [
+    {id:'b-author', label:'Chapter author(s)', ph:'e.g. Norton, B.'},
+    {id:'b-year',   label:'Year', ph:'e.g. 2018'},
+    {id:'b-chapter',label:'Chapter title', ph:'e.g. Identity and language learning'},
+    {id:'b-editor', label:'Book editor(s)', ph:'e.g. Cummins, J., & Davison, C.'},
+    {id:'b-book',   label:'Book title (italicised)', ph:'e.g. International handbook of English language teaching'},
+    {id:'b-pages',  label:'Chapter pages', ph:'e.g. 207–222'},
+    {id:'b-publisher',label:'Publisher', ph:'e.g. Springer'}
+  ],
+  website: [
+    {id:'b-author', label:'Author or organisation', ph:'e.g. American Psychological Association'},
+    {id:'b-year',   label:'Year (or n.d.)', ph:'e.g. 2023 or n.d.'},
+    {id:'b-title',  label:'Page title', ph:'e.g. APA style guidelines'},
+    {id:'b-site',   label:'Website name', ph:'e.g. APA'},
+    {id:'b-url',    label:'URL', ph:'e.g. https://apastyle.apa.org/'}
+  ]
+};
+
+function renderBuilderFields() {
+  const type = document.getElementById('src-type').value;
+  const fields = BUILDER_FIELDS[type];
+  document.getElementById('builder-fields').innerHTML = fields.map(f =>
+    `<div class="bf-group">
+       <label class="bf-label" for="${f.id}">${f.label}</label>
+       <input class="bf-input" id="${f.id}" placeholder="${f.ph}" oninput="buildCitation()">
+     </div>`
+  ).join('');
+  buildCitation();
+}
+
+function g(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
+
+function buildCitation() {
+  const type = document.getElementById('src-type').value;
+  let ref = '', intext = '';
+  const author = g('b-author'), year = g('b-year') || 'n.d.';
+
+  // Short in-text name
+  const firstAuthor = author.split(',')[0].trim() || 'Author';
+  const isMulti = author.includes('&') || author.includes(';');
+  const itName = isMulti ? firstAuthor + ' et al.' : firstAuthor;
+  intext = `(${itName}, ${year})`;
+
+  if (type === 'journal') {
+    const title = g('b-title'), journal = g('b-journal'), vol = g('b-vol'), issue = g('b-issue'), pages = g('b-pages'), doi = g('b-doi');
+    const issueStr = issue ? `(${issue})` : '';
+    const doiStr = doi ? ` https://doi.org/${doi.replace('https://doi.org/','')}` : '';
+    ref = `${author || 'Author, A.'} (${year}). ${title || 'Article title'}. <em>${journal || 'Journal Name'}, ${vol || 'V'}${issueStr}</em>, ${pages || 'pp–pp'}.${doiStr}`;
+  } else if (type === 'book') {
+    const title = g('b-title'), ed = g('b-edition'), pub = g('b-publisher');
+    const edStr = ed ? ` (${ed})` : '';
+    ref = `${author || 'Author, A.'} (${year}). <em>${title || 'Book title'}${edStr}</em>. ${pub || 'Publisher'}.`;
+  } else if (type === 'chapter') {
+    const ch = g('b-chapter'), ed = g('b-editor'), book = g('b-book'), pages = g('b-pages'), pub = g('b-publisher');
+    ref = `${author || 'Author, A.'} (${year}). ${ch || 'Chapter title'}. In ${ed || 'B. B. Editor'} (Ed.), <em>${book || 'Book title'}</em> (pp. ${pages || 'X–X'}). ${pub || 'Publisher'}.`;
+  } else if (type === 'website') {
+    const title = g('b-title'), site = g('b-site'), url = g('b-url');
+    ref = `${author || 'Author or Organisation'} (${year}). ${title || 'Page title'}. ${site || 'Website Name'}. ${url || 'https://'}`;
+  }
+
+  document.getElementById('builder-output').innerHTML = ref;
+  document.getElementById('intext-output').innerHTML = intext;
+}
+
+function copyRef() {
+  const txt = document.getElementById('builder-output').innerText;
+  navigator.clipboard.writeText(txt).then(() => {
+    const btn = document.getElementById('copy-btn');
+    btn.textContent = 'Copied! ✓';
+    setTimeout(() => { btn.textContent = 'Copy reference'; }, 2000);
+  });
+}
+
+// ─── CUMULATIVE CHALLENGE ─────────────────────────────────────────────────
+const CUM_ITEMS = [
+  {
+    label: "Journal Article",
+    html: `Al-Rashidi, <span class="spot-err" data-explain="APA 7 uses initials for first names, not full names" data-fix='A.'>Faisal</span>. (<span class="spot-err" data-explain="Year must be in parentheses — check your word processor's formatting" data-fix='2021'>2021.</span>) <span class="spot-err" data-explain="Article titles use sentence case — only the first word and proper nouns are capitalised" data-fix='The role of peer assessment in developing academic writing'>The Role of Peer Assessment in Developing Academic Writing</span>. <em>Journal of English for Academic Purposes, <span class="spot-err" data-explain="In APA 7 the volume number is italicised together with the journal name; the issue number (in parentheses) is NOT italicised" data-fix='54'>54</span></em>(2), 101–120. https://doi.org/10.1016/j.jeap.2021.100991`
+  },
+  {
+    label: "Book",
+    html: `Lambert, M. (2012). <em><span class="spot-err" data-explain="Book titles use sentence case in APA 7 — only first word and proper nouns capitalised" data-fix="A beginner's guide to doing your education research project">A Beginner's Guide to Doing Your Education Research Project</span></em> <span class="spot-err" data-explain="The edition goes in parentheses immediately after the title, before the period" data-fix='(2nd ed.).'>(2nd ed.)</span>. <span class="spot-err" data-explain="APA 7 does not require the publisher city/location" data-fix='SAGE.'>London: SAGE.</span>`
+  },
+  {
+    label: "In-Text — Direct Quote",
+    html: `According to Hassan (2019<span class="spot-err" data-explain="A direct quote must include the page number: p. X" data-fix='2019, p. 34'></span>), "qualitative research prioritises depth of understanding over breadth of generalisability."`
+  },
+  {
+    label: "Webpage — No Date",
+    html: `American Psychological Association. <span class="spot-err" data-explain="When no date is available, APA 7 uses (n.d.) in parentheses" data-fix='(n.d.).'>(no date).</span> APA style guidelines. APA. <span class="spot-err" data-explain="APA 7 no longer requires 'Retrieved from' before URLs unless a retrieval date is needed" data-fix='https://apastyle.apa.org/'>Retrieved from https://apastyle.apa.org/</span>`
+  },
+  {
+    label: "Three+ Authors — In-Text",
+    html: `The study found that student engagement improved significantly <span class="spot-err" data-explain="With 3 or more authors, APA 7 uses 'et al.' from the first citation — never list all names in-text" data-fix='(Park et al., 2022)'>(Park, Osei, Rivera, & Hassan, 2022)</span>.`
+  }
+];
+
+let cumFound = 0, cumTotal = 0;
+
+function renderCumulative() {
+  cumTotal = CUM_ITEMS.reduce((acc, item) => acc + (item.html.match(/spot-err/g)||[]).length/2, 0);
+  document.getElementById('cum-total').textContent = cumTotal;
+  document.getElementById('cum-container').innerHTML = CUM_ITEMS.map((item, i) =>
+    `<div class="ex-card spotfix-wrap">
+       <div class="ex-num">${item.label}</div>
+       <div class="spotfix-text" id="cum-item-${i}">${item.html}</div>
+       <div class="spot-counter" id="cum-hint-${i}">👆 Click the highlighted text to reveal the error</div>
+       <div class="spot-explain" id="cum-exp-${i}"></div>
+     </div>`
+  ).join('');
+
+  // Attach click handlers
+  document.querySelectorAll('.spot-err').forEach(el => {
+    el.addEventListener('click', function() {
+      if (this.classList.contains('found')) return;
+      this.classList.add('found');
+      cumFound++;
+      document.getElementById('cum-found').textContent = cumFound;
+      const explain = this.dataset.explain;
+      const fix = this.dataset.fix;
+      // Find parent item index
+      const card = this.closest('.spotfix-wrap');
+      const expDiv = card.querySelector('.spot-explain');
+      const prevText = expDiv.innerHTML;
+      expDiv.innerHTML = (prevText ? prevText + '<br>' : '') + `✓ <strong>Error:</strong> ${explain}. <strong>Correct form:</strong> ${fix}`;
+      expDiv.classList.add('show');
+    });
+  });
+}
+
+// ─── Init ─────────────────────────────────────────────────────────────────
+renderIT();
+renderRL();
+renderBuilderFields();
+renderCumulative();
+</script>
+</body>
+</html>

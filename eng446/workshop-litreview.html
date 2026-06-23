@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Literature Review Workshop | ENG 446</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+body { background: var(--off-white); }
+.tab-bar { display:flex; gap:4px; background:var(--white); border-radius:var(--r-xl); box-shadow:var(--shadow-xs); padding:6px; margin-bottom:28px; flex-wrap:wrap; }
+.tab-btn { flex:1; min-width:130px; padding:10px 16px; border:none; background:transparent; border-radius:var(--r-md); font-size:13px; font-weight:600; color:var(--text-2); cursor:pointer; transition:all .15s; }
+.tab-btn:hover { background:var(--off-white); }
+.tab-btn.active { background:#f59e0b; color:#fff; }
+.tab-panel { display:none; }
+.tab-panel.active { display:block; }
+.ex-card { background:var(--white); border-radius:var(--r-xl); box-shadow:var(--shadow-sm); padding:24px; margin-bottom:20px; }
+.ex-num { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:#f59e0b; margin-bottom:8px; }
+.ex-q { font-size:15px; font-weight:600; color:var(--text); margin-bottom:16px; line-height:1.6; }
+.ex-options { display:flex; flex-direction:column; gap:8px; }
+.ex-opt { padding:12px 16px; border:1.5px solid var(--border); border-radius:var(--r-md); font-size:14px; cursor:pointer; transition:all .15s; background:var(--white); color:var(--text); text-align:left; }
+.ex-opt:hover { border-color:var(--text-2); }
+.ex-opt.correct-ans { border-color:#30d158; background:#f0fff4; color:#1a7f45; }
+.ex-opt.correct-ans::after { content:" ✓"; font-weight:800; }
+.ex-opt.wrong-ans { border-color:#e53935; background:#fef2f2; color:#c0392b; }
+.ex-opt.wrong-ans::after { content:" ✗"; font-weight:800; }
+.ex-feedback { margin-top:14px; padding:12px 16px; border-radius:var(--r-md); font-size:13px; line-height:1.7; display:none; }
+.ex-feedback.show { display:block; }
+.fb-correct { background:#f0fff4; border:1px solid #a2d9b0; color:#14532d; }
+.fb-wrong   { background:#fef2f2; border:1px solid #fca5a5; color:#7f1d1d; }
+.tip-box { background:#fffbea; border:1.5px solid #fcd34d; border-radius:var(--r-md); padding:14px 16px; font-size:13px; line-height:1.7; color:#78350f; margin-bottom:20px; }
+.tip-box strong { color:#92400e; }
+.prog-bar-wrap { height:6px; background:var(--off-white); border-radius:var(--r-pill); margin-bottom:24px; overflow:hidden; }
+.prog-bar { height:100%; background:#f59e0b; border-radius:var(--r-pill); transition:width .4s; }
+.score-summary { text-align:center; padding:32px 20px; }
+.score-big { font-size:56px; font-weight:800; color:#f59e0b; line-height:1; margin-bottom:8px; }
+.score-sub { font-size:14px; color:var(--text-2); }
+
+/* Summary vs Synthesis sorter */
+.ss-passage { background:var(--off-white); border-radius:var(--r-md); padding:14px 16px; font-size:13px; line-height:1.7; color:var(--text-2); font-style:italic; margin-bottom:12px; border-left:3px solid var(--border); }
+.ss-choice { display:flex; gap:10px; margin-bottom:8px; }
+.ss-btn { flex:1; padding:10px; border:1.5px solid var(--border); border-radius:var(--r-md); font-size:13px; font-weight:600; cursor:pointer; background:var(--white); transition:all .15s; }
+.ss-btn:hover { border-color:var(--text-2); }
+.ss-btn.s-correct { border-color:#30d158; background:#f0fff4; color:#1a7f45; }
+.ss-btn.s-wrong   { border-color:#e53935; background:#fef2f2; color:#c0392b; }
+.ss-explain { font-size:12px; padding:10px 14px; border-radius:var(--r-md); display:none; margin-bottom:16px; line-height:1.6; }
+.ss-explain.show { display:block; }
+
+/* Gap spotting */
+.gap-abstract { background:var(--white); border:1.5px solid var(--border); border-radius:var(--r-md); padding:16px; font-size:13px; line-height:2; margin-bottom:16px; }
+.gap-highlight { background:#fef9c3; border-bottom:2px solid #f59e0b; border-radius:2px; cursor:pointer; padding:1px 3px; }
+.gap-highlight.found { background:#f0fff4; border-bottom-color:#30d158; }
+.gap-explain { font-size:13px; background:#f0fff4; border:1px solid #a2d9b0; padding:12px 16px; border-radius:var(--r-md); display:none; margin-top:10px; line-height:1.7; }
+.gap-explain.show { display:block; }
+
+/* Structure selector */
+.struct-card { border:2px solid var(--border); border-radius:var(--r-lg); padding:18px; cursor:pointer; transition:all .2s; margin-bottom:12px; }
+.struct-card:hover { border-color:#f59e0b; }
+.struct-card.selected { border-color:#f59e0b; background:#fffbea; }
+.struct-title { font-size:15px; font-weight:700; margin-bottom:6px; }
+.struct-desc { font-size:13px; color:var(--text-2); line-height:1.5; }
+.struct-when { font-size:12px; font-weight:600; color:#f59e0b; margin-top:6px; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 446</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Lit Review Workshop</span>
+  </div>
+</nav>
+
+<div class="hero" style="padding-bottom:40px;">
+  <div class="hero-eyebrow">Workshop · Days 7 · 9</div>
+  <h1>Literature Review Workshop</h1>
+  <p class="hero-sub">Summary vs. synthesis, gap-spotting, structure types, and a peer-review checklist</p>
+  <div class="hero-meta">
+    <span class="badge" style="background:#fffbea;color:#92400e;border:1px solid #fcd34d;">📚 Lit Review due Tue Jul 14</span>
+  </div>
+</div>
+
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('synth',this)">🔄 Summary vs. Synthesis</button>
+    <button class="tab-btn" onclick="switchTab('gap',this)">🔍 Gap Spotting</button>
+    <button class="tab-btn" onclick="switchTab('structure',this)">🏗️ Structure Types</button>
+    <button class="tab-btn" onclick="switchTab('quiz',this)">📝 Lit Review Quiz</button>
+  </div>
+
+  <!-- ══ TAB 1 — SUMMARY VS SYNTHESIS ══ -->
+  <div id="tab-synth" class="tab-panel active">
+    <div class="tip-box">
+      <strong>Summary</strong> tells the reader what ONE source says. <strong>Synthesis</strong> weaves multiple sources together to build a larger argument — showing agreement, disagreement, patterns, or gaps across several studies. A literature review is synthesis, not a chain of summaries.
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Identify: Is this passage a summary or synthesis?</div>
+      <p style="font-size:13px;color:var(--text-2);margin-bottom:20px;">Click Summary or Synthesis for each passage. Read the explanation to understand why.</p>
+      <div id="ss-container"></div>
+      <div id="ss-score" style="margin-top:16px;font-size:14px;font-weight:600;color:#f59e0b;"></div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">How to convert a summary into synthesis</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:13px;">
+        <div>
+          <div style="font-weight:700;color:#c0392b;margin-bottom:8px;">✗ Summary (weak)</div>
+          <div style="background:#fef2f2;border-radius:var(--r-md);padding:14px;font-style:italic;line-height:1.7;color:var(--text-2);">
+            "Hassan (2019) found that peer feedback improved student writing. Al-Rashidi (2020) also found that peer feedback was useful. Ngo (2021) studied peer feedback and found similar results."
+          </div>
+        </div>
+        <div>
+          <div style="font-weight:700;color:#1a7f45;margin-bottom:8px;">✓ Synthesis (strong)</div>
+          <div style="background:#f0fff4;border-radius:var(--r-md);padding:14px;font-style:italic;line-height:1.7;color:var(--text-2);">
+            "Multiple studies confirm that peer feedback positively impacts EFL writing quality (Al-Rashidi, 2020; Hassan, 2019; Ngo, 2021), though the degree of improvement varies by context — Hassan (2019) found stronger gains in revision depth, while Ngo (2021) noted greater improvement in grammatical accuracy."
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:14px;font-size:13px;color:var(--text-2);">
+        Key moves in synthesis: <strong>group sources by theme, signal agreement/disagreement, show how one study extends another, identify what is still unknown.</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TAB 2 — GAP SPOTTING ══ -->
+  <div id="tab-gap" class="tab-panel">
+    <div class="tip-box">
+      <strong>The research gap</strong> is the missing piece in the existing literature — what hasn't been studied, what population has been overlooked, or what method hasn't been applied. Your research proposal fills this gap. Practice finding gap language in real abstracts.
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Click the gap-language phrases (highlighted in yellow)</div>
+      <div class="gap-abstract" id="gap-text"></div>
+      <div id="gap-score" style="font-size:13px;color:var(--text-2);margin-top:8px;"></div>
+      <div class="gap-explain" id="gap-explain"></div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Common gap-signalling phrases</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px;color:var(--text-2);">
+        <div style="background:var(--off-white);padding:12px;border-radius:var(--r-md);">
+          <strong style="color:var(--text);">Limitation gaps</strong>
+          <ul style="padding-left:14px;margin-top:6px;display:flex;flex-direction:column;gap:4px;">
+            <li>"Previous studies have focused only on…"</li>
+            <li>"Little attention has been paid to…"</li>
+            <li>"Most research has been conducted in Western contexts…"</li>
+          </ul>
+        </div>
+        <div style="background:var(--off-white);padding:12px;border-radius:var(--r-md);">
+          <strong style="color:var(--text);">Uncertainty gaps</strong>
+          <ul style="padding-left:14px;margin-top:6px;display:flex;flex-direction:column;gap:4px;">
+            <li>"It remains unclear whether…"</li>
+            <li>"No consensus has been reached on…"</li>
+            <li>"The existing literature has yet to examine…"</li>
+          </ul>
+        </div>
+        <div style="background:var(--off-white);padding:12px;border-radius:var(--r-md);">
+          <strong style="color:var(--text);">Population gaps</strong>
+          <ul style="padding-left:14px;margin-top:6px;display:flex;flex-direction:column;gap:4px;">
+            <li>"Studies involving Arab EFL learners are scarce…"</li>
+            <li>"No studies have examined this phenomenon among…"</li>
+          </ul>
+        </div>
+        <div style="background:var(--off-white);padding:12px;border-radius:var(--r-md);">
+          <strong style="color:var(--text);">Method gaps</strong>
+          <ul style="padding-left:14px;margin-top:6px;display:flex;flex-direction:column;gap:4px;">
+            <li>"Previous work has relied predominantly on…"</li>
+            <li>"A qualitative approach has not been applied to…"</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TAB 3 — STRUCTURE ══ -->
+  <div id="tab-structure" class="tab-panel">
+    <div class="tip-box">
+      <strong>Three main literature review structures:</strong> Thematic (by topic), Chronological (by date), Comparative (study vs. study). Most ENG 446 projects use thematic structure. Click a card to see when to use it and what it looks like.
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Select a structure to explore it</div>
+      <div id="struct-cards"></div>
+      <div id="struct-detail" style="display:none;margin-top:20px;padding:20px;background:var(--off-white);border-radius:var(--r-md);font-size:13px;line-height:1.8;color:var(--text-2);"></div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">What a thematic lit review paragraph looks like</div>
+      <div style="background:var(--off-white);border-left:3px solid #f59e0b;padding:14px 16px;border-radius:0 var(--r-md) var(--r-md) 0;font-size:13px;line-height:2;color:var(--text-2);">
+        <strong style="color:var(--text);">[Topic sentence — state the theme]</strong> Peer feedback has been consistently linked to improvements in EFL writing quality across multiple contexts.
+        <br><strong style="color:var(--text);">[Evidence — synthesise 2–3 sources]</strong> Hassan (2019) and Al-Rashidi (2020) both found significant gains in revision depth, while Ngo (2021) noted improvements in grammatical accuracy among Vietnamese EFL learners.
+        <br><strong style="color:var(--text);">[Critical comment — agree/extend/contest]</strong> However, these studies focused primarily on undergraduate contexts; the effect of peer feedback among secondary students remains less established (Park & Lee, 2022).
+        <br><strong style="color:var(--text);">[Bridge to gap / your study]</strong> This gap motivates the present study, which examines peer feedback effectiveness among EFL learners at Qassim University.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TAB 4 — QUIZ ══ -->
+  <div id="tab-quiz" class="tab-panel">
+    <div class="prog-bar-wrap"><div class="prog-bar" id="lq-prog" style="width:0%"></div></div>
+    <div id="lq-container"></div>
+    <div id="lq-score" class="score-summary" style="display:none;"></div>
+  </div>
+
+</div>
+</div>
+
+<footer>
+  <strong>ENG 446 Research Methods</strong> · Literature Review Workshop · Qassim University · Summer 2026<br>
+  <a href="index.html">Course Hub</a> · <a href="syllabus.html">Syllabus</a> · <a href="workshop-apa.html">APA Workshop</a>
+</footer>
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ── SUMMARY VS SYNTHESIS ────────────────────────────────────────────────────
+const SS_ITEMS = [
+  {
+    text: '"Hassan (2019) conducted a study on peer feedback among EFL students. She found that students who received peer feedback improved their writing scores by 15%."',
+    type: 'summary',
+    explain: 'This is a SUMMARY. It tells us what one source found, but does not connect it to other research, show a pattern, or build toward a larger argument.'
+  },
+  {
+    text: '"Research consistently shows that peer feedback improves both revision depth and grammatical accuracy in EFL writing (Al-Rashidi, 2020; Hassan, 2019; Ngo, 2021), though the size of the effect varies by instructional context and learner proficiency level (Park & Lee, 2022)."',
+    type: 'synthesis',
+    explain: 'This is SYNTHESIS. It groups multiple sources (Al-Rashidi, Hassan, Ngo) around a shared finding, then introduces nuance using a fourth source (Park & Lee). It builds an argument rather than reporting one study at a time.'
+  },
+  {
+    text: '"Al-Rashidi (2020) studied the effect of teacher feedback on Saudi EFL learners at King Abdulaziz University. He used a quasi-experimental design with 45 participants and found that teacher feedback was more effective than no feedback."',
+    type: 'summary',
+    explain: 'This is a SUMMARY. The passage describes one study in isolation — design, participants, finding — without connecting it to other research or making a broader claim.'
+  },
+  {
+    text: '"While earlier studies focused on teacher-centred feedback (Al-Rashidi, 2020; Li, 2017), more recent research has shifted attention toward peer-delivered and technology-mediated feedback (Hassan, 2019; Ngo, 2021). This shift reflects a broader pedagogical move toward learner autonomy in EFL classrooms."',
+    type: 'synthesis',
+    explain: 'This is SYNTHESIS. The passage groups earlier vs. later research chronologically and thematically, identifies a trend (the shift toward peer/tech feedback), and connects it to a larger theoretical framework (learner autonomy).'
+  },
+  {
+    text: '"Ngo (2021) examined peer feedback among Vietnamese EFL undergraduates. The study used a mixed-methods design. Quantitative data showed improved accuracy; qualitative data showed increased confidence."',
+    type: 'summary',
+    explain: 'This is a SUMMARY. Despite mentioning multiple types of data (quant + qual), the passage describes only one study in isolation without relating it to other research.'
+  }
+];
+
+let ssScore = 0, ssTotal = SS_ITEMS.length;
+
+function initSS() {
+  document.getElementById('ss-container').innerHTML = SS_ITEMS.map((item,i) => `
+    <div style="margin-bottom:20px;">
+      <div class="ss-passage">${item.text}</div>
+      <div class="ss-choice">
+        <button class="ss-btn" id="ss-sum-${i}" onclick="answerSS(${i},'summary')">📄 Summary</button>
+        <button class="ss-btn" id="ss-syn-${i}" onclick="answerSS(${i},'synthesis')">🔄 Synthesis</button>
+      </div>
+      <div class="ss-explain ${item.type === 'summary' ? 'fb-wrong' : 'fb-correct'}" id="ss-exp-${i}">${item.explain}</div>
+    </div>
+  `).join('');
+}
+
+function answerSS(i, chosen) {
+  const item = SS_ITEMS[i];
+  const sumBtn = document.getElementById('ss-sum-'+i);
+  const synBtn = document.getElementById('ss-syn-'+i);
+  sumBtn.disabled = synBtn.disabled = true;
+  if (chosen === item.type) {
+    document.getElementById('ss-'+(chosen==='summary'?'sum':'syn')+'-'+i).classList.add('s-correct');
+    ssScore++;
+  } else {
+    document.getElementById('ss-'+(chosen==='summary'?'sum':'syn')+'-'+i).classList.add('s-wrong');
+    document.getElementById('ss-'+(item.type==='summary'?'sum':'syn')+'-'+i).classList.add('s-correct');
+  }
+  document.getElementById('ss-exp-'+i).classList.add('show');
+  document.getElementById('ss-score').textContent = `${ssScore} / ${ssTotal} correct so far`;
+}
+
+// ── GAP SPOTTING ────────────────────────────────────────────────────────────
+const GAP_HTML = `Peer feedback has been extensively studied in Western EFL contexts, particularly in North America and Europe (Hassan, 2019; Li, 2017; Park & Lee, 2022). Studies consistently demonstrate its positive effects on writing quality, revision depth, and learner confidence. However, <span class="gap-highlight" data-explain="This phrase signals a population gap — the existing research lacks Arab/Saudi EFL contexts.">research involving Arab EFL learners remains limited</span>, with most studies focusing on East Asian populations. Furthermore, <span class="gap-highlight" data-explain="'It remains unclear' signals an uncertainty gap — a specific question hasn't been answered yet.">it remains unclear whether peer feedback is equally effective across different proficiency levels</span>, as existing studies have sampled predominantly intermediate learners. <span class="gap-highlight" data-explain="'Previous studies have relied predominantly on' signals a method gap — the existing approach has a limitation.">Previous studies have relied predominantly on quantitative measures</span>, leaving the qualitative experience of peer feedback underexplored. The present study therefore seeks to address these gaps by examining peer feedback among Saudi EFL undergraduates using a mixed-methods approach.`;
+
+let gapFound = 0;
+
+function initGap() {
+  document.getElementById('gap-text').innerHTML = GAP_HTML;
+  document.getElementById('gap-score').textContent = 'Click the yellow phrases to identify the gap language.';
+  document.querySelectorAll('.gap-highlight').forEach(el => {
+    el.addEventListener('click', function() {
+      if (this.classList.contains('found')) return;
+      this.classList.add('found');
+      gapFound++;
+      const exp = document.getElementById('gap-explain');
+      exp.textContent = `Gap ${gapFound}: ${this.dataset.explain}`;
+      exp.classList.add('show');
+      document.getElementById('gap-score').textContent = `${gapFound} / 3 gap phrases found`;
+    });
+  });
+}
+
+// ── STRUCTURE ───────────────────────────────────────────────────────────────
+const STRUCTURES = [
+  {
+    name: 'Thematic', icon: '🏷️',
+    desc: 'Groups sources by topic or theme, not by date or individual study.',
+    when: 'Best for: most research projects, especially when multiple sources address the same themes.',
+    detail: `<strong>How it works:</strong><br>Organise your lit review into theme-based paragraphs. Each paragraph covers one aspect of the topic, drawing on multiple sources.<br><br>
+<strong>Example outline:</strong><br>
+• Theme 1: The benefits of peer feedback on writing quality → synthesise 3–4 sources<br>
+• Theme 2: Factors affecting peer feedback effectiveness (proficiency, training, task type) → synthesise 3–4 sources<br>
+• Theme 3: Limitations and gaps in existing research → lead into your study's contribution<br><br>
+<strong>Advantage:</strong> Builds a clear, coherent argument. Readers see the intellectual landscape of the topic rather than a series of disconnected study descriptions.`
+  },
+  {
+    name: 'Chronological', icon: '📅',
+    desc: 'Traces how research on a topic has developed over time.',
+    when: 'Best for: topics with a clear historical development, or when showing how thinking has evolved matters.',
+    detail: `<strong>How it works:</strong><br>Organise sources from earliest to most recent, showing how understanding of the topic has changed.<br><br>
+<strong>Example outline:</strong><br>
+• Early research (pre-2000): teacher-centred feedback models → limited peer involvement<br>
+• 2000s–2010s: rise of constructivist approaches → peer feedback gains legitimacy<br>
+• 2015–present: technology-mediated peer feedback → digital tools change the landscape<br><br>
+<strong>Advantage:</strong> Good for showing development and progress. Shows that the field has moved in a clear direction.<br><br>
+<strong>Risk:</strong> Can become a list of dates without a clear argument if synthesis is weak.`
+  },
+  {
+    name: 'Comparative', icon: '⚖️',
+    desc: 'Places studies side-by-side to highlight agreements, contradictions, or differences.',
+    when: 'Best for: topics where studies disagree, use different methods, or produce contrasting results.',
+    detail: `<strong>How it works:</strong><br>Directly compare two or more studies, frameworks, or positions on the same question.<br><br>
+<strong>Example outline:</strong><br>
+• Study A (Hassan, 2019) vs. Study B (Al-Rashidi, 2020): both examine peer feedback, but one finds positive effects, the other finds negligible effects — why?<br>
+• Different methods (quantitative vs. qualitative) → compare what each reveals and misses<br>
+• Theoretical framework A (Vygotsky's ZPD) vs. Framework B (Process Writing Theory)<br><br>
+<strong>Advantage:</strong> Excellent for critical analysis. Shows the reviewer knows the field deeply and can evaluate evidence rather than just report it.<br><br>
+<strong>Risk:</strong> Requires confident command of multiple sources. Can feel fragmented if not unified by a clear question.`
+  }
+];
+
+function initStructures() {
+  document.getElementById('struct-cards').innerHTML = STRUCTURES.map((s,i) =>
+    `<div class="struct-card" id="struct-${i}" onclick="selectStruct(${i})">
+       <div class="struct-title">${s.icon} ${s.name} Structure</div>
+       <div class="struct-desc">${s.desc}</div>
+       <div class="struct-when">${s.when}</div>
+     </div>`
+  ).join('');
+}
+
+function selectStruct(i) {
+  document.querySelectorAll('.struct-card').forEach(c => c.classList.remove('selected'));
+  document.getElementById('struct-'+i).classList.add('selected');
+  const det = document.getElementById('struct-detail');
+  det.innerHTML = STRUCTURES[i].detail;
+  det.style.display = 'block';
+}
+
+// ── LIT REVIEW QUIZ ─────────────────────────────────────────────────────────
+const LQ = [
+  { q:"What is the fundamental difference between a literature review and an annotated bibliography?",
+    opts:["A lit review synthesises sources around themes; an annotated bibliography summarises each source separately","A lit review uses APA; an annotated bibliography uses MLA","A lit review only includes journal articles; an annotated bibliography can include any source","There is no difference — they serve the same purpose"],
+    ans:0, fb:"Correct. An annotated bibliography describes each source individually. A literature review weaves sources together into a coherent argument, identifying patterns, contradictions, and gaps across the whole body of research." },
+  { q:"Which sentence best introduces a research gap?",
+    opts:["'Despite extensive research on peer feedback in Western EFL contexts, studies involving Saudi learners remain scarce.'","'Peer feedback is an important topic that many researchers have studied.'","'This study will find that peer feedback is effective.'","'Al-Rashidi (2020) studied peer feedback.'"],
+    ans:0, fb:"The strongest gap statement names what exists (Western EFL research on peer feedback), then clearly identifies what is missing (Saudi learners). Options B–D are too vague or describe something else entirely." },
+  { q:"A literature review should typically end with:",
+    opts:["A statement of the research gap and how the current study addresses it","A complete list of all sources consulted","A personal reflection on what the researcher found interesting","A copy of the questionnaire or interview guide"],
+    ans:0, fb:"The conclusion of a literature review leads directly to your study: having surveyed the field, you identify the gap, then state that your study fills it. This provides the logical justification for your research." },
+  { q:"Which of the following is an example of critical engagement with a source?",
+    opts:["'While Hassan (2019) found that peer feedback improved writing scores, the study's small sample (n = 12) limits generalisability to larger EFL populations.'","'Hassan (2019) found that peer feedback improved writing scores.'","'Hassan (2019) is an important researcher who has contributed to this field.'","'This source is very relevant to the topic.'"],
+    ans:0, fb:"Critical engagement means evaluating a source — not just reporting what it found, but assessing its strengths, limitations, or implications. Option A questions the generalisability of the finding, which is genuine critique." },
+  { q:"In a thematic literature review, each paragraph should:",
+    opts:["Address one theme and draw on multiple sources to support a claim about that theme","Summarise one source completely before moving to the next","List all sources in alphabetical order","Repeat the research question at the beginning of each paragraph"],
+    ans:0, fb:"Each thematic paragraph = one topic/theme + evidence from several sources synthesised together. The paragraph builds toward a specific claim about the theme, not toward describing individual studies." },
+  { q:"How many sources is typically appropriate for a literature review in an ENG 446 group proposal?",
+    opts:["6–10 relevant, recent, peer-reviewed sources","1–2 textbook sources","As many as you can find (50+)","Only sources from Saudi Arabia"],
+    ans:0, fb:"For a group proposal in this course: aim for 6–10 sources, prioritising peer-reviewed journal articles from the last 10 years. Quality and relevance matter more than quantity. The Lambert textbook can be cited for methodology but is not a substitute for primary research sources." }
+];
+
+let lqIndex=0, lqScore=0, lqAnswered=false;
+function renderLQ() {
+  if (lqIndex>=LQ.length){showLQScore();return;}
+  const q=LQ[lqIndex];
+  document.getElementById('lq-prog').style.width=(lqIndex/LQ.length*100)+'%';
+  document.getElementById('lq-container').innerHTML=`<div class="ex-card"><div class="ex-num">Question ${lqIndex+1} of ${LQ.length}</div><div class="ex-q">${q.q}</div><div class="ex-options" id="lq-opts">${q.opts.map((o,i)=>`<button class="ex-opt" onclick="answerLQ(${i})">${o}</button>`).join('')}</div><div class="ex-feedback" id="lq-fb"></div><div><button class="btn btn-primary btn-sm" id="lq-next" style="display:none;margin-top:14px" onclick="nextLQ()">Next →</button></div></div>`;
+  lqAnswered=false;
+}
+function answerLQ(i){
+  if(lqAnswered)return; lqAnswered=true;
+  const q=LQ[lqIndex];
+  document.querySelectorAll('#lq-opts .ex-opt').forEach((b,j)=>{b.disabled=true;if(j===q.ans)b.classList.add('correct-ans');else if(j===i&&i!==q.ans)b.classList.add('wrong-ans');});
+  if(i===q.ans)lqScore++;
+  const fb=document.getElementById('lq-fb');
+  fb.textContent=q.fb; fb.className='ex-feedback show '+(i===q.ans?'fb-correct':'fb-wrong');
+  document.getElementById('lq-next').style.display='inline-block';
+}
+function nextLQ(){lqIndex++;renderLQ();}
+function showLQScore(){
+  document.getElementById('lq-prog').style.width='100%';
+  document.getElementById('lq-container').style.display='none';
+  const pct=Math.round(lqScore/LQ.length*100);
+  document.getElementById('lq-score').style.display='block';
+  document.getElementById('lq-score').innerHTML=`<div class="score-big">${pct}%</div><div class="score-sub">${lqScore}/${LQ.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct>=80?"Your lit review understanding is solid.":"Review the synthesis and gap-spotting tabs for the concepts you missed."}</p><button class="btn btn-primary" onclick="resetLQ()">Retry</button>`;
+}
+function resetLQ(){lqIndex=0;lqScore=0;document.getElementById('lq-container').style.display='block';document.getElementById('lq-score').style.display='none';renderLQ();}
+
+// ── Init ─────────────────────────────────────────────────────────────────────
+initSS();
+initGap();
+initStructures();
+renderLQ();
+</script>
+</body>
+</html>

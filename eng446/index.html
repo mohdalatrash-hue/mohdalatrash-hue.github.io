@@ -8,15 +8,54 @@
 <style>
   body { background: var(--off-white); }
 
-  /* Deadline rows */
-  .dl-row {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--border-light);
-    font-size: 14px;
+  /* ── Countdown bar ─────────────────────────────────── */
+  #countdown-bar {
+    background: #1d1d1f; color: #fff;
+    font-size: 13px; font-weight: 500;
+    padding: 9px 20px;
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+    text-align: center; letter-spacing: .01em;
   }
+  #countdown-bar .cb-label { color: rgba(255,255,255,.55); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
+  #countdown-bar .cb-name { font-weight: 700; }
+  #countdown-bar .cb-time { font-size: 15px; font-weight: 800; color: #30d158; }
+  #countdown-bar .cb-sep { color: rgba(255,255,255,.2); }
+
+  /* ── Today widget ──────────────────────────────────── */
+  .today-card {
+    background: var(--white); border-radius: var(--r-xl);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden; margin-bottom: 32px;
+  }
+  .today-head {
+    padding: 16px 20px 12px;
+    display: flex; align-items: center; gap: 14px;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .today-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #30d158; flex-shrink: 0;
+    box-shadow: 0 0 0 3px rgba(48,209,88,.18);
+  }
+  .today-eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--text-3); }
+  .today-title { font-size: 17px; font-weight: 700; color: var(--text); margin-top: 1px; }
+  .today-body { padding: 14px 20px 18px; display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-start; }
+  .today-desc { font-size: 14px; color: var(--text-2); line-height: 1.65; flex: 1; min-width: 200px; }
+  .today-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  /* no-class state */
+  .nextclass-card {
+    background: var(--white); border-radius: var(--r-xl);
+    box-shadow: var(--shadow-xs);
+    padding: 18px 20px; margin-bottom: 32px;
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  }
+  .nextclass-icon { font-size: 28px; }
+  .nextclass-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--text-3); margin-bottom: 2px; }
+  .nextclass-text { font-size: 15px; font-weight: 700; color: var(--text); }
+
+  /* ── Deadline rows ──────────────────────────────────── */
+  .dl-row { display: flex; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--border-light); font-size: 14px; }
   .dl-row:last-child { border-bottom: none; }
   .dl-date { font-size: 12px; font-weight: 700; color: var(--text-3); min-width: 72px; }
   .dl-name { flex: 1; font-weight: 500; color: var(--text); }
@@ -25,55 +64,56 @@
   .w-green { background: var(--green-light); color: var(--green-dark); }
   .w-purple { background: #f3e8ff; color: #581c87; }
   .dl-row.urgent .dl-date { color: var(--red); }
-  .dl-row.urgent .dl-name { color: var(--text); }
+  .dl-row.past { opacity: .4; }
 
-  /* Week cards */
+  /* ── Week cards ─────────────────────────────────────── */
   .week-cards { display: flex; flex-direction: column; gap: 8px; }
-  .week-card {
-    background: var(--white);
-    border-radius: var(--r-md);
-    box-shadow: var(--shadow-xs);
-    text-decoration: none;
-    color: var(--text);
-    display: block;
-    overflow: hidden;
-    transition: box-shadow .15s, transform .1s;
-  }
+  .week-card { background: var(--white); border-radius: var(--r-md); box-shadow: var(--shadow-xs); text-decoration: none; color: var(--text); display: block; overflow: hidden; transition: box-shadow .15s, transform .1s; }
   .week-card:hover { box-shadow: var(--shadow-sm); transform: translateY(-1px); text-decoration: none; }
   .week-card.current { box-shadow: var(--shadow-sm); border-left: 3px solid var(--green); }
   .week-card.locked { opacity: .45; pointer-events: none; }
   .wc-row { display: flex; align-items: center; gap: 12px; padding: 14px 16px; }
-  .wc-num {
-    width: 34px; height: 34px; border-radius: 50%;
-    background: var(--off-white); border: 1.5px solid var(--border);
-    font-size: 13px; font-weight: 700; color: var(--text-2);
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
+  .wc-num { width: 34px; height: 34px; border-radius: 50%; background: var(--off-white); border: 1.5px solid var(--border); font-size: 13px; font-weight: 700; color: var(--text-2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .week-card.current .wc-num { background: var(--green); border-color: var(--green); color: #fff; }
   .wc-info { flex: 1; }
   .wc-title { font-size: 14px; font-weight: 600; color: var(--text); }
   .wc-meta { font-size: 12px; color: var(--text-3); margin-top: 2px; }
   .wc-tags { display: flex; gap: 6px; flex-wrap: wrap; padding: 0 16px 12px 62px; }
   .wc-tag { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: var(--r-pill); }
-  .t-quiz { background: var(--blue-light); color: #004999; }
-  .t-due  { background: var(--red-light); color: #a01010; }
+  .t-quiz   { background: var(--blue-light); color: #004999; }
+  .t-due    { background: var(--red-light); color: #a01010; }
   .t-studio { background: var(--amber-light); color: #7a4500; }
-  .t-ok { background: var(--green-light); color: var(--green-dark); }
+  .t-ok     { background: var(--green-light); color: var(--green-dark); }
 
-  /* App mini-cards */
-  .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
-  .app-card {
-    background: var(--white);
-    border-radius: var(--r-md);
+  /* ── Workshop cards ─────────────────────────────────── */
+  .ws-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+  .ws-card {
+    background: var(--white); border-radius: var(--r-lg);
     box-shadow: var(--shadow-xs);
-    padding: 16px;
-    text-decoration: none;
-    color: var(--text);
-    display: block;
+    text-decoration: none; color: var(--text);
+    display: flex; flex-direction: column;
+    padding: 18px; gap: 10px;
     transition: box-shadow .15s, transform .1s;
+    border-top: 3px solid transparent;
   }
+  .ws-card:hover { box-shadow: var(--shadow-sm); transform: translateY(-2px); text-decoration: none; }
+  .ws-card.apa       { border-top-color: #e53935; }
+  .ws-card.proposal  { border-top-color: #0071e3; }
+  .ws-card.litreview { border-top-color: #f59e0b; }
+  .ws-card.design    { border-top-color: #7c3aed; }
+  .ws-card.instrument{ border-top-color: #059669; }
+  .ws-card.analysis  { border-top-color: #ea580c; }
+  .ws-card.present   { border-top-color: #0ea5e9; }
+  .ws-icon { font-size: 26px; }
+  .ws-name { font-size: 14px; font-weight: 700; }
+  .ws-days { font-size: 11px; color: var(--text-3); }
+  .ws-desc { font-size: 12px; color: var(--text-2); line-height: 1.5; flex: 1; }
+  .ws-arrow { font-size: 12px; color: var(--text-3); margin-top: 4px; }
+
+  /* ── Practice cards ─────────────────────────────────── */
+  .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
+  .app-card { background: var(--white); border-radius: var(--r-md); box-shadow: var(--shadow-xs); padding: 16px; text-decoration: none; color: var(--text); display: block; transition: box-shadow .15s, transform .1s; }
   .app-card:hover { box-shadow: var(--shadow-sm); transform: translateY(-1px); text-decoration: none; }
-  .app-card.soon { opacity: .5; pointer-events: none; }
   .app-icon { font-size: 24px; margin-bottom: 8px; }
   .app-name { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
   .app-desc { font-size: 11px; color: var(--text-3); line-height: 1.4; }
@@ -81,12 +121,17 @@
 </head>
 <body>
 
+<!-- ── Countdown bar ── -->
+<div id="countdown-bar">
+  <span class="cb-label">Next deadline</span>
+  <span id="cb-name" class="cb-name">—</span>
+  <span class="cb-sep">·</span>
+  <span id="cb-time" class="cb-time">—</span>
+</div>
+
 <nav class="nav">
   <div class="nav-inner">
-    <a class="nav-brand" href="../index.html">
-      <span>🎓</span>
-      <span>Qassim University</span>
-    </a>
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
     <span class="nav-sep">›</span>
     <span class="nav-cur">ENG 446</span>
     <div class="nav-spacer"></div>
@@ -105,9 +150,9 @@
   <div class="hero-meta">
     <span>Jun 28 – Aug 9, 2026</span>
     <span class="hero-meta-dot">·</span>
-    <span>Term 472</span>
+    <span>Term 475</span>
     <span class="hero-meta-dot">·</span>
-    <span>10 groups</span>
+    <span>Sun–Mon–Tue · 9:15–9:45 AM</span>
     <span class="hero-meta-dot">·</span>
     <a href="syllabus.html" style="color:var(--green);font-weight:600;">View Syllabus →</a>
   </div>
@@ -116,72 +161,27 @@
 <div class="section-alt" style="padding:0 0 56px;">
 <div class="section-inner">
 
-  <!-- Now active banner -->
-  <div class="info-box info-green mb-32" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
-    <div>
-      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;opacity:.7;">Now active</div>
-      <div style="font-size:16px;font-weight:700;">Week 1 — Foundations &amp; Getting a Topic</div>
-    </div>
-    <span class="badge badge-red">Quiz 1 · Tue Jun 30</span>
-  </div>
+  <!-- ── What's On Today ── -->
+  <div id="today-widget"></div>
 
   <div class="grid-2 gap-20 mb-48">
     <!-- Deadlines -->
     <div class="card">
-      <div class="card-header">
-        <span class="card-icon">📅</span>
-        <h2>All Deadlines</h2>
-      </div>
-      <div class="card-body" style="padding-top:8px;padding-bottom:8px;">
-        <div class="dl-row urgent">
-          <div class="dl-date">Tue Jun 30</div>
-          <div class="dl-name">📝 Quiz 1 — Intro + Ch1 + Ch2 <span>(in class, first 10 min)</span></div>
-          <div class="dl-w w-green">5%</div>
-        </div>
-        <div class="dl-row">
-          <div class="dl-date">Mon Jul 6</div>
-          <div class="dl-name">📝 Quiz 2 — Ch3 + Ch4 + Ch5 <span>(in class)</span></div>
-          <div class="dl-w w-green">5%</div>
-        </div>
-        <div class="dl-row">
-          <div class="dl-date">Tue Jul 7</div>
-          <div class="dl-name">📄 Research Proposal (GROUP)</div>
-          <div class="dl-w w-green">10%</div>
-        </div>
-        <div class="dl-row">
-          <div class="dl-date">Mon Jul 13</div>
-          <div class="dl-name">📝 Quiz 3 — Ch6 + Ch7 + Ch8 <span>(in class)</span></div>
-          <div class="dl-w w-green">5%</div>
-        </div>
-        <div class="dl-row">
-          <div class="dl-date">Tue Jul 14</div>
-          <div class="dl-name">📄 Literature Review (GROUP)</div>
-          <div class="dl-w w-green">10%</div>
-        </div>
-        <div class="dl-row">
-          <div class="dl-date">Sun Jul 26</div>
-          <div class="dl-name">📝 Quiz 4 — Ch9 + Ch10 + Ch11 <span>(in class)</span></div>
-          <div class="dl-w w-green">5%</div>
-        </div>
-        <div class="dl-row">
-          <div class="dl-date">Tue Jul 28</div>
-          <div class="dl-name">📄 Methodology + Analysis (GROUP)</div>
-          <div class="dl-w w-green">5%</div>
-        </div>
-        <div class="dl-row">
-          <div class="dl-date">Aug 9–10</div>
-          <div class="dl-name">🎤 Group Presentation</div>
-          <div class="dl-w w-green">5%</div>
-        </div>
-        <div class="dl-row">
-          <div class="dl-date">Aug 16–17</div>
-          <div class="dl-name">📋 Final Exam (individual)</div>
-          <div class="dl-w w-purple">50%</div>
-        </div>
+      <div class="card-header"><span class="card-icon">📅</span><h2>All Deadlines</h2></div>
+      <div class="card-body" style="padding-top:8px;padding-bottom:8px;" id="deadlines-list">
+        <div class="dl-row" data-iso="2026-06-30"><div class="dl-date">Tue Jun 30</div><div class="dl-name">📝 Quiz 1 — Intro + Ch1 + Ch2 <span>(in class, first 10 min)</span></div><div class="dl-w w-green">5%</div></div>
+        <div class="dl-row" data-iso="2026-07-06"><div class="dl-date">Mon Jul 6</div><div class="dl-name">📝 Quiz 2 — Ch3 + Ch4 + Ch5 <span>(in class)</span></div><div class="dl-w w-green">5%</div></div>
+        <div class="dl-row" data-iso="2026-07-07"><div class="dl-date">Tue Jul 7</div><div class="dl-name">📄 Research Proposal <span>(GROUP · Blackboard)</span></div><div class="dl-w w-green">10%</div></div>
+        <div class="dl-row" data-iso="2026-07-13"><div class="dl-date">Mon Jul 13</div><div class="dl-name">📝 Quiz 3 — Ch6 + Ch7 + Ch8 <span>(in class)</span></div><div class="dl-w w-green">5%</div></div>
+        <div class="dl-row" data-iso="2026-07-14"><div class="dl-date">Tue Jul 14</div><div class="dl-name">📄 Literature Review <span>(GROUP · Blackboard)</span></div><div class="dl-w w-green">10%</div></div>
+        <div class="dl-row" data-iso="2026-07-26"><div class="dl-date">Sun Jul 26</div><div class="dl-name">📝 Quiz 4 — Ch9 + Ch10 + Ch11 <span>(in class)</span></div><div class="dl-w w-green">5%</div></div>
+        <div class="dl-row" data-iso="2026-07-28"><div class="dl-date">Tue Jul 28</div><div class="dl-name">📄 Methodology + Analysis <span>(GROUP · Blackboard)</span></div><div class="dl-w w-green">5%</div></div>
+        <div class="dl-row" data-iso="2026-08-09"><div class="dl-date">Aug 9–10</div><div class="dl-name">🎤 Group Presentations</div><div class="dl-w w-green">5%</div></div>
+        <div class="dl-row" data-iso="2026-08-16"><div class="dl-date">Aug 16–17</div><div class="dl-name">📋 Final Exam <span>(individual)</span></div><div class="dl-w w-purple">50%</div></div>
       </div>
     </div>
 
-    <!-- Group info -->
+    <!-- Group + info -->
     <div style="display:flex;flex-direction:column;gap:16px;">
       <div class="card card-pad">
         <div style="font-size:20px;margin-bottom:10px;">👥</div>
@@ -201,151 +201,125 @@
     </div>
   </div>
 
-  <!-- Weekly schedule -->
+  <!-- ── Workshops ── -->
+  <div class="section-label" style="margin-bottom:14px;">In-Class Workshop Pages</div>
+  <p style="font-size:14px;color:var(--text-2);margin-bottom:20px;line-height:1.6;">Each workshop page matches a studio/workshop day in the schedule. Come prepared — or use these pages to catch up and practice interactively on your own.</p>
+  <div class="ws-grid mb-48">
+    <a class="ws-card apa" href="workshop-apa.html">
+      <div class="ws-icon">✍️</div>
+      <div class="ws-name">APA 7 Workshop</div>
+      <div class="ws-days">Days 5 · 8 · 12 · 17</div>
+      <div class="ws-desc">Build citations, spot errors, format reference lists — four progressively harder modes</div>
+      <div class="ws-arrow">Open workshop →</div>
+    </a>
+    <a class="ws-card proposal" href="workshop-proposal.html">
+      <div class="ws-icon">📄</div>
+      <div class="ws-name">Research Proposal</div>
+      <div class="ws-days">Days 3 · 4 · 6</div>
+      <div class="ws-desc">Build a research question, test scope, scaffold your rationale, run a peer-review checklist</div>
+      <div class="ws-arrow">Open workshop →</div>
+    </a>
+    <a class="ws-card litreview" href="workshop-litreview.html">
+      <div class="ws-icon">📚</div>
+      <div class="ws-name">Literature Review</div>
+      <div class="ws-days">Days 7 · 9</div>
+      <div class="ws-desc">Summary vs. synthesis, gap-spotting, thematic/chronological/comparative structure activities</div>
+      <div class="ws-arrow">Open workshop →</div>
+    </a>
+    <a class="ws-card design" href="workshop-design.html">
+      <div class="ws-icon">🔬</div>
+      <div class="ws-name">Research Design</div>
+      <div class="ws-days">Days 2 · 10</div>
+      <div class="ws-desc">Paradigm questionnaire, method-to-question matching, mixed vs. pure methods classifier</div>
+      <div class="ws-arrow">Open workshop →</div>
+    </a>
+    <a class="ws-card instrument" href="workshop-instrument.html">
+      <div class="ws-icon">📋</div>
+      <div class="ws-name">Instrument Design</div>
+      <div class="ws-days">Day 11</div>
+      <div class="ws-desc">Question type identifier, Likert scale demo, bad-question fixer, interview probe builder</div>
+      <div class="ws-arrow">Open workshop →</div>
+    </a>
+    <a class="ws-card analysis" href="workshop-analysis.html">
+      <div class="ws-icon">📊</div>
+      <div class="ws-name">Data Analysis</div>
+      <div class="ws-days">Days 13 · 14</div>
+      <div class="ws-desc">Thematic coding activity, quantitative table reader, qual vs. quant matcher, findings scaffolder</div>
+      <div class="ws-arrow">Open workshop →</div>
+    </a>
+    <a class="ws-card present" href="workshop-presentation.html">
+      <div class="ws-icon">🎤</div>
+      <div class="ws-name">Presentation</div>
+      <div class="ws-days">Day 18</div>
+      <div class="ws-desc">10-min timer planner, slide structure guide, self-assessment rubric, Q&amp;A practice</div>
+      <div class="ws-arrow">Open workshop →</div>
+    </a>
+  </div>
+
+  <!-- ── Weekly schedule ── -->
   <div class="section-label">Weekly Schedule</div>
-  <div class="week-cards mb-48">
-    <a class="week-card current" href="week1.html">
-      <div class="wc-row">
-        <div class="wc-num">1</div>
-        <div class="wc-info">
-          <div class="wc-title">Foundations &amp; Getting a Topic</div>
-          <div class="wc-meta">Jun 28–30 · Intro + Chapter 1 + Chapter 2</div>
-        </div>
-        <span style="color:var(--text-3);font-size:18px;">›</span>
-      </div>
-      <div class="wc-tags">
-        <span class="wc-tag t-quiz">Quiz 1 — Tue Jun 30</span>
-        <span class="wc-tag t-studio">Groups assigned Day 1</span>
-      </div>
+  <div class="week-cards mb-48" id="week-cards-list">
+    <a class="week-card" href="week1.html">
+      <div class="wc-row"><div class="wc-num">1</div><div class="wc-info"><div class="wc-title">Foundations &amp; Getting a Topic</div><div class="wc-meta">Jun 28–30 · Intro + Chapter 1 + Chapter 2</div></div><span style="color:var(--text-3);font-size:18px;">›</span></div>
+      <div class="wc-tags"><span class="wc-tag t-quiz">Quiz 1 — Tue Jun 30</span><span class="wc-tag t-studio">Groups assigned Day 1</span></div>
     </a>
     <a class="week-card" href="week2.html">
-      <div class="wc-row">
-        <div class="wc-num">2</div>
-        <div class="wc-info">
-          <div class="wc-title">Proposal + In-Text Citation Studio</div>
-          <div class="wc-meta">Jul 5–7 · Chapters 3 + 4 + 5</div>
-        </div>
-        <span style="color:var(--text-3);font-size:18px;">›</span>
-      </div>
-      <div class="wc-tags">
-        <span class="wc-tag t-quiz">Quiz 2 — Mon Jul 6</span>
-        <span class="wc-tag t-due">Proposal due — Tue Jul 7</span>
-      </div>
+      <div class="wc-row"><div class="wc-num">2</div><div class="wc-info"><div class="wc-title">Proposal + In-Text Citation Studio</div><div class="wc-meta">Jul 5–7 · Chapters 3 + 4 + 5</div></div><span style="color:var(--text-3);font-size:18px;">›</span></div>
+      <div class="wc-tags"><span class="wc-tag t-quiz">Quiz 2 — Mon Jul 6</span><span class="wc-tag t-due">Proposal due — Tue Jul 7</span></div>
     </a>
     <a class="week-card" href="week3.html">
-      <div class="wc-row">
-        <div class="wc-num">3</div>
-        <div class="wc-info">
-          <div class="wc-title">Lit Review Analysis + Reference Lists</div>
-          <div class="wc-meta">Jul 12–14 · Chapters 6 + 7</div>
-        </div>
-        <span style="color:var(--text-3);font-size:18px;">›</span>
-      </div>
-      <div class="wc-tags">
-        <span class="wc-tag t-quiz">Quiz 3 — Mon Jul 13</span>
-        <span class="wc-tag t-due">Lit Review due — Tue Jul 14</span>
-      </div>
+      <div class="wc-row"><div class="wc-num">3</div><div class="wc-info"><div class="wc-title">Lit Review Analysis + Reference Lists</div><div class="wc-meta">Jul 12–14 · Chapters 6 + 7</div></div><span style="color:var(--text-3);font-size:18px;">›</span></div>
+      <div class="wc-tags"><span class="wc-tag t-quiz">Quiz 3 — Mon Jul 13</span><span class="wc-tag t-due">Lit Review due — Tue Jul 14</span></div>
     </a>
     <a class="week-card" href="week4.html">
-      <div class="wc-row">
-        <div class="wc-num">4</div>
-        <div class="wc-info">
-          <div class="wc-title">Methods, Instruments &amp; Cumulative APA</div>
-          <div class="wc-meta">Jul 19–21 · Chapters 8 + 9</div>
-        </div>
-        <span style="color:var(--text-3);font-size:18px;">›</span>
-      </div>
-      <div class="wc-tags">
-        <span class="wc-tag t-ok">No quiz this week</span>
-        <span class="wc-tag t-studio">APA Cumulative Challenge</span>
-      </div>
+      <div class="wc-row"><div class="wc-num">4</div><div class="wc-info"><div class="wc-title">Methods, Instruments &amp; Cumulative APA</div><div class="wc-meta">Jul 19–21 · Chapters 8 + 9</div></div><span style="color:var(--text-3);font-size:18px;">›</span></div>
+      <div class="wc-tags"><span class="wc-tag t-ok">No quiz this week</span><span class="wc-tag t-studio">APA Cumulative Challenge</span></div>
     </a>
     <a class="week-card" href="week5.html">
-      <div class="wc-row">
-        <div class="wc-num">5</div>
-        <div class="wc-info">
-          <div class="wc-title">Analysis &amp; Closing the Project</div>
-          <div class="wc-meta">Jul 26–28 · Chapters 10 + 11</div>
-        </div>
-        <span style="color:var(--text-3);font-size:18px;">›</span>
-      </div>
-      <div class="wc-tags">
-        <span class="wc-tag t-quiz">Quiz 4 — Sun Jul 26</span>
-        <span class="wc-tag t-due">Methods + Analysis due — Tue Jul 28</span>
-      </div>
+      <div class="wc-row"><div class="wc-num">5</div><div class="wc-info"><div class="wc-title">Analysis &amp; Closing the Project</div><div class="wc-meta">Jul 26–28 · Chapters 10 + 11</div></div><span style="color:var(--text-3);font-size:18px;">›</span></div>
+      <div class="wc-tags"><span class="wc-tag t-quiz">Quiz 4 — Sun Jul 26</span><span class="wc-tag t-due">Methods + Analysis due — Tue Jul 28</span></div>
     </a>
     <a class="week-card" href="week6.html">
-      <div class="wc-row">
-        <div class="wc-num">6</div>
-        <div class="wc-info">
-          <div class="wc-title">Writing Up + Presentation Prep</div>
-          <div class="wc-meta">Aug 2–4 · Chapter 12 + Conclusion</div>
-        </div>
-        <span style="color:var(--text-3);font-size:18px;">›</span>
-      </div>
-      <div class="wc-tags">
-        <span class="wc-tag t-ok">No quiz · polish week</span>
-        <span class="wc-tag t-studio">Final APA polish</span>
-      </div>
+      <div class="wc-row"><div class="wc-num">6</div><div class="wc-info"><div class="wc-title">Writing Up + Presentation Prep</div><div class="wc-meta">Aug 2–4 · Chapter 12 + Conclusion</div></div><span style="color:var(--text-3);font-size:18px;">›</span></div>
+      <div class="wc-tags"><span class="wc-tag t-ok">No quiz · polish week</span><span class="wc-tag t-studio">Final APA polish</span></div>
     </a>
     <a class="week-card" href="week7.html">
-      <div class="wc-row">
-        <div class="wc-num">7</div>
-        <div class="wc-info">
-          <div class="wc-title">Presentations &amp; Exam Review</div>
-          <div class="wc-meta">Aug 9–11 · No new reading</div>
-        </div>
-        <span style="color:var(--text-3);font-size:18px;">›</span>
-      </div>
-      <div class="wc-tags">
-        <span class="wc-tag t-due">Presentations Aug 9–10</span>
-        <span class="wc-tag t-studio">Exam review Aug 11</span>
-      </div>
+      <div class="wc-row"><div class="wc-num">7</div><div class="wc-info"><div class="wc-title">Presentations &amp; Exam Review</div><div class="wc-meta">Aug 9–11 · No new reading</div></div><span style="color:var(--text-3);font-size:18px;">›</span></div>
+      <div class="wc-tags"><span class="wc-tag t-due">Presentations Aug 9–10</span><span class="wc-tag t-studio">Exam review Aug 11</span></div>
     </a>
     <div class="week-card locked">
-      <div class="wc-row">
-        <div class="wc-num">8</div>
-        <div class="wc-info">
-          <div class="wc-title">Final Examination</div>
-          <div class="wc-meta">Aug 16–17 · Per university calendar</div>
-        </div>
-      </div>
+      <div class="wc-row"><div class="wc-num">8</div><div class="wc-info"><div class="wc-title">Final Examination</div><div class="wc-meta">Aug 16–17 · Per university calendar</div></div></div>
       <div class="wc-tags"><span class="wc-tag t-due">Final Exam (50%)</span></div>
     </div>
   </div>
 
-  <!-- Self-practice apps -->
-  <div class="section-label">Self-Practice Tools</div>
+  <!-- ── Practice banks ── -->
+  <div class="section-label">Self-Practice Banks</div>
+  <p style="font-size:14px;color:var(--text-2);margin-bottom:16px;line-height:1.6;">Unlimited attempts · medium → ultra-hard · no grade recorded here. Graded quizzes are in Blackboard Ultra.</p>
   <div class="app-grid mb-32">
     <a class="app-card" href="quiz1.html">
       <div class="app-icon">📝</div>
       <div class="app-name">Week 1 Practice Bank</div>
-      <div class="app-desc">Intro + Ch1 + Ch2 · 12 questions</div>
+      <div class="app-desc">Intro + Ch1 + Ch2 · 12 questions · timed mode</div>
       <span class="badge badge-green mt-8">Live</span>
     </a>
     <a class="app-card" href="quiz2.html">
       <div class="app-icon">📝</div>
       <div class="app-name">Week 2 Practice Bank</div>
-      <div class="app-desc">Ch3 + Ch4 + Ch5</div>
-      <span class="badge badge-gray mt-8">Opens Week 2</span>
+      <div class="app-desc">Ch3 + Ch4 + Ch5 · Research questions, variables, ethics</div>
+      <span class="badge badge-green mt-8">Live</span>
     </a>
     <a class="app-card" href="quiz3.html">
       <div class="app-icon">📝</div>
       <div class="app-name">Week 3 Practice Bank</div>
-      <div class="app-desc">Ch6 + Ch7 + Ch8</div>
-      <span class="badge badge-gray mt-8">Opens Week 3</span>
+      <div class="app-desc">Ch6 + Ch7 + Ch8 · Lit review, APA refs, research designs</div>
+      <span class="badge badge-green mt-8">Live</span>
     </a>
     <a class="app-card" href="quiz4.html">
       <div class="app-icon">📝</div>
       <div class="app-name">Week 4 Practice Bank</div>
-      <div class="app-desc">Ch9 + Ch10 + Ch11</div>
-      <span class="badge badge-gray mt-8">Opens Week 4</span>
-    </a>
-    <a class="app-card soon" href="#">
-      <div class="app-icon">✍️</div>
-      <div class="app-name">APA SpotFix</div>
-      <div class="app-desc">Find &amp; fix in-text citation errors</div>
-      <span class="badge badge-gray mt-8">Opens Week 2</span>
+      <div class="app-desc">Ch9 + Ch10 + Ch11 · Instruments, qual, quant analysis</div>
+      <span class="badge badge-green mt-8">Live</span>
     </a>
     <a class="app-card" href="apa-quickref.html">
       <div class="app-icon">📖</div>
@@ -361,7 +335,7 @@
     <p style="font-size:13px;opacity:.85;line-height:1.8;">
       Office: English Dept. 3-020 &nbsp;·&nbsp;
       Email: <a href="mailto:atrsh@qu.edu.sa" style="color:rgba(255,255,255,.8)">atrsh@qu.edu.sa</a><br>
-      Office Hours: Mon–Tue–Thu · 10:30–11:30 AM (or by appointment)
+      Office Hours: Sun–Mon–Tue · 9:15–9:45 AM (or by appointment)
     </p>
   </div>
 
@@ -369,9 +343,179 @@
 </div>
 
 <footer>
-  <strong>ENG 446 Research Methods</strong> · Qassim University · Summer 2026 · Term 472<br>
-  Study support site — grades and submissions in Blackboard Ultra.
+  <strong>ENG 446 Research Methods</strong> · Qassim University · Summer 2026 · Term 475<br>
+  Study support site — grades and submissions in Blackboard Ultra.<br>
+  <a href="../index.html">Course Hub</a> · <a href="syllabus.html">Syllabus</a> · <a href="groups.html">Groups</a> · <a href="apa-quickref.html">APA 7</a>
 </footer>
+
+<script>
+// ─── Session schedule ────────────────────────────────────────────────────────
+const SESSIONS = [
+  { iso:"2026-06-28", day:1,  label:"Day 1 — Course Orientation",       desc:"Syllabus walkthrough · Groups announced · Pick 3 topic ideas · Paradigm discussion",                      tags:["orientation"] },
+  { iso:"2026-06-29", day:2,  label:"Day 2 — Research Design Studio",   desc:"Finalise your topic · Classify your research type and paradigm · Submit one-paragraph topic snapshot (ungraded)", tags:["studio"], ws:"workshop-design.html",   wsl:"Research Design Workshop" },
+  { iso:"2026-06-30", day:3,  label:"Day 3 — Proposal Workshop",        desc:"Quiz 1 (first 10 min, Blackboard) · Proposal structure: research questions, rationale, scope",             tags:["quiz1","workshop"], ws:"workshop-proposal.html", wsl:"Proposal Workshop" },
+  { iso:"2026-07-05", day:4,  label:"Day 4 — Proposal Structure",       desc:"Title, research questions, rationale, methodology overview",                                               tags:["workshop"], ws:"workshop-proposal.html", wsl:"Proposal Workshop" },
+  { iso:"2026-07-06", day:5,  label:"Day 5 — APA In-Text Citation Studio", desc:"Quiz 2 (first 10 min) · Author–date system · Paraphrase vs. direct quote · Signal phrases",           tags:["quiz2","studio"], ws:"workshop-apa.html", wsl:"APA 7 Workshop" },
+  { iso:"2026-07-07", day:6,  label:"Day 6 — Proposal Peer Review",     desc:"Peer review your group's proposal · Final edits · Submit Proposal by end of day (Blackboard)",            tags:["due"] },
+  { iso:"2026-07-12", day:7,  label:"Day 7 — Literature Review Workshop", desc:"Structures: thematic, chronological, comparative · Identifying research gaps · Synthesising sources",  tags:["workshop"], ws:"workshop-litreview.html", wsl:"Lit Review Workshop" },
+  { iso:"2026-07-13", day:8,  label:"Day 8 — APA Reference List Studio",desc:"Quiz 3 (first 10 min) · APA reference list: journal articles, books, chapters, websites",               tags:["quiz3","studio"], ws:"workshop-apa.html", wsl:"APA 7 Workshop" },
+  { iso:"2026-07-14", day:9,  label:"Day 9 — Lit Review Peer Review",   desc:"Peer review your lit review · Final edits · Submit Literature Review by end of day (Blackboard)",        tags:["due"] },
+  { iso:"2026-07-19", day:10, label:"Day 10 — Research Design Matching",desc:"Which method fits which question? · Survey vs. interview vs. observation vs. case study",                 tags:["workshop"], ws:"workshop-design.html", wsl:"Research Design Workshop" },
+  { iso:"2026-07-20", day:11, label:"Day 11 — Instrument Design Workshop", desc:"Groups draft questionnaire or interview guide · Question types · Likert scales · Piloting",           tags:["studio"], ws:"workshop-instrument.html", wsl:"Instrument Design Workshop" },
+  { iso:"2026-07-21", day:12, label:"Day 12 — APA Cumulative Challenge", desc:"Full paper APA audit exercise (ungraded) · Mixed citation types · All formats reviewed",               tags:["studio"], ws:"workshop-apa.html", wsl:"APA 7 Workshop" },
+  { iso:"2026-07-26", day:13, label:"Day 13 — Analysis Techniques Workshop", desc:"Quiz 4 (first 10 min) · Thematic analysis steps · Descriptive statistics · Findings writing",      tags:["quiz4","workshop"], ws:"workshop-analysis.html", wsl:"Data Analysis Workshop" },
+  { iso:"2026-07-27", day:14, label:"Day 14 — Findings Studio",         desc:"Groups analyse collected data and draft their findings section",                                          tags:["studio"] },
+  { iso:"2026-07-28", day:15, label:"Day 15 — Methods + Analysis Review", desc:"Peer review · Final edits · Submit Methodology + Analysis by end of day (Blackboard)",                tags:["due"] },
+  { iso:"2026-08-02", day:16, label:"Day 16 — Report Structure",        desc:"Assembling the three artefacts into a coherent research paper · Structure walkthrough",                  tags:["workshop"] },
+  { iso:"2026-08-03", day:17, label:"Day 17 — Final APA Polish",        desc:"Full paper reference list audit · Common errors revisited",                                               tags:["studio"], ws:"workshop-apa.html", wsl:"APA 7 Workshop" },
+  { iso:"2026-08-04", day:18, label:"Day 18 — Presentation Rehearsal",  desc:"10-minute dry run per group · Peer feedback · Q&A practice",                                             tags:["workshop"], ws:"workshop-presentation.html", wsl:"Presentation Workshop" },
+  { iso:"2026-08-09", day:19, label:"Day 19 — Presentations (Groups 1–5)", desc:"Groups 1–5 present: 10 min + 3 min Q&A each",                                                        tags:["present"] },
+  { iso:"2026-08-10", day:20, label:"Day 20 — Presentations (Groups 6–10)", desc:"Groups 6–10 present: 10 min + 3 min Q&A each",                                                      tags:["present"] },
+  { iso:"2026-08-11", day:21, label:"Day 21 — Exam Review",             desc:"All chapters · Key terms · Sample questions · Instructor Q&A",                                            tags:["review"] }
+];
+
+const DEADLINES = [
+  { iso:"2026-06-30", name:"Quiz 1" },
+  { iso:"2026-07-06", name:"Quiz 2" },
+  { iso:"2026-07-07", name:"Proposal due" },
+  { iso:"2026-07-13", name:"Quiz 3" },
+  { iso:"2026-07-14", name:"Lit Review due" },
+  { iso:"2026-07-26", name:"Quiz 4" },
+  { iso:"2026-07-28", name:"Methods & Analysis due" },
+  { iso:"2026-08-09", name:"Presentations" },
+  { iso:"2026-08-16", name:"Final Exam" }
+];
+
+// ─── Helpers ────────────────────────────────────────────────────────────────
+function parseISO(s) {
+  const [y,m,d] = s.split('-').map(Number);
+  return new Date(y, m-1, d);
+}
+function msTo(str) {
+  const target = new Date(parseISO(str));
+  // Set to 9:15 AM class time
+  target.setHours(9, 15, 0, 0);
+  return target - Date.now();
+}
+function fmtCountdown(ms) {
+  if (ms <= 0) return null;
+  const s  = Math.floor(ms/1000);
+  const m  = Math.floor(s/60);
+  const h  = Math.floor(m/60);
+  const d  = Math.floor(h/24);
+  if (d > 0) return d === 1 ? `1 day ${h%24}h` : `${d}d ${h%24}h`;
+  if (h > 0) return `${h}h ${m%60}m`;
+  return `${m}m`;
+}
+function todayISO() {
+  const t = new Date();
+  return `${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,'0')}-${String(t.getDate()).padStart(2,'0')}`;
+}
+
+// ─── Countdown bar ───────────────────────────────────────────────────────────
+function initCountdown() {
+  const now = todayISO();
+  const next = DEADLINES.find(d => d.iso >= now);
+  if (!next) { document.getElementById('countdown-bar').style.display='none'; return; }
+  const cbName = document.getElementById('cb-name');
+  const cbTime = document.getElementById('cb-time');
+  cbName.textContent = next.name;
+  function tick() {
+    const ms = msTo(next.iso);
+    if (ms <= 0) { cbTime.textContent = 'Due today'; return; }
+    cbTime.textContent = fmtCountdown(ms);
+  }
+  tick();
+  setInterval(tick, 30000);
+}
+
+// ─── Mark past deadlines ─────────────────────────────────────────────────────
+function markDeadlines() {
+  const now = todayISO();
+  document.querySelectorAll('#deadlines-list .dl-row').forEach(row => {
+    const iso = row.dataset.iso;
+    if (!iso) return;
+    if (iso < now) row.classList.add('past');
+    else if (iso === now) row.classList.add('urgent');
+  });
+}
+
+// ─── What's On Today widget ──────────────────────────────────────────────────
+function initTodayWidget() {
+  const now = todayISO();
+  const widget = document.getElementById('today-widget');
+  const session = SESSIONS.find(s => s.iso === now);
+
+  if (session) {
+    // Class day
+    const wsBtn = session.ws
+      ? `<a class="btn btn-primary btn-sm" href="${session.ws}">${session.wsl} →</a>` : '';
+    const readingWk = getWeekForDate(now);
+    const readBtn = readingWk
+      ? `<a class="btn btn-outline btn-sm" href="week${readingWk}.html">Week ${readingWk} Reading →</a>` : '';
+    widget.innerHTML = `
+      <div class="today-card">
+        <div class="today-head">
+          <div class="today-dot"></div>
+          <div>
+            <div class="today-eyebrow">Today · Day ${session.day} of 21</div>
+            <div class="today-title">${session.label}</div>
+          </div>
+        </div>
+        <div class="today-body">
+          <div class="today-desc">${session.desc}</div>
+          <div class="today-actions">${wsBtn}${readBtn}</div>
+        </div>
+      </div>`;
+  } else if (now < '2026-06-28') {
+    // Before course
+    widget.innerHTML = `<div class="nextclass-card"><div class="nextclass-icon">📅</div><div><div class="nextclass-label">Course begins</div><div class="nextclass-text">First class: Sun Jun 28 · 9:15 AM</div></div></div>`;
+  } else if (now > '2026-08-17') {
+    // After course
+    widget.innerHTML = '';
+  } else {
+    // Between class days
+    const next = SESSIONS.find(s => s.iso > now);
+    if (next) {
+      const d = parseISO(next.iso);
+      const dayName = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getDay()];
+      const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      const label = `${dayName} ${months[d.getMonth()]} ${d.getDate()}`;
+      widget.innerHTML = `<div class="nextclass-card"><div class="nextclass-icon">🗓️</div><div><div class="nextclass-label">Next class</div><div class="nextclass-text">${next.label} — ${label}</div></div></div>`;
+    }
+  }
+}
+
+function getWeekForDate(iso) {
+  const WEEK_RANGES = [
+    { wk:1, start:'2026-06-28', end:'2026-06-30' },
+    { wk:2, start:'2026-07-05', end:'2026-07-07' },
+    { wk:3, start:'2026-07-12', end:'2026-07-14' },
+    { wk:4, start:'2026-07-19', end:'2026-07-21' },
+    { wk:5, start:'2026-07-26', end:'2026-07-28' },
+    { wk:6, start:'2026-08-02', end:'2026-08-04' },
+    { wk:7, start:'2026-08-09', end:'2026-08-11' }
+  ];
+  const w = WEEK_RANGES.find(r => iso >= r.start && iso <= r.end);
+  return w ? w.wk : null;
+}
+
+// ─── Mark current week card ──────────────────────────────────────────────────
+function markCurrentWeek() {
+  const wk = getWeekForDate(todayISO());
+  if (!wk) return;
+  const cards = document.querySelectorAll('#week-cards-list .week-card');
+  cards.forEach((c, i) => {
+    if (i === wk-1) c.classList.add('current');
+  });
+}
+
+// ─── Init ────────────────────────────────────────────────────────────────────
+initCountdown();
+markDeadlines();
+initTodayWidget();
+markCurrentWeek();
+</script>
 
 </body>
 </html>
