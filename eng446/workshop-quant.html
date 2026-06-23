@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quantitative Analysis Workshop | ENG 446</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="Hands-on quantitative analysis workshop — read real descriptive statistics, interpret a paired-samples t-test, turn Likert frequencies into findings, and compute mean/SD.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 446">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 446 Research Methods">
+<meta property="og:title" content="Quantitative Analysis Workshop | ENG 446">
+<meta property="og:description" content="Read real statistics tables, interpret a t-test, and turn Likert data into findings.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng446/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng446/workshop-quant.html">
+<meta name="twitter:card" content="summary">
+<style>
+body{background:var(--off-white);}
+:root{--ac:#4f46e5;--ac-soft:#eef2ff;--ac-ink:#3730a3;}
+.tab-bar{display:flex;gap:4px;background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-xs);padding:6px;margin-bottom:28px;flex-wrap:wrap;}
+.tab-btn{flex:1;min-width:130px;padding:10px 16px;border:none;background:transparent;border-radius:var(--r-md);font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;transition:all .15s;}
+.tab-btn:hover{background:var(--off-white);}
+.tab-btn.active{background:var(--ac);color:#fff;}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.ex-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:24px;margin-bottom:20px;}
+.ex-num{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);margin-bottom:8px;}
+.ex-q{font-size:15px;font-weight:600;color:var(--text);margin-bottom:16px;line-height:1.6;}
+.ex-opt{padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:14px;cursor:pointer;transition:all .15s;background:var(--white);color:var(--text);text-align:left;display:block;width:100%;margin-bottom:8px;}
+.ex-opt:hover{border-color:var(--text-2);}
+.ex-opt.correct-ans{border-color:#30d158;background:#f0fff4;color:#1a7f45;}
+.ex-opt.correct-ans::after{content:" ✓";font-weight:800;}
+.ex-opt.wrong-ans{border-color:#e53935;background:#fef2f2;color:#c0392b;}
+.ex-opt.wrong-ans::after{content:" ✗";font-weight:800;}
+.ex-feedback{margin-top:14px;padding:12px 16px;border-radius:var(--r-md);font-size:13px;line-height:1.7;display:none;}
+.ex-feedback.show{display:block;}
+.fb-correct{background:#f0fff4;border:1px solid #a2d9b0;color:#14532d;}
+.fb-wrong{background:#fef2f2;border:1px solid #fca5a5;color:#7f1d1d;}
+.tip-box{background:var(--ac-soft);border:1.5px solid #c7d2fe;border-radius:var(--r-md);padding:14px 16px;font-size:13px;line-height:1.7;color:var(--ac-ink);margin-bottom:20px;}
+.tip-box strong{color:var(--ac);}
+.prog-bar-wrap{height:6px;background:var(--off-white);border-radius:var(--r-pill);margin-bottom:24px;overflow:hidden;}
+.prog-bar{height:100%;background:var(--ac);border-radius:var(--r-pill);transition:width .4s;}
+.score-summary{text-align:center;padding:32px 20px;}
+.score-big{font-size:56px;font-weight:800;color:var(--ac);line-height:1;margin-bottom:8px;}
+.score-sub{font-size:14px;color:var(--text-2);}
+.data-table{width:100%;border-collapse:collapse;font-size:13px;}
+.data-table th{background:var(--off-white);font-weight:700;color:var(--text-2);font-size:11px;text-transform:uppercase;letter-spacing:.05em;padding:9px 11px;text-align:left;border-bottom:2px solid var(--border);}
+.data-table td{padding:9px 11px;border-bottom:1px solid var(--border-light);color:var(--text-2);}
+.data-table tr:last-child td{border-bottom:none;}
+.data-table td:first-child{font-weight:600;color:var(--text);}
+.data-table .hl{background:var(--ac-soft);color:var(--ac-ink);font-weight:700;}
+.calc-in{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:14px;font-family:inherit;}
+.calc-in:focus{outline:none;border-color:var(--ac);}
+.calc-out{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:10px;margin-top:16px;}
+.calc-cell{background:var(--off-white);border-radius:var(--r-md);padding:12px;text-align:center;}
+.calc-cell .cv{font-size:22px;font-weight:800;color:var(--ac);font-variant-numeric:tabular-nums;}
+.calc-cell .cl{font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:.05em;margin-top:2px;}
+.src-note{font-size:12px;color:var(--text-3);margin-top:10px;line-height:1.6;}
+.src-note a{color:var(--ac);font-weight:600;}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 446</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Quantitative Analysis</span>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:36px;">
+  <div class="hero-eyebrow" style="color:var(--ac);">Workshop · Deep Dive · Ch 11</div>
+  <h1>Quantitative Data Analysis</h1>
+  <p class="hero-sub">Work with the real statistics from a published EFL experiment — read the tables, interpret a t-test, and turn numbers into findings.</p>
+</div>
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+
+  <div class="info-box info-blue mb-24" style="text-align:left;">
+    <h3>📄 The dataset behind this workshop</h3>
+    <p>Every table below is taken from a real published quasi-experiment: Afifah &amp; Devana (2020), <em>Speaking Skill through Task-Based Learning in an EFL Classroom</em>. Two groups (experimental, taught with Task-Based Learning; control, taught conventionally) sat a pre-test and a post-test. You will analyse the actual results.</p>
+  </div>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('desc',this)">📊 Descriptive Stats</button>
+    <button class="tab-btn" onclick="switchTab('ttest',this)">🧪 The t-test</button>
+    <button class="tab-btn" onclick="switchTab('likert',this)">📋 Likert Data</button>
+    <button class="tab-btn" onclick="switchTab('calc',this)">🧮 Calculator</button>
+    <button class="tab-btn" onclick="switchTab('quiz',this)">📝 Quiz</button>
+  </div>
+
+  <!-- TAB 1 — DESCRIPTIVES -->
+  <div id="tab-desc" class="tab-panel active">
+    <div class="tip-box"><strong>Descriptive statistics</strong> summarise a dataset. <strong>Mean</strong> = average. <strong>Median</strong> = middle value. <strong>Mode</strong> = most frequent. <strong>SD</strong> (standard deviation) = how spread out the scores are: a small SD means scores cluster near the mean; a large SD means they are widely scattered.</div>
+    <div class="ex-card">
+      <div class="ex-num">Read the real descriptive table</div>
+      <div style="overflow-x:auto;margin-bottom:6px;">
+        <table class="data-table">
+          <thead><tr><th>Group (N = 17 each)</th><th>Pre-test M (SD)</th><th>Post-test M (SD)</th><th>Gain</th></tr></thead>
+          <tbody>
+            <tr><td>Experimental (Task-Based Learning)</td><td>59.29 (11.80)</td><td class="hl">69.35 (7.95)</td><td>+10.06</td></tr>
+            <tr><td>Control (conventional)</td><td>49.12 (10.04)</td><td>51.88 (7.12)</td><td>+2.77</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="src-note">Source: Paired-Samples Statistics, Afifah &amp; Devana (2020). · <a href="res-methodology-quantitative-sample.pdf" target="_blank" rel="noopener">Open the full paper →</a></div>
+      <div id="desc-qs" style="margin-top:20px;"></div>
+    </div>
+  </div>
+
+  <!-- TAB 2 — T-TEST -->
+  <div id="tab-ttest" class="tab-panel">
+    <div class="tip-box"><strong>The paired-samples t-test</strong> asks: is the change from pre-test to post-test <em>real</em>, or could it be chance? The key number is <strong>Sig. (2-tailed)</strong>, the <em>p</em>-value. If <strong>p &lt; .05</strong>, the change is statistically significant (unlikely to be chance). If <strong>p &gt; .05</strong>, it is not significant.</div>
+    <div class="ex-card">
+      <div class="ex-num">Read the real paired-samples t-test</div>
+      <div style="overflow-x:auto;margin-bottom:6px;">
+        <table class="data-table">
+          <thead><tr><th>Pair (pre → post)</th><th>Mean gain</th><th>t</th><th>df</th><th>Sig. (2-tailed)</th></tr></thead>
+          <tbody>
+            <tr><td>Experimental group</td><td>10.06</td><td>5.654</td><td>16</td><td class="hl">.000</td></tr>
+            <tr><td>Control group</td><td>2.77</td><td>1.383</td><td>16</td><td>.186</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="src-note">Source: Paired-Samples Test, Afifah &amp; Devana (2020).</div>
+      <div id="ttest-qs" style="margin-top:20px;"></div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">The trap: a bigger mean is not always a significant one</div>
+      <div style="font-size:13px;line-height:1.8;color:var(--text-2);">
+        Both groups improved on average — but only the experimental group's gain is <strong style="color:var(--ac-ink);">statistically significant</strong> (p = .000). The control group also rose by 2.77 points, yet p = .186 means that rise could plausibly be chance. <strong style="color:var(--text);">Always check the p-value before claiming an effect</strong> — never argue from the mean difference alone.
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3 — LIKERT -->
+  <div id="tab-likert" class="tab-panel">
+    <div class="tip-box"><strong>Likert questionnaire data.</strong> 36 students rated 7 statements about Task-Based Learning: SA = Strongly Agree (4), A = Agree (3), D = Disagree (2), SD = Strongly Disagree (1). Frequencies (counts) are reported below — your job is to read and summarise them.</div>
+    <div class="ex-card">
+      <div class="ex-num">The real questionnaire frequencies (N = 36)</div>
+      <div style="overflow-x:auto;margin-bottom:6px;">
+        <table class="data-table">
+          <thead><tr><th>Item</th><th>SA (4)</th><th>A (3)</th><th>D (2)</th><th>SD (1)</th></tr></thead>
+          <tbody>
+            <tr><td>1 — TBL helps me enjoy learning English</td><td class="hl">31</td><td>5</td><td>0</td><td>0</td></tr>
+            <tr><td>2 — TBL improves my vocabulary</td><td>15</td><td>21</td><td>0</td><td>0</td></tr>
+            <tr><td>3 — TBL builds my speaking confidence</td><td>16</td><td>16</td><td>4</td><td>0</td></tr>
+            <tr><td>4 — Tasks are relevant to real life</td><td>8</td><td>25</td><td>3</td><td>0</td></tr>
+            <tr><td>5 — I feel anxious during task activities</td><td>8</td><td>14</td><td>14</td><td>0</td></tr>
+            <tr><td>6 — I want more TBL lessons</td><td>11</td><td>23</td><td>2</td><td>0</td></tr>
+            <tr><td>7 — TBL is better than lecturing</td><td>27</td><td>9</td><td>0</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="src-note">Source: questionnaire results, Afifah &amp; Devana (2020). Item wording paraphrased for clarity.</div>
+      <div id="likert-qs" style="margin-top:20px;"></div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Reporting Likert data in your findings</div>
+      <div style="background:var(--off-white);padding:14px;border-radius:var(--r-md);font-size:13px;font-style:italic;line-height:1.9;color:var(--text-2);">
+        "An overwhelming majority of students agreed that Task-Based Learning made English enjoyable, with 31 of 36 (86%) strongly agreeing and the remainder agreeing — not a single negative response (Item 1). Responses to Item 5 were the most divided: 22 students (61%) reported task-related anxiety while 14 (39%) disagreed, suggesting that although learners value the approach, a sizeable minority still find tasks stressful."
+      </div>
+      <div class="src-note">Pattern: convert counts → percentages → identify the strongest and the most divided items → interpret what the split means.</div>
+    </div>
+  </div>
+
+  <!-- TAB 4 — CALCULATOR -->
+  <div id="tab-calc" class="tab-panel">
+    <div class="tip-box"><strong>Try it on your own data.</strong> Paste or type a list of scores (separated by commas or spaces). The calculator returns the mean, median, mode, range, and sample standard deviation so you can check your hand-calculations.</div>
+    <div class="ex-card">
+      <div class="ex-num">Descriptive statistics calculator</div>
+      <input class="calc-in" id="calc-input" placeholder="e.g. 76, 62, 45, 58, 51, 49, 60, 55, 47" oninput="runCalc()" value="76, 62, 45, 58, 51, 49, 60, 55, 47">
+      <div class="calc-out" id="calc-out"></div>
+      <div class="src-note" id="calc-note"></div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">What the standard deviation tells you</div>
+      <div style="font-size:13px;line-height:1.8;color:var(--text-2);">
+        Two classes can share the same mean of 60 but tell very different stories. A class with scores tightly bunched around 60 has a <em>small</em> SD (consistent performance). A class with some students near 90 and others near 30 also averages 60, but has a <em>large</em> SD (polarised performance). The mean alone hides this — which is why findings always report <strong style="color:var(--text);">M and SD together</strong>.
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 5 — QUIZ -->
+  <div id="tab-quiz" class="tab-panel">
+    <div class="prog-bar-wrap"><div class="prog-bar" id="aq-prog" style="width:0%"></div></div>
+    <div id="aq-container"></div>
+    <div id="aq-score" class="score-summary" style="display:none;"></div>
+  </div>
+</div>
+</div>
+<footer><strong>ENG 446 Research Methods</strong> · Quantitative Analysis · Qassim University · Summer 2026<br><a href="index.html">Course Hub</a> · <a href="workshop-qual.html">Qualitative Workshop</a> · <a href="resources.html">Resources</a></footer>
+<script>
+function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
+
+// Generic inline MCQ renderer (reveal on click)
+function renderMCQ(containerId, items){
+  document.getElementById(containerId).innerHTML=items.map((q,qi)=>`
+    <div style="margin-bottom:20px;">
+      <div style="font-size:14px;font-weight:600;margin-bottom:10px;">${qi+1}. ${q.q}</div>
+      ${q.opts.map((o,oi)=>`<button class="ex-opt" id="${containerId}-${qi}-${oi}" onclick="answerMCQ('${containerId}',${qi},${oi})">${o}</button>`).join('')}
+      <div class="ex-feedback" id="${containerId}-fb-${qi}"></div>
+    </div>`).join('');
+}
+const MCQ_DATA={};
+function answerMCQ(cid,qi,chosen){
+  const q=MCQ_DATA[cid][qi];
+  if(document.getElementById(`${cid}-${qi}-0`).disabled)return;
+  q.opts.forEach((_,oi)=>{const b=document.getElementById(`${cid}-${qi}-${oi}`);b.disabled=true;if(oi===q.ans)b.classList.add('correct-ans');else if(oi===chosen&&chosen!==q.ans)b.classList.add('wrong-ans');});
+  const fb=document.getElementById(`${cid}-fb-${qi}`);fb.className='ex-feedback show '+(chosen===q.ans?'fb-correct':'fb-wrong');fb.textContent=q.why;
+}
+function mount(cid,items){MCQ_DATA[cid]=items;renderMCQ(cid,items);}
+
+mount('desc-qs',[
+  {q:"Which group had the higher post-test mean?",opts:["Experimental (69.35)","Control (51.88)","They were equal","Cannot tell from the table"],ans:0,why:"The experimental group's post-test mean (69.35) is clearly higher than the control group's (51.88)."},
+  {q:"The experimental group's post-test SD (7.95) is smaller than its pre-test SD (11.80). What does this suggest?",opts:["Scores became more spread out after teaching","Scores became more consistent (clustered closer to the mean) after teaching","The mean must be wrong","Half the students dropped out"],ans:1,why:"A smaller SD means less spread. After Task-Based Learning, the experimental students' scores clustered more tightly around the mean — performance became more consistent."},
+  {q:"Based on the gain column alone, which group improved more on average?",opts:["Experimental (+10.06)","Control (+2.77)","Both improved equally","Neither improved"],ans:0,why:"The experimental group gained 10.06 points on average versus 2.77 for the control — but remember, the gain alone does not prove the effect is real (see the t-test tab)."}
+]);
+
+mount('ttest-qs',[
+  {q:"Is the experimental group's improvement statistically significant?",opts:["Yes — p = .000 is less than .05","No — p = .000 is greater than .05","Cannot be determined from a t-test","Only if the sample were larger"],ans:0,why:"p = .000 is far below the .05 threshold, so the experimental group's gain is statistically significant — very unlikely to be due to chance."},
+  {q:"The control group gained 2.77 points (p = .186). How should this be reported?",opts:["As a significant improvement","As an improvement that is NOT statistically significant","As proof the control method failed","As a coding error"],ans:1,why:"p = .186 is greater than .05, so the control group's gain is not statistically significant — it could plausibly be chance. You must say so explicitly."},
+  {q:"What is the correct overall conclusion from these two tests?",opts:["Both methods worked equally well","Task-Based Learning produced a significant gain that conventional teaching did not","Neither method had any effect","The control group did better"],ans:1,why:"Only the experimental (TBL) group's gain reached significance. The honest conclusion is that TBL produced a significant improvement that conventional teaching did not."}
+]);
+
+mount('likert-qs',[
+  {q:"For Item 1 (TBL helps me enjoy English), what percentage of the 36 students strongly agreed?",opts:["About 50%","About 86% (31 of 36)","About 14%","100%"],ans:1,why:"31 ÷ 36 = 0.861 ≈ 86%. Converting the raw count to a percentage makes the result easy to report."},
+  {q:"Which item shows the MOST divided response?",opts:["Item 1 (31/5/0/0)","Item 7 (27/9/0/0)","Item 5 (8/14/14/0)","Item 2 (15/21/0/0)"],ans:2,why:"Item 5 splits the group: 22 agree (8+14) but 14 disagree. The other items lean overwhelmingly toward agreement, so Item 5 is the most divided — worth discussing in the findings."},
+  {q:"Items 1, 2, 6 and 7 have ZERO 'Strongly Disagree' responses. What does that pattern support?",opts:["A broadly positive attitude toward Task-Based Learning","Strong rejection of Task-Based Learning","That the questionnaire was invalid","Nothing at all"],ans:0,why:"With almost no responses in the disagree categories across most items, the data supports the study's claim that students held broadly positive attitudes toward Task-Based Learning."}
+]);
+
+// CALCULATOR
+function runCalc(){
+  const raw=document.getElementById('calc-input').value;
+  const nums=(raw.match(/-?\d+(\.\d+)?/g)||[]).map(Number);
+  const out=document.getElementById('calc-out');const note=document.getElementById('calc-note');
+  if(nums.length<2){out.innerHTML='';note.textContent='Enter at least two numbers.';return;}
+  const n=nums.length, sum=nums.reduce((a,b)=>a+b,0), mean=sum/n;
+  const sorted=[...nums].sort((a,b)=>a-b);
+  const median=n%2?sorted[(n-1)/2]:(sorted[n/2-1]+sorted[n/2])/2;
+  const freq={};let mode=sorted[0],best=0;sorted.forEach(v=>{freq[v]=(freq[v]||0)+1;if(freq[v]>best){best=freq[v];mode=v;}});
+  const modeStr=best>1?mode:'—';
+  const range=sorted[n-1]-sorted[0];
+  const variance=nums.reduce((a,b)=>a+(b-mean)**2,0)/(n-1); // sample SD
+  const sd=Math.sqrt(variance);
+  const f=x=>Number.isInteger(x)?x:x.toFixed(2);
+  out.innerHTML=`
+    <div class="calc-cell"><div class="cv">${n}</div><div class="cl">N</div></div>
+    <div class="calc-cell"><div class="cv">${f(mean)}</div><div class="cl">Mean</div></div>
+    <div class="calc-cell"><div class="cv">${f(median)}</div><div class="cl">Median</div></div>
+    <div class="calc-cell"><div class="cv">${modeStr}</div><div class="cl">Mode</div></div>
+    <div class="calc-cell"><div class="cv">${f(range)}</div><div class="cl">Range</div></div>
+    <div class="calc-cell"><div class="cv">${f(sd)}</div><div class="cl">SD</div></div>`;
+  note.innerHTML=`Reported as <strong>M = ${f(mean)}, SD = ${f(sd)}</strong> (sample SD, n−1). Mode shows "—" when every value is unique.`;
+}
+
+// QUIZ
+const AQ=[
+  {q:"What does a p-value (Sig.) of .03 mean in a t-test?",opts:["The result is statistically significant (p &lt; .05)","The result is not significant","There were 3 participants","The mean was 0.03"],ans:0,fb:".03 is below the conventional .05 threshold, so the result is statistically significant — unlikely to be due to chance."},
+  {q:"A study reports M = 4.2, SD = 1.6 on a 5-point scale. What does the large SD tell you?",opts:["Everyone answered almost identically","Responses were widely spread — opinions varied a lot","The mean is invalid","Nobody agreed"],ans:1,fb:"A large SD (1.6 on a 5-point scale) signals wide variation: some rated high, others low. The mean of 4.2 hides this spread, which is why M and SD are reported together."},
+  {q:"Which is a DESCRIPTIVE (not inferential) statistic?",opts:["A paired-samples t-test","The percentage of students who chose 'Agree'","A p-value","A significance test between two groups"],ans:1,fb:"Percentages and frequencies describe the data (descriptive). t-tests and p-values test hypotheses about differences (inferential)."},
+  {q:"Both groups' means rose, but only one rise was significant. The correct claim is:",opts:["Both methods caused improvement","Only the group with p &lt; .05 showed a significant improvement","Means are irrelevant","The larger mean always wins"],ans:1,fb:"Significance, not the size of the mean change, determines whether you can claim a real effect. Only the group whose gain reached p &lt; .05 improved significantly."},
+  {q:"When writing a quantitative findings section, you should:",opts:["State the statistic, then interpret what it means","Give your personal opinion first","Avoid numbers to keep it readable","Report only the means you like"],ans:0,fb:"Present the evidence (M, SD, p, %) first, then interpret it in relation to your research question. Evidence before interpretation."}
+];
+let aqIndex=0,aqScore=0,aqAnswered=false;
+function renderAQ(){if(aqIndex>=AQ.length){showAQScore();return;}const q=AQ[aqIndex];document.getElementById('aq-prog').style.width=(aqIndex/AQ.length*100)+'%';document.getElementById('aq-container').innerHTML=`<div class="ex-card"><div class="ex-num">Question ${aqIndex+1} of ${AQ.length}</div><div class="ex-q">${q.q}</div><div id="aq-opts">${q.opts.map((o,i)=>`<button class="ex-opt" onclick="answerAQ(${i})">${o}</button>`).join('')}</div><div class="ex-feedback" id="aq-fb"></div><div><button class="btn btn-primary btn-sm" id="aq-next" style="display:none;margin-top:14px;background:var(--ac);" onclick="nextAQ()">Next →</button></div></div>`;aqAnswered=false;}
+function answerAQ(i){if(aqAnswered)return;aqAnswered=true;const q=AQ[aqIndex];document.querySelectorAll('#aq-opts .ex-opt').forEach((b,j)=>{b.disabled=true;if(j===q.ans)b.classList.add('correct-ans');else if(j===i&&i!==q.ans)b.classList.add('wrong-ans');});if(i===q.ans)aqScore++;const fb=document.getElementById('aq-fb');fb.innerHTML=q.fb;fb.className='ex-feedback show '+(i===q.ans?'fb-correct':'fb-wrong');document.getElementById('aq-next').style.display='inline-block';}
+function nextAQ(){aqIndex++;renderAQ();}
+function showAQScore(){document.getElementById('aq-prog').style.width='100%';document.getElementById('aq-container').style.display='none';const pct=Math.round(aqScore/AQ.length*100);document.getElementById('aq-score').style.display='block';document.getElementById('aq-score').innerHTML=`<div class="score-big">${pct}%</div><div class="score-sub">${aqScore}/${AQ.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct>=80?"Strong grasp of quantitative analysis.":"Revisit the t-test and Likert tabs."}</p><button class="btn btn-primary" style="background:var(--ac);" onclick="resetAQ()">Retry</button>`;}
+function resetAQ(){aqIndex=0;aqScore=0;document.getElementById('aq-container').style.display='block';document.getElementById('aq-score').style.display='none';renderAQ();}
+
+runCalc();renderAQ();
+</script>
+<script src="site.js" defer></script>
+</body>
+</html>

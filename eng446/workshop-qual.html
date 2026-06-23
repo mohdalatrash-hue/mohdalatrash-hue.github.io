@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qualitative Analysis Workshop | ENG 446</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="Hands-on qualitative analysis workshop — code real interview excerpts, cluster codes into themes, judge trustworthiness, and write up a theme with evidence.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 446">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 446 Research Methods">
+<meta property="og:title" content="Qualitative Analysis Workshop | ENG 446">
+<meta property="og:description" content="Code real interview excerpts, build themes, and write up qualitative findings.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng446/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng446/workshop-qual.html">
+<meta name="twitter:card" content="summary">
+<style>
+body{background:var(--off-white);}
+:root{--ac:#0d9488;--ac-soft:#ecfdf5;--ac-ink:#115e59;}
+.tab-bar{display:flex;gap:4px;background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-xs);padding:6px;margin-bottom:28px;flex-wrap:wrap;}
+.tab-btn{flex:1;min-width:130px;padding:10px 16px;border:none;background:transparent;border-radius:var(--r-md);font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;transition:all .15s;}
+.tab-btn:hover{background:var(--off-white);}
+.tab-btn.active{background:var(--ac);color:#fff;}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.ex-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:24px;margin-bottom:20px;}
+.ex-num{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);margin-bottom:8px;}
+.ex-q{font-size:15px;font-weight:600;color:var(--text);margin-bottom:16px;line-height:1.6;}
+.ex-opt{padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:14px;cursor:pointer;transition:all .15s;background:var(--white);color:var(--text);text-align:left;display:block;width:100%;margin-bottom:8px;}
+.ex-opt:hover{border-color:var(--text-2);}
+.ex-opt.correct-ans{border-color:#30d158;background:#f0fff4;color:#1a7f45;}
+.ex-opt.correct-ans::after{content:" ✓";font-weight:800;}
+.ex-opt.wrong-ans{border-color:#e53935;background:#fef2f2;color:#c0392b;}
+.ex-opt.wrong-ans::after{content:" ✗";font-weight:800;}
+.ex-feedback{margin-top:14px;padding:12px 16px;border-radius:var(--r-md);font-size:13px;line-height:1.7;display:none;}
+.ex-feedback.show{display:block;}
+.fb-correct{background:#f0fff4;border:1px solid #a2d9b0;color:#14532d;}
+.fb-wrong{background:#fef2f2;border:1px solid #fca5a5;color:#7f1d1d;}
+.tip-box{background:var(--ac-soft);border:1.5px solid #99f6e4;border-radius:var(--r-md);padding:14px 16px;font-size:13px;line-height:1.7;color:var(--ac-ink);margin-bottom:20px;}
+.tip-box strong{color:var(--ac);}
+.prog-bar-wrap{height:6px;background:var(--off-white);border-radius:var(--r-pill);margin-bottom:24px;overflow:hidden;}
+.prog-bar{height:100%;background:var(--ac);border-radius:var(--r-pill);transition:width .4s;}
+.score-summary{text-align:center;padding:32px 20px;}
+.score-big{font-size:56px;font-weight:800;color:var(--ac);line-height:1;margin-bottom:8px;}
+.score-sub{font-size:14px;color:var(--text-2);}
+.quote-text{background:var(--off-white);border-left:3px solid var(--ac);padding:14px 16px;border-radius:0 var(--r-md) var(--r-md) 0;font-size:14px;line-height:1.8;font-style:italic;color:var(--text);margin-bottom:10px;}
+.quote-text .who{display:block;font-style:normal;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ac);margin-top:6px;}
+.code-select{padding:9px 12px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:13px;font-family:inherit;background:var(--white);margin-top:4px;width:100%;}
+.code-select.correct{border-color:#30d158;background:#f0fff4;}
+.code-select.wrong{border-color:#e53935;background:#fef2f2;}
+.src-note{font-size:12px;color:var(--text-3);margin-top:10px;line-height:1.6;}
+.src-note a{color:var(--ac);font-weight:600;}
+.theme-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:10px 0 4px;}
+.theme-chip{background:var(--ac-soft);border:1px solid #99f6e4;border-radius:var(--r-md);padding:10px 12px;font-size:12px;color:var(--ac-ink);line-height:1.5;}
+.theme-chip b{display:block;color:var(--ac);font-size:11px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px;}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 446</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Qualitative Analysis</span>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:36px;">
+  <div class="hero-eyebrow" style="color:var(--ac);">Workshop · Deep Dive · Ch 10</div>
+  <h1>Qualitative Data Analysis</h1>
+  <p class="hero-sub">Code real interview excerpts, build them into themes, and learn to write up qualitative findings with evidence.</p>
+</div>
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+
+  <div class="info-box info-green mb-24" style="text-align:left;">
+    <h3>🗣️ The dataset behind this workshop</h3>
+    <p>The excerpts below are real, drawn from Sun, Motevalli &amp; Chan (2024), <em>Exploring Writing Anxiety during the Writing Process</em> — a thematic analysis of semi-structured interviews with 18 Chinese EFL learners. The researchers followed Braun &amp; Clarke's (2006) six-step method and produced seven themes. You will retrace that work.</p>
+  </div>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('code',this)">🏷️ Code Excerpts</button>
+    <button class="tab-btn" onclick="switchTab('themes',this)">🧩 Codes → Themes</button>
+    <button class="tab-btn" onclick="switchTab('rigour',this)">🔍 Trustworthiness</button>
+    <button class="tab-btn" onclick="switchTab('writeup',this)">✍️ Write-Up</button>
+    <button class="tab-btn" onclick="switchTab('quiz',this)">📝 Quiz</button>
+  </div>
+
+  <!-- TAB 1 — CODE EXCERPTS -->
+  <div id="tab-code" class="tab-panel active">
+    <div class="tip-box"><strong>Braun &amp; Clarke (2006), six steps:</strong> 1 Familiarise · 2 Generate initial codes · 3 Search for themes · 4 Review themes · 5 Define &amp; name themes · 6 Write up. A <strong>code</strong> is a short label for one unit of meaning; a <strong>theme</strong> is a pattern across many codes.</div>
+    <div class="ex-card">
+      <div class="ex-num">Assign each real interview excerpt to the best theme</div>
+      <p style="font-size:13px;color:var(--text-2);margin-bottom:8px;">These are actual participant quotes from the study. For each, choose the theme it most clearly evidences, then click "Check coding."</p>
+      <div class="theme-grid" style="margin-bottom:18px;">
+        <div class="theme-chip"><b>Theme 1</b>Lack of topic knowledge</div>
+        <div class="theme-chip"><b>Theme 2</b>Inexperience with the genre</div>
+        <div class="theme-chip"><b>Theme 3</b>Trouble generating ideas</div>
+        <div class="theme-chip"><b>Theme 5</b>Integrating sources</div>
+        <div class="theme-chip"><b>Theme 6</b>Linguistic difficulty</div>
+        <div class="theme-chip"><b>Theme 7</b>Negative feedback from others</div>
+      </div>
+      <div id="coding-qs"></div>
+      <button class="btn btn-primary" style="margin-top:8px;background:var(--ac);" onclick="checkCodes()">Check coding</button>
+      <div class="ex-feedback" id="coding-fb" style="margin-top:12px;"></div>
+      <div class="src-note">Quotes verbatim from Sun, Motevalli &amp; Chan (2024). · <a href="res-methodology-qualitative-sample.pdf" target="_blank" rel="noopener">Open the full paper →</a></div>
+    </div>
+  </div>
+
+  <!-- TAB 2 — CODES TO THEMES -->
+  <div id="tab-themes" class="tab-panel">
+    <div class="tip-box"><strong>From codes to themes.</strong> Once you have many codes, you group related ones into broader themes. In this study the seven themes also mapped onto stages of the writing process (Hayes &amp; Flower's model): memory, planning, translating, and reviewing.</div>
+    <div class="ex-card">
+      <div class="ex-num">Match each code to the writing-process stage it belongs to</div>
+      <p style="font-size:13px;color:var(--text-2);margin-bottom:14px;">Drag-free version: pick the stage from each dropdown, then click "Check grouping."</p>
+      <div id="theme-match"></div>
+      <button class="btn btn-primary" style="margin-top:8px;background:var(--ac);" onclick="checkThemes()">Check grouping</button>
+      <div class="ex-feedback" id="theme-fb" style="margin-top:12px;"></div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">How many data points make a theme?</div>
+      <div style="font-size:13px;line-height:1.8;color:var(--text-2);">
+        A theme is not a single striking quote — it is a <em>pattern</em>. A defensible theme is supported by multiple coded extracts, ideally from <strong style="color:var(--text);">several different participants</strong>. In this study each of the seven themes is illustrated by quotes from distinct learners (P1, P2, P5, P6, P7, P9, P11, P14, P15, P18…), which is what makes the pattern credible rather than anecdotal.
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3 — TRUSTWORTHINESS -->
+  <div id="tab-rigour" class="tab-panel">
+    <div class="tip-box"><strong>Trustworthiness</strong> is the qualitative counterpart of validity and reliability. Watch for: <strong>inductive vs deductive</strong> coding, <strong>saturation</strong>, <strong>inter-coder reliability</strong>, and <strong>member checking</strong>.</div>
+    <div class="ex-card">
+      <div class="ex-num">How the study protected its trustworthiness — quiz</div>
+      <p style="font-size:13px;color:var(--text-2);margin-bottom:16px;">The real study coded inductively, used <em>two independent coders</em> who compared and negotiated their codes to consensus, and followed a documented six-step method. Answer the questions below.</p>
+      <div id="rigour-qs"></div>
+    </div>
+  </div>
+
+  <!-- TAB 4 — WRITE-UP -->
+  <div id="tab-writeup" class="tab-panel">
+    <div class="tip-box"><strong>Writing up a theme</strong> follows a three-move pattern: <strong>(1) state the theme</strong> → <strong>(2) present evidence</strong> (a participant quote) → <strong>(3) interpret</strong> what it means for your research question.</div>
+    <div class="ex-card">
+      <div class="ex-num">A worked example — Theme 1 from the real study</div>
+      <div style="font-size:13px;line-height:1.85;color:var(--text-2);">
+        <strong style="color:var(--text);">Claim:</strong> Several learners traced their writing anxiety to a lack of knowledge about the topic itself.<br>
+        <strong style="color:var(--text);">Evidence:</strong> As P7 explained, <em>"It's hard to think about things I don't know much about, especially when I don't have enough information or resources to write about them."</em><br>
+        <strong style="color:var(--text);">Interpretation:</strong> For these students, anxiety is not only linguistic — it begins before any English is written, in the absence of content knowledge. This suggests that pre-writing support (building topic knowledge and supplying resources) could reduce anxiety at its source.
+      </div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Put the moves in order</div>
+      <p style="font-size:13px;color:var(--text-2);margin-bottom:14px;">Order the three parts of a well-written findings paragraph.</p>
+      <div id="order-qs"></div>
+    </div>
+  </div>
+
+  <!-- TAB 5 — QUIZ -->
+  <div id="tab-quiz" class="tab-panel">
+    <div class="prog-bar-wrap"><div class="prog-bar" id="aq-prog" style="width:0%"></div></div>
+    <div id="aq-container"></div>
+    <div id="aq-score" class="score-summary" style="display:none;"></div>
+  </div>
+</div>
+</div>
+<footer><strong>ENG 446 Research Methods</strong> · Qualitative Analysis · Qassim University · Summer 2026<br><a href="index.html">Course Hub</a> · <a href="workshop-quant.html">Quantitative Workshop</a> · <a href="resources.html">Resources</a></footer>
+<script>
+function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
+
+// Generic inline MCQ
+const MCQ_DATA={};
+function mount(cid,items){MCQ_DATA[cid]=items;document.getElementById(cid).innerHTML=items.map((q,qi)=>`
+  <div style="margin-bottom:20px;">
+    <div style="font-size:14px;font-weight:600;margin-bottom:10px;">${qi+1}. ${q.q}</div>
+    ${q.opts.map((o,oi)=>`<button class="ex-opt" id="${cid}-${qi}-${oi}" onclick="answerMCQ('${cid}',${qi},${oi})">${o}</button>`).join('')}
+    <div class="ex-feedback" id="${cid}-fb-${qi}"></div>
+  </div>`).join('');}
+function answerMCQ(cid,qi,chosen){const q=MCQ_DATA[cid][qi];if(document.getElementById(`${cid}-${qi}-0`).disabled)return;q.opts.forEach((_,oi)=>{const b=document.getElementById(`${cid}-${qi}-${oi}`);b.disabled=true;if(oi===q.ans)b.classList.add('correct-ans');else if(oi===chosen&&chosen!==q.ans)b.classList.add('wrong-ans');});const fb=document.getElementById(`${cid}-fb-${qi}`);fb.className='ex-feedback show '+(chosen===q.ans?'fb-correct':'fb-wrong');fb.innerHTML=q.why;}
+
+// CODING (real quotes → theme)
+const THEMES=["Theme 1 — Lack of topic knowledge","Theme 2 — Inexperience with the genre","Theme 3 — Trouble generating ideas","Theme 5 — Integrating sources","Theme 6 — Linguistic difficulty","Theme 7 — Negative feedback from others"];
+const CODING=[
+  {who:"P7",quote:"It's hard to think about things I don't know much about, especially when I don't have enough information or resources to write about them.",correct:0,why:"The anxiety is tied to not knowing enough <em>about the topic</em> — Theme 1."},
+  {who:"P2",quote:"Each different style of writing has its own unique pattern. Without knowing this, it's hard to write because I don't know what to do.",correct:1,why:"Unfamiliarity with the conventions of a writing <em>genre</em> — Theme 2."},
+  {who:"P14",quote:"There is nothing in mind when starting to write. It caused anxiety, or even I feel exhausted.",correct:2,why:"A blank mind at the start — difficulty <em>generating ideas</em> — Theme 3."},
+  {who:"P18",quote:"I don't know how to blend two or more resources that have the same meaning with each other.",correct:3,why:"Trouble combining sources — <em>integrating sources</em> — Theme 5."},
+  {who:"P15",quote:"I am often troubled by my vocabulary and grammar. I often fail to remember the form of some words, which affects my English writing.",correct:4,why:"Vocabulary and grammar problems — <em>linguistic difficulty</em> — Theme 6."},
+  {who:"P5",quote:"Once I can't get help from anyone and have no clue what to write about, it's like the worst feeling ever and I don't want to ask anybody else anymore.",correct:5,why:"Discouragement linked to a lack of supportive feedback from others — Theme 7."}
+];
+function initCoding(){document.getElementById('coding-qs').innerHTML=CODING.map((it,i)=>`
+  <div style="margin-bottom:22px;">
+    <div class="quote-text">"${it.quote}"<span class="who">— ${it.who}</span></div>
+    <select class="code-select" id="cs-${i}">
+      <option value="">— Choose the theme —</option>
+      ${THEMES.map((t,ti)=>`<option value="${ti}">${t}</option>`).join('')}
+    </select>
+    <div class="ex-feedback" id="cs-fb-${i}"></div>
+  </div>`).join('');}
+function checkCodes(){let s=0;CODING.forEach((it,i)=>{const sel=document.getElementById('cs-'+i),fb=document.getElementById('cs-fb-'+i);const v=parseInt(sel.value);if(isNaN(v)){sel.className='code-select wrong';fb.className='ex-feedback show fb-wrong';fb.textContent='Please choose a theme.';return;}if(v===it.correct){sel.className='code-select correct';fb.className='ex-feedback show fb-correct';fb.innerHTML='✓ Correct. '+it.why;s++;}else{sel.className='code-select wrong';fb.className='ex-feedback show fb-wrong';fb.innerHTML='✗ Not the best fit. '+it.why;}});const f=document.getElementById('coding-fb');f.className='ex-feedback show '+(s===CODING.length?'fb-correct':'fb-wrong');f.textContent=`${s}/${CODING.length} excerpts coded correctly.`;}
+
+// CODES → THEMES (code → writing-process stage)
+const STAGES=["Long-term memory","Planning","Translating","Reviewing"];
+const MATCH=[
+  {code:"Lack of knowledge about the topic",stage:0,why:"Topic knowledge is retrieved from long-term memory."},
+  {code:"Inexperience with the genre",stage:0,why:"Genre conventions are stored knowledge — long-term memory."},
+  {code:"Trouble generating ideas",stage:1,why:"Brainstorming ideas is part of planning."},
+  {code:"Trouble structuring information",stage:1,why:"Arranging information is a planning activity."},
+  {code:"Difficulty integrating sources",stage:1,why:"Combining sources happens during planning."},
+  {code:"Vocabulary and grammar problems",stage:2,why:"Turning ideas into words is translating."},
+  {code:"Negative feedback from others",stage:3,why:"Feedback relates to reviewing the work."}
+];
+function initMatch(){document.getElementById('theme-match').innerHTML=MATCH.map((m,i)=>`
+  <div style="display:flex;gap:10px;align-items:center;margin-bottom:10px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:180px;font-size:13px;font-weight:600;color:var(--text);">${m.code}</div>
+    <select class="code-select" id="tm-${i}" style="max-width:200px;margin-top:0;">
+      <option value="">— stage —</option>
+      ${STAGES.map((s,si)=>`<option value="${si}">${s}</option>`).join('')}
+    </select>
+  </div>
+  <div class="ex-feedback" id="tm-fb-${i}" style="margin-bottom:14px;"></div>`).join('');}
+function checkThemes(){let s=0;MATCH.forEach((m,i)=>{const sel=document.getElementById('tm-'+i),fb=document.getElementById('tm-fb-'+i);const v=parseInt(sel.value);if(isNaN(v)){sel.className='code-select wrong';return;}if(v===m.stage){sel.className='code-select correct';fb.className='ex-feedback show fb-correct';fb.innerHTML='✓ '+m.why;s++;}else{sel.className='code-select wrong';fb.className='ex-feedback show fb-wrong';fb.innerHTML='✗ '+m.why;}});const f=document.getElementById('theme-fb');f.className='ex-feedback show '+(s===MATCH.length?'fb-correct':'fb-wrong');f.textContent=`${s}/${MATCH.length} codes grouped correctly.`;}
+
+mount('rigour-qs',[
+  {q:"The researchers let themes EMERGE from the data rather than starting with a fixed framework. This is:",opts:["Inductive analysis","Deductive analysis","Statistical analysis","Member checking"],ans:0,why:"Building themes up from the data is inductive. Deductive analysis applies a pre-existing framework to the data."},
+  {q:"Two coders independently coded all the data, then compared and negotiated to consensus. This strengthens:",opts:["Inter-coder reliability","Sample size","The p-value","Generalizability to all learners"],ans:0,why:"Using more than one coder and reconciling differences improves inter-coder (inter-rater) reliability — a key trustworthiness check in qualitative work."},
+  {q:"'Data saturation' in this kind of study means:",opts:["New interviews stop producing new codes or themes","Every participant agreed","The data was entered into SPSS","The transcripts were translated"],ans:0,why:"Saturation is the point at which additional interviews no longer yield new codes or themes — a signal that enough data has been gathered for the study's scope."},
+  {q:"If the researchers returned their summarised themes to participants to confirm they were accurate, that is:",opts:["Member checking (respondent validation)","Triangulation","Random sampling","Operationalisation"],ans:0,why:"Member checking (respondent validation) asks participants whether the researcher's interpretation reflects their meaning — boosting credibility."}
+]);
+
+mount('order-qs',[
+  {q:"In a findings paragraph, which move comes FIRST?",opts:["State the theme / claim","A participant quote","Your interpretation of the quote","The reference list"],ans:0,why:"State the theme first, so the reader knows what the evidence will support. Then quote, then interpret."},
+  {q:"Which move comes immediately AFTER presenting a participant quote?",opts:["Interpretation — explain what the quote means for your research question","Another unrelated quote","The methodology","Nothing; the quote speaks for itself"],ans:0,why:"A quote must never stand alone. After the evidence, interpret it — connect it back to your research question. Data is never left to 'speak for itself'."}
+]);
+
+// QUIZ
+const AQ=[
+  {q:"What is the difference between a code and a theme?",opts:["A code labels one unit of meaning; a theme is a pattern across many codes","They are the same thing","A code is quantitative; a theme is qualitative","A theme is smaller than a code"],ans:0,fb:"Code = a short label for a single unit of meaning (e.g. 'vocabulary problems'). Theme = a broader pattern grouping several codes (e.g. 'linguistic difficulty')."},
+  {q:"A single dramatic quote from one participant is enough to establish a theme.",opts:["False — a theme needs a pattern across multiple extracts/participants","True — one strong quote is sufficient","True, if it is emotional","False — themes need at least 30 participants"],ans:0,fb:"A theme is a pattern, not a single quote. It should be supported by multiple coded extracts, ideally across several participants, to be credible."},
+  {q:"Coding that begins WITHOUT a pre-set framework, letting categories arise from the data, is:",opts:["Inductive","Deductive","Inferential","Experimental"],ans:0,fb:"Inductive coding builds categories up from the data. Deductive coding applies an existing theory or framework to the data."},
+  {q:"Which is a TRUSTWORTHINESS strategy in qualitative research?",opts:["Member checking / using two independent coders","Calculating a standard deviation","Random assignment to groups","Reporting a p-value"],ans:0,fb:"Member checking and inter-coder agreement are qualitative trustworthiness strategies. SD, random assignment, and p-values belong to quantitative research."},
+  {q:"When writing up qualitative findings, you should:",opts:["Present a theme, support it with a quote, then interpret it","List every quote with no commentary","Convert all quotes to percentages","Report only quotes that surprised you"],ans:0,fb:"The pattern is claim → evidence (quote) → interpretation. A bare list of quotes with no interpretation is an annotated transcript, not analysis."}
+];
+let aqIndex=0,aqScore=0,aqAnswered=false;
+function renderAQ(){if(aqIndex>=AQ.length){showAQScore();return;}const q=AQ[aqIndex];document.getElementById('aq-prog').style.width=(aqIndex/AQ.length*100)+'%';document.getElementById('aq-container').innerHTML=`<div class="ex-card"><div class="ex-num">Question ${aqIndex+1} of ${AQ.length}</div><div class="ex-q">${q.q}</div><div id="aq-opts">${q.opts.map((o,i)=>`<button class="ex-opt" onclick="answerAQ(${i})">${o}</button>`).join('')}</div><div class="ex-feedback" id="aq-fb"></div><div><button class="btn btn-primary btn-sm" id="aq-next" style="display:none;margin-top:14px;background:var(--ac);" onclick="nextAQ()">Next →</button></div></div>`;aqAnswered=false;}
+function answerAQ(i){if(aqAnswered)return;aqAnswered=true;const q=AQ[aqIndex];document.querySelectorAll('#aq-opts .ex-opt').forEach((b,j)=>{b.disabled=true;if(j===q.ans)b.classList.add('correct-ans');else if(j===i&&i!==q.ans)b.classList.add('wrong-ans');});if(i===q.ans)aqScore++;const fb=document.getElementById('aq-fb');fb.innerHTML=q.fb;fb.className='ex-feedback show '+(i===q.ans?'fb-correct':'fb-wrong');document.getElementById('aq-next').style.display='inline-block';}
+function nextAQ(){aqIndex++;renderAQ();}
+function showAQScore(){document.getElementById('aq-prog').style.width='100%';document.getElementById('aq-container').style.display='none';const pct=Math.round(aqScore/AQ.length*100);document.getElementById('aq-score').style.display='block';document.getElementById('aq-score').innerHTML=`<div class="score-big">${pct}%</div><div class="score-sub">${aqScore}/${AQ.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct>=80?"Strong grasp of qualitative analysis.":"Revisit the coding and theme tabs."}</p><button class="btn btn-primary" style="background:var(--ac);" onclick="resetAQ()">Retry</button>`;}
+function resetAQ(){aqIndex=0;aqScore=0;document.getElementById('aq-container').style.display='block';document.getElementById('aq-score').style.display='none';renderAQ();}
+
+initCoding();initMatch();renderAQ();
+</script>
+<script src="site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lit Review: Synthesis & Build | ENG 446</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="Build your own literature review — construct a synthesis matrix, turn summaries into synthesis, weave multiple sources into one sentence, and bridge the gap to your research question.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 446">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 446 Research Methods">
+<meta property="og:title" content="Lit Review: Synthesis & Build | ENG 446">
+<meta property="og:description" content="Synthesis matrix, summary-to-synthesis, source weaving, and gap-to-research-question.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng446/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng446/workshop-litreview-synthesis.html">
+<meta name="twitter:card" content="summary">
+<style>
+body{background:var(--off-white);}
+:root{--ac:#f59e0b;--ac-soft:#fffbeb;--ac-ink:#92400e;}
+.tab-bar{display:flex;gap:4px;background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-xs);padding:6px;margin-bottom:28px;flex-wrap:wrap;}
+.tab-btn{flex:1;min-width:130px;padding:10px 16px;border:none;background:transparent;border-radius:var(--r-md);font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;transition:all .15s;}
+.tab-btn:hover{background:var(--off-white);}
+.tab-btn.active{background:var(--ac);color:#fff;}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.ex-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:24px;margin-bottom:20px;}
+.ex-num{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#b45309;margin-bottom:8px;}
+.ex-q{font-size:15px;font-weight:600;color:var(--text);margin-bottom:16px;line-height:1.6;}
+.ex-opt{padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:14px;cursor:pointer;transition:all .15s;background:var(--white);color:var(--text);text-align:left;display:block;width:100%;margin-bottom:8px;}
+.ex-opt:hover{border-color:var(--text-2);}
+.ex-opt.correct-ans{border-color:#30d158;background:#f0fff4;color:#1a7f45;}
+.ex-opt.correct-ans::after{content:" ✓";font-weight:800;}
+.ex-opt.wrong-ans{border-color:#e53935;background:#fef2f2;color:#c0392b;}
+.ex-opt.wrong-ans::after{content:" ✗";font-weight:800;}
+.ex-feedback{margin-top:14px;padding:12px 16px;border-radius:var(--r-md);font-size:13px;line-height:1.7;display:none;}
+.ex-feedback.show{display:block;}
+.fb-correct{background:#f0fff4;border:1px solid #a2d9b0;color:#14532d;}
+.fb-wrong{background:#fef2f2;border:1px solid #fca5a5;color:#7f1d1d;}
+.tip-box{background:var(--ac-soft);border:1.5px solid #fde68a;border-radius:var(--r-md);padding:14px 16px;font-size:13px;line-height:1.7;color:var(--ac-ink);margin-bottom:20px;}
+.tip-box strong{color:#b45309;}
+.prog-bar-wrap{height:6px;background:var(--off-white);border-radius:var(--r-pill);margin-bottom:24px;overflow:hidden;}
+.prog-bar{height:100%;background:var(--ac);border-radius:var(--r-pill);transition:width .4s;}
+.score-summary{text-align:center;padding:32px 20px;}
+.score-big{font-size:56px;font-weight:800;color:#b45309;line-height:1;margin-bottom:8px;}
+.score-sub{font-size:14px;color:var(--text-2);}
+.matrix{width:100%;border-collapse:collapse;font-size:13px;}
+.matrix th{background:var(--off-white);font-weight:700;color:var(--text-2);font-size:12px;padding:10px;text-align:center;border:1px solid var(--border-light);}
+.matrix th:first-child{text-align:left;}
+.matrix td{padding:8px 10px;border:1px solid var(--border-light);text-align:center;}
+.matrix td:first-child{text-align:left;font-weight:600;color:var(--text);font-size:12px;}
+.mcell{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--border);background:var(--white);cursor:pointer;font-weight:800;color:transparent;transition:all .12s;}
+.mcell.on{background:var(--ac);border-color:var(--ac);color:#fff;}
+.synth-out{margin-top:16px;padding:14px 16px;border-radius:var(--r-md);background:var(--ac-soft);border:1px solid #fde68a;font-size:13px;line-height:1.7;color:var(--ac-ink);display:none;}
+.synth-out.show{display:block;}
+.src-note{font-size:12px;color:var(--text-3);margin-top:10px;line-height:1.6;}
+.src-note a{color:#b45309;font-weight:600;}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 446</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Lit Review: Synthesis</span>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:36px;">
+  <div class="hero-eyebrow" style="color:#b45309;">Workshop · Deep Dive · Ch 6</div>
+  <h1>Literature Review: Synthesis &amp; Build</h1>
+  <p class="hero-sub">Stop listing sources and start connecting them — build a synthesis matrix, weave citations, and turn your gap into a research question.</p>
+</div>
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+
+  <div class="info-box info-amber mb-24" style="text-align:left;">
+    <h3>🔧 From a pile of sources to a synthesised review</h3>
+    <p>The hardest part of a literature review is moving from "what each source says" to "what the sources say <em>together</em>". This workshop gives you the tools your group can apply directly to its own reading.</p>
+  </div>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('matrix',this)">🧮 Synthesis Matrix</button>
+    <button class="tab-btn" onclick="switchTab('rewrite',this)">🔁 Summary → Synthesis</button>
+    <button class="tab-btn" onclick="switchTab('weave',this)">🧵 Weave Sources</button>
+    <button class="tab-btn" onclick="switchTab('bridge',this)">🌉 Gap → RQ</button>
+    <button class="tab-btn" onclick="switchTab('quiz',this)">📝 Quiz</button>
+  </div>
+
+  <!-- TAB 1 — SYNTHESIS MATRIX -->
+  <div id="tab-matrix" class="tab-panel">
+    <div class="tip-box"><strong>A synthesis matrix</strong> maps sources (rows) against themes (columns). Where two or more sources meet on a theme, you have material to synthesise. Click the cells to mark which source addresses which theme, then press the button under each theme.</div>
+    <div class="ex-card">
+      <div class="ex-num">Build the matrix — topic: peer feedback in EFL writing</div>
+      <p style="font-size:13px;color:var(--text-2);margin-bottom:14px;">Four sample sources, three recurring themes. Mark a dot where a source addresses a theme.</p>
+      <div style="overflow-x:auto;">
+        <table class="matrix" id="matrix"></table>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;">
+        <button class="btn btn-primary btn-sm" style="background:var(--ac);" onclick="synthTheme(0)">Synthesise: Theme A</button>
+        <button class="btn btn-primary btn-sm" style="background:var(--ac);" onclick="synthTheme(1)">Synthesise: Theme B</button>
+        <button class="btn btn-primary btn-sm" style="background:var(--ac);" onclick="synthTheme(2)">Synthesise: Theme C</button>
+      </div>
+      <div class="synth-out" id="synth-out"></div>
+    </div>
+  </div>
+
+  <!-- TAB 2 — SUMMARY TO SYNTHESIS -->
+  <div id="tab-rewrite" class="tab-panel">
+    <div class="tip-box"><strong>Turn a list into a relationship.</strong> Below are notes from three sources. Choose the version that synthesises them into one analytical sentence.</div>
+    <div id="rewrite-qs"></div>
+  </div>
+
+  <!-- TAB 3 — WEAVE SOURCES -->
+  <div id="tab-weave" class="tab-panel">
+    <div class="tip-box"><strong>Weaving</strong> means citing several sources together correctly. APA 7: multiple works in one parenthesis are separated by <strong>semicolons</strong>, in alphabetical order — (Ali, 2019; Chen, 2021; Park, 2020).</div>
+    <div id="weave-qs"></div>
+  </div>
+
+  <!-- TAB 4 — GAP TO RQ -->
+  <div id="tab-bridge" class="tab-panel">
+    <div class="tip-box"><strong>The gap is the bridge to your research question.</strong> A well-formed RQ answers exactly the gap the review identified — same topic, same population, now framed as an open inquiry.</div>
+    <div id="bridge-qs"></div>
+  </div>
+
+  <!-- TAB 5 — QUIZ -->
+  <div id="tab-quiz" class="tab-panel">
+    <div class="prog-bar-wrap"><div class="prog-bar" id="aq-prog" style="width:0%"></div></div>
+    <div id="aq-container"></div>
+    <div id="aq-score" class="score-summary" style="display:none;"></div>
+  </div>
+</div>
+</div>
+<footer><strong>ENG 446 Research Methods</strong> · Lit Review Synthesis · Qassim University · Summer 2026<br><a href="index.html">Course Hub</a> · <a href="workshop-litreview-eval.html">Evaluation Workshop</a> · <a href="resources.html">Resources</a></footer>
+<script>
+function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
+
+const MCQ_DATA={};
+function mount(cid,items){MCQ_DATA[cid]=items;document.getElementById(cid).innerHTML=items.map((q,qi)=>`
+  <div class="ex-card">
+    ${q.pre||''}
+    <div style="font-size:14px;font-weight:600;margin:6px 0 10px;">${q.q}</div>
+    ${q.opts.map((o,oi)=>`<button class="ex-opt" id="${cid}-${qi}-${oi}" onclick="answerMCQ('${cid}',${qi},${oi})">${o}</button>`).join('')}
+    <div class="ex-feedback" id="${cid}-fb-${qi}"></div>
+  </div>`).join('');}
+function answerMCQ(cid,qi,chosen){const q=MCQ_DATA[cid][qi];if(document.getElementById(`${cid}-${qi}-0`).disabled)return;q.opts.forEach((_,oi)=>{const b=document.getElementById(`${cid}-${qi}-${oi}`);b.disabled=true;if(oi===q.ans)b.classList.add('correct-ans');else if(oi===chosen&&chosen!==q.ans)b.classList.add('wrong-ans');});const fb=document.getElementById(`${cid}-fb-${qi}`);fb.className='ex-feedback show '+(chosen===q.ans?'fb-correct':'fb-wrong');fb.innerHTML=q.why;}
+
+// SYNTHESIS MATRIX
+const SOURCES=["Almazidi (2019)","Chen & Park (2021)","Hassan (2022)","Wong (2023)"];
+const COLS=["A · Improves writing quality","B · Causes anxiety / discomfort","C · Needs training to work"];
+const grid=SOURCES.map(()=>[false,false,false]);
+// a suggested 'answer key' of which sources plausibly cover which theme
+const SUGGEST=[[true,false,true],[true,true,false],[false,true,true],[true,false,true]];
+function initMatrix(){
+  const t=document.getElementById('matrix');
+  t.innerHTML=`<thead><tr><th>Source ↓ / Theme →</th>${COLS.map(c=>`<th>${c}</th>`).join('')}</tr></thead><tbody>${
+    SOURCES.map((s,r)=>`<tr><td>${s}</td>${COLS.map((c,cI)=>`<td><button class="mcell" id="m-${r}-${cI}" onclick="toggleCell(${r},${cI})">●</button></td>`).join('')}</tr>`).join('')
+  }</tbody>`;
+}
+function toggleCell(r,c){grid[r][c]=!grid[r][c];document.getElementById(`m-${r}-${c}`).classList.toggle('on',grid[r][c]);}
+const SYNTH_MODELS=[
+  "Several studies converge on the finding that peer feedback improves writing quality (Almazidi, 2019; Chen & Park, 2021; Wong, 2023), suggesting the benefit is robust across contexts.",
+  "A recurring tension in the literature is that peer feedback, while useful, can provoke anxiety or discomfort for some learners (Chen & Park, 2021; Hassan, 2022).",
+  "A third strand argues that peer feedback only works when students are trained to give it (Almazidi, 2019; Hassan, 2022; Wong, 2023) — an important conditional that a simple 'feedback helps' claim would miss."
+];
+function synthTheme(c){
+  const marked=grid.filter(row=>row[c]).length;
+  const out=document.getElementById('synth-out');out.className='synth-out show';
+  if(marked<2){out.innerHTML=`<strong>Only ${marked} source marked for this theme.</strong> You need at least two sources addressing the same theme before you can synthesise. Mark more cells in column ${['A','B','C'][c]}, or pick a theme with more coverage.`;}
+  else{out.innerHTML=`<strong>${marked} sources meet on ${['Theme A','Theme B','Theme C'][c]} — that is synthesisable.</strong><br>Model synthesis sentence:<br><em>"${SYNTH_MODELS[c]}"</em><br><span style="color:var(--text-3);">Notice: the shared claim is stated once, all sources are cited together, and the sentence adds an analytical point.</span>`;}
+}
+
+mount('rewrite-qs',[
+  {pre:`<div style="background:var(--off-white);padding:14px;border-radius:var(--r-md);font-size:13px;line-height:1.8;color:var(--text-2);margin-bottom:14px;"><strong style="color:var(--text);">Your notes:</strong><br>• Almazidi (2019): students who used task-based activities spoke more fluently.<br>• Chen &amp; Park (2021): task-based learning raised speaking confidence.<br>• Wong (2023): tasks improved fluency but not accuracy.</div>`,q:"Which sentence best SYNTHESISES these three notes?",opts:["Almazidi (2019) found more fluency. Chen and Park (2021) found more confidence. Wong (2023) found fluency but not accuracy.","Research broadly links task-based learning to gains in speaking fluency and confidence (Almazidi, 2019; Chen & Park, 2021; Wong, 2023), although Wong (2023) cautions that accuracy may not improve in step with fluency.","Task-based learning is good for speaking.","There are three studies about task-based learning and speaking."],ans:1,why:"Option B states the shared finding once, cites the sources together, AND captures the point of difference (Wong's accuracy caveat). That is synthesis with a critical edge."},
+  {q:"When two sources DISAGREE, a strong synthesis sentence should:",opts:["Pick the one you like and ignore the other","Name the disagreement explicitly and cite both","Leave both out to avoid confusion","Report them in separate paragraphs"],ans:1,why:"Disagreement is valuable — surface it: 'While A found X (2019), B reported the opposite (2022), possibly because…'. This shows critical engagement."}
+]);
+
+mount('weave-qs',[
+  {q:"Three sources all support the same point. The correct APA 7 in-text weave is:",opts:["(Almazidi 2019, Chen & Park 2021, Wong 2023)","(Almazidi, 2019; Chen & Park, 2021; Wong, 2023)","(Almazidi, 2019 and Chen & Park, 2021 and Wong, 2023)","(Wong, 2023; Almazidi, 2019; Chen & Park, 2021)"],ans:1,why:"Semicolons separate the works, each has a comma before the year, and they are ordered alphabetically by first author (Almazidi → Chen → Wong)."},
+  {q:"Which sentence weaves sources rather than stacking them?",opts:["Many researchers (Ali, 2019; Brown, 2020; Cole, 2021; Diaz, 2022; Evans, 2023) studied feedback.","Feedback improves accuracy (Ali, 2019) and motivation (Brown, 2020), though its effect on fluency remains contested (Cole, 2021; Diaz, 2022).","Ali (2019) studied feedback. Brown (2020) studied feedback. Cole (2021) studied feedback.","Feedback has been studied a lot."],ans:1,why:"Option B attaches each citation to a specific claim and signals a debate — that is weaving. Option A just dumps five citations after a vague verb ('studied')."}
+]);
+
+mount('bridge-qs',[
+  {pre:`<div style="background:var(--off-white);padding:14px;border-radius:var(--r-md);font-size:13px;line-height:1.8;color:var(--text-2);margin-bottom:14px;"><strong style="color:var(--text);">Gap identified by the review:</strong><br>"Although many studies link writing anxiety to test scores, few have examined what learners actually experience <em>during</em> the writing process."</div>`,q:"Which research question best follows from this gap?",opts:["Is writing anxiety bad?","What sources of writing anxiety do EFL learners experience during the stages of the writing process?","How many students feel anxious?","Why is English hard?"],ans:1,why:"The gap is about the under-studied lived experience DURING the writing process. Option B targets exactly that — same topic, same focus, now an open inquiry."},
+  {q:"A good research question that flows from a gap should be:",opts:["As broad as possible","Specific, researchable, and aligned to the exact gap the review named","Answerable with yes/no only","Unrelated to the literature"],ans:1,why:"The RQ must match the gap precisely: specific, researchable, and bounded. If the review found a gap about 'process', the RQ should be about process — not something broader or unrelated."},
+  {q:"Why should every research question trace back to the literature review?",opts:["To make the review longer","Because the review's gap is what justifies and shapes the questions","Citations are required by the template","To avoid doing methodology"],ans:1,why:"The review earns the right to ask the questions: the identified gap is the logical and rhetorical justification for the RQs that follow."}
+]);
+
+// QUIZ
+const AQ=[
+  {q:"What is the main purpose of a synthesis matrix?",opts:["To map which sources address which themes, revealing where to synthesise","To count how many pages you have read","To format references","To replace the methodology"],ans:0,fb:"A synthesis matrix (sources × themes) shows where multiple sources converge, which is exactly where synthesis becomes possible."},
+  {q:"How many sources do you need before you can synthesise on a theme?",opts:["At least two addressing the same theme","Exactly one","At least ten","It does not matter"],ans:0,fb:"Synthesis is about relationships between sources, so you need at least two on the same theme to connect."},
+  {q:"In APA 7, multiple sources in one parenthesis are separated by:",opts:["Semicolons, in alphabetical order","Commas","The word 'and'","Slashes"],ans:0,fb:"(Ali, 2019; Brown, 2020; Cole, 2021) — semicolons, alphabetical by first author."},
+  {q:"A strong synthesis sentence when sources disagree will:",opts:["Name the disagreement and cite both sides","Hide the weaker source","Only cite the source you agree with","Avoid the topic"],ans:0,fb:"Surfacing disagreement ('While A found X, B found the opposite…') demonstrates the critical engagement markers look for."},
+  {q:"Your research question should:",opts:["Answer the exact gap your literature review identified","Be as broad as possible","Be unrelated to your sources","Come before you read anything"],ans:0,fb:"The RQ flows directly from the gap: same topic and focus, reframed as an open, researchable question."}
+];
+let aqIndex=0,aqScore=0,aqAnswered=false;
+function renderAQ(){if(aqIndex>=AQ.length){showAQScore();return;}const q=AQ[aqIndex];document.getElementById('aq-prog').style.width=(aqIndex/AQ.length*100)+'%';document.getElementById('aq-container').innerHTML=`<div class="ex-card"><div class="ex-num">Question ${aqIndex+1} of ${AQ.length}</div><div class="ex-q">${q.q}</div><div id="aq-opts">${q.opts.map((o,i)=>`<button class="ex-opt" onclick="answerAQ(${i})">${o}</button>`).join('')}</div><div class="ex-feedback" id="aq-fb"></div><div><button class="btn btn-primary btn-sm" id="aq-next" style="display:none;margin-top:14px;background:var(--ac);" onclick="nextAQ()">Next →</button></div></div>`;aqAnswered=false;}
+function answerAQ(i){if(aqAnswered)return;aqAnswered=true;const q=AQ[aqIndex];document.querySelectorAll('#aq-opts .ex-opt').forEach((b,j)=>{b.disabled=true;if(j===q.ans)b.classList.add('correct-ans');else if(j===i&&i!==q.ans)b.classList.add('wrong-ans');});if(i===q.ans)aqScore++;const fb=document.getElementById('aq-fb');fb.innerHTML=q.fb;fb.className='ex-feedback show '+(i===q.ans?'fb-correct':'fb-wrong');document.getElementById('aq-next').style.display='inline-block';}
+function nextAQ(){aqIndex++;renderAQ();}
+function showAQScore(){document.getElementById('aq-prog').style.width='100%';document.getElementById('aq-container').style.display='none';const pct=Math.round(aqScore/AQ.length*100);document.getElementById('aq-score').style.display='block';document.getElementById('aq-score').innerHTML=`<div class="score-big">${pct}%</div><div class="score-sub">${aqScore}/${AQ.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct>=80?"You can synthesise with confidence.":"Revisit the matrix and weaving tabs."}</p><button class="btn btn-primary" style="background:var(--ac);" onclick="resetAQ()">Retry</button>`;}
+function resetAQ(){aqIndex=0;aqScore=0;document.getElementById('aq-container').style.display='block';document.getElementById('aq-score').style.display='none';renderAQ();}
+
+initMatrix();mount('rewrite-qs',MCQ_DATA['rewrite-qs']);renderAQ();
+</script>
+<script src="site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lit Review: Structure & Evaluation | ENG 446</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="Analyse three real published reviews — classify their structure, separate summary from synthesis, locate the research gap, and score a review against an evaluation rubric.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 446">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 446 Research Methods">
+<meta property="og:title" content="Lit Review: Structure & Evaluation | ENG 446">
+<meta property="og:description" content="Classify real reviews, separate summary from synthesis, find the gap, and score with a rubric.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng446/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng446/workshop-litreview-eval.html">
+<meta name="twitter:card" content="summary">
+<style>
+body{background:var(--off-white);}
+:root{--ac:#d97706;--ac-soft:#fff7ed;--ac-ink:#92400e;}
+.tab-bar{display:flex;gap:4px;background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-xs);padding:6px;margin-bottom:28px;flex-wrap:wrap;}
+.tab-btn{flex:1;min-width:130px;padding:10px 16px;border:none;background:transparent;border-radius:var(--r-md);font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;transition:all .15s;}
+.tab-btn:hover{background:var(--off-white);}
+.tab-btn.active{background:var(--ac);color:#fff;}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+.ex-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:24px;margin-bottom:20px;}
+.ex-num{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);margin-bottom:8px;}
+.ex-q{font-size:15px;font-weight:600;color:var(--text);margin-bottom:16px;line-height:1.6;}
+.ex-opt{padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:14px;cursor:pointer;transition:all .15s;background:var(--white);color:var(--text);text-align:left;display:block;width:100%;margin-bottom:8px;}
+.ex-opt:hover{border-color:var(--text-2);}
+.ex-opt.correct-ans{border-color:#30d158;background:#f0fff4;color:#1a7f45;}
+.ex-opt.correct-ans::after{content:" ✓";font-weight:800;}
+.ex-opt.wrong-ans{border-color:#e53935;background:#fef2f2;color:#c0392b;}
+.ex-opt.wrong-ans::after{content:" ✗";font-weight:800;}
+.ex-feedback{margin-top:14px;padding:12px 16px;border-radius:var(--r-md);font-size:13px;line-height:1.7;display:none;}
+.ex-feedback.show{display:block;}
+.fb-correct{background:#f0fff4;border:1px solid #a2d9b0;color:#14532d;}
+.fb-wrong{background:#fef2f2;border:1px solid #fca5a5;color:#7f1d1d;}
+.tip-box{background:var(--ac-soft);border:1.5px solid #fed7aa;border-radius:var(--r-md);padding:14px 16px;font-size:13px;line-height:1.7;color:var(--ac-ink);margin-bottom:20px;}
+.tip-box strong{color:var(--ac);}
+.prog-bar-wrap{height:6px;background:var(--off-white);border-radius:var(--r-pill);margin-bottom:24px;overflow:hidden;}
+.prog-bar{height:100%;background:var(--ac);border-radius:var(--r-pill);transition:width .4s;}
+.score-summary{text-align:center;padding:32px 20px;}
+.score-big{font-size:56px;font-weight:800;color:var(--ac);line-height:1;margin-bottom:8px;}
+.score-sub{font-size:14px;color:var(--text-2);}
+.abstract-box{background:var(--off-white);border-left:3px solid var(--ac);padding:14px 16px;border-radius:0 var(--r-md) var(--r-md) 0;font-size:13px;line-height:1.75;color:var(--text-2);margin-bottom:12px;}
+.abstract-box .cite{display:block;font-size:11px;font-weight:700;color:var(--ac-ink);margin-bottom:8px;text-transform:none;}
+.src-note{font-size:12px;color:var(--text-3);margin-top:10px;line-height:1.6;}
+.src-note a{color:var(--ac);font-weight:600;}
+.rubric-row{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--border-light);}
+.rubric-row:last-child{border-bottom:none;}
+.rubric-q{flex:1;font-size:13px;line-height:1.5;color:var(--text);}
+.rubric-opts{display:flex;gap:6px;flex-shrink:0;}
+.rubric-opts button{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--border);background:var(--white);font-weight:700;font-size:13px;cursor:pointer;color:var(--text-2);}
+.rubric-opts button.sel{background:var(--ac);color:#fff;border-color:var(--ac);}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 446</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Lit Review: Evaluation</span>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:36px;">
+  <div class="hero-eyebrow" style="color:var(--ac);">Workshop · Deep Dive · Ch 6</div>
+  <h1>Literature Review: Structure &amp; Evaluation</h1>
+  <p class="hero-sub">Work with three real published reviews — name their structure, tell summary from synthesis, find the gap, and score them with a rubric.</p>
+</div>
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+
+  <div class="info-box info-amber mb-24" style="text-align:left;">
+    <h3>📚 The three real reviews you will analyse</h3>
+    <p>All examples below are taken from published papers, each illustrating a different way to organise a literature review. The full PDFs are on your <a href="resources.html" style="font-weight:700;">Resources page</a> — open them alongside this workshop.</p>
+  </div>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('structure',this)">🏗️ Structure</button>
+    <button class="tab-btn" onclick="switchTab('synth',this)">🔗 Summary vs Synthesis</button>
+    <button class="tab-btn" onclick="switchTab('gap',this)">🎯 Spot the Gap</button>
+    <button class="tab-btn" onclick="switchTab('rubric',this)">📋 Evaluation Rubric</button>
+    <button class="tab-btn" onclick="switchTab('quiz',this)">📝 Quiz</button>
+  </div>
+
+  <!-- TAB 1 — STRUCTURE -->
+  <div id="tab-structure" class="tab-panel active">
+    <div class="tip-box"><strong>Three ways to organise a review:</strong> <strong>Thematic</strong> — grouped by topic/concept. <strong>Chronological</strong> — traced over time. <strong>Comparative</strong> — structured around contrasting positions or groups. Read each real abstract and name its structure.</div>
+    <div id="structure-qs"></div>
+  </div>
+
+  <!-- TAB 2 — SUMMARY vs SYNTHESIS -->
+  <div id="tab-synth" class="tab-panel">
+    <div class="tip-box"><strong>Summary</strong> reports one source at a time ("Author A found X. Author B found Y."). <strong>Synthesis</strong> connects sources around an idea ("Several studies converge on X (A; B), though they differ on Y."). A literature review must <em>synthesise</em>, not list.</div>
+    <div id="synth-qs"></div>
+  </div>
+
+  <!-- TAB 3 — SPOT THE GAP -->
+  <div id="tab-gap" class="tab-panel">
+    <div class="tip-box"><strong>The gap</strong> is the sentence where authors say what is missing or under-studied — the opening their study will fill. It often starts with "However," "Despite," "Little research has…," or "limited attention has been paid to…". Find it in each real abstract.</div>
+    <div id="gap-qs"></div>
+  </div>
+
+  <!-- TAB 4 — RUBRIC -->
+  <div id="tab-rubric" class="tab-panel">
+    <div class="tip-box"><strong>Evaluate a review like a marker.</strong> Score each criterion 0–2 (0 = absent, 1 = partial, 2 = strong) for a review you are reading — your group's draft, or one of the samples. Your total appears at the bottom with guidance.</div>
+    <div class="ex-card">
+      <div class="ex-num">Literature review evaluation rubric (12 points)</div>
+      <div id="rubric-list"></div>
+      <div id="rubric-score" style="margin-top:18px;font-size:14px;font-weight:600;color:var(--text);"></div>
+    </div>
+  </div>
+
+  <!-- TAB 5 — QUIZ -->
+  <div id="tab-quiz" class="tab-panel">
+    <div class="prog-bar-wrap"><div class="prog-bar" id="aq-prog" style="width:0%"></div></div>
+    <div id="aq-container"></div>
+    <div id="aq-score" class="score-summary" style="display:none;"></div>
+  </div>
+</div>
+</div>
+<footer><strong>ENG 446 Research Methods</strong> · Lit Review Evaluation · Qassim University · Summer 2026<br><a href="index.html">Course Hub</a> · <a href="workshop-litreview-synthesis.html">Synthesis Workshop</a> · <a href="resources.html">Resources</a></footer>
+<script>
+function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
+
+const MCQ_DATA={};
+function mount(cid,items){MCQ_DATA[cid]=items;document.getElementById(cid).innerHTML=items.map((q,qi)=>`
+  <div class="ex-card">
+    ${q.pre||''}
+    <div style="font-size:14px;font-weight:600;margin:6px 0 10px;">${q.q}</div>
+    ${q.opts.map((o,oi)=>`<button class="ex-opt" id="${cid}-${qi}-${oi}" onclick="answerMCQ('${cid}',${qi},${oi})">${o}</button>`).join('')}
+    <div class="ex-feedback" id="${cid}-fb-${qi}"></div>
+    ${q.post||''}
+  </div>`).join('');}
+function answerMCQ(cid,qi,chosen){const q=MCQ_DATA[cid][qi];if(document.getElementById(`${cid}-${qi}-0`).disabled)return;q.opts.forEach((_,oi)=>{const b=document.getElementById(`${cid}-${qi}-${oi}`);b.disabled=true;if(oi===q.ans)b.classList.add('correct-ans');else if(oi===chosen&&chosen!==q.ans)b.classList.add('wrong-ans');});const fb=document.getElementById(`${cid}-fb-${qi}`);fb.className='ex-feedback show '+(chosen===q.ans?'fb-correct':'fb-wrong');fb.innerHTML=q.why;}
+
+// STRUCTURE — real abstracts
+mount('structure-qs',[
+  {pre:`<div class="abstract-box"><span class="cite">Yang, X. (2022). A Historical Review of Collaborative Learning and Cooperative Learning. TechTrends.</span>"…this paper provides a brief historical review… to identify the origins of each, where they diverge and where they align… examines the definitions… compares their characteristics… followed by a discussion of their historical development in the last fifty years: early development between the 1960s–70s; maturation in the 1980s–90s; convergence in the mid-1990s; and the emergence of Computer-Supported Collaborative Learning."</div>`,q:"How is this review primarily organised?",opts:["Thematic (by concept)","Chronological (across time periods)","Comparative (contrasting two groups)","It has no structure"],ans:1,why:"Although it compares two ideas, the review's backbone is time: it walks through the 1960s–70s, 80s–90s, mid-90s, then CSCL. Tracing development across eras = chronological structure."},
+  {pre:`<div class="abstract-box"><span class="cite">Zhang, C. &amp; Kang, S. (2022). A comparative study on lexical and syntactic features of ESL versus EFL learners' writing. Frontiers in Psychology.</span>"This study analyzes the compositions of Hong Kong English as a second language (ESL) learners and English as a foreign language (EFL) learners in Mainland China… differences in lexical and syntactic features… were compared statistically… EFL learners showed higher lexical diversity, whereas ESL compositions were more flexible in vocabulary use with higher information density."</div>`,q:"How is this review/study primarily organised?",opts:["Chronological (across time)","Thematic (by single concept)","Comparative (contrasting two groups: ESL vs EFL)","Alphabetical by author"],ans:2,why:"The whole structure rests on a contrast between two groups — ESL versus EFL learners — examining how each differs. That is a comparative organisation."},
+  {pre:`<div class="abstract-box"><span class="cite">Alghamdi et al. (2019). English Language Teaching: Historical Overview, Current Issues and Suggestions… Arab World English Journal.</span>"The history of ELT… has gone through different practices. The role of memorization and repetition… has always been a dominant teaching attitude. This attitude has revealed unsuccessful results… Therefore, it is essential to address such practices and shed light on issues that hinder learners from effectively using English."</div>`,q:"This review opens by tracing teaching practices through history before reaching current issues. Its structure is best described as:",opts:["Comparative","Chronological / historical overview","Purely thematic with no time element","A meta-analysis"],ans:1,why:"It is framed explicitly as a 'historical overview', moving from past practices to current issues — a chronological organisation that then leads into recommendations."}
+]);
+
+// SUMMARY vs SYNTHESIS
+mount('synth-qs',[
+  {q:"Which sentence SYNTHESISES rather than summarises?",opts:["Yang (2022) reviewed collaborative and cooperative learning. Then Zhang and Kang (2022) compared ESL and EFL writing.","Although collaborative and cooperative learning developed separately (Yang, 2022), both traditions converge on the claim that structured peer interaction drives learning — a premise also assumed in comparative writing research (Zhang & Kang, 2022).","Yang (2022) wrote about collaborative learning. It was published in TechTrends.","There are many studies about learning and writing."],ans:1,why:"Option B connects two sources around a shared idea (structured peer interaction) and shows their relationship. The others report sources one by one (summary) or say nothing analytical."},
+  {q:"What is the giveaway that a paragraph is merely SUMMARISING?",opts:["It groups sources by idea","Each sentence covers a different single source in turn, with no connections between them","It cites more than three sources","It uses APA citations"],ans:1,why:"A string of 'Author A did X. Author B did Y. Author C did Z.' with no links is the classic summary pattern. Synthesis instead organises by idea and shows how sources relate."},
+  {q:"Your group has three sources that all found peer feedback improved writing. The synthesised version is:",opts:["Source 1 found peer feedback helped. Source 2 found peer feedback helped. Source 3 found peer feedback helped.","Three studies converge on the finding that peer feedback improves writing quality (A, 2019; B, 2021; C, 2022), though they differ in how they measured improvement.","Peer feedback is good.","A, B and C are all about feedback."],ans:1,why:"Option B states the shared finding once, cites all three together, and notes a point of difference — that is synthesis. Listing each source separately is summary."}
+]);
+
+// SPOT THE GAP
+mount('gap-qs',[
+  {pre:`<div class="abstract-box"><span class="cite">Sun, Motevalli &amp; Chan (2024). Exploring Writing Anxiety during the Writing Process. Qualitative Research in Education.</span>"Writing anxiety has been identified as a significant obstacle for EFL learners in China… <strong>(1)</strong> previous studies indicate it can negatively affect writing performance. <strong>(2)</strong> Despite this, most research has focused on the relationship between writing anxiety and writing performance, with limited attention paid to exploring writing anxiety during the writing process and its sources in depth. <strong>(3)</strong> This study applied a qualitative method to explore Chinese EFL learners' writing anxiety in the writing process."</div>`,q:"Which sentence states the GAP this study fills?",opts:["Sentence (1) — anxiety affects performance","Sentence (2) — limited attention to anxiety during the writing process","Sentence (3) — the study used a qualitative method","There is no gap statement"],ans:1,why:"Sentence (2) names what prior work has NOT done ('limited attention paid to… the writing process'). That under-studied area is the gap the study then addresses. Sentence 1 is background; sentence 3 is the study's response."},
+  {q:"A strong gap statement usually does which of these?",opts:["Lists every source the author read","Identifies what previous research has overlooked, then positions the study to address it","Summarises the methodology","Reports the study's results"],ans:1,why:"The gap pinpoints a limitation or blind spot in existing work and shows how the new study responds. It is the hinge between the literature review and the research questions."},
+  {q:"Why must your group's literature review end with a gap?",opts:["To meet a word count","Because the gap justifies your research questions — it explains why your study is needed","Because markers like long reviews","To avoid citing other authors"],ans:1,why:"The gap is what turns a review into an argument: it shows the reader exactly why your study should exist, and your research questions flow directly from it."}
+]);
+
+// RUBRIC
+const RUBRIC=[
+  "Coverage — the key, relevant studies on the topic are included.",
+  "Currency — recent sources are present (not only old ones).",
+  "Synthesis — sources are grouped by idea and connected, not listed one by one.",
+  "Critical stance — the review evaluates sources, noting strengths, limits, disagreements.",
+  "Clear organisation — a visible structure (thematic / chronological / comparative).",
+  "Gap & link to RQs — a stated gap that leads into the research questions."
+];
+function initRubric(){
+  document.getElementById('rubric-list').innerHTML=RUBRIC.map((r,i)=>`
+    <div class="rubric-row">
+      <div class="rubric-q">${i+1}. ${r}</div>
+      <div class="rubric-opts">
+        ${[0,1,2].map(v=>`<button id="rb-${i}-${v}" onclick="scoreRubric(${i},${v})">${v}</button>`).join('')}
+      </div>
+    </div>`).join('');
+}
+const rubricScores=new Array(RUBRIC.length).fill(null);
+function scoreRubric(i,v){rubricScores[i]=v;[0,1,2].forEach(k=>document.getElementById(`rb-${i}-${k}`).classList.toggle('sel',k===v));
+  if(rubricScores.every(s=>s!==null)){const total=rubricScores.reduce((a,b)=>a+b,0);let msg;if(total>=10)msg="Strong review — ready to submit after a proofread.";else if(total>=7)msg="Solid, but tighten the weakest criteria above before submitting.";else msg="Needs work — focus first on synthesis and the gap, the two that markers weight most.";
+    document.getElementById('rubric-score').innerHTML=`Total: <span style="color:var(--ac);">${total} / 12</span> — ${msg}`;}}
+
+// QUIZ
+const AQ=[
+  {q:"A review organised by time period (1960s → 1990s → present) uses which structure?",opts:["Chronological","Thematic","Comparative","Random"],ans:0,fb:"Tracing a topic across time periods is a chronological structure."},
+  {q:"The defining feature of synthesis (vs summary) is:",opts:["Connecting multiple sources around a shared idea","Describing one source per paragraph","Using more quotations","Writing longer paragraphs"],ans:0,fb:"Synthesis links sources around ideas and shows their relationships; summary reports them one at a time."},
+  {q:"Where in a literature review does the GAP normally appear?",opts:["Near the end, leading into the research questions","In the very first sentence","In the reference list","In the methodology"],ans:0,fb:"The gap typically comes after the review of existing work and immediately before (and justifying) the research questions."},
+  {q:"Which is the WEAKEST sign of a good literature review?",opts:["It evaluates and compares sources","It is simply a long list of summaries, one source after another","It is organised around themes","It ends with a clear gap"],ans:1,why:"",fb:"A list of summaries with no synthesis or evaluation is the classic weak review — length is not quality."},
+  {q:"A comparative review is structured around:",opts:["Contrasting positions, methods, or groups","Dates","A single author","The alphabet"],ans:0,fb:"Comparative reviews organise the literature around contrasts — e.g. ESL vs EFL, qualitative vs quantitative findings."}
+];
+let aqIndex=0,aqScore=0,aqAnswered=false;
+function renderAQ(){if(aqIndex>=AQ.length){showAQScore();return;}const q=AQ[aqIndex];document.getElementById('aq-prog').style.width=(aqIndex/AQ.length*100)+'%';document.getElementById('aq-container').innerHTML=`<div class="ex-card"><div class="ex-num">Question ${aqIndex+1} of ${AQ.length}</div><div class="ex-q">${q.q}</div><div id="aq-opts">${q.opts.map((o,i)=>`<button class="ex-opt" onclick="answerAQ(${i})">${o}</button>`).join('')}</div><div class="ex-feedback" id="aq-fb"></div><div><button class="btn btn-primary btn-sm" id="aq-next" style="display:none;margin-top:14px;background:var(--ac);" onclick="nextAQ()">Next →</button></div></div>`;aqAnswered=false;}
+function answerAQ(i){if(aqAnswered)return;aqAnswered=true;const q=AQ[aqIndex];document.querySelectorAll('#aq-opts .ex-opt').forEach((b,j)=>{b.disabled=true;if(j===q.ans)b.classList.add('correct-ans');else if(j===i&&i!==q.ans)b.classList.add('wrong-ans');});if(i===q.ans)aqScore++;const fb=document.getElementById('aq-fb');fb.innerHTML=q.fb;fb.className='ex-feedback show '+(i===q.ans?'fb-correct':'fb-wrong');document.getElementById('aq-next').style.display='inline-block';}
+function nextAQ(){aqIndex++;renderAQ();}
+function showAQScore(){document.getElementById('aq-prog').style.width='100%';document.getElementById('aq-container').style.display='none';const pct=Math.round(aqScore/AQ.length*100);document.getElementById('aq-score').style.display='block';document.getElementById('aq-score').innerHTML=`<div class="score-big">${pct}%</div><div class="score-sub">${aqScore}/${AQ.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct>=80?"Strong evaluation skills.":"Revisit the structure and synthesis tabs."}</p><button class="btn btn-primary" style="background:var(--ac);" onclick="resetAQ()">Retry</button>`;}
+function resetAQ(){aqIndex=0;aqScore=0;document.getElementById('aq-container').style.display='block';document.getElementById('aq-score').style.display='none';renderAQ();}
+
+initRubric();renderAQ();
+</script>
+<script src="site.js" defer></script>
+</body>
+</html>
