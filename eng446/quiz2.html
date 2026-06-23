@@ -5,7 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Week 2 Practice Bank | ENG 446</title>
 <link rel="stylesheet" href="../style.css">
-<style>body{background:var(--off-white);}</style>
+<style>
+  body { background: var(--off-white); }
+  .quiz-topbar { position:sticky;top:var(--nav-h);z-index:100;background:var(--white);border-bottom:1px solid var(--border-light);padding:10px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px; }
+  .quiz-progress { display:flex;align-items:center;gap:10px;flex:1; }
+  .progress-bar { flex:1;height:4px;background:var(--off-white);border-radius:2px;overflow:hidden; }
+  .progress-fill { height:100%;background:var(--blue);transition:width .3s; }
+  .q-counter-sm { font-size:12px;color:var(--text-3);font-weight:600;white-space:nowrap; }
+  .timer-pill { background:var(--off-white);border:1px solid var(--border);border-radius:var(--r-pill);padding:5px 12px;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;cursor:pointer;color:var(--text-2);white-space:nowrap; }
+  .timer-pill.inactive{opacity:.45} .timer-pill.warning{color:var(--amber);border-color:var(--amber)} .timer-pill.danger{color:var(--red);border-color:var(--red);animation:pulse .9s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+  .quiz-wrap{max-width:620px;margin:0 auto;padding:32px 22px 80px}
+  .start-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-md);padding:40px 32px;text-align:center}
+  .start-icon{font-size:48px;margin-bottom:16px} .start-title{font-size:24px;font-weight:700;letter-spacing:-.025em;margin-bottom:8px} .start-sub{font-size:15px;color:var(--text-2);margin-bottom:28px}
+  .start-details{text-align:left;background:var(--off-white);border-radius:var(--r-md);padding:16px 20px;margin-bottom:20px}
+  .start-details li{font-size:14px;color:var(--text-2);line-height:1.8;list-style:none} .start-details li::before{content:"✓ ";color:var(--blue);font-weight:700}
+  .timer-toggle-row{display:flex;align-items:center;justify-content:space-between;background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-md);padding:14px 16px;margin-bottom:20px}
+  .toggle{position:relative;width:42px;height:24px;flex-shrink:0} .toggle input{opacity:0;width:0;height:0}
+  .slider{position:absolute;cursor:pointer;inset:0;background:var(--border);border-radius:24px;transition:.2s} .slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.2s}
+  input:checked+.slider{background:var(--blue)} input:checked+.slider:before{transform:translateX(18px)}
+  .q-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);overflow:hidden}
+  .q-card-head{padding:24px 24px 0}
+  .q-source-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--blue);background:var(--blue-light);padding:4px 10px;border-radius:var(--r-pill);margin-bottom:14px}
+  .q-text{font-size:16px;font-weight:600;line-height:1.5;color:var(--text);margin-bottom:20px}
+  .options{display:flex;flex-direction:column;gap:8px;padding:0 24px}
+  .feedback-box{margin:16px 24px;border-radius:var(--r-md);padding:14px 16px;font-size:14px;line-height:1.6;display:none}
+  .feedback-box.correct{background:#f0fdf4;border:1.5px solid #86efac;color:#166534} .feedback-box.wrong{background:var(--red-light);border:1.5px solid #fca5a5;color:#991b1b}
+  .q-card-foot{padding:16px 24px 24px}
+  .results-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-md);padding:40px 32px;text-align:center}
+  .score-ring{width:120px;height:120px;border-radius:50%;border:6px solid var(--blue);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px}
+  .score-num{font-size:28px;font-weight:800;color:var(--blue)} .score-lbl{font-size:11px;color:var(--text-3)}
+  .results-title{font-size:22px;font-weight:700;margin-bottom:6px} .results-sub{font-size:14px;color:var(--text-2);margin-bottom:28px}
+  .review-list{text-align:left;display:flex;flex-direction:column;gap:8px;margin-bottom:28px}
+  .review-item{background:var(--off-white);border-radius:var(--r-md);padding:12px 16px;border-left:3px solid var(--border)}
+  .review-item.r-correct{border-left-color:#16a34a} .review-item.r-wrong{border-left-color:var(--red)}
+  .review-q{font-size:12px;font-weight:600;color:var(--text);margin-bottom:4px} .review-a{font-size:12px;color:var(--text-2)}
+  .review-a .ra-wrong{color:var(--red)} .review-a .ra-right{color:#166534;font-weight:600}
+</style>
 </head>
 <body>
 <nav class="nav">
@@ -17,35 +53,98 @@
     <span class="nav-cur">Week 2 Practice Bank</span>
   </div>
 </nav>
-<div class="hero" style="padding-bottom:48px;">
-  <div class="hero-eyebrow">Practice Bank · Week 2</div>
-  <h1>Coming Soon</h1>
-  <p class="hero-sub">Chapters 3, 4 &amp; 5 · Research Questions · Finding Sources · APA In-Text Citation</p>
-  <div class="hero-meta">
-    <span>Available before Week 2 (Jul 5)</span>
+<div class="quiz-topbar" id="quiz-topbar" style="display:none;">
+  <div class="quiz-progress">
+    <span class="q-counter-sm" id="q-counter-sm">1 / 22</span>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+  </div>
+  <div class="timer-pill inactive" id="timer-pill">⏱ 15:00</div>
+</div>
+<div class="quiz-wrap">
+  <div id="start-screen">
+    <div class="start-card">
+      <div class="start-icon">🔍</div>
+      <div class="start-title">Week 2 Practice Bank</div>
+      <div class="start-sub">Chapters 3, 4 &amp; 5 · 22 Ultra-Hard Questions</div>
+      <div class="info-box info-blue mb-20" style="text-align:left;">
+        <h3>📋 Graded Quiz 2 is in Blackboard</h3>
+        <p>Quiz 2 is on <strong>Mon Jul 6</strong> (first 10 min of class). This bank is free practice — unlimited attempts, detailed explanations, no grade recorded here.</p>
+      </div>
+      <div class="start-details"><ul>
+        <li>22 scenario-based application-level questions</li>
+        <li>Ch 3: Research questions, aims, objectives, scope &amp; feasibility</li>
+        <li>Ch 4: Literature searching, Boolean logic, CRAAP test</li>
+        <li>Ch 5: APA 7 in-text citation — author-date, direct quotes, paraphrase</li>
+        <li>Detailed explanations after every answer · Retry unlimited times</li>
+      </ul></div>
+      <div class="timer-toggle-row">
+        <div><div style="font-size:14px;font-weight:600;">⏱ 15-minute challenge mode</div><div style="font-size:12px;color:var(--text-3);margin-top:2px;">Optional — simulates in-class time pressure</div></div>
+        <label class="toggle"><input type="checkbox" id="timer-toggle"><span class="slider"></span></label>
+      </div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="startQuiz()">Start Practice →</button>
+    </div>
+  </div>
+  <div id="quiz-screen" style="display:none;">
+    <div class="q-card">
+      <div class="q-card-head">
+        <div class="q-source-tag" id="q-source"></div>
+        <div class="q-text" id="q-text"></div>
+      </div>
+      <div class="options" id="options"></div>
+      <div class="feedback-box" id="feedback"></div>
+      <div class="q-card-foot">
+        <button class="btn btn-primary" style="width:100%;justify-content:center;display:none;" id="btn-next" onclick="nextQuestion()">Next →</button>
+      </div>
+    </div>
+  </div>
+  <div id="results-screen" style="display:none;">
+    <div class="results-card">
+      <div class="score-ring" id="score-ring"><div class="score-num" id="score-num">0/22</div><div class="score-lbl">Score</div></div>
+      <div class="results-title" id="results-title"></div>
+      <div class="results-sub" id="results-sub"></div>
+      <div class="review-list" id="review-list"></div>
+      <button class="btn btn-primary mb-12" style="width:100%;justify-content:center;" onclick="retryQuiz()">🔄 Try Again</button>
+      <a class="btn btn-outline" style="width:100%;justify-content:center;" href="week2.html">← Back to Week 2</a>
+    </div>
   </div>
 </div>
-<div class="section-alt" style="padding:0 0 64px;">
-<div class="section-inner" style="max-width:640px;">
-  <div class="info-box info-blue mb-32">
-    <h3>📋 Graded Quiz 2 is in Blackboard Ultra</h3>
-    <p>Quiz 2 is on Mon Jul 6 (first 10 min of class) via Blackboard. This practice bank will be available before Week 2 — use it to prepare. Unlimited attempts, no grade recorded here.</p>
-  </div>
-  <div class="card card-pad mb-24">
-    <div style="font-size:32px;margin-bottom:12px;">📝</div>
-    <h2 style="font-size:18px;font-weight:700;margin-bottom:8px;">This bank will cover</h2>
-    <ul style="padding-left:18px;display:flex;flex-direction:column;gap:8px;margin-top:8px;">
-      <li style="font-size:14px;color:var(--text-2);line-height:1.6;"><strong>Chapter 3</strong> — Research questions, aims, objectives, scope and feasibility</li>
-      <li style="font-size:14px;color:var(--text-2);line-height:1.6;"><strong>Chapter 4</strong> — Literature searching, Boolean operators, evaluating sources (CRAAP)</li>
-      <li style="font-size:14px;color:var(--text-2);line-height:1.6;"><strong>Chapter 5</strong> — APA 7 in-text citation: author-date format, paraphrase vs. direct quote</li>
-    </ul>
-  </div>
-  <div class="grid-2 gap-16">
-    <a class="btn btn-outline" href="week2.html">← Week 2 Reading Guide</a>
-    <a class="btn btn-primary" href="quiz1.html">Practice Week 1 Bank</a>
-  </div>
-</div>
-</div>
+<script>
+const QUESTIONS=[
+  {source:"Chapter 3",q:"Fatima wants to study social media and mental health among university students. Which research question is best formed?",options:["Does social media affect mental health?","How does daily social media use relate to self-reported anxiety levels among undergraduates at Qassim University?","Why is social media bad for students?","What is the definition of mental health?"],correct:1,feedback:"A strong research question is specific, researchable, and bounded. Option B specifies the variable (daily use), the outcome (anxiety levels), and the population (undergraduates at a named university). Option A is too vague; C is leading/rhetorical; D asks for a definition, not a researchable question."},
+  {source:"Chapter 3",q:"A researcher states: 'This study aims to investigate EFL teachers' perceptions of communicative language teaching.' What critical element is missing?",options:["The research method","The geographical or institutional context","The data collection timeline","The researcher's theoretical framework"],correct:1,feedback:"A well-formed aim must specify who (teachers), what (perceptions of CLT), and where (context). Without context, the aim cannot bound the study's scope. Research method and timeline appear later in the proposal, not in the aim statement itself."},
+  {source:"Chapter 3",q:"Which of the following is a research OBJECTIVE rather than a research aim?",options:["To explore EFL learners' challenges in academic writing","To identify the top three grammatical errors in 50 written assignments collected in Semester 1 2025","To understand motivation in language learning","To investigate feedback effects on performance"],correct:1,feedback:"Objectives are specific and measurable. Option B specifies exactly what will be measured (grammatical errors), in what material (written assignments), how many (50), and when (Semester 1 2025). The other options are broad aims that describe intent without operational specificity."},
+  {source:"Chapter 3",q:"A student proposes: 'This study will investigate every aspect of classroom interaction in Saudi Arabia.' What is the primary methodological problem?",options:["It uses future tense instead of present tense","The scope is impossibly broad — it cannot be delimited to a feasible study","It omits the research paradigm","It lacks a hypothesis"],correct:1,feedback:"Lambert warns that beginners must delimit scope. 'Every aspect' and 'all of Saudi Arabia' define no manageable boundaries. A feasible study delimits the specific context, site, age group, time frame, and aspect of the phenomenon being investigated."},
+  {source:"Chapter 3",q:"The difference between a research 'aim' and a research 'objective' is:",options:["Aims use quantitative language; objectives use qualitative language","An aim states the overall purpose; objectives are specific measurable steps to achieve that aim","Aims appear in the conclusion; objectives in the introduction","The terms are interchangeable in academic writing"],correct:1,feedback:"Aims describe the broad intent (what the study seeks to achieve overall). Objectives break that intent into discrete, measurable sub-tasks. They are NOT interchangeable — confusing them is a common error in proposals."},
+  {source:"Chapter 3",q:"Khalid plans to interview 200 teachers, observe 50 classrooms, analyse 1,000 student scripts, and survey 5,000 parents — all in one semester. Which quality criterion does this most clearly violate?",options:["Relevance","Feasibility","Originality","Ethical soundness"],correct:1,feedback:"Feasibility asks whether the study can realistically be completed with available time, skills, and access. This scale is clearly impossible in one semester. Lambert stresses that beginner studies must match the researcher's actual resources and time constraints."},
+  {source:"Chapter 3",q:"What is the key difference between a research question and a hypothesis?",options:["A hypothesis is used only in qualitative research","A hypothesis is a testable prediction about a variable relationship; a research question is an open inquiry guiding the study","A research question must be answered yes/no","There is no functional difference between the two"],correct:1,feedback:"A hypothesis predicts a specific directional relationship (characteristic of quantitative/positivist designs). A research question is open-ended and does not presuppose the outcome. Qualitative studies nearly always use research questions, not hypotheses."},
+  {source:"Chapter 4",q:"A student searches: teaching AND speaking AND (anxiety OR confidence). What will this Boolean search retrieve?",options:["Sources containing all five words in the same sentence","Sources containing 'teaching' AND 'speaking' AND at least one of 'anxiety' or 'confidence'","Sources that exclude the word anxiety","Sources where all five words appear only in the abstract"],correct:1,feedback:"AND narrows (all connected terms must appear); OR broadens (at least one must appear). Parentheses group the OR pair. So this retrieves documents about teaching AND speaking AND (anxiety, confidence, or both). AND does not require words to appear in the same sentence — they just must be somewhere in the document."},
+  {source:"Chapter 4",q:"A webpage has no author, no date, and no references. Which CRAAP criteria are MOST critically violated?",options:["Currency (C) only","Relevance (R) and Purpose (P)","Authority (A) and Accuracy (A)","Currency (C) and Relevance (R)"],correct:2,feedback:"No author violates Authority (who wrote this, and are they credible?). No references and no verifiable facts violate Accuracy (can the claims be checked?). These two failures make the source unsuitable for academic citation regardless of its relevance or currency."},
+  {source:"Chapter 4",q:"Layla finds a 2009 article on digital learning tools. Which CRAAP criterion requires the most careful scrutiny?",options:["Relevance","Currency","Purpose","Authority"],correct:1,feedback:"Currency evaluates how up-to-date the source is. Digital learning is a fast-changing field — findings from 2009 may be significantly outdated or superseded by newer technologies. Currency does not automatically disqualify older sources, but it requires careful judgment about whether the content still applies."},
+  {source:"Chapter 4",q:"How would you MOST effectively narrow an overly broad search for 'motivation in EFL classrooms'?",options:["Add OR between each keyword to expand results","Remove quotation marks from multi-word phrases","Add AND with specific terms: AND secondary AND Saudi Arabia AND intrinsic","Use a wildcard: motivat*"],correct:2,feedback:"AND forces each additional term to be present, narrowing results progressively. Adding specific context (secondary school, Saudi Arabia, intrinsic motivation) filters out the vast majority of irrelevant results. OR and wildcards broaden results; removing quotation marks fragments exact phrases into separate words."},
+  {source:"Chapter 4",q:"The CRAAP criterion of Authority is BEST assessed by:",options:["Counting the number of references in the source","Checking whether the source is recent","Verifying the author's credentials and institutional affiliation","Checking whether the source looks professionally designed"],correct:2,feedback:"Authority asks: who wrote this, and are they qualified? You assess this by examining the author's academic credentials, field expertise, and institutional affiliation — not the length of the reference list, the publication date, or the visual appearance of the website."},
+  {source:"Chapter 4",q:"To find the exact phrase 'critical thinking skills' in a database, a researcher should:",options:["Search: critical AND thinking AND skills","Search: \"critical thinking skills\" in double quotation marks","Search: critic* think* skill* using wildcards","Search: (critical) AND (thinking skills) using parentheses"],correct:1,feedback:"Double quotation marks instruct the database to retrieve the exact sequence of words as a phrase. Without quotes, the database treats each word as a separate search term and may return documents where the words appear far apart or in a different order."},
+  {source:"Chapter 5",q:"Reem paraphrases an idea from Hassan's 2021 book. The correct APA 7 in-text citation is:",options:["(Hassan, 2021, p. 45)","(Hassan, 2021)","Hassan (2021, p. 45) argues that…","Hassan, 2021"],correct:1,feedback:"APA 7 requires a page number only for DIRECT quotations, not paraphrases. For a paraphrase, author-date (Hassan, 2021) is sufficient. A page number may be added voluntarily to help readers locate the passage, but it is not required. Option C is a narrative citation style — grammatically it works, but Option B is the most straightforward parenthetical form."},
+  {source:"Chapter 5",q:"A student copies 18 words verbatim from a source. What must the APA 7 in-text citation include?",options:["Author and year only — page numbers are only required for quotes over 40 words","Author, year, AND page number (or paragraph number for non-paginated sources)","No citation is needed for fewer than 40 words","A full reference entry placed in a footnote"],correct:1,feedback:"ANY direct quotation in APA 7 — regardless of how short — requires author, year, AND page number (or para. for web sources). The 40-word threshold determines format (inline vs. block quotation), NOT whether a page number is mandatory."},
+  {source:"Chapter 5",q:"An article has three authors: Wang, Chen, and Ali (2020). In APA 7, how does the in-text citation appear from the FIRST mention onward?",options:["(Wang, Chen, & Ali, 2020)","(Wang et al., 2020)","(Wang & Chen, 2020)","(Wang, 2020)"],correct:1,feedback:"APA 7 changed the three-author rule from APA 6. In APA 7, three or more authors are ALWAYS cited as 'et al.' — from the very first citation. There is no longer a 'spell out all names on first use' rule for groups of three. So (Wang et al., 2020) is correct throughout."},
+  {source:"Chapter 5",q:"A government report has no individual author. The issuing body is 'Ministry of Education' (2022). The correct first APA 7 in-text citation is:",options:["(Anonymous, 2022)","(Ministry of Education [MOE], 2022)","(MOE, 2022)","(Government Report, 2022)"],correct:1,feedback:"When there is no individual author, the organisation name takes the author position. On first use, you spell out the full name and may introduce an abbreviation in brackets — (Ministry of Education [MOE], 2022) — then use (MOE, 2022) in subsequent citations. 'Anonymous' is used only when the source explicitly states 'Anonymous' as the author."},
+  {source:"Chapter 5",q:"A researcher cites the same idea from Smith (2019) and Jones (2021) in one sentence. The correct APA 7 parenthetical citation is:",options:["(Smith, 2019; Jones, 2021)","(Smith, 2019 and Jones, 2021)","Smith (2019) and Jones (2021)","(Smith & Jones, 2019, 2021)"],correct:0,feedback:"Multiple sources in one parenthetical citation are separated by semicolons in APA 7: (Jones, 2021; Smith, 2019). Alphabetical order by first author is preferred. Semicolons — not the word 'and' — are the required separator. Option C is a narrative form but grammatically incomplete as presented."},
+  {source:"Chapter 5",q:"A direct quotation exceeds 40 words. How should it be formatted in APA 7?",options:["Keep it inline but add the page number","Indent the whole passage 0.5 inch, no quotation marks, citation after the final period (block quote)","Indent with quotation marks; citation before the final period","Trim it to under 40 words so it can stay inline"],correct:1,feedback:"APA 7 block quotes (40+ words): indent the entire passage 0.5 inch from the left margin; omit quotation marks; place the parenthetical citation AFTER the final period. This is the opposite of inline quotes (where the period follows the closing parenthesis). You should never alter a source just to avoid a block quote."},
+  {source:"Chapter 5",q:"What is the correct distinction between a paraphrase and a summary for APA citation purposes?",options:["A paraphrase covers a whole text; a summary covers a single passage","Both require page numbers in APA 7","A paraphrase restates a specific passage in your own words; a summary condenses the main ideas of a longer section or whole text","A summary must be shorter than the original; a paraphrase must be equal length"],correct:2,feedback:"A paraphrase reworks a specific passage (same idea, different words, comparable length). A summary condenses broader content — the argument of a whole section or text. Both require author-date citation; neither requires a page number (though one may be added for paraphrases for reader convenience)."},
+  {source:"Chapter 5",q:"A student writes: 'Lambert (2012) argues that research is a systematic inquiry.' This is an example of:",options:["A direct quotation requiring a page number","A narrative (author-prominent) citation","A parenthetical citation","Plagiarism because no page number appears"],correct:1,feedback:"A narrative citation places the author's name as the grammatical subject of the sentence, with the year in parentheses immediately after: Lambert (2012) argues…. The parenthetical form places both author and date inside the brackets at the end: (Lambert, 2012). Neither form requires a page number for a paraphrase."},
+  {source:"Chapter 5",q:"No author name is visible on a webpage. According to APA 7, the in-text citation uses:",options:["'Anonymous' as the author","The URL of the page","A shortened title in quotation marks (article) or italics (longer work)","The access date of the webpage"],correct:2,feedback:"When no author is identified, the title (or a shortened version) moves to the author position. Short works (articles, web pages) use quotation marks; longer works (books, reports) use italics. The access date is NOT part of in-text citations — it appears only in the reference entry when content is likely to change over time."}
+];
+
+let current=0,answers=new Array(QUESTIONS.length).fill(null),timerInterval=null,secondsLeft=900,timerEnabled=false;
+document.getElementById('timer-toggle').addEventListener('change',function(){timerEnabled=this.checked;document.getElementById('timer-pill').classList.toggle('inactive',!timerEnabled);});
+function startQuiz(){document.getElementById('start-screen').style.display='none';document.getElementById('quiz-screen').style.display='block';document.getElementById('quiz-topbar').style.display='flex';renderQuestion();if(timerEnabled)startTimer();}
+function startTimer(){timerInterval=setInterval(()=>{secondsLeft--;const m=Math.floor(secondsLeft/60),s=secondsLeft%60;const pill=document.getElementById('timer-pill');pill.textContent=`⏱ ${m}:${s.toString().padStart(2,'0')}`;pill.className='timer-pill'+(secondsLeft<=60?' danger':secondsLeft<=180?' warning':'');if(secondsLeft<=0)clearInterval(timerInterval);},1000);}
+function renderQuestion(){const q=QUESTIONS[current];document.getElementById('q-counter-sm').textContent=`${current+1} / ${QUESTIONS.length}`;document.getElementById('progress-fill').style.width=`${(current/QUESTIONS.length)*100}%`;document.getElementById('q-source').textContent=q.source;document.getElementById('q-text').textContent=q.q;const letters=['A','B','C','D'],optEl=document.getElementById('options');optEl.innerHTML='';q.options.forEach((opt,i)=>{const btn=document.createElement('button');btn.className='option';if(answers[current]===i)btn.classList.add('selected');btn.innerHTML=`<span class="opt-letter">${letters[i]}</span><span>${opt}</span>`;btn.onclick=()=>selectOption(i);optEl.appendChild(btn);});const fb=document.getElementById('feedback');fb.style.display='none';fb.className='feedback-box';const bn=document.getElementById('btn-next');bn.style.display='none';bn.textContent=current===QUESTIONS.length-1?'See Results →':'Next →';if(answers[current]!==null)revealAnswer(answers[current]);}
+function selectOption(idx){if(answers[current]!==null)return;answers[current]=idx;revealAnswer(idx);}
+function revealAnswer(sel){const q=QUESTIONS[current];document.querySelectorAll('.option').forEach((opt,i)=>{opt.onclick=null;if(i===q.correct)opt.classList.add('reveal-correct');if(i===sel&&sel!==q.correct)opt.classList.add('wrong');if(i===sel&&sel===q.correct)opt.classList.add('correct');});const fb=document.getElementById('feedback');fb.style.display='block';if(sel===q.correct){fb.className='feedback-box correct';fb.innerHTML=`✓ Correct! ${q.feedback}`;}else{fb.className='feedback-box wrong';fb.innerHTML=`✗ Not quite. ${q.feedback}`;}document.getElementById('btn-next').style.display='block';}
+function nextQuestion(){if(current<QUESTIONS.length-1){current++;renderQuestion();window.scrollTo(0,0);}else showResults();}
+function showResults(){clearInterval(timerInterval);document.getElementById('quiz-screen').style.display='none';document.getElementById('results-screen').style.display='block';document.getElementById('progress-fill').style.width='100%';const correct=answers.filter((a,i)=>a===QUESTIONS[i].correct).length,total=QUESTIONS.length,pct=Math.round(correct/total*100);document.getElementById('score-num').textContent=`${correct}/${total}`;const ring=document.getElementById('score-ring');ring.style.borderColor=pct>=80?'#16a34a':pct>=60?'#d97706':'#dc2626';document.getElementById('results-title').textContent=pct>=80?'Excellent! Quiz-ready.':pct>=60?'Good — review what you missed.':'Study the chapters and retry.';document.getElementById('results-sub').textContent=`${correct} of ${total} correct (${pct}%). The graded Quiz 2 is in Blackboard Ultra.`;const rl=document.getElementById('review-list');rl.innerHTML='';QUESTIONS.forEach((q,i)=>{const ua=answers[i],ok=ua===q.correct;const div=document.createElement('div');div.className=`review-item ${ok?'r-correct':'r-wrong'}`;div.innerHTML=`<div class="review-q">${ok?'✓':'✗'} Q${i+1} · ${q.source}</div><div class="review-a">${ua===null?'<span style="color:var(--text-3)">Not answered</span>':ok?`<span class="ra-right">✓ ${q.options[ua]}</span>`:`<span class="ra-wrong">✗ ${q.options[ua]}</span><br><span class="ra-right">✓ ${q.options[q.correct]}</span>`}</div>`;rl.appendChild(div);});}
+function retryQuiz(){answers=new Array(QUESTIONS.length).fill(null);current=0;secondsLeft=900;clearInterval(timerInterval);document.getElementById('results-screen').style.display='none';document.getElementById('quiz-screen').style.display='block';renderQuestion();if(timerEnabled)startTimer();}
+</script>
 <footer>
   <strong>ENG 446 Research Methods</strong> · Practice Bank · Qassim University · Summer 2026<br>
   <a href="index.html">Course Hub</a> · <a href="syllabus.html">Syllabus</a>

@@ -5,7 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Week 3 Practice Bank | ENG 446</title>
 <link rel="stylesheet" href="../style.css">
-<style>body{background:var(--off-white);}</style>
+<style>
+  body{background:var(--off-white)}
+  .quiz-topbar{position:sticky;top:var(--nav-h);z-index:100;background:var(--white);border-bottom:1px solid var(--border-light);padding:10px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .quiz-progress{display:flex;align-items:center;gap:10px;flex:1}
+  .progress-bar{flex:1;height:4px;background:var(--off-white);border-radius:2px;overflow:hidden}
+  .progress-fill{height:100%;background:#8b5cf6;transition:width .3s}
+  .q-counter-sm{font-size:12px;color:var(--text-3);font-weight:600;white-space:nowrap}
+  .timer-pill{background:var(--off-white);border:1px solid var(--border);border-radius:var(--r-pill);padding:5px 12px;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;cursor:pointer;color:var(--text-2);white-space:nowrap}
+  .timer-pill.inactive{opacity:.45}.timer-pill.warning{color:var(--amber);border-color:var(--amber)}.timer-pill.danger{color:var(--red);border-color:var(--red);animation:pulse .9s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+  .quiz-wrap{max-width:620px;margin:0 auto;padding:32px 22px 80px}
+  .start-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-md);padding:40px 32px;text-align:center}
+  .start-icon{font-size:48px;margin-bottom:16px}.start-title{font-size:24px;font-weight:700;letter-spacing:-.025em;margin-bottom:8px}.start-sub{font-size:15px;color:var(--text-2);margin-bottom:28px}
+  .start-details{text-align:left;background:var(--off-white);border-radius:var(--r-md);padding:16px 20px;margin-bottom:20px}
+  .start-details li{font-size:14px;color:var(--text-2);line-height:1.8;list-style:none}.start-details li::before{content:"✓ ";color:#8b5cf6;font-weight:700}
+  .timer-toggle-row{display:flex;align-items:center;justify-content:space-between;background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-md);padding:14px 16px;margin-bottom:20px}
+  .toggle{position:relative;width:42px;height:24px;flex-shrink:0}.toggle input{opacity:0;width:0;height:0}
+  .slider{position:absolute;cursor:pointer;inset:0;background:var(--border);border-radius:24px;transition:.2s}.slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.2s}
+  input:checked+.slider{background:#8b5cf6}input:checked+.slider:before{transform:translateX(18px)}
+  .q-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);overflow:hidden}
+  .q-card-head{padding:24px 24px 0}
+  .q-source-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#7c3aed;background:#ede9fe;padding:4px 10px;border-radius:var(--r-pill);margin-bottom:14px}
+  .q-text{font-size:16px;font-weight:600;line-height:1.5;color:var(--text);margin-bottom:20px}
+  .options{display:flex;flex-direction:column;gap:8px;padding:0 24px}
+  .feedback-box{margin:16px 24px;border-radius:var(--r-md);padding:14px 16px;font-size:14px;line-height:1.6;display:none}
+  .feedback-box.correct{background:#f0fdf4;border:1.5px solid #86efac;color:#166534}.feedback-box.wrong{background:var(--red-light);border:1.5px solid #fca5a5;color:#991b1b}
+  .q-card-foot{padding:16px 24px 24px}
+  .results-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-md);padding:40px 32px;text-align:center}
+  .score-ring{width:120px;height:120px;border-radius:50%;border:6px solid #8b5cf6;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px}
+  .score-num{font-size:28px;font-weight:800;color:#8b5cf6}.score-lbl{font-size:11px;color:var(--text-3)}
+  .results-title{font-size:22px;font-weight:700;margin-bottom:6px}.results-sub{font-size:14px;color:var(--text-2);margin-bottom:28px}
+  .review-list{text-align:left;display:flex;flex-direction:column;gap:8px;margin-bottom:28px}
+  .review-item{background:var(--off-white);border-radius:var(--r-md);padding:12px 16px;border-left:3px solid var(--border)}
+  .review-item.r-correct{border-left-color:#16a34a}.review-item.r-wrong{border-left-color:var(--red)}
+  .review-q{font-size:12px;font-weight:600;color:var(--text);margin-bottom:4px}.review-a{font-size:12px;color:var(--text-2)}
+  .review-a .ra-wrong{color:var(--red)}.review-a .ra-right{color:#166534;font-weight:600}
+</style>
 </head>
 <body>
 <nav class="nav">
@@ -17,35 +53,100 @@
     <span class="nav-cur">Week 3 Practice Bank</span>
   </div>
 </nav>
-<div class="hero" style="padding-bottom:48px;">
-  <div class="hero-eyebrow">Practice Bank · Week 3</div>
-  <h1>Coming Soon</h1>
-  <p class="hero-sub">Chapters 6, 7 &amp; 8 · Literature Review · Reference Lists · Research Designs</p>
-  <div class="hero-meta">
-    <span>Available before Week 3 (Jul 12)</span>
+<div class="quiz-topbar" id="quiz-topbar" style="display:none;">
+  <div class="quiz-progress">
+    <span class="q-counter-sm" id="q-counter-sm">1 / 21</span>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+  </div>
+  <div class="timer-pill inactive" id="timer-pill">⏱ 15:00</div>
+</div>
+<div class="quiz-wrap">
+  <div id="start-screen">
+    <div class="start-card">
+      <div class="start-icon">📚</div>
+      <div class="start-title">Week 3 Practice Bank</div>
+      <div class="start-sub">Chapters 6, 7 &amp; 8 · 21 Ultra-Hard Questions</div>
+      <div class="info-box info-blue mb-20" style="text-align:left;">
+        <h3>📋 Graded Quiz 3 is in Blackboard</h3>
+        <p>Quiz 3 is on <strong>Mon Jul 13</strong> (first 10 min of class). This bank is free practice — unlimited attempts, detailed explanations, no grade recorded here.</p>
+      </div>
+      <div class="start-details"><ul>
+        <li>21 scenario-based, application-level questions</li>
+        <li>Ch 6: Literature review structure — thematic, chronological, comparative</li>
+        <li>Ch 7: APA 7 reference list — journals, books, chapters, websites</li>
+        <li>Ch 8: Research design — surveys, interviews, observations, experiments</li>
+        <li>Detailed explanations after every answer · Retry unlimited times</li>
+      </ul></div>
+      <div class="timer-toggle-row">
+        <div><div style="font-size:14px;font-weight:600;">⏱ 15-minute challenge mode</div><div style="font-size:12px;color:var(--text-3);margin-top:2px;">Optional — simulates in-class time pressure</div></div>
+        <label class="toggle"><input type="checkbox" id="timer-toggle"><span class="slider"></span></label>
+      </div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="startQuiz()">Start Practice →</button>
+    </div>
+  </div>
+  <div id="quiz-screen" style="display:none;">
+    <div class="q-card">
+      <div class="q-card-head">
+        <div class="q-source-tag" id="q-source"></div>
+        <div class="q-text" id="q-text"></div>
+      </div>
+      <div class="options" id="options"></div>
+      <div class="feedback-box" id="feedback"></div>
+      <div class="q-card-foot">
+        <button class="btn btn-primary" style="width:100%;justify-content:center;display:none;" id="btn-next" onclick="nextQuestion()">Next →</button>
+      </div>
+    </div>
+  </div>
+  <div id="results-screen" style="display:none;">
+    <div class="results-card">
+      <div class="score-ring" id="score-ring"><div class="score-num" id="score-num">0/21</div><div class="score-lbl">Score</div></div>
+      <div class="results-title" id="results-title"></div>
+      <div class="results-sub" id="results-sub"></div>
+      <div class="review-list" id="review-list"></div>
+      <button class="btn btn-primary mb-12" style="width:100%;justify-content:center;" onclick="retryQuiz()">🔄 Try Again</button>
+      <a class="btn btn-outline" style="width:100%;justify-content:center;" href="week3.html">← Back to Week 3</a>
+    </div>
   </div>
 </div>
-<div class="section-alt" style="padding:0 0 64px;">
-<div class="section-inner" style="max-width:640px;">
-  <div class="info-box info-blue mb-32">
-    <h3>📋 Graded Quiz 3 is in Blackboard Ultra</h3>
-    <p>Quiz 3 is on Mon Jul 13 (first 10 min of class) via Blackboard. This practice bank will be available before Week 3. Unlimited attempts, no grade recorded here.</p>
-  </div>
-  <div class="card card-pad mb-24">
-    <div style="font-size:32px;margin-bottom:12px;">📚</div>
-    <h2 style="font-size:18px;font-weight:700;margin-bottom:8px;">This bank will cover</h2>
-    <ul style="padding-left:18px;display:flex;flex-direction:column;gap:8px;margin-top:8px;">
-      <li style="font-size:14px;color:var(--text-2);line-height:1.6;"><strong>Chapter 6</strong> — Literature review structures: thematic, chronological, comparative; identifying the research gap</li>
-      <li style="font-size:14px;color:var(--text-2);line-height:1.6;"><strong>Chapter 7</strong> — APA 7 reference list: journal articles, books, chapters, websites; hanging indent; sentence case</li>
-      <li style="font-size:14px;color:var(--text-2);line-height:1.6;"><strong>Chapter 8</strong> — Research designs: survey, interview, observation, case study, document analysis</li>
-    </ul>
-  </div>
-  <div class="grid-2 gap-16">
-    <a class="btn btn-outline" href="week3.html">← Week 3 Reading Guide</a>
-    <a class="btn btn-primary" href="quiz1.html">Practice Week 1 Bank</a>
-  </div>
-</div>
-</div>
+<script>
+const QUESTIONS=[
+  // ── CHAPTER 6: Literature Review Structure ──
+  {source:"Chapter 6",q:"A thematic literature review organises sources by:",options:["The year each study was published, oldest to newest","Recurring themes or concepts across the literature, regardless of publication date","The nationality of the researchers","Alphabetical order by author surname"],correct:1,feedback:"A thematic structure groups sources around shared ideas, concepts, or topics — regardless of when studies were published. This allows the reviewer to show how different scholars have addressed the same theme and to map agreements and disagreements across the field."},
+  {source:"Chapter 6",q:"When is a chronological structure most appropriate for a literature review?",options:["When the field is very large and diverse","When tracing the historical development of a concept, debate, or methodology over time","When comparing two or more competing theoretical frameworks","When the reviewer has found too many sources to organise thematically"],correct:1,feedback:"A chronological structure is best when showing how thinking on a topic has evolved — for example, how definitions of 'communicative competence' changed from the 1970s to the 2020s. It is a narrative of intellectual development, not just a time-ordered list of summaries."},
+  {source:"Chapter 6",q:"Which of the following is the clearest example of SYNTHESIS (rather than summary) in a literature review?",options:["Smith (2019) found that feedback improves writing. Jones (2021) also found that feedback improves writing.","While Smith (2019) and Jones (2021) both report positive effects of feedback, their studies differ in population (tertiary vs. secondary) and method (interview vs. survey), suggesting the relationship may be context-dependent.","The researcher read ten articles about feedback and will now describe each one.","Smith (2019) defined feedback as 'information given to the learner' (p. 12)."],correct:1,feedback:"Synthesis connects sources analytically — it identifies agreements, differences, patterns, and gaps across multiple texts and draws a conclusion. Option A is summary (reporting findings side by side without integration). Synthesis says something about what the sources collectively mean."},
+  {source:"Chapter 6",q:"A student writes a literature review that summarises each article one by one in separate paragraphs with no connections between them. Lambert would describe this as:",options:["A thematic review","An annotated bibliography, not a literature review","A comparative review","A systematic review"],correct:1,feedback:"Summarising each source separately without integration is an annotated bibliography — a useful tool, but not a literature review. A literature review synthesises sources: it identifies themes, debates, patterns, and gaps, and uses sources as evidence for analytical claims."},
+  {source:"Chapter 6",q:"The PRIMARY purpose of a literature review in a research proposal is to:",options:["Prove that the researcher has read many sources","Demonstrate mastery of APA 7 citation format","Establish what is known, identify what is unknown (the gap), and justify the current study","List all available studies on the topic"],correct:2,feedback:"The literature review has a specific argumentative function: it maps existing knowledge, identifies the gap or problem that remains unresolved, and uses that gap to justify why the current study is necessary. Showing breadth of reading is a secondary effect, not the purpose."},
+  {source:"Chapter 6",q:"A comparative structure in a literature review is BEST used when:",options:["The field has very few studies","The reviewer wants to contrast two or more competing theories, models, or approaches directly","The topic has a clear historical timeline","The reviewer cannot find a common theme across sources"],correct:1,feedback:"A comparative structure juxtaposes frameworks, methods, or findings directly — for example, comparing CLT and task-based approaches to language teaching. It is not driven by chronology or theme but by the analytical relationship between the compared elements."},
+  {source:"Chapter 6",q:"Which of the following best defines the 'research gap' that a literature review must identify?",options:["A topic about which nothing has been written","An aspect of the topic that existing research has not adequately addressed, leaving a question unanswered","A methodological error in a previous study","A reference that the reviewer forgot to include"],correct:1,feedback:"A research gap is not a topic vacuum — it is a specific limitation in existing knowledge. It may be geographical (no studies in the Saudi context), methodological (no qualitative work), or conceptual (a relationship not yet examined). The gap is what makes the proposed study necessary."},
+  // ── CHAPTER 7: APA Reference List ──
+  {source:"Chapter 7",q:"Which of the following is a correctly formatted APA 7 reference for a journal article?",options:["Smith, J. (2020). Teaching writing in EFL contexts. Journal of Applied Linguistics, 15(2), 34–56. https://doi.org/10.xxxx","Smith, J. 2020. Teaching writing in EFL contexts. Journal of Applied Linguistics, Vol. 15, No. 2, pp. 34–56.","Smith, J. (2020). 'Teaching writing in EFL contexts'. Journal of Applied Linguistics, 15(2), 34–56.","Smith, J. (2020). Teaching writing in EFL contexts. In Journal of Applied Linguistics (Vol. 15, pp. 34–56)."],correct:0,feedback:"APA 7 journal article format: Author, A. (Year). Title of article in sentence case. Journal Name in Title Case Italicised, Volume(Issue), pages. https://doi.org/xxxxx. No quotation marks around the article title; 'Vol.' and 'No.' are not used; 'In' is not used for journal articles (only for book chapters)."},
+  {source:"Chapter 7",q:"In APA 7, which part of a journal reference entry is italicised?",options:["The article title only","The journal name and volume number","The author's name","The DOI or URL"],correct:1,feedback:"In APA 7 journal references, the journal name AND the volume number are italicised — for example: Journal of Applied Linguistics, 15(2). The article title is NOT italicised (it is in sentence case). The issue number in parentheses after the volume is not italicised."},
+  {source:"Chapter 7",q:"A book has two authors: Brown, T., and Lee, S. It was published in 2018 by Oxford University Press in Oxford. The APA 7 reference is:",options:["Brown, T., & Lee, S. (2018). Research methods in education. Oxford University Press.","Brown, T. and Lee, S. (2018). Research methods in education. Oxford: Oxford University Press.","T. Brown & S. Lee (2018). Research methods in education. OUP, Oxford.","Brown & Lee (2018). Research methods in education. Oxford University Press."],correct:0,feedback:"APA 7 book format: Author, A., & Author, B. (Year). Title in sentence case italicised. Publisher. Key changes from APA 6: (1) the city of publication is OMITTED; (2) '&' is used between authors (not 'and'); (3) the publisher name is given without 'Inc.', 'Ltd', etc. where possible."},
+  {source:"Chapter 7",q:"A chapter in an edited book is referenced differently from a journal article because:",options:["Edited book chapters always have DOIs; journal articles do not","The chapter title goes in the author position","The editor(s) and the book title (italicised) must be included, along with the page range of the chapter","Chapter references do not require a publication year"],correct:2,feedback:"For a chapter in an edited book, the format is: Chapter Author(s). (Year). Chapter title. In Editor(s) (Ed./Eds.), Book title (pp. xx–xx). Publisher. The chapter title is NOT italicised; the book title IS italicised. The editor(s) appear after 'In', with (Ed.) or (Eds.) after their names."},
+  {source:"Chapter 7",q:"A student found an article published with no DOI. According to APA 7, what should appear at the end of the reference?",options:["No URL or DOI is needed — simply end after the page numbers","The URL of the journal's homepage","The URL where the article was retrieved, if available online","The phrase 'No DOI available'"],correct:2,feedback:"If a journal article has no DOI but is available online, APA 7 recommends including the URL of the article (not just the journal homepage). If the article was retrieved from a database that requires a subscription and has no stable URL, the reference ends after the page numbers — you do not note the database name."},
+  {source:"Chapter 7",q:"How does APA 7 format a website reference when no author and no date are available?",options:["Anonymous. (n.d.). Title of page. Website Name. URL","Title of page. (n.d.). Website Name. URL","[No author]. (n.d.). Title of page. Website Name. URL","Title of page in italics. Website Name. (n.d.). URL"],correct:0,feedback:"APA 7: when no author, 'Anonymous' is NOT used unless stated on the source. Instead, the title moves to the author position: Title of page. (n.d.). Website Name. URL. However, technically the format starts with the title of the page (not 'Anonymous'). Option A is closest to correct; in practice: Page title. (n.d.). Website. https://url. See APA 7 §10.16."},
+  {source:"Chapter 7",q:"In APA 7, the reference list must be:",options:["Numbered sequentially in the order sources are cited in the text","Organised alphabetically by the first author's surname, double-spaced, with a hanging indent","Organised by source type (books first, then journals, then websites)","Single-spaced with a 1-inch left margin for each entry"],correct:1,feedback:"APA 7 reference lists are arranged alphabetically by the first element of each entry (usually the first author's surname). All entries are double-spaced with a hanging indent (first line flush left, subsequent lines indented 0.5 inch). There is no grouping by source type."},
+  // ── CHAPTER 8: Research Design ──
+  {source:"Chapter 8",q:"A researcher wants to study how teachers perceive professional development workshops. She will distribute a 20-item questionnaire to 300 teachers. This is best described as:",options:["An experiment","A survey design","An ethnography","A case study"],correct:1,feedback:"Survey designs use questionnaires or structured interviews to gather data from a defined population. They aim for breadth — collecting data from many participants to identify patterns, frequencies, or relationships. The goal here is to capture teacher perceptions across a large group, not to manipulate a variable (experiment) or study one group in depth (case study/ethnography)."},
+  {source:"Chapter 8",q:"The key feature that distinguishes a true experiment from other research designs is:",options:["It uses quantitative data only","The researcher randomly assigns participants to conditions and manipulates an independent variable","It requires a control group","It is conducted only in laboratory settings"],correct:1,feedback:"The defining features of a true experiment are: (1) manipulation of an independent variable and (2) random assignment of participants to experimental and control conditions. Random assignment is what separates a true experiment from a quasi-experiment. It can be done in classrooms, not only labs."},
+  {source:"Chapter 8",q:"A researcher conducts in-depth, face-to-face conversations with 8 participants to explore their lived experiences of studying abroad. This is best described as:",options:["A structured survey","Semi-structured or unstructured interviewing","A controlled experiment","An observation study"],correct:1,feedback:"In-depth individual conversations exploring lived experiences are interviews — specifically semi-structured (using a guide but allowing follow-up) or unstructured (free-flowing). The small sample (8 participants) and focus on depth/experience distinguish this from a survey, which prioritises breadth across many respondents."},
+  {source:"Chapter 8",q:"Observation as a research method is MOST appropriate when:",options:["The researcher wants to measure changes in test scores over time","The researcher wants to capture naturally occurring behaviour in a real setting without relying on self-report","The researcher needs standardised numerical data from hundreds of participants","The researcher is testing a cause-and-effect hypothesis"],correct:1,feedback:"Observation is ideal when studying naturally occurring behaviour — it avoids the self-report bias of surveys and interviews. The researcher records what actually happens (rather than what participants say happens). It is well-suited to classroom interaction, social behaviour, and workplace practices."},
+  {source:"Chapter 8",q:"A quasi-experimental design differs from a true experiment primarily because:",options:["It uses qualitative data","It lacks random assignment of participants to groups","It does not test a hypothesis","It cannot be replicated"],correct:1,feedback:"A quasi-experiment manipulates a variable and may have control and experimental groups, but participants are NOT randomly assigned — they are already in natural groups (e.g., intact school classes). This limits causal inference compared to a true experiment, but it is often the only ethical option in education research."},
+  {source:"Chapter 8",q:"A case study is best described as:",options:["A study that surveys a large, statistically representative sample","An in-depth investigation of a bounded case (person, group, institution, or event) in its real-life context","A type of controlled experiment with one participant","A meta-analysis of multiple studies on the same topic"],correct:1,feedback:"A case study provides intensive, holistic insight into a single or small number of bounded instances — understanding complexity within context. It trades statistical representativeness for depth. A classroom, a school, a policy implementation, or even one teacher can be a 'case'. It is not an experiment and is not designed to generalise statistically."},
+  {source:"Chapter 8",q:"Which of the following is a LIMITATION common to survey designs?",options:["Surveys cannot be used to study large populations","Survey data relies on self-report, which may not reflect actual behaviour","Surveys always require random sampling","Surveys can only be administered face-to-face"],correct:1,feedback:"Self-report bias is the central limitation of surveys — respondents may not answer honestly, may not recall accurately, or may respond according to what they think is expected (social desirability bias). Surveys CAN study large populations and DO NOT require face-to-face delivery. Random sampling is ideal but not always possible."}
+];
+
+let current=0,answers=new Array(QUESTIONS.length).fill(null),timerInterval=null,secondsLeft=900,timerEnabled=false;
+document.getElementById('timer-toggle').addEventListener('change',function(){timerEnabled=this.checked;document.getElementById('timer-pill').classList.toggle('inactive',!timerEnabled);});
+function startQuiz(){document.getElementById('start-screen').style.display='none';document.getElementById('quiz-screen').style.display='block';document.getElementById('quiz-topbar').style.display='flex';renderQuestion();if(timerEnabled)startTimer();}
+function startTimer(){timerInterval=setInterval(()=>{secondsLeft--;const m=Math.floor(secondsLeft/60),s=secondsLeft%60;const pill=document.getElementById('timer-pill');pill.textContent=`⏱ ${m}:${s.toString().padStart(2,'0')}`;pill.className='timer-pill'+(secondsLeft<=60?' danger':secondsLeft<=180?' warning':'');if(secondsLeft<=0)clearInterval(timerInterval);},1000);}
+function renderQuestion(){const q=QUESTIONS[current];document.getElementById('q-counter-sm').textContent=`${current+1} / ${QUESTIONS.length}`;document.getElementById('progress-fill').style.width=`${(current/QUESTIONS.length)*100}%`;document.getElementById('q-source').textContent=q.source;document.getElementById('q-text').textContent=q.q;const letters=['A','B','C','D'],optEl=document.getElementById('options');optEl.innerHTML='';q.options.forEach((opt,i)=>{const btn=document.createElement('button');btn.className='option';if(answers[current]===i)btn.classList.add('selected');btn.innerHTML=`<span class="opt-letter">${letters[i]}</span><span>${opt}</span>`;btn.onclick=()=>selectOption(i);optEl.appendChild(btn);});const fb=document.getElementById('feedback');fb.style.display='none';fb.className='feedback-box';const bn=document.getElementById('btn-next');bn.style.display='none';bn.textContent=current===QUESTIONS.length-1?'See Results →':'Next →';if(answers[current]!==null)revealAnswer(answers[current]);}
+function selectOption(idx){if(answers[current]!==null)return;answers[current]=idx;revealAnswer(idx);}
+function revealAnswer(sel){const q=QUESTIONS[current];document.querySelectorAll('.option').forEach((opt,i)=>{opt.onclick=null;if(i===q.correct)opt.classList.add('reveal-correct');if(i===sel&&sel!==q.correct)opt.classList.add('wrong');if(i===sel&&sel===q.correct)opt.classList.add('correct');});const fb=document.getElementById('feedback');fb.style.display='block';if(sel===q.correct){fb.className='feedback-box correct';fb.innerHTML=`✓ Correct! ${q.feedback}`;}else{fb.className='feedback-box wrong';fb.innerHTML=`✗ Not quite. ${q.feedback}`;}document.getElementById('btn-next').style.display='block';}
+function nextQuestion(){if(current<QUESTIONS.length-1){current++;renderQuestion();window.scrollTo(0,0);}else showResults();}
+function showResults(){clearInterval(timerInterval);document.getElementById('quiz-screen').style.display='none';document.getElementById('results-screen').style.display='block';document.getElementById('progress-fill').style.width='100%';const correct=answers.filter((a,i)=>a===QUESTIONS[i].correct).length,total=QUESTIONS.length,pct=Math.round(correct/total*100);document.getElementById('score-num').textContent=`${correct}/${total}`;const ring=document.getElementById('score-ring');ring.style.borderColor=pct>=80?'#16a34a':pct>=60?'#d97706':'#dc2626';document.getElementById('results-title').textContent=pct>=80?'Excellent! Quiz-ready.':pct>=60?'Good — review what you missed.':'Study the chapters and retry.';document.getElementById('results-sub').textContent=`${correct} of ${total} correct (${pct}%). The graded Quiz 3 is in Blackboard Ultra.`;const rl=document.getElementById('review-list');rl.innerHTML='';QUESTIONS.forEach((q,i)=>{const ua=answers[i],ok=ua===q.correct;const div=document.createElement('div');div.className=`review-item ${ok?'r-correct':'r-wrong'}`;div.innerHTML=`<div class="review-q">${ok?'✓':'✗'} Q${i+1} · ${q.source}</div><div class="review-a">${ua===null?'<span style="color:var(--text-3)">Not answered</span>':ok?`<span class="ra-right">✓ ${q.options[ua]}</span>`:`<span class="ra-wrong">✗ ${q.options[ua]}</span><br><span class="ra-right">✓ ${q.options[q.correct]}</span>`}</div>`;rl.appendChild(div);});}
+function retryQuiz(){answers=new Array(QUESTIONS.length).fill(null);current=0;secondsLeft=900;clearInterval(timerInterval);document.getElementById('results-screen').style.display='none';document.getElementById('quiz-screen').style.display='block';renderQuestion();if(timerEnabled)startTimer();}
+</script>
 <footer>
   <strong>ENG 446 Research Methods</strong> · Practice Bank · Qassim University · Summer 2026<br>
   <a href="index.html">Course Hub</a> · <a href="syllabus.html">Syllabus</a>

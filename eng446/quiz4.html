@@ -5,7 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Week 4 Practice Bank | ENG 446</title>
 <link rel="stylesheet" href="../style.css">
-<style>body{background:var(--off-white);}</style>
+<style>
+  body{background:var(--off-white)}
+  .quiz-topbar{position:sticky;top:var(--nav-h);z-index:100;background:var(--white);border-bottom:1px solid var(--border-light);padding:10px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .quiz-progress{display:flex;align-items:center;gap:10px;flex:1}
+  .progress-bar{flex:1;height:4px;background:var(--off-white);border-radius:2px;overflow:hidden}
+  .progress-fill{height:100%;background:#e85d04;transition:width .3s}
+  .q-counter-sm{font-size:12px;color:var(--text-3);font-weight:600;white-space:nowrap}
+  .timer-pill{background:var(--off-white);border:1px solid var(--border);border-radius:var(--r-pill);padding:5px 12px;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;cursor:pointer;color:var(--text-2);white-space:nowrap}
+  .timer-pill.inactive{opacity:.45}.timer-pill.warning{color:var(--amber);border-color:var(--amber)}.timer-pill.danger{color:var(--red);border-color:var(--red);animation:pulse .9s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+  .quiz-wrap{max-width:620px;margin:0 auto;padding:32px 22px 80px}
+  .start-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-md);padding:40px 32px;text-align:center}
+  .start-icon{font-size:48px;margin-bottom:16px}.start-title{font-size:24px;font-weight:700;letter-spacing:-.025em;margin-bottom:8px}.start-sub{font-size:15px;color:var(--text-2);margin-bottom:28px}
+  .start-details{text-align:left;background:var(--off-white);border-radius:var(--r-md);padding:16px 20px;margin-bottom:20px}
+  .start-details li{font-size:14px;color:var(--text-2);line-height:1.8;list-style:none}.start-details li::before{content:"✓ ";color:#e85d04;font-weight:700}
+  .timer-toggle-row{display:flex;align-items:center;justify-content:space-between;background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-md);padding:14px 16px;margin-bottom:20px}
+  .toggle{position:relative;width:42px;height:24px;flex-shrink:0}.toggle input{opacity:0;width:0;height:0}
+  .slider{position:absolute;cursor:pointer;inset:0;background:var(--border);border-radius:24px;transition:.2s}.slider:before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.2s}
+  input:checked+.slider{background:#e85d04}input:checked+.slider:before{transform:translateX(18px)}
+  .q-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);overflow:hidden}
+  .q-card-head{padding:24px 24px 0}
+  .q-source-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#b33e00;background:#fff0e6;padding:4px 10px;border-radius:var(--r-pill);margin-bottom:14px}
+  .q-text{font-size:16px;font-weight:600;line-height:1.5;color:var(--text);margin-bottom:20px}
+  .options{display:flex;flex-direction:column;gap:8px;padding:0 24px}
+  .feedback-box{margin:16px 24px;border-radius:var(--r-md);padding:14px 16px;font-size:14px;line-height:1.6;display:none}
+  .feedback-box.correct{background:#f0fdf4;border:1.5px solid #86efac;color:#166534}.feedback-box.wrong{background:var(--red-light);border:1.5px solid #fca5a5;color:#991b1b}
+  .q-card-foot{padding:16px 24px 24px}
+  .results-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-md);padding:40px 32px;text-align:center}
+  .score-ring{width:120px;height:120px;border-radius:50%;border:6px solid #e85d04;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px}
+  .score-num{font-size:28px;font-weight:800;color:#e85d04}.score-lbl{font-size:11px;color:var(--text-3)}
+  .results-title{font-size:22px;font-weight:700;margin-bottom:6px}.results-sub{font-size:14px;color:var(--text-2);margin-bottom:28px}
+  .review-list{text-align:left;display:flex;flex-direction:column;gap:8px;margin-bottom:28px}
+  .review-item{background:var(--off-white);border-radius:var(--r-md);padding:12px 16px;border-left:3px solid var(--border)}
+  .review-item.r-correct{border-left-color:#16a34a}.review-item.r-wrong{border-left-color:var(--red)}
+  .review-q{font-size:12px;font-weight:600;color:var(--text);margin-bottom:4px}.review-a{font-size:12px;color:var(--text-2)}
+  .review-a .ra-wrong{color:var(--red)}.review-a .ra-right{color:#166534;font-weight:600}
+</style>
 </head>
 <body>
 <nav class="nav">
@@ -17,35 +53,100 @@
     <span class="nav-cur">Week 4 Practice Bank</span>
   </div>
 </nav>
-<div class="hero" style="padding-bottom:48px;">
-  <div class="hero-eyebrow">Practice Bank · Week 4</div>
-  <h1>Coming Soon</h1>
-  <p class="hero-sub">Chapters 9, 10 &amp; 11 · Instruments · Qualitative &amp; Quantitative Analysis</p>
-  <div class="hero-meta">
-    <span>Available before Week 5 (Jul 26)</span>
+<div class="quiz-topbar" id="quiz-topbar" style="display:none;">
+  <div class="quiz-progress">
+    <span class="q-counter-sm" id="q-counter-sm">1 / 21</span>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+  </div>
+  <div class="timer-pill inactive" id="timer-pill">⏱ 15:00</div>
+</div>
+<div class="quiz-wrap">
+  <div id="start-screen">
+    <div class="start-card">
+      <div class="start-icon">📊</div>
+      <div class="start-title">Week 4 Practice Bank</div>
+      <div class="start-sub">Chapters 9, 10 &amp; 11 · 21 Ultra-Hard Questions</div>
+      <div class="info-box info-blue mb-20" style="text-align:left;">
+        <h3>📋 Graded Quiz 4 is in Blackboard</h3>
+        <p>Quiz 4 is on <strong>Sun Jul 26</strong> (first 10 min of class). This bank is free practice — unlimited attempts, detailed explanations, no grade recorded here.</p>
+      </div>
+      <div class="start-details"><ul>
+        <li>21 scenario-based, application-level questions</li>
+        <li>Ch 9: Questionnaire and interview schedule design</li>
+        <li>Ch 10: Qualitative analysis — thematic coding, themes, interpretation</li>
+        <li>Ch 11: Quantitative analysis — descriptive stats, frequency, mean, SD, charts</li>
+        <li>Detailed explanations after every answer · Retry unlimited times</li>
+      </ul></div>
+      <div class="timer-toggle-row">
+        <div><div style="font-size:14px;font-weight:600;">⏱ 15-minute challenge mode</div><div style="font-size:12px;color:var(--text-3);margin-top:2px;">Optional — simulates in-class time pressure</div></div>
+        <label class="toggle"><input type="checkbox" id="timer-toggle"><span class="slider"></span></label>
+      </div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="startQuiz()">Start Practice →</button>
+    </div>
+  </div>
+  <div id="quiz-screen" style="display:none;">
+    <div class="q-card">
+      <div class="q-card-head">
+        <div class="q-source-tag" id="q-source"></div>
+        <div class="q-text" id="q-text"></div>
+      </div>
+      <div class="options" id="options"></div>
+      <div class="feedback-box" id="feedback"></div>
+      <div class="q-card-foot">
+        <button class="btn btn-primary" style="width:100%;justify-content:center;display:none;" id="btn-next" onclick="nextQuestion()">Next →</button>
+      </div>
+    </div>
+  </div>
+  <div id="results-screen" style="display:none;">
+    <div class="results-card">
+      <div class="score-ring" id="score-ring"><div class="score-num" id="score-num">0/21</div><div class="score-lbl">Score</div></div>
+      <div class="results-title" id="results-title"></div>
+      <div class="results-sub" id="results-sub"></div>
+      <div class="review-list" id="review-list"></div>
+      <button class="btn btn-primary mb-12" style="width:100%;justify-content:center;" onclick="retryQuiz()">🔄 Try Again</button>
+      <a class="btn btn-outline" style="width:100%;justify-content:center;" href="week4.html">← Back to Week 4</a>
+    </div>
   </div>
 </div>
-<div class="section-alt" style="padding:0 0 64px;">
-<div class="section-inner" style="max-width:640px;">
-  <div class="info-box info-blue mb-32">
-    <h3>📋 Graded Quiz 4 is in Blackboard Ultra</h3>
-    <p>Quiz 4 is on Sun Jul 26 (first 10 min of class) via Blackboard. This practice bank will be available before Week 5. Unlimited attempts, no grade recorded here.</p>
-  </div>
-  <div class="card card-pad mb-24">
-    <div style="font-size:32px;margin-bottom:12px;">📊</div>
-    <h2 style="font-size:18px;font-weight:700;margin-bottom:8px;">This bank will cover</h2>
-    <ul style="padding-left:18px;display:flex;flex-direction:column;gap:8px;margin-top:8px;">
-      <li style="font-size:14px;color:var(--text-2);line-height:1.6;"><strong>Chapter 9</strong> — Designing questionnaires: question types, Likert scale, piloting; interview schedules and probes</li>
-      <li style="font-size:14px;color:var(--text-2);line-height:1.6;"><strong>Chapter 10</strong> — Qualitative analysis: thematic analysis steps, coding, themes, interpretation, saturation</li>
-      <li style="font-size:14px;color:var(--text-2);line-height:1.6;"><strong>Chapter 11</strong> — Quantitative analysis: descriptive statistics, frequency, mean, mode, range, tables and charts</li>
-    </ul>
-  </div>
-  <div class="grid-2 gap-16">
-    <a class="btn btn-outline" href="week5.html">← Week 5 Reading Guide</a>
-    <a class="btn btn-primary" href="quiz1.html">Practice Week 1 Bank</a>
-  </div>
-</div>
-</div>
+<script>
+const QUESTIONS=[
+  // ── CHAPTER 9: Questionnaire & Interview Design ──
+  {source:"Chapter 9",q:"A student includes this item in her questionnaire: 'Do you agree that teachers work hard and students don't study enough?' This is an example of a:",options:["Leading question","Double-barrelled question","Open-ended question","Likert-scale item"],correct:1,feedback:"A double-barrelled question asks about two separate issues in one item — here, teacher effort AND student study habits. If a respondent agrees with one but not the other, there is no valid response option. Each questionnaire item should address only ONE idea."},
+  {source:"Chapter 9",q:"A researcher writes: 'Teachers should always give more feedback.' On a 5-point Likert scale, this item is problematic because:",options:["Likert scales cannot measure attitudes","It uses the word 'always,' which is an absolute and may force extreme responses","It is too short","It doesn't ask a question"],correct:1,feedback:"Absolute words like 'always', 'never', 'all', and 'none' create 'double-bind' problems — respondents who mostly agree but not absolutely must choose between disagreeing with an overstatement or misrepresenting their view. Likert items should use qualified language: 'Teachers should generally give more feedback.'"},
+  {source:"Chapter 9",q:"Which of the following is the best example of a CLOSED question for a questionnaire?",options:["How do you feel about online learning?","What are the main challenges you face in academic writing?","How many hours per week do you spend on homework? □ <1 □ 1–3 □ 4–6 □ >6","Describe your experience of studying in groups."],correct:2,feedback:"Closed questions provide pre-defined response categories, making data easy to quantify and compare. Option C specifies exact response options (ranges). Options A, B, and D are open-ended — they invite free-text responses and are not closed questions."},
+  {source:"Chapter 9",q:"A researcher conducts a pilot study of her questionnaire with 5 colleagues before distributing it to 200 students. The purpose of the pilot study is primarily to:",options:["Increase the final sample size","Check for reliability by testing it twice with the same group","Identify unclear wording, missing response options, and timing issues before the main study","Satisfy the ethics committee requirement"],correct:2,feedback:"Piloting tests the instrument — not the participants. It reveals ambiguous phrasing, missing options, inconsistent formatting, and whether the questionnaire can be completed in the expected time. It is a design-validation step, not a rehearsal for data collection."},
+  {source:"Chapter 9",q:"In an interview schedule, a 'probe' is best defined as:",options:["A question asked at the very beginning to build rapport","A follow-up question or prompt used to encourage the interviewee to elaborate","A closed question that checks factual information","A question prepared to replace a main question if the participant refuses to answer"],correct:1,feedback:"Probes are follow-up questions or prompts — 'Can you tell me more about that?', 'Could you give an example?', 'What did you mean by…?' — used to elicit richer, more detailed responses. They are a key technique in semi-structured and unstructured interviewing."},
+  {source:"Chapter 9",q:"A researcher uses a structured interview with 50 participants. How does this differ from a semi-structured interview?",options:["A structured interview uses only open-ended questions","In a structured interview, every participant is asked exactly the same questions in the same order with no deviation","A structured interview has no predetermined questions","A structured interview is always conducted by phone"],correct:1,feedback:"A structured interview follows a fixed script — same questions, same order, same wording for all participants. This maximises comparability across respondents. Semi-structured interviews use a guide (topic list) but allow the interviewer to probe, reorder, or add questions based on the conversation."},
+  {source:"Chapter 9",q:"Which of the following is the MAIN advantage of open-ended questions over closed questions?",options:["They are easier and faster to code during analysis","They guarantee higher response rates","They capture the full range and depth of respondents' views in their own words","They are more objective than closed questions"],correct:2,feedback:"Open-ended questions allow respondents to express ideas, attitudes, and experiences that the researcher may not have anticipated. This richness is their primary advantage. The trade-off is that they are more time-consuming to analyse — they require qualitative coding, not simple frequency counts."},
+  // ── CHAPTER 10: Qualitative Analysis ──
+  {source:"Chapter 10",q:"In thematic analysis, 'coding' refers to:",options:["Encrypting interview recordings for data security","Attaching a descriptive label to a segment of data that captures its meaning or relevance","Entering interview transcripts into a statistical software package","Transcribing audio recordings word-for-word"],correct:1,feedback:"Coding is the process of systematically labelling segments of qualitative data (text, image, observation) with short descriptive terms (codes) that capture what each segment is about. Codes are later grouped into patterns and eventually into themes. It is a meaning-making process, not a technical/encryption one."},
+  {source:"Chapter 10",q:"The difference between a CODE and a THEME in thematic analysis is:",options:["Codes are longer and more abstract; themes are shorter and more concrete","A code labels a specific piece of data; a theme is a broader pattern that captures a recurring, significant idea across multiple codes","Codes appear only in the analysis chapter; themes only in the conclusion","They are interchangeable terms used differently by different researchers"],correct:1,feedback:"Codes are close to the data — they label specific extracts. Themes are higher-order constructs — they represent a significant, recurring pattern that cuts across many codes. Moving from codes to themes is the interpretive step in thematic analysis: the researcher asks what these codes collectively say."},
+  {source:"Chapter 10",q:"A researcher reads her interview transcripts and highlights any mention of 'pressure', 'stress', 'overwhelmed', and 'deadlines'. She groups these codes under the theme 'Emotional Burden of Assessment'. This process is called:",options:["Deductive coding","Reflexive memo writing","Identifying and developing themes from initial codes","Member checking"],correct:2,feedback:"Grouping initial codes into potential themes is the core middle phase of thematic analysis (Braun & Clarke). The researcher searches for patterns across codes, clusters related codes, and names the overarching theme that captures what those codes collectively represent."},
+  {source:"Chapter 10",q:"'Inductive' thematic analysis means that:",options:["The researcher tests pre-existing hypotheses against the data","Themes are developed directly from the data, without being predetermined by a theoretical framework","The researcher starts with a coding framework derived from the literature","Inductive analysis is only used in quantitative research"],correct:1,feedback:"Inductive (or 'bottom-up') analysis allows themes to emerge from the data without imposing a pre-existing framework. Deductive ('top-down') analysis applies a predetermined framework to the data. Most beginner qualitative research uses inductive coding."},
+  {source:"Chapter 10",q:"A researcher reads through her transcripts multiple times before coding. This initial step is called:",options:["Coding","Familiarisation","Member checking","Thematic saturation"],correct:1,feedback:"Familiarisation is the first phase of thematic analysis — reading and re-reading the data to become deeply acquainted with the content, taking initial notes, and identifying possible patterns before any systematic coding begins. It is an essential but often undervalued step."},
+  {source:"Chapter 10",q:"'Data saturation' in qualitative research refers to the point at which:",options:["The researcher has analysed exactly 100% of the collected data","No new themes or codes are emerging from additional data — further collection adds redundancy","The researcher runs out of time or funding","The interview recordings have been fully transcribed"],correct:1,feedback:"Data saturation signals that the dataset is sufficient — continuing to collect data would not generate substantially new insights. It is the primary justification for sample size in qualitative research. Saturation is not a pre-set number; it emerges during analysis."},
+  {source:"Chapter 10",q:"A researcher shares her coded transcripts with participants and asks them to confirm or challenge her interpretations. This technique is called:",options:["Triangulation","Member checking (member validation)","Reflexivity","Peer debriefing"],correct:1,feedback:"Member checking (or respondent validation) involves returning findings to participants to check whether the researcher's interpretations accurately reflect their intended meanings. It is a key strategy for enhancing credibility in qualitative research, though it has limitations (participants may disagree for reasons unrelated to accuracy)."},
+  // ── CHAPTER 11: Quantitative Analysis ──
+  {source:"Chapter 11",q:"A dataset contains the following scores: 5, 7, 7, 8, 9, 10, 10, 10, 12, 22. The measure of central tendency MOST affected by the outlier (22) is the:",options:["Mode","Median","Mean","Range"],correct:2,feedback:"The mean is calculated by summing all values and dividing by n — so extreme values (outliers) pull it significantly. The median (middle value) and mode (most frequent value) are resistant to outliers. In skewed distributions, the median is typically a more representative measure of central tendency."},
+  {source:"Chapter 11",q:"Standard deviation (SD) measures:",options:["The difference between the highest and lowest scores in a dataset","The average distance of each score from the mean — how spread out the data are","The most frequently occurring score","The middle score in an ordered dataset"],correct:1,feedback:"SD quantifies variability — how dispersed scores are around the mean. A small SD means scores cluster tightly around the mean; a large SD means they are widely spread. It is the most common measure of dispersion in quantitative research reports."},
+  {source:"Chapter 11",q:"A frequency table shows that 35 out of 100 students scored 'Agree' on a Likert item. What is the percentage frequency?",options:["3.5%","35%","0.35%","350%"],correct:1,feedback:"Percentage frequency = (frequency ÷ total) × 100 = (35 ÷ 100) × 100 = 35%. Frequency tables always display both raw frequency (n) and percentage frequency (%) to allow comparison across groups of different sizes."},
+  {source:"Chapter 11",q:"A researcher reports M = 3.82, SD = 0.64 for a 5-point Likert scale item. The correct interpretation is:",options:["Most participants scored below the midpoint (2.5)","The average response was close to 'Agree' (4), with relatively little variation around that average","The majority of participants gave a score of 0.64","The standard deviation is too high to interpret the mean meaningfully"],correct:1,feedback:"M = 3.82 on a 1–5 scale places the average just below 'Agree' (4), indicating generally positive responses. SD = 0.64 is relatively small, suggesting responses clustered near the mean with limited spread — participants were fairly consistent. SD must always be interpreted relative to the scale range."},
+  {source:"Chapter 11",q:"Which chart type is MOST appropriate for displaying the frequency distribution of responses to a single Likert-scale item?",options:["Scatter plot","Pie chart or bar chart","Line graph","Box-and-whisker plot"],correct:1,feedback:"Bar charts and pie charts display frequencies or percentages for categorical or ordinal data — ideal for showing how many participants chose each Likert option (Strongly Disagree to Strongly Agree). Scatter plots show relationships between two continuous variables; line graphs show trends over time; box plots summarise continuous distributions."},
+  {source:"Chapter 11",q:"A researcher calculates the mean score for two groups: Group A (M = 4.1) and Group B (M = 3.2). She concludes that Group A is significantly better. What is missing from this conclusion?",options:["She should have reported the mode instead","She has not reported standard deviations or conducted an inferential statistical test to determine whether the difference is statistically significant","She should have used a pie chart","The conclusion is complete — a difference in means is sufficient evidence"],correct:1,feedback:"Descriptive statistics (means) describe the data but cannot determine whether a difference between groups is statistically significant or due to chance. An inferential test (e.g., independent samples t-test) is required to make claims about significance. Always report both M and SD, and note whether inferential testing was conducted."},
+  {source:"Chapter 11",q:"What does it mean if a questionnaire item has a high mean AND a high standard deviation?",options:["Most participants strongly agreed with the item","Participants on average gave a high rating, but responses were widely spread — indicating disagreement across the group","The item was poorly worded and should be removed","High SD invalidates the mean"],correct:1,feedback:"A high mean + high SD reveals a polarised response: on average, participants scored high, but individual responses varied substantially (some very high, some very low). This is important to report — the high mean alone would be misleading without acknowledging the spread. It often signals a controversial or context-dependent item."}
+];
+
+let current=0,answers=new Array(QUESTIONS.length).fill(null),timerInterval=null,secondsLeft=900,timerEnabled=false;
+document.getElementById('timer-toggle').addEventListener('change',function(){timerEnabled=this.checked;document.getElementById('timer-pill').classList.toggle('inactive',!timerEnabled);});
+function startQuiz(){document.getElementById('start-screen').style.display='none';document.getElementById('quiz-screen').style.display='block';document.getElementById('quiz-topbar').style.display='flex';renderQuestion();if(timerEnabled)startTimer();}
+function startTimer(){timerInterval=setInterval(()=>{secondsLeft--;const m=Math.floor(secondsLeft/60),s=secondsLeft%60;const pill=document.getElementById('timer-pill');pill.textContent=`⏱ ${m}:${s.toString().padStart(2,'0')}`;pill.className='timer-pill'+(secondsLeft<=60?' danger':secondsLeft<=180?' warning':'');if(secondsLeft<=0)clearInterval(timerInterval);},1000);}
+function renderQuestion(){const q=QUESTIONS[current];document.getElementById('q-counter-sm').textContent=`${current+1} / ${QUESTIONS.length}`;document.getElementById('progress-fill').style.width=`${(current/QUESTIONS.length)*100}%`;document.getElementById('q-source').textContent=q.source;document.getElementById('q-text').textContent=q.q;const letters=['A','B','C','D'],optEl=document.getElementById('options');optEl.innerHTML='';q.options.forEach((opt,i)=>{const btn=document.createElement('button');btn.className='option';if(answers[current]===i)btn.classList.add('selected');btn.innerHTML=`<span class="opt-letter">${letters[i]}</span><span>${opt}</span>`;btn.onclick=()=>selectOption(i);optEl.appendChild(btn);});const fb=document.getElementById('feedback');fb.style.display='none';fb.className='feedback-box';const bn=document.getElementById('btn-next');bn.style.display='none';bn.textContent=current===QUESTIONS.length-1?'See Results →':'Next →';if(answers[current]!==null)revealAnswer(answers[current]);}
+function selectOption(idx){if(answers[current]!==null)return;answers[current]=idx;revealAnswer(idx);}
+function revealAnswer(sel){const q=QUESTIONS[current];document.querySelectorAll('.option').forEach((opt,i)=>{opt.onclick=null;if(i===q.correct)opt.classList.add('reveal-correct');if(i===sel&&sel!==q.correct)opt.classList.add('wrong');if(i===sel&&sel===q.correct)opt.classList.add('correct');});const fb=document.getElementById('feedback');fb.style.display='block';if(sel===q.correct){fb.className='feedback-box correct';fb.innerHTML=`✓ Correct! ${q.feedback}`;}else{fb.className='feedback-box wrong';fb.innerHTML=`✗ Not quite. ${q.feedback}`;}document.getElementById('btn-next').style.display='block';}
+function nextQuestion(){if(current<QUESTIONS.length-1){current++;renderQuestion();window.scrollTo(0,0);}else showResults();}
+function showResults(){clearInterval(timerInterval);document.getElementById('quiz-screen').style.display='none';document.getElementById('results-screen').style.display='block';document.getElementById('progress-fill').style.width='100%';const correct=answers.filter((a,i)=>a===QUESTIONS[i].correct).length,total=QUESTIONS.length,pct=Math.round(correct/total*100);document.getElementById('score-num').textContent=`${correct}/${total}`;const ring=document.getElementById('score-ring');ring.style.borderColor=pct>=80?'#16a34a':pct>=60?'#d97706':'#dc2626';document.getElementById('results-title').textContent=pct>=80?'Excellent! Quiz-ready.':pct>=60?'Good — review what you missed.':'Study the chapters and retry.';document.getElementById('results-sub').textContent=`${correct} of ${total} correct (${pct}%). The graded Quiz 4 is in Blackboard Ultra.`;const rl=document.getElementById('review-list');rl.innerHTML='';QUESTIONS.forEach((q,i)=>{const ua=answers[i],ok=ua===q.correct;const div=document.createElement('div');div.className=`review-item ${ok?'r-correct':'r-wrong'}`;div.innerHTML=`<div class="review-q">${ok?'✓':'✗'} Q${i+1} · ${q.source}</div><div class="review-a">${ua===null?'<span style="color:var(--text-3)">Not answered</span>':ok?`<span class="ra-right">✓ ${q.options[ua]}</span>`:`<span class="ra-wrong">✗ ${q.options[ua]}</span><br><span class="ra-right">✓ ${q.options[q.correct]}</span>`}</div>`;rl.appendChild(div);});}
+function retryQuiz(){answers=new Array(QUESTIONS.length).fill(null);current=0;secondsLeft=900;clearInterval(timerInterval);document.getElementById('results-screen').style.display='none';document.getElementById('quiz-screen').style.display='block';renderQuestion();if(timerEnabled)startTimer();}
+</script>
 <footer>
   <strong>ENG 446 Research Methods</strong> · Practice Bank · Qassim University · Summer 2026<br>
   <a href="index.html">Course Hub</a> · <a href="syllabus.html">Syllabus</a>
