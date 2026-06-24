@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Week 7 — Presentations &amp; Exam Review | ENG 446</title>
+<title>Week 7 — Presentations &amp; exam review | ENG 446</title>
 <link rel="stylesheet" href="../style.css">
-<meta name="description" content="ENG 446 Week 7 reading hub — chapter summaries, key terms, and links to workshops and practice.">
+<meta name="description" content="ENG 446 Week 7 map — Review all 12 chapters; what to do and what is due.">
 <meta name="theme-color" content="#1a6b3c">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -15,18 +15,39 @@
 <meta name="apple-mobile-web-app-title" content="ENG 446">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ENG 446 Research Methods">
-<meta property="og:title" content="Week 7 — Presentations &amp; Exam Review | ENG 446">
-<meta property="og:description" content="ENG 446 Week 7 reading hub — chapter summaries, key terms, and links to workshops and practice.">
+<meta property="og:title" content="Week 7 — Presentations &amp; exam review | ENG 446">
+<meta property="og:description" content="ENG 446 Week 7 map — Review all 12 chapters; what to do and what is due.">
 <meta property="og:image" content="https://mohdalatrash-hue.github.io/eng446/icon-512.png">
 <meta property="og:url" content="https://mohdalatrash-hue.github.io/eng446/week7.html">
 <meta name="twitter:card" content="summary">
 <style>
-  body{background:var(--off-white);}
-  .exam-topic { display:flex; align-items:flex-start; gap:12px; padding:12px 0; border-bottom:1px solid var(--border-light); }
-  .exam-topic:last-child { border-bottom:none; }
-  .et-num { width:28px;height:28px;border-radius:50%;background:var(--green-light);color:var(--green);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px; }
-  .et-content strong { font-size:14px;color:var(--text);display:block;margin-bottom:2px; }
-  .et-content p { font-size:13px;color:var(--text-2);line-height:1.5; }
+body{background:var(--off-white);}
+.lead{font-size:14px;color:var(--text-2);line-height:1.6;margin:-6px 0 16px;}
+.wk-dots{display:flex;gap:6px;justify-content:center;margin-top:14px;}
+.wk-dot{width:9px;height:9px;border-radius:50%;background:var(--border);}
+.wk-dot.on{background:var(--green);box-shadow:0 0 0 3px rgba(26,107,60,.18);}
+.glance{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:40px;}
+.g-card{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:18px;border-top:3px solid var(--border);}
+.g-read{border-top-color:#0071e3;} .g-do{border-top-color:#7c3aed;} .g-due{border-top-color:#dc2626;}
+.g-ic{font-size:22px;} .g-lab{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin:6px 0 4px;}
+.g-txt{font-size:14px;color:var(--text);line-height:1.5;font-weight:500;}
+.days{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:40px;}
+.day-card{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:16px;display:flex;flex-direction:column;gap:8px;}
+.day-head{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.day-when{display:flex;align-items:baseline;gap:8px;} .day-dn{font-size:14px;font-weight:800;color:var(--green);} .day-dt{font-size:12px;color:var(--text-3);}
+.day-tag{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;background:var(--green-light);color:var(--green-dark);padding:3px 8px;border-radius:var(--r-pill);}
+.day-label{font-size:14px;font-weight:700;color:var(--text);line-height:1.35;}
+.day-desc{font-size:13px;color:var(--text-2);line-height:1.55;flex:1;}
+.day-card .btn{align-self:flex-start;}
+.reads{display:flex;flex-direction:column;gap:10px;margin-bottom:40px;}
+.read-card{background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:16px 18px;border-left:3px solid var(--green);}
+.read-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.read-summ{font-size:13.5px;color:var(--text-2);line-height:1.6;margin-bottom:10px;}
+.prac{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:8px;}
+.prac-card{background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:16px;text-decoration:none;color:var(--text);display:flex;flex-direction:column;gap:4px;transition:box-shadow .15s,transform .1s;}
+.prac-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-1px);text-decoration:none;}
+.prac-ic{font-size:22px;} .prac-name{font-size:14px;font-weight:700;} .prac-go{font-size:12px;color:var(--green);font-weight:600;}
+@media(max-width:680px){.glance,.days{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -40,107 +61,65 @@
     <div class="nav-spacer"></div>
     <div class="nav-links">
       <a class="nav-link" href="week6.html">← Week 6</a>
-      <a class="nav-link" href="syllabus.html">Syllabus</a>
+      <a class="nav-link" href="quiz-final.html">Final Bank</a>
     </div>
   </div>
 </nav>
-<div class="hero" style="padding-bottom:40px;">
-  <div class="hero-eyebrow">Week 7 · Aug 9–11</div>
-  <h1>Presentations<br>&amp; Exam Review</h1>
-  <p class="hero-sub">No new reading · Group presentations + full course exam review</p>
-  <div class="hero-meta">
-    <span style="color:var(--red);font-weight:600;">Presentations · Aug 9–10</span>
-    <span class="hero-meta-dot">·</span>
-    <span>Exam review · Aug 11</span>
-    <span class="hero-meta-dot">·</span>
-    <span>Final exam · Aug 16–17</span>
-  </div>
+
+<div class="hero" style="padding-bottom:28px;">
+  <div class="hero-eyebrow">Week 7 of 7 · Aug 9–11</div>
+  <h1>Presentations &amp; exam review</h1>
+  <p class="hero-sub">No new reading</p>
+  <div class="wk-dots"><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot on"></span></div>
 </div>
-<div class="section-alt" style="padding:0 0 64px;">
+
+<div class="section-alt" style="padding:8px 0 64px;">
 <div class="section-inner">
 
-  <div class="grid-2 gap-16 mb-32">
-    <div class="info-box info-red" style="display:flex;gap:12px;align-items:flex-start;">
-      <span style="font-size:22px;flex-shrink:0;">🎤</span>
-      <div><strong>Group Presentations — Aug 9 &amp; 10</strong><br>Groups 1–5 on Sun · Groups 6–10 on Mon · 10 min + 3 min Q&amp;A</div>
+  <div class="section-label" style="margin-bottom:14px;">This week at a glance</div>
+  <div class="glance">
+      <div class="g-card g-read"><div class="g-ic">📖</div><div class="g-lab">Read</div><div class="g-txt">Review all 12 chapters</div></div>
+      <div class="g-card g-do"><div class="g-ic">🛠️</div><div class="g-lab">Do</div><div class="g-txt">Present (Groups 1–6 Sun / 7–11 Mon) · Exam review (Tue)</div></div>
+      <div class="g-card g-due"><div class="g-ic">✅</div><div class="g-lab">Due</div><div class="g-txt">Group Presentation — Aug 9–10 (5%)</div></div>
     </div>
-    <div class="info-box info-amber" style="display:flex;gap:12px;align-items:flex-start;">
-      <span style="font-size:22px;flex-shrink:0;">📋</span>
-      <div><strong>Final Exam — Aug 16–17</strong><br>Individual · 50% of grade · All chapters + key terms + APA 7</div>
-    </div>
-  </div>
 
-  <div class="card mb-24">
-    <div class="card-header"><span class="card-icon">🏗️</span><h2>What We Do in Class This Week</h2></div>
-    <div class="card-body">
-      <div class="timeline">
-        <div class="tl-item"><div class="tl-day">Sun<br>Aug 9</div><div class="tl-content"><strong>Day 19 — Group Presentations (Groups 1–5)</strong><p>Each group presents for 10 minutes, followed by 3 minutes of Q&amp;A from peers and the instructor. All students must attend and participate in Q&amp;A regardless of when their group presents.</p></div></div>
-        <div class="tl-item"><div class="tl-day">Mon<br>Aug 10</div><div class="tl-content"><strong>Day 20 — Group Presentations (Groups 6–10)</strong><p>Groups 6–10 present. Instructor provides immediate verbal feedback after each presentation.</p></div></div>
-        <div class="tl-item"><div class="tl-day">Tue<br>Aug 11</div><div class="tl-content"><strong>Day 21 — Full Course Exam Review</strong><p>Instructor-led review of all chapters (Intro–Ch12), key terms, typical exam question types, and APA 7 rules. Open Q&amp;A. Bring questions — this is your last chance before the exam.</p></div></div>
-      </div>
-    </div>
-  </div>
+  <div class="section-label" style="margin-bottom:14px;">Your week, day by day</div>
+  <p class="lead">Class meets Sun–Mon–Tue · 10:00–11:40 AM · Room 3151, College of Languages.</p>
+  <div class="days"><div class="day-card">
+          <div class="day-head"><div class="day-when"><span class="day-dn">Sun</span><span class="day-dt">Aug 9</span></div><span class="day-tag">Presentations</span></div>
+          <div class="day-label">Day 19 — Presentations (Groups 1–6)</div>
+          <div class="day-desc">Groups 1–6 present: 10 minutes plus 3 minutes of Q&amp;A each.</div>
+          <a class="btn btn-outline btn-sm" href="workshop-presentation.html">Presentation rubric →</a>
+        </div><div class="day-card">
+          <div class="day-head"><div class="day-when"><span class="day-dn">Mon</span><span class="day-dt">Aug 10</span></div><span class="day-tag">Presentations</span></div>
+          <div class="day-label">Day 20 — Presentations (Groups 7–11)</div>
+          <div class="day-desc">Groups 7–11 present: 10 minutes plus 3 minutes of Q&amp;A each.</div>
+          <a class="btn btn-outline btn-sm" href="workshop-presentation.html">Presentation rubric →</a>
+        </div><div class="day-card">
+          <div class="day-head"><div class="day-when"><span class="day-dn">Tue</span><span class="day-dt">Aug 11</span></div></div>
+          <div class="day-label">Day 21 — Exam Review</div>
+          <div class="day-desc">All chapters, key terms, sample questions and instructor Q&amp;A before the final.</div>
+          <a class="btn btn-outline btn-sm" href="quiz-final.html">Final Exam Bank →</a>
+        </div></div>
 
-  <div class="card mb-24">
-    <div class="card-header"><span class="card-icon">🎓</span><h2>Exam Preparation — What to Study</h2></div>
-    <div class="card-body">
-      <div class="info-box info-amber mb-20">Final Exam · Aug 16–17 · Individual · Closed book · 50% of grade · Covers all chapters + APA 7</div>
-      <div>
-        <div class="exam-topic"><div class="et-num">1</div><div class="et-content"><strong>What is research? (Intro + Ch1)</strong><p>Definition, types (qualitative, quantitative, mixed, basic, applied), characteristics (systematic, purposeful, rigorous, iterative)</p></div></div>
-        <div class="exam-topic"><div class="et-num">2</div><div class="et-content"><strong>Research paradigms &amp; ethics (Ch2)</strong><p>Positivism, interpretivism, critical paradigm · ontology, epistemology · informed consent, confidentiality, no harm</p></div></div>
-        <div class="exam-topic"><div class="et-num">3</div><div class="et-content"><strong>Research questions, aims, objectives (Ch3)</strong><p>Distinction between aims, objectives, and research questions · scope and feasibility</p></div></div>
-        <div class="exam-topic"><div class="et-num">4</div><div class="et-content"><strong>Literature searching &amp; source evaluation (Ch4)</strong><p>Boolean operators, databases, CRAAP test, primary vs. secondary sources, peer review</p></div></div>
-        <div class="exam-topic"><div class="et-num">5</div><div class="et-content"><strong>APA 7 in-text citation (Ch5)</strong><p>Author-date format, paraphrase vs. direct quote, one author vs. multiple authors vs. et al., page numbers</p></div></div>
-        <div class="exam-topic"><div class="et-num">6</div><div class="et-content"><strong>Literature review structure (Ch6)</strong><p>Thematic, chronological, comparative · critical synthesis · identifying the research gap</p></div></div>
-        <div class="exam-topic"><div class="et-num">7</div><div class="et-content"><strong>APA 7 reference list (Ch7)</strong><p>Journal articles, books, book chapters, websites · hanging indent, sentence case, italics, DOI</p></div></div>
-        <div class="exam-topic"><div class="et-num">8</div><div class="et-content"><strong>Research designs (Ch8)</strong><p>Survey, interview, observation, case study, document analysis · matching design to question</p></div></div>
-        <div class="exam-topic"><div class="et-num">9</div><div class="et-content"><strong>Instrument design (Ch9)</strong><p>Questionnaire design principles · Likert scale · open vs. closed questions · pilot study · interview schedule · probes</p></div></div>
-        <div class="exam-topic"><div class="et-num">10</div><div class="et-content"><strong>Qualitative analysis (Ch10)</strong><p>Thematic analysis steps (familiarise, code, theme, review, define, write up) · coding · saturation</p></div></div>
-        <div class="exam-topic"><div class="et-num">11</div><div class="et-content"><strong>Quantitative analysis (Ch11)</strong><p>Descriptive statistics: frequency, mean, mode, range · tables and charts · labelling figures</p></div></div>
-        <div class="exam-topic"><div class="et-num">12</div><div class="et-content"><strong>Writing up (Ch12 + Conclusion)</strong><p>Report structure (abstract through references) · discussion vs. findings · limitations · recommendations · reflexivity</p></div></div>
-      </div>
-    </div>
-  </div>
+  <div class="section-label">Readings this week</div>
+        <div class="info-box info-amber" style="text-align:left;"><h3>📖 No new reading</h3><p>Revision week — review all 12 chapters and the key terms using the <a href="quiz-final.html" style="font-weight:700;">Final Exam Review Bank</a>.</p></div>
 
-  <div class="card mb-24">
-    <div class="card-header"><span class="card-icon">✅</span><h2>Presentation-Day Checklist</h2></div>
-    <div class="card-body">
-      <ul class="checklist">
-        <li><input type="checkbox" id="p1"><label class="check-label" for="p1">Slides finalised and saved to a USB or cloud link</label></li>
-        <li><input type="checkbox" id="p2"><label class="check-label" for="p2">All group members know their speaking sections</label></li>
-        <li><input type="checkbox" id="p3"><label class="check-label" for="p3">Timed at 10 minutes during dry run</label></li>
-        <li><input type="checkbox" id="p4"><label class="check-label" for="p4">Prepared 2–3 answers for likely Q&amp;A questions</label></li>
-        <li><input type="checkbox" id="p5"><label class="check-label" for="p5">Arrive 10 minutes early to test the projector</label></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="card mb-24" style="background:var(--green);color:#fff;">
-    <div class="card-body" style="padding:24px;">
-      <h3 style="font-size:18px;font-weight:700;margin-bottom:8px;">Good luck, everyone 🎓</h3>
-      <p style="font-size:14px;opacity:.85;line-height:1.6;">You have built a complete research paper from scratch — proposal, literature review, methodology, and analysis — in seven weeks. Come to the exam review on Aug 11 with your questions. Check the <a href="apa-quickref.html" style="color:rgba(255,255,255,.85);font-weight:600;">APA Quick-Ref card</a> one last time before the exam.</p>
-    </div>
-  </div>
+  <div class="section-label" style="margin-bottom:14px;">Practice &amp; workshops this week</div>
+  <div class="prac"><a class="prac-card" href="workshop-presentation.html"><span class="prac-ic">🛠️</span><span class="prac-name">Presentation Workshop</span><span class="prac-go">Open →</span></a><a class="prac-card" href="quiz-final.html"><span class="prac-ic">📝</span><span class="prac-name">Final Exam Review Bank</span><span class="prac-go">Open →</span></a></div>
 
   <div class="week-nav">
     <a href="week6.html">← Week 6</a>
-    <span class="disabled">End of course →</span>
+    <a href="quiz-final.html">Final Exam Bank →</a>
   </div>
 
 </div>
 </div>
+
 <footer>
   <strong>ENG 446 Research Methods</strong> · Week 7 · Qassim University · Summer 2026<br>
-  <a href="index.html">Course Hub</a> · <a href="syllabus.html">Syllabus</a> · <a href="apa-quickref.html">APA 7</a>
+  <a href="index.html">Course Hub</a> · <a href="syllabus.html">Syllabus</a> · <a href="resources.html">Resources</a>
 </footer>
-<script>
-function toggleAcc(header) {
-  const body = header.nextElementSibling;
-  const toggle = header.querySelector('.acc-toggle');
-  const open = body.classList.toggle('open');
-  if (toggle) toggle.style.transform = open ? 'rotate(180deg)' : '';
-}
-</script>
 <script src="site.js" defer></script>
 </body>
 </html>

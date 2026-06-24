@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Week 1 — Foundations | ENG 446</title>
+<title>Week 1 — Foundations &amp; getting a topic | ENG 446</title>
 <link rel="stylesheet" href="../style.css">
-<meta name="description" content="ENG 446 Week 1 reading hub — chapter summaries, key terms, and links to workshops and practice.">
+<meta name="description" content="ENG 446 Week 1 map — Introduction, Chapters 1 &amp; 2; what to do and what is due.">
 <meta name="theme-color" content="#1a6b3c">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -15,15 +15,42 @@
 <meta name="apple-mobile-web-app-title" content="ENG 446">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ENG 446 Research Methods">
-<meta property="og:title" content="Week 1 — Foundations | ENG 446">
-<meta property="og:description" content="ENG 446 Week 1 reading hub — chapter summaries, key terms, and links to workshops and practice.">
+<meta property="og:title" content="Week 1 — Foundations &amp; getting a topic | ENG 446">
+<meta property="og:description" content="ENG 446 Week 1 map — Introduction, Chapters 1 &amp; 2; what to do and what is due.">
 <meta property="og:image" content="https://mohdalatrash-hue.github.io/eng446/icon-512.png">
 <meta property="og:url" content="https://mohdalatrash-hue.github.io/eng446/week1.html">
 <meta name="twitter:card" content="summary">
-<style>body{background:var(--off-white);}</style>
+<style>
+body{background:var(--off-white);}
+.lead{font-size:14px;color:var(--text-2);line-height:1.6;margin:-6px 0 16px;}
+.wk-dots{display:flex;gap:6px;justify-content:center;margin-top:14px;}
+.wk-dot{width:9px;height:9px;border-radius:50%;background:var(--border);}
+.wk-dot.on{background:var(--green);box-shadow:0 0 0 3px rgba(26,107,60,.18);}
+.glance{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:40px;}
+.g-card{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:18px;border-top:3px solid var(--border);}
+.g-read{border-top-color:#0071e3;} .g-do{border-top-color:#7c3aed;} .g-due{border-top-color:#dc2626;}
+.g-ic{font-size:22px;} .g-lab{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin:6px 0 4px;}
+.g-txt{font-size:14px;color:var(--text);line-height:1.5;font-weight:500;}
+.days{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:40px;}
+.day-card{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:16px;display:flex;flex-direction:column;gap:8px;}
+.day-head{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.day-when{display:flex;align-items:baseline;gap:8px;} .day-dn{font-size:14px;font-weight:800;color:var(--green);} .day-dt{font-size:12px;color:var(--text-3);}
+.day-tag{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;background:var(--green-light);color:var(--green-dark);padding:3px 8px;border-radius:var(--r-pill);}
+.day-label{font-size:14px;font-weight:700;color:var(--text);line-height:1.35;}
+.day-desc{font-size:13px;color:var(--text-2);line-height:1.55;flex:1;}
+.day-card .btn{align-self:flex-start;}
+.reads{display:flex;flex-direction:column;gap:10px;margin-bottom:40px;}
+.read-card{background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:16px 18px;border-left:3px solid var(--green);}
+.read-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.read-summ{font-size:13.5px;color:var(--text-2);line-height:1.6;margin-bottom:10px;}
+.prac{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:8px;}
+.prac-card{background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:16px;text-decoration:none;color:var(--text);display:flex;flex-direction:column;gap:4px;transition:box-shadow .15s,transform .1s;}
+.prac-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-1px);text-decoration:none;}
+.prac-ic{font-size:22px;} .prac-name{font-size:14px;font-weight:700;} .prac-go{font-size:12px;color:var(--green);font-weight:600;}
+@media(max-width:680px){.glance,.days{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
-
 <nav class="nav">
   <div class="nav-inner">
     <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
@@ -33,202 +60,69 @@
     <span class="nav-cur">Week 1</span>
     <div class="nav-spacer"></div>
     <div class="nav-links">
+      
       <a class="nav-link" href="week2.html">Week 2 →</a>
-      <a class="nav-link" href="quiz1.html">Practice Bank</a>
     </div>
   </div>
 </nav>
 
-<div class="hero" style="padding-bottom:40px;">
-  <div class="hero-eyebrow">Week 1 · Jun 28–30</div>
-  <h1>Foundations of Research</h1>
-  <p class="hero-sub">Introduction + Chapter 1 + Chapter 2 · Lambert (2012)</p>
-  <div class="hero-meta">
-    <span>Day 1 · Sun Jun 28</span>
-    <span class="hero-meta-dot">·</span>
-    <span>Day 2 · Mon Jun 29</span>
-    <span class="hero-meta-dot">·</span>
-    <span>Quiz 1 · Tue Jun 30 · first 10 min</span>
-  </div>
+<div class="hero" style="padding-bottom:28px;">
+  <div class="hero-eyebrow">Week 1 of 7 · Jun 28–30</div>
+  <h1>Foundations &amp; getting a topic</h1>
+  <p class="hero-sub">Intro + Chapters 1 &amp; 2</p>
+  <div class="wk-dots"><span class="wk-dot on"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span></div>
 </div>
 
-<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-alt" style="padding:8px 0 64px;">
 <div class="section-inner">
 
-  <!-- Quiz Banner -->
-  <div class="card mb-32" style="background:var(--green);border-radius:var(--r-lg);">
-    <div class="card-body" style="display:flex;gap:16px;align-items:flex-start;">
-      <span style="font-size:32px;flex-shrink:0;">⏱️</span>
-      <div>
-        <h3 style="font-size:17px;font-weight:700;color:#fff;margin-bottom:6px;">Quiz 1 — Tuesday Jun 30 · First 10 Minutes</h3>
-        <p style="font-size:14px;color:rgba(255,255,255,.8);margin-bottom:14px;">12 questions on Introduction + Ch1 + Ch2. Covers what research is, research types, paradigms, and ethics. Warm up with the practice bank before class.</p>
-        <a class="btn btn-secondary btn-sm" href="quiz1.html">Open Practice Bank →</a>
-      </div>
+  <div class="section-label" style="margin-bottom:14px;">This week at a glance</div>
+  <div class="glance">
+      <div class="g-card g-read"><div class="g-ic">📖</div><div class="g-lab">Read</div><div class="g-txt">Introduction, Chapters 1 &amp; 2</div></div>
+      <div class="g-card g-do"><div class="g-ic">🛠️</div><div class="g-lab">Do</div><div class="g-txt">Research Design workshop · Quiz 1 (Tue Jun 30)</div></div>
+      <div class="g-card g-due"><div class="g-ic">✅</div><div class="g-lab">Due</div><div class="g-txt">Pick 3 topic ideas; groups assigned — no submission this week</div></div>
     </div>
-  </div>
 
-  <!-- Pre-class checklist -->
-  <div class="card mb-24">
-    <div class="card-header"><span class="card-icon">✅</span><h2>Before You Come to Class</h2></div>
-    <div class="card-body">
-      <ul class="checklist">
-        <li><input type="checkbox" id="c1"><label class="check-label" for="c1">Read the <strong>Introduction</strong> — Why do research? What makes inquiry "systematic"?</label></li>
-        <li><input type="checkbox" id="c2"><label class="check-label" for="c2">Read <strong>Chapter 1</strong> — definition of research, types (qualitative/quantitative, basic/applied), core characteristics</label></li>
-        <li><input type="checkbox" id="c3"><label class="check-label" for="c3">Read <strong>Chapter 2</strong> — research paradigms (positivism, interpretivism, critical) and ethics</label></li>
-        <li><input type="checkbox" id="c4"><label class="check-label" for="c4">Complete the <strong>practice bank</strong> above (ungraded, unlimited retries)</label></li>
-        <li><input type="checkbox" id="c5"><label class="check-label" for="c5">Bring a <strong>research topic idea</strong> — anything you're curious about in language, education, or culture</label></li>
-        <li><input type="checkbox" id="c6"><label class="check-label" for="c6">Join your <strong>assigned group</strong> WhatsApp/Teams before Day 1 (group list posted by instructor)</label></li>
-      </ul>
-    </div>
-  </div>
+  <div class="section-label" style="margin-bottom:14px;">Your week, day by day</div>
+  <p class="lead">Class meets Sun–Mon–Tue · 10:00–11:40 AM · Room 3151, College of Languages.</p>
+  <div class="days"><div class="day-card">
+          <div class="day-head"><div class="day-when"><span class="day-dn">Sun</span><span class="day-dt">Jun 28</span></div></div>
+          <div class="day-label">Day 1 — Course Orientation</div>
+          <div class="day-desc">Syllabus walkthrough, groups announced, pick 3 topic ideas, and a first look at research paradigms.</div>
+          <a class="btn btn-outline btn-sm" href="groups.html">View your group →</a>
+        </div><div class="day-card">
+          <div class="day-head"><div class="day-when"><span class="day-dn">Mon</span><span class="day-dt">Jun 29</span></div></div>
+          <div class="day-label">Day 2 — Research Design Studio</div>
+          <div class="day-desc">Finalise your topic and classify your research type and paradigm.</div>
+          <a class="btn btn-outline btn-sm" href="workshop-design.html">Design workshop →</a>
+        </div><div class="day-card">
+          <div class="day-head"><div class="day-when"><span class="day-dn">Tue</span><span class="day-dt">Jun 30</span></div><span class="day-tag">Quiz 1</span></div>
+          <div class="day-label">Day 3 — Proposal Workshop</div>
+          <div class="day-desc">Quiz 1 in the first 10 minutes, then proposal structure: research questions, rationale, scope.</div>
+          <a class="btn btn-outline btn-sm" href="workshop-proposal.html">Proposal workshop →</a>
+        </div></div>
 
-  <!-- Chapter Summaries -->
-  <div class="card mb-24">
-    <div class="card-header"><span class="card-icon">📖</span><h2>Chapter Summaries</h2></div>
-    <div class="card-body" style="padding-top:8px;">
-      <div class="accordion">
+  <div class="section-label">Readings this week</div>
+        <p class="lead">From Lambert (2012). Skim before class, then revisit the relevant chapter as you work on this week's task.</p>
+        <div class="reads"><div class="read-card">
+              <div class="read-title">Introduction — what research is</div>
+              <div class="read-summ">Research as systematic, evidence-based inquiry; why we do research projects and how to approach them.</div>
+              <div class="terms"><span class="term">research</span><span class="term">systematic inquiry</span><span class="term">evidence</span></div>
+            </div><div class="read-card">
+              <div class="read-title">Ch 1 — Getting started &amp; choosing a topic</div>
+              <div class="read-summ">Turning interest into a workable topic; judging feasibility and scope for a beginner project.</div>
+              <div class="terms"><span class="term">topic</span><span class="term">feasibility</span><span class="term">scope</span><span class="term">motivation</span></div>
+            </div><div class="read-card">
+              <div class="read-title">Ch 2 — Research paradigms &amp; ethics</div>
+              <div class="read-summ">Positivist vs interpretivist worldviews; the ethical duties owed to participants.</div>
+              <div class="terms"><span class="term">positivist</span><span class="term">interpretivist</span><span class="term">paradigm</span><span class="term">informed consent</span><span class="term">anonymity</span><span class="term">confidentiality</span></div>
+            </div></div>
 
-        <div class="acc-item">
-          <div class="acc-header" onclick="toggleAcc(this)">
-            <span class="acc-title">Introduction — Why Research?</span>
-            <span class="acc-right"><span class="badge badge-blue">Intro</span><span class="acc-toggle">▼</span></span>
-          </div>
-          <div class="acc-body">
-            <div class="acc-section">
-              <div class="acc-section-label">Core Idea</div>
-              <p>Lambert opens by distinguishing research from casual curiosity. Research is <em>systematic, purposeful, and rigorous</em> — it follows deliberate procedures designed to produce trustworthy knowledge. The Introduction frames the student project as a learning exercise in the full research process, not a demand for groundbreaking discovery.</p>
-            </div>
-            <div class="acc-section">
-              <div class="acc-section-label">Key Quote</div>
-              <div class="info-box info-green" style="font-style:italic;">"Doing a research project develops skills in planning, carrying out, and reporting an investigation — that is the main goal." <span style="font-style:normal;font-size:12px;opacity:.7;">— Lambert (2012), Introduction (paraphrased)</span></div>
-            </div>
-            <div class="acc-section">
-              <div class="acc-section-label">Key Terms</div>
-              <div class="terms">
-                <span class="term">Systematic inquiry</span>
-                <span class="term">Rigour</span>
-                <span class="term">Purposeful investigation</span>
-                <span class="term">Research project</span>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div class="section-label" style="margin-bottom:14px;">Practice &amp; workshops this week</div>
+  <div class="prac"><a class="prac-card" href="workshop-design.html"><span class="prac-ic">🛠️</span><span class="prac-name">Research Design Workshop</span><span class="prac-go">Open →</span></a><a class="prac-card" href="quiz1.html"><span class="prac-ic">📝</span><span class="prac-name">Week 1 Practice Bank</span><span class="prac-go">Open →</span></a><a class="prac-card" href="resources.html"><span class="prac-ic">📂</span><span class="prac-name">Research Topic Samples</span><span class="prac-go">Open →</span></a></div>
 
-        <div class="acc-item">
-          <div class="acc-header" onclick="toggleAcc(this)">
-            <span class="acc-title">Chapter 1 — What Is Research?</span>
-            <span class="acc-right"><span class="badge badge-green">Ch 1</span><span class="acc-toggle">▼</span></span>
-          </div>
-          <div class="acc-body">
-            <div class="acc-section">
-              <div class="acc-section-label">Core Idea</div>
-              <p>Chapter 1 defines research as <em>systematic inquiry that generates new knowledge or understanding</em>. Lambert distinguishes it from internet browsing by its deliberate, structured approach. It introduces the spectrum of research types.</p>
-            </div>
-            <div class="acc-section">
-              <div class="acc-section-label">Types of Research</div>
-              <ul>
-                <li><strong>Basic / Pure</strong> — builds theoretical knowledge; no immediate practical application</li>
-                <li><strong>Applied</strong> — designed to solve a real-world problem</li>
-                <li><strong>Qualitative</strong> — explores meaning, experience, interpretation; words and themes</li>
-                <li><strong>Quantitative</strong> — measures, counts, tests hypotheses; numbers and statistics</li>
-                <li><strong>Mixed methods</strong> — combines both approaches</li>
-              </ul>
-            </div>
-            <div class="acc-section">
-              <div class="acc-section-label">Characteristics of Good Research</div>
-              <ul>
-                <li><strong>Systematic</strong> — follows structured, transparent procedures</li>
-                <li><strong>Purposeful</strong> — driven by a clear question or aim</li>
-                <li><strong>Rigorous</strong> — evidence-based, not anecdotal or opinion-driven</li>
-                <li><strong>Iterative</strong> — the research cycle loops back; not always linear</li>
-              </ul>
-            </div>
-            <div class="acc-section">
-              <div class="acc-section-label">Key Terms</div>
-              <div class="terms">
-                <span class="term">Research</span><span class="term">Basic research</span><span class="term">Applied research</span>
-                <span class="term">Qualitative</span><span class="term">Quantitative</span><span class="term">Mixed methods</span>
-                <span class="term">Research cycle</span><span class="term">Rigour</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="acc-item">
-          <div class="acc-header" onclick="toggleAcc(this)">
-            <span class="acc-title">Chapter 2 — Paradigms &amp; Ethics</span>
-            <span class="acc-right"><span class="badge badge-amber">Ch 2</span><span class="acc-toggle">▼</span></span>
-          </div>
-          <div class="acc-body">
-            <div class="acc-section">
-              <div class="acc-section-label">What Is a Paradigm?</div>
-              <p>A paradigm is a <em>worldview</em> — shared beliefs about the nature of reality (ontology) and how we can know it (epistemology). It is the invisible framework shaping every research decision you make.</p>
-            </div>
-            <div class="acc-section">
-              <div class="acc-section-label">The Three Main Paradigms</div>
-              <ul>
-                <li><strong>Positivism</strong> — reality is objective and measurable; knowledge comes from observation; favours quantitative methods; researcher stays neutral</li>
-                <li><strong>Interpretivism</strong> — reality is socially constructed and context-dependent; focuses on meaning; favours qualitative methods; researcher acknowledges subjectivity</li>
-                <li><strong>Critical / Transformative</strong> — research should challenge power structures and promote social justice; researcher takes an advocacy stance</li>
-              </ul>
-            </div>
-            <div class="acc-section">
-              <div class="acc-section-label">Core Ethical Principles</div>
-              <ul>
-                <li><strong>Informed consent</strong> — participants understand the study and agree voluntarily</li>
-                <li><strong>Confidentiality</strong> — identities and data are protected; anonymisation used where needed</li>
-                <li><strong>No harm</strong> — physical, psychological, and social risks minimised</li>
-                <li><strong>Honesty</strong> — data reported accurately; no fabrication or deception</li>
-              </ul>
-            </div>
-            <div class="acc-section">
-              <div class="acc-section-label">Key Terms</div>
-              <div class="terms">
-                <span class="term">Paradigm</span><span class="term">Ontology</span><span class="term">Epistemology</span>
-                <span class="term">Positivism</span><span class="term">Interpretivism</span><span class="term">Critical paradigm</span>
-                <span class="term">Informed consent</span><span class="term">Confidentiality</span><span class="term">Ethics</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- Studio Preview -->
-  <div class="card mb-24">
-    <div class="card-header"><span class="card-icon">🏗️</span><h2>What We Do in Class This Week</h2></div>
-    <div class="card-body">
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-day">Sun<br>Jun 28</div>
-          <div class="tl-content">
-            <strong>Day 1 — Course Orientation + Group Formation</strong>
-            <p>Syllabus walkthrough, mark scheme explained, groups announced by instructor. Each group picks 3 possible research topics and discusses which paradigm fits each. Groups register on the <a href="groups.html">group tracker page</a>.</p>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-day">Mon<br>Jun 29</div>
-          <div class="tl-content">
-            <strong>Day 2 — Research Design Studio</strong>
-            <p>Groups finalise their research topic. Class discusses: Is it basic or applied? Qualitative or quantitative? Which paradigm applies? Group submits a one-paragraph "topic snapshot" at the end of class (ungraded — preparation for Proposal due Jul 7).</p>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-day">Tue<br>Jun 30</div>
-          <div class="tl-content">
-            <strong>Day 3 — Quiz 1 + Proposal Workshop</strong>
-            <p>First 10 minutes: Quiz 1 (individual, in Blackboard). Remaining time: instructor-led workshop on writing a research proposal — structure, research questions, scope. Groups begin drafting.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Week nav -->
   <div class="week-nav">
-    <span class="disabled">← No previous week</span>
+    <a href="index.html">← Course hub</a>
     <a href="week2.html">Week 2 →</a>
   </div>
 
@@ -237,17 +131,8 @@
 
 <footer>
   <strong>ENG 446 Research Methods</strong> · Week 1 · Qassim University · Summer 2026<br>
-  <a href="index.html">Course Hub</a> · <a href="syllabus.html">Syllabus</a> · <a href="quiz1.html">Practice Bank</a>
+  <a href="index.html">Course Hub</a> · <a href="syllabus.html">Syllabus</a> · <a href="resources.html">Resources</a>
 </footer>
-
-<script>
-function toggleAcc(header) {
-  const body = header.nextElementSibling;
-  const toggle = header.querySelector('.acc-toggle');
-  const open = body.classList.toggle('open');
-  if (toggle) { toggle.textContent = '▼'; toggle.style.transform = open ? 'rotate(180deg)' : ''; }
-}
-</script>
 <script src="site.js" defer></script>
 </body>
 </html>
