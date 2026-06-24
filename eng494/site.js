@@ -5,6 +5,7 @@
     { href: "workshop-prose.html",   label: "Adult Prose" },
     { href: "workshop-children.html",label: "Children's Lit" },
     { href: "workshop-poetry.html",  label: "Poetry" },
+    { href: "workshop-children-poetry.html", label: "Children's Poetry" },
     { href: "workshop-drama.html",   label: "Drama & Adaptation" },
     { href: "progress.html",         label: "My Progress" }
   ];
