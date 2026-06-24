@@ -23,6 +23,9 @@
 <style>
 body{background:var(--off-white);}
 :root{--ac:#0d9488;--ac-soft:#ecfdf5;--ac-ink:#115e59;}
+.unit-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;}
+.unit-tab{font-size:12px;font-weight:700;padding:6px 12px;border-radius:var(--r-pill);text-decoration:none;border:1.5px solid var(--border);color:var(--text-2);}
+.unit-tab.cur{background:var(--ac);border-color:var(--ac);color:#fff;}
 .tab-bar{display:flex;gap:4px;background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-xs);padding:6px;margin-bottom:28px;flex-wrap:wrap;}
 .tab-btn{flex:1;min-width:120px;padding:10px 14px;border:none;background:transparent;border-radius:var(--r-md);font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;transition:all .15s;}
 .tab-btn:hover{background:var(--off-white);} .tab-btn.active{background:var(--ac);color:#fff;}
@@ -60,12 +63,17 @@ body{background:var(--off-white);}
   </div>
 </nav>
 <div class="hero" style="padding-bottom:34px;">
-  <div class="hero-eyebrow" style="color:var(--ac);">Unit 2 · Children's Literature</div>
+  <div class="hero-eyebrow" style="color:var(--ac);">Children's Literature · Article 3 of 3</div>
   <h1>Multimodality &amp; Sound</h1>
-  <p class="hero-sub">In children's books, words share the work with pictures and sounds. Learn the challenges, then translate playful, sound-rich text.</p>
+  <p class="hero-sub">In children's books, words share the work with pictures and sounds. Learn the challenges, then translate playful, sound-rich text. Based on Lathey (2016), Ch. 3.</p>
 </div>
 <div class="section-alt" style="padding:0 0 64px;">
 <div class="section-inner">
+  <div class="unit-tabs">
+    <a class="unit-tab" href="workshop-children-narrative.html">1 · Narrative Voice</a>
+    <a class="unit-tab" href="workshop-children-dialogue.html">2 · Dialogue &amp; Dialect</a>
+    <a class="unit-tab cur" href="workshop-children.html">3 · Multimodality &amp; Sound</a>
+  </div>
   <div class="info-box info-amber mb-24" style="text-align:left;">
     <h3>🧸 What makes children's translation special</h3>
     <p>The translator juggles three things at once — <em>source words</em>, <em>target words</em>, and <em>pictures</em> (Hoole noticed this tension back in 1659). Add onomatopoeia, signs drawn inside images, and a child-friendly voice that must still be read aloud well.</p>

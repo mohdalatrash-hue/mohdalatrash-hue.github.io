@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Children's Lit · Narrative Voice | ENG 494</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="ENG 494 workshop on narrative communication with the child reader — narratorial voice, single vs double address, and translating a child-directed narrator into Arabic.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 494">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 494 Literary Translation">
+<meta property="og:title" content="Children's Lit · Narrative Voice | ENG 494">
+<meta property="og:description" content="Narratorial voice, single vs double address, and translating a child-directed narrator into Arabic.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng494/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng494/workshop-children-narrative.html">
+<meta name="twitter:card" content="summary">
+<style>
+body{background:var(--off-white);}
+:root{--ac:#059669;--ac-soft:#ecfdf5;--ac-ink:#065f46;}
+.tab-bar{display:flex;gap:4px;background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-xs);padding:6px;margin-bottom:28px;flex-wrap:wrap;}
+.tab-btn{flex:1;min-width:120px;padding:10px 14px;border:none;background:transparent;border-radius:var(--r-md);font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;transition:all .15s;}
+.tab-btn:hover{background:var(--off-white);} .tab-btn.active{background:var(--ac);color:#fff;}
+.tab-panel{display:none;} .tab-panel.active{display:block;}
+.ex-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:24px;margin-bottom:20px;}
+.ex-num{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);margin-bottom:8px;}
+.ex-opt{padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:14px;cursor:pointer;transition:all .15s;background:var(--white);color:var(--text);text-align:left;display:block;width:100%;margin-bottom:8px;}
+.ex-opt:hover{border-color:var(--text-2);}
+.ex-opt.correct-ans{border-color:#30d158;background:#f0fff4;color:#1a7f45;} .ex-opt.correct-ans::after{content:" ✓";font-weight:800;}
+.ex-opt.wrong-ans{border-color:#e53935;background:#fef2f2;color:#c0392b;} .ex-opt.wrong-ans::after{content:" ✗";font-weight:800;}
+.ex-feedback{margin-top:14px;padding:12px 16px;border-radius:var(--r-md);font-size:13px;line-height:1.7;display:none;} .ex-feedback.show{display:block;}
+.fb-correct{background:#f0fff4;border:1px solid #a2d9b0;color:#14532d;} .fb-wrong{background:#fef2f2;border:1px solid #fca5a5;color:#7f1d1d;}
+.tip-box{background:var(--ac-soft);border:1.5px solid #a7f3d0;border-radius:var(--r-md);padding:14px 16px;font-size:13px;line-height:1.7;color:var(--ac-ink);margin-bottom:20px;} .tip-box strong{color:var(--ac);}
+.prog-bar-wrap{height:6px;background:var(--off-white);border-radius:var(--r-pill);margin-bottom:24px;overflow:hidden;} .prog-bar{height:100%;background:var(--ac);border-radius:var(--r-pill);transition:width .4s;}
+.score-summary{text-align:center;padding:32px 20px;} .score-big{font-size:56px;font-weight:800;color:var(--ac);line-height:1;margin-bottom:8px;} .score-sub{font-size:14px;color:var(--text-2);}
+.excerpt{background:var(--off-white);border-left:3px solid var(--ac);padding:14px 16px;border-radius:0 var(--r-md) var(--r-md) 0;font-size:14px;line-height:1.85;color:var(--text);margin-bottom:10px;font-family:Georgia,serif;}
+.excerpt .cite{display:block;font-family:var(--font);font-size:11px;font-weight:700;color:var(--ac-ink);margin-top:8px;text-transform:none;}
+.tp-input{width:100%;min-height:110px;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:15px;font-family:inherit;line-height:1.9;direction:rtl;text-align:right;resize:vertical;} .tp-input:focus{outline:none;border-color:var(--ac);}
+.tp-reveal{display:none;margin-top:16px;padding:16px;border-radius:var(--r-md);background:var(--ac-soft);border:1px solid #a7f3d0;font-size:13.5px;line-height:1.7;color:var(--text);} .tp-reveal.show{display:block;}
+.tp-reveal h4{font-size:13px;font-weight:800;color:var(--ac-ink);text-transform:uppercase;letter-spacing:.05em;margin:12px 0 6px;} .tp-reveal h4:first-child{margin-top:0;}
+.checklist2{list-style:none;padding:0;margin:6px 0 0;} .checklist2 li{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.6;margin-bottom:5px;} .checklist2 li::before{content:"☐";color:var(--ac);font-weight:800;}
+.src-note{font-size:12px;color:var(--text-3);margin-top:8px;}
+.unit-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;}
+.unit-tab{font-size:12px;font-weight:700;padding:6px 12px;border-radius:var(--r-pill);text-decoration:none;border:1.5px solid var(--border);color:var(--text-2);}
+.unit-tab.cur{background:var(--ac);border-color:var(--ac);color:#fff;}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 494</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Narrative Voice</span>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:28px;">
+  <div class="hero-eyebrow" style="color:var(--ac);">Children's Literature · Article 1 of 3</div>
+  <h1>Narrative Voice &amp; the Child Reader</h1>
+  <p class="hero-sub">Before a word is translated, hear who is telling the story — and to whom. Based on Lathey (2016), Ch. 1.</p>
+</div>
+<div class="section-alt" style="padding:8px 0 64px;">
+<div class="section-inner">
+  <div class="unit-tabs">
+    <a class="unit-tab cur" href="workshop-children-narrative.html">1 · Narrative Voice</a>
+    <a class="unit-tab" href="workshop-children-dialogue.html">2 · Dialogue &amp; Dialect</a>
+    <a class="unit-tab" href="workshop-children.html">3 · Multimodality &amp; Sound</a>
+  </div>
+  <div class="info-box info-amber mb-24" style="text-align:left;">
+    <h3>🗣️ Telling a story TO a child</h3>
+    <p>Lathey: writing (and translating) for children is "adult-to-child communication." Oittinen calls it an <em>imaginary dialogue</em> with the child reader — the translator must reach the child of the <em>target</em> culture. Your first job is to preserve that relationship, not just the words.</p>
+  </div>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('voice',this)">🎙️ The Narrator's Voice</button>
+    <button class="tab-btn" onclick="switchTab('address',this)">👥 Modes of Address</button>
+    <button class="tab-btn" onclick="switchTab('translate',this)">✍️ Translate It</button>
+    <button class="tab-btn" onclick="switchTab('quiz',this)">📝 Quiz</button>
+  </div>
+  <div id="tab-voice" class="tab-panel active">
+    <div class="tip-box"><strong>The storytelling voice</strong> is tuned to a young reader — its warmth, simplicity, humour and rhythm are part of the meaning. Flatten it into neutral adult prose and the book stops speaking to children.</div>
+    <div id="voice-qs"></div>
+  </div>
+  <div id="tab-address" class="tab-panel">
+    <div class="tip-box"><strong>Barbara Wall (1991)</strong> distinguished how narrators address the reader: <em>single address</em> (speaking to the child alone), <em>double address</em> (winking over the child's head to adults), and the older <em>distant, didactic narrator</em> who lectures or "civilizes." The translator must keep the same stance.</div>
+    <div id="address-qs"></div>
+  </div>
+  <div id="tab-translate" class="tab-panel">
+    <div class="tip-box"><strong>Translate the voice, not just the sense.</strong> Keep the narrator's relationship with the child — the direct address, the warmth, the rhythm. Type your version, then reveal the notes.</div>
+    <div id="translate-tasks"></div>
+  </div>
+  <div id="tab-quiz" class="tab-panel">
+    <div class="prog-bar-wrap"><div class="prog-bar" id="aq-prog" style="width:0%"></div></div>
+    <div id="aq-container"></div>
+    <div id="aq-score" class="score-summary" style="display:none;"></div>
+  </div>
+</div>
+</div>
+<footer><strong>ENG 494 Literary Translation</strong> · Children's Lit · Narrative · Qassim University<br><a href="index.html">Course Hub</a> · <a href="workshop-children-dialogue.html">Next: Dialogue & Dialect →</a></footer>
+<script>
+function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
+var MCQ={};
+function mount(cid,items){MCQ[cid]=items;document.getElementById(cid).innerHTML=items.map((q,qi)=>`<div class="ex-card">${q.pre||''}<div style="font-size:14px;font-weight:600;margin:6px 0 10px;">${q.q}</div>${q.opts.map((o,oi)=>`<button class="ex-opt" id="${cid}-${qi}-${oi}" onclick="ans('${cid}',${qi},${oi})">${o}</button>`).join('')}<div class="ex-feedback" id="${cid}-fb-${qi}"></div></div>`).join('');}
+function ans(cid,qi,ch){var q=MCQ[cid][qi];if(document.getElementById(`${cid}-${qi}-0`).disabled)return;q.opts.forEach((_,oi)=>{var b=document.getElementById(`${cid}-${qi}-${oi}`);b.disabled=true;if(oi===q.ans)b.classList.add('correct-ans');else if(oi===ch&&ch!==q.ans)b.classList.add('wrong-ans');});var fb=document.getElementById(`${cid}-fb-${qi}`);fb.className='ex-feedback show '+(ch===q.ans?'fb-correct':'fb-wrong');fb.innerHTML=q.why;}
+
+mount('voice-qs',[
+ {q:"Oittinen describes translating for children as:",opts:["A purely mechanical word-swap","An imaginary dialogue with the child reader, re-experiencing childhood","Writing only for the parents who buy the book","Simplifying every text as much as possible"],ans:1,why:"For Oittinen the translator enters an imaginary dialogue with the child and re-experiences childhood, reaching the child of the target culture — not just transferring words."},
+ {q:"A translator renders a warm, playful narrator into flat, neutral adult prose. The main loss is:",opts:["Nothing — the facts are intact","The storytelling voice that makes the book speak to a child","Only the page count","The author's name"],ans:1,why:"The voice (warmth, humour, rhythm) is part of the meaning for a child reader. Neutralising it betrays the book even if every fact survives."},
+ {q:"Why must the translator think about the TARGET-culture child specifically?",opts:["Children are the same everywhere","Because the imaginary dialogue must reach a child reading in Arabic, with their own references and rhythms","Only the source child matters","Culture is irrelevant in children's books"],ans:1,why:"Oittinen stresses reaching the child of the target culture — the Arabic-reading child's references, humour and read-aloud rhythms must be served."}
+]);
+mount('address-qs',[
+ {pre:`<div class="excerpt">In the High and Far-Off Times the Elephant, O Best Beloved, had no trunk. He had only a blackish, bulgy nose, as big as a boot, that he could wriggle about from side to side.<span class="cite">— Rudyard Kipling, "The Elephant's Child," Just So Stories (1902), public domain</span></div>`,q:"\"O Best Beloved\" speaks directly and only to the child listener. In Wall's terms this is:",opts:["Double address (winking to adults)","Single address (to the child alone)","A distant didactic narrator","No address at all"],ans:1,why:"The intimate direct address to the child ('O Best Beloved') is single address. Your Arabic must keep that tender, direct relationship — e.g. a vocative to the child."},
+ {q:"A pre-twentieth-century narrator who lectures the child on good behaviour ('and so the naughty boy was punished') is:",opts:["A single-address playmate","A distant, didactic narrator","A double-address comedian","An unreliable narrator"],ans:1,why:"The moralising, socializing narrator is the older distant/didactic mode Wall describes. A translator must not accidentally make a warm modern narrator sound preachy — or vice versa."},
+ {q:"'Double address' means the narrator:",opts:["Speaks twice","Addresses the child openly while winking over their head to the adult reader","Uses two languages","Repeats every sentence"],ans:1,why:"Double address layers a second meaning for the adult co-reader (the parent reading aloud). Keeping or losing that wink is a real translation decision."}
+]);
+
+var TASKS=[
+ {title:"Kipling — single address ('O Best Beloved')",
+  text:`In the High and Far-Off Times the Elephant, O Best Beloved, had no trunk. He had only a blackish, bulgy nose, as big as a boot.`,
+  cite:"Kipling, Just So Stories (1902) · public domain",
+  challenges:"The tender direct address to the child ('O Best Beloved') and the mock-grand, sing-song narrator's rhythm. Drop the address or the rhythm and the intimacy dies.",
+  strategy:"Keep a vocative to the child (an Arabic equivalent of 'O Best Beloved', e.g. «يا أَعَزَّ الأحباب» / «يا حبيبي الصغير»), preserve the playful storyteller cadence, and keep the comic 'nose as big as a boot' image. Read it aloud as if to a child.",
+  sample:"«في الأزمانِ القديمةِ السحيقة، يا أَعَزَّ الأحباب، لم يكن للفيلِ خُرطوم؛ بل أنفٌ داكنٌ منتفخٌ كبيرٌ كالحذاء.»",
+  sampleNote:"(Your vocative for 'O Best Beloved' may differ — keep it warm and direct to the child.)",
+  check:["Did you keep a direct address to the child (vocative)?","Is the playful, sing-song narrator's rhythm preserved?","Is the comic image (nose like a boot) kept?","Does it sound right read aloud to a child?"]},
+ {title:"Carroll — the narrator's gentle intimacy",
+  text:`Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do.`,
+  cite:"Lewis Carroll, Alice's Adventures in Wonderland (1865) · public domain",
+  challenges:"A quiet, intimate narrator who sympathises with a bored child. The register is gentle and close — not formal or distant.",
+  strategy:"Use a warm, simple Arabic narration that stays at the child's eye level. Avoid stiff فصحى that would make the narrator sound like a textbook; keep the empathy with Alice's boredom.",
+  sample:"«كانت أليس قد بدأت تَمَلُّ مَلَلًا شديدًا من جلوسها إلى جانب أختها على الضفّة، ومن أن لا شيء لديها تفعله.»",
+  sampleNote:"(Keep it gentle and close to the child's feeling — not distant or formal.)",
+  check:["Is the narrator warm and close, not distant/formal?","Is the child's boredom conveyed with empathy?","Is the register simple and child-appropriate?","Does the sentence flow naturally when read aloud?"]}
+];
+function initTasks(){document.getElementById('translate-tasks').innerHTML=TASKS.map((t,i)=>`<div class="ex-card"><div class="ex-num">${t.title}</div><div class="excerpt">${t.text}<span class="cite">— ${t.cite}</span></div><p style="font-size:13px;color:var(--text-2);margin:8px 0 6px;">Type your Arabic translation:</p><textarea class="tp-input" id="tp-${i}" placeholder="اكتب ترجمتك هنا…"></textarea><button class="btn btn-primary btn-sm" style="margin-top:12px;background:var(--ac);" onclick="reveal(${i})">Reveal translator's notes →</button><div class="tp-reveal" id="tp-rev-${i}"><h4>The challenge</h4><div>${t.challenges}</div><h4>Recommended approach</h4><div>${t.strategy}</div><h4>A possible rendering</h4><div style="direction:rtl;text-align:right;background:var(--white);border-radius:var(--r-sm);padding:10px 12px;margin-top:4px;line-height:1.9;">${t.sample}</div><div class="src-note">${t.sampleNote}</div><h4>Check your version</h4><ul class="checklist2">${t.check.map(c=>`<li>${c}</li>`).join('')}</ul></div></div>`).join('');}
+function reveal(i){document.getElementById('tp-rev-'+i).classList.add('show');}
+
+var AQ=[
+ {q:"Translating for children is best described (Oittinen/Lathey) as:",opts:["A neutral transfer of facts","Adult-to-child communication / an imaginary dialogue with the child reader","Writing for parents","Always simplifying"],ans:1,fb:"It is adult-to-child communication; the translator enters a dialogue with the child of the target culture."},
+ {q:"Kipling's 'O Best Beloved' is an example of Wall's:",opts:["Double address","Single address","Distant didactic narrator","Unreliable narrator"],ans:1,fb:"Single address — the narrator speaks intimately and directly to the child alone."},
+ {q:"A risk when translating an older children's narrator is accidentally making it sound:",opts:["Too warm","Preachy/didactic (or, conversely, flattening a didactic tone)","Too short","Too colourful"],ans:1,fb:"You must keep the narrator's actual stance — neither inventing a moralising tone nor erasing one that's there."},
+ {q:"'Double address' adds a layer of meaning aimed at:",opts:["The child only","The adult co-reader (e.g. the parent reading aloud)","The translator","The publisher"],ans:1,fb:"Double address winks over the child's head to the adult — keeping or losing that wink is a real choice."},
+ {q:"The single most important thing to preserve in a child-directed narrator is:",opts:["The exact word order","The narrator's voice and relationship with the child reader","The original font","The page count"],ans:1,fb:"The voice and the narrator-child relationship carry the book's meaning for a young reader."}
+];
+var aqi=0,aqs=0,aqd=false;
+function rAQ(){if(aqi>=AQ.length){sAQ();return;}var q=AQ[aqi];document.getElementById('aq-prog').style.width=(aqi/AQ.length*100)+'%';document.getElementById('aq-container').innerHTML=`<div class="ex-card"><div class="ex-num">Question ${aqi+1} of ${AQ.length}</div><div class="ex-q">${q.q}</div><div id="aq-opts">${q.opts.map((o,i)=>`<button class="ex-opt" onclick="aAQ(${i})">${o}</button>`).join('')}</div><div class="ex-feedback" id="aq-fb"></div><div><button class="btn btn-primary btn-sm" id="aq-next" style="display:none;margin-top:14px;background:var(--ac);" onclick="nAQ()">Next →</button></div></div>`;aqd=false;}
+function aAQ(i){if(aqd)return;aqd=true;var q=AQ[aqi];document.querySelectorAll('#aq-opts .ex-opt').forEach((b,j)=>{b.disabled=true;if(j===q.ans)b.classList.add('correct-ans');else if(j===i&&i!==q.ans)b.classList.add('wrong-ans');});if(i===q.ans)aqs++;var fb=document.getElementById('aq-fb');fb.innerHTML=q.fb;fb.className='ex-feedback show '+(i===q.ans?'fb-correct':'fb-wrong');document.getElementById('aq-next').style.display='inline-block';}
+function nAQ(){aqi++;rAQ();}
+function sAQ(){document.getElementById('aq-prog').style.width='100%';document.getElementById('aq-container').style.display='none';var pct=Math.round(aqs/AQ.length*100);document.getElementById('aq-score').style.display='block';document.getElementById('aq-score').innerHTML=`<div class="score-big">${pct}%</div><div class="score-sub">${aqs}/${AQ.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct>=80?'You hear the narrator before you translate.':'Revisit the Voice and Address tabs.'}</p><button class="btn btn-primary" style="background:var(--ac);" onclick="reAQ()">Retry</button>`;}
+function reAQ(){aqi=0;aqs=0;document.getElementById('aq-container').style.display='block';document.getElementById('aq-score').style.display='none';rAQ();}
+initTasks();rAQ();
+</script>
+<script src="track.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>

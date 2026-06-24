@@ -3,7 +3,9 @@
   var LINKS = [
     { href: "index.html",            label: "Course Hub" },
     { href: "workshop-prose.html",   label: "Adult Prose" },
-    { href: "workshop-children.html",label: "Children's Lit" },
+    { href: "workshop-children-narrative.html", label: "Children's: Narrative" },
+    { href: "workshop-children-dialogue.html",  label: "Children's: Dialogue" },
+    { href: "workshop-children.html",label: "Children's: Multimodality" },
     { href: "workshop-poetry.html",  label: "Poetry" },
     { href: "workshop-children-poetry.html", label: "Children's Poetry" },
     { href: "workshop-drama.html",   label: "Drama & Adaptation" },

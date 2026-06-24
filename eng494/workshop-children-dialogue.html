@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Children's Lit · Dialogue & Dialect | ENG 494</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="ENG 494 workshop on translating dialogue and dialect in children's literature — child voices, slang that dates, register and politeness, with translation practice on public-domain child speech.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 494">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 494 Literary Translation">
+<meta property="og:title" content="Children's Lit · Dialogue & Dialect | ENG 494">
+<meta property="og:description" content="Child voices, slang that dates, register and politeness, with translation practice on child speech.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng494/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng494/workshop-children-dialogue.html">
+<meta name="twitter:card" content="summary">
+<style>
+body{background:var(--off-white);}
+:root{--ac:#0891b2;--ac-soft:#ecfeff;--ac-ink:#155e75;}
+.tab-bar{display:flex;gap:4px;background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-xs);padding:6px;margin-bottom:28px;flex-wrap:wrap;}
+.tab-btn{flex:1;min-width:120px;padding:10px 14px;border:none;background:transparent;border-radius:var(--r-md);font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;transition:all .15s;}
+.tab-btn:hover{background:var(--off-white);} .tab-btn.active{background:var(--ac);color:#fff;}
+.tab-panel{display:none;} .tab-panel.active{display:block;}
+.ex-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:24px;margin-bottom:20px;}
+.ex-num{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);margin-bottom:8px;}
+.ex-opt{padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:14px;cursor:pointer;transition:all .15s;background:var(--white);color:var(--text);text-align:left;display:block;width:100%;margin-bottom:8px;}
+.ex-opt:hover{border-color:var(--text-2);}
+.ex-opt.correct-ans{border-color:#30d158;background:#f0fff4;color:#1a7f45;} .ex-opt.correct-ans::after{content:" ✓";font-weight:800;}
+.ex-opt.wrong-ans{border-color:#e53935;background:#fef2f2;color:#c0392b;} .ex-opt.wrong-ans::after{content:" ✗";font-weight:800;}
+.ex-feedback{margin-top:14px;padding:12px 16px;border-radius:var(--r-md);font-size:13px;line-height:1.7;display:none;} .ex-feedback.show{display:block;}
+.fb-correct{background:#f0fff4;border:1px solid #a2d9b0;color:#14532d;} .fb-wrong{background:#fef2f2;border:1px solid #fca5a5;color:#7f1d1d;}
+.tip-box{background:var(--ac-soft);border:1.5px solid #a5f3fc;border-radius:var(--r-md);padding:14px 16px;font-size:13px;line-height:1.7;color:var(--ac-ink);margin-bottom:20px;} .tip-box strong{color:var(--ac);}
+.prog-bar-wrap{height:6px;background:var(--off-white);border-radius:var(--r-pill);margin-bottom:24px;overflow:hidden;} .prog-bar{height:100%;background:var(--ac);border-radius:var(--r-pill);transition:width .4s;}
+.score-summary{text-align:center;padding:32px 20px;} .score-big{font-size:56px;font-weight:800;color:var(--ac);line-height:1;margin-bottom:8px;} .score-sub{font-size:14px;color:var(--text-2);}
+.excerpt{background:var(--off-white);border-left:3px solid var(--ac);padding:14px 16px;border-radius:0 var(--r-md) var(--r-md) 0;font-size:14px;line-height:1.85;color:var(--text);margin-bottom:10px;font-family:Georgia,serif;}
+.excerpt .cite{display:block;font-family:var(--font);font-size:11px;font-weight:700;color:var(--ac-ink);margin-top:8px;text-transform:none;}
+.tp-input{width:100%;min-height:110px;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:15px;font-family:inherit;line-height:1.9;direction:rtl;text-align:right;resize:vertical;} .tp-input:focus{outline:none;border-color:var(--ac);}
+.tp-reveal{display:none;margin-top:16px;padding:16px;border-radius:var(--r-md);background:var(--ac-soft);border:1px solid #a5f3fc;font-size:13.5px;line-height:1.7;color:var(--text);} .tp-reveal.show{display:block;}
+.tp-reveal h4{font-size:13px;font-weight:800;color:var(--ac-ink);text-transform:uppercase;letter-spacing:.05em;margin:12px 0 6px;} .tp-reveal h4:first-child{margin-top:0;}
+.checklist2{list-style:none;padding:0;margin:6px 0 0;} .checklist2 li{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.6;margin-bottom:5px;} .checklist2 li::before{content:"☐";color:var(--ac);font-weight:800;}
+.src-note{font-size:12px;color:var(--text-3);margin-top:8px;}
+.unit-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;}
+.unit-tab{font-size:12px;font-weight:700;padding:6px 12px;border-radius:var(--r-pill);text-decoration:none;border:1.5px solid var(--border);color:var(--text-2);}
+.unit-tab.cur{background:var(--ac);border-color:var(--ac);color:#fff;}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 494</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Dialogue &amp; Dialect</span>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:28px;">
+  <div class="hero-eyebrow" style="color:var(--ac);">Children's Literature · Article 2 of 3</div>
+  <h1>Dialogue &amp; Dialect</h1>
+  <p class="hero-sub">Children's books live in their voices — toddler lisp to teen slang. Render speech that is convincing, age-right, and won't date. Based on Lathey (2016), Ch. 4.</p>
+</div>
+<div class="section-alt" style="padding:8px 0 64px;">
+<div class="section-inner">
+  <div class="unit-tabs">
+    <a class="unit-tab" href="workshop-children-narrative.html">1 · Narrative Voice</a>
+    <a class="unit-tab cur" href="workshop-children-dialogue.html">2 · Dialogue &amp; Dialect</a>
+    <a class="unit-tab" href="workshop-children.html">3 · Multimodality &amp; Sound</a>
+  </div>
+  <div class="info-box info-amber mb-24" style="text-align:left;">
+    <h3>💬 Why dialogue is the hard part</h3>
+    <p>Lathey: dialogue drives character and plot and gives young readers respite from description. Hirano notes conversation often needs <em>more ingenuity than descriptive passages</em>. You must build a convincing young vernacular in Arabic — and avoid slang that will sound dated by next year.</p>
+  </div>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('voices',this)">🧒 Child Voices</button>
+    <button class="tab-btn" onclick="switchTab('slang',this)">⏳ Slang &amp; Register</button>
+    <button class="tab-btn" onclick="switchTab('translate',this)">✍️ Translate It</button>
+    <button class="tab-btn" onclick="switchTab('quiz',this)">📝 Quiz</button>
+  </div>
+  <div id="tab-voices" class="tab-panel active">
+    <div class="tip-box"><strong>The range of child voices:</strong> a toddler's lisping inaccuracies, a schoolchild's chatter, a teenager's fashionable slang, regional/urban dialect, and migrant children's heritage-language accents. Each needs a different Arabic solution.</div>
+    <div id="voices-qs"></div>
+  </div>
+  <div id="tab-slang" class="tab-panel">
+    <div class="tip-box"><strong>Slang dates fast.</strong> Very trendy slang locks a translation to one moment. Aim for a lively but durable young register, and handle politeness/familiarity (which Arabic marks differently from English) with care.</div>
+    <div id="slang-qs"></div>
+  </div>
+  <div id="tab-translate" class="tab-panel">
+    <div class="tip-box"><strong>Translate the talk.</strong> Give each child a believable Arabic voice — spoken, age-appropriate, in character. Type your version, then reveal the notes.</div>
+    <div id="translate-tasks"></div>
+  </div>
+  <div id="tab-quiz" class="tab-panel">
+    <div class="prog-bar-wrap"><div class="prog-bar" id="aq-prog" style="width:0%"></div></div>
+    <div id="aq-container"></div>
+    <div id="aq-score" class="score-summary" style="display:none;"></div>
+  </div>
+</div>
+</div>
+<footer><strong>ENG 494 Literary Translation</strong> · Children's Lit · Dialogue &amp; Dialect · Qassim University<br><a href="index.html">Course Hub</a> · <a href="workshop-children.html">Next: Multimodality →</a></footer>
+<script>
+function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
+var MCQ={};
+function mount(cid,items){MCQ[cid]=items;document.getElementById(cid).innerHTML=items.map((q,qi)=>`<div class="ex-card">${q.pre||''}<div style="font-size:14px;font-weight:600;margin:6px 0 10px;">${q.q}</div>${q.opts.map((o,oi)=>`<button class="ex-opt" id="${cid}-${qi}-${oi}" onclick="ans('${cid}',${qi},${oi})">${o}</button>`).join('')}<div class="ex-feedback" id="${cid}-fb-${qi}"></div></div>`).join('');}
+function ans(cid,qi,ch){var q=MCQ[cid][qi];if(document.getElementById(`${cid}-${qi}-0`).disabled)return;q.opts.forEach((_,oi)=>{var b=document.getElementById(`${cid}-${qi}-${oi}`);b.disabled=true;if(oi===q.ans)b.classList.add('correct-ans');else if(oi===ch&&ch!==q.ans)b.classList.add('wrong-ans');});var fb=document.getElementById(`${cid}-fb-${qi}`);fb.className='ex-feedback show '+(ch===q.ans?'fb-correct':'fb-wrong');fb.innerHTML=q.why;}
+
+mount('voices-qs',[
+ {q:"Hirano argues that translating children's CONVERSATION often requires:",opts:["Less effort than description","More ingenuity than descriptive passages","No special attention","Only a dictionary"],ans:1,why:"Spoken exchanges carry character, humour, politeness and age — Hirano says they often demand more ingenuity than narration or description."},
+ {q:"A toddler in the source text speaks with lisping, charming inaccuracies. The best Arabic approach is to:",opts:["Correct the grammar so it's 'proper'","Recreate believable small-child speech in Arabic (simple, slightly imperfect, endearing)","Translate it as adult speech","Add a footnote"],ans:1,why:"Cleaning up the child's voice erases characterisation. Recreate age-appropriate toddler speech in Arabic — the charm of the inaccuracy, not a grammar lesson."},
+ {q:"A child character speaks an English regional/urban dialect. Since Arabic can't copy English phonetics, you should:",opts:["Spell Arabic 'wrong' to fake the accent","Compensate with a suitable spoken/colloquial Arabic register for that child","Make the child speak formal فصحى","Delete the dialect"],ans:1,why:"As in adult prose, compensate at the level of register: give the child a fitting colloquial Arabic voice rather than misspelling فصحى or neutralising the dialect."}
+]);
+mount('slang-qs',[
+ {q:"Why is very trendy teen slang risky to translate literally?",opts:["It is too formal","It dates quickly, freezing the book to one moment","It is always offensive","It cannot be pronounced"],ans:1,why:"Cult slang changes fast. A too-specific rendering sounds dated within a year; aim for a lively but durable youthful register."},
+ {q:"English politeness and Arabic politeness are marked differently. The translator should:",opts:["Ignore politeness","Re-create the right degree of politeness/familiarity for each relationship in Arabic","Always use the most formal form","Use English forms"],ans:1,why:"Register and civility differ by language (Hirano's Japanese example). Match the social relationship — a child to a parent, a peer, a stranger — with the appropriate Arabic level."},
+ {q:"A convincing young vernacular in Arabic is best built by:",opts:["Copying adult speech","Listening to how children and teens actually talk and choosing a natural, age-right spoken register","Using only classical Arabic","Inventing random words"],ans:1,why:"Authentic child/teen voice comes from real speech patterns, rendered in a natural Arabic spoken register that fits the age and situation."}
+]);
+
+var TASKS=[
+ {title:"Tom Sawyer — boyish bargaining",
+  text:`"Say, Tom, let me whitewash a little." ... "No, no, I reckon it wouldn't hardly do, Ben. You see, Aunt Polly's awful particular about this fence."`,
+  cite:"Mark Twain, The Adventures of Tom Sawyer (1876) · public domain",
+  challenges:"Two boys' casual, scheming talk — 'Say,' 'I reckon,' 'awful particular.' It must sound like real boys speaking, not a formal exchange.",
+  strategy:"Give both boys a natural Arabic spoken register (light colloquial), keep the wheedling/sly tone, and render the casual fillers ('Say,' 'I reckon') with their Arabic conversational equivalents — not literal calques.",
+  sample:"«قول يا توم، خلّيني أطليّ شويّة.» … «لا لا، أظنّها ما تنفع يا بن. تعرف، خالتي بولي دقيقة جدًّا في السياج ذا.»",
+  sampleNote:"(One colloquial option — your dialect/register choice may differ; keep it boyish and natural.)",
+  check:["Do both boys sound like real children speaking?","Is the casual, scheming tone kept?","Did you render fillers naturally (not literally)?","Is the register spoken, not formal فصحى?"]},
+ {title:"Alice — a child's exclamation",
+  text:`"Curiouser and curiouser!" cried Alice (she was so much surprised, that for the moment she quite forgot how to speak good English).`,
+  cite:"Lewis Carroll, Alice in Wonderland (1865) · public domain",
+  challenges:"Alice's delighted grammatical 'mistake' ('curiouser') IS the joke — and the narrator winks at it. A 'correct' Arabic translation would erase the playful error.",
+  strategy:"Coin a charming Arabic over-comparative or playful error that a surprised child might blurt, and keep the narrator's gentle wink about forgetting 'good' language. Recreate the mistake, don't correct it.",
+  sample:"«أعجبُ فأعجب!» صاحت أليس (وقد دُهشت حتى نسيت للحظةٍ كيف تتكلّم بعربيّةٍ سليمة).",
+  sampleNote:"(Invent a playful 'wrong' form like «أعجبُ فأعجب» — keep the error and the narrator's wink.)",
+  check:["Did you recreate a playful child's error (not correct it)?","Is Alice's delight/surprise audible?","Did you keep the narrator's gentle wink?","Is it natural enough for a child to exclaim aloud?"]}
+];
+function initTasks(){document.getElementById('translate-tasks').innerHTML=TASKS.map((t,i)=>`<div class="ex-card"><div class="ex-num">${t.title}</div><div class="excerpt">${t.text}<span class="cite">— ${t.cite}</span></div><p style="font-size:13px;color:var(--text-2);margin:8px 0 6px;">Type your Arabic translation:</p><textarea class="tp-input" id="tp-${i}" placeholder="اكتب ترجمتك هنا…"></textarea><button class="btn btn-primary btn-sm" style="margin-top:12px;background:var(--ac);" onclick="reveal(${i})">Reveal translator's notes →</button><div class="tp-reveal" id="tp-rev-${i}"><h4>The challenge</h4><div>${t.challenges}</div><h4>Recommended approach</h4><div>${t.strategy}</div><h4>A possible rendering</h4><div style="direction:rtl;text-align:right;background:var(--white);border-radius:var(--r-sm);padding:10px 12px;margin-top:4px;line-height:1.9;">${t.sample}</div><div class="src-note">${t.sampleNote}</div><h4>Check your version</h4><ul class="checklist2">${t.check.map(c=>`<li>${c}</li>`).join('')}</ul></div></div>`).join('');}
+function reveal(i){document.getElementById('tp-rev-'+i).classList.add('show');}
+
+var AQ=[
+ {q:"Translating children's dialogue, per Hirano, often needs:",opts:["Less care than description","More ingenuity than descriptive passages","Only a dictionary","No attention to register"],ans:1,fb:"Conversation carries character, age and politeness — often harder than narration."},
+ {q:"A toddler's charming grammatical mistakes should be:",opts:["Corrected to proper grammar","Recreated as believable small-child speech in Arabic","Translated as adult speech","Footnoted"],ans:1,fb:"Recreate the age-appropriate voice; the imperfection is characterisation, not error to fix."},
+ {q:"Very trendy slang is risky because it:",opts:["Is too formal","Dates the translation quickly","Cannot be translated at all","Is always rude"],ans:1,fb:"Cult slang ages fast — aim for a lively but durable young register."},
+ {q:"English child dialect can't be copied phonetically in Arabic, so you:",opts:["Misspell Arabic","Compensate with a fitting colloquial Arabic register","Use formal فصحى","Delete it"],ans:1,fb:"Compensate at the register level — a suitable spoken Arabic voice for that child."},
+ {q:"Politeness and familiarity should be:",opts:["Ignored","Re-created at the right level for each relationship in Arabic","Always maximised","Left in English"],ans:1,fb:"Match the social relationship with the appropriate Arabic level of politeness/familiarity."}
+];
+var aqi=0,aqs=0,aqd=false;
+function rAQ(){if(aqi>=AQ.length){sAQ();return;}var q=AQ[aqi];document.getElementById('aq-prog').style.width=(aqi/AQ.length*100)+'%';document.getElementById('aq-container').innerHTML=`<div class="ex-card"><div class="ex-num">Question ${aqi+1} of ${AQ.length}</div><div class="ex-q">${q.q}</div><div id="aq-opts">${q.opts.map((o,i)=>`<button class="ex-opt" onclick="aAQ(${i})">${o}</button>`).join('')}</div><div class="ex-feedback" id="aq-fb"></div><div><button class="btn btn-primary btn-sm" id="aq-next" style="display:none;margin-top:14px;background:var(--ac);" onclick="nAQ()">Next →</button></div></div>`;aqd=false;}
+function aAQ(i){if(aqd)return;aqd=true;var q=AQ[aqi];document.querySelectorAll('#aq-opts .ex-opt').forEach((b,j)=>{b.disabled=true;if(j===q.ans)b.classList.add('correct-ans');else if(j===i&&i!==q.ans)b.classList.add('wrong-ans');});if(i===q.ans)aqs++;var fb=document.getElementById('aq-fb');fb.innerHTML=q.fb;fb.className='ex-feedback show '+(i===q.ans?'fb-correct':'fb-wrong');document.getElementById('aq-next').style.display='inline-block';}
+function nAQ(){aqi++;rAQ();}
+function sAQ(){document.getElementById('aq-prog').style.width='100%';document.getElementById('aq-container').style.display='none';var pct=Math.round(aqs/AQ.length*100);document.getElementById('aq-score').style.display='block';document.getElementById('aq-score').innerHTML=`<div class="score-big">${pct}%</div><div class="score-sub">${aqs}/${AQ.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct>=80?'You give each child a believable voice.':'Revisit the Child Voices and Slang tabs.'}</p><button class="btn btn-primary" style="background:var(--ac);" onclick="reAQ()">Retry</button>`;}
+function reAQ(){aqi=0;aqs=0;document.getElementById('aq-container').style.display='block';document.getElementById('aq-score').style.display='none';rAQ();}
+initTasks();rAQ();
+</script>
+<script src="track.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>
