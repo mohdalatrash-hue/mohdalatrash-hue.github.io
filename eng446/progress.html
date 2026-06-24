@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Progress | ENG 446</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="Your personal ENG 446 progress — pages visited, time spent, quizzes and workshops completed, and your pace through the 7-week course. Private to your device.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 446">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 446 Research Methods">
+<meta property="og:title" content="My Progress | ENG 446">
+<meta property="og:description" content="Your personal progress through ENG 446 — private to your device.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng446/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng446/progress.html">
+<meta name="twitter:card" content="summary">
+<style>
+body{background:var(--off-white);}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:32px;}
+.stat{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:18px;}
+.stat-num{font-size:28px;font-weight:800;color:var(--green);line-height:1;}
+.stat-lab{font-size:12px;color:var(--text-3);margin-top:6px;text-transform:uppercase;letter-spacing:.05em;font-weight:600;}
+.pace{border-radius:var(--r-lg);padding:18px 20px;margin-bottom:28px;color:#fff;}
+.pace.ok{background:var(--green);} .pace.behind{background:#b45309;} .pace.pre{background:#1d1d1f;}
+.pace h3{font-size:16px;font-weight:800;margin-bottom:4px;} .pace p{font-size:13px;opacity:.9;line-height:1.6;margin:0;}
+.wk-track{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:32px;}
+.wk-pill{flex:1;min-width:64px;text-align:center;padding:10px 6px;border-radius:var(--r-md);font-size:12px;font-weight:700;border:1.5px solid var(--border);color:var(--text-3);background:var(--white);}
+.wk-pill.done{background:var(--green-light);border-color:var(--green);color:var(--green-dark);}
+.wk-pill .wn{display:block;font-size:11px;font-weight:600;opacity:.7;}
+.row-list{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);overflow:hidden;margin-bottom:28px;}
+.row-item{display:flex;align-items:center;gap:12px;padding:13px 18px;border-bottom:1px solid var(--border-light);font-size:14px;}
+.row-item:last-child{border-bottom:none;}
+.row-name{flex:1;color:var(--text);font-weight:500;}
+.row-meta{font-size:12px;color:var(--text-3);}
+.row-score{font-size:12px;font-weight:800;padding:3px 10px;border-radius:var(--r-pill);}
+.s-hi{background:var(--green-light);color:var(--green-dark);} .s-mid{background:var(--amber-light);color:#7a4500;} .s-lo{background:var(--red-light);color:#a01010;}
+.empty{font-size:13px;color:var(--text-3);padding:16px 18px;font-style:italic;}
+.lead{font-size:14px;color:var(--text-2);line-height:1.6;margin:-4px 0 18px;}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 446</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">My Progress</span>
+  </div>
+</nav>
+
+<div class="hero" style="padding-bottom:28px;">
+  <div class="hero-eyebrow">ENG 446 · Personal tracker</div>
+  <h1>My Progress</h1>
+  <p class="hero-sub">Everything you've done on this study site — kept privately on this device.</p>
+</div>
+
+<div class="section-alt" style="padding:8px 0 64px;">
+<div class="section-inner">
+
+  <div class="info-box info-blue mb-24" style="text-align:left;">
+    <h3>🔒 Private to this device</h3>
+    <p>This page reads only your own browser's storage. Nothing is uploaded or shared — your instructor does not see it. Use a different device or browser and it starts fresh. Graded records always live in Blackboard Ultra.</p>
+  </div>
+
+  <div id="pace"></div>
+
+  <div class="section-label" style="margin-bottom:14px;">At a glance</div>
+  <div class="stat-grid" id="stats"></div>
+
+  <div class="section-label" style="margin-bottom:14px;">Weeks you've opened</div>
+  <div class="wk-track" id="wk-track"></div>
+
+  <div class="section-label" style="margin-bottom:14px;">Practice banks &amp; workshops</div>
+  <div class="row-list" id="scores"></div>
+
+  <div class="section-label" style="margin-bottom:14px;">Resources you've opened</div>
+  <div class="row-list" id="downloads"></div>
+
+  <div class="section-label" style="margin-bottom:14px;">Most-visited pages</div>
+  <div class="row-list" id="pages"></div>
+
+  <button class="btn btn-outline btn-sm" id="reset" style="border-color:var(--red);color:var(--red);">Reset my progress data</button>
+
+</div>
+</div>
+
+<footer>
+  <strong>ENG 446 Research Methods</strong> · My Progress · Qassim University · Summer 2026<br>
+  <a href="index.html">Course Hub</a> · <a href="syllabus.html">Syllabus</a>
+</footer>
+
+<script>
+var KEY="eng446_progress_v1";
+var D={}; try{ D=JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){ D={}; }
+D.pages=D.pages||{}; D.days=D.days||{}; D.quizzes=D.quizzes||{}; D.workshops=D.workshops||{}; D.downloads=D.downloads||{};
+
+var LABELS={
+ "index.html":"Course Hub","syllabus.html":"Syllabus","groups.html":"Groups","resources.html":"Resources",
+ "apa-quickref.html":"APA Quick-Ref","progress.html":"My Progress","quiz-final.html":"Final Exam Bank",
+ "quiz1.html":"Week 1 Practice Bank","quiz2.html":"Week 2 Practice Bank","quiz3.html":"Week 3 Practice Bank","quiz4.html":"Week 4 Practice Bank",
+ "workshop-apa.html":"APA 7 Workshop","workshop-proposal.html":"Proposal Workshop","workshop-litreview.html":"Lit Review (overview)",
+ "workshop-litreview-eval.html":"Lit Review: Evaluation","workshop-litreview-synthesis.html":"Lit Review: Synthesis",
+ "workshop-design.html":"Research Design Workshop","workshop-instrument.html":"Instrument Workshop",
+ "workshop-analysis.html":"Data Analysis (overview)","workshop-quant.html":"Quantitative Analysis","workshop-qual.html":"Qualitative Analysis",
+ "workshop-presentation.html":"Presentation Workshop"
+};
+for(var i=1;i<=7;i++){ LABELS["week"+i+".html"]="Week "+i+" map"; }
+function lbl(p){ return LABELS[p]||p; }
+function fmtTime(s){ if(!s) return "0m"; var h=Math.floor(s/3600), m=Math.round((s%3600)/60); return h>0?(h+"h "+m+"m"):(m+"m"); }
+function fmtDate(ts){ if(!ts) return "—"; var d=new Date(ts); return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][d.getMonth()]+" "+d.getDate(); }
+function todayISO(){ var t=new Date(); return t.getFullYear()+"-"+String(t.getMonth()+1).padStart(2,"0")+"-"+String(t.getDate()).padStart(2,"0"); }
+function scoreClass(p){ return p>=80?"s-hi":p>=60?"s-mid":"s-lo"; }
+
+// ── Pace ───────────────────────────────────────────────
+function expectedWeek(){
+  var ends=[["2026-07-01",1],["2026-07-08",2],["2026-07-15",3],["2026-07-22",4],["2026-07-29",5],["2026-08-05",6],["2026-08-12",7]];
+  var now=todayISO();
+  for(var i=0;i<ends.length;i++){ if(now<=ends[i][0]) return ends[i][1]; }
+  return 8;
+}
+var reached=0; for(var w=1;w<=7;w++){ if(D.pages["week"+w+".html"]) reached=w; }
+var exp=expectedWeek();
+var paceEl=document.getElementById("pace");
+if(todayISO()<"2026-06-28"){
+  paceEl.className="pace pre";
+  paceEl.innerHTML="<h3>The course hasn't started yet</h3><p>First class is Sun Jun 28 · 10:00 AM. Explore the week maps any time — your progress starts counting now.</p>";
+}else if(exp>=8){
+  paceEl.className="pace ok";
+  paceEl.innerHTML="<h3>You've reached the final stretch</h3><p>Use the Final Exam Review Bank to revise all 12 chapters.</p>";
+}else if(reached>=Math.min(exp,7)){
+  paceEl.className="pace ok";
+  paceEl.innerHTML="<h3>✓ You're on track</h3><p>The calendar is on <strong>Week "+exp+"</strong>, and you've opened up to <strong>Week "+reached+"</strong>. Keep it up.</p>";
+}else{
+  paceEl.className="pace behind";
+  paceEl.innerHTML="<h3>A little behind — easy to catch up</h3><p>The calendar is on <strong>Week "+exp+"</strong>, but you've only opened up to <strong>Week "+(reached||0)+"</strong>. Open this week's map to get back on pace.</p>";
+}
+
+// ── Stats ──────────────────────────────────────────────
+var totalTime=0, pagesVisited=0;
+for(var p in D.pages){ totalTime+=(D.pages[p].timeSec||0); pagesVisited++; }
+var quizDone=Object.keys(D.quizzes).length, wsDone=Object.keys(D.workshops).length;
+var daysActive=Object.keys(D.days).length;
+document.getElementById("stats").innerHTML=[
+  ["⏱ "+fmtTime(totalTime),"Time on site"],
+  [pagesVisited,"Pages opened"],
+  [daysActive,"Days active"],
+  [quizDone+wsDone,"Quizzes & workshops"],
+  [Object.keys(D.downloads).length,"Resources opened"],
+  [fmtDate(D.firstSeen),"First visit"]
+].map(function(s){ return '<div class="stat"><div class="stat-num">'+s[0]+'</div><div class="stat-lab">'+s[1]+'</div></div>'; }).join("");
+
+// ── Week track ─────────────────────────────────────────
+var wt="";
+for(var k=1;k<=7;k++){ var on=!!D.pages["week"+k+".html"]; wt+='<div class="wk-pill'+(on?' done':'')+'"><span class="wn">Week</span>'+k+(on?' ✓':'')+'</div>'; }
+document.getElementById("wk-track").innerHTML=wt;
+
+// ── Scores (quizzes + workshops) ───────────────────────
+function scoreRows(obj){
+  var keys=Object.keys(obj).sort();
+  if(!keys.length) return '<div class="empty">Nothing completed yet — finish a practice bank or workshop and it appears here.</div>';
+  return keys.map(function(k){ var e=obj[k]; return '<div class="row-item"><span class="row-name">'+lbl(k)+'</span><span class="row-meta">'+e.attempts+'× · '+fmtDate(e.last)+'</span><span class="row-score '+scoreClass(e.best)+'">'+e.best+'%</span></div>'; }).join("");
+}
+var merged={}; for(var q in D.quizzes) merged[q]=D.quizzes[q]; for(var ws in D.workshops) merged[ws]=D.workshops[ws];
+document.getElementById("scores").innerHTML=scoreRows(merged);
+
+// ── Downloads ──────────────────────────────────────────
+var dl=Object.keys(D.downloads);
+document.getElementById("downloads").innerHTML = dl.length
+  ? dl.map(function(f){ var e=D.downloads[f]; return '<div class="row-item"><span class="row-name">'+(e.name||f)+'</span><span class="row-meta">'+e.count+'× · '+fmtDate(e.last)+'</span></div>'; }).join("")
+  : '<div class="empty">No resources opened yet.</div>';
+
+// ── Pages ──────────────────────────────────────────────
+var pg=Object.keys(D.pages).sort(function(a,b){ return (D.pages[b].timeSec||0)-(D.pages[a].timeSec||0); }).slice(0,10);
+document.getElementById("pages").innerHTML = pg.length
+  ? pg.map(function(p){ var e=D.pages[p]; return '<div class="row-item"><span class="row-name">'+lbl(p)+'</span><span class="row-meta">'+e.visits+' visit'+(e.visits>1?'s':'')+' · '+fmtTime(e.timeSec)+'</span></div>'; }).join("")
+  : '<div class="empty">No activity recorded yet.</div>';
+
+// ── Reset ──────────────────────────────────────────────
+document.getElementById("reset").addEventListener("click",function(){
+  if(confirm("Clear all your progress data on this device? This cannot be undone.")){ localStorage.removeItem(KEY); location.reload(); }
+});
+</script>
+<script src="site.js" defer></script>
+</body>
+</html>

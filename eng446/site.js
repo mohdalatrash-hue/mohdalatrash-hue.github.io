@@ -14,7 +14,8 @@
     { href: "groups.html",        label: "Groups" },
     { href: "resources.html",     label: "Resources" },
     { href: "apa-quickref.html",  label: "APA 7 Guide" },
-    { href: "quiz-final.html",    label: "Final Exam Bank" }
+    { href: "quiz-final.html",    label: "Final Exam Bank" },
+    { href: "progress.html",      label: "My Progress" }
   ];
 
   function build() {
