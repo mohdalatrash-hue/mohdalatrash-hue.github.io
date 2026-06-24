@@ -150,21 +150,21 @@
 </footer>
 
 <script>
-// Privacy: first name + family-name initial only — no full names, no ID numbers.
-// The instructor holds the full named roster offline (Blackboard / printed sheet).
+// Roster shown as: first name + name initials + last 4 digits of the student ID.
+// Full names and full ID numbers are intentionally NOT on the public site.
 // ★ marks a provisional group leader (first listed); adjust in class.
 const GROUPS = [
-  { num:1, members:["عبدالعزيز ح. ★","ابراهيم س.","ياسر م.","سليمان ح.","سعود ق."], topic:"To be confirmed" },
-  { num:2, members:["عزام ح. ★","أسامه ق.","مزيد م.","احمد م.","خالد غ."], topic:"To be confirmed" },
-  { num:3, members:["ريان ح. ★","أحمد س.","مالك م.","صالح ل.","أحمد م."], topic:"To be confirmed" },
-  { num:4, members:["راكان ح. ★","حسام ع.","أمين م.","صالح م.","وليد ع."], topic:"To be confirmed" },
-  { num:5, members:["باسل ح. ★","يزيد ع.","عبدالسلام ح.","مازن ط.","فيصل ح."], topic:"To be confirmed" },
-  { num:6, members:["عبدالعزيز ح. ★","ابراهيم ق.","عبدالله ع.","عاصم ف.","مشعل ع."], topic:"To be confirmed" },
-  { num:7, members:["سالم خ. ★","عزام ا.","عبدالعزيز م.","محمد س.","محمد س."], topic:"To be confirmed" },
-  { num:8, members:["أسامة د. ★","خيال ع.","تركي ف.","عمر ب.","إبراهيم م."], topic:"To be confirmed" },
-  { num:9, members:["صالح ح. ★","بكر م.","ياسر ح.","عبدالاله ق.","الياس ل."], topic:"To be confirmed" },
-  { num:10, members:["باسل ق. ★","تركي م.","نايف ح.","ماجد ت.","مازن م."], topic:"To be confirmed" },
-  { num:11, members:["محمد ح. ★","عبدالله ض.","ناصر ع.","عبدالعزيز ح.","وليد م."], topic:"To be confirmed" }
+  { num:1, members:[{name:"عبدالعزيز ي.ج.ع.ح.",id:"8194",lead:true},{name:"ابراهيم ا.ا.س.",id:"9653"},{name:"ياسر م.ف.م.",id:"0122"},{name:"سليمان ح.س.ح.",id:"4156"},{name:"سعود ع.س.ق.",id:"2168"}], topic:"To be confirmed" },
+  { num:2, members:[{name:"عزام س.ص.ح.",id:"2878",lead:true},{name:"أسامه ع.ع.ق.",id:"9072"},{name:"مزيد ن.ص.م.",id:"3054"},{name:"احمد ع.س.م.",id:"2464"},{name:"خالد ع.ع.غ.",id:"0036"}], topic:"To be confirmed" },
+  { num:3, members:[{name:"ريان ف.م.ح.",id:"5485",lead:true},{name:"أحمد س.د.س.",id:"5689"},{name:"مالك ع.ح.م.",id:"8632"},{name:"صالح ح.ص.ل.",id:"8888"},{name:"أحمد م.ع.م.",id:"9578"}], topic:"To be confirmed" },
+  { num:4, members:[{name:"راكان ع.ع.س.ح.",id:"9859",lead:true},{name:"حسام س.م.ع.",id:"1842"},{name:"أمين ع.م.م.",id:"2796"},{name:"صالح م.ص.م.",id:"0701"},{name:"وليد خ.ح.ع.",id:"1829"}], topic:"To be confirmed" },
+  { num:5, members:[{name:"باسل م.خ.ح.",id:"6173",lead:true},{name:"يزيد خ.ن.ع.",id:"2369"},{name:"عبدالسلام م.م.ح.",id:"8163"},{name:"مازن خ.ع.ط.",id:"2480"},{name:"فيصل س.خ.ح.",id:"5444"}], topic:"To be confirmed" },
+  { num:6, members:[{name:"عبدالعزيز س.د.ح.",id:"9634",lead:true},{name:"ابراهيم ع.ا.ق.",id:"8521"},{name:"عبدالله ع.ج.ع.",id:"2379"},{name:"عاصم م.ع.ف.",id:"0922"},{name:"مشعل ن.م.ع.",id:"0890"}], topic:"To be confirmed" },
+  { num:7, members:[{name:"سالم م.س.خ.",id:"2226",lead:true},{name:"عزام ا.ع.ا.",id:"6993"},{name:"عبدالعزيز م.خ.ع.م.",id:"1803"},{name:"محمد ا.م.س.",id:"8107"},{name:"محمد ع.م.س.",id:"8638"}], topic:"To be confirmed" },
+  { num:8, members:[{name:"أسامة م.ع.د.",id:"0687",lead:true},{name:"خيال ع.ع.ع.",id:"6994"},{name:"تركي م.ت.ف.",id:"9604"},{name:"عمر ع.ع.ب.",id:"9635"},{name:"إبراهيم س.ا.م.",id:"8469"}], topic:"To be confirmed" },
+  { num:9, members:[{name:"صالح ع.ص.ح.",id:"9606",lead:true},{name:"بكر ر.ب.ع.م.",id:"2324"},{name:"ياسر ع.ح.ح.",id:"9611"},{name:"عبدالاله ع.ح.ق.",id:"9825"},{name:"الياس ع.ع.ل.",id:"9684"}], topic:"To be confirmed" },
+  { num:10, members:[{name:"باسل ن.غ.ق.",id:"9594",lead:true},{name:"تركي ح.م.م.",id:"0231"},{name:"نايف ع.ص.ح.",id:"2147"},{name:"ماجد خ.ع.ت.",id:"9662"},{name:"مازن م.ه.م.",id:"5451"}], topic:"To be confirmed" },
+  { num:11, members:[{name:"محمد ع.ع.ح.",id:"3222",lead:true},{name:"عبدالله ف.م.ض.",id:"1837"},{name:"ناصر س.ن.ع.",id:"7480"},{name:"عبدالعزيز ح.ع.ح.",id:"4402"},{name:"وليد ت.ا.م.",id:"8992"}], topic:"To be confirmed" }
 ];
 
 const grid = document.getElementById('groups-grid');
@@ -172,10 +172,9 @@ GROUPS.forEach(g => {
   const card = document.createElement('div');
   card.className = 'group-card';
   const members = g.members.map(m => {
-    const isStar = m.includes('★');
-    const name = m.replace(' ★','');
-    const initials = name.split(' ').map(w=>w[0]).join('').slice(0,2);
-    return `<div class="member-row"><div class="member-avatar">${initials}</div><span style="flex:1;">${name}</span>${isStar?'<span class="member-star">★</span>':''}</div>`;
+    const initials = (m.name.split(' ')[0]||'').slice(0,2);
+    const idTag = m.id ? `<span style="font-size:11px;color:var(--text-3);font-variant-numeric:tabular-nums;">#${m.id}</span>` : '';
+    return `<div class="member-row"><div class="member-avatar">${initials}</div><span style="flex:1;direction:rtl;text-align:right;">${m.name}</span>${idTag}${m.lead?'<span class="member-star">★</span>':''}</div>`;
   }).join('');
   card.innerHTML = `<div class="group-card-head"><div class="group-num">${g.num}</div><div><div class="group-title">Group ${g.num}</div><div class="group-topic">${g.topic}</div></div></div><div class="group-card-body">${members}</div>`;
   grid.appendChild(card);
