@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poetry Translation: Six Strategies | ENG 494</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="ENG 494 poetry-translation workshop — the six strategies (phonemic, literal, metrical, verse-to-prose, rhymed, free verse), rhyme schemes, and translating real public-domain verse into Arabic.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 494">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 494 Literary Translation">
+<meta property="og:title" content="Poetry Translation: Six Strategies | ENG 494">
+<meta property="og:description" content="The six strategies, rhyme schemes, and translating real public-domain verse into Arabic.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng494/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng494/workshop-poetry.html">
+<meta name="twitter:card" content="summary">
+<style>
+body{background:var(--off-white);}
+:root{--ac:#7c3aed;--ac-soft:#f5f3ff;--ac-ink:#5b21b6;}
+.tab-bar{display:flex;gap:4px;background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-xs);padding:6px;margin-bottom:28px;flex-wrap:wrap;}
+.tab-btn{flex:1;min-width:120px;padding:10px 14px;border:none;background:transparent;border-radius:var(--r-md);font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;transition:all .15s;}
+.tab-btn:hover{background:var(--off-white);} .tab-btn.active{background:var(--ac);color:#fff;}
+.tab-panel{display:none;} .tab-panel.active{display:block;}
+.ex-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:24px;margin-bottom:20px;}
+.ex-num{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);margin-bottom:8px;}
+.ex-q{font-size:15px;font-weight:600;color:var(--text);margin-bottom:16px;line-height:1.6;}
+.ex-opt{padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:14px;cursor:pointer;transition:all .15s;background:var(--white);color:var(--text);text-align:left;display:block;width:100%;margin-bottom:8px;}
+.ex-opt:hover{border-color:var(--text-2);}
+.ex-opt.correct-ans{border-color:#30d158;background:#f0fff4;color:#1a7f45;} .ex-opt.correct-ans::after{content:" ✓";font-weight:800;}
+.ex-opt.wrong-ans{border-color:#e53935;background:#fef2f2;color:#c0392b;} .ex-opt.wrong-ans::after{content:" ✗";font-weight:800;}
+.ex-feedback{margin-top:14px;padding:12px 16px;border-radius:var(--r-md);font-size:13px;line-height:1.7;display:none;} .ex-feedback.show{display:block;}
+.fb-correct{background:#f0fff4;border:1px solid #a2d9b0;color:#14532d;} .fb-wrong{background:#fef2f2;border:1px solid #fca5a5;color:#7f1d1d;}
+.tip-box{background:var(--ac-soft);border:1.5px solid #ddd6fe;border-radius:var(--r-md);padding:14px 16px;font-size:13px;line-height:1.7;color:var(--ac-ink);margin-bottom:20px;} .tip-box strong{color:var(--ac);}
+.prog-bar-wrap{height:6px;background:var(--off-white);border-radius:var(--r-pill);margin-bottom:24px;overflow:hidden;} .prog-bar{height:100%;background:var(--ac);border-radius:var(--r-pill);transition:width .4s;}
+.score-summary{text-align:center;padding:32px 20px;} .score-big{font-size:56px;font-weight:800;color:var(--ac);line-height:1;margin-bottom:8px;} .score-sub{font-size:14px;color:var(--text-2);}
+.excerpt{background:var(--off-white);border-left:3px solid var(--ac);padding:14px 16px;border-radius:0 var(--r-md) var(--r-md) 0;font-size:14px;line-height:1.9;color:var(--text);margin-bottom:10px;font-family:Georgia,serif;white-space:pre-line;}
+.excerpt .cite{display:block;font-family:var(--font);font-size:11px;font-weight:700;color:var(--ac-ink);margin-top:8px;text-transform:none;}
+.tp-input{width:100%;min-height:120px;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:15px;font-family:inherit;line-height:1.9;direction:rtl;text-align:right;resize:vertical;} .tp-input:focus{outline:none;border-color:var(--ac);}
+.tp-reveal{display:none;margin-top:16px;padding:16px;border-radius:var(--r-md);background:var(--ac-soft);border:1px solid #ddd6fe;font-size:13.5px;line-height:1.7;color:var(--text);} .tp-reveal.show{display:block;}
+.tp-reveal h4{font-size:13px;font-weight:800;color:var(--ac-ink);text-transform:uppercase;letter-spacing:.05em;margin:12px 0 6px;} .tp-reveal h4:first-child{margin-top:0;}
+.checklist2{list-style:none;padding:0;margin:6px 0 0;} .checklist2 li{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.6;margin-bottom:5px;} .checklist2 li::before{content:"☐";color:var(--ac);font-weight:800;}
+.src-note{font-size:12px;color:var(--text-3);margin-top:8px;}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 494</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Poetry</span>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:34px;">
+  <div class="hero-eyebrow" style="color:var(--ac);">Unit 3 · Poetry</div>
+  <h1>Translating Poetry: Six Strategies</h1>
+  <p class="hero-sub">Every poetry translation sacrifices something. Learn the six strategies, read the rhyme, then translate real verse — twice.</p>
+</div>
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+
+  <div class="info-box info-amber mb-24" style="text-align:left;">
+    <h3>🎵 The translator's dilemma</h3>
+    <p>You usually cannot keep <em>sound</em>, <em>meter</em>, <em>rhyme</em> and <em>sense</em> all at once. Lefevere's six strategies are six different bargains about what to save and what to surrender. Naming your strategy is the first act of translating a poem.</p>
+  </div>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('strat',this)">🎯 Six Strategies</button>
+    <button class="tab-btn" onclick="switchTab('rhyme',this)">🎼 Rhyme &amp; Form</button>
+    <button class="tab-btn" onclick="switchTab('translate',this)">✍️ Translate It</button>
+    <button class="tab-btn" onclick="switchTab('quiz',this)">📝 Quiz</button>
+  </div>
+
+  <div id="tab-strat" class="tab-panel active">
+    <div class="tip-box"><strong>The six strategies:</strong> <em>Phonemic</em> (recreate the sound), <em>Literal</em> (word-for-word sense), <em>Metrical</em> (keep the meter), <em>Verse-to-prose</em> (drop the lines, keep sense), <em>Rhymed</em> (keep the rhyme scheme), <em>Free verse</em> (natural, no meter/rhyme constraint).</div>
+    <div id="strat-qs"></div>
+  </div>
+
+  <div id="tab-rhyme" class="tab-panel">
+    <div class="tip-box"><strong>Read the form first.</strong> Label the rhyme scheme by giving each new end-sound a letter (ABAB, AABB, ABCB…). The scheme is part of what a 'rhymed' or 'metrical' translation must carry.</div>
+    <div id="rhyme-qs"></div>
+  </div>
+
+  <div id="tab-translate" class="tab-panel">
+    <div class="tip-box"><strong>Translate twice.</strong> For each stanza, first make a <em>literal</em> version (sense only), then a second version using the <em>assigned strategy</em>. Reveal the notes to see the trade-offs.</div>
+    <div id="translate-tasks"></div>
+  </div>
+
+  <div id="tab-quiz" class="tab-panel">
+    <div class="prog-bar-wrap"><div class="prog-bar" id="aq-prog" style="width:0%"></div></div>
+    <div id="aq-container"></div>
+    <div id="aq-score" class="score-summary" style="display:none;"></div>
+  </div>
+</div>
+</div>
+<footer><strong>ENG 494 Literary Translation</strong> · Poetry · Qassim University<br><a href="index.html">Course Hub</a> · <a href="workshop-prose.html">Adult Prose Workshop</a></footer>
+<script>
+function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
+var MCQ={};
+function mount(cid,items){MCQ[cid]=items;document.getElementById(cid).innerHTML=items.map((q,qi)=>`<div class="ex-card">${q.pre||''}<div style="font-size:14px;font-weight:600;margin:6px 0 10px;">${q.q}</div>${q.opts.map((o,oi)=>`<button class="ex-opt" id="${cid}-${qi}-${oi}" onclick="ans('${cid}',${qi},${oi})">${o}</button>`).join('')}<div class="ex-feedback" id="${cid}-fb-${qi}"></div></div>`).join('');}
+function ans(cid,qi,ch){var q=MCQ[cid][qi];if(document.getElementById(`${cid}-${qi}-0`).disabled)return;q.opts.forEach((_,oi)=>{var b=document.getElementById(`${cid}-${qi}-${oi}`);b.disabled=true;if(oi===q.ans)b.classList.add('correct-ans');else if(oi===ch&&ch!==q.ans)b.classList.add('wrong-ans');});var fb=document.getElementById(`${cid}-fb-${qi}`);fb.className='ex-feedback show '+(ch===q.ans?'fb-correct':'fb-wrong');fb.innerHTML=q.why;}
+
+mount('strat-qs',[
+ {q:"A translator keeps the original ABAB rhyme scheme in Arabic, accepting small shifts in literal meaning to do so. Which strategy?",opts:["Literal","Rhymed translation","Verse-to-prose","Phonemic"],ans:1,why:"Prioritising the rhyme scheme over exact word-meaning is rhymed translation. Its risk: distorting sense to chase the rhyme."},
+ {q:"A translator renders the poem as a clear prose paragraph, dropping the line breaks. Which strategy — and what is lost?",opts:["Metrical; nothing is lost","Verse-to-prose; the poetic form/line music is sacrificed for clarity","Free verse; the meaning is lost","Phonemic; the rhyme is kept"],ans:1,why:"Verse-to-prose buys maximum clarity of sense at the cost of the poem's form and line-music."},
+ {q:"Which strategy tries to recreate the SOUND of the source, even at the expense of natural meaning?",opts:["Literal","Phonemic","Free verse","Metrical"],ans:1,why:"Phonemic translation chases the source's sound-texture. It can produce strange or strained meaning — useful for sound-poems, risky elsewhere."},
+ {q:"For a free, natural Arabic version unconstrained by the original meter or rhyme, you would choose:",opts:["Metrical translation","Free verse translation","Rhymed translation","Literal translation"],ans:1,why:"Free-verse translation seeks an accurate, natural-sounding target poem without being bound by the source's meter or rhyme."}
+]);
+
+mount('rhyme-qs',[
+ {pre:`<div class="excerpt">I wandered lonely as a cloud
+That floats on high o'er vales and hills,
+When all at once I saw a crowd,
+A host, of golden daffodils;<span class="cite">— William Wordsworth, "Daffodils" (1807), public domain</span></div>`,q:"What is the rhyme scheme of these four lines (cloud / hills / crowd / daffodils)?",opts:["AABB","ABAB","ABCB","AAAA"],ans:1,why:"cloud(A)–hills(B)–crowd(A)–daffodils(B) = ABAB, an alternating (cross) rhyme. A 'rhymed' Arabic version should reproduce an alternating scheme."},
+ {pre:`<div class="excerpt">There was an Old Man with a beard,
+Who said, "It is just as I feared!—
+Two Owls and a Hen,
+Four Larks and a Wren,
+Have all built their nests in my beard!"<span class="cite">— Edward Lear, limerick (1846), public domain</span></div>`,q:"A limerick's five lines rhyme:",opts:["ABABA","AABBA","AAAAA","ABCDE"],ans:1,why:"The limerick scheme is AABBA, with lines 1, 2 and 5 sharing one rhyme and the short lines 3–4 sharing another. Keeping this bounce is the fun challenge in Arabic."},
+ {q:"Why label the rhyme scheme BEFORE translating?",opts:["To count the syllables for billing","Because it tells you what a rhymed/metrical translation must reproduce","Rhyme is irrelevant to translation","To choose the font"],ans:1,why:"The scheme is part of the poem's design. If your brief is a rhymed translation, you must know the pattern you are committing to carry."}
+]);
+
+var TASKS=[
+ {title:"Stanza 1 — Wordsworth · assigned strategy: RHYMED",
+  text:`I wandered lonely as a cloud\nThat floats on high o'er vales and hills,\nWhen all at once I saw a crowd,\nA host, of golden daffodils;`,
+  cite:"Wordsworth, \"Daffodils\" (1807) · public domain · scheme ABAB",
+  challenges:"Keep the meaning (loneliness → sudden joy at the daffodils) AND an alternating ABAB rhyme in Arabic. The two goals will pull against each other.",
+  strategy:"First write a literal سطر-بسطر version for sense. Then craft a rhymed version: choose two Arabic rhyme sounds and let lines 1/3 share one, 2/4 the other — adjusting word choice (not core meaning) to land the rhymes.",
+  sample:"حرفيًّا: «هِمتُ وحيدًا كغيمةٍ تطفو عاليًا فوق الوديان والتلال، وفجأةً رأيتُ حشدًا، جمعًا من نرجسٍ ذهبيّ.»",
+  sampleNote:"(Literal anchor first. Your rhymed version then reshapes the line-ends — keep the image, move the words.)",
+  check:["Did you write a literal version first, then a rhymed one?","Does your rhymed version keep an alternating (ABAB-like) pattern?","Is the core image (lonely cloud → crowd of daffodils) intact?","Does it still scan naturally when read aloud?"]},
+ {title:"Limerick — Edward Lear · assigned strategy: keep the AABBA bounce",
+  text:`There was an Old Man with a beard,\nWho said, "It is just as I feared!—\nTwo Owls and a Hen,\nFour Larks and a Wren,\nHave all built their nests in my beard!"`,
+  cite:"Edward Lear (1846) · public domain · scheme AABBA",
+  challenges:"Nonsense humour + a tight AABBA rhyme + a galloping rhythm. Literal accuracy matters less than landing the joke and the bounce.",
+  strategy:"Treat it as rhymed/free play: preserve the comic situation (birds nesting in the beard) and reproduce an AABBA shape with short lines 3–4. You may change which birds appear if it saves the rhyme — humour over literalism.",
+  sample:"«كان شيخٌ ذو لِحيةٍ وقور… / فصاح: هذا ما كنتُ أخشى يا غرور!»  (ثم سطران قصيران، ثم قافلة تعود لقافية المطلع.)",
+  sampleNote:"(Sketch only — your job is to complete the AABBA shape and keep it funny.)",
+  check:["Is the comic image preserved?","Does your version follow an AABBA shape (1-2-5 rhyme, 3-4 rhyme)?","Are lines 3–4 noticeably shorter, keeping the bounce?","Did you let humour/rhythm win over word-for-word fidelity?"]}
+];
+function initTasks(){document.getElementById('translate-tasks').innerHTML=TASKS.map((t,i)=>`<div class="ex-card"><div class="ex-num">${t.title}</div><div class="excerpt">${t.text}<span class="cite">— ${t.cite}</span></div><p style="font-size:13px;color:var(--text-2);margin:8px 0 6px;">Type your Arabic translation(s):</p><textarea class="tp-input" id="tp-${i}" placeholder="اكتب ترجمتك هنا…"></textarea><button class="btn btn-primary btn-sm" style="margin-top:12px;background:var(--ac);" onclick="reveal(${i})">Reveal translator's notes →</button><div class="tp-reveal" id="tp-rev-${i}"><h4>The challenge</h4><div>${t.challenges}</div><h4>Recommended approach</h4><div>${t.strategy}</div><h4>A starting point</h4><div style="direction:rtl;text-align:right;background:var(--white);border-radius:var(--r-sm);padding:10px 12px;margin-top:4px;line-height:1.9;">${t.sample}</div><div class="src-note">${t.sampleNote}</div><h4>Check your version</h4><ul class="checklist2">${t.check.map(c=>`<li>${c}</li>`).join('')}</ul></div></div>`).join('');}
+function reveal(i){document.getElementById('tp-rev-'+i).classList.add('show');}
+
+var AQ=[
+ {q:"Which strategy keeps the original meter (rhythm/stress pattern) in the target language?",opts:["Verse-to-prose","Metrical translation","Free verse","Literal"],ans:1,fb:"Metrical translation reproduces the source meter — demanding in Arabic, whose prosody (العروض) differs from English stress-timing."},
+ {q:"The main risk of a RHYMED translation is:",opts:["It is too literal","Distorting the meaning to force the rhyme","Losing all the rhyme","It cannot be read aloud"],ans:1,fb:"Chasing the rhyme can bend or pad the sense — the classic trade-off you must watch."},
+ {q:"For a sound-poem where the music matters more than the dictionary meaning, the boldest fit is:",opts:["Literal","Phonemic","Verse-to-prose","Metrical"],ans:1,fb:"Phonemic translation foregrounds sound — appropriate when the sound IS the meaning."},
+ {q:"A limerick rhymes:",opts:["ABAB","AABBA","AAAA","ABCB"],ans:1,fb:"AABBA — lines 1, 2, 5 rhyme; the short lines 3–4 rhyme. Keep the bounce in Arabic."},
+ {q:"Best practice before producing a 'rhymed' Arabic version is to:",opts:["Skip the meaning entirely","Write a literal version first to anchor the sense, then re-shape for rhyme","Only count syllables","Translate the title alone"],ans:1,fb:"Anchor sense with a literal draft, then reshape line-ends for rhyme — so you don't lose the meaning while chasing sound."}
+];
+var aqi=0,aqs=0,aqd=false;
+function rAQ(){if(aqi>=AQ.length){sAQ();return;}var q=AQ[aqi];document.getElementById('aq-prog').style.width=(aqi/AQ.length*100)+'%';document.getElementById('aq-container').innerHTML=`<div class="ex-card"><div class="ex-num">Question ${aqi+1} of ${AQ.length}</div><div class="ex-q">${q.q}</div><div id="aq-opts">${q.opts.map((o,i)=>`<button class="ex-opt" onclick="aAQ(${i})">${o}</button>`).join('')}</div><div class="ex-feedback" id="aq-fb"></div><div><button class="btn btn-primary btn-sm" id="aq-next" style="display:none;margin-top:14px;background:var(--ac);" onclick="nAQ()">Next →</button></div></div>`;aqd=false;}
+function aAQ(i){if(aqd)return;aqd=true;var q=AQ[aqi];document.querySelectorAll('#aq-opts .ex-opt').forEach((b,j)=>{b.disabled=true;if(j===q.ans)b.classList.add('correct-ans');else if(j===i&&i!==q.ans)b.classList.add('wrong-ans');});if(i===q.ans)aqs++;var fb=document.getElementById('aq-fb');fb.innerHTML=q.fb;fb.className='ex-feedback show '+(i===q.ans?'fb-correct':'fb-wrong');document.getElementById('aq-next').style.display='inline-block';}
+function nAQ(){aqi++;rAQ();}
+function sAQ(){document.getElementById('aq-prog').style.width='100%';document.getElementById('aq-container').style.display='none';var pct=Math.round(aqs/AQ.length*100);document.getElementById('aq-score').style.display='block';document.getElementById('aq-score').innerHTML=`<div class="score-big">${pct}%</div><div class="score-sub">${aqs}/${AQ.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct>=80?'You can name your bargain with the poem.':'Revisit the Six Strategies tab.'}</p><button class="btn btn-primary" style="background:var(--ac);" onclick="reAQ()">Retry</button>`;}
+function reAQ(){aqi=0;aqs=0;document.getElementById('aq-container').style.display='block';document.getElementById('aq-score').style.display='none';rAQ();}
+initTasks();rAQ();
+</script>
+<script src="track.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>

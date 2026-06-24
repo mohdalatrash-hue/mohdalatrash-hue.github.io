@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Children's Literature: Multimodality & Sound | ENG 494</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="ENG 494 workshop on translating children's literature — word-and-picture interplay, onomatopoeia, inscriptions, and childlike voice, with translation practice on public-domain texts.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 494">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 494 Literary Translation">
+<meta property="og:title" content="Children's Literature: Multimodality & Sound | ENG 494">
+<meta property="og:description" content="Word-and-picture interplay, onomatopoeia, and childlike voice, with translation practice.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng494/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng494/workshop-children.html">
+<meta name="twitter:card" content="summary">
+<style>
+body{background:var(--off-white);}
+:root{--ac:#0d9488;--ac-soft:#ecfdf5;--ac-ink:#115e59;}
+.tab-bar{display:flex;gap:4px;background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-xs);padding:6px;margin-bottom:28px;flex-wrap:wrap;}
+.tab-btn{flex:1;min-width:120px;padding:10px 14px;border:none;background:transparent;border-radius:var(--r-md);font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;transition:all .15s;}
+.tab-btn:hover{background:var(--off-white);} .tab-btn.active{background:var(--ac);color:#fff;}
+.tab-panel{display:none;} .tab-panel.active{display:block;}
+.ex-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:24px;margin-bottom:20px;}
+.ex-num{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);margin-bottom:8px;}
+.ex-opt{padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:14px;cursor:pointer;transition:all .15s;background:var(--white);color:var(--text);text-align:left;display:block;width:100%;margin-bottom:8px;}
+.ex-opt:hover{border-color:var(--text-2);}
+.ex-opt.correct-ans{border-color:#30d158;background:#f0fff4;color:#1a7f45;} .ex-opt.correct-ans::after{content:" ✓";font-weight:800;}
+.ex-opt.wrong-ans{border-color:#e53935;background:#fef2f2;color:#c0392b;} .ex-opt.wrong-ans::after{content:" ✗";font-weight:800;}
+.ex-feedback{margin-top:14px;padding:12px 16px;border-radius:var(--r-md);font-size:13px;line-height:1.7;display:none;} .ex-feedback.show{display:block;}
+.fb-correct{background:#f0fff4;border:1px solid #a2d9b0;color:#14532d;} .fb-wrong{background:#fef2f2;border:1px solid #fca5a5;color:#7f1d1d;}
+.tip-box{background:var(--ac-soft);border:1.5px solid #99f6e4;border-radius:var(--r-md);padding:14px 16px;font-size:13px;line-height:1.7;color:var(--ac-ink);margin-bottom:20px;} .tip-box strong{color:var(--ac);}
+.prog-bar-wrap{height:6px;background:var(--off-white);border-radius:var(--r-pill);margin-bottom:24px;overflow:hidden;} .prog-bar{height:100%;background:var(--ac);border-radius:var(--r-pill);transition:width .4s;}
+.score-summary{text-align:center;padding:32px 20px;} .score-big{font-size:56px;font-weight:800;color:var(--ac);line-height:1;margin-bottom:8px;} .score-sub{font-size:14px;color:var(--text-2);}
+.excerpt{background:var(--off-white);border-left:3px solid var(--ac);padding:14px 16px;border-radius:0 var(--r-md) var(--r-md) 0;font-size:14px;line-height:1.9;color:var(--text);margin-bottom:10px;font-family:Georgia,serif;white-space:pre-line;}
+.excerpt .cite{display:block;font-family:var(--font);font-size:11px;font-weight:700;color:var(--ac-ink);margin-top:8px;text-transform:none;}
+.tp-input{width:100%;min-height:110px;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:15px;font-family:inherit;line-height:1.9;direction:rtl;text-align:right;resize:vertical;} .tp-input:focus{outline:none;border-color:var(--ac);}
+.tp-reveal{display:none;margin-top:16px;padding:16px;border-radius:var(--r-md);background:var(--ac-soft);border:1px solid #99f6e4;font-size:13.5px;line-height:1.7;color:var(--text);} .tp-reveal.show{display:block;}
+.tp-reveal h4{font-size:13px;font-weight:800;color:var(--ac-ink);text-transform:uppercase;letter-spacing:.05em;margin:12px 0 6px;} .tp-reveal h4:first-child{margin-top:0;}
+.checklist2{list-style:none;padding:0;margin:6px 0 0;} .checklist2 li{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.6;margin-bottom:5px;} .checklist2 li::before{content:"☐";color:var(--ac);font-weight:800;}
+.src-note{font-size:12px;color:var(--text-3);margin-top:8px;}
+.onoma{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:6px;}
+.ocard{background:var(--off-white);border-radius:var(--r-md);padding:12px;text-align:center;} .ocard .en{font-weight:800;color:var(--ac-ink);font-size:15px;} .ocard .ar{font-size:14px;direction:rtl;margin-top:4px;color:var(--text);}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 494</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Children's Lit</span>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:34px;">
+  <div class="hero-eyebrow" style="color:var(--ac);">Unit 2 · Children's Literature</div>
+  <h1>Multimodality &amp; Sound</h1>
+  <p class="hero-sub">In children's books, words share the work with pictures and sounds. Learn the challenges, then translate playful, sound-rich text.</p>
+</div>
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+  <div class="info-box info-amber mb-24" style="text-align:left;">
+    <h3>🧸 What makes children's translation special</h3>
+    <p>The translator juggles three things at once — <em>source words</em>, <em>target words</em>, and <em>pictures</em> (Hoole noticed this tension back in 1659). Add onomatopoeia, signs drawn inside images, and a child-friendly voice that must still be read aloud well.</p>
+  </div>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('multi',this)">🖼️ Word + Picture</button>
+    <button class="tab-btn" onclick="switchTab('sound',this)">💥 Onomatopoeia</button>
+    <button class="tab-btn" onclick="switchTab('translate',this)">✍️ Translate It</button>
+    <button class="tab-btn" onclick="switchTab('quiz',this)">📝 Quiz</button>
+  </div>
+  <div id="tab-multi" class="tab-panel active">
+    <div class="tip-box"><strong>Multimodality:</strong> text and image make meaning together. Watch for: text the picture contradicts or completes, words drawn <em>inside</em> the picture (signs, labels), and cultural/visual layout (including right-to-left reading order in Arabic).</div>
+    <div id="multi-qs"></div>
+  </div>
+  <div id="tab-sound" class="tab-panel">
+    <div class="tip-box"><strong>Onomatopoeia</strong> — words that imitate sound — rarely map one-to-one. English <em>splash, buzz, knock</em> have conventional Arabic counterparts you must know or coin, keeping them readable aloud for a child.</div>
+    <div class="ex-card">
+      <div class="ex-num">English → Arabic sound words (reference)</div>
+      <div class="onoma">
+        <div class="ocard"><div class="en">Buzz</div><div class="ar">طنين / زّ</div></div>
+        <div class="ocard"><div class="en">Knock</div><div class="ar">طَق طَق / دَق</div></div>
+        <div class="ocard"><div class="en">Splash</div><div class="ar">شَلَب / طُرطُش</div></div>
+        <div class="ocard"><div class="en">Crash / Bang</div><div class="ar">طَرَاخ / بُم</div></div>
+        <div class="ocard"><div class="en">Tick-tock</div><div class="ar">تِك تَاك</div></div>
+        <div class="ocard"><div class="en">Meow</div><div class="ar">مواء / ميااو</div></div>
+      </div>
+      <div class="src-note">Conventions vary by region and publisher; choose forms a child will read aloud naturally.</div>
+    </div>
+    <div id="sound-qs"></div>
+  </div>
+  <div id="tab-translate" class="tab-panel">
+    <div class="tip-box"><strong>Translate for the ear.</strong> These public-domain texts are sound-rich and child-facing. Keep the bounce, the playfulness, and read-aloud quality. Type your version, then reveal the notes.</div>
+    <div id="translate-tasks"></div>
+  </div>
+  <div id="tab-quiz" class="tab-panel">
+    <div class="prog-bar-wrap"><div class="prog-bar" id="aq-prog" style="width:0%"></div></div>
+    <div id="aq-container"></div>
+    <div id="aq-score" class="score-summary" style="display:none;"></div>
+  </div>
+</div>
+</div>
+<footer><strong>ENG 494 Literary Translation</strong> · Children's Literature · Qassim University<br><a href="index.html">Course Hub</a> · <a href="workshop-poetry.html">Poetry Workshop</a></footer>
+<script>
+function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
+var MCQ={};
+function mount(cid,items){MCQ[cid]=items;document.getElementById(cid).innerHTML=items.map((q,qi)=>`<div class="ex-card">${q.pre||''}<div style="font-size:14px;font-weight:600;margin:6px 0 10px;">${q.q}</div>${q.opts.map((o,oi)=>`<button class="ex-opt" id="${cid}-${qi}-${oi}" onclick="ans('${cid}',${qi},${oi})">${o}</button>`).join('')}<div class="ex-feedback" id="${cid}-fb-${qi}"></div></div>`).join('');}
+function ans(cid,qi,ch){var q=MCQ[cid][qi];if(document.getElementById(`${cid}-${qi}-0`).disabled)return;q.opts.forEach((_,oi)=>{var b=document.getElementById(`${cid}-${qi}-${oi}`);b.disabled=true;if(oi===q.ans)b.classList.add('correct-ans');else if(oi===ch&&ch!==q.ans)b.classList.add('wrong-ans');});var fb=document.getElementById(`${cid}-fb-${qi}`);fb.className='ex-feedback show '+(ch===q.ans?'fb-correct':'fb-wrong');fb.innerHTML=q.why;}
+
+mount('multi-qs',[
+ {q:"A picture book shows a CAT, but the rhyming text names a 'bat' to rhyme with 'hat'. In Arabic the rhyme breaks. Best move?",opts:["Change the picture","Re-work the Arabic so the rhyming animal matches the picture (cat) and still rhymes","Ignore the picture","Add a footnote for children"],ans:1,why:"Word and image must agree — a child sees both. You re-engineer the Arabic rhyme around the animal shown, since you cannot change the printed picture."},
+ {q:"A sign painted inside the illustration reads 'BAKERY'. How should a translator usually handle such an inscription?",opts:["Leave it in English always","Decide with the publisher: re-letter the image into Arabic, or gloss it in the text","Delete the building","Footnote the history of bakeries"],ans:1,why:"Words drawn inside pictures are a multimodality problem. The fix is a production decision: re-letter the artwork (مخبز) or carry the meaning in the running text."},
+ {q:"Arabic reads right-to-left. For a picture book where action moves left→right across the page, the translator/publisher must consider:",opts:["Nothing, layout is fixed","Reading direction and possibly mirroring the page sequence","Only the font size","Removing all pictures"],ans:1,why:"Visual layout and reading direction interact. Sequencing that flows left-to-right may need rethinking (sometimes mirroring) for an Arabic reader — a real production constraint."}
+]);
+mount('sound-qs',[
+ {q:"English 'Tick-tock' for a clock is best rendered in Arabic for children as:",opts:["A formal description: صوت الساعة","An equivalent sound word: تِك تَاك","Omitted","A footnote"],ans:1,why:"Match sound with sound. 'تِك تَاك' keeps the playful, imitative quality a child enjoys reading aloud — a paraphrase kills it."},
+ {q:"There is no perfect Arabic match for a quirky English sound (e.g. a unique 'sproing!'). The translator may:",opts:["Leave it in English","Coin a readable Arabic sound that fits, prioritising read-aloud effect","Delete the moment","Use the IPA"],ans:1,why:"Onomatopoeia can be coined. Invent a sound that a child can voice and that fits the action — effect over dictionary equivalence."},
+ {q:"Why is reading the text ALOUD essential when translating children's books?",opts:["To check the page count","Because these texts are performed aloud to children — rhythm and sound must work","It is not necessary","To measure font size"],ans:1,why:"Picture books are read aloud. If your Arabic stumbles on the tongue, it fails its primary use, however 'accurate' it looks."}
+]);
+
+var TASKS=[
+ {title:"Nursery rhyme — bounce & rhyme",
+  text:`Hickory, dickory, dock,\nThe mouse ran up the clock.\nThe clock struck one,\nThe mouse ran down,\nHickory, dickory, dock.`,
+  cite:"Traditional Mother Goose rhyme · public domain",
+  challenges:"Pure sound-play ('Hickory dickory dock' means nothing), a tight bounce, and the 'tick-tock' clock world. Sense is secondary to rhythm and fun.",
+  strategy:"Coin an Arabic nonsense refrain with the same galloping beat (you may invent syllables), keep the tiny story (mouse up, clock strikes, mouse down), and end where you began. Read it aloud to test the bounce.",
+  sample:"«طِكطِكْ طاقةْ دوقْ، صعِد الفأرُ للبرجِ فوقْ، دقّتِ الساعةُ واحدةْ، نزلَ الفأرُ مسرعةْ، طِكطِكْ طاقةْ دوقْ.»",
+  sampleNote:"(One playful option — invent your own refrain; the bounce matters more than the words.)",
+  check:["Did you create a catchy, repeatable nonsense refrain?","Is the beat bouncy and read-aloud friendly?","Is the mini-story (up → strike → down) preserved?","Does it begin and end with the same refrain?"]},
+ {title:"Nonsense & invented words — Jabberwocky",
+  text:`'Twas brillig, and the slithy toves\nDid gyre and gimble in the wabe;`,
+  cite:"Lewis Carroll, \"Jabberwocky\" (1871) · public domain",
+  challenges:"Invented words (brillig, slithy, toves) that only SOUND meaningful. You can't look them up — you must invent Arabic words with the same playful texture.",
+  strategy:"Treat as phonemic/creative translation: coin Arabic nonsense words that feel like real words and keep the dreamy rhythm. Preserve the grammar frame ('it was X, and the Y did Z') so it reads as confident nonsense.",
+  sample:"«كان الوقتُ مُبَرلِجًا، والتّوفُ الزَّلِقَة، تَغيرُ وتُجَمبِلُ في الوابِ؛»",
+  sampleNote:"(Invented Arabic to match invented English — your coinages will differ; aim for the same texture.)",
+  check:["Did you invent Arabic words rather than explain the English ones?","Do your coinages sound like plausible words?","Is the confident grammatical frame kept?","Does the dreamy rhythm survive?"]}
+];
+function initTasks(){document.getElementById('translate-tasks').innerHTML=TASKS.map((t,i)=>`<div class="ex-card"><div class="ex-num">${t.title}</div><div class="excerpt">${t.text}<span class="cite">— ${t.cite}</span></div><p style="font-size:13px;color:var(--text-2);margin:8px 0 6px;">Type your Arabic translation:</p><textarea class="tp-input" id="tp-${i}" placeholder="اكتب ترجمتك هنا…"></textarea><button class="btn btn-primary btn-sm" style="margin-top:12px;background:var(--ac);" onclick="reveal(${i})">Reveal translator's notes →</button><div class="tp-reveal" id="tp-rev-${i}"><h4>The challenge</h4><div>${t.challenges}</div><h4>Recommended approach</h4><div>${t.strategy}</div><h4>A starting point</h4><div style="direction:rtl;text-align:right;background:var(--white);border-radius:var(--r-sm);padding:10px 12px;margin-top:4px;line-height:1.9;">${t.sample}</div><div class="src-note">${t.sampleNote}</div><h4>Check your version</h4><ul class="checklist2">${t.check.map(c=>`<li>${c}</li>`).join('')}</ul></div></div>`).join('');}
+function reveal(i){document.getElementById('tp-rev-'+i).classList.add('show');}
+
+var AQ=[
+ {q:"In picture books, the translator must keep agreement between:",opts:["Font and margin","The words and the pictures","Page number and chapter","Title and author"],ans:1,fb:"Word and image make meaning together; a child sees both, so they must agree."},
+ {q:"Words drawn INSIDE an illustration (a sign, a label) are best handled by:",opts:["Always leaving them in English","A production decision: re-letter the art into Arabic or carry the meaning in the text","Deleting the picture","Ignoring them"],ans:1,fb:"Inscriptions are a multimodality issue resolved with the publisher — re-letter or gloss in the running text."},
+ {q:"Onomatopoeia should be translated with priority on:",opts:["Dictionary equivalence","Read-aloud sound effect for a child","Formal register","Footnotes"],ans:1,fb:"Match sound with sound; coin one if needed. The child performs it aloud."},
+ {q:"For invented nonsense words (Jabberwocky), the translator should:",opts:["Explain each word in a footnote","Invent target-language words with a similar playful texture","Leave them in English","Translate them literally"],ans:1,fb:"Nonsense is recreated, not explained — coin Arabic words with the same feel."},
+ {q:"The essential final test for a translated picture-book line is:",opts:["Its word count","Reading it aloud","Its footnote count","Its publication date"],ans:1,fb:"These texts are performed aloud — if it stumbles on the tongue, it fails."}
+];
+var aqi=0,aqs=0,aqd=false;
+function rAQ(){if(aqi>=AQ.length){sAQ();return;}var q=AQ[aqi];document.getElementById('aq-prog').style.width=(aqi/AQ.length*100)+'%';document.getElementById('aq-container').innerHTML=`<div class="ex-card"><div class="ex-num">Question ${aqi+1} of ${AQ.length}</div><div class="ex-q">${q.q}</div><div id="aq-opts">${q.opts.map((o,i)=>`<button class="ex-opt" onclick="aAQ(${i})">${o}</button>`).join('')}</div><div class="ex-feedback" id="aq-fb"></div><div><button class="btn btn-primary btn-sm" id="aq-next" style="display:none;margin-top:14px;background:var(--ac);" onclick="nAQ()">Next →</button></div></div>`;aqd=false;}
+function aAQ(i){if(aqd)return;aqd=true;var q=AQ[aqi];document.querySelectorAll('#aq-opts .ex-opt').forEach((b,j)=>{b.disabled=true;if(j===q.ans)b.classList.add('correct-ans');else if(j===i&&i!==q.ans)b.classList.add('wrong-ans');});if(i===q.ans)aqs++;var fb=document.getElementById('aq-fb');fb.innerHTML=q.fb;fb.className='ex-feedback show '+(i===q.ans?'fb-correct':'fb-wrong');document.getElementById('aq-next').style.display='inline-block';}
+function nAQ(){aqi++;rAQ();}
+function sAQ(){document.getElementById('aq-prog').style.width='100%';document.getElementById('aq-container').style.display='none';var pct=Math.round(aqs/AQ.length*100);document.getElementById('aq-score').style.display='block';document.getElementById('aq-score').innerHTML=`<div class="score-big">${pct}%</div><div class="score-sub">${aqs}/${AQ.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct>=80?'You hear the page as a child would.':'Revisit the Word+Picture and Onomatopoeia tabs.'}</p><button class="btn btn-primary" style="background:var(--ac);" onclick="reAQ()">Retry</button>`;}
+function reAQ(){aqi=0;aqs=0;document.getElementById('aq-container').style.display='block';document.getElementById('aq-score').style.display='none';rAQ();}
+initTasks();rAQ();
+</script>
+<script src="track.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>

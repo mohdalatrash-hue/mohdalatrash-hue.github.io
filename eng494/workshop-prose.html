@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adult Prose: Dialect, Tone & Register | ENG 494</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="Interactive ENG 494 workshop — identify register and dialect, choose translation strategies, and translate real vernacular excerpts (Dickens, Brontë, Twain) into Arabic with self-assessment.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 494">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 494 Literary Translation">
+<meta property="og:title" content="Adult Prose: Dialect, Tone & Register | ENG 494">
+<meta property="og:description" content="Identify register and dialect, choose strategies, and translate real vernacular excerpts into Arabic.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng494/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng494/workshop-prose.html">
+<meta name="twitter:card" content="summary">
+<style>
+body{background:var(--off-white);}
+:root{--ac:#c2410c;--ac-soft:#fff3ed;--ac-ink:#7c2d12;}
+.tab-bar{display:flex;gap:4px;background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-xs);padding:6px;margin-bottom:28px;flex-wrap:wrap;}
+.tab-btn{flex:1;min-width:120px;padding:10px 14px;border:none;background:transparent;border-radius:var(--r-md);font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;transition:all .15s;}
+.tab-btn:hover{background:var(--off-white);} .tab-btn.active{background:var(--ac);color:#fff;}
+.tab-panel{display:none;} .tab-panel.active{display:block;}
+.ex-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:24px;margin-bottom:20px;}
+.ex-num{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);margin-bottom:8px;}
+.ex-q{font-size:15px;font-weight:600;color:var(--text);margin-bottom:16px;line-height:1.6;}
+.ex-opt{padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:14px;cursor:pointer;transition:all .15s;background:var(--white);color:var(--text);text-align:left;display:block;width:100%;margin-bottom:8px;}
+.ex-opt:hover{border-color:var(--text-2);}
+.ex-opt.correct-ans{border-color:#30d158;background:#f0fff4;color:#1a7f45;} .ex-opt.correct-ans::after{content:" ✓";font-weight:800;}
+.ex-opt.wrong-ans{border-color:#e53935;background:#fef2f2;color:#c0392b;} .ex-opt.wrong-ans::after{content:" ✗";font-weight:800;}
+.ex-feedback{margin-top:14px;padding:12px 16px;border-radius:var(--r-md);font-size:13px;line-height:1.7;display:none;} .ex-feedback.show{display:block;}
+.fb-correct{background:#f0fff4;border:1px solid #a2d9b0;color:#14532d;} .fb-wrong{background:#fef2f2;border:1px solid #fca5a5;color:#7f1d1d;}
+.tip-box{background:var(--ac-soft);border:1.5px solid #fed7aa;border-radius:var(--r-md);padding:14px 16px;font-size:13px;line-height:1.7;color:var(--ac-ink);margin-bottom:20px;} .tip-box strong{color:var(--ac);}
+.prog-bar-wrap{height:6px;background:var(--off-white);border-radius:var(--r-pill);margin-bottom:24px;overflow:hidden;} .prog-bar{height:100%;background:var(--ac);border-radius:var(--r-pill);transition:width .4s;}
+.score-summary{text-align:center;padding:32px 20px;} .score-big{font-size:56px;font-weight:800;color:var(--ac);line-height:1;margin-bottom:8px;} .score-sub{font-size:14px;color:var(--text-2);}
+.excerpt{background:var(--off-white);border-left:3px solid var(--ac);padding:14px 16px;border-radius:0 var(--r-md) var(--r-md) 0;font-size:14px;line-height:1.8;color:var(--text);margin-bottom:10px;font-family:Georgia,'Times New Roman',serif;}
+.excerpt .cite{display:block;font-family:var(--font);font-size:11px;font-weight:700;color:var(--ac-ink);margin-top:8px;text-transform:none;}
+.tp-input{width:100%;min-height:120px;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:15px;font-family:inherit;line-height:1.9;direction:rtl;text-align:right;resize:vertical;}
+.tp-input:focus{outline:none;border-color:var(--ac);}
+.tp-btn{margin-top:12px;}
+.tp-reveal{display:none;margin-top:16px;padding:16px;border-radius:var(--r-md);background:var(--ac-soft);border:1px solid #fed7aa;font-size:13.5px;line-height:1.7;color:var(--text);} .tp-reveal.show{display:block;}
+.tp-reveal h4{font-size:13px;font-weight:800;color:var(--ac-ink);text-transform:uppercase;letter-spacing:.05em;margin:12px 0 6px;} .tp-reveal h4:first-child{margin-top:0;}
+.tp-sample{direction:rtl;text-align:right;font-size:15px;line-height:1.9;background:var(--white);border-radius:var(--r-sm);padding:10px 12px;margin-top:4px;}
+.checklist2{list-style:none;padding:0;margin:6px 0 0;} .checklist2 li{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.6;margin-bottom:5px;} .checklist2 li::before{content:"☐";color:var(--ac);font-weight:800;}
+.src-note{font-size:12px;color:var(--text-3);margin-top:10px;}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 494</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Adult Prose</span>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:34px;">
+  <div class="hero-eyebrow" style="color:var(--ac);">Unit 1 · Adult Prose</div>
+  <h1>Dialect, Tone &amp; Register</h1>
+  <p class="hero-sub">Hear the voice before you translate it — identify register and dialect, choose a strategy, then translate real vernacular excerpts into Arabic.</p>
+</div>
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+
+  <div class="info-box info-amber mb-24" style="text-align:left;">
+    <h3>🎙️ Why this matters</h3>
+    <p>Landers argues that nearly every word sits in a <em>register</em> (formal/informal, technical, regional, vulgar/polite) and that dialect is among the translator's hardest problems. You cannot reproduce English phonetic spelling in Arabic — so you must <strong>compensate</strong>. This workshop trains the ear, then your pen.</p>
+  </div>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('register',this)">🎚️ Register</button>
+    <button class="tab-btn" onclick="switchTab('dialect',this)">🗣️ Spot the Dialect</button>
+    <button class="tab-btn" onclick="switchTab('translate',this)">✍️ Translate It</button>
+    <button class="tab-btn" onclick="switchTab('strategy',this)">🧰 Strategy</button>
+    <button class="tab-btn" onclick="switchTab('quiz',this)">📝 Quiz</button>
+  </div>
+
+  <div id="tab-register" class="tab-panel active">
+    <div class="tip-box"><strong>Register</strong> is a socially-defined variety of language. Categories include: formal/informal, technical/non-technical, standard/regional, jargon, and proper/vulgar. The first job is to name the register you hear.</div>
+    <div id="register-qs"></div>
+  </div>
+
+  <div id="tab-dialect" class="tab-panel">
+    <div class="tip-box"><strong>Dialect</strong> signals region, class, era and character. Authors mark it with phonetic spelling and slang. Identify the variety — and the specific feature that will fight you in Arabic.</div>
+    <div id="dialect-qs"></div>
+  </div>
+
+  <div id="tab-translate" class="tab-panel">
+    <div class="tip-box"><strong>Now translate.</strong> Render each short excerpt into natural Arabic. Type your version, then reveal the translator's notes and a self-assessment checklist. There is no single right answer — judge yours against the criteria.</div>
+    <div id="translate-tasks"></div>
+  </div>
+
+  <div id="tab-strategy" class="tab-panel">
+    <div class="tip-box"><strong>Four moves for hard spots (Landers):</strong> a <em>footnote</em> explains; an <em>interpolation</em> slips a brief gloss into the text; an <em>omission</em> drops the untranslatable; <em>compensation</em> recreates the effect elsewhere (e.g. a colloquial Arabic register for English dialect).</div>
+    <div id="strategy-qs"></div>
+  </div>
+
+  <div id="tab-quiz" class="tab-panel">
+    <div class="prog-bar-wrap"><div class="prog-bar" id="aq-prog" style="width:0%"></div></div>
+    <div id="aq-container"></div>
+    <div id="aq-score" class="score-summary" style="display:none;"></div>
+  </div>
+</div>
+</div>
+<footer><strong>ENG 494 Literary Translation</strong> · Adult Prose · Qassim University<br><a href="index.html">Course Hub</a> · <a href="workshop-poetry.html">Poetry Workshop</a></footer>
+<script>
+function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
+var MCQ={};
+function mount(cid,items){MCQ[cid]=items;document.getElementById(cid).innerHTML=items.map((q,qi)=>`<div class="ex-card">${q.pre||''}<div style="font-size:14px;font-weight:600;margin:6px 0 10px;">${q.q}</div>${q.opts.map((o,oi)=>`<button class="ex-opt" id="${cid}-${qi}-${oi}" onclick="ans('${cid}',${qi},${oi})">${o}</button>`).join('')}<div class="ex-feedback" id="${cid}-fb-${qi}"></div></div>`).join('');}
+function ans(cid,qi,ch){var q=MCQ[cid][qi];if(document.getElementById(`${cid}-${qi}-0`).disabled)return;q.opts.forEach((_,oi)=>{var b=document.getElementById(`${cid}-${qi}-${oi}`);b.disabled=true;if(oi===q.ans)b.classList.add('correct-ans');else if(oi===ch&&ch!==q.ans)b.classList.add('wrong-ans');});var fb=document.getElementById(`${cid}-fb-${qi}`);fb.className='ex-feedback show '+(ch===q.ans?'fb-correct':'fb-wrong');fb.innerHTML=q.why;}
+
+mount('register-qs',[
+ {q:"\"Pursuant to the aforementioned clause, the lessee shall vacate the premises.\" Which register?",opts:["Formal / legal","Informal / colloquial","Regional dialect","Children's speech"],ans:0,why:"Latinate vocabulary (pursuant, aforementioned, lessee) and impersonal syntax mark a formal, legal register. In Arabic, match it with فصحى قانونية, not everyday speech."},
+ {q:"\"Gimme a sec, I'll sort it out, no worries.\" Which register?",opts:["Technical","Informal / colloquial","Formal / literary","Archaic"],ans:1,why:"Contractions (gimme), slang (no worries) and ellipsis signal casual, informal speech. The Arabic should feel spoken, not written-formal."},
+ {q:"\"The patient presented with acute myocardial infarction.\" Which register?",opts:["Colloquial","Technical / medical jargon","Regional","Vulgar"],ans:1,why:"Specialist terminology (myocardial infarction) is technical jargon. The translator must find the equivalent Arabic medical register — not a layman's paraphrase unless the brief asks for one."},
+ {q:"Why does register matter BEFORE you start translating?",opts:["It tells you the word count","It sets the tone the whole passage must keep in Arabic","It is only relevant for poetry","It decides the font"],ans:1,why:"Register is a promise to the reader. A formal source rendered in colloquial Arabic (or vice-versa) betrays the author's voice even if every word is 'accurate'."}
+]);
+
+mount('dialect-qs',[
+ {pre:`<div class="excerpt">"If you don't take pocket-hankechers and watches," said the Dodger, "some other cove will; so that the coves that lose 'em will be all the worse, and you've just as good a right to them as they have."<span class="cite">— Charles Dickens, <em>Oliver Twist</em> (1838), public domain</span></div>`,q:"Which variety is the Artful Dodger speaking?",opts:["Yorkshire rural dialect","London Cockney / criminal cant","African American Vernacular","Scottish English"],ans:1,why:"'cove' (man), 'em, and the streetwise moral argument are London Cockney with thieves' cant. The challenge: this slang carries class and criminality that plain Arabic would erase."},
+ {pre:`<div class="excerpt">"Aw wonder how yah can faishion to stand thear i' idleness un war, when all on 'em's goan out! Bud yah're a nowt, and it's no use talking."<span class="cite">— Emily Brontë, <em>Wuthering Heights</em> (1847), Joseph's speech, public domain</span></div>`,q:"What is the single hardest feature to carry into Arabic here?",opts:["The vocabulary is too formal","Heavy phonetic spelling of a Yorkshire accent","It is written in verse","It uses technical jargon"],ans:1,why:"Brontë spells the sound of the accent (faishion, thear, goan). Arabic script cannot mimic English phonetics, so you compensate — e.g. with a marked colloquial Arabic register — rather than mis-spell فصحى."},
+ {pre:`<div class="excerpt">"Brer Fox, he lay low. Brer Rabbit, he come a-lopin' down de road — lippity-clippity, clippity-lippity — dez ez sassy ez a jay-bird."<span class="cite">— Joel Chandler Harris, <em>Uncle Remus</em> (1881), public domain</span></div>`,q:"Besides the dialect spelling, what extra feature must your Arabic preserve?",opts:["Legal terminology","The playful rhythm and sound-play (lippity-clippity)","A formal academic tone","Footnote numbers"],ans:1,why:"The musical, repetitive sound-play is part of the meaning. A flat literal Arabic loses the folktale's oral music — you must recreate rhythm and playfulness, not just sense."}
+]);
+
+mount('strategy-qs',[
+ {q:"A character says 'as American as apple pie.' Arabic readers may not share the cultural image. Best first move?",opts:["Omit the phrase entirely","Compensate with a culturally equivalent Arabic image, or gloss briefly","Footnote a 200-word essay on American cuisine","Translate word-for-word: أمريكي كفطيرة التفاح"],ans:1,why:"Compensation (an equivalent image) keeps the effect; a brief interpolation can gloss it. A literal calque sounds odd, and a long footnote stops the story. Omission is a last resort."},
+ {q:"English dialect spelling (gonna, wot, 'em) cannot be reproduced in Arabic script. The professional solution is to:",opts:["Misspell the Arabic to 'look' dialectal","Compensate using a recognised colloquial Arabic register (عامية) for that speaker","Add [sic] after every word","Leave those words in English"],ans:1,why:"You compensate at the level of register: give the low-status speaker a colloquial Arabic voice. Deliberately misspelling فصحى just looks like errors."},
+ {q:"A Portuguese text repeats 'menino' (little boy) every line; in English/Arabic this over-repetition sounds odd. This is an error of:",opts:["Register","Frequency — fix with thought-by-thought, not word-by-word","Dialect","Punctuation"],ans:1,why:"Landers calls this an error of frequency from a word-by-word orientation. Ask how a native author would phrase it — often simply 'the boy' after the first mention."}
+]);
+
+// TRANSLATION PRACTICE
+var TASKS=[
+ {title:"Excerpt 1 — Dickens (Cockney register)",
+  text:`"If you don't take pocket-hankechers and watches," said the Dodger, "some other cove will; so you've just as good a right to them as they have."`,
+  cite:"Charles Dickens, Oliver Twist (1838) · public domain",
+  challenges:"Thieves' cant ('cove'), a casual streetwise tone, and a sly moral argument. None of this should sound like formal فصحى.",
+  strategy:"Compensate: give the Dodger a light colloquial register so the cheek survives. Don't phonetically misspell Arabic. Keep the argument's logic intact.",
+  sample:"«لو ما خدتش المناديل والساعات» — قال دودجر — «حدّ تاني هياخدها؛ يبقى لك فيها حق زيهم بالظبط.»",
+  sampleNote:"(One option in Egyptian colloquial — your dialect choice may differ; the point is a spoken, low register.)",
+  check:["Did you choose a clearly informal/colloquial register?","Is the cheeky, persuasive tone audible?","Did you avoid inventing 'wrong' Arabic spelling to fake the accent?","Does it read naturally aloud?"]},
+ {title:"Excerpt 2 — Brontë (Yorkshire dialect)",
+  text:`"Yah're a nowt, and it's no use talking — yah'll niver mend o' yer ill ways."`,
+  cite:"Emily Brontë, Wuthering Heights (1847), Joseph · public domain",
+  challenges:"Extreme phonetic spelling, a scolding biblical sternness, and contempt. The sound cannot be copied; the attitude must be.",
+  strategy:"Carry the tone (harsh, moralising) and mark the speaker as rustic/old-fashioned via word choice — not misspelling. A footnote noting the Yorkshire dialect is acceptable for the first occurrence.",
+  sample:"«إنت لا شيء، وما في فايدة من الكلام — عمرك ما حتتركل طبايعك الخبيثة.»",
+  sampleNote:"(Tone-first rendering; you might add a one-line note that Joseph speaks a broad Yorkshire dialect.)",
+  check:["Is the contemptuous, preachy tone preserved?","Did you mark the speaker as rustic/old-fashioned through diction?","Did you resist copying the English misspellings?","Is the meaning fully intact despite the dialect?"]}
+];
+function initTasks(){
+ document.getElementById('translate-tasks').innerHTML=TASKS.map((t,i)=>`
+  <div class="ex-card">
+    <div class="ex-num">${t.title}</div>
+    <div class="excerpt">${t.text}<span class="cite">— ${t.cite}</span></div>
+    <p style="font-size:13px;color:var(--text-2);margin:8px 0 6px;">Type your Arabic translation:</p>
+    <textarea class="tp-input" id="tp-${i}" placeholder="اكتب ترجمتك هنا…"></textarea>
+    <button class="btn btn-primary btn-sm tp-btn" style="background:var(--ac);" onclick="reveal(${i})">Reveal translator's notes →</button>
+    <div class="tp-reveal" id="tp-rev-${i}">
+      <h4>The challenge</h4><div>${t.challenges}</div>
+      <h4>Recommended strategy</h4><div>${t.strategy}</div>
+      <h4>One possible rendering</h4><div class="tp-sample">${t.sample}</div><div class="src-note">${t.sampleNote}</div>
+      <h4>Check your version</h4><ul class="checklist2">${t.check.map(c=>`<li>${c}</li>`).join('')}</ul>
+    </div>
+  </div>`).join('');
+}
+function reveal(i){document.getElementById('tp-rev-'+i).classList.add('show');}
+
+// QUIZ
+var AQ=[
+ {q:"Register is best defined as:",opts:["A socially-defined variety of language (formal, technical, regional…)","The number of words in a sentence","A type of footnote","The page layout"],ans:0,fb:"Landers (after Crystal): register is a socially-defined variety — and the translation must keep the source's register in the target language."},
+ {q:"English dialect spelling (e.g. 'goan', 'wot') should be handled in Arabic by:",opts:["Reproducing the misspellings in Arabic","Compensating with a colloquial Arabic register","Deleting the dialogue","Translating only the spelling"],ans:1,why:"",fb:"You cannot copy English phonetics in Arabic; you compensate by giving the speaker an appropriate colloquial (عامية) voice."},
+ {q:"'Thought-by-thought' translation is preferred over 'word-by-word' because it:",opts:["Is faster","Yields more fluent, natural target text","Uses fewer footnotes","Preserves the original word order exactly"],ans:1,fb:"Asking 'how would a native speaker say this?' avoids odd calques and frequency errors — a core Landers principle."},
+ {q:"A culture-specific idiom with no Arabic equivalent is usually best handled by:",opts:["A long footnote essay","Compensation or a brief gloss (interpolation)","Word-for-word calque","Leaving it in English"],ans:1,fb:"Compensation or a short in-text gloss keeps the flow; long footnotes interrupt and omission loses meaning."},
+ {q:"The 'primordial' question before translating any passage of dialogue is:",opts:["What font to use","What register and voice the speaker has","How many footnotes to add","The exact publication date"],ans:1,fb:"Hear the voice — register, class, era, attitude — first; every later choice serves it."}
+];
+var aqi=0,aqs=0,aqd=false;
+function rAQ(){if(aqi>=AQ.length){sAQ();return;}var q=AQ[aqi];document.getElementById('aq-prog').style.width=(aqi/AQ.length*100)+'%';document.getElementById('aq-container').innerHTML=`<div class="ex-card"><div class="ex-num">Question ${aqi+1} of ${AQ.length}</div><div class="ex-q">${q.q}</div><div id="aq-opts">${q.opts.map((o,i)=>`<button class="ex-opt" onclick="aAQ(${i})">${o}</button>`).join('')}</div><div class="ex-feedback" id="aq-fb"></div><div><button class="btn btn-primary btn-sm" id="aq-next" style="display:none;margin-top:14px;background:var(--ac);" onclick="nAQ()">Next →</button></div></div>`;aqd=false;}
+function aAQ(i){if(aqd)return;aqd=true;var q=AQ[aqi];document.querySelectorAll('#aq-opts .ex-opt').forEach((b,j)=>{b.disabled=true;if(j===q.ans)b.classList.add('correct-ans');else if(j===i&&i!==q.ans)b.classList.add('wrong-ans');});if(i===q.ans)aqs++;var fb=document.getElementById('aq-fb');fb.innerHTML=q.fb;fb.className='ex-feedback show '+(i===q.ans?'fb-correct':'fb-wrong');document.getElementById('aq-next').style.display='inline-block';}
+function nAQ(){aqi++;rAQ();}
+function sAQ(){document.getElementById('aq-prog').style.width='100%';document.getElementById('aq-container').style.display='none';var pct=Math.round(aqs/AQ.length*100);document.getElementById('aq-score').style.display='block';document.getElementById('aq-score').innerHTML=`<div class="score-big">${pct}%</div><div class="score-sub">${aqs}/${AQ.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct>=80?'Sharp ear for register and dialect.':'Revisit the Register and Strategy tabs.'}</p><button class="btn btn-primary" style="background:var(--ac);" onclick="reAQ()">Retry</button>`;}
+function reAQ(){aqi=0;aqs=0;document.getElementById('aq-container').style.display='block';document.getElementById('aq-score').style.display='none';rAQ();}
+
+initTasks();rAQ();
+</script>
+<script src="track.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>

@@ -3,9 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ENG 494 Literary Translation | Qassim University</title>
+<title>ENG 494 Literary Translation — Summer 2026</title>
 <link rel="stylesheet" href="../style.css">
-<style>body{background:var(--off-white);}</style>
+<meta name="description" content="ENG 494 Literary Translation — a self-study hub with interactive translation workshops (prose, children's literature, poetry, drama), week by week. Qassim University, Summer 2026.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 494">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 494 Literary Translation">
+<meta property="og:title" content="ENG 494 Literary Translation — Summer 2026">
+<meta property="og:description" content="Interactive translation workshops — prose, children's literature, poetry, drama — week by week.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng494/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng494/">
+<meta name="twitter:card" content="summary">
+<style>
+  body{background:var(--off-white);}
+  .jprog-wrap{display:flex;align-items:center;gap:12px;margin-bottom:22px;}
+  .jprog-label{font-size:13px;color:var(--text-2);white-space:nowrap;}
+  .jprog-track{flex:1;height:6px;background:var(--white);border:1px solid var(--border-light);border-radius:var(--r-pill);overflow:hidden;}
+  .jprog-fill{height:100%;background:var(--green);border-radius:var(--r-pill);transition:width .5s;}
+  .jprog-now{font-size:13px;font-weight:700;color:var(--green);white-space:nowrap;}
+  .journey{display:flex;flex-direction:column;}
+  .jrow{display:flex;gap:16px;text-decoration:none;color:var(--text);}
+  .jrail{display:flex;flex-direction:column;align-items:center;flex-shrink:0;}
+  .jnode{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;flex-shrink:0;z-index:1;}
+  .jline{width:2px;flex:1;background:var(--border);min-height:18px;} .jrow:last-child .jline{display:none;}
+  .jcontent{flex:1;padding-bottom:18px;min-width:0;}
+  .jrow.done{opacity:.5;} .jrow.done .jnode{background:var(--green-light);color:var(--green);} .jrow.done .jline{background:var(--green);opacity:.4;}
+  .jrow.future{opacity:.5;} .jrow.future .jnode{background:var(--off-white);border:1.5px solid var(--border);color:var(--text-3);}
+  .jtitle{font-size:15px;font-weight:600;color:var(--text);margin-top:6px;} .jmeta{font-size:13px;color:var(--text-3);margin-top:2px;}
+  .jrow.current .jnode{background:var(--green);color:#fff;box-shadow:0 0 0 5px rgba(26,107,60,.18);animation:jpulse 2.2s ease-in-out infinite;}
+  @keyframes jpulse{0%,100%{box-shadow:0 0 0 5px rgba(26,107,60,.18);}50%{box-shadow:0 0 0 8px rgba(26,107,60,.10);}}
+  .jcard{border:2px solid var(--green);background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:16px 18px;transition:box-shadow .15s,transform .1s;}
+  .jrow.current:hover .jcard{box-shadow:var(--shadow-md);transform:translateY(-1px);}
+  .jcard-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:3px;} .jcard-title{font-size:16px;font-weight:700;}
+  .jhere{font-size:11px;font-weight:700;background:var(--green);color:#fff;padding:2px 9px;border-radius:var(--r-pill);}
+  .jcard-meta{font-size:13px;color:var(--green-dark);margin-bottom:10px;font-weight:600;}
+  .jcard-do{font-size:14px;color:var(--text);line-height:1.5;margin-bottom:10px;}
+  .jcard-open{font-size:13px;font-weight:700;color:var(--green);}
+  .ws-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;}
+  .ws-card{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);text-decoration:none;color:var(--text);display:flex;flex-direction:column;padding:18px;gap:8px;transition:box-shadow .15s,transform .1s;border-top:3px solid transparent;}
+  .ws-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-2px);text-decoration:none;}
+  .ws-icon{font-size:26px;} .ws-name{font-size:14px;font-weight:700;} .ws-unit{font-size:11px;color:var(--text-3);} .ws-desc{font-size:12px;color:var(--text-2);line-height:1.5;flex:1;} .ws-arrow{font-size:12px;color:var(--text-3);}
+  .qa-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;}
+  .qa-card{background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:16px;text-decoration:none;color:var(--text);display:block;transition:box-shadow .15s,transform .1s;}
+  .qa-card:hover{box-shadow:var(--shadow-sm);transform:translateY(-1px);text-decoration:none;}
+  .qa-ic{font-size:22px;margin-bottom:8px;} .qa-name{font-size:13px;font-weight:700;margin-bottom:2px;} .qa-sub{font-size:11px;color:var(--text-3);line-height:1.4;}
+</style>
 </head>
 <body>
 <nav class="nav">
@@ -13,55 +61,124 @@
     <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
     <span class="nav-sep">›</span>
     <span class="nav-cur">ENG 494</span>
+    <div class="nav-spacer"></div>
+    <div class="nav-links">
+      <a class="nav-link" href="workshop-prose.html">Prose</a>
+      <a class="nav-link" href="workshop-children.html">Children's</a>
+      <a class="nav-link" href="workshop-poetry.html">Poetry</a>
+      <a class="nav-link" href="workshop-drama.html">Drama</a>
+    </div>
   </div>
 </nav>
 
-<div class="hero" style="padding-bottom:56px;">
-  <div class="hero-eyebrow">Summer 2026 · Department of English</div>
-  <h1>ENG 494<br>Literary Translation</h1>
-  <p class="hero-sub">Theory and practice of translating literary texts across genres — poetry, prose, and drama</p>
+<div class="hero">
+  <div class="hero-eyebrow">ENG 494 · Summer 2026</div>
+  <h1>Literary Translation</h1>
+  <p class="hero-sub">A self-study studio for translating prose, children's literature, poetry and drama into Arabic · Landers (2001) · Dr. Muhammad Alatrash</p>
   <div class="hero-meta">
-    <span class="badge" style="background:#fff8e7;color:#92400e;border:1px solid #fcd34d;">Coming Soon</span>
+    <span>Jun 28 – Aug 17, 2026</span>
     <span class="hero-meta-dot">·</span>
-    <span>Course materials will be added here</span>
+    <span>Section 173</span>
+    <span class="hero-meta-dot">·</span>
+    <span>Sun–Mon–Tue · 8:00–9:40 AM</span>
+    <span class="hero-meta-dot">·</span>
+    <span>Room 3151, College of Languages</span>
   </div>
 </div>
 
-<div class="section-alt" style="padding:0 0 64px;">
-<div class="section-inner" style="max-width:640px;">
+<div class="section-alt" style="padding:0 0 56px;">
+<div class="section-inner">
 
-  <div class="info-box" style="background:#fff8e7;border:1.5px solid #fcd34d;margin-bottom:32px;">
-    <h3 style="color:#92400e;">🏗️ Under Construction</h3>
-    <p style="color:#78350f;">The ENG 494 course hub is being built and will be available before the course begins. Check back soon or contact Dr. Alatrash for more information.</p>
+  <div class="info-box info-amber mb-32" style="text-align:left;">
+    <h3>🛠️ A studio you run yourself</h3>
+    <p>Each workshop below teaches a translation skill, then asks <strong>you to translate a short real excerpt</strong> and self-assess against a model approach. Work at your own pace; your progress is saved on your device. Graded quizzes, projects and the final are in Blackboard Ultra.</p>
   </div>
 
-  <div class="card card-pad mb-24">
-    <div style="font-size:32px;margin-bottom:12px;">📖</div>
-    <h2 style="font-size:17px;font-weight:700;margin-bottom:10px;">What to expect</h2>
-    <p style="font-size:14px;color:var(--text-2);line-height:1.7;margin-bottom:14px;">ENG 494 explores the art and craft of literary translation — the complex decisions involved in carrying meaning, tone, style, and cultural nuance from one language into another. The course examines theoretical frameworks alongside hands-on translation practice across three major genres.</p>
-    <div style="display:flex;flex-wrap:wrap;gap:8px;">
-      <span class="badge" style="background:var(--off-white);color:var(--text-2);border:1px solid var(--border);">Poetry translation</span>
-      <span class="badge" style="background:var(--off-white);color:var(--text-2);border:1px solid var(--border);">Prose &amp; fiction</span>
-      <span class="badge" style="background:var(--off-white);color:var(--text-2);border:1px solid var(--border);">Drama &amp; script</span>
-      <span class="badge" style="background:var(--off-white);color:var(--text-2);border:1px solid var(--border);">Translation theory</span>
-      <span class="badge" style="background:var(--off-white);color:var(--text-2);border:1px solid var(--border);">Cultural adaptation</span>
-    </div>
+  <div class="section-label" style="margin-bottom:14px;">Translation Workshops</div>
+  <div class="ws-grid mb-48">
+    <a class="ws-card" href="workshop-prose.html" style="border-top-color:#c2410c;">
+      <div class="ws-icon">🗣️</div><div class="ws-name">Adult Prose</div><div class="ws-unit">Unit 1 · Dialect, Tone &amp; Register</div>
+      <div class="ws-desc">Identify register &amp; dialect, choose a strategy, translate Dickens &amp; Brontë into Arabic</div><div class="ws-arrow">Open workshop →</div>
+    </a>
+    <a class="ws-card" href="workshop-children.html" style="border-top-color:#0d9488;">
+      <div class="ws-icon">🧸</div><div class="ws-name">Children's Literature</div><div class="ws-unit">Unit 2 · Multimodality &amp; Sound</div>
+      <div class="ws-desc">Word-and-picture interplay, onomatopoeia, and nonsense (Jabberwocky, nursery rhymes)</div><div class="ws-arrow">Open workshop →</div>
+    </a>
+    <a class="ws-card" href="workshop-poetry.html" style="border-top-color:#7c3aed;">
+      <div class="ws-icon">🎵</div><div class="ws-name">Poetry</div><div class="ws-unit">Unit 3 · Six Strategies</div>
+      <div class="ws-desc">The six strategies, rhyme schemes, and translating Wordsworth &amp; Lear two ways</div><div class="ws-arrow">Open workshop →</div>
+    </a>
+    <a class="ws-card" href="workshop-drama.html" style="border-top-color:#2563eb;">
+      <div class="ws-icon">🎭</div><div class="ws-name">Drama &amp; Adaptation</div><div class="ws-unit">Unit 5 · Translating for the Stage</div>
+      <div class="ws-desc">Speakability, translation vs adaptation, performable Shakespeare &amp; Wilde in Arabic</div><div class="ws-arrow">Open workshop →</div>
+    </a>
   </div>
 
-  <div class="card card-pad mb-32" style="border:1.5px solid var(--green-light);">
-    <h3 style="font-size:15px;font-weight:700;margin-bottom:8px;">Contact Dr. Alatrash</h3>
-    <p style="font-size:13px;color:var(--text-2);margin-bottom:12px;">For questions about ENG 494, course registration, or the upcoming syllabus:</p>
-    <a class="btn btn-primary" href="mailto:mohd.alatrash@gmail.com">✉ Email Dr. Alatrash</a>
+  <div class="section-label" style="margin-bottom:14px;">Your 7-Week Journey</div>
+  <div class="jprog-wrap">
+    <span class="jprog-label">Course progress</span>
+    <div class="jprog-track"><div class="jprog-fill" id="jprog-fill" style="width:0%"></div></div>
+    <span class="jprog-now" id="jprog-now">—</span>
+  </div>
+  <p style="font-size:13px;color:var(--text-2);margin:-8px 0 18px;line-height:1.6;">The current week glows; each week links to the workshop that matches its unit. (Compressed summer plan — confirm pacing with the class.)</p>
+  <div class="journey mb-48" id="journey"></div>
+
+  <div class="section-label" style="margin-bottom:14px;">Quick Access</div>
+  <div class="qa-grid mb-32">
+    <a class="qa-card" href="progress.html"><div class="qa-ic">📈</div><div class="qa-name">My Progress</div><div class="qa-sub">Your activity &amp; pace</div></a>
+    <a class="qa-card" href="../eng446/index.html"><div class="qa-ic">🔬</div><div class="qa-name">ENG 446</div><div class="qa-sub">Research Methods site</div></a>
+    <a class="qa-card" href="../index.html"><div class="qa-ic">🏠</div><div class="qa-name">Course Hub</div><div class="qa-sub">All courses</div></a>
   </div>
 
-  <a class="btn btn-outline" href="../index.html">← Back to Course Hub</a>
+  <div class="card card-pad" style="background:var(--green);color:#fff;border-radius:var(--r-lg);">
+    <h3 style="font-size:17px;font-weight:700;margin-bottom:10px;">Dr. Muhammad Alatrash</h3>
+    <p style="font-size:13px;opacity:.85;line-height:1.8;">
+      Email: <a href="mailto:atrsh@qu.edu.sa" style="color:rgba(255,255,255,.8)">atrsh@qu.edu.sa</a> &nbsp;·&nbsp;
+      Class: Sun–Mon–Tue · 8:00–9:40 AM · Room 3151, College of Languages<br>
+      Graded quizzes, translation projects and the final exam are in Blackboard Ultra.
+    </p>
+  </div>
 
 </div>
 </div>
 
 <footer>
   <strong>ENG 494 Literary Translation</strong> · Qassim University · Summer 2026<br>
-  <a href="../index.html">Course Hub</a>
+  Self-study studio — grades and submissions in Blackboard Ultra.<br>
+  <a href="../index.html">Course Hub</a> · <a href="workshop-prose.html">Prose</a> · <a href="workshop-children.html">Children's</a> · <a href="workshop-poetry.html">Poetry</a> · <a href="workshop-drama.html">Drama</a>
 </footer>
+
+<script>
+var WEEKS=[
+ {n:1,title:"Foundations + Adult Prose I",dates:"Jun 28–30",end:"2026-07-01",do:"Style in Translation · Fiction & Footnotes",href:"workshop-prose.html"},
+ {n:2,title:"Adult Prose II",dates:"Jul 5–7",end:"2026-07-08",do:"Dialects, Register & Tone → Adult Prose Workshop · Quiz 1",href:"workshop-prose.html"},
+ {n:3,title:"Children's Literature",dates:"Jul 12–14",end:"2026-07-15",do:"Narrative, Dialogue & Dialect, Multimodality → Children's Workshop · Quiz 2",href:"workshop-children.html"},
+ {n:4,title:"Midterm + Poetry I",dates:"Jul 19–21",end:"2026-07-22",do:"Midterm Exam · the six poetry strategies",href:"workshop-poetry.html"},
+ {n:5,title:"Poetry II + Children's Poetry",dates:"Jul 26–28",end:"2026-07-29",do:"Lahlali & Abu Hatab → Poetry Workshop · Quiz 3 · Quiz 4",href:"workshop-poetry.html"},
+ {n:6,title:"Drama & Adaptation",dates:"Aug 2–4",end:"2026-08-05",do:"Theatre & Adaptation → Drama Workshop · Quiz 5",href:"workshop-drama.html"},
+ {n:7,title:"Final Project & Review",dates:"Aug 9–11",end:"2026-08-12",do:"Poetry Translation Project · exam review",href:"workshop-poetry.html"},
+ {n:"★",title:"Final Examination",dates:"Aug 16–17",end:"2026-08-18",do:"Individual · per university calendar",href:"#",final:true}
+];
+function todayISO(){var t=new Date();return t.getFullYear()+"-"+String(t.getMonth()+1).padStart(2,"0")+"-"+String(t.getDate()).padStart(2,"0");}
+function initJourney(){
+  var now=todayISO();
+  var active=WEEKS.findIndex(function(w){return now<=w.end;});
+  if(active===-1)active=WEEKS.length-1;
+  var done=Math.min(active,7);
+  document.getElementById('jprog-fill').style.width=Math.round(done/7*100)+'%';
+  document.getElementById('jprog-now').textContent=active>=7?'Final exam':('Week '+(active+1)+' of 7');
+  document.getElementById('journey').innerHTML=WEEKS.map(function(w,i){
+    var state=i<active?'done':(i===active?'current':'future');
+    var node=w.final?'★':w.n;
+    if(state==='current'){
+      return '<a class="jrow current" href="'+w.href+'"><div class="jrail"><div class="jnode">'+node+'</div><div class="jline"></div></div><div class="jcontent"><div class="jcard"><div class="jcard-top"><span class="jcard-title">'+(w.final?'':'Week '+w.n+' — ')+w.title+'</span><span class="jhere">You are here</span></div><div class="jcard-meta">'+w.dates+'</div><div class="jcard-do">'+w.do+'</div><span class="jcard-open">Open this week’s workshop →</span></div></div></a>';
+    }
+    return '<a class="jrow '+state+'" href="'+w.href+'"><div class="jrail"><div class="jnode">'+(state==='done'?'✓':node)+'</div><div class="jline"></div></div><div class="jcontent"><div class="jtitle">'+(w.final?'':'Week '+w.n+' — ')+w.title+'</div><div class="jmeta">'+w.dates+' · '+w.do+'</div></div></a>';
+  }).join('');
+}
+initJourney();
+</script>
+<script src="track.js" defer></script>
+<script src="site.js" defer></script>
 </body>
 </html>

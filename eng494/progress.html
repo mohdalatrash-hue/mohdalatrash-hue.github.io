@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Progress | ENG 494</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="Your personal ENG 494 progress — workshops completed, time spent, and pace. Private to your device.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 494">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 494 Literary Translation">
+<meta property="og:title" content="My Progress | ENG 494">
+<meta property="og:description" content="Your personal progress through ENG 494 — private to your device.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng494/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng494/progress.html">
+<meta name="twitter:card" content="summary">
+<style>
+body{background:var(--off-white);}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:32px;}
+.stat{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:18px;}
+.stat-num{font-size:28px;font-weight:800;color:var(--green);line-height:1;} .stat-lab{font-size:12px;color:var(--text-3);margin-top:6px;text-transform:uppercase;letter-spacing:.05em;font-weight:600;}
+.pace{border-radius:var(--r-lg);padding:18px 20px;margin-bottom:28px;color:#fff;} .pace.ok{background:var(--green);} .pace.behind{background:#b45309;} .pace.pre{background:#1d1d1f;}
+.pace h3{font-size:16px;font-weight:800;margin-bottom:4px;} .pace p{font-size:13px;opacity:.9;line-height:1.6;margin:0;}
+.row-list{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);overflow:hidden;margin-bottom:28px;}
+.row-item{display:flex;align-items:center;gap:12px;padding:13px 18px;border-bottom:1px solid var(--border-light);font-size:14px;} .row-item:last-child{border-bottom:none;}
+.row-name{flex:1;color:var(--text);font-weight:500;} .row-meta{font-size:12px;color:var(--text-3);}
+.row-score{font-size:12px;font-weight:800;padding:3px 10px;border-radius:var(--r-pill);} .s-hi{background:var(--green-light);color:var(--green-dark);} .s-mid{background:var(--amber-light);color:#7a4500;} .s-lo{background:var(--red-light);color:#a01010;}
+.empty{font-size:13px;color:var(--text-3);padding:16px 18px;font-style:italic;}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 494</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">My Progress</span>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:28px;">
+  <div class="hero-eyebrow">ENG 494 · Personal tracker</div>
+  <h1>My Progress</h1>
+  <p class="hero-sub">Your work in the translation studio — kept privately on this device.</p>
+</div>
+<div class="section-alt" style="padding:8px 0 64px;">
+<div class="section-inner">
+  <div class="info-box info-blue mb-24" style="text-align:left;">
+    <h3>🔒 Private to this device</h3>
+    <p>This page reads only your own browser's storage. Nothing is uploaded or shared. Graded records live in Blackboard Ultra.</p>
+  </div>
+  <div id="pace"></div>
+  <div class="section-label" style="margin-bottom:14px;">At a glance</div>
+  <div class="stat-grid" id="stats"></div>
+  <div class="section-label" style="margin-bottom:14px;">Workshops completed</div>
+  <div class="row-list" id="scores"></div>
+  <div class="section-label" style="margin-bottom:14px;">Most-visited pages</div>
+  <div class="row-list" id="pages"></div>
+  <button class="btn btn-outline btn-sm" id="reset" style="border-color:var(--red);color:var(--red);">Reset my progress data</button>
+</div>
+</div>
+<footer><strong>ENG 494 Literary Translation</strong> · My Progress · Qassim University<br><a href="index.html">Course Hub</a></footer>
+<script>
+var KEY="eng494_progress_v1";
+var D={}; try{ D=JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){ D={}; }
+D.pages=D.pages||{}; D.days=D.days||{}; D.quizzes=D.quizzes||{}; D.workshops=D.workshops||{}; D.downloads=D.downloads||{};
+var LABELS={"index.html":"Course Hub","progress.html":"My Progress","workshop-prose.html":"Adult Prose Workshop","workshop-children.html":"Children's Literature Workshop","workshop-poetry.html":"Poetry Workshop","workshop-drama.html":"Drama & Adaptation Workshop"};
+function lbl(p){return LABELS[p]||p;}
+function fmtTime(s){if(!s)return "0m";var h=Math.floor(s/3600),m=Math.round((s%3600)/60);return h>0?(h+"h "+m+"m"):(m+"m");}
+function fmtDate(ts){if(!ts)return "—";var d=new Date(ts);return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][d.getMonth()]+" "+d.getDate();}
+function todayISO(){var t=new Date();return t.getFullYear()+"-"+String(t.getMonth()+1).padStart(2,"0")+"-"+String(t.getDate()).padStart(2,"0");}
+function scoreClass(p){return p>=80?"s-hi":p>=60?"s-mid":"s-lo";}
+function expectedWeek(){var ends=[["2026-07-01",1],["2026-07-08",2],["2026-07-15",3],["2026-07-22",4],["2026-07-29",5],["2026-08-05",6],["2026-08-12",7]];var now=todayISO();for(var i=0;i<ends.length;i++){if(now<=ends[i][0])return ends[i][1];}return 8;}
+var wsDone=Object.keys(D.workshops).length, exp=expectedWeek();
+var paceEl=document.getElementById("pace");
+if(todayISO()<"2026-06-28"){paceEl.className="pace pre";paceEl.innerHTML="<h3>The course hasn't started yet</h3><p>First class is Sun Jun 28 · 8:00 AM. Open any workshop now — your progress starts counting.</p>";}
+else if(exp>=8){paceEl.className="pace ok";paceEl.innerHTML="<h3>Final stretch</h3><p>Revise with the workshops before the final exam.</p>";}
+else if(wsDone>=Math.min(exp-1,4)){paceEl.className="pace ok";paceEl.innerHTML="<h3>✓ Keeping pace</h3><p>The calendar is on <strong>Week "+exp+"</strong>, and you've completed <strong>"+wsDone+"</strong> workshop"+(wsDone===1?"":"s")+". Keep going.</p>";}
+else{paceEl.className="pace behind";paceEl.innerHTML="<h3>A little behind — easy to catch up</h3><p>The calendar is on <strong>Week "+exp+"</strong>; you've completed <strong>"+wsDone+"</strong> workshop"+(wsDone===1?"":"s")+". Open this week's workshop to catch up.</p>";}
+var totalTime=0,pagesVisited=0; for(var p in D.pages){totalTime+=(D.pages[p].timeSec||0);pagesVisited++;}
+document.getElementById("stats").innerHTML=[["⏱ "+fmtTime(totalTime),"Time in studio"],[pagesVisited,"Pages opened"],[Object.keys(D.days).length,"Days active"],[wsDone,"Workshops done"],[fmtDate(D.firstSeen),"First visit"]].map(function(s){return '<div class="stat"><div class="stat-num">'+s[0]+'</div><div class="stat-lab">'+s[1]+'</div></div>';}).join("");
+var merged={}; for(var q in D.quizzes)merged[q]=D.quizzes[q]; for(var ws in D.workshops)merged[ws]=D.workshops[ws];
+var keys=Object.keys(merged).sort();
+document.getElementById("scores").innerHTML=keys.length?keys.map(function(k){var e=merged[k];return '<div class="row-item"><span class="row-name">'+lbl(k)+'</span><span class="row-meta">'+e.attempts+'× · '+fmtDate(e.last)+'</span><span class="row-score '+scoreClass(e.best)+'">'+e.best+'%</span></div>';}).join(""):'<div class="empty">No workshop quiz finished yet — complete a workshop\'s quiz and it appears here.</div>';
+var pg=Object.keys(D.pages).sort(function(a,b){return (D.pages[b].timeSec||0)-(D.pages[a].timeSec||0);}).slice(0,8);
+document.getElementById("pages").innerHTML=pg.length?pg.map(function(p){var e=D.pages[p];return '<div class="row-item"><span class="row-name">'+lbl(p)+'</span><span class="row-meta">'+e.visits+' visit'+(e.visits>1?'s':'')+' · '+fmtTime(e.timeSec)+'</span></div>';}).join(""):'<div class="empty">No activity recorded yet.</div>';
+document.getElementById("reset").addEventListener("click",function(){if(confirm("Clear all your ENG 494 progress on this device?")){localStorage.removeItem(KEY);location.reload();}});
+</script>
+<script src="site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drama & Adaptation: Translating for the Stage | ENG 494</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="ENG 494 workshop on translating drama — speakability, Bentley's four 'phenomena', translation vs adaptation, and rendering real public-domain dramatic lines into performable Arabic.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 494">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 494 Literary Translation">
+<meta property="og:title" content="Drama & Adaptation | ENG 494">
+<meta property="og:description" content="Speakability, translation vs adaptation, and rendering real dramatic lines into performable Arabic.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng494/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng494/workshop-drama.html">
+<meta name="twitter:card" content="summary">
+<style>
+body{background:var(--off-white);}
+:root{--ac:#2563eb;--ac-soft:#eff6ff;--ac-ink:#1e40af;}
+.tab-bar{display:flex;gap:4px;background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-xs);padding:6px;margin-bottom:28px;flex-wrap:wrap;}
+.tab-btn{flex:1;min-width:120px;padding:10px 14px;border:none;background:transparent;border-radius:var(--r-md);font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;transition:all .15s;}
+.tab-btn:hover{background:var(--off-white);} .tab-btn.active{background:var(--ac);color:#fff;}
+.tab-panel{display:none;} .tab-panel.active{display:block;}
+.ex-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:24px;margin-bottom:20px;}
+.ex-num{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);margin-bottom:8px;}
+.ex-opt{padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:14px;cursor:pointer;transition:all .15s;background:var(--white);color:var(--text);text-align:left;display:block;width:100%;margin-bottom:8px;}
+.ex-opt:hover{border-color:var(--text-2);}
+.ex-opt.correct-ans{border-color:#30d158;background:#f0fff4;color:#1a7f45;} .ex-opt.correct-ans::after{content:" ✓";font-weight:800;}
+.ex-opt.wrong-ans{border-color:#e53935;background:#fef2f2;color:#c0392b;} .ex-opt.wrong-ans::after{content:" ✗";font-weight:800;}
+.ex-feedback{margin-top:14px;padding:12px 16px;border-radius:var(--r-md);font-size:13px;line-height:1.7;display:none;} .ex-feedback.show{display:block;}
+.fb-correct{background:#f0fff4;border:1px solid #a2d9b0;color:#14532d;} .fb-wrong{background:#fef2f2;border:1px solid #fca5a5;color:#7f1d1d;}
+.tip-box{background:var(--ac-soft);border:1.5px solid #bfdbfe;border-radius:var(--r-md);padding:14px 16px;font-size:13px;line-height:1.7;color:var(--ac-ink);margin-bottom:20px;} .tip-box strong{color:var(--ac);}
+.prog-bar-wrap{height:6px;background:var(--off-white);border-radius:var(--r-pill);margin-bottom:24px;overflow:hidden;} .prog-bar{height:100%;background:var(--ac);border-radius:var(--r-pill);transition:width .4s;}
+.score-summary{text-align:center;padding:32px 20px;} .score-big{font-size:56px;font-weight:800;color:var(--ac);line-height:1;margin-bottom:8px;} .score-sub{font-size:14px;color:var(--text-2);}
+.excerpt{background:var(--off-white);border-left:3px solid var(--ac);padding:14px 16px;border-radius:0 var(--r-md) var(--r-md) 0;font-size:14px;line-height:1.9;color:var(--text);margin-bottom:10px;font-family:Georgia,serif;}
+.excerpt .cite{display:block;font-family:var(--font);font-size:11px;font-weight:700;color:var(--ac-ink);margin-top:8px;text-transform:none;}
+.tp-input{width:100%;min-height:110px;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:15px;font-family:inherit;line-height:1.9;direction:rtl;text-align:right;resize:vertical;} .tp-input:focus{outline:none;border-color:var(--ac);}
+.tp-reveal{display:none;margin-top:16px;padding:16px;border-radius:var(--r-md);background:var(--ac-soft);border:1px solid #bfdbfe;font-size:13.5px;line-height:1.7;color:var(--text);} .tp-reveal.show{display:block;}
+.tp-reveal h4{font-size:13px;font-weight:800;color:var(--ac-ink);text-transform:uppercase;letter-spacing:.05em;margin:12px 0 6px;} .tp-reveal h4:first-child{margin-top:0;}
+.checklist2{list-style:none;padding:0;margin:6px 0 0;} .checklist2 li{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.6;margin-bottom:5px;} .checklist2 li::before{content:"☐";color:var(--ac);font-weight:800;}
+.src-note{font-size:12px;color:var(--text-3);margin-top:8px;}
+.ladder{display:flex;flex-direction:column;gap:8px;margin-top:6px;} .lrow{display:flex;gap:10px;align-items:flex-start;background:var(--off-white);border-radius:var(--r-md);padding:10px 12px;} .lnum{width:24px;height:24px;border-radius:50%;background:var(--ac);color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;} .ltext{font-size:13px;line-height:1.5;}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 494</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Drama &amp; Adaptation</span>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:34px;">
+  <div class="hero-eyebrow" style="color:var(--ac);">Unit 5 · Drama &amp; Screenplay</div>
+  <h1>Translating for the Stage</h1>
+  <p class="hero-sub">On stage, the line must be <em>sayable</em>. Learn where translation ends and adaptation begins, then make real dramatic lines performable in Arabic.</p>
+</div>
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+  <div class="info-box info-amber mb-24" style="text-align:left;">
+    <h3>🎭 Speakability comes first</h3>
+    <p>Landers: the essence of theatrical translation is <strong>speakability</strong>. Meaning, fidelity and precision are secondary to whether an actor can deliver the line naturally. An off-register or tongue-twisting line breaks "the illusion of the first time."</p>
+  </div>
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('speak',this)">🗣️ Speakability</button>
+    <button class="tab-btn" onclick="switchTab('adapt',this)">🔀 Translation vs Adaptation</button>
+    <button class="tab-btn" onclick="switchTab('translate',this)">✍️ Translate It</button>
+    <button class="tab-btn" onclick="switchTab('quiz',this)">📝 Quiz</button>
+  </div>
+  <div id="tab-speak" class="tab-panel active">
+    <div class="tip-box"><strong>The test:</strong> say it out loud. If an actor would stumble, re-write — even at some cost to literal precision. Watch for tongue-twisters, unnatural word order, and register that clashes with the character.</div>
+    <div id="speak-qs"></div>
+  </div>
+  <div id="tab-adapt" class="tab-panel">
+    <div class="tip-box"><strong>Bentley's four "phenomena"</strong> (what gets called 'translation'):</div>
+    <div class="ex-card">
+      <div class="ex-num">From closest to freest</div>
+      <div class="ladder">
+        <div class="lrow"><div class="lnum">1</div><div class="ltext"><strong>Literal / "Pidgin"</strong> — so meanly literal the English is barely English. Not performable.</div></div>
+        <div class="lrow"><div class="lnum">2</div><div class="ltext"><strong>Faithful translation</strong> — correct, cogent target language, as close to the original as possible. <em>Only this can honestly be called a translation.</em></div></div>
+        <div class="lrow"><div class="lnum">3</div><div class="ltext"><strong>Adaptation</strong> — based on (2) but takes liberties: cuts, interpolations, shifts of style or tone.</div></div>
+        <div class="lrow"><div class="lnum">4</div><div class="ltext"><strong>Variation</strong> — a near-original play merely "based on" the foreign one.</div></div>
+      </div>
+      <div class="src-note">After Eric Bentley, via Landers, <em>Literary Translation</em>.</div>
+    </div>
+    <div id="adapt-qs"></div>
+  </div>
+  <div id="tab-translate" class="tab-panel">
+    <div class="tip-box"><strong>Make it sayable.</strong> Translate each line so an Arabic-speaking actor can perform it convincingly. Type your version, then reveal the notes. Say your version aloud before revealing.</div>
+    <div id="translate-tasks"></div>
+  </div>
+  <div id="tab-quiz" class="tab-panel">
+    <div class="prog-bar-wrap"><div class="prog-bar" id="aq-prog" style="width:0%"></div></div>
+    <div id="aq-container"></div>
+    <div id="aq-score" class="score-summary" style="display:none;"></div>
+  </div>
+</div>
+</div>
+<footer><strong>ENG 494 Literary Translation</strong> · Drama &amp; Adaptation · Qassim University<br><a href="index.html">Course Hub</a> · <a href="workshop-prose.html">Adult Prose Workshop</a></footer>
+<script>
+function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
+var MCQ={};
+function mount(cid,items){MCQ[cid]=items;document.getElementById(cid).innerHTML=items.map((q,qi)=>`<div class="ex-card">${q.pre||''}<div style="font-size:14px;font-weight:600;margin:6px 0 10px;">${q.q}</div>${q.opts.map((o,oi)=>`<button class="ex-opt" id="${cid}-${qi}-${oi}" onclick="ans('${cid}',${qi},${oi})">${o}</button>`).join('')}<div class="ex-feedback" id="${cid}-fb-${qi}"></div></div>`).join('');}
+function ans(cid,qi,ch){var q=MCQ[cid][qi];if(document.getElementById(`${cid}-${qi}-0`).disabled)return;q.opts.forEach((_,oi)=>{var b=document.getElementById(`${cid}-${qi}-${oi}`);b.disabled=true;if(oi===q.ans)b.classList.add('correct-ans');else if(oi===ch&&ch!==q.ans)b.classList.add('wrong-ans');});var fb=document.getElementById(`${cid}-fb-${qi}`);fb.className='ex-feedback show '+(ch===q.ans?'fb-correct':'fb-wrong');fb.innerHTML=q.why;}
+
+mount('speak-qs',[
+ {q:"A literal Arabic version of a line is accurate but an actor keeps tripping over it. Landers would tell you to:",opts:["Keep it — accuracy is everything on stage","Re-write for speakability, even at some cost to literal precision","Add a footnote","Cut the line"],ans:1,why:"On stage, speakability outranks literal precision. A line that can't be delivered naturally fails, however 'accurate'."},
+ {pre:`<div class="excerpt">"To be, or not to be, that is the question."<span class="cite">— Shakespeare, <em>Hamlet</em> (c.1600), public domain</span></div>`,q:"Translating this famous line for performance, your FIRST concern is:",opts:["Counting the syllables in English","An Arabic phrasing an actor can speak with weight and natural rhythm","Keeping the English word order exactly","Adding a footnote about Elizabethan theatre"],ans:1,why:"Performable rhythm and natural stress come first. A word-order calque (أن تكون أو لا تكون…) can work only if it also delivers well aloud."},
+ {q:"'The illusion of the first time' is broken when:",opts:["The play is old","A line sounds off-register or unnatural for the character","The theatre is small","There are too many actors"],ans:1,why:"If dialogue strikes the audience as odd or off-register, the spell breaks. Natural, in-character speech sustains the illusion."}
+]);
+mount('adapt-qs',[
+ {q:"A version that is correct, cogent Arabic and stays as close as possible to the original is Bentley's:",opts:["Pidgin / literal","Faithful translation — the only one honestly called 'translation'","Adaptation","Variation"],ans:1,why:"Only the faithful (yet cogent) rendering is honestly a 'translation'. The looser forms are adaptation or variation."},
+ {q:"A director cuts scenes, relocates the play to Riyadh, and changes characters' names and jokes. This is:",opts:["A faithful translation","An adaptation (or variation, if very free)","A literal translation","Not a version at all"],ans:1,why:"Cuts, interpolations, and shifts of setting/tone make it an adaptation; if it becomes a near-original 'based on' the source, it's a variation."},
+ {q:"Why does the distinction matter ethically/professionally?",opts:["It changes the font","Audiences and authors deserve to know whether they are getting a translation or an adaptation","It affects the ticket price only","It does not matter"],ans:1,why:"Labelling honestly (translation vs adaptation) respects both the source author and the audience's expectations."}
+]);
+
+var TASKS=[
+ {title:"Line 1 — Wilde (wit & register)",
+  text:`"I never travel without my diary. One should always have something sensational to read in the train."`,
+  cite:"Oscar Wilde, The Importance of Being Earnest (1895) · public domain",
+  challenges:"Epigrammatic wit, perfect comic timing, and an upper-class register. A flat literal Arabic kills the joke; the punch ('sensational… in the train') must land.",
+  strategy:"Preserve the paradox and the timing. Keep the elegant register, but make the rhythm work for an Arabic actor — you may slightly reorder so the witty payoff lands at the end of the line.",
+  sample:"«لا أُسافر قَطُّ دون مُفكِّرتي؛ فالمرءُ ينبغي أن يحملَ دائمًا ما يُثيرُه ليقرأه في القطار.»",
+  sampleNote:"(Keep the twist at the end; test the timing aloud.)",
+  check:["Does the paradox/joke survive?","Is the witty payoff placed to land last?","Is the refined register kept?","Can an actor say it in one smooth breath?"]},
+ {title:"Line 2 — Shakespeare (weight & rhythm)",
+  text:`"The lady doth protest too much, methinks."`,
+  cite:"Shakespeare, Hamlet (c.1600) · public domain",
+  challenges:"Compact, ironic, and rhythmically poised. 'doth… methinks' is archaic — you must convey gentle irony and weight without sounding clumsy.",
+  strategy:"Aim for a balanced, slightly formal Arabic with audible irony. Don't pad it; the line's power is its brevity. Read it aloud to keep the poise.",
+  sample:"«أرى أنّ السيّدةَ تُبالِغُ في الإنكار.»",
+  sampleNote:"(Short and poised — irony in the phrasing, not in extra words.)",
+  check:["Is the irony audible?","Did you keep it short and balanced?","Does it carry weight when spoken?","Is the meaning (over-insistence reveals the truth) intact?"]}
+];
+function initTasks(){document.getElementById('translate-tasks').innerHTML=TASKS.map((t,i)=>`<div class="ex-card"><div class="ex-num">${t.title}</div><div class="excerpt">${t.text}<span class="cite">— ${t.cite}</span></div><p style="font-size:13px;color:var(--text-2);margin:8px 0 6px;">Type your Arabic translation:</p><textarea class="tp-input" id="tp-${i}" placeholder="اكتب ترجمتك هنا…"></textarea><button class="btn btn-primary btn-sm" style="margin-top:12px;background:var(--ac);" onclick="reveal(${i})">Reveal translator's notes →</button><div class="tp-reveal" id="tp-rev-${i}"><h4>The challenge</h4><div>${t.challenges}</div><h4>Recommended approach</h4><div>${t.strategy}</div><h4>A possible rendering</h4><div style="direction:rtl;text-align:right;background:var(--white);border-radius:var(--r-sm);padding:10px 12px;margin-top:4px;line-height:1.9;">${t.sample}</div><div class="src-note">${t.sampleNote}</div><h4>Check your version</h4><ul class="checklist2">${t.check.map(c=>`<li>${c}</li>`).join('')}</ul></div></div>`).join('');}
+function reveal(i){document.getElementById('tp-rev-'+i).classList.add('show');}
+
+var AQ=[
+ {q:"The essence of theatrical translation, per Landers, is:",opts:["Footnoting","Speakability","Rhyme","Word count"],ans:1,fb:"Speakability — can the actor deliver the line naturally? — outranks other concerns on stage."},
+ {q:"Bentley's only category that can honestly be called a 'translation' is:",opts:["The literal/Pidgin rendering","The faithful yet cogent rendering","The adaptation","The variation"],ans:1,fb:"Only the correct, cogent rendering that stays close to the original is honestly a translation; the rest are adaptation or variation."},
+ {q:"Cuts, added jokes, and a change of setting make a stage version a(n):",opts:["Faithful translation","Adaptation/variation","Literal translation","Glossary"],ans:1,fb:"Such liberties define adaptation (or variation if very free) — and should be labelled as such."},
+ {q:"When a literal line is accurate but unspeakable, you should:",opts:["Keep it for accuracy","Re-write it to be performable","Footnote the difficulty","Cut the character"],ans:1,fb:"Re-write for speakability — the actor must be able to say it convincingly."},
+ {q:"'Breaking the illusion of the first time' refers to:",opts:["Stage lighting","Dialogue sounding unnatural/off-register to the audience","Ticket sales","Curtain timing"],ans:1,fb:"Unnatural or off-register dialogue shatters the audience's belief — the translator's job is to prevent that."}
+];
+var aqi=0,aqs=0,aqd=false;
+function rAQ(){if(aqi>=AQ.length){sAQ();return;}var q=AQ[aqi];document.getElementById('aq-prog').style.width=(aqi/AQ.length*100)+'%';document.getElementById('aq-container').innerHTML=`<div class="ex-card"><div class="ex-num">Question ${aqi+1} of ${AQ.length}</div><div class="ex-q">${q.q}</div><div id="aq-opts">${q.opts.map((o,i)=>`<button class="ex-opt" onclick="aAQ(${i})">${o}</button>`).join('')}</div><div class="ex-feedback" id="aq-fb"></div><div><button class="btn btn-primary btn-sm" id="aq-next" style="display:none;margin-top:14px;background:var(--ac);" onclick="nAQ()">Next →</button></div></div>`;aqd=false;}
+function aAQ(i){if(aqd)return;aqd=true;var q=AQ[aqi];document.querySelectorAll('#aq-opts .ex-opt').forEach((b,j)=>{b.disabled=true;if(j===q.ans)b.classList.add('correct-ans');else if(j===i&&i!==q.ans)b.classList.add('wrong-ans');});if(i===q.ans)aqs++;var fb=document.getElementById('aq-fb');fb.innerHTML=q.fb;fb.className='ex-feedback show '+(i===q.ans?'fb-correct':'fb-wrong');document.getElementById('aq-next').style.display='inline-block';}
+function nAQ(){aqi++;rAQ();}
+function sAQ(){document.getElementById('aq-prog').style.width='100%';document.getElementById('aq-container').style.display='none';var pct=Math.round(aqs/AQ.length*100);document.getElementById('aq-score').style.display='block';document.getElementById('aq-score').innerHTML=`<div class="score-big">${pct}%</div><div class="score-sub">${aqs}/${AQ.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct>=80?'You translate for the actor, not just the page.':'Revisit the Speakability and Adaptation tabs.'}</p><button class="btn btn-primary" style="background:var(--ac);" onclick="reAQ()">Retry</button>`;}
+function reAQ(){aqi=0;aqs=0;document.getElementById('aq-container').style.display='block';document.getElementById('aq-score').style.display='none';rAQ();}
+initTasks();rAQ();
+</script>
+<script src="track.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>
