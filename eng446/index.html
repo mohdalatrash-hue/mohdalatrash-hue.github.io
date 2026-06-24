@@ -166,9 +166,11 @@
   <div class="hero-meta">
     <span>Jun 28 – Aug 9, 2026</span>
     <span class="hero-meta-dot">·</span>
-    <span>Term 475</span>
+    <span>Term 475 · Section 169</span>
     <span class="hero-meta-dot">·</span>
-    <span>Sun–Mon–Tue · 9:15–9:45 AM</span>
+    <span>Sun–Mon–Tue · 10:00–11:40 AM</span>
+    <span class="hero-meta-dot">·</span>
+    <span>Room 3151, College of Languages</span>
     <span class="hero-meta-dot">·</span>
     <a href="syllabus.html" style="color:var(--green);font-weight:600;">View Syllabus →</a>
   </div>
@@ -393,7 +395,7 @@
     <p style="font-size:13px;opacity:.85;line-height:1.8;">
       Office: English Dept. 3-020 &nbsp;·&nbsp;
       Email: <a href="mailto:atrsh@qu.edu.sa" style="color:rgba(255,255,255,.8)">atrsh@qu.edu.sa</a><br>
-      Office Hours: Sun–Mon–Tue · 9:15–9:45 AM (or by appointment)
+      Office Hours: Sun–Mon–Tue · after class (or by appointment)
     </p>
   </div>
 
@@ -466,8 +468,8 @@ function parseISO(s) {
 }
 function msTo(str) {
   const target = new Date(parseISO(str));
-  // Set to 9:15 AM class time
-  target.setHours(9, 15, 0, 0);
+  // Set to 10:00 AM class start time
+  target.setHours(10, 0, 0, 0);
   return target - Date.now();
 }
 function fmtCountdown(ms) {
@@ -542,7 +544,7 @@ function initTodayWidget() {
       </div>`;
   } else if (now < '2026-06-28') {
     // Before course
-    widget.innerHTML = `<div class="nextclass-card"><div class="nextclass-icon">📅</div><div><div class="nextclass-label">Course begins</div><div class="nextclass-text">First class: Sun Jun 28 · 9:15 AM</div></div></div>`;
+    widget.innerHTML = `<div class="nextclass-card"><div class="nextclass-icon">📅</div><div><div class="nextclass-label">Course begins</div><div class="nextclass-text">First class: Sun Jun 28 · 10:00 AM</div></div></div>`;
   } else if (now > '2026-08-17') {
     // After course
     widget.innerHTML = '';
