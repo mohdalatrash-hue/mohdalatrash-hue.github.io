@@ -80,11 +80,11 @@
 <div class="hero" style="padding-bottom:40px;">
   <div class="hero-eyebrow">ENG 446 · Summer 2026</div>
   <h1>Research Groups</h1>
-  <p class="hero-sub">10 groups · Assigned on Day 1 · All deliverables submitted via Blackboard Ultra</p>
+  <p class="hero-sub">11 groups of 5 · Assigned on Day 1 · All deliverables submitted via Blackboard Ultra</p>
   <div class="hero-meta">
-    <span class="badge badge-live">Groups Active</span>
+    <span class="badge badge-green">11 Groups · 55 students</span>
     <span class="hero-meta-dot">·</span>
-    <span>Proposal due Wed Jun 28</span>
+    <span>Proposal due Tue Jul 7</span>
     <span class="hero-meta-dot">·</span>
     <span>Presentations Aug 9–10</span>
   </div>
@@ -107,9 +107,9 @@
         <thead>
           <tr>
             <th>Group</th>
-            <th>Proposal<br><small style="font-weight:500;opacity:.7">Jun 28</small></th>
-            <th>Lit Review<br><small style="font-weight:500;opacity:.7">Jul 12</small></th>
-            <th>Methods &amp; Analysis<br><small style="font-weight:500;opacity:.7">Jul 26</small></th>
+            <th>Proposal<br><small style="font-weight:500;opacity:.7">Jul 7</small></th>
+            <th>Lit Review<br><small style="font-weight:500;opacity:.7">Jul 14</small></th>
+            <th>Methods &amp; Analysis<br><small style="font-weight:500;opacity:.7">Jul 28</small></th>
             <th>Presentation<br><small style="font-weight:500;opacity:.7">Aug 9–10</small></th>
           </tr>
         </thead>
@@ -150,17 +150,21 @@
 </footer>
 
 <script>
+// Privacy: first name + family-name initial only — no full names, no ID numbers.
+// The instructor holds the full named roster offline (Blackboard / printed sheet).
+// ★ marks a provisional group leader (first listed); adjust in class.
 const GROUPS = [
-  { num:1, members:["Student 1 ★","Student 2","Student 3","Student 4","Student 5"], topic:"To be confirmed" },
-  { num:2, members:["Student 6 ★","Student 7","Student 8","Student 9","Student 10"], topic:"To be confirmed" },
-  { num:3, members:["Student 11 ★","Student 12","Student 13","Student 14","Student 15"], topic:"To be confirmed" },
-  { num:4, members:["Student 16 ★","Student 17","Student 18","Student 19","Student 20"], topic:"To be confirmed" },
-  { num:5, members:["Student 21 ★","Student 22","Student 23","Student 24","Student 25"], topic:"To be confirmed" },
-  { num:6, members:["Student 26 ★","Student 27","Student 28","Student 29","Student 30"], topic:"To be confirmed" },
-  { num:7, members:["Student 31 ★","Student 32","Student 33","Student 34","Student 35"], topic:"To be confirmed" },
-  { num:8, members:["Student 36 ★","Student 37","Student 38","Student 39","Student 40"], topic:"To be confirmed" },
-  { num:9, members:["Student 41 ★","Student 42","Student 43","Student 44","Student 45"], topic:"To be confirmed" },
-  { num:10, members:["Student 46 ★","Student 47","Student 48","Student 49","Student 50","Student 51"], topic:"To be confirmed" }
+  { num:1, members:["عبدالعزيز ح. ★","ابراهيم س.","ياسر م.","سليمان ح.","سعود ق."], topic:"To be confirmed" },
+  { num:2, members:["عزام ح. ★","أسامه ق.","مزيد م.","احمد م.","خالد غ."], topic:"To be confirmed" },
+  { num:3, members:["ريان ح. ★","أحمد س.","مالك م.","صالح ل.","أحمد م."], topic:"To be confirmed" },
+  { num:4, members:["راكان ح. ★","حسام ع.","أمين م.","صالح م.","وليد ع."], topic:"To be confirmed" },
+  { num:5, members:["باسل ح. ★","يزيد ع.","عبدالسلام ح.","مازن ط.","فيصل ح."], topic:"To be confirmed" },
+  { num:6, members:["عبدالعزيز ح. ★","ابراهيم ق.","عبدالله ع.","عاصم ف.","مشعل ع."], topic:"To be confirmed" },
+  { num:7, members:["سالم خ. ★","عزام ا.","عبدالعزيز م.","محمد س.","محمد س."], topic:"To be confirmed" },
+  { num:8, members:["أسامة د. ★","خيال ع.","تركي ف.","عمر ب.","إبراهيم م."], topic:"To be confirmed" },
+  { num:9, members:["صالح ح. ★","بكر م.","ياسر ح.","عبدالاله ق.","الياس ل."], topic:"To be confirmed" },
+  { num:10, members:["باسل ق. ★","تركي م.","نايف ح.","ماجد ت.","مازن م."], topic:"To be confirmed" },
+  { num:11, members:["محمد ح. ★","عبدالله ض.","ناصر ع.","عبدالعزيز ح.","وليد م."], topic:"To be confirmed" }
 ];
 
 const grid = document.getElementById('groups-grid');
