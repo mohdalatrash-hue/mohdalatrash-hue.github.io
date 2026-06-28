@@ -74,21 +74,28 @@ body{background:var(--off-white);}
     <p>Landers argues that nearly every word sits in a <em>register</em> (formal/informal, technical, regional, vulgar/polite) and that dialect is among the translator's hardest problems. You cannot reproduce English phonetic spelling in Arabic — so you must <strong>compensate</strong>. This workshop trains the ear, then your pen.</p>
   </div>
 
-  <div class="tab-bar">
-    <button class="tab-btn active" onclick="switchTab('register',this)">🎚️ Register</button>
-    <button class="tab-btn" onclick="switchTab('dialect',this)">🗣️ Spot the Dialect</button>
+    <div style="display:flex;gap:10px;align-items:flex-start;background:var(--white);border:1px solid var(--border-light);border-left:4px solid var(--ac);border-radius:var(--r-md);padding:12px 16px;margin-bottom:20px;font-size:13.5px;line-height:1.6;color:var(--text-2);"><span style="font-size:17px;line-height:1.3;">📖</span><div><strong style="color:var(--ac);">Required reading for this workshop:</strong> this workshop covers <strong>four Unit&nbsp;1 readings</strong> &mdash; Landers, &ldquo;Style in Translation,&rdquo; &ldquo;Register and Tone,&rdquo; &ldquo;Dialects,&rdquo; and &ldquo;Fiction and Footnotes.&rdquo; Each is mapped to its own tab below (📘 Style · 🎚️ Register · 🗣️ Dialect · 📕 Footnotes).</div></div>
+<div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('style',this)">📘 Style</button>
+    <button class="tab-btn" onclick="switchTab('register',this)">🎚️ Register &amp; Tone</button>
+    <button class="tab-btn" onclick="switchTab('dialect',this)">🗣️ Dialect</button>
+    <button class="tab-btn" onclick="switchTab('strategy',this)">📕 Footnotes</button>
     <button class="tab-btn" onclick="switchTab('translate',this)">✍️ Translate It</button>
-    <button class="tab-btn" onclick="switchTab('strategy',this)">🧰 Strategy</button>
     <button class="tab-btn" onclick="switchTab('quiz',this)">📝 Quiz</button>
   </div>
 
-  <div id="tab-register" class="tab-panel active">
-    <div class="tip-box"><strong>Register</strong> is a socially-defined variety of language. Categories include: formal/informal, technical/non-technical, standard/regional, jargon, and proper/vulgar. The first job is to name the register you hear.</div>
+  <div id="tab-style" class="tab-panel active">
+    <div class="tip-box"><strong>📖 Required reading → Landers, &ldquo;Style in Translation.&rdquo;</strong> Style is the author&rsquo;s verbal fingerprint &mdash; diction, rhythm, tone. Your task is to carry <em>that</em> voice into Arabic, not to &ldquo;improve&rdquo; it. The questions below are directly on this reading.</div>
+    <div id="style-qs"></div>
+  </div>
+
+  <div id="tab-register" class="tab-panel">
+    <div class="tip-box"><strong>📖 Required reading → Landers, &ldquo;Register and Tone.&rdquo;</strong> <strong>Register</strong> is a socially-defined variety of language: formal/informal, technical/non-technical, standard/regional, jargon, and proper/vulgar. The first job is to name the register you hear.</div>
     <div id="register-qs"></div>
   </div>
 
   <div id="tab-dialect" class="tab-panel">
-    <div class="tip-box"><strong>Dialect</strong> signals region, class, era and character. Authors mark it with phonetic spelling and slang. Identify the variety — and the specific feature that will fight you in Arabic.</div>
+    <div class="tip-box"><strong>📖 Required reading → Landers, &ldquo;Dialects.&rdquo;</strong> <strong>Dialect</strong> signals region, class, era and character. Authors mark it with phonetic spelling and slang. Identify the variety &mdash; and the specific feature that will fight you in Arabic.</div>
     <div id="dialect-qs"></div>
   </div>
 
@@ -98,7 +105,7 @@ body{background:var(--off-white);}
   </div>
 
   <div id="tab-strategy" class="tab-panel">
-    <div class="tip-box"><strong>Four moves for hard spots (Landers):</strong> a <em>footnote</em> explains; an <em>interpolation</em> slips a brief gloss into the text; an <em>omission</em> drops the untranslatable; <em>compensation</em> recreates the effect elsewhere (e.g. a colloquial Arabic register for English dialect).</div>
+    <div class="tip-box"><strong>📖 Required reading → Landers, &ldquo;Fiction and Footnotes.&rdquo;</strong> Four moves for hard spots: a <em>footnote</em> explains (last resort); an <em>interpolation</em> slips a brief gloss into the text; an <em>omission</em> drops the genuinely untranslatable; <em>compensation</em> recreates the effect elsewhere (e.g. a colloquial Arabic register for English dialect). The first questions below are directly on this reading.</div>
     <div id="strategy-qs"></div>
   </div>
 
@@ -117,6 +124,15 @@ function shuffleQ(q){if(q._o0===undefined){q._o0=q.opts.slice();q._a0=q.ans;}var
 function mount(cid,items){MCQ[cid]=items;items.forEach(shuffleQ);document.getElementById(cid).innerHTML=items.map((q,qi)=>`<div class="ex-card">${q.pre||''}<div style="font-size:14px;font-weight:600;margin:6px 0 10px;">${q.q}</div>${q.opts.map((o,oi)=>`<button class="ex-opt" id="${cid}-${qi}-${oi}" onclick="ans('${cid}',${qi},${oi})">${o}</button>`).join('')}<div class="ex-feedback" id="${cid}-fb-${qi}"></div></div>`).join('');}
 function ans(cid,qi,ch){var q=MCQ[cid][qi];if(document.getElementById(`${cid}-${qi}-0`).disabled)return;q.opts.forEach((_,oi)=>{var b=document.getElementById(`${cid}-${qi}-${oi}`);b.disabled=true;if(oi===q.ans)b.classList.add('correct-ans');else if(oi===ch&&ch!==q.ans)b.classList.add('wrong-ans');});var fb=document.getElementById(`${cid}-fb-${qi}`);fb.className='ex-feedback show '+(ch===q.ans?'fb-correct':'fb-wrong');fb.innerHTML=q.why;}
 
+mount('style-qs',[
+ {q:"In Landers&rsquo;s account, the literary translator&rsquo;s first obligation is to reproduce:",opts:["The author&rsquo;s individual style &mdash; diction, rhythm, tone", "Only the literal dictionary meaning", "The translator&rsquo;s own preferred style", "The longest, most elaborate sentences"],ans:0,why:"Style is the writer&rsquo;s verbal fingerprint. A version that conveys content but loses style has failed at the literary level."},
+ {q:"Landers warns that style is most often betrayed when a translator:",opts:["Reads the whole work before starting", "&lsquo;Improves&rsquo; the author &mdash; smoothing rough prose or elevating plain prose", "Keeps the author&rsquo;s sentence rhythm", "Matches the source register"],ans:1,why:"&lsquo;Improving&rsquo; the original imposes the translator&rsquo;s taste and erases the author&rsquo;s voice &mdash; a cardinal stylistic error."},
+ {q:"A deliberately plain, spare style (short, simple sentences) should become, in Arabic:",opts:["Ornate, elaborate Fus&#7717;&#257; to sound &lsquo;literary&rsquo;", "An equally plain, spare Arabic that keeps the austerity", "Whatever reads most decoratively", "A footnoted paraphrase"],ans:1,why:"Fidelity to style means matching the level: spareness stays spare. Dressing it up changes the author&rsquo;s voice."},
+ {q:"For Landers, &lsquo;fluency&rsquo; / transparency means the translation should:",opts:["Read as though awkwardly translated, to signal foreignness", "Read naturally in Arabic while still preserving the author&rsquo;s style", "Contain frequent footnotes", "Always add rhyme"],ans:1,why:"The ideal reads as good Arabic writing yet still sounds like THIS author &mdash; natural, not foreignised into awkwardness."},
+ {q:"Two authors narrate the same event; what most distinguishes them for the translator is:",opts:["The page count", "Their style &mdash; word choice, syntax, rhythm, tone", "The publisher", "The typeface"],ans:1,why:"Same content, different style: style is precisely what the literary translator must hear and carry across."},
+ {q:"The clearest sign a translator has honoured the author&rsquo;s style is that:",opts:["Every word is literally matched", "An Arabic reader receives the same voice and texture an original reader does", "The text is noticeably shorter", "Footnotes explain the style"],ans:1,why:"Style succeeds when the target reader experiences the same voice &mdash; not when words are mechanically matched."}
+]);
+
 mount('register-qs',[
  {q:"\"Pursuant to the aforementioned clause, the lessee shall vacate the premises.\" Which register?",opts:["Formal / legal","Informal / colloquial","Regional dialect","Children's speech"],ans:0,why:"Latinate vocabulary (pursuant, aforementioned, lessee) and impersonal syntax mark a formal, legal register. In Arabic, match it with فصحى قانونية, not everyday speech."},
  {q:"\"Gimme a sec, I'll sort it out, no worries.\" Which register?",opts:["Technical","Informal / colloquial","Formal / literary","Archaic"],ans:1,why:"Contractions (gimme), slang (no worries) and ellipsis signal casual, informal speech. The Arabic should feel spoken, not written-formal."},
@@ -131,6 +147,9 @@ mount('dialect-qs',[
 ]);
 
 mount('strategy-qs',[
+ {q:"Landers&rsquo;s general attitude to footnotes in translated <em>fiction</em> is that they are:",opts:["The preferred solution for any cultural term", "A last resort, because they break the fictional illusion", "Required by every publisher", "Useful only in poetry"],ans:1,why:"Footnotes pull the reader out of the story. Landers treats the footnote as an admission that the translation proper could not carry the meaning."},
+ {q:"&lsquo;Interpolation&rsquo;, as Landers uses it, means:",opts:["Deleting a difficult phrase", "Slipping a brief explanatory gloss directly into the text", "Adding a long endnote", "Altering the plot"],ans:1,why:"Interpolation weaves a few clarifying words into the sentence itself &mdash; sparing the reader a footnote and keeping them inside the fiction."},
+ {q:"&lsquo;Omission&rsquo; is a legitimate move when:",opts:["The translator is short on time", "A minor untranslatable element can be dropped without real loss to the reader", "Every difficult word appears in the text", "The publisher demands footnotes"],ans:1,why:"Landers permits omission for the genuinely minor and untranslatable &mdash; a calculated last option, never a shortcut."},
  {q:"A character says 'as American as apple pie.' Arabic readers may not share the cultural image. Best first move?",opts:["Omit the phrase entirely","Compensate with a culturally equivalent Arabic image, or gloss briefly","Footnote a 200-word essay on American cuisine","Translate word-for-word: أمريكي كفطيرة التفاح"],ans:1,why:"Compensation (an equivalent image) keeps the effect; a brief interpolation can gloss it. A literal calque sounds odd, and a long footnote stops the story. Omission is a last resort."},
  {q:"English dialect spelling (gonna, wot, 'em) cannot be reproduced in Arabic script. The professional solution is to:",opts:["Misspell the Arabic to 'look' dialectal","Compensate using a recognised colloquial Arabic register (عامية) for that speaker","Add [sic] after every word","Leave those words in English"],ans:1,why:"You compensate at the level of register: give the low-status speaker a colloquial Arabic voice. Deliberately misspelling فصحى just looks like errors."},
  {q:"A Portuguese text repeats 'menino' (little boy) every line; in English/Arabic this over-repetition sounds odd. This is an error of:",opts:["Register","Frequency — fix with thought-by-thought, not word-by-word","Dialect","Punctuation"],ans:1,why:"Landers calls this an error of frequency from a word-by-word orientation. Ask how a native author would phrase it — often simply 'the boy' after the first mention."}
@@ -154,6 +173,9 @@ var TASKS=[
   sample:"«إنت لا شيء، وما في فايدة من الكلام — عمرك ما حتتركل طبايعك الخبيثة.»",
   sampleNote:"(Tone-first rendering; you might add a one-line note that Joseph speaks a broad Yorkshire dialect.)",
   check:["Is the contemptuous, preachy tone preserved?","Did you mark the speaker as rustic/old-fashioned through diction?","Did you resist copying the English misspellings?","Is the meaning fully intact despite the dialect?"]}
+,
+ {title:"Excerpt 3 — Austen (irony & balanced syntax)",text:"It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",cite:"Jane Austen, Pride and Prejudice (1813) · public domain",challenges:"The sentence looks like a solemn maxim, but its real force is ironic. Translate it too literally and you keep the words yet lose the satire.",strategy:"Aim for a declarative, almost legalistic cadence (e.g. من الحقائق المسلَّم بها أنّ…) while letting the irony stay audible rather than solemn. Keep the balanced syntax.",check:["Does your Arabic keep a polished, aphoristic cadence?", "Is the irony still perceptible (not read as a sincere truth)?", "Did you preserve the balanced 'a single man… must be in want of a wife' structure?", "Does it read as one elegant sentence, not an explanation?"]},
+ {title:"Excerpt 4 — Conrad (brooding register, 'sea-reach')",text:"The sea-reach of the Thames stretched before us like the beginning of an interminable waterway.",cite:"Joseph Conrad, Heart of Darkness (1899) · public domain",challenges:"A dense, meditative register with the maritime compound 'sea-reach', which has no direct Arabic equivalent. The syntax is simple but the tonal weight is high.",strategy:"Find a poetic-but-accurate phrase for 'sea-reach' (the tidal stretch where river meets sea) rather than a literal calque; keep the solemn, reflective movement and the latent symbolism of 'interminable waterway'.",check:["Did you render 'sea-reach' as a natural Arabic image, not a literal calque?", "Is the brooding, reflective tone preserved?", "Does 'interminable waterway' keep its open, symbolic resonance?", "Is the sentence still calm and unhurried?"]}
 ];
 function initTasks(){
  document.getElementById('translate-tasks').innerHTML=TASKS.map((t,i)=>`
@@ -166,7 +188,7 @@ function initTasks(){
     <div class="tp-reveal" id="tp-rev-${i}">
       <h4>The challenge</h4><div>${t.challenges}</div>
       <h4>Recommended strategy</h4><div>${t.strategy}</div>
-      <h4>One possible rendering</h4><div class="tp-sample">${t.sample}</div><div class="src-note">${t.sampleNote}</div>
+      ${t.sample?`<h4>One possible rendering</h4><div class="tp-sample">${t.sample}</div><div class="src-note">${t.sampleNote}</div>`:''}
       <h4>Check your version</h4><ul class="checklist2">${t.check.map(c=>`<li>${c}</li>`).join('')}</ul>
     </div>
   </div>`).join('');
