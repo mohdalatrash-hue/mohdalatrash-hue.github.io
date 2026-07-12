@@ -64,6 +64,27 @@
   .status-pending { background: var(--off-white); color: var(--text-3); border: 1px solid var(--border); }
   .status-submitted { background: var(--green-light); color: var(--green); }
   .status-late { background: var(--red-light); color: var(--red); }
+  .grade-high { background: var(--green-light); color: var(--green); }
+  .grade-mid  { background: var(--amber-light); color: #7a4500; }
+  .grade-low  { background: var(--red-light); color: var(--red); }
+
+  .log-details { border: 1px solid var(--border-light); border-radius: var(--r-md); margin-bottom: 10px; overflow: hidden; }
+  .log-details:last-child { margin-bottom: 0; }
+  .log-summary {
+    cursor: pointer; list-style: none; padding: 12px 16px;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    font-size: 13px; font-weight: 700; color: var(--text); background: var(--off-white);
+  }
+  .log-summary::-webkit-details-marker { display: none; }
+  .log-summary .chev { transition: transform .15s; color: var(--text-3); font-size: 12px; }
+  .log-details[open] .log-summary .chev { transform: rotate(90deg); }
+  .log-entry { padding: 14px 16px; border-top: 1px solid var(--border-light); }
+  .log-entry:first-of-type { border-top: none; }
+  .log-entry-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+  .log-entry-name { font-size: 13px; font-weight: 700; color: var(--text); }
+  .log-entry-date { font-size: 11px; color: var(--text-3); }
+  .log-entry-fb { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+  .log-empty { padding: 14px 16px; font-size: 13px; color: var(--text-3); font-style: italic; }
 </style>
 </head>
 <body>
@@ -118,6 +139,10 @@
     </div>
   </div>
 
+  <h2 style="font-size:20px;font-weight:700;margin-bottom:16px;">Assignment Log</h2>
+  <p style="font-size:13px;color:var(--text-3);margin:-10px 0 16px;">Grades and instructor feedback for each graded assignment, per group. Updated as new work is graded — expand a group to see its history.</p>
+  <div class="grid-auto gap-16 mb-48" id="log-grid" style="--auto-min:280px;"></div>
+
   <div class="card card-pad">
     <div style="font-size:28px;margin-bottom:12px;">🗂️</div>
     <h2 style="font-size:17px;font-weight:700;margin-bottom:12px;">How Group Work Operates</h2>
@@ -153,18 +178,47 @@
 // Roster shown as: first name + name initials + last 4 digits of the student ID.
 // Full names and full ID numbers are intentionally NOT on the public site.
 // ★ marks a provisional group leader (first listed); adjust in class.
+// log: one entry per graded assignment, appended over the term as new work is graded.
+// assignment must be one of the Submission Tracker column names below (TRACKER_COLS)
+// so the tracker pill picks it up automatically.
 const GROUPS = [
-  { num:1, members:[{name:"عبدالعزيز ي.ج.ع.ح.",id:"8194",lead:true},{name:"ابراهيم ا.ا.س.",id:"9653"},{name:"ياسر م.ف.م.",id:"0122"},{name:"سليمان ح.س.ح.",id:"4156"}], topic:"To be confirmed" },
-  { num:2, members:[{name:"عزام س.ص.ح.",id:"2878",lead:true},{name:"أسامه ع.ع.ق.",id:"9072"},{name:"مزيد ن.ص.م.",id:"3054"},{name:"احمد ع.س.م.",id:"2464"},{name:"خالد ع.ع.غ.",id:"0036"}], topic:"To be confirmed" },
-  { num:3, members:[{name:"ريان ف.م.ح.",id:"5485",lead:true},{name:"أحمد س.د.س.",id:"5689"},{name:"مالك ع.ح.م.",id:"8632"},{name:"أحمد م.ع.م.",id:"9578"}], topic:"To be confirmed" },
-  { num:4, members:[{name:"حسام س.م.ع.",id:"1842",lead:true},{name:"صالح م.ص.م.",id:"0701"},{name:"وليد خ.ح.ع.",id:"1829"},{name:"إبراهيم س.ا.م.",id:"8469"},{name:"عبدالاله ع.ح.ق.",id:"9825"}], topic:"To be confirmed" },
-  { num:5, members:[{name:"باسل م.خ.ح.",id:"6173",lead:true},{name:"عبدالسلام م.م.ح.",id:"8163"},{name:"مازن خ.ع.ط.",id:"2480"},{name:"فيصل س.خ.ح.",id:"5444"}], topic:"To be confirmed" },
-  { num:6, members:[{name:"عبدالله ع.ج.ع.",id:"2379",lead:true},{name:"مشعل ن.م.ع.",id:"0890"},{name:"عبدالله ف.م.ض.",id:"1837"},{name:"وليد ت.ا.م.",id:"8992"}], topic:"To be confirmed" },
-  { num:7, members:[{name:"سالم م.س.خ.",id:"2226",lead:true},{name:"عزام ا.ع.ا.",id:"6993"},{name:"عبدالعزيز م.خ.ع.م.",id:"1803"},{name:"محمد ع.م.س.",id:"8638"}], topic:"To be confirmed" },
-  { num:8, members:[{name:"خيال ع.ع.ع.",id:"6994",lead:true},{name:"تركي م.ت.ف.",id:"9604"},{name:"عمر ع.ع.ب.",id:"9635"},{name:"يزيد ع.ب.ح.ح.",id:"2134"}], topic:"To be confirmed" },
-  { num:9, members:[{name:"صالح ع.ص.ح.",id:"9606",lead:true},{name:"هتان و.ب.ع.م.",id:"2324"},{name:"ياسر ع.ح.ح.",id:"9611"},{name:"الياس ع.ع.ل.",id:"9684"}], topic:"To be confirmed" },
-  { num:10, members:[{name:"تركي ح.م.م.",id:"0231",lead:true},{name:"ماجد خ.ع.ت.",id:"9662"},{name:"مازن م.ه.م.",id:"5451"},{name:"عبداللطيف ع.ب.ع.ع.",id:"9345"}], topic:"To be confirmed" }
+  { num:1, members:[{name:"عبدالعزيز ي.ج.ع.ح.",id:"8194",lead:true},{name:"ابراهيم ا.ا.س.",id:"9653"},{name:"ياسر م.ف.م.",id:"0122"},{name:"سليمان ح.س.ح.",id:"4156"}], topic:"The Effectiveness of Using Gemini for Written Feedback and Its Impact on Academic Writing Accuracy Among Undergraduate Students",
+    log:[{assignment:"Research Proposal",date:"2026-07-09",score:5,max:5,feedback:"all 5 pieces here — title, questions, methodology, 10 solid apa refs. intro runs long though, trim to 2-3 sentences next time."}] },
+  { num:2, members:[{name:"عزام س.ص.ح.",id:"2878",lead:true},{name:"أسامه ع.ع.ق.",id:"9072"},{name:"مزيد ن.ص.م.",id:"3054"},{name:"احمد ع.س.م.",id:"2464"},{name:"خالد ع.ع.غ.",id:"0036"}], topic:"Utilizing ELSA Speaking Application to Minimize Oral Mistakes and Enhance Pronunciation Accuracy",
+    log:[{assignment:"Research Proposal",date:"2026-07-09",score:3,max:5,feedback:"content's all there but the whole file is raw markdown, even the filename has ### and __ in it. headers and bold markers never got cleaned up, and citations are numbered [1-3] style, not apa in-text (author, year). fix the formatting before resubmitting anything like this."}] },
+  { num:3, members:[{name:"ريان ف.م.ح.",id:"5485",lead:true},{name:"أحمد س.د.س.",id:"5689"},{name:"مالك ع.ح.م.",id:"8632"},{name:"أحمد م.ع.م.",id:"9578"}], topic:"The Relationship Between the Use of Google Gemini Live and English Speaking Skills Among University Students",
+    log:[{assignment:"Research Proposal",date:"2026-07-09",score:5,max:5,feedback:"excellent — every section present, references properly apa formatted and alphabetized. nice work."}] },
+  { num:4, members:[{name:"حسام س.م.ع.",id:"1842",lead:true},{name:"صالح م.ص.م.",id:"0701"},{name:"وليد خ.ح.ع.",id:"1829"},{name:"إبراهيم س.ا.م.",id:"8469"},{name:"عبدالاله ع.ح.ق.",id:"9825"}], topic:"The Impact of Google AI Studio on English Speaking Fluency Among Saudi University Students",
+    log:[{assignment:"Research Proposal",date:"2026-07-09",score:5,max:5,feedback:"clean and complete — title, intro, questions, methodology, 10 correctly formatted apa refs. well done."}] },
+  { num:5, members:[{name:"باسل م.خ.ح.",id:"6173",lead:true},{name:"عبدالسلام م.م.ح.",id:"8163"},{name:"مازن خ.ع.ط.",id:"2480"},{name:"فيصل س.خ.ح.",id:"5444"}], topic:"The Effectiveness of Talkpal.AI on Improving Speaking Proficiency and Reducing Foreign Language Anxiety Among Beginner English Learners",
+    log:[{assignment:"Research Proposal",date:"2026-07-09",score:3,max:5,feedback:"intro is missing, goes straight from names to title. reference list cites the same source twice under two different name spellings (dikaprio/diem), and several entries still have leftover \"[cite: n]\" tags from whatever ai tool generated them. clean the references before submitting."}] },
+  { num:6, members:[{name:"عبدالله ع.ج.ع.",id:"2379",lead:true},{name:"مشعل ن.م.ع.",id:"0890"},{name:"عبدالله ف.م.ض.",id:"1837"},{name:"وليد ت.ا.م.",id:"8992"}], topic:"The Impact of Praktika.AI on Communication Skills Development Among Qassim University Students",
+    log:[{assignment:"Research Proposal",date:"2026-07-09",score:4,max:5,feedback:"good content overall. title isnt broken out as its own heading, its just folded into the intro. also refs 8 and 9 are the exact same citation repeated, double check your list before submitting next time."}] },
+  { num:7, members:[{name:"سالم م.س.خ.",id:"2226",lead:true},{name:"عزام ا.ع.ا.",id:"6993"},{name:"عبدالعزيز م.خ.ع.م.",id:"1803"},{name:"محمد ع.م.س.",id:"8638"}], topic:"The Role of Google NotebookLM in Enhancing Reading Comprehension Among EFL Students at Qassim University",
+    log:[{assignment:"Research Proposal",date:"2026-07-09",score:4.5,max:5,feedback:"well organized, concise intro, good methodology. one reference (reyna, 2025) is missing the journal/publisher info, fill that in."}] },
+  { num:8, members:[{name:"خيال ع.ع.ع.",id:"6994",lead:true},{name:"تركي م.ت.ف.",id:"9604"},{name:"عمر ع.ع.ب.",id:"9635"},{name:"يزيد ع.ب.ح.ح.",id:"2134"}], topic:"The Impact of ChatGPT-Driven Feedback on Developing Grammatical Self-Correction Skills Among EFL Preparatory Year Students at Qassim University",
+    log:[{assignment:"Research Proposal",date:"2026-07-09",score:4,max:5,feedback:"all sections present, methodology is solid. intro reads casual, capitalize AI and tighten the tone. one reference has a stray bracket left in (\"[journals sagepub]\") and et al. is used without giving the other authors first, clean that up."}] },
+  { num:9, members:[{name:"صالح ع.ص.ح.",id:"9606",lead:true},{name:"هتان و.ب.ع.م.",id:"2324"},{name:"ياسر ع.ح.ح.",id:"9611"},{name:"الياس ع.ع.ل.",id:"9684"}], topic:"The Impact of AI-Powered Guided Reading Applications (iStoria as Case Study) on Vocabulary Acquisition Among Saudi University Students",
+    log:[{assignment:"Research Proposal",date:"2026-07-09",score:2.5,max:5,feedback:"references section is missing entirely - thats a full requirement gone. only 2 questions, no sub-questions. title placed after the intro instead of before. this was your second attempt, needs real revision, not just reordering."}] },
+  { num:10, members:[{name:"تركي ح.م.م.",id:"0231",lead:true},{name:"ماجد خ.ع.ت.",id:"9662"},{name:"مازن م.ه.م.",id:"5451"},{name:"عبداللطيف ع.ب.ع.ع.",id:"9345"}], topic:"The Impact of Microsoft Copilot on Enhancing the Speaking Skill Among English Majors at Qassim University",
+    log:[{assignment:"Research Proposal",date:"2026-07-09",score:3,max:5,feedback:"intro is missing completely, straight from names to title. references have 10 sources but still in raw markdown (asterisks, [text](link) style) instead of proper apa italics/hyperlinks. filename doesnt follow the naming convention either."}] }
 ];
+
+// Tracker column names, in order — must match the <th> labels above.
+const TRACKER_COLS = ["Research Proposal","Literature Review","Methods & Analysis","Presentation"];
+
+function gradeClass(score, max) {
+  const pct = (score / max) * 100;
+  if (pct >= 80) return 'grade-high';
+  if (pct >= 60) return 'grade-mid';
+  return 'grade-low';
+}
+function fmtScore(score) {
+  return Number.isInteger(score) ? score : score.toFixed(1);
+}
+function fmtDate(iso) {
+  return new Date(iso + 'T00:00:00').toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' });
+}
 
 const grid = document.getElementById('groups-grid');
 GROUPS.forEach(g => {
@@ -182,8 +236,41 @@ GROUPS.forEach(g => {
 const tbody = document.getElementById('tracker-body');
 GROUPS.forEach(g => {
   const row = document.createElement('tr');
-  row.innerHTML = `<td style="font-weight:600;color:var(--text);">Group ${g.num}</td>${['','','',''].map(()=>`<td><span class="status-pill status-pending">Pending</span></td>`).join('')}`;
+  const cells = TRACKER_COLS.map(col => {
+    const entry = (g.log || []).find(e => e.assignment === col);
+    if (!entry) return `<td><span class="status-pill status-pending">Pending</span></td>`;
+    return `<td><span class="status-pill ${gradeClass(entry.score, entry.max)}">${fmtScore(entry.score)}/${entry.max}</span></td>`;
+  }).join('');
+  row.innerHTML = `<td style="font-weight:600;color:var(--text);">Group ${g.num}</td>${cells}`;
   tbody.appendChild(row);
+});
+
+// Assignment Log — accordion per group, accumulates as more assignments are graded.
+const logGrid = document.getElementById('log-grid');
+GROUPS.forEach(g => {
+  const wrap = document.createElement('div');
+  wrap.className = 'group-card';
+  const entries = (g.log || []).slice().sort((a,b) => a.date.localeCompare(b.date));
+  const body = entries.length
+    ? entries.map(e => `
+        <div class="log-entry">
+          <div class="log-entry-head">
+            <span class="log-entry-name">${e.assignment}</span>
+            <span class="status-pill ${gradeClass(e.score, e.max)}">${fmtScore(e.score)}/${e.max}</span>
+          </div>
+          <div class="log-entry-date">${fmtDate(e.date)}</div>
+          <div class="log-entry-fb" style="margin-top:6px;">${e.feedback}</div>
+        </div>`).join('')
+    : `<div class="log-empty">No graded assignments yet.</div>`;
+  wrap.innerHTML = `
+    <details class="log-details" style="border:none;">
+      <summary class="log-summary">
+        <span>Group ${g.num} <span style="font-weight:500;color:var(--text-3);">· ${entries.length} graded</span></span>
+        <span class="chev">▶</span>
+      </summary>
+      ${body}
+    </details>`;
+  logGrid.appendChild(wrap);
 });
 </script>
 <script src="track.js" defer></script>
