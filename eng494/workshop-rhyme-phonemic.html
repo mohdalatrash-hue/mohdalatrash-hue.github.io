@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunday: Rhyme Scheme &amp; Phonemic Translation | ENG 494</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="ENG 494 Week 4, Sunday — rhyme scheme with Robert Frost's The Road Not Taken, an interactive rhyme-spotting workshop, the Lahlali &amp; Abu Hatab / Bassnett definition of phonemic translation, and a phonemic-translation practice workshop.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 494">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 494 Literary Translation">
+<meta property="og:title" content="Sunday: Rhyme Scheme &amp; Phonemic Translation | ENG 494">
+<meta property="og:description" content="Rhyme scheme with The Road Not Taken, a rhyme-spotting workshop, phonemic translation defined, and a translation practice workshop.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng494/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng494/workshop-rhyme-phonemic.html">
+<meta name="twitter:card" content="summary">
+<style>
+body{background:var(--off-white);}
+:root{--ac:#7c3aed;--ac-soft:#f5f3ff;--ac-ink:#5b21b6;}
+
+/* Jump nav */
+.jump-nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px;}
+.jump-nav a{font-size:12px;font-weight:700;color:var(--text-2);background:var(--white);border:1px solid var(--border-light);border-radius:var(--r-pill);padding:5px 13px;text-decoration:none;}
+.jump-nav a:hover{border-color:var(--ac);color:var(--ac-ink);text-decoration:none;}
+
+/* Lesson plan agenda */
+.agenda{list-style:none;padding:0;margin:0 0 40px;display:flex;flex-direction:column;gap:8px;}
+.agenda li{display:flex;gap:14px;align-items:flex-start;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:14px 16px;}
+.agenda .ag-time{width:64px;flex-shrink:0;font-size:12px;font-weight:800;color:var(--ac);white-space:nowrap;padding-top:1px;}
+.agenda .ag-body{flex:1;}
+.agenda .ag-t{font-size:14px;font-weight:700;color:var(--text);}
+.agenda .ag-s{font-size:12.5px;color:var(--text-2);margin-top:2px;line-height:1.5;}
+.agenda .ag-tag{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;background:var(--ac-soft);color:var(--ac-ink);padding:2px 8px;border-radius:var(--r-pill);white-space:nowrap;margin-left:auto;flex-shrink:0;}
+
+/* Section heading */
+.sec-h{font-size:20px;font-weight:700;margin:0 0 6px;color:var(--text);scroll-margin-top:16px;}
+.sec-lead{font-size:14px;color:var(--text-2);line-height:1.6;margin:0 0 18px;}
+
+/* Rhyme scheme reference table */
+.scheme-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:24px;}
+.scheme-card{background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:14px 16px;}
+.scheme-name{font-size:13px;font-weight:700;color:var(--text);}
+.scheme-code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;font-weight:800;color:var(--ac);letter-spacing:.08em;margin:4px 0;}
+.scheme-desc{font-size:12px;color:var(--text-2);line-height:1.5;}
+
+/* Poem block with labeled rhyme letters */
+.poem-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:22px 24px;margin-bottom:16px;}
+.poem-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
+.poem-title{font-size:15px;font-weight:800;color:var(--text);}
+.poem-cite{font-size:12px;color:var(--text-3);}
+.stanza{font-family:Georgia,serif;font-size:15px;line-height:2;color:var(--text);margin-bottom:14px;}
+.stanza:last-of-type{margin-bottom:0;}
+.rline{display:flex;align-items:baseline;gap:10px;}
+.rline .rletter{font-family:var(--font);font-size:11px;font-weight:800;color:#fff;background:var(--ac);border-radius:50%;width:20px;height:20px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transform:translateY(3px);}
+.stanza-scheme{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;font-weight:700;color:var(--ac-ink);background:var(--ac-soft);display:inline-block;padding:2px 10px;border-radius:var(--r-pill);margin-top:2px;}
+
+/* Reused from workshop-poetry.html for consistency across Unit 3 */
+.ex-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:24px;margin-bottom:20px;}
+.ex-num{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);margin-bottom:8px;}
+.ex-q{font-size:15px;font-weight:600;color:var(--text);margin-bottom:16px;line-height:1.6;}
+.ex-opt{padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:14px;cursor:pointer;transition:all .15s;background:var(--white);color:var(--text);text-align:left;display:block;width:100%;margin-bottom:8px;}
+.ex-opt:hover{border-color:var(--text-2);}
+.ex-opt.correct-ans{border-color:#30d158;background:#f0fff4;color:#1a7f45;} .ex-opt.correct-ans::after{content:" ✓";font-weight:800;}
+.ex-opt.wrong-ans{border-color:#e53935;background:#fef2f2;color:#c0392b;} .ex-opt.wrong-ans::after{content:" ✗";font-weight:800;}
+.ex-feedback{margin-top:14px;padding:12px 16px;border-radius:var(--r-md);font-size:13px;line-height:1.7;display:none;} .ex-feedback.show{display:block;}
+.fb-correct{background:#f0fff4;border:1px solid #a2d9b0;color:#14532d;} .fb-wrong{background:#fef2f2;border:1px solid #fca5a5;color:#7f1d1d;}
+.tip-box{background:var(--ac-soft);border:1.5px solid #ddd6fe;border-radius:var(--r-md);padding:14px 16px;font-size:13px;line-height:1.7;color:var(--ac-ink);margin-bottom:20px;} .tip-box strong{color:var(--ac);}
+.excerpt{background:var(--off-white);border-left:3px solid var(--ac);padding:14px 16px;border-radius:0 var(--r-md) var(--r-md) 0;font-size:14px;line-height:1.9;color:var(--text);margin-bottom:10px;font-family:Georgia,serif;white-space:pre-line;}
+.excerpt .cite{display:block;font-family:var(--font);font-size:11px;font-weight:700;color:var(--ac-ink);margin-top:8px;text-transform:none;}
+.tp-input{width:100%;min-height:90px;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:15px;font-family:inherit;line-height:1.9;direction:rtl;text-align:right;resize:vertical;} .tp-input:focus{outline:none;border-color:var(--ac);}
+.tp-reveal{display:none;margin-top:16px;padding:16px;border-radius:var(--r-md);background:var(--ac-soft);border:1px solid #ddd6fe;font-size:13.5px;line-height:1.7;color:var(--text);} .tp-reveal.show{display:block;}
+.tp-reveal h4{font-size:13px;font-weight:800;color:var(--ac-ink);text-transform:uppercase;letter-spacing:.05em;margin:12px 0 6px;} .tp-reveal h4:first-child{margin-top:0;}
+.checklist2{list-style:none;padding:0;margin:6px 0 0;} .checklist2 li{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.6;margin-bottom:5px;} .checklist2 li::before{content:"☐";color:var(--ac);font-weight:800;}
+.sound-tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--ac-ink);background:var(--ac-soft);border-radius:var(--r-pill);padding:3px 10px;margin:0 0 10px;}
+
+/* Definition card */
+.def-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);border-left:4px solid var(--ac);padding:20px 24px;margin-bottom:20px;}
+.def-term{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ac);margin-bottom:6px;}
+.def-text{font-size:16px;font-weight:600;color:var(--text);line-height:1.6;margin-bottom:8px;}
+.def-src{font-size:12px;color:var(--text-3);}
+
+.exit-ticket{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:22px 24px;margin-bottom:8px;}
+.exit-ticket ol{margin:0;padding-left:20px;font-size:13.5px;color:var(--text-2);line-height:1.9;}
+@media(max-width:680px){.scheme-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 494</a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="week4.html" style="padding:0;color:var(--text-2);">Week 4</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Sunday: Rhyme &amp; Sound</span>
+  </div>
+</nav>
+
+<div class="hero" style="padding-bottom:30px;">
+  <div class="hero-eyebrow" style="color:var(--ac);">Week 4 · Sunday, Jul 19 · Unit 3, Day 1</div>
+  <h1>Rhyme Scheme &amp; Phonemic Translation</h1>
+  <p class="hero-sub">First: learn to read and label a poem's rhyme scheme, using Robert Frost's &ldquo;The Road Not Taken&rdquo; as the model. Then take the first step into translating poetry by trying to carry a poem's <em>sound</em> into Arabic.</p>
+  <div class="hero-meta">
+    <span>8:00–9:40 AM · Room 3151</span>
+    <span class="hero-meta-dot">·</span>
+    <span>Reading: Lahlali &amp; Abu&nbsp;Hatab Lesson (phonemic translation)</span>
+  </div>
+</div>
+
+<div class="section-alt" style="padding:8px 0 64px;">
+<div class="section-inner">
+
+  <div class="jump-nav">
+    <a href="#plan">📋 Lesson plan</a>
+    <a href="#what-is">🎼 What is a rhyme scheme?</a>
+    <a href="#example">📖 Worked example</a>
+    <a href="#ws1">🎯 Workshop 1: Spot it</a>
+    <a href="#phonemic">🔊 Phonemic translation</a>
+    <a href="#ws2">✍️ Workshop 2: Try it</a>
+    <a href="#exit">🚪 Exit ticket</a>
+  </div>
+
+  <h2 class="sec-h" id="plan">📋 Today's lesson plan</h2>
+  <p class="sec-lead">Sunday runs in two halves: first we learn to <em>hear and label</em> rhyme scheme (a reading skill), then we use that ear to attempt our first act of translation — chasing sound, not just sense.</p>
+  <ol class="agenda">
+    <li><span class="ag-time">8:00</span><div class="ag-body"><div class="ag-t">Warm-up — read Frost aloud</div><div class="ag-s">Instructor reads &ldquo;The Road Not Taken&rdquo; aloud once, no explanation yet. Students just listen for which words seem to &ldquo;answer&rdquo; each other.</div></div><span class="ag-tag">5 min</span></li>
+    <li><span class="ag-time">8:05</span><div class="ag-body"><div class="ag-t">Mini-lesson — what is a rhyme scheme?</div><div class="ag-s">Simplified definition, the letter-labeling method, and the five patterns you'll meet this term.</div></div><span class="ag-tag">15 min</span></li>
+    <li><span class="ag-time">8:20</span><div class="ag-body"><div class="ag-t">Worked example — label the Frost poem together</div><div class="ag-s">Go stanza by stanza through &ldquo;The Road Not Taken,&rdquo; marking A/B end-sounds on the board.</div></div><span class="ag-tag">10 min</span></li>
+    <li><span class="ag-time">8:30</span><div class="ag-body"><div class="ag-t">Workshop 1 — Spot the Rhyme Scheme</div><div class="ag-s">Students work the interactive exercise independently or in pairs: three more famous poems, three different schemes.</div></div><span class="ag-tag">20 min</span></li>
+    <li><span class="ag-time">8:50</span><div class="ag-body"><div class="ag-t">Bridge — from reading rhyme to translating sound</div><div class="ag-s">Connect today's reading (Lahlali &amp; Abu&nbsp;Hatab) to what we just practiced: phonemic translation, defined and modeled once on the board.</div></div><span class="ag-tag">10 min</span></li>
+    <li><span class="ag-time">9:00</span><div class="ag-body"><div class="ag-t">Workshop 2 — Phonemic Translation Practice</div><div class="ag-s">Same four poems from today. Students attempt a phonemic Arabic version of one stanza each, then reveal notes on the sounds they were chasing.</div></div><span class="ag-tag">25 min</span></li>
+    <li><span class="ag-time">9:25</span><div class="ag-body"><div class="ag-t">Wrap-up — exit ticket</div><div class="ag-s">Three quick reflection questions before students leave; preview Monday (Six Strategies + Translate It, full stanzas).</div></div><span class="ag-tag">10–15 min</span></li>
+  </ol>
+
+  <h2 class="sec-h" id="what-is">🎼 What is a rhyme scheme?</h2>
+  <p class="sec-lead">A <strong>rhyme scheme</strong> is simply the pattern of end-sounds in a poem, written out as letters. It answers one question, line by line: <em>does this line's ending sound like an earlier one, or is it new?</em></p>
+
+  <div class="tip-box">
+    <strong>How to label a rhyme scheme in four steps:</strong>
+    <ol style="margin:8px 0 0;padding-left:18px;">
+      <li>Read the poem aloud — rhyme is a sound pattern, not a spelling pattern.</li>
+      <li>Give the <strong>first</strong> line's end-sound the letter <strong>A</strong>.</li>
+      <li>If the next line's end-sound is <strong>new</strong>, give it the next letter (<strong>B</strong>, then <strong>C</strong>…).</li>
+      <li>If a line's end-sound <strong>matches an earlier one</strong>, reuse that earlier letter.</li>
+    </ol>
+  </div>
+
+  <p class="sec-lead" style="margin-bottom:10px;">Five patterns you'll meet again and again:</p>
+  <div class="scheme-grid">
+    <div class="scheme-card"><div class="scheme-name">Couplet</div><div class="scheme-code">AABB</div><div class="scheme-desc">Rhymes in consecutive pairs — lines 1–2 rhyme, then 3–4 rhyme.</div></div>
+    <div class="scheme-card"><div class="scheme-name">Alternate / cross</div><div class="scheme-code">ABAB</div><div class="scheme-desc">Every other line rhymes — lines 1–3 rhyme, 2–4 rhyme.</div></div>
+    <div class="scheme-card"><div class="scheme-name">Enclosed</div><div class="scheme-code">ABBA</div><div class="scheme-desc">The outer lines rhyme, and a separate rhyme is "enclosed" inside them.</div></div>
+    <div class="scheme-card"><div class="scheme-name">Chain (terza rima)</div><div class="scheme-code">ABA BCB CDC</div><div class="scheme-desc">The middle sound of one stanza becomes the outer sound of the next.</div></div>
+    <div class="scheme-card"><div class="scheme-name">Limerick</div><div class="scheme-code">AABBA</div><div class="scheme-desc">Lines 1, 2, 5 share one rhyme; the short lines 3–4 share another.</div></div>
+  </div>
+
+  <h2 class="sec-h" id="example">📖 Major example — &ldquo;The Road Not Taken&rdquo;</h2>
+  <p class="sec-lead">Robert Frost's most famous poem is built from four five-line stanzas, and — quietly, without ever forcing it — every stanza uses the <strong>same</strong> rhyme scheme. Read it once for the story; then look at the letters.</p>
+
+  <div class="poem-card">
+    <div class="poem-head"><span class="poem-title">The Road Not Taken</span><span class="poem-cite">Robert Frost (1916) · public domain</span></div>
+
+    <div class="stanza">
+      <div class="rline"><span class="rletter">A</span><span>Two roads diverged in a yellow wood,</span></div>
+      <div class="rline"><span class="rletter">B</span><span>And sorry I could not travel both</span></div>
+      <div class="rline"><span class="rletter">A</span><span>And be one traveler, long I stood</span></div>
+      <div class="rline"><span class="rletter">A</span><span>And looked down one as far as I could</span></div>
+      <div class="rline"><span class="rletter">B</span><span>To where it bent in the undergrowth;</span></div>
+    </div>
+    <div class="stanza-scheme">Stanza 1 — ABAAB (wood / stood / could share A; both / undergrowth share B)</div>
+
+    <div class="stanza" style="margin-top:18px;">
+      <div class="rline"><span class="rletter">A</span><span>Then took the other, as just as fair,</span></div>
+      <div class="rline"><span class="rletter">B</span><span>And having perhaps the better claim,</span></div>
+      <div class="rline"><span class="rletter">A</span><span>Because it was grassy and wanted wear;</span></div>
+      <div class="rline"><span class="rletter">A</span><span>Though as for that the passing there</span></div>
+      <div class="rline"><span class="rletter">B</span><span>Had worn them really about the same,</span></div>
+    </div>
+    <div class="stanza-scheme">Stanza 2 — ABAAB again</div>
+
+    <div class="stanza" style="margin-top:18px;">
+      <div class="rline"><span class="rletter">A</span><span>And both that morning equally lay</span></div>
+      <div class="rline"><span class="rletter">B</span><span>In leaves no step had trodden black.</span></div>
+      <div class="rline"><span class="rletter">A</span><span>Oh, I kept the first for another day!</span></div>
+      <div class="rline"><span class="rletter">A</span><span>Yet knowing how way leads on to way,</span></div>
+      <div class="rline"><span class="rletter">B</span><span>I doubted if I should ever come back.</span></div>
+    </div>
+    <div class="stanza-scheme">Stanza 3 — ABAAB again</div>
+
+    <div class="stanza" style="margin-top:18px;">
+      <div class="rline"><span class="rletter">A</span><span>I shall be telling this with a sigh</span></div>
+      <div class="rline"><span class="rletter">B</span><span>Somewhere ages and ages hence:</span></div>
+      <div class="rline"><span class="rletter">A</span><span>Two roads diverged in a wood, and I—</span></div>
+      <div class="rline"><span class="rletter">A</span><span>I took the one less traveled by,</span></div>
+      <div class="rline"><span class="rletter">B</span><span>And that has made all the difference.</span></div>
+    </div>
+    <div class="stanza-scheme">Stanza 4 — ABAAB, unchanged to the last line</div>
+  </div>
+
+  <div class="tip-box"><strong>Why this matters for translation:</strong> Frost holds <strong>ABAAB</strong> steady across all sixteen lines without it ever sounding forced — that discipline is part of the poem's quiet, deliberate voice. A translator choosing a <em>rhymed</em> strategy for this poem isn't just matching sounds; they're trying to protect that same quiet control.</div>
+
+  <h2 class="sec-h" id="ws1">🎯 Workshop 1 — Spot the Rhyme Scheme</h2>
+  <p class="sec-lead">Three more famous, public-domain poems. Read each excerpt aloud in your head, then choose its rhyme scheme.</p>
+  <div id="ws1-qs"></div>
+
+  <h2 class="sec-h" id="phonemic">🔊 From reading rhyme to translating sound: phonemic translation</h2>
+  <p class="sec-lead">Today's reading, the Lahlali &amp; Abu&nbsp;Hatab lesson, opens with Bassnett-McGuire's six strategies for translating poetry. The first of the six is the one we practice today.</p>
+
+  <div class="def-card">
+    <div class="def-term">Phonemic translation</div>
+    <div class="def-text">&ldquo;Attempts to recreate the sounds of the SL [source language] in the TL [target language], transferring the meaning at the same time.&rdquo;</div>
+    <div class="def-src">Bassnett-McGuire (1980, pp. 81–82), as presented in the Lahlali &amp; Abu&nbsp;Hatab lesson, &ldquo;Advanced English–Arabic Translation,&rdquo; Module 2: Literary Texts.</div>
+  </div>
+
+  <p class="sec-lead">In plain terms: you are not first asking <em>&ldquo;what does this line mean?&rdquo;</em> — you are asking <strong>&ldquo;what does this line sound like?&rdquo;</strong> and hunting for Arabic words that make a similar sound, while still keeping the sense in view. It is the hardest of the six strategies to sustain over a whole poem, which is exactly why we only practice it one stanza at a time.</p>
+
+  <div class="tip-box">
+    <strong>How to attempt a phonemic translation:</strong>
+    <ol style="margin:8px 0 0;padding-left:18px;">
+      <li>Read the English stanza aloud. Which sounds repeat — a hard consonant, a long vowel, an end-rhyme?</li>
+      <li>Underline the words carrying that sound.</li>
+      <li>Brainstorm Arabic words that are <em>close in meaning</em> and also echo that sound (alliteration, assonance, or a matching end-rhyme).</li>
+      <li>Accept that meaning will bend slightly — that trade-off is the whole point of this strategy.</li>
+    </ol>
+  </div>
+
+  <h2 class="sec-h" id="ws2">✍️ Workshop 2 — Phonemic Translation Practice</h2>
+  <p class="sec-lead">Same four poems as Workshop 1, plus Frost's own stanza. For each, the &ldquo;sound to chase&rdquo; is named for you — try to carry it into Arabic before you reveal the notes.</p>
+  <div id="ws2-tasks"></div>
+
+  <h2 class="sec-h" id="exit">🚪 Exit ticket — before you go</h2>
+  <div class="exit-ticket">
+    <ol>
+      <li>In your own words: what is a rhyme scheme, and how do you label one?</li>
+      <li>Write the rhyme scheme of any one stanza from today in letters (e.g. ABAAB).</li>
+      <li>In one sentence, what does &ldquo;phonemic translation&rdquo; ask a translator to prioritize?</li>
+    </ol>
+  </div>
+
+  <div class="info-box info-blue mb-24" style="margin-top:24px;">
+    <h3>👉 Looking ahead to Monday</h3>
+    <p>Monday moves from single stanzas to full translation tasks in the <strong>Poetry: Six Strategies</strong> workshop — you'll translate complete stanzas twice (literal, then an assigned strategy) and meet the other five strategies from Bassnett's list.</p>
+  </div>
+
+  <div class="week-nav"><a href="week4.html">← Back to Week 4</a><a href="workshop-poetry.html">Six Strategies workshop →</a></div>
+</div>
+</div>
+<footer><strong>ENG 494 Literary Translation</strong> · Week 4 · Sunday · Qassim University<br><a href="index.html">Course Hub</a> · <a href="week4.html">Week 4</a> · <a href="workshop-poetry.html">Poetry: Six Strategies</a></footer>
+<script>
+function shuffleQ(q){if(q._o0===undefined){q._o0=q.opts.slice();q._a0=q.ans;}var idx=q._o0.map(function(_,i){return i;});for(var i=idx.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=idx[i];idx[i]=idx[j];idx[j]=t;}q.opts=idx.map(function(k){return q._o0[k];});q.ans=idx.indexOf(q._a0);return q;}
+var MCQ={};
+function mount(cid,items){MCQ[cid]=items;items.forEach(shuffleQ);document.getElementById(cid).innerHTML=items.map((q,qi)=>`<div class="ex-card">${q.pre||''}<div style="font-size:14px;font-weight:600;margin:6px 0 10px;">${q.q}</div>${q.opts.map((o,oi)=>`<button class="ex-opt" id="${cid}-${qi}-${oi}" onclick="ans('${cid}',${qi},${oi})">${o}</button>`).join('')}<div class="ex-feedback" id="${cid}-fb-${qi}"></div></div>`).join('');}
+function ans(cid,qi,ch){var q=MCQ[cid][qi];if(document.getElementById(`${cid}-${qi}-0`).disabled)return;q.opts.forEach((_,oi)=>{var b=document.getElementById(`${cid}-${qi}-${oi}`);b.disabled=true;if(oi===q.ans)b.classList.add('correct-ans');else if(oi===ch&&ch!==q.ans)b.classList.add('wrong-ans');});var fb=document.getElementById(`${cid}-fb-${qi}`);fb.className='ex-feedback show '+(ch===q.ans?'fb-correct':'fb-wrong');fb.innerHTML=q.why;}
+
+mount('ws1-qs',[
+ {pre:`<div class="excerpt">Tyger Tyger, burning bright,
+In the forests of the night,
+What immortal hand or eye,
+Could frame thy fearful symmetry?<span class="cite">— William Blake, "The Tyger" (1794), public domain</span></div>`,
+  q:"bright / night / eye / symmetry — what is the rhyme scheme?",
+  opts:["AABB","ABAB","ABCB","AABA"],ans:0,
+  why:"bright(A)–night(A)–eye(B)–symmetry(B) = AABB, a couplet scheme. Lines 1–2 rhyme, then lines 3–4 rhyme on a new sound."},
+ {pre:`<div class="excerpt">A Bird, came down the Walk –
+He did not know I saw –
+He bit an Angle Worm in halves
+And ate the fellow, raw,<span class="cite">— Emily Dickinson, "A Bird, came down the Walk –" (c. 1862), public domain</span></div>`,
+  q:"Walk / saw / halves / raw — what is the rhyme scheme?",
+  opts:["AAAA","ABCB","AABB","ABBA"],ans:1,
+  why:"Walk(A)–saw(B)–halves(C, a new sound that doesn't fully rhyme with anything)–raw(B) = ABCB. Only lines 2 and 4 rhyme — this loose \"common meter\" pattern is typical of Dickinson."},
+ {pre:`<div class="excerpt">Whose woods these are I think I know.
+His house is in the village though;
+He will not see me stopping here
+To watch his woods fill up with snow.<span class="cite">— Robert Frost, "Stopping by Woods on a Snowy Evening" (1923), public domain</span></div>`,
+  q:"know / though / here / snow — what is the rhyme scheme?",
+  opts:["ABAB","AABA","ABBA","AAAB"],ans:1,
+  why:"know(A)–though(A)–here(B)–snow(A) = AABA. Frost famously chains this: the odd B sound in each stanza becomes the new A sound in the next stanza — an interlocking pattern, unlike the steady ABAAB of \"The Road Not Taken.\""}
+]);
+
+var WS2=[
+ {title:"Frost · \"The Road Not Taken,\" stanza 1",
+  sound:"Sound to chase: the long -ood/-ould family (wood, stood, could) framing shorter -oth/-oath (both, undergrowth).",
+  text:`Two roads diverged in a yellow wood,\nAnd sorry I could not travel both\nAnd be one traveler, long I stood\nAnd looked down one as far as I could\nTo where it bent in the undergrowth;`,
+  cite:"Robert Frost (1916) · public domain · scheme ABAAB",
+  challenges:"The A-sound (wood/stood/could) is a rounded, held vowel — patient, unhurried. Arabic has no exact match, but long vowels like و or a repeated ـود/ـود ending can echo that same held, rounded quality.",
+  strategy:"Underline wood / stood / could first. Brainstorm Arabic line-endings built on a long و sound (e.g. endings in ـود، ـوت، ـول) for lines 1, 3, 4, and a separate echoing sound for lines 2 and 5 — even if the exact images shift slightly to land the sound.",
+  sample:"جرّب أن تُنهي السطرين ١ و٣ و٤ بامتداد صوتي على الواو (مثل: عود / وقفتُ طويلًا / ما استطعتُ)، ثم اختر صوتًا آخر يتكرر في السطرين ٢ و٥.",
+  sampleNote:"(A direction, not a finished translation — the point is the repeating sound, not a single correct wording.)",
+  check:["Did you underline the repeating English sound first?","Does your Arabic version repeat one sound across lines 1, 3, 4?","Does a second, different sound link lines 2 and 5?","Did you let the sound guide word choice, even where meaning shifted a little?"]},
+ {title:"Blake · \"The Tyger,\" stanza 1",
+  sound:"Sound to chase: the hard, percussive consonants in \"Tyger Tyger, burning bright\" — that drumbeat IS the poem's menace.",
+  text:`Tyger Tyger, burning bright,\nIn the forests of the night,\nWhat immortal hand or eye,\nCould frame thy fearful symmetry?`,
+  cite:"William Blake (1794) · public domain · scheme AABB",
+  challenges:"The repetition of \"Tyger Tyger\" and the hard consonants (bright, night) create a chant-like, almost threatening rhythm. A phonemic version needs that same percussive quality, not just the image of a tiger.",
+  strategy:"Keep the repeated opening word (نمرٌ يا نمر / يا نمر يا نمر) to preserve the chant. Then hunt for a hard-consonant Arabic rhyme for bright/night (ق، ط، ب sounds land harder than soft vowels).",
+  sample:"يا نمرُ يا نمر، تشتعلُ بريقا / في غابات الليل العميقا",
+  sampleNote:"(Sketch only — your job is to sharpen the hard consonants and keep the drumbeat.)",
+  check:["Did you keep the chant-like repetition of \"Tyger\"?","Does your version favor hard, percussive consonants over soft ones?","Is the menace/awe of the tone still audible?","Did sound come before literal accuracy here?"]},
+ {title:"Dickinson · \"A Bird, came down the Walk –,\" stanza 1",
+  sound:"Sound to chase: the clipped, matter-of-fact short lines and the dashes — sound as understatement, not music.",
+  text:`A Bird, came down the Walk –\nHe did not know I saw –\nHe bit an Angle Worm in halves\nAnd ate the fellow, raw,`,
+  cite:"Emily Dickinson (c. 1862) · public domain · scheme ABCB",
+  challenges:"Dickinson's sound is deliberately plain and clipped — short declarative clauses broken by dashes. The 'sound' here is closer to rhythm and pause than to rich rhyme; only lines 2 and 4 rhyme at all.",
+  strategy:"Preserve the short, flat clauses and the dash-pauses rather than hunting for a rich rhyme. A phonemic translation of understatement means matching the plainness itself as a 'sound.'",
+  sample:"طائرٌ هبط على الممر – / لم يشعر بأنّي أرى – / عضّ دودةً فشطرها نصفين / وأكلها نيّئة،",
+  sampleNote:"(Notice how little ornament this needs — the flatness is the effect.)",
+  check:["Did you keep the short, clipped clause structure?","Did you preserve the dash-pauses?","Does your version resist the urge to add extra rhyme or ornament?","Is the matter-of-fact tone intact?"]},
+ {title:"Frost · \"Stopping by Woods on a Snowy Evening,\" stanza 1",
+  sound:"Sound to chase: the soft, hushed -ow/-oe family (know, though, snow) that mimics falling snow.",
+  text:`Whose woods these are I think I know.\nHis house is in the village though;\nHe will not see me stopping here\nTo watch his woods fill up with snow.`,
+  cite:"Robert Frost (1923) · public domain · scheme AABA",
+  challenges:"know / though / snow share a soft, drawn-out vowel that feels hushed — almost like snow falling. Line 3 (here) breaks the pattern, and that break is itself meaningful: a moment of stillness before the hush returns.",
+  strategy:"Chase a soft, open Arabic vowel sound (long ـو or ـا) for lines 1, 2, 4, and let line 3 stand a little apart — sonically as well as visually — the way Frost does.",
+  sample:"أعرف صاحب هذي الغابة، أظن / بيته في القرية، رغم هذا الظن / لن يراني هنا واقفًا في سكون / أرقب غابته تمتلئ بالثلوج",
+  sampleNote:"(A direction — the goal is a hushed, breathy vowel carried through three of the four lines.)",
+  check:["Did you identify know/though/snow as the repeating soft sound?","Does your Arabic version echo a similarly soft, open vowel?","Does line 3 stand slightly apart, as it does in the English?","Does the overall effect still feel hushed, not clipped?"]}
+];
+function initWS2(){document.getElementById('ws2-tasks').innerHTML=WS2.map((t,i)=>`<div class="ex-card"><div class="ex-num">${t.title}</div><div class="sound-tag">🔊 ${t.sound}</div><div class="excerpt">${t.text}<span class="cite">— ${t.cite}</span></div><p style="font-size:13px;color:var(--text-2);margin:8px 0 6px;">Type your phonemic attempt (Arabic):</p><textarea class="tp-input" id="tp-${i}" placeholder="اكتب محاولتك هنا…"></textarea><button class="btn btn-primary btn-sm" style="margin-top:12px;background:var(--ac);" onclick="reveal(${i})">Reveal notes →</button><div class="tp-reveal" id="tp-rev-${i}"><h4>The challenge</h4><div>${t.challenges}</div><h4>Recommended approach</h4><div>${t.strategy}</div><h4>A starting point</h4><div style="direction:rtl;text-align:right;background:var(--white);border-radius:var(--r-sm);padding:10px 12px;margin-top:4px;line-height:1.9;">${t.sample}</div><div class="src-note" style="font-size:12px;color:var(--text-3);margin-top:8px;">${t.sampleNote}</div><h4>Check your version</h4><ul class="checklist2">${t.check.map(c=>`<li>${c}</li>`).join('')}</ul></div></div>`).join('');}
+function reveal(i){document.getElementById('tp-rev-'+i).classList.add('show');}
+initWS2();
+</script>
+<script src="track.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>
