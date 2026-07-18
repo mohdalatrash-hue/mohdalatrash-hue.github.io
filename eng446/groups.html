@@ -85,6 +85,16 @@
   .log-entry-date { font-size: 11px; color: var(--text-3); }
   .log-entry-fb { font-size: 13px; color: var(--text-2); line-height: 1.6; }
   .log-empty { padding: 14px 16px; font-size: 13px; color: var(--text-3); font-style: italic; }
+  .log-summary-latest { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: var(--r-pill); margin-right: 4px; }
+  .flag-badge { background: var(--red-light); color: var(--red); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; padding: 2px 8px; border-radius: var(--r-pill); display: inline-block; margin-left: 6px; }
+  .log-entry-flag { margin-top: 8px; padding: 8px 10px; background: var(--red-light); border-radius: var(--r-sm, 6px); font-size: 12px; color: var(--red); font-weight: 600; }
+  .stats-bar { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+  .stat-chip { background: var(--white); border: 1px solid var(--border-light); border-radius: var(--r-md); padding: 10px 16px; font-size: 13px; color: var(--text-2); box-shadow: var(--shadow-sm); }
+  .stat-chip b { color: var(--text); font-size: 15px; }
+  .jump-nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+  .jump-nav a { font-size: 12px; font-weight: 700; color: var(--text-2); background: var(--white); border: 1px solid var(--border-light); border-radius: var(--r-pill); padding: 4px 12px; text-decoration: none; }
+  .jump-nav a:hover { border-color: var(--green); color: var(--green); }
+  .jump-nav a.flagged { border-color: var(--red); color: var(--red); }
 </style>
 </head>
 <body>
@@ -105,7 +115,9 @@
   <div class="hero-meta">
     <span class="badge badge-green">10 Groups · 42 students</span>
     <span class="hero-meta-dot">·</span>
-    <span>Proposal due Tue Jul 7</span>
+    <span>Proposal graded Jul 11</span>
+    <span class="hero-meta-dot">·</span>
+    <span>Literature Review graded Jul 18</span>
     <span class="hero-meta-dot">·</span>
     <span>Presentations Aug 9–10</span>
   </div>
@@ -118,6 +130,11 @@
     <h3>📋 All graded submissions go in Blackboard Ultra</h3>
     <p>This page shows your group, members, and topic. Submit the Proposal, Literature Review, Methods &amp; Analysis report, and final report in Blackboard Ultra — one submission per group by the group leader.</p>
   </div>
+
+  <div id="stats-bar" class="stats-bar"></div>
+  <div id="flag-banner"></div>
+
+  <div id="jump-nav" class="jump-nav"></div>
 
   <div class="grid-auto gap-16 mb-48" id="groups-grid" style="--auto-min:280px;"></div>
 
@@ -183,25 +200,35 @@
 // so the tracker pill picks it up automatically.
 const GROUPS = [
   { num:1, members:[{name:"عبدالعزيز ي.ج.ع.ح.",id:"8194",lead:true},{name:"ابراهيم ا.ا.س.",id:"9653"},{name:"ياسر م.ف.م.",id:"0122"},{name:"سليمان ح.س.ح.",id:"4156"}], topic:"The Effectiveness of Using Gemini for Written Feedback and Its Impact on Academic Writing Accuracy Among Undergraduate Students",
-    log:[{assignment:"Research Proposal",date:"2026-07-09",score:5,max:5,feedback:"all 5 pieces here — title, questions, methodology, 10 solid apa refs. intro runs long though, trim to 2-3 sentences next time."}] },
+    log:[{assignment:"Research Proposal",date:"2026-07-09",score:5,max:5,feedback:"all 5 pieces here — title, questions, methodology, 10 solid apa refs. intro runs long though, trim to 2-3 sentences next time."},
+         {assignment:"Literature Review",date:"2026-07-18",score:4,max:5,feedback:"solid thematic organization, clearly labeled. good synthesis -- sources linked (supported by, reinforced by) not just listed. references not alphabetized, and entry 5 repeats a whole sentence twice. clean both up."}] },
   { num:2, members:[{name:"عزام س.ص.ح.",id:"2878",lead:true},{name:"أسامه ع.ع.ق.",id:"9072"},{name:"مزيد ن.ص.م.",id:"3054"},{name:"احمد ع.س.م.",id:"2464"},{name:"خالد ع.ع.غ.",id:"0036"}], topic:"Utilizing ELSA Speaking Application to Minimize Oral Mistakes and Enhance Pronunciation Accuracy",
-    log:[{assignment:"Research Proposal",date:"2026-07-09",score:3,max:5,feedback:"content's all there but the whole file is raw markdown, even the filename has ### and __ in it. headers and bold markers never got cleaned up, and citations are numbered [1-3] style, not apa in-text (author, year). fix the formatting before resubmitting anything like this."}] },
+    log:[{assignment:"Research Proposal",date:"2026-07-09",score:3,max:5,feedback:"content's all there but the whole file is raw markdown, even the filename has ### and __ in it. headers and bold markers never got cleaned up, and citations are numbered [1-3] style, not apa in-text (author, year). fix the formatting before resubmitting anything like this."},
+         {assignment:"Literature Review",date:"2026-07-18",score:5,max:5,feedback:"total turnaround from the proposal. clean thematic/chronological synthesis, real numbers woven into the prose. references alphabetized and apa-correct. added a methodology section that's not part of this assignment, but the lit review itself is excellent."}] },
   { num:3, members:[{name:"ريان ف.م.ح.",id:"5485",lead:true},{name:"أحمد س.د.س.",id:"5689"},{name:"مالك ع.ح.م.",id:"8632"},{name:"أحمد م.ع.م.",id:"9578"}], topic:"The Relationship Between the Use of Google Gemini Live and English Speaking Skills Among University Students",
-    log:[{assignment:"Research Proposal",date:"2026-07-09",score:5,max:5,feedback:"excellent — every section present, references properly apa formatted and alphabetized. nice work."}] },
+    log:[{assignment:"Research Proposal",date:"2026-07-09",score:5,max:5,feedback:"excellent — every section present, references properly apa formatted and alphabetized. nice work."},
+         {assignment:"Literature Review",date:"2026-07-18",score:4,max:5,feedback:"good five-part thematic structure building toward the gap. synthesis stays surface-level though -- sources get grouped by claim but rarely compared or interrogated, closer to summary in places. references solid: alphabetized, correctly formatted, right count."}] },
   { num:4, members:[{name:"حسام س.م.ع.",id:"1842",lead:true},{name:"صالح م.ص.م.",id:"0701"},{name:"وليد خ.ح.ع.",id:"1829"},{name:"إبراهيم س.ا.م.",id:"8469"},{name:"عبدالاله ع.ح.ق.",id:"9825"}], topic:"The Impact of Google AI Studio on English Speaking Fluency Among Saudi University Students",
-    log:[{assignment:"Research Proposal",date:"2026-07-09",score:5,max:5,feedback:"clean and complete — title, intro, questions, methodology, 10 correctly formatted apa refs. well done."}] },
+    log:[{assignment:"Research Proposal",date:"2026-07-09",score:5,max:5,feedback:"clean and complete — title, intro, questions, methodology, 10 correctly formatted apa refs. well done."},
+         {assignment:"Literature Review",date:"2026-07-18",score:1,max:5,flag:true,flagNote:"Off-topic submission — resubmission on the approved research question recommended. Follow up with the group leader.",feedback:"this isnt about your approved topic -- your proposal was google ai studio and speaking fluency, this reviews ai studio vs openai/anthropic as coding sandboxes for cs students. wrong topic entirely, and your own title/questions arent even carried over at the top. resubmit on your actual research question."}] },
   { num:5, members:[{name:"باسل م.خ.ح.",id:"6173",lead:true},{name:"عبدالسلام م.م.ح.",id:"8163"},{name:"مازن خ.ع.ط.",id:"2480"},{name:"فيصل س.خ.ح.",id:"5444"}], topic:"The Effectiveness of Talkpal.AI on Improving Speaking Proficiency and Reducing Foreign Language Anxiety Among Beginner English Learners",
-    log:[{assignment:"Research Proposal",date:"2026-07-09",score:3,max:5,feedback:"intro is missing, goes straight from names to title. reference list cites the same source twice under two different name spellings (dikaprio/diem), and several entries still have leftover \"[cite: n]\" tags from whatever ai tool generated them. clean the references before submitting."}] },
+    log:[{assignment:"Research Proposal",date:"2026-07-09",score:3,max:5,feedback:"intro is missing, goes straight from names to title. reference list cites the same source twice under two different name spellings (dikaprio/diem), and several entries still have leftover \"[cite: n]\" tags from whatever ai tool generated them. clean the references before submitting."},
+         {assignment:"Literature Review",date:"2026-07-18",score:4.25,max:5,feedback:"solid recovery from the proposal -- no duplicate refs or cite tags this time, list is alphabetized and complete. synthesis has real nuance, especially the closing point on ai vs human interaction. never states which approach you're using though -- label it."}] },
   { num:6, members:[{name:"عبدالله ع.ج.ع.",id:"2379",lead:true},{name:"مشعل ن.م.ع.",id:"0890"},{name:"عبدالله ف.م.ض.",id:"1837"},{name:"وليد ت.ا.م.",id:"8992"}], topic:"The Impact of Praktika.AI on Communication Skills Development Among Qassim University Students",
-    log:[{assignment:"Research Proposal",date:"2026-07-09",score:4,max:5,feedback:"good content overall. title isnt broken out as its own heading, its just folded into the intro. also refs 8 and 9 are the exact same citation repeated, double check your list before submitting next time."}] },
+    log:[{assignment:"Research Proposal",date:"2026-07-09",score:4,max:5,feedback:"good content overall. title isnt broken out as its own heading, its just folded into the intro. also refs 8 and 9 are the exact same citation repeated, double check your list before submitting next time."},
+         {assignment:"Literature Review",date:"2026-07-18",score:3.75,max:5,feedback:"title's properly headed now and approach is labeled -- good fix from the proposal. middle section has real synthesis, sources build on each other. references are the issue: not alphabetized, and the first five entries are missing journal names and proper apa structure while 6-12 are done right. make it consistent."}] },
   { num:7, members:[{name:"سالم م.س.خ.",id:"2226",lead:true},{name:"عزام ا.ع.ا.",id:"6993"},{name:"عبدالعزيز م.خ.ع.م.",id:"1803"},{name:"محمد ع.م.س.",id:"8638"}], topic:"The Role of Google NotebookLM in Enhancing Reading Comprehension Among EFL Students at Qassim University",
-    log:[{assignment:"Research Proposal",date:"2026-07-09",score:4.5,max:5,feedback:"well organized, concise intro, good methodology. one reference (reyna, 2025) is missing the journal/publisher info, fill that in."}] },
+    log:[{assignment:"Research Proposal",date:"2026-07-09",score:4.5,max:5,feedback:"well organized, concise intro, good methodology. one reference (reyna, 2025) is missing the journal/publisher info, fill that in."},
+         {assignment:"Literature Review",date:"2026-07-18",score:4.75,max:5,feedback:"strongest synthesis in the set -- real tension between the overreliance and benefit arguments, quotes handled well. references alphabetized and mostly clean, but the ruse entry reads garbled and a couple of entries are missing page numbers."}] },
   { num:8, members:[{name:"خيال ع.ع.ع.",id:"6994",lead:true},{name:"تركي م.ت.ف.",id:"9604"},{name:"عمر ع.ع.ب.",id:"9635"},{name:"يزيد ع.ب.ح.ح.",id:"2134"}], topic:"The Impact of ChatGPT-Driven Feedback on Developing Grammatical Self-Correction Skills Among EFL Preparatory Year Students at Qassim University",
-    log:[{assignment:"Research Proposal",date:"2026-07-09",score:4,max:5,feedback:"all sections present, methodology is solid. intro reads casual, capitalize AI and tighten the tone. one reference has a stray bracket left in (\"[journals sagepub]\") and et al. is used without giving the other authors first, clean that up."}] },
+    log:[{assignment:"Research Proposal",date:"2026-07-09",score:4,max:5,feedback:"all sections present, methodology is solid. intro reads casual, capitalize AI and tighten the tone. one reference has a stray bracket left in (\"[journals sagepub]\") and et al. is used without giving the other authors first, clean that up."},
+         {assignment:"Literature Review",date:"2026-07-18",score:3.5,max:5,feedback:"good argumentative thread -- moves from ai's technical capability to motivation to integrity concerns, ends on a real gap. references are short though: only 10 sources when you need 12-15, and they're not alphabetized (teng and al-azzawi are out of order)."}] },
   { num:9, members:[{name:"صالح ع.ص.ح.",id:"9606",lead:true},{name:"هتان و.ب.ع.م.",id:"2324"},{name:"ياسر ع.ح.ح.",id:"9611"},{name:"الياس ع.ع.ل.",id:"9684"}], topic:"The Impact of AI-Powered Guided Reading Applications (iStoria as Case Study) on Vocabulary Acquisition Among Saudi University Students",
-    log:[{assignment:"Research Proposal",date:"2026-07-09",score:2.5,max:5,feedback:"references section is missing entirely - thats a full requirement gone. only 2 questions, no sub-questions. title placed after the intro instead of before. this was your second attempt, needs real revision, not just reordering."}] },
+    log:[{assignment:"Research Proposal",date:"2026-07-09",score:2.5,max:5,feedback:"references section is missing entirely - thats a full requirement gone. only 2 questions, no sub-questions. title placed after the intro instead of before. this was your second attempt, needs real revision, not just reordering."},
+         {assignment:"Literature Review",date:"2026-07-18",score:2.75,max:5,feedback:"title and questions are fixed from the proposal -- good. but the lit review itself is thin, mostly describing two traditional-method activities rather than analyzing the ai research. references: good count but not alphabetized, and a few entries still have & artifacts and a typo ('jurnal') left from copy-paste."}] },
   { num:10, members:[{name:"تركي ح.م.م.",id:"0231",lead:true},{name:"ماجد خ.ع.ت.",id:"9662"},{name:"مازن م.ه.م.",id:"5451"},{name:"عبداللطيف ع.ب.ع.ع.",id:"9345"}], topic:"The Impact of Microsoft Copilot on Enhancing the Speaking Skill Among English Majors at Qassim University",
-    log:[{assignment:"Research Proposal",date:"2026-07-09",score:3,max:5,feedback:"intro is missing completely, straight from names to title. references have 10 sources but still in raw markdown (asterisks, [text](link) style) instead of proper apa italics/hyperlinks. filename doesnt follow the naming convention either."}] }
+    log:[{assignment:"Research Proposal",date:"2026-07-09",score:3,max:5,feedback:"intro is missing completely, straight from names to title. references have 10 sources but still in raw markdown (asterisks, [text](link) style) instead of proper apa italics/hyperlinks. filename doesnt follow the naming convention either."},
+         {assignment:"Literature Review",date:"2026-07-18",score:5,max:5,feedback:"clean thematic structure, three clear strands. sources are put in conversation with each other, not just listed. references alphabetized and properly formatted. tight work."}] }
 ];
 
 // Tracker column names, in order — must match the <th> labels above.
@@ -220,16 +247,28 @@ function fmtDate(iso) {
   return new Date(iso + 'T00:00:00').toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' });
 }
 
+// Helper: latest-graded entry for a group (by date), used for summaries/flags/stats.
+function latestEntry(g) {
+  const entries = (g.log || []);
+  if (!entries.length) return null;
+  return entries.slice().sort((a,b) => b.date.localeCompare(a.date))[0];
+}
+function groupFlagged(g) {
+  return (g.log || []).some(e => e.flag);
+}
+
 const grid = document.getElementById('groups-grid');
 GROUPS.forEach(g => {
   const card = document.createElement('div');
   card.className = 'group-card';
+  card.id = `group-${g.num}`;
   const members = g.members.map(m => {
     const initials = (m.name.split(' ')[0]||'').slice(0,2);
     const idTag = m.id ? `<span style="font-size:11px;color:var(--text-3);font-variant-numeric:tabular-nums;">#${m.id}</span>` : '';
     return `<div class="member-row"><div class="member-avatar">${initials}</div><span style="flex:1;direction:rtl;text-align:right;">${m.name}</span>${idTag}${m.lead?'<span class="member-star">★</span>':''}</div>`;
   }).join('');
-  card.innerHTML = `<div class="group-card-head"><div class="group-num">${g.num}</div><div><div class="group-title">Group ${g.num}</div><div class="group-topic">${g.topic}</div></div></div><div class="group-card-body">${members}</div>`;
+  const flagTag = groupFlagged(g) ? '<span class="flag-badge">Follow up</span>' : '';
+  card.innerHTML = `<div class="group-card-head"><div class="group-num">${g.num}</div><div><div class="group-title">Group ${g.num}${flagTag}</div><div class="group-topic">${g.topic}</div></div></div><div class="group-card-body">${members}</div>`;
   grid.appendChild(card);
 });
 
@@ -239,18 +278,60 @@ GROUPS.forEach(g => {
   const cells = TRACKER_COLS.map(col => {
     const entry = (g.log || []).find(e => e.assignment === col);
     if (!entry) return `<td><span class="status-pill status-pending">Pending</span></td>`;
-    return `<td><span class="status-pill ${gradeClass(entry.score, entry.max)}">${fmtScore(entry.score)}/${entry.max}</span></td>`;
+    const flagTag = entry.flag ? '<span class="flag-badge" title="'+(entry.flagNote||'Needs follow-up')+'">!</span>' : '';
+    return `<td><span class="status-pill ${gradeClass(entry.score, entry.max)}">${fmtScore(entry.score)}/${entry.max}</span>${flagTag}</td>`;
   }).join('');
-  row.innerHTML = `<td style="font-weight:600;color:var(--text);">Group ${g.num}</td>${cells}`;
+  row.innerHTML = `<td style="font-weight:600;color:var(--text);"><a href="#group-${g.num}" style="color:inherit;text-decoration:none;">Group ${g.num}</a></td>${cells}`;
   tbody.appendChild(row);
 });
 
+// Stats bar — quick class-wide visibility into the most recently graded assignment.
+(function renderStats() {
+  const latestByGroup = GROUPS.map(g => ({ g, e: latestEntry(g) })).filter(x => x.e);
+  if (!latestByGroup.length) return;
+  const mostRecentDate = latestByGroup.reduce((max, x) => x.e.date > max ? x.e.date : max, latestByGroup[0].e.date);
+  const thisRound = latestByGroup.filter(x => x.e.date === mostRecentDate);
+  const avg = thisRound.reduce((s, x) => s + (x.e.score / x.e.max) * 100, 0) / thisRound.length;
+  const flaggedCount = thisRound.filter(x => x.e.flag).length;
+  const assignmentName = thisRound[0].e.assignment;
+  const bar = document.getElementById('stats-bar');
+  bar.innerHTML = `
+    <div class="stat-chip"><b>${assignmentName}</b> · latest graded assignment</div>
+    <div class="stat-chip">Class average: <b>${avg.toFixed(1)}%</b></div>
+    <div class="stat-chip">Graded: <b>${thisRound.length} / ${GROUPS.length}</b> groups</div>
+    ${flaggedCount ? `<div class="stat-chip" style="border-color:var(--red);color:var(--red);">⚑ <b>${flaggedCount}</b> flagged for follow-up</div>` : ''}
+  `;
+})();
+
+// Flag banner — surfaces any group needing instructor follow-up, with a direct jump link.
+(function renderFlagBanner() {
+  const flagged = GROUPS.filter(groupFlagged);
+  const el = document.getElementById('flag-banner');
+  if (!flagged.length) { el.innerHTML = ''; return; }
+  el.innerHTML = `<div class="info-box" style="background:var(--red-light);border-color:var(--red);margin-bottom:24px;">
+    <h3 style="color:var(--red);">⚑ Groups needing follow-up</h3>
+    <p style="color:var(--red);">${flagged.map(g => {
+      const fe = (g.log||[]).find(e => e.flag);
+      return `<a href="#group-${g.num}" style="color:var(--red);font-weight:700;text-decoration:underline;">Group ${g.num}</a> — ${fe ? fe.flagNote : ''}`;
+    }).join('<br>')}</p>
+  </div>`;
+})();
+
+// Jump nav — one-click access to any group's card, flagged groups marked in red.
+(function renderJumpNav() {
+  const nav = document.getElementById('jump-nav');
+  nav.innerHTML = GROUPS.map(g => `<a href="#group-${g.num}" class="${groupFlagged(g)?'flagged':''}">Group ${g.num}${groupFlagged(g)?' ⚑':''}</a>`).join('');
+})();
+
 // Assignment Log — accordion per group, accumulates as more assignments are graded.
+// Entries sort newest-first so the most recent grade/feedback is always the first thing visible on expand.
 const logGrid = document.getElementById('log-grid');
 GROUPS.forEach(g => {
   const wrap = document.createElement('div');
   wrap.className = 'group-card';
-  const entries = (g.log || []).slice().sort((a,b) => a.date.localeCompare(b.date));
+  wrap.id = `log-group-${g.num}`;
+  const entries = (g.log || []).slice().sort((a,b) => b.date.localeCompare(a.date));
+  const latest = entries[0];
   const body = entries.length
     ? entries.map(e => `
         <div class="log-entry">
@@ -260,13 +341,15 @@ GROUPS.forEach(g => {
           </div>
           <div class="log-entry-date">${fmtDate(e.date)}</div>
           <div class="log-entry-fb" style="margin-top:6px;">${e.feedback}</div>
+          ${e.flag ? `<div class="log-entry-flag">⚑ ${e.flagNote || 'Needs instructor follow-up.'}</div>` : ''}
         </div>`).join('')
     : `<div class="log-empty">No graded assignments yet.</div>`;
+  const latestTag = latest ? `<span class="log-summary-latest status-pill ${gradeClass(latest.score, latest.max)}">${fmtScore(latest.score)}/${latest.max}</span>` : '';
   wrap.innerHTML = `
     <details class="log-details" style="border:none;">
       <summary class="log-summary">
-        <span>Group ${g.num} <span style="font-weight:500;color:var(--text-3);">· ${entries.length} graded</span></span>
-        <span class="chev">▶</span>
+        <span>Group ${g.num} <span style="font-weight:500;color:var(--text-3);">· ${entries.length} graded${groupFlagged(g) ? ' · <span style=\"color:var(--red);\">follow-up</span>' : ''}</span></span>
+        <span style="display:flex;align-items:center;gap:6px;">${latestTag}<span class="chev">▶</span></span>
       </summary>
       ${body}
     </details>`;
