@@ -95,6 +95,10 @@
   .jump-nav a { font-size: 12px; font-weight: 700; color: var(--text-2); background: var(--white); border: 1px solid var(--border-light); border-radius: var(--r-pill); padding: 4px 12px; text-decoration: none; }
   .jump-nav a:hover { border-color: var(--green); color: var(--green); }
   .jump-nav a.flagged { border-color: var(--red); color: var(--red); }
+  .jump-nav a.watch { border-color: #d9a300; color: #7a4500; }
+  .watch-badge { background: var(--amber-light); color: #7a4500; font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; padding: 2px 8px; border-radius: var(--r-pill); display: inline-block; margin-left: 6px; }
+  .trend { font-size: 11px; font-weight: 800; margin-left: 6px; vertical-align: middle; white-space: nowrap; }
+  .trend-up { color: var(--green); } .trend-down { color: var(--red); } .trend-flat { color: var(--text-3); }
 </style>
 </head>
 <body>
@@ -115,7 +119,7 @@
   <div class="hero-meta">
     <span class="badge badge-green">10 Groups · 42 students</span>
     <span class="hero-meta-dot">·</span>
-    <span>Proposal graded Jul 11</span>
+    <span>Proposal graded Jul 9</span>
     <span class="hero-meta-dot">·</span>
     <span>Literature Review graded Jul 18</span>
     <span class="hero-meta-dot">·</span>
@@ -145,9 +149,9 @@
         <thead>
           <tr>
             <th>Group</th>
-            <th>Proposal<br><small style="font-weight:500;opacity:.7">Jul 7</small></th>
-            <th>Lit Review<br><small style="font-weight:500;opacity:.7">Jul 14</small></th>
-            <th>Methods &amp; Analysis<br><small style="font-weight:500;opacity:.7">Jul 28</small></th>
+            <th>Proposal<br><small style="font-weight:500;opacity:.7">due Jul 7</small></th>
+            <th>Lit Review<br><small style="font-weight:500;opacity:.7">due Jul 14</small></th>
+            <th>Methods &amp; Analysis<br><small style="font-weight:500;opacity:.7">due Jul 28</small></th>
             <th>Presentation<br><small style="font-weight:500;opacity:.7">Aug 9–10</small></th>
           </tr>
         </thead>
@@ -257,6 +261,46 @@ function groupFlagged(g) {
   return (g.log || []).some(e => e.flag);
 }
 
+// Percentage of a single graded entry.
+function pctOf(e) { return (e.score / e.max) * 100; }
+
+// "Current round" = the latest assignment (by tracker order) that has any grades.
+// Using assignment order rather than an exact date keeps this correct even when a
+// round is graded across several days.
+const LATEST_ROUND = (function () {
+  const graded = GROUPS.flatMap(g => (g.log || []).map(e => e.assignment));
+  let round = null;
+  TRACKER_COLS.forEach(col => { if (graded.includes(col)) round = col; });
+  return round;
+})();
+
+// Amber "watch" tier: a group whose most recent grade is below WATCH_PCT and that
+// isn't already hard-flagged. Auto-surfaces quietly at-risk groups for follow-up.
+const WATCH_PCT = 75;
+function groupWatch(g) {
+  if (groupFlagged(g)) return false;
+  const e = latestEntry(g);
+  return !!e && pctOf(e) < WATCH_PCT;
+}
+
+// Trend: compares the two most recent graded assignments (oldest→newest) for a group.
+function groupTrend(g) {
+  const entries = (g.log || []).slice().sort((a, b) => a.date.localeCompare(b.date));
+  if (entries.length < 2) return null;
+  const latest = entries[entries.length - 1], prev = entries[entries.length - 2];
+  const delta = pctOf(latest) - pctOf(prev);
+  const dir = delta > 0.5 ? 'up' : (delta < -0.5 ? 'down' : 'flat');
+  return { delta, dir, from: prev.assignment, to: latest.assignment };
+}
+function trendHTML(g) {
+  const t = groupTrend(g);
+  if (!t) return '';
+  const sym = t.dir === 'up' ? '▲' : (t.dir === 'down' ? '▼' : '▬');
+  const sign = t.delta > 0 ? '+' : '';
+  const title = `${t.from} → ${t.to}: ${sign}${t.delta.toFixed(0)} pts`;
+  return `<span class="trend trend-${t.dir}" title="${title}">${sym}</span>`;
+}
+
 const grid = document.getElementById('groups-grid');
 GROUPS.forEach(g => {
   const card = document.createElement('div');
@@ -267,8 +311,8 @@ GROUPS.forEach(g => {
     const idTag = m.id ? `<span style="font-size:11px;color:var(--text-3);font-variant-numeric:tabular-nums;">#${m.id}</span>` : '';
     return `<div class="member-row"><div class="member-avatar">${initials}</div><span style="flex:1;direction:rtl;text-align:right;">${m.name}</span>${idTag}${m.lead?'<span class="member-star">★</span>':''}</div>`;
   }).join('');
-  const flagTag = groupFlagged(g) ? '<span class="flag-badge">Follow up</span>' : '';
-  card.innerHTML = `<div class="group-card-head"><div class="group-num">${g.num}</div><div><div class="group-title">Group ${g.num}${flagTag}</div><div class="group-topic">${g.topic}</div></div></div><div class="group-card-body">${members}</div>`;
+  const flagTag = groupFlagged(g) ? '<span class="flag-badge">Follow up</span>' : (groupWatch(g) ? '<span class="watch-badge">Watch</span>' : '');
+  card.innerHTML = `<div class="group-card-head"><div class="group-num">${g.num}</div><div><div class="group-title">Group ${g.num}${flagTag}${trendHTML(g)}</div><div class="group-topic">${g.topic}</div></div></div><div class="group-card-body">${members}</div>`;
   grid.appendChild(card);
 });
 
@@ -279,48 +323,75 @@ GROUPS.forEach(g => {
     const entry = (g.log || []).find(e => e.assignment === col);
     if (!entry) return `<td><span class="status-pill status-pending">Pending</span></td>`;
     const flagTag = entry.flag ? '<span class="flag-badge" title="'+(entry.flagNote||'Needs follow-up')+'">!</span>' : '';
-    return `<td><span class="status-pill ${gradeClass(entry.score, entry.max)}">${fmtScore(entry.score)}/${entry.max}</span>${flagTag}</td>`;
+    const trend = (col === LATEST_ROUND) ? trendHTML(g) : '';
+    return `<td><span class="status-pill ${gradeClass(entry.score, entry.max)}">${fmtScore(entry.score)}/${entry.max}</span>${flagTag}${trend}</td>`;
   }).join('');
   row.innerHTML = `<td style="font-weight:600;color:var(--text);"><a href="#group-${g.num}" style="color:inherit;text-decoration:none;">Group ${g.num}</a></td>${cells}`;
   tbody.appendChild(row);
 });
 
-// Stats bar — quick class-wide visibility into the most recently graded assignment.
+// Stats bar — quick class-wide visibility into the current graded round.
+// The round is chosen by assignment order (LATEST_ROUND), not by exact date, so it
+// stays correct if a round is graded across several days. Flagged resubmissions are
+// excluded from the class average so one to-be-redone score doesn't skew the cohort.
 (function renderStats() {
-  const latestByGroup = GROUPS.map(g => ({ g, e: latestEntry(g) })).filter(x => x.e);
-  if (!latestByGroup.length) return;
-  const mostRecentDate = latestByGroup.reduce((max, x) => x.e.date > max ? x.e.date : max, latestByGroup[0].e.date);
-  const thisRound = latestByGroup.filter(x => x.e.date === mostRecentDate);
-  const avg = thisRound.reduce((s, x) => s + (x.e.score / x.e.max) * 100, 0) / thisRound.length;
-  const flaggedCount = thisRound.filter(x => x.e.flag).length;
-  const assignmentName = thisRound[0].e.assignment;
+  if (!LATEST_ROUND) return;
+  const thisRound = GROUPS
+    .map(g => ({ g, e: (g.log || []).find(e => e.assignment === LATEST_ROUND) }))
+    .filter(x => x.e);
+  if (!thisRound.length) return;
+  const counted = thisRound.filter(x => !x.e.flag);
+  const excluded = thisRound.length - counted.length;
+  const avg = counted.length ? counted.reduce((s, x) => s + pctOf(x.e), 0) / counted.length : 0;
+  const flaggedCount = GROUPS.filter(groupFlagged).length;
+  const watchCount = GROUPS.filter(groupWatch).length;
   const bar = document.getElementById('stats-bar');
   bar.innerHTML = `
-    <div class="stat-chip"><b>${assignmentName}</b> · latest graded assignment</div>
-    <div class="stat-chip">Class average: <b>${avg.toFixed(1)}%</b></div>
+    <div class="stat-chip"><b>${LATEST_ROUND}</b> · latest graded assignment</div>
+    <div class="stat-chip">Class average: <b>${avg.toFixed(1)}%</b>${excluded ? ` <span style="color:var(--text-3);">(excl. ${excluded} flagged)</span>` : ''}</div>
     <div class="stat-chip">Graded: <b>${thisRound.length} / ${GROUPS.length}</b> groups</div>
-    ${flaggedCount ? `<div class="stat-chip" style="border-color:var(--red);color:var(--red);">⚑ <b>${flaggedCount}</b> flagged for follow-up</div>` : ''}
+    ${flaggedCount ? `<div class="stat-chip" style="border-color:var(--red);color:var(--red);">⚑ <b>${flaggedCount}</b> follow-up</div>` : ''}
+    ${watchCount ? `<div class="stat-chip" style="border-color:#d9a300;color:#7a4500;">👁 <b>${watchCount}</b> to watch</div>` : ''}
   `;
 })();
 
-// Flag banner — surfaces any group needing instructor follow-up, with a direct jump link.
-(function renderFlagBanner() {
+// Attention banner — two tiers: red "needs follow-up" (manual flags) and amber
+// "keep an eye on" (auto: latest grade below WATCH_PCT). Each links straight to the card.
+(function renderAttention() {
   const flagged = GROUPS.filter(groupFlagged);
+  const watch = GROUPS.filter(groupWatch);
   const el = document.getElementById('flag-banner');
-  if (!flagged.length) { el.innerHTML = ''; return; }
-  el.innerHTML = `<div class="info-box" style="background:var(--red-light);border-color:var(--red);margin-bottom:24px;">
-    <h3 style="color:var(--red);">⚑ Groups needing follow-up</h3>
-    <p style="color:var(--red);">${flagged.map(g => {
-      const fe = (g.log||[]).find(e => e.flag);
-      return `<a href="#group-${g.num}" style="color:var(--red);font-weight:700;text-decoration:underline;">Group ${g.num}</a> — ${fe ? fe.flagNote : ''}`;
-    }).join('<br>')}</p>
-  </div>`;
+  if (!flagged.length && !watch.length) { el.innerHTML = ''; return; }
+  let html = '';
+  if (flagged.length) {
+    html += `<div class="info-box" style="background:var(--red-light);border-color:var(--red);margin-bottom:16px;">
+      <h3 style="color:var(--red);">⚑ Needs follow-up</h3>
+      <p style="color:var(--red);">${flagged.map(g => {
+        const fe = (g.log || []).find(e => e.flag);
+        return `<a href="#group-${g.num}" style="color:var(--red);font-weight:700;text-decoration:underline;">Group ${g.num}</a> — ${fe ? fe.flagNote : ''}`;
+      }).join('<br>')}</p>
+    </div>`;
+  }
+  if (watch.length) {
+    html += `<div class="info-box" style="background:var(--amber-light);border-color:#d9a300;margin-bottom:24px;">
+      <h3 style="color:#7a4500;">👁 Keep an eye on <span style="font-weight:500;font-size:12px;">· latest grade below ${WATCH_PCT}%</span></h3>
+      <p style="color:#7a4500;">${watch.map(g => {
+        const e = latestEntry(g);
+        return `<a href="#group-${g.num}" style="color:#7a4500;font-weight:700;text-decoration:underline;">Group ${g.num}</a> — ${e.assignment} ${fmtScore(e.score)}/${e.max}`;
+      }).join('<br>')}</p>
+    </div>`;
+  }
+  el.innerHTML = html;
 })();
 
 // Jump nav — one-click access to any group's card, flagged groups marked in red.
 (function renderJumpNav() {
   const nav = document.getElementById('jump-nav');
-  nav.innerHTML = GROUPS.map(g => `<a href="#group-${g.num}" class="${groupFlagged(g)?'flagged':''}">Group ${g.num}${groupFlagged(g)?' ⚑':''}</a>`).join('');
+  nav.innerHTML = GROUPS.map(g => {
+    const cls = groupFlagged(g) ? 'flagged' : (groupWatch(g) ? 'watch' : '');
+    const mark = groupFlagged(g) ? ' ⚑' : (groupWatch(g) ? ' 👁' : '');
+    return `<a href="#group-${g.num}" class="${cls}">Group ${g.num}${mark}</a>`;
+  }).join('');
 })();
 
 // Assignment Log — accordion per group, accumulates as more assignments are graded.
@@ -348,8 +419,8 @@ GROUPS.forEach(g => {
   wrap.innerHTML = `
     <details class="log-details" style="border:none;">
       <summary class="log-summary">
-        <span>Group ${g.num} <span style="font-weight:500;color:var(--text-3);">· ${entries.length} graded${groupFlagged(g) ? ' · <span style=\"color:var(--red);\">follow-up</span>' : ''}</span></span>
-        <span style="display:flex;align-items:center;gap:6px;">${latestTag}<span class="chev">▶</span></span>
+        <span>Group ${g.num} <span style="font-weight:500;color:var(--text-3);">· ${entries.length} graded${groupFlagged(g) ? ' · <span style=\"color:var(--red);\">follow-up</span>' : (groupWatch(g) ? ' · <span style=\"color:#7a4500;\">watch</span>' : '')}</span></span>
+        <span style="display:flex;align-items:center;gap:6px;">${trendHTML(g)}${latestTag}<span class="chev">▶</span></span>
       </summary>
       ${body}
     </details>`;
