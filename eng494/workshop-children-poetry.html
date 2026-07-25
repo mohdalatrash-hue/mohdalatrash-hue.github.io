@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Children's Poetry & Song: Singability | ENG 494</title>
+<title>Children's Poetry &amp; Song: Sing It, Then Study It | ENG 494</title>
 <link rel="stylesheet" href="../style.css">
-<meta name="description" content="ENG 494 workshop on translating children's poetry and song into Arabic — singability and rhythm, limericks, sound devices, with translation practice on public-domain nursery rhymes and Lear.">
+<meta name="description" content="ENG 494 Unit 4 workshop — translate six nursery songs into Arabic first, then study reading aloud, animal cries, wordplay, nonsense verse, rhyme and metre with Lathey (2016), Chapter 5.">
 <meta name="theme-color" content="#1a6b3c">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -15,8 +15,8 @@
 <meta name="apple-mobile-web-app-title" content="ENG 494">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ENG 494 Literary Translation">
-<meta property="og:title" content="Children's Poetry & Song: Singability | ENG 494">
-<meta property="og:description" content="Singability and rhythm, limericks, sound devices, and translation practice on nursery rhymes and Lear.">
+<meta property="og:title" content="Children's Poetry &amp; Song: Sing It, Then Study It | ENG 494">
+<meta property="og:description" content="Translate six nursery songs first, then study why they fought back — reading aloud, animal cries, wordplay, nonsense and metre.">
 <meta property="og:image" content="https://mohdalatrash-hue.github.io/eng494/icon-512.png">
 <meta property="og:url" content="https://mohdalatrash-hue.github.io/eng494/workshop-children-poetry.html">
 <meta name="twitter:card" content="summary">
@@ -24,8 +24,9 @@
 body{background:var(--off-white);}
 :root{--ac:#db2777;--ac-soft:#fdf2f8;--ac-ink:#9d174d;}
 .tab-bar{display:flex;gap:4px;background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-xs);padding:6px;margin-bottom:28px;flex-wrap:wrap;}
-.tab-btn{flex:1;min-width:120px;padding:10px 14px;border:none;background:transparent;border-radius:var(--r-md);font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;transition:all .15s;}
+.tab-btn{flex:1;min-width:118px;padding:10px 12px;border:none;background:transparent;border-radius:var(--r-md);font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;transition:all .15s;}
 .tab-btn:hover{background:var(--off-white);} .tab-btn.active{background:var(--ac);color:#fff;}
+.tab-btn.tb-first{outline:2px dashed #fbcfe8;outline-offset:-2px;} .tab-btn.tb-first.active{outline-color:rgba(255,255,255,.55);}
 .tab-panel{display:none;} .tab-panel.active{display:block;}
 .ex-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:24px;margin-bottom:20px;}
 .ex-num{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);margin-bottom:8px;}
@@ -45,6 +46,35 @@ body{background:var(--off-white);}
 .tp-reveal h4{font-size:13px;font-weight:800;color:var(--ac-ink);text-transform:uppercase;letter-spacing:.05em;margin:12px 0 6px;} .tp-reveal h4:first-child{margin-top:0;}
 .checklist2{list-style:none;padding:0;margin:6px 0 0;} .checklist2 li{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.6;margin-bottom:5px;} .checklist2 li::before{content:"☐";color:var(--ac);font-weight:800;}
 .src-note{font-size:12px;color:var(--text-3);margin-top:8px;}
+/* --- Try It First --- */
+.first-banner{background:#fff;border:2px solid var(--ac);border-radius:var(--r-xl);padding:20px 22px;margin-bottom:22px;}
+.first-banner h3{font-size:16px;font-weight:800;color:var(--ac-ink);margin:0 0 8px;}
+.first-banner p{font-size:13.5px;line-height:1.75;color:var(--text-2);margin:0 0 8px;}
+.first-banner p:last-child{margin-bottom:0;}
+.no-peek{display:inline-block;background:var(--ac-soft);border:1px dashed var(--ac);border-radius:var(--r-pill);padding:4px 12px;font-size:12px;font-weight:700;color:var(--ac-ink);margin-top:4px;}
+.wall{margin-top:16px;padding:16px;border-radius:var(--r-md);background:#fffbeb;border:1px solid #fde68a;font-size:13.5px;line-height:1.75;color:#78350f;display:none;} .wall.show{display:block;}
+.wall h4{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#b45309;margin:0 0 6px;}
+.wall .fwd{display:block;margin-top:10px;padding-top:10px;border-top:1px dashed #fcd34d;font-size:12.5px;font-weight:700;color:#92400e;}
+.sing-tag{display:inline-block;background:var(--ac-soft);color:var(--ac-ink);border-radius:var(--r-pill);padding:3px 10px;font-size:11px;font-weight:800;margin-bottom:8px;}
+.listen{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:0 0 12px;}
+.yt-btn{display:inline-flex;align-items:center;gap:7px;background:#ff0000;color:#fff;text-decoration:none;border-radius:var(--r-pill);padding:7px 14px;font-size:12.5px;font-weight:700;transition:filter .15s;}
+.yt-btn:hover{filter:brightness(.9);text-decoration:none;color:#fff;}
+.yt-alt{font-size:12px;color:var(--text-3);text-decoration:none;border-bottom:1px dotted var(--text-3);}
+.yt-alt:hover{color:var(--ac-ink);border-bottom-color:var(--ac);text-decoration:none;}
+.listen-note{font-size:12px;color:var(--text-3);margin:0 0 12px;}
+/* --- comparison tables --- */
+.cmp{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0 4px;background:var(--white);border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow-xs);}
+.cmp th{background:var(--ac-soft);color:var(--ac-ink);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;padding:9px 12px;text-align:left;}
+.cmp td{padding:9px 12px;border-top:1px solid var(--border-light);vertical-align:top;line-height:1.6;}
+.cmp td.lang{font-weight:700;color:var(--text);white-space:nowrap;}
+.cmp td.ar{direction:rtl;text-align:right;font-size:14px;}
+.readingq{background:var(--white);border:1px solid var(--border-light);border-left:4px solid var(--ac);border-radius:var(--r-md);padding:14px 16px;font-size:13.5px;line-height:1.75;color:var(--text-2);margin-bottom:20px;}
+.readingq q{font-style:italic;color:var(--text);}
+.readingq .attrib{display:block;font-size:12px;font-weight:700;color:var(--ac-ink);margin-top:6px;}
+.steps{counter-reset:s;list-style:none;padding:0;margin:8px 0 0;}
+.steps li{counter-increment:s;position:relative;padding-left:34px;margin-bottom:9px;font-size:13.5px;line-height:1.65;color:var(--text);}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:23px;height:23px;border-radius:50%;background:var(--ac);color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+@media(max-width:680px){.tab-btn{min-width:104px;font-size:12px;}}
 </style>
 </head>
 <body>
@@ -58,9 +88,9 @@ body{background:var(--off-white);}
   </div>
 </nav>
 <div class="hero" style="padding-bottom:34px;">
-  <div class="hero-eyebrow" style="color:var(--ac);">Unit 4 · Children's Poetry &amp; Song</div>
-  <h1>Singability &amp; Sound</h1>
-  <p class="hero-sub">Children's verse is made to be chanted and sung. Keep the beat, the rhyme and the play — then translate a rhyme and a limerick.</p>
+  <div class="hero-eyebrow" style="color:var(--ac);">Unit 4 · Week 5 · Children's Poetry &amp; Song</div>
+  <h1>Sing It, Then Study It</h1>
+  <p class="hero-sub">Start by translating six songs you already know. Find out where they fight back. <em>Then</em> the reading explains why.</p>
 </div>
 <div class="section-alt" style="padding:0 0 64px;">
 <div class="section-inner">
@@ -68,30 +98,199 @@ body{background:var(--off-white);}
     <h3>🎶 Translate for the tongue and the ear</h3>
     <p>A nursery rhyme that doesn't bounce, or a song you can't sing to the tune, has failed — however accurate. Here the rhythm, rhyme and sound-play matter as much as the words.</p>
   </div>
-    <div style="display:flex;gap:10px;align-items:flex-start;background:var(--white);border:1px solid var(--border-light);border-left:4px solid var(--ac);border-radius:var(--r-md);padding:12px 16px;margin-bottom:20px;font-size:13.5px;line-height:1.6;color:var(--text-2);"><span style="font-size:17px;line-height:1.3;">📖</span><div><strong style="color:var(--ac);">Required reading for this workshop:</strong> <strong>&ldquo;Translating Sounds and Reading Aloud.&rdquo;</strong> The exercises below practise singability, metre and sound-play from this reading.</div></div>
+    <div style="display:flex;gap:10px;align-items:flex-start;background:var(--white);border:1px solid var(--border-light);border-left:4px solid var(--ac);border-radius:var(--r-md);padding:12px 16px;margin-bottom:20px;font-size:13.5px;line-height:1.6;color:var(--text-2);"><span style="font-size:17px;line-height:1.3;">📖</span><div><strong style="color:var(--ac);">Required reading for this workshop:</strong> <strong>&ldquo;Translating Sounds and Reading Aloud&rdquo;</strong> — Lathey (2016), Chapter&nbsp;5, <em>Translating Children's Literature</em>. Tabs 2&ndash;5 below teach directly from this chapter; do Tab&nbsp;1 <em>before</em> you read it.</div></div>
 <div class="tab-bar">
-    <button class="tab-btn active" onclick="switchTab('sing',this)">🎵 Singability</button>
-    <button class="tab-btn" onclick="switchTab('lim',this)">🤪 Limericks</button>
-    <button class="tab-btn" onclick="switchTab('sound',this)">🔔 Sound in Verse</button>
-    <button class="tab-btn" onclick="switchTab('translate',this)">✍️ Translate It</button>
-    <button class="tab-btn" onclick="switchTab('quiz',this)">📝 Quiz</button>
+    <button class="tab-btn tb-first active" onclick="switchTab('first',this)">🎤 1 · Try It First</button>
+    <button class="tab-btn" onclick="switchTab('aloud',this)">🔊 2 · Reading Aloud</button>
+    <button class="tab-btn" onclick="switchTab('cries',this)">🐓 3 · Animal Cries</button>
+    <button class="tab-btn" onclick="switchTab('play',this)">🤪 4 · Wordplay &amp; Nonsense</button>
+    <button class="tab-btn" onclick="switchTab('metre',this)">🎵 5 · Rhyme &amp; Metre</button>
+    <button class="tab-btn" onclick="switchTab('translate',this)">✍️ 6 · Translate It</button>
+    <button class="tab-btn" onclick="switchTab('quiz',this)">📝 7 · Quiz</button>
   </div>
-  <div id="tab-sing" class="tab-panel active">
-    <div class="tip-box"><strong>Singability</strong> means the words fit a rhythm (and often a known tune). For a song, your Arabic must keep roughly the same number of beats per line so it can still be sung. Test it: clap the beat, or sing it.</div>
-    <div id="sing-qs"></div>
+
+  <!-- ============ TAB 1 · TRY IT FIRST ============ -->
+  <div id="tab-first" class="tab-panel active">
+    <div class="first-banner">
+      <h3>🎤 Before you read anything — just translate.</h3>
+      <p>Below are six songs almost every child knows. Translate each one into Arabic <strong>so a Saudi child could sing it</strong> — not so it reads accurately on the page. Sing your version out loud, or clap it. If it stumbles, that stumble is the lesson.</p>
+      <p>You are <em>meant</em> to get stuck. Every one of these six is booby-trapped in a different way, and the trap is the exact problem the chapter deals with. When you've made a real attempt, open <strong>&ldquo;Where it fought back&rdquo;</strong> — it will name the wall you just hit and send you to the tab that handles it. It will <strong>not</strong> hand you the answer.</p>
+      <p><span class="no-peek">⚠️ Don't open the notes before you've written something. Getting it wrong first is the point.</span></p>
+    </div>
+    <div id="first-tasks"></div>
+    <div class="tip-box" style="margin-top:4px;"><strong>Done all six? That's Sunday.</strong> Read Lathey Ch.&nbsp;5 tonight — it will read very differently now that you have hit the walls yourself. <strong>Monday</strong> we discuss it in class alongside Tabs 2&ndash;5. <strong>Tuesday</strong> you translate again in Tab 6, then come back here and re-do the two songs that beat you. The distance between your Sunday version and your Tuesday version is what you actually learned this week.</div>
   </div>
-  <div id="tab-lim" class="tab-panel">
-    <div class="tip-box"><strong>The limerick</strong> is five lines rhyming <strong>AABBA</strong>, with a galloping rhythm (long–long–short–short–long). The humour lives in the bounce and the surprise last line. Keep the shape, not every word.</div>
-    <div id="lim-qs"></div>
+
+  <!-- ============ TAB 2 · READING ALOUD ============ -->
+  <div id="tab-aloud" class="tab-panel">
+    <div class="ex-card" style="border:2px solid var(--ac);">
+      <div class="ex-num">🗣️ Monday in class · the chapter's own discussion points</div>
+      <p style="font-size:13.5px;line-height:1.75;color:var(--text-2);margin:0 0 10px;">Lathey closes Chapter 5 with three questions. Come to Monday's session having read the chapter and having formed a view on each — we will argue them out together, using your Sunday attempts as the evidence.</p>
+      <ol class="steps">
+        <li>How useful is <strong>reading aloud</strong> during the translation process? Do you use it regularly? What effect does it have on the revisions you then make? Would you use it only for children's stories and poetry, or for adult fiction too — and why?</li>
+        <li>What is your response to <strong>Eco's statement</strong> that it is &lsquo;pointless&rsquo; to translate &lsquo;invented language&rsquo;, where the phonosymbolic effect depends precisely on the absence of any semantic level?</li>
+        <li>Is it <strong>only</strong> possible to translate nonsense and sound poetry between pairs of closely related languages? (English and Arabic are not closely related. What follows for you?)</li>
+      </ol>
+      <p class="src-note">Lathey (2016, Ch. 5), &ldquo;Discussion points&rdquo;. Question 3 bites hardest for this class — hold it in mind through Tabs 3&ndash;5.</p>
+    </div>
+    <div class="tip-box"><strong>Reading aloud is not a check at the end — it is the design brief.</strong> Lathey opens the chapter by putting read-aloud translation in the same category as poetry: any text &ldquo;where aural, aesthetic or rhetorical power is a primary consideration.&rdquo; Young children <em>hear</em> books more often than they read them, so you are writing for a performer and a listener, not a silent reader.</div>
+    <div class="readingq">
+      <q>Listening to books being read aloud is the only way for an illiterate child to enter the world of literature.</q>
+      <span class="attrib">— Oittinen (2000: 32), quoted in Lathey (2016, Ch. 5)</span>
+    </div>
+    <div class="readingq">
+      Danish translation scholar Cay Dollerup argues that translating for reading aloud <q>is an art requiring great competence of translators.</q>
+      <span class="attrib">— Dollerup (2003: 82), quoted in Lathey (2016, Ch. 5)</span>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">The chapter's strategies for read-aloud translation</div>
+      <ol class="steps">
+        <li>Read passages of the longer text aloud — listen for awkward phrases, and for rhythms and cadences that echo the source.</li>
+        <li>Read drafts aloud <em>to children</em> and watch how they respond.</li>
+        <li>Record a draft on any device and listen back to the playback.</li>
+        <li>Translate aloud, using voice-activated software.</li>
+        <li>Decide whether to use the standard target-language animal cries, or keep the source language's (Tab&nbsp;3).</li>
+      </ol>
+      <p class="src-note">Lathey (2016, Ch. 5), &ldquo;To sum up, strategies for translating for reading aloud…&rdquo;</p>
+    </div>
+    <div id="aloud-qs"></div>
   </div>
-  <div id="tab-sound" class="tab-panel">
-    <div class="tip-box"><strong>Sound devices</strong> — <em>alliteration</em> (repeated first sounds), <em>assonance</em> (repeated vowels), <em>repetition</em> and <em>onomatopoeia</em> — are half the fun of children's verse. Recreate the effect in Arabic, even if the literal words shift.</div>
-    <div id="sound-qs"></div>
+
+  <!-- ============ TAB 3 · ANIMAL CRIES ============ -->
+  <div id="tab-cries" class="tab-panel">
+    <div class="tip-box"><strong>An animal cry is a convention, not a recording.</strong> The rooster does not change when it crosses a border — the <em>spelling</em> does. Each language has agreed on its own imitation, and the translator has to switch from one phonetic system to another. This is the commonest trap in songs for the very young, because animal characters are everywhere in them.</div>
+    <div class="ex-card">
+      <div class="ex-num">The same cockerel, four languages</div>
+      <table class="cmp">
+        <thead><tr><th>Language</th><th>The cockerel says…</th></tr></thead>
+        <tbody>
+          <tr><td class="lang">English</td><td>cock-a-doodle-doo</td></tr>
+          <tr><td class="lang">French</td><td>coquerico</td></tr>
+          <tr><td class="lang">Spanish</td><td>qui-qui-ri-qui</td></tr>
+          <tr><td class="lang">German</td><td>kikeriki</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:13.5px;line-height:1.75;color:var(--text-2);margin:10px 0 0;">Lathey's point: the cry keeps <strong>its characteristic rhythmic pattern</strong> across all four — while every single sound changes. Some cries match closely across languages (a Spanish pig's <em>oinc oinc</em> and an English <em>oink oink</em>); others do not match at all (a Spanish dog's <em>guau</em> against an English <em>woof woof</em>, <em>ruff ruff</em> or <em>bow-wow</em>).</p>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Arabic does something English doesn't</div>
+      <p style="font-size:13.5px;line-height:1.8;color:var(--text-2);margin:0 0 8px;">English mostly spells the noise. Arabic has both — an imitative form <em>and</em> a noun for the act of making the sound (اسم الصوت). You have a choice English translators don't get, and it changes the register of your line completely.</p>
+      <table class="cmp">
+        <thead><tr><th>Animal</th><th>English</th><th>Arabic imitation</th><th>Arabic sound-noun</th></tr></thead>
+        <tbody>
+          <tr><td class="lang">Sheep</td><td>baa baa</td><td class="ar">ماء ماء</td><td class="ar">المَأْمَأة</td></tr>
+          <tr><td class="lang">Cow</td><td>moo</td><td class="ar">مو مو</td><td class="ar">الخُوَار</td></tr>
+          <tr><td class="lang">Dog</td><td>woof / bow-wow</td><td class="ar">هاو هاو</td><td class="ar">النُّبَاح</td></tr>
+          <tr><td class="lang">Cat</td><td>miaow</td><td class="ar">مياو</td><td class="ar">المُوَاء</td></tr>
+          <tr><td class="lang">Horse</td><td>neigh</td><td class="ar">—</td><td class="ar">الصَّهِيل</td></tr>
+          <tr><td class="lang">Donkey</td><td>hee-haw</td><td class="ar">—</td><td class="ar">النَّهِيق</td></tr>
+        </tbody>
+      </table>
+      <p class="src-note">In a song for a five-year-old the imitation almost always wins — it is what the child can join in with. The sound-noun belongs to narration <em>about</em> the animal, not to the animal's own voice. Choose deliberately, and stay consistent across the whole song.</p>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">…but the conventional choice isn't the only one</div>
+      <p style="font-size:13.5px;line-height:1.8;color:var(--text-2);margin:0;">Lathey notes that while it is <strong>common practice</strong> to use the target-language equivalent, a more playful approach might catch children's imaginations: leaving a German cockerel crying <em>kikeriki</em> in an English book would <em>intrigue</em> a child who already knows <em>cock-a-doodle-doo</em>. Her example is Eric Carle and Kazuo Iwamura's <em>Where Are You Going? To See My Friend!</em> (2001) — one book read from the front in English and from the back in Japanese, two bands of animals calling in their own languages, meeting in the middle. The foreign cry is not a mistake there; it is the whole design.</p>
+    </div>
+    <div id="cries-qs"></div>
   </div>
+
+  <!-- ============ TAB 4 · WORDPLAY & NONSENSE ============ -->
+  <div id="tab-play" class="tab-panel">
+    <div class="tip-box"><strong>Puns and nonsense are where literal translation dies fastest.</strong> Children's authors build on idioms and puns deliberately, because discovering that a word has two meanings is an early literary pleasure — it grows the child's metalinguistic awareness. The joke is not decoration you can drop; it is part of what the book is <em>for</em>.</div>
+    <div class="ex-card">
+      <div class="ex-num">The problem, in one picture book</div>
+      <div class="excerpt">'Very well, but don't muck about.'
+'Yes, but don't flap,' said Mr. Gumpy.<span class="cite">— John Burningham, <em>Mr. Gumpy's Outing</em> (1970), discussed in Lathey (2016, Ch. 5)</span></div>
+      <p style="font-size:13.5px;line-height:1.8;color:var(--text-2);margin:8px 0 0;">Mr Gumpy tells the pig not to <em>muck about</em> and the chickens not to <em>flap</em>. Each phrase means one thing for a misbehaving passenger and another for that particular animal. The German translation gives <em>&lsquo;Gut. Aber mach keinen Dreck!&rsquo;</em> (&ldquo;Good. But don't make a mess!&rdquo;) and <em>&lsquo;Ja, aber flattert nicht herum.&rsquo;</em> (&ldquo;Yes, but don't flap around.&rdquo;) — the instruction survives; the double meaning does not. Ask yourself now: does Arabic give you a phrase that scolds a child <em>and</em> describes a pig?</p>
+    </div>
+    <div class="readingq">
+      On translating Asterix, Anthea Bell: <q>[…] the translation of something which depends as much as Asterix on wordplay and puns has, in any event, to be very free, often more of an adaptation, if anything like the same humorous effect is to be produced in English.</q>
+      <span class="attrib">— Bell (1980: 129–30), quoted in Lathey (2016, Ch. 5)</span>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Compensation — the move that saves the joke</div>
+      <p style="font-size:13.5px;line-height:1.8;color:var(--text-2);margin:0 0 10px;">Bell's principle is that you need not land the joke <em>in the same place</em>. You must land the same <em>kind</em> of joke somewhere. Her famous &ldquo;obvious gift&rdquo;: French represents a hiccup as <em>Hips!</em>, English as <em>Hic!</em> — so drunken Roman legionaries could be made to hiccup in Latin, <strong>&ldquo;Hic, haec, hoc&rdquo;</strong>, a joke that does not exist in the French at all, inserted to replace one lost elsewhere.</p>
+      <p style="font-size:13.5px;line-height:1.8;color:var(--text-2);margin:0;">This is the most useful idea in the chapter for your Arabic work: <strong>keep a running debt.</strong> When a pun dies, write it down, and pay it back with an Arabic pun at the next opportunity the text gives you.</p>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">The chapter's seven-step sequence for idioms and wordplay</div>
+      <ol class="steps">
+        <li><strong>Recognise</strong> the idiom or pun in the source text in the first place.</li>
+        <li><strong>Assess</strong> its function and resonance — in the passage, and in the text as a whole.</li>
+        <li><strong>Look</strong> for an equivalent idiom or pun in the target language.</li>
+        <li>If no replacement exists, consider <strong>literal translation</strong>, possibly with an explanation woven into the text — but only rarely, or you confuse and alienate the child reader.</li>
+        <li>For an idiom, the likeliest option is simply to <strong>convey its meaning</strong> in the target language.</li>
+        <li><strong>Deletion</strong> of the pun or idiom is sometimes the only option.</li>
+        <li>Then <strong>compensate</strong> — put an idiom or pun familiar to target-culture children somewhere else in the text.</li>
+      </ol>
+      <p class="src-note">Lathey (2016, Ch. 5), &ldquo;The following sequence may assist in the translation of idioms and wordplay.&rdquo; Steps 6 and 7 belong together: deletion is only acceptable if you pay the debt back.</p>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Nonsense verse: can it be translated at all?</div>
+      <p style="font-size:13.5px;line-height:1.8;color:var(--text-2);margin:0 0 10px;">Umberto Eco says no — invented language, he argues, is where <em>no translation is possible, because the phonosymbolic effect depends precisely on the absence of any semantic level</em>. Lathey disagrees, and her evidence is Anthea Bell's English Morgenstern:</p>
+      <table class="cmp">
+        <thead><tr><th>Morgenstern (German)</th><th>Bell (English)</th></tr></thead>
+        <tbody>
+          <tr><td>Kroklokwafzi? Semememi!</td><td>Kroklokwoffzie? Seemimeemi!</td></tr>
+          <tr><td>Seikronto – prafriplo:</td><td>Siyokronto – prufliplo:</td></tr>
+          <tr><td>Bifzi, bafzi; hulalemi:</td><td>Biftsi baftsi; hulaleemi:</td></tr>
+          <tr><td>Quasti basti bo . . .</td><td>quasti basti bo . . .</td></tr>
+          <tr><td>Lalu lalu lalu lalu la!</td><td>Laloo laloo laloo laloola!</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:13.5px;line-height:1.8;color:var(--text-2);margin:10px 0 0;">Bell changes almost nothing semantic — there is nothing semantic to change — yet she is unmistakably <em>choosing</em>: the German long &lsquo;u&rsquo; becomes an English &lsquo;oo&rsquo;, and she declines the &lsquo;v&rsquo; sound English would need to mirror the German &lsquo;qu&rsquo;, partly because <strong>how the letters look on the page</strong> is part of the pleasure. Lathey's verdict: this <em>is</em> translation, because Bell works between two languages and makes choices for a specific young audience.</p>
+      <p class="src-note">Note for Arabic: Bell had a related alphabet and a related sound system to work with. You do not. Ask what an Arabic-reading child's eye and ear enjoy, and build the nonsense out of that — not out of transliterated English.</p>
+    </div>
+    <div id="play-qs"></div>
+  </div>
+
+  <!-- ============ TAB 5 · RHYME & METRE ============ -->
+  <div id="tab-metre" class="tab-panel">
+    <div class="tip-box"><strong>Decide what you are protecting before you start.</strong> Lathey: in verse for younger children the replication of musicality, sound and form is often the translator's primary concern — but sometimes metre must be sacrificed for the poetic message instead. Every choice below costs something. The professional skill is choosing the cost knowingly, not discovering it afterwards.</div>
+    <div class="ex-card">
+      <div class="ex-num">Singability — the test you can actually run</div>
+      <p style="font-size:13.5px;line-height:1.8;color:var(--text-2);margin:0;">If the song has a known tune, the tune is a hard constraint: your Arabic must carry roughly the same number of beats per line, or the child cannot sing it. There is only one real test, and it is not silent — <strong>sing it, or clap it, against the original</strong>. A version that scans on paper and stumbles in the mouth has failed. The whole chapter rests on the claim that the ear, not the eye, judges children's verse.</p>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">The limerick — and two translators who solved it differently</div>
+      <div class="excerpt">There was an Old Man with a beard,
+Who said, "It is just as I feared!—
+Two Owls and a Hen,
+Four Larks and a Wren,
+Have all built their nests in my beard!"<span class="cite">— Edward Lear (1846), public domain · AABBA</span></div>
+      <p style="font-size:13.5px;line-height:1.8;color:var(--text-2);margin:8px 0 10px;">The form: <strong>five lines, AABBA</strong>, anapestic rhythm, two short central lines, comic content. Kreller (2007) collected several German versions of this exact limerick. All of them keep the rhyme scheme and the five-line shape — and still come out utterly different:</p>
+      <table class="cmp">
+        <thead><tr><th>Translator</th><th>What they changed to make it work</th></tr></thead>
+        <tbody>
+          <tr><td class="lang">Enzensberger<br><span style="font-weight:400;font-size:12px;color:var(--text-3);">(1977)</span></td><td>Turns Lear's <strong>Old Man into a young one</strong> (&lsquo;Jüngling&rsquo;), and imports an <strong>exotic golden oriole</strong> purely so &lsquo;Pirole&rsquo; will rhyme with &lsquo;Dohle&rsquo; (jackdaw). Shifts out of Lear's opening iamb into a trochaic metre. The birds are no longer Lear's birds.</td></tr>
+          <tr><td class="lang">Artmann<br><span style="font-weight:400;font-size:12px;color:var(--text-3);">(1964)</span></td><td>Adds a <strong>diminutive &lsquo;pair&rsquo; of night owls</strong> (&lsquo;Pärchen&rsquo;) to reach the rhyme with &lsquo;Lerchen&rsquo; (larks), and quietly promotes <strong>four larks to five</strong> — probably to dodge the two syllables of &lsquo;vier&rsquo;. Adds a missing pair of spectacles in place of &lsquo;There was&rsquo;. Otherwise much closer to Lear.</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:13.5px;line-height:1.8;color:var(--text-2);margin:10px 0 0;">Both are poets; both keep the form; neither keeps the content intact. <strong>The rhyme is bought, and the price is paid in birds.</strong> That is the normal economy of verse translation — and it is exactly what you will do in Arabic. Note Lathey's warning, though: Lear's poem is <em>illustrated</em>, and his Old Man is plainly not a youth. Enzensberger's rhyme now contradicts the picture on the page.</p>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">When rhythm <em>is</em> the poem — and the translation loses it</div>
+      <div class="excerpt">We're going on a bear hunt
+We're going to catch a big one.
+What a beautiful day!
+We're not scared.<span class="cite">— Michael Rosen, <em>We're Going on a Bear Hunt</em> (1989: 1)</span></div>
+      <p style="font-size:13.5px;line-height:1.8;color:var(--text-2);margin:8px 0 0;">No rhyme here at all — the poem runs on a marching rhythm and on repetition (&ldquo;We're&rdquo; opening three of four lines; &ldquo;What a beautiful day!&rdquo; returning as a refrain). Lathey shows the German version losing precisely that: rearranged into short broken lines, it is difficult to read aloud with <em>any</em> rhythmic pattern beyond a partial rhyme. The meaning arrives; the march does not. Unrhymed verse looks like the easy case and is not — <strong>here the rhythm was the thing worth protecting, and it is the thing that got dropped.</strong></p>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">The cost of a perfect rhyme</div>
+      <p style="font-size:13.5px;line-height:1.8;color:var(--text-2);margin:0;">Sophie Hannah's English version of Tove Jansson's Moomin verse keeps the rhyme scheme beautifully — &lsquo;nearly night / bit of light&rsquo;, closing on a rhyming couplet with the trees sounding a threatening &lsquo;hiss&rsquo;. But to hold the rhyme she adds urgency and menace that Jansson never wrote: <em>Hurrying</em>, <em>Quick</em>, <em>Don't hang around</em>, <em>strange creatures</em>. In the Swedish, that threat is carried <strong>entirely by the pictures</strong>. The rhyme was saved by making the words say what the images were already saying — so the text–picture interplay was spent to buy it. Lathey calls this juggling four dimensions at once: sound, sense, form, and image.</p>
+    </div>
+    <div id="metre-qs"></div>
+  </div>
+
+  <!-- ============ TAB 6 · TRANSLATE IT ============ -->
   <div id="tab-translate" class="tab-panel">
-    <div class="tip-box"><strong>Now translate.</strong> Keep these singable and bouncy. Type your version, sing or clap it, then reveal the notes.</div>
+    <div class="tip-box"><strong>Now translate properly.</strong> These are longer and harder than Tab&nbsp;1, and you have the chapter behind you. Type your version, <em>sing or clap it</em>, then reveal the notes. The last two come straight from the chapter's own exercises.</div>
     <div id="translate-tasks"></div>
   </div>
+
+  <!-- ============ TAB 7 · QUIZ ============ -->
   <div id="tab-quiz" class="tab-panel">
         <div class="tip-box"><strong>📝 Review quiz &mdash; grounded in &ldquo;Translating Sounds and Reading Aloud&rdquo;.</strong> 10 questions; each is tagged with the topic it tests (Reading aloud &middot; Animal cries &middot; Wordplay &amp; nonsense &middot; Rhythm &amp; rhyme). Answer order is shuffled on every attempt.</div>
     <div class="prog-bar-wrap"><div class="prog-bar" id="aq-prog" style="width:0%"></div></div>
@@ -100,7 +299,7 @@ body{background:var(--off-white);}
   </div>
 </div>
 </div>
-<footer><strong>ENG 494 Literary Translation</strong> · Children's Poetry &amp; Song · Qassim University<br><a href="index.html">Course Hub</a> · <a href="workshop-poetry.html">Poetry Workshop</a></footer>
+<footer><strong>ENG 494 Literary Translation</strong> · Children's Poetry &amp; Song · Qassim University<br><a href="index.html">Course Hub</a> · <a href="workshop-poetry.html">Poetry Workshop</a> · <a href="week5.html">Week 5</a></footer>
 <script>
 function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
 var MCQ={};
@@ -108,22 +307,71 @@ function shuffleQ(q){if(q._o0===undefined){q._o0=q.opts.slice();q._a0=q.ans;}var
 function mount(cid,items){MCQ[cid]=items;items.forEach(shuffleQ);document.getElementById(cid).innerHTML=items.map((q,qi)=>`<div class="ex-card">${q.pre||''}<div style="font-size:14px;font-weight:600;margin:6px 0 10px;">${q.q}</div>${q.opts.map((o,oi)=>`<button class="ex-opt" id="${cid}-${qi}-${oi}" onclick="ans('${cid}',${qi},${oi})">${o}</button>`).join('')}<div class="ex-feedback" id="${cid}-fb-${qi}"></div></div>`).join('');}
 function ans(cid,qi,ch){var q=MCQ[cid][qi];if(document.getElementById(`${cid}-${qi}-0`).disabled)return;q.opts.forEach((_,oi)=>{var b=document.getElementById(`${cid}-${qi}-${oi}`);b.disabled=true;if(oi===q.ans)b.classList.add('correct-ans');else if(oi===ch&&ch!==q.ans)b.classList.add('wrong-ans');});var fb=document.getElementById(`${cid}-fb-${qi}`);fb.className='ex-feedback show '+(ch===q.ans?'fb-correct':'fb-wrong');fb.innerHTML=q.why;}
 
-mount('sing-qs',[
- {q:"You translate a song so the meaning is perfect, but it no longer fits the tune. For a children's SONG, this is:",opts:["Fine — meaning is all that matters","A failure — a song must remain singable to its tune","Only a problem for adults","Solved with a footnote"],ans:1,why:"A song that can't be sung to its melody has lost its function. You keep roughly the same beats per line so the tune still works, even if some words change."},
- {pre:`<div class="excerpt">Twinkle, twinkle, little star,\nHow I wonder what you are!\nUp above the world so high,\nLike a diamond in the sky.<span class="cite">— Jane Taylor, "The Star" (1806), public domain</span></div>`,q:"To keep this singable in Arabic, your FIRST priority is:",opts:["Translating 'diamond' with a footnote","Matching the beat so it fits the well-known tune, with an AABB rhyme","Keeping the exact English word order","Making it longer for clarity"],ans:1,why:"It's a song with a famous melody. Preserve the rhythm (beats per line) and the AABB rhyme so children can still sing it; the image (star/diamond) is kept, the words flex."},
- {q:"The practical test for singability is:",opts:["Counting the letters","Singing or clapping your Arabic version against the original beat","Checking the dictionary","Measuring the margins"],ans:1,why:"Perform it. If it sings or claps to the same beat, it works; if it stumbles, adjust the wording."}
+/* ================= TAB 1 · TRY IT FIRST ================= */
+var FIRST=[
+ {tag:"Farmyard song",title:"Old MacDonald Had a Farm", yt:"_6HzoUcx3eo", ytch:"Super Simple Songs", ytq:"Old+MacDonald+Had+a+Farm+nursery+rhyme",
+  text:"Old MacDonald had a farm, E-I-E-I-O,\nAnd on that farm he had a cow, E-I-E-I-O,\nWith a moo moo here and a moo moo there,\nHere a moo, there a moo, everywhere a moo moo.",
+  cite:"Traditional (pub. 1917 and earlier) · public domain",
+  wall:"Two different walls, and most students only notice the first. <strong>(1)</strong> <em>Moo</em> is not a fact about cows — it is an English spelling of a cow. An Arabic-speaking child has their own convention, and if you transliterate «مو» without thinking you may be importing an English noise rather than translating one. <strong>(2)</strong> <em>E-I-E-I-O</em> means nothing at all. It is pure rhythm, five beats, holding the whole song together. There is nothing to translate — so what did you do with it? Keep it? Transliterate it? Invent an Arabic nonsense refrain? Each choice sounds completely different when sung.",
+  fwd:"→ Tab 3 (Animal Cries) handles the first. Tab 4 (Wordplay &amp; Nonsense) handles the second."},
+ {tag:"Nursery rhyme",title:"Baa, Baa, Black Sheep", yt:"MR5XSOdjKMA", ytch:"CoComelon", ytq:"Baa+Baa+Black+Sheep+nursery+rhyme",
+  text:"Baa, baa, black sheep,\nHave you any wool?\nYes sir, yes sir,\nThree bags full.",
+  cite:"Traditional (pub. 1744) · public domain",
+  wall:"You had to solve three things at once with almost no words to work with. The <strong>sheep's cry</strong> (again a convention, not a sound); the <strong>b-b-b alliteration</strong> of <em>baa / black</em>, which is half the pleasure for a small child; and the <strong>yes sir, yes sir</strong> repetition, which is the beat. Most first attempts save the meaning and quietly lose all three. Check your version honestly: did the alliteration survive, or did you just say what the words meant?",
+  fwd:"→ Tab 3 (Animal Cries) for the cry; Tab 5 (Rhyme &amp; Metre) for what to protect when you cannot keep everything."},
+ {tag:"Clock rhyme",title:"Hickory Dickory Dock", yt:"HGgsklW-mtg", ytch:"Super Simple Songs", ytq:"Hickory+Dickory+Dock+nursery+rhyme",
+  text:"Hickory, dickory, dock,\nThe mouse ran up the clock.\nThe clock struck one,\nThe mouse ran down,\nHickory, dickory, dock.",
+  cite:"Traditional (pub. 1744) · public domain",
+  wall:"<em>Hickory, dickory, dock</em> is not language. It is three beats imitating a ticking clock, and it also rhymes with <em>dock</em> / <em>clock</em>. So it is nonsense that has a <strong>job</strong> — it ticks, and it rhymes. If you translated the meaning you translated nothing, because there is no meaning. If you transliterated it, does it still tick in Arabic? Does it still rhyme with your word for clock? This is the hardest kind of line in the whole unit, and it is sitting in a rhyme for two-year-olds.",
+  fwd:"→ Tab 4 (Wordplay &amp; Nonsense) — including whether nonsense can be translated at all."},
+ {tag:"Action song",title:"The Itsy Bitsy Spider", yt:"9SATf5vDf4M", ytch:"Super Simple Songs", ytq:"Itsy+Bitsy+Spider+nursery+rhyme",
+  text:"The itsy bitsy spider climbed up the water spout.\nDown came the rain and washed the spider out.\nOut came the sun and dried up all the rain,\nAnd the itsy bitsy spider climbed up the spout again.",
+  cite:"Traditional (pub. 1910 as \"Spider Song\") · public domain",
+  wall:"<em>Itsy bitsy</em> is a rhyming reduplication — two near-identical silly words meaning roughly &lsquo;tiny&rsquo;, which exist mainly because they are fun to say. Arabic makes small things small quite differently. If you reached for صغير جدًا you were accurate, and you flattened it. Then the second problem: children <strong>perform</strong> this song with their fingers, and the words have to arrive in time with the climbing hands. Did you check your version against the actions, or only against the page?",
+  fwd:"→ Tab 2 (Reading Aloud) for performance; Tab 4 (Wordplay &amp; Nonsense) for the reduplication."},
+ {tag:"Lullaby",title:"Twinkle, Twinkle, Little Star", yt:"yCjJyiqpAuU", ytch:"Super Simple Songs", ytq:"Twinkle+Twinkle+Little+Star+nursery+rhyme",
+  text:"Twinkle, twinkle, little star,\nHow I wonder what you are!\nUp above the world so high,\nLike a diamond in the sky.",
+  cite:"Jane Taylor, \"The Star\" (1806) · public domain",
+  wall:"This one has a <strong>tune every child in the room already knows</strong> — which means the melody is not negotiable and your line lengths are fixed before you write a word. Seven beats a line, AABB. Now sing your Arabic to the tune. Really sing it. If you have to rush syllables or hold a vowel to make it fit, it does not work yet, however good it looks written down. This is the whole difference between a translation that is accurate and one that is <em>singable</em>.",
+  fwd:"→ Tab 5 (Rhyme &amp; Metre) — singability, and how to test it."},
+ {tag:"Nonsense narrative",title:"Humpty Dumpty", yt:"OAHOsShZ5zY", ytch:"Super Simple Songs", ytq:"Humpty+Dumpty+nursery+rhyme",
+  text:"Humpty Dumpty sat on a wall,\nHumpty Dumpty had a great fall.\nAll the king's horses and all the king's men,\nCouldn't put Humpty together again.",
+  cite:"Traditional (pub. 1797) · public domain",
+  wall:"The rhyme never says he is an egg. English children know it from the pictures and from everyone else knowing it — the text withholds the one fact that makes the story make sense. So: does your Arabic reader know he is an egg? If you added «البيضة» you made the rhyme explain itself, which the original refuses to do. If you didn't, your reader may be lost. And the <strong>name itself</strong> is doing sound-work — <em>Humpty Dumpty</em> is a rhyming reduplication like <em>itsy bitsy</em> — while also being a proper name a child recognises. Translate the sound and you lose the character; keep the character and you lose the sound.",
+  fwd:"→ Tab 4 (Wordplay &amp; Nonsense) for the name; Tab 5 (Rhyme &amp; Metre) for what the pictures are allowed to carry."}
+];
+function initFirst(){document.getElementById('first-tasks').innerHTML=FIRST.map((t,i)=>`<div class="ex-card"><div class="sing-tag">${t.tag}</div><div class="ex-num">${i+1} · ${t.title}</div><div class="excerpt">${t.text}<span class="cite">— ${t.cite}</span></div><div class="listen"><a class="yt-btn" href="https://www.youtube.com/watch?v=${t.yt}" target="_blank" rel="noopener">▶ Listen on YouTube</a><span style="font-size:12px;color:var(--text-3);">${t.ytch}</span><a class="yt-alt" href="https://www.youtube.com/results?search_query=${t.ytq}" target="_blank" rel="noopener">other versions ↗</a></div><p class="listen-note">Play it once and <strong>listen for the beat</strong> before you write anything — you are matching a tune, not a page.</p><p style="font-size:13px;color:var(--text-2);margin:8px 0 6px;">Your Arabic — make it singable, not just correct:</p><textarea class="tp-input" id="fw-${i}" placeholder="اكتب ترجمتك هنا… ثم غنِّها بصوتٍ عالٍ"></textarea><button class="btn btn-primary btn-sm" style="margin-top:12px;background:var(--ac);" onclick="showWall(${i})">Where it fought back →</button><div class="wall" id="fw-rev-${i}"><h4>⚠️ What you just ran into</h4><div>${t.wall}</div><span class="fwd">${t.fwd}</span></div></div>`).join('');}
+function showWall(i){document.getElementById('fw-rev-'+i).classList.add('show');}
+
+/* ============ CONCEPT MCQs — all grounded in Lathey Ch. 5 ============ */
+mount('aloud-qs',[
+ {q:"Lathey opens the chapter by saying that translating books to be read aloud to a younger child has most in common with:",opts:["translating legal and technical documents","translating poetry, or any prose where aural, aesthetic or rhetorical power is primary","writing dictionary definitions","summarising a plot"],ans:1,why:"Her first sentence puts read-aloud translation in the same family as poetry — texts where the <em>sound</em> carries the effect. That is why this unit sits beside the poetry unit rather than beside prose."},
+ {q:"Oittinen's claim that listening to books read aloud is 'the only way for an illiterate child to enter the world of literature' matters to the translator because:",opts:["it proves picture books are unimportant","children of all ages often hear stories rather than read them, so the text must read aloud well","it shows translation should be avoided for young children","it applies only to children who cannot read at all"],ans:1,why:"Lathey draws the professional consequence: since children <em>hear</em> stories, translators have a particular responsibility to produce texts that read aloud well. Dollerup goes further — it is 'an art requiring great competence of translators'."},
+ {q:"Which of these is NOT one of the chapter's listed strategies for read-aloud translation?",opts:["Recording a draft and listening back to the playback","Reading drafts aloud to children to evaluate their responses","Translating aloud using voice-activated software","Translating silently, then checking only the spelling and grammar"],ans:3,why:"Every strategy in the chapter's summary list puts the text into the air — reading aloud, reading to children, recording and playing back, dictating. A silent proofread is exactly what the list is designed to replace."},
+ {q:"Sarah Ardizzone's advice on craft is to capture the source author's alliteration, assonance or distinctive rhythm — but she adds an important escape clause:",opts:["ignore sound effects entirely if they are difficult","if the effect will not work in the same place, introduce it somewhere else instead","always reproduce the effect in exactly the same line","replace every sound effect with a footnote"],ans:1,why:"'But remember not to get stuck by being too literal.' If the rhyme or joke will not land where the original put it, you may move it. This is compensation — the same principle Anthea Bell uses for puns in Tab 4."}
 ]);
-mount('lim-qs',[
- {pre:`<div class="excerpt">There was an Old Man with a beard,\nWho said, "It is just as I feared!—\nTwo Owls and a Hen,\nFour Larks and a Wren,\nHave all built their nests in my beard!"<span class="cite">— Edward Lear (1846), public domain</span></div>`,q:"Which lines carry the SHORT, faster beat in a limerick?",opts:["Lines 1 and 5","Lines 3 and 4","Line 2 only","All lines equally"],ans:1,why:"Lines 3 and 4 are short and rhyme together (B); lines 1, 2 and 5 are longer and share the A rhyme. That long–long–short–short–long shape is the limerick's gallop."},
- {q:"Translating a limerick, if a literal Arabic rhyme is impossible, you should:",opts:["Abandon the AABBA shape","Change minor details (which birds, etc.) to land the AABBA rhyme and keep the joke","Add a footnote explaining the rhyme","Translate it as prose"],ans:1,why:"Humour and form outrank literalism here. Swap small details to keep the AABBA bounce and the comic surprise — that's a faithful limerick, not a betrayal."},
- {q:"The limerick's punch usually lands in:",opts:["Line 1","Line 3","The fifth/last line","The title"],ans:2,why:"The last line delivers the surprise or absurd twist. Your Arabic must save the payoff for the end."}
+mount('cries-qs',[
+ {q:"Cock-a-doodle-doo, coquerico, qui-qui-ri-qui and kikeriki show that an animal cry is:",opts:["conventionalised differently in each language, though the rhythmic pattern often survives","identical in all languages","completely untranslatable","a private invention of each author"],ans:0,why:"Lathey's point exactly: the cockerel 'maintains its characteristic rhythmic pattern across a number of languages' while the actual sounds change completely. You are switching phonetic systems, not describing a bird."},
+ {q:"A Spanish pig says 'oinc oinc' and an English pig 'oink oink', but a Spanish dog says 'guau' where an English dog says 'woof woof' or 'bow-wow'. The lesson is:",opts:["Spanish is closer to English than to other languages","some cries happen to match across languages and others do not — check, never assume","animal cries should always be left untranslated","only dogs are a problem"],ans:1,why:"The chapter gives both cases deliberately. Sometimes there is an aural equivalent between two languages; sometimes the distinction is marked. Check the target-language convention every time rather than trusting a resemblance."},
+ {q:"Lathey notes it is common practice to use the conventional target-language cry — but that a more playful approach might catch children's imaginations. Her example is:",opts:["deleting animal sounds from translations","Carle and Iwamura's two-language picture book, where each band of animals calls in its own language","translating every cry into Latin","using the International Phonetic Alphabet"],ans:1,why:"In <em>Where Are You Going? To See My Friend!</em> (2001) the book is read from the front in English and from the back in Japanese, the animals calling in their own conventions and meeting in the middle. A foreign cry can <em>intrigue</em> a child who already knows the domestic one."},
+ {q:"You are translating a farmyard song for Saudi five-year-olds to sing along with. For the animals' own voices you should generally prefer:",opts:["the Arabic sound-noun (المأمأة، الخُوار) because it is more formal","the Arabic imitation (ماء ماء، مو مو) because it is what a child can join in with","an English transliteration in every case","whichever is shorter, regardless of type"],ans:1,why:"The imitation is the child's line — the part they shout. The sound-noun (المأمأة، الخُوار، النُّباح) narrates <em>about</em> the animal and belongs to the describing voice. Choose deliberately and stay consistent across the song."}
 ]);
-mount('sound-qs',[
- {q:"\"Baa, baa, black sheep\" repeats the 'b' sound. This device is:",opts:["Assonance","Alliteration","Onomatopoeia","Metaphor"],ans:1,why:"Repeated initial consonants = alliteration. In Arabic, recreate a similar sound-play (e.g. repeated initial letters) rather than translating the words flatly."},
- {q:"A rhyme repeats 'moon / soon / tune' (the 'oo' vowel). That repeated vowel sound is:",opts:["Alliteration","Assonance","A footnote","Onomatopoeia"],ans:1,why:"Repeated vowel sounds = assonance. It gives verse its music; aim to echo a vowel-music in Arabic where you can."},
- {q:"When a children's poem leans on sound-play you can't copy exactly, the goal is to:",opts:["Translate the meaning only and drop the sound","Recreate an equivalent sound effect in Arabic","Leave the line in English","Use the IPA"],ans:1,why:"Compensate at the level of sound: build an Arabic alliteration/assonance/onomatopoeia that gives a child the same delight, even with different words."}
+mount('play-qs',[
+ {pre:`<div class="excerpt">'Very well, but don't muck about.'\n'Yes, but don't flap,' said Mr. Gumpy.<span class="cite">— Burningham, <em>Mr. Gumpy's Outing</em> (1970)</span></div>`,q:"The German version renders these as 'don't make a mess' and 'don't flap around'. What has been lost?",opts:["The names of the animals","The double meaning — each phrase scolded a passenger AND described that animal","The rhyme scheme","Nothing at all"],ans:1,why:"The instruction survives; the pun does not. 'Muck about' works on a pig twice over, and 'flap' on chickens. Recognising that a phrase is doing two jobs is step 1 of the chapter's seven-step sequence."},
+ {q:"Anthea Bell let drunken Roman legionaries hiccup in Latin — 'Hic, haec, hoc' — a joke absent from the French original. This illustrates:",opts:["mistranslation","compensation: replacing a joke lost elsewhere with a different joke of the same kind","literal translation","deletion of wordplay"],ans:1,why:"French writes a hiccup 'Hips!', English 'Hic!' — an 'obvious gift' Bell seized to repay a debt incurred elsewhere. You need not land the joke in the same place; you must land the same kind of joke somewhere."},
+ {q:"In the chapter's seven-step sequence, deletion of a pun (step 6) is acceptable only when:",opts:["the translator is short of time","you then compensate with an idiom or pun familiar to target-culture children elsewhere in the text","the pun is funny","a footnote is added at the back of the book"],ans:1,why:"Steps 6 and 7 are a pair. Deletion alone is a loss; deletion plus compensation is a strategy. Keep a running list of what you have dropped and pay it back at the next opportunity."},
+ {q:"Eco argues invented language cannot be translated because the phonosymbolic effect depends on the absence of any semantic level. Lathey's counter-example is:",opts:["Anthea Bell's English version of Morgenstern, where she makes real choices for a young audience","a machine translation of Jabberwocky","refusing to translate nonsense verse","a French edition of Asterix"],ans:0,why:"Bell shifts the German long 'u' to English 'oo' (Lalula → Laloola) and declines a 'v' sound partly because how the letters <em>look</em> is part of the appeal. Lathey argues this is genuine translation: Bell works between two languages and chooses for a specific readership."},
+ {q:"Bell could mirror Morgenstern's sounds fairly closely mainly because:",opts:["nonsense is the same everywhere","German and English are closely related, sharing an alphabet and much of a sound system","she invented new German words","the poem had been translated before"],ans:1,why:"Lathey says translation was possible 'simply because the two languages are closely related'. Arabic gives you neither the alphabet nor the sound system — so build nonsense from what an Arabic-reading child's eye and ear enjoy, rather than transliterating English."}
+]);
+mount('metre-qs',[
+ {q:"Kreller's German versions of Lear's beard limerick all keep the AABBA scheme and the five-line shape. What did the translators pay for it?",opts:["Nothing — the translations are word-for-word","Content: Enzensberger changed the Old Man to a youth and imported a golden oriole to reach a rhyme; Artmann added a pair of owls and a fifth lark","The number of lines","The comedy"],ans:1,why:"Both are poets; both keep the form; neither keeps the content intact. The rhyme is bought and the price is paid in birds — this is the normal economy of verse translation, not a failure."},
+ {q:"Lathey warns that Enzensberger's 'Jüngling' (young lad) creates a further problem because:",opts:["it is an archaic word","Lear's poem is illustrated, and his Old Man is clearly not a young lad — the rhyme now contradicts the picture","German has no word for old man","limericks may not mention age"],ans:1,why:"In picture books the translated verse must match the illustrations. A rhyme bought at the cost of contradicting the image on the same page has been bought too expensively."},
+ {q:"Michael Rosen's 'We're Going on a Bear Hunt' has no rhyme scheme. In German translation Lathey finds that:",opts:["it becomes easier and better","the marching rhythm and the refrain's playfulness are lost, leaving mainly the meaning","the rhyme improves","the meaning disappears but the rhythm survives"],ans:1,why:"Broken into short lines, it is hard to read aloud with any rhythmic pattern. Unrhymed verse looks like the easy case; here the rhythm <em>was</em> the poem, and it is what got dropped."},
+ {q:"Sophie Hannah keeps the rhyme in the Moomin verse by adding urgency Jansson never wrote ('Hurrying', 'Quick', 'Don't hang around'). In the Swedish, that threat was carried by:",opts:["the pictures","the footnotes","the title","the rhyme itself"],ans:0,why:"Text and image shared the work in the original; the English makes the words say what the pictures already said. The rhyme was saved by spending the text–picture interplay — Lathey's four dimensions: sound, sense, form and image."},
+ {q:"Lathey's summary advice when translating rhyming verse is to:",opts:["always keep the rhyme, whatever it costs","always drop the rhyme in favour of meaning","decide in advance on the relative importance of rhyme and semantic content — and consider an alternative metre","translate line by line without planning"],ans:2,why:"The decision comes first. In verse for younger children musicality is often the primary concern, but sometimes metre must be sacrificed for the message. Choose the cost knowingly rather than discovering it at the end."}
 ]);
 
+/* ================= TAB 6 · TRANSLATE IT ================= */
 var TASKS=[
  {title:"Nursery song — keep it singable",
   text:`Twinkle, twinkle, little star,\nHow I wonder what you are!`,
@@ -137,17 +385,19 @@ var TASKS=[
   text:`There was a Young Lady whose chin\nResembled the point of a pin;\nSo she had it made sharp,\nAnd purchased a harp,\nAnd played several tunes with her chin.`,
   cite:"Edward Lear (1872) · public domain · AABBA",
   challenges:"Absurd humour, a strict AABBA rhyme, and short bouncy lines 3–4. The final line must keep the silly surprise (playing the harp with her chin!).",
-  strategy:"Reproduce the AABBA shape with two Arabic rhyme sounds; make lines 3–4 short; you may change small props if it saves the rhyme, but keep the comic image and the twist at the end.",
-  sample:"«كان لفتاةٍ ذقنٌ مدبّبْ، كرأسِ الدبّوسِ مهذّبْ… (سطران قصيران) ثم تعود القافلة لقافية المطلع بمفاجأةٍ ضاحكة.»",
+  strategy:"Reproduce the AABBA shape with two Arabic rhyme sounds; make lines 3–4 short; you may change small props if it saves the rhyme, but keep the comic image and the twist at the end. Remember Enzensberger and Artmann: changing a detail to buy a rhyme is legitimate — just know what you spent.",
+  sample:"«كان لفتاةٍ ذقنٌ مدبّبْ، كرأسِ الدبّوسِ مهذّبْ… (سطران قصيران) ثم تعود القافية إلى قافية المطلع بمفاجأةٍ ضاحكة.»",
   sampleNote:"(Sketch only — complete the AABBA and land the joke on the last line.)",
-  check:["Did you keep the AABBA rhyme?","Are lines 3–4 short and quick?","Is the absurd image preserved?","Does the funny surprise land on the last line?"]}
-,
- {title:"Hey Diddle Diddle — meter-first nonsense",text:"Hey, diddle, diddle,\nThe cat and the fiddle,\nThe cow jumped over the moon;\nThe little dog laughed to see such sport,\nAnd the dish ran away with the spoon.",cite:"Traditional, \"Hey Diddle Diddle\" (pub. 1765) · public domain · scheme AABCCB",challenges:"Pure nonsense driven entirely by meter and rhyme, with no logical plot to anchor meaning.",strategy:"Put playfulness and meter first; if 'dish' and 'spoon' won't rhyme in Arabic, you may swap the utensils — keep the bounce and the impossible images, not the literal objects.",check:["Does your version keep a strong sing-song meter?", "Are the impossible images (cow over the moon) preserved?", "Did you let rhyme/rhythm outrank literal objects?", "Is it fun to chant aloud?"]},
- {title:"Lear — The Owl and the Pussy-cat (whimsy + currency)",text:"The Owl and the Pussy-cat went to sea\nIn a beautiful pea-green boat,\nThey took some honey, and plenty of money,\nWrapped up in a five-pound note.",cite:"Edward Lear, \"The Owl and the Pussy-cat\" (1871) · public domain · scheme ABCB",challenges:"Whimsical romance with a specifically English currency ('five-pound note') and strong internal music (honey/money).",strategy:"Keep the lighthearted, musical bounce and the internal rhyme; decide deliberately whether to localise the currency or keep it as an exotic, foreign touch.",check:["Is the playful, musical rhythm preserved?", "Did you keep an internal rhyme like honey/money?", "Did you make a clear choice about the 'five-pound note'?", "Does it stay singable and whimsical?"]}
+  check:["Did you keep the AABBA rhyme?","Are lines 3–4 short and quick?","Is the absurd image preserved?","Does the funny surprise land on the last line?"]},
+ {title:"Hey Diddle Diddle — meter-first nonsense",text:"Hey, diddle, diddle,\nThe cat and the fiddle,\nThe cow jumped over the moon;\nThe little dog laughed to see such sport,\nAnd the dish ran away with the spoon.",cite:"Traditional, \"Hey Diddle Diddle\" (pub. 1765) · public domain · scheme AABCCB",challenges:"Pure nonsense driven entirely by meter and rhyme, with no logical plot to anchor meaning. 'Hey diddle diddle' is sound with no sense — and the cat, cow and dog all carry cries you met in Tab 3.",strategy:"Put playfulness and meter first; if 'dish' and 'spoon' won't rhyme in Arabic, you may swap the utensils — keep the bounce and the impossible images, not the literal objects.",check:["Does your version keep a strong sing-song meter?", "Are the impossible images (cow over the moon) preserved?", "Did you let rhyme/rhythm outrank literal objects?", "Is it fun to chant aloud?"]},
+ {title:"Lear — The Owl and the Pussy-cat (whimsy + currency)",text:"The Owl and the Pussy-cat went to sea\nIn a beautiful pea-green boat,\nThey took some honey, and plenty of money,\nWrapped up in a five-pound note.",cite:"Edward Lear, \"The Owl and the Pussy-cat\" (1871) · public domain · scheme ABCB",challenges:"Whimsical romance with a specifically English currency ('five-pound note') and strong internal music (honey/money).",strategy:"Keep the lighthearted, musical bounce and the internal rhyme; decide deliberately whether to localise the currency or keep it as an exotic, foreign touch.",check:["Is the playful, musical rhythm preserved?", "Did you keep an internal rhyme like honey/money?", "Did you make a clear choice about the 'five-pound note'?", "Does it stay singable and whimsical?"]},
+ {title:"Jabberwocky — the chapter's own exercise",text:"'Twas brillig, and the slithy toves\nDid gyre and gimble in the wabe;\nAll mimsy were the borogoves,\nAnd the mome raths outgrabe.",cite:"Lewis Carroll, \"Jabberwocky\" (1871) · public domain · set as an exercise in Lathey (2016, Ch. 5)",challenges:"Almost every content word is invented, yet the grammar is perfectly English — a child knows 'slithy' is describing 'toves' without knowing what either is. You must invent Arabic words that behave like Arabic words: they need plausible roots and patterns, or your reader hears gibberish instead of nonsense.",strategy:"Keep the real grammatical skeleton intact and invent only where Carroll invented. Build coinages on recognisable Arabic أوزان so they feel like words the child simply has not learned yet, rather than foreign noise. Remember Bell: she worked between two closely related languages and you do not — so create from Arabic morphology, don't transliterate English.",check:["Is the grammatical frame still clear enough to parse?","Do your invented words look and sound Arabic (plausible root and pattern)?","Did you keep the ABAB rhyme?","Read it to someone: do they smile rather than frown?"]},
+ {title:"Bear Hunt — rhythm above everything",text:"We're going on a bear hunt\nWe're going to catch a big one.\nWhat a beautiful day!\nWe're not scared.",cite:"Michael Rosen, We're Going on a Bear Hunt (1989: 1) · quoted and set as an exercise in Lathey (2016, Ch. 5)",challenges:"No rhyme to protect — which sounds easier and is not. The marching rhythm and the repetition of 'We're' opening three of four lines are the entire effect, and 'What a beautiful day!' returns later as a refrain. The German version kept the meaning and lost the march.",strategy:"Translate for the feet, not the page. Fix your Arabic marching beat first and force the words to fit it; keep an identical opening word across the repeated lines so the anaphora survives; keep the refrain short enough to chant. Then march around the room saying it — that is the only real test.",check:["Can you march to it at a steady pace?","Did the repeated opening survive as a repeated opening?","Is the refrain short and chantable?","Did you resist making it more 'literary' than Rosen's plain speech?"]}
 ];
 function initTasks(){document.getElementById('translate-tasks').innerHTML=TASKS.map((t,i)=>`<div class="ex-card"><div class="ex-num">${t.title}</div><div class="excerpt">${t.text}<span class="cite">— ${t.cite}</span></div><p style="font-size:13px;color:var(--text-2);margin:8px 0 6px;">Type your Arabic translation:</p><textarea class="tp-input" id="tp-${i}" placeholder="اكتب ترجمتك هنا…"></textarea><button class="btn btn-primary btn-sm" style="margin-top:12px;background:var(--ac);" onclick="reveal(${i})">Reveal translator's notes →</button><div class="tp-reveal" id="tp-rev-${i}"><h4>The challenge</h4><div>${t.challenges}</div><h4>Recommended approach</h4><div>${t.strategy}</div>${t.sample?`<h4>A starting point</h4><div style="direction:rtl;text-align:right;background:var(--white);border-radius:var(--r-sm);padding:10px 12px;margin-top:4px;line-height:1.9;">${t.sample}</div><div class="src-note">${t.sampleNote}</div>`:''}<h4>Check your version</h4><ul class="checklist2">${t.check.map(c=>`<li>${c}</li>`).join('')}</ul></div></div>`).join('');}
 function reveal(i){document.getElementById('tp-rev-'+i).classList.add('show');}
 
+/* ================= TAB 7 · QUIZ ================= */
 var AQ=[
  {tag:"Reading aloud",q:"Oittinen notes that listening to books read aloud is:",opts:["the only way a pre-reading child can enter the world of literature", "an outdated practice", "useful only for poetry", "unimportant for translation"],ans:0,fb:"Since young children often hear rather than read stories, translators have a special duty to produce texts that read aloud well."},
  {tag:"Reading aloud",q:"Dollerup argues that translating for reading aloud is:",opts:["easier than other translation", "an art requiring great competence of translators", "irrelevant to children's books", "a purely mechanical task"],ans:1,fb:"Dollerup: translating for reading aloud 'is an art requiring great competence' — read-aloud quality is a design requirement."},
@@ -164,9 +414,9 @@ var aqi=0,aqs=0,aqd=false;
 function rAQ(){if(aqi>=AQ.length){sAQ();return;}var q=shuffleQ(AQ[aqi]);document.getElementById('aq-prog').style.width=(aqi/AQ.length*100)+'%';document.getElementById('aq-container').innerHTML=`<div class="ex-card"><div class="ex-num">Question ${aqi+1} of ${AQ.length}${q.tag?` &middot; <span style="color:var(--ac);">${q.tag}</span>`:``}</div><div class="ex-q">${q.q}</div><div id="aq-opts">${q.opts.map((o,i)=>`<button class="ex-opt" onclick="aAQ(${i})">${o}</button>`).join('')}</div><div class="ex-feedback" id="aq-fb"></div><div><button class="btn btn-primary btn-sm" id="aq-next" style="display:none;margin-top:14px;background:var(--ac);" onclick="nAQ()">Next →</button></div></div>`;aqd=false;}
 function aAQ(i){if(aqd)return;aqd=true;var q=AQ[aqi];document.querySelectorAll('#aq-opts .ex-opt').forEach((b,j)=>{b.disabled=true;if(j===q.ans)b.classList.add('correct-ans');else if(j===i&&i!==q.ans)b.classList.add('wrong-ans');});if(i===q.ans)aqs++;var fb=document.getElementById('aq-fb');fb.innerHTML=q.fb;fb.className='ex-feedback show '+(i===q.ans?'fb-correct':'fb-wrong');document.getElementById('aq-next').style.display='inline-block';}
 function nAQ(){aqi++;rAQ();}
-function sAQ(){document.getElementById('aq-prog').style.width='100%';document.getElementById('aq-container').style.display='none';var pct=Math.round(aqs/AQ.length*100);document.getElementById('aq-score').style.display='block';document.getElementById('aq-score').innerHTML=`<div class="score-big">${pct}%</div><div class="score-sub">${aqs}/${AQ.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct>=80?'You translate for the singing child.':'Revisit the Singability and Limericks tabs.'}</p><button class="btn btn-primary" style="background:var(--ac);" onclick="reAQ()">Retry</button>`;}
+function sAQ(){document.getElementById('aq-prog').style.width='100%';document.getElementById('aq-container').style.display='none';var pct=Math.round(aqs/AQ.length*100);document.getElementById('aq-score').style.display='block';document.getElementById('aq-score').innerHTML=`<div class="score-big">${pct}%</div><div class="score-sub">${aqs}/${AQ.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct>=80?'You translate for the singing child.':'Revisit the Reading Aloud and Animal Cries tabs.'}</p><button class="btn btn-primary" style="background:var(--ac);" onclick="reAQ()">Retry</button>`;}
 function reAQ(){aqi=0;aqs=0;document.getElementById('aq-container').style.display='block';document.getElementById('aq-score').style.display='none';rAQ();}
-initTasks();rAQ();
+initFirst();initTasks();rAQ();
 </script>
 <script src="track.js" defer></script>
 <script src="site.js" defer></script>
