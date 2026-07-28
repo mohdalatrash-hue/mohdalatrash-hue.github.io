@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Children's Poetry &amp; Song: Sing It, Then Study It | ENG 494</title>
 <link rel="stylesheet" href="../style.css">
-<meta name="description" content="ENG 494 Unit 4 workshop — translate six nursery songs into Arabic first, then study reading aloud, animal cries, wordplay, nonsense verse, rhyme and metre with Lathey (2016), Chapter 5.">
+<meta name="description" content="ENG 494 Unit 4 workshop — translate six nursery songs into Arabic first, then study reading aloud, animal cries, wordplay, nonsense verse, rhyme and metre with Lathey (2016), Chapter 5, plus two dedicated limerick workshops (children's and adult/witty).">
 <meta name="theme-color" content="#1a6b3c">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -16,7 +16,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ENG 494 Literary Translation">
 <meta property="og:title" content="Children's Poetry &amp; Song: Sing It, Then Study It | ENG 494">
-<meta property="og:description" content="Translate six nursery songs first, then study why they fought back — reading aloud, animal cries, wordplay, nonsense and metre.">
+<meta property="og:description" content="Translate six nursery songs first, then study why they fought back — reading aloud, animal cries, wordplay, nonsense, metre, and two dedicated limerick workshops.">
 <meta property="og:image" content="https://mohdalatrash-hue.github.io/eng494/icon-512.png">
 <meta property="og:url" content="https://mohdalatrash-hue.github.io/eng494/workshop-children-poetry.html">
 <meta name="twitter:card" content="summary">
@@ -107,6 +107,8 @@ body{background:var(--off-white);}
     <button class="tab-btn" onclick="switchTab('metre',this)">🎵 5 · Rhyme &amp; Metre</button>
     <button class="tab-btn" onclick="switchTab('translate',this)">✍️ 6 · Translate It</button>
     <button class="tab-btn" onclick="switchTab('quiz',this)">📝 7 · Quiz</button>
+    <button class="tab-btn" onclick="switchTab('limkids',this)">🐣 8 · Children's Limericks</button>
+    <button class="tab-btn" onclick="switchTab('limadult',this)">🎭 9 · Adult &amp; Witty Limericks</button>
   </div>
 
   <!-- ============ TAB 1 · TRY IT FIRST ============ -->
@@ -297,6 +299,44 @@ We're not scared.<span class="cite">— Michael Rosen, <em>We're Going on a Bear
     <div id="aq-container"></div>
     <div id="aq-score" class="score-summary" style="display:none;"></div>
   </div>
+
+  <!-- ============ TAB 8 · CHILDREN'S LIMERICKS ============ -->
+  <div id="tab-limkids" class="tab-panel">
+    <div class="tip-box"><strong>The limerick is old, comic, and exact.</strong> Lathey describes it as a form with &ldquo;five lines, aa/bb/a rhyme scheme, anapestic rhythm, short central lines and scurrilous or comic content&rdquo; that has been popular in English &ldquo;since the eighteenth century&rdquo; (2016, Ch.&nbsp;5, pp.&nbsp;102&ndash;103). Every one of those constraints is fixed before you translate a single word — for a children's limerick you are filling a mould, not free-writing a poem.</div>
+    <div class="ex-card">
+      <div class="ex-num">Marking the shape, before you touch the words</div>
+      <div class="excerpt">There was an Old Man in a tree,
+Who was horribly bored by a Bee;
+When they said, "Does it buzz?"
+he replied, "Yes, it does!"
+It's a regular brute of a Bee.<span class="cite">— Edward Lear, <em>A Book of Nonsense</em> (1846), public domain · AABBA</span></div>
+      <p style="font-size:13.5px;line-height:1.8;color:var(--text-2);margin:8px 0 10px;">Line by line: <strong>tree</strong> (A) &middot; <strong>Bee</strong> (A) &middot; <strong>buzz?</strong> (B) &middot; <strong>does!</strong> (B) &middot; <strong>Bee</strong> (A) — the same AABBA Lathey traces through Kreller's German versions of the beard limerick in Tab&nbsp;5. Count the syllables and the &ldquo;short central lines&rdquo; jump out: 8 / 9 / <strong>6 / 6</strong> / 9. And &ldquo;buzz&rdquo; is not incidental — it is the same onomatopoeic convention you met in Tab&nbsp;3 (Animal Cries), doing double duty as a rhyme word.</p>
+      <table class="cmp">
+        <thead><tr><th>Line</th><th>End word</th><th>Rhyme</th><th>Syllables</th></tr></thead>
+        <tbody>
+          <tr><td class="lang">1</td><td>tree</td><td>A</td><td>8</td></tr>
+          <tr><td class="lang">2</td><td>Bee</td><td>A</td><td>9</td></tr>
+          <tr><td class="lang">3</td><td>buzz?</td><td>B</td><td>6</td></tr>
+          <tr><td class="lang">4</td><td>does!</td><td>B</td><td>6</td></tr>
+          <tr><td class="lang">5</td><td>Bee</td><td>A</td><td>9</td></tr>
+        </tbody>
+      </table>
+      <p class="src-note">Some editions typeset lines 3–4 as a single printed line to save space; the metrical structure underneath is still five lines. Before you translate any limerick, do this: mark the rhyme letters, count the syllables, find the onomatopoeia if there is one. Only then open Arabic.</p>
+    </div>
+    <div id="limkids-tasks"></div>
+    <div class="tip-box" style="margin-top:4px;"><strong>Read your two versions back against Lear's.</strong> Did you keep the mould — AABBA, the short middle couplet, the anapestic gallop — even in the places where you had to change the content to make the rhyme land? That trade is the whole lesson of Tab&nbsp;5, applied here to material built specifically for a child.</div>
+  </div>
+
+  <!-- ============ TAB 9 · ADULT & WITTY LIMERICKS ============ -->
+  <div id="tab-limadult" class="tab-panel">
+    <div class="tip-box"><strong>Same mould, older audience.</strong> Lathey's own description of the limerick names &ldquo;scurrilous or comic content&rdquo; as part of the form itself, not a modern addition (2016, Ch.&nbsp;5, p.&nbsp;102). For an adult reader the comedy leans less on vivid pictures (Tab&nbsp;8) and more on <strong>tone</strong> — deadpan understatement, irony, a punchline that lands on the very last word. Translating tone without compensation is usually where these fail.</div>
+    <div class="ex-card">
+      <div class="ex-num">The callback ending</div>
+      <p style="font-size:13.5px;line-height:1.8;color:var(--text-2);margin:0 0 10px;">Lear's own favourite trick: line&nbsp;5 echoes line&nbsp;1's description of the person, word for word, as the punchline. Nothing new is reported — the joke is that the character is exactly as odd at the end as at the start, stated now with a flourish (&ldquo;this courageous Young Lady of Norway&rdquo;). It is a joke of <strong>tone</strong>, not of content, and a literal Arabic echo of the same phrase may not read as a punchline at all. This is the same problem Tab&nbsp;4 calls compensation: if the callback doesn't land as written, you may need to build your own comic echo elsewhere in the Arabic line rather than translating this one literally.</p>
+    </div>
+    <div id="limadult-tasks"></div>
+    <div class="tip-box" style="margin-top:4px;"><strong>One more question before you close this tab.</strong> The &ldquo;Clyde&rdquo; limerick below sits in a classic English subgenre — comic verse built on sudden death — within the tradition Lathey calls &ldquo;scurrilous&rdquo;. Would you set this exact text in front of Saudi undergraduates without comment? Does your answer change your <em>translation</em>, or only your decision about whether to <em>use</em> it at all? That distinction — translating a text versus deciding whether to assign it — is a professional judgement call, not a linguistic one.</div>
+  </div>
 </div>
 </div>
 <footer><strong>ENG 494 Literary Translation</strong> · Children's Poetry &amp; Song · Qassim University<br><a href="index.html">Course Hub</a> · <a href="workshop-poetry.html">Poetry Workshop</a> · <a href="week5.html">Week 5</a></footer>
@@ -397,6 +437,60 @@ var TASKS=[
 function initTasks(){document.getElementById('translate-tasks').innerHTML=TASKS.map((t,i)=>`<div class="ex-card"><div class="ex-num">${t.title}</div><div class="excerpt">${t.text}<span class="cite">— ${t.cite}</span></div><p style="font-size:13px;color:var(--text-2);margin:8px 0 6px;">Type your Arabic translation:</p><textarea class="tp-input" id="tp-${i}" placeholder="اكتب ترجمتك هنا…"></textarea><button class="btn btn-primary btn-sm" style="margin-top:12px;background:var(--ac);" onclick="reveal(${i})">Reveal translator's notes →</button><div class="tp-reveal" id="tp-rev-${i}"><h4>The challenge</h4><div>${t.challenges}</div><h4>Recommended approach</h4><div>${t.strategy}</div>${t.sample?`<h4>A starting point</h4><div style="direction:rtl;text-align:right;background:var(--white);border-radius:var(--r-sm);padding:10px 12px;margin-top:4px;line-height:1.9;">${t.sample}</div><div class="src-note">${t.sampleNote}</div>`:''}<h4>Check your version</h4><ul class="checklist2">${t.check.map(c=>`<li>${c}</li>`).join('')}</ul></div></div>`).join('');}
 function reveal(i){document.getElementById('tp-rev-'+i).classList.add('show');}
 
+/* ================= TAB 8 · CHILDREN'S LIMERICKS ================= */
+var LIMKIDS=[
+ {title:"The nose that reached her toes",
+  text:`There was a Young Lady whose nose,
+Was so long that it reached to her toes;
+So she hired an Old Lady,
+whose conduct was steady,
+To carry that wonderful nose.`,
+  cite:"Edward Lear, A Book of Nonsense (1846) · public domain · AABBA",
+  challenges:"Two rhyme pairs (nose/toes/nose and Lady/steady) built on ordinary words, plus one wildly absurd, very concrete image — a nose so long someone else has to carry it. Children's limericks like this one lean on a picture a small child can actually see in their head, so losing the image costs more than losing exactness would.",
+  strategy:"Protect the picture first: a nose reaching the feet, and a second person hired to carry it. Then find two Arabic rhyme pairs of your own — you are allowed to change the carrying detail, the description of the hired lady, even the word for 'steady', as long as the mould (AABBA) and the absurd image both survive. Remember Enzensberger's oriole in Tab 5: changing a small detail to buy the rhyme is a legitimate, normal cost.",
+  sample:"«فتاةٌ لها أنفٌ طويل، يلامس أخمص قدمها بلا تأويل… فاستأجرت عجوزًا رزينة، لتحمل هذا الأنف بمهنةٍ أمينة»",
+  sampleNote:"(Sketch only — check your own rhyme pair and syllable count against it, then sing/clap both against the beat of Lear's original.)",
+  check:["Did you keep the AABBA rhyme, even if the rhyme words changed?","Is the absurd image (the impossibly long nose) still vivid?","Are lines 3–4 shorter than 1, 2 and 5?","Would a child laugh at the picture, not just understand the sentence?"]},
+ {title:"The cat from Tibet",
+  text:`There once was a cat from Tibet,
+Who could play the guitar and the clarinet.
+She would dance on her toes,
+While reciting her prose,
+A talent not many had met.`,
+  cite:"ENG 494 Limericks Handout (course material) · AABBA",
+  challenges:"A list of absurd talents (two instruments, dancing, reciting prose) has to build across the poem and land on an understated last line ('a talent not many had met'). The middle couplet is doing a lot of comic work in very few words.",
+  strategy:"Keep the list-and-escalation shape: at least two named skills before the payoff line. If a specific instrument or skill won't rhyme in Arabic, swap it for another equally absurd one — the comedy is in the accumulation and the understatement, not in the specific noun. Land the final line dryly, not with excitement.",
+  check:["Did you keep at least two absurd talents building toward the last line?","Does the final line read as understatement rather than as a big finish?","Did you keep the AABBA rhyme, changing nouns if you had to?","Is it still funny read aloud to a child?"]}
+];
+function initLimKids(){document.getElementById('limkids-tasks').innerHTML=LIMKIDS.map((t,i)=>`<div class="ex-card"><div class="ex-num">${t.title}</div><div class="excerpt">${t.text}<span class="cite">— ${t.cite}</span></div><p style="font-size:13.5px;line-height:1.8;color:var(--text-2);margin:8px 0 10px;">${t.challenges}</p><p style="font-size:13px;color:var(--text-2);margin:8px 0 6px;">Type your Arabic translation:</p><textarea class="tp-input" id="lk-${i}" placeholder="اكتب ترجمتك هنا…"></textarea><button class="btn btn-primary btn-sm" style="margin-top:12px;background:var(--ac);" onclick="revealLK(${i})">Reveal translator's notes →</button><div class="tp-reveal" id="lk-rev-${i}"><h4>Recommended approach</h4><div>${t.strategy}</div>${t.sample?`<h4>A starting point</h4><div style="direction:rtl;text-align:right;background:var(--white);border-radius:var(--r-sm);padding:10px 12px;margin-top:4px;line-height:1.9;">${t.sample}</div><div class="src-note">${t.sampleNote}</div>`:''}<h4>Check your version</h4><ul class="checklist2">${t.check.map(c=>`<li>${c}</li>`).join('')}</ul></div></div>`).join('');}
+function revealLK(i){document.getElementById('lk-rev-'+i).classList.add('show');}
+
+/* ================= TAB 9 · ADULT & WITTY LIMERICKS ================= */
+var LIMADULT=[
+ {title:"The Young Lady of Norway",
+  text:`There was a Young Lady of Norway,
+Who casually sat in a doorway;
+When the doors squeezed her flat,
+she exclaimed, "What of that?"
+This courageous Young Lady of Norway.`,
+  cite:"Edward Lear, A Book of Nonsense (1846) · public domain · AABBA",
+  challenges:"The A-rhyme is the place name itself, repeated ('Norway' / 'doorway' / 'Norway') rather than three different words — a genuine Lear habit, not a flaw, but it removes one of your usual options (finding a fresh Arabic rhyme word) since the rhyme word has to be the same word twice. The punchline is pure deadpan: getting flattened by a door and replying 'What of that?' as if nothing happened.",
+  strategy:"Decide first whether you can build an Arabic place name into a repeatable rhyme the way Lear does with 'Norway' — if not, that is a legitimate place to compensate elsewhere, per Tab 4. Protect the deadpan tone of 'What of that?' above the literal words; an Arabic exclamation that reads as mild indifference will land the joke better than one that translates the words but sounds alarmed.",
+  check:["Does your version keep the ironic, unbothered tone of 'What of that?'","Did you solve the repeated place-name rhyme, or compensate elsewhere?","Is the callback in line 5 doing comic work, not just repeating information?","Does it stay inside the AABBA mould?"]},
+ {title:"Clyde",
+  text:`There was a young fellow named Clyde,
+Who fell into an outhouse and died.
+His unfortunate brother,
+Fell into another,
+And now they're interred side by side.`,
+  cite:"ENG 494 Limericks Handout (course material) · traditional dark-humour limerick form",
+  challenges:"Comedy built on sudden, absurd death is a long-standing limerick subgenre — Lathey's own description of the form names 'scurrilous' content as intrinsic to it, not a modern addition. The humour depends entirely on a flat, matter-of-fact tone reporting something morbid; if your Arabic sounds shocked or moralising instead of dry, the joke dies at a different moment than it should.",
+  strategy:"Keep the report flat and unemotional — the comedy is in the understatement, not the event itself. Decide, and be ready to explain your decision: would you soften 'outhouse' and 'died' for a Saudi undergraduate audience, or keep them as bluntly as Lear's tradition does? Either choice is defensible; what matters is that you made it on purpose rather than by accident.",
+  check:["Is the tone flat and matter-of-fact rather than shocked?","Did you keep the AABBA rhyme and the short middle couplet?","Can you explain, in one sentence, your decision about how blunt to be?","Does it still work as a joke read aloud — timing intact?"]}
+];
+function initLimAdult(){document.getElementById('limadult-tasks').innerHTML=LIMADULT.map((t,i)=>`<div class="ex-card"><div class="ex-num">${t.title}</div><div class="excerpt">${t.text}<span class="cite">— ${t.cite}</span></div><p style="font-size:13.5px;line-height:1.8;color:var(--text-2);margin:8px 0 10px;">${t.challenges}</p><p style="font-size:13px;color:var(--text-2);margin:8px 0 6px;">Type your Arabic translation:</p><textarea class="tp-input" id="la-${i}" placeholder="اكتب ترجمتك هنا…"></textarea><button class="btn btn-primary btn-sm" style="margin-top:12px;background:var(--ac);" onclick="revealLA(${i})">Reveal translator's notes →</button><div class="tp-reveal" id="la-rev-${i}"><h4>Recommended approach</h4><div>${t.strategy}</div><h4>Check your version</h4><ul class="checklist2">${t.check.map(c=>`<li>${c}</li>`).join('')}</ul></div></div>`).join('');}
+function revealLA(i){document.getElementById('la-rev-'+i).classList.add('show');}
+
 /* ================= TAB 7 · QUIZ ================= */
 var AQ=[
  {tag:"Reading aloud",q:"Oittinen notes that listening to books read aloud is:",opts:["the only way a pre-reading child can enter the world of literature", "an outdated practice", "useful only for poetry", "unimportant for translation"],ans:0,fb:"Since young children often hear rather than read stories, translators have a special duty to produce texts that read aloud well."},
@@ -416,7 +510,7 @@ function aAQ(i){if(aqd)return;aqd=true;var q=AQ[aqi];document.querySelectorAll('
 function nAQ(){aqi++;rAQ();}
 function sAQ(){document.getElementById('aq-prog').style.width='100%';document.getElementById('aq-container').style.display='none';var pct=Math.round(aqs/AQ.length*100);document.getElementById('aq-score').style.display='block';document.getElementById('aq-score').innerHTML=`<div class="score-big">${pct}%</div><div class="score-sub">${aqs}/${AQ.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct>=80?'You translate for the singing child.':'Revisit the Reading Aloud and Animal Cries tabs.'}</p><button class="btn btn-primary" style="background:var(--ac);" onclick="reAQ()">Retry</button>`;}
 function reAQ(){aqi=0;aqs=0;document.getElementById('aq-container').style.display='block';document.getElementById('aq-score').style.display='none';rAQ();}
-initFirst();initTasks();rAQ();
+initFirst();initTasks();initLimKids();initLimAdult();rAQ();
 </script>
 <script src="track.js" defer></script>
 <script src="site.js" defer></script>
