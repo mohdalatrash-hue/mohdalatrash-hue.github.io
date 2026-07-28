@@ -40,13 +40,14 @@ body{background:var(--off-white);}
 .wk-ws-ord{width:30px;height:30px;border-radius:50%;background:#7c3aed;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .wk-ws-body{flex:1;min-width:0;} .wk-ws-t{font-size:14px;font-weight:700;} .wk-ws-s{font-size:12px;color:var(--text-2);margin-top:2px;line-height:1.5;}
 .wk-ws-go{font-size:12px;font-weight:700;color:var(--green);white-space:nowrap;}
-.days{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0 40px;}
+.days{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0 40px;}
 .day-card{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:16px;display:flex;flex-direction:column;gap:8px;}
 .day-head{display:flex;align-items:center;justify-content:space-between;gap:8px;}
 .day-when{display:flex;align-items:baseline;gap:8px;} .day-dn{font-size:14px;font-weight:800;color:var(--green);} .day-dt{font-size:12px;color:var(--text-3);}
 .day-tag{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;background:var(--green-light);color:var(--green-dark);padding:3px 8px;border-radius:var(--r-pill);}
 .day-label{font-size:14px;font-weight:700;color:var(--text);line-height:1.35;} .day-desc{font-size:13px;color:var(--text-2);line-height:1.55;flex:1;}
 .day-card .btn{align-self:flex-start;}
+@media(max-width:900px){.days{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:680px){.glance,.days{grid-template-columns:1fr;}}
 </style>
 </head>
@@ -74,8 +75,12 @@ body{background:var(--off-white);}
   <div class="glance">
       <div class="g-card g-read"><div class="g-ic">📖</div><div class="g-lab">Read</div><div class="g-txt">Translating for the Theatre, then Adaptation or Translation</div></div>
       <div class="g-card g-do"><div class="g-ic">🛠️</div><div class="g-lab">Do</div><div class="g-txt">Drama &amp; Adaptation Workshop</div></div>
-      <div class="g-card g-due"><div class="g-ic">✅</div><div class="g-lab">Due</div><div class="g-txt">Quiz 5 — Tue Aug 4</div></div>
+      <div class="g-card g-due"><div class="g-ic">✅</div><div class="g-lab">Due</div><div class="g-txt">Quiz 5 — Tue Aug 4 · <strong>Final Project — Thu Aug 6, midnight</strong></div></div>
     </div>
+  <div class="info-box info-red" style="text-align:left;margin-bottom:34px;">
+    <h3>⏰ The Final Project is due at the end of this week</h3>
+    <p><strong>Thursday 6 August, 11:59 PM</strong>, on Blackboard Ultra — two days after Quiz 5, not in Week 7. Both poems, four drafts, two annotations. <a href="final-project.html" style="font-weight:700;">Open the Final Project page →</a></p>
+  </div>
   <div class="section-label" style="margin-bottom:8px;">Read this week — in this order</div>
         <p class="lead">The readings are in Blackboard. Do them in the order shown before the matching workshop.</p>
         <ol class="rd-list"><li><span class="ord">1</span><div><div class="rd-t">Translating for the Theatre</div><div class="rd-s">Landers · <em>read first</em> · in Blackboard</div></div></li><li><span class="ord">2</span><div><div class="rd-t">Adaptation or Translation</div><div class="rd-s">Landers · <em>read second</em> · in Blackboard</div></div></li></ol>
@@ -83,7 +88,7 @@ body{background:var(--off-white);}
   <p class="lead">Each workshop ends in a short quiz; your scores are saved on your device (My Progress).</p>
   <div style="margin-bottom:40px;"><a class="wk-ws" href="workshop-drama.html"><div class="wk-ws-ord">1</div><div class="wk-ws-body"><div class="wk-ws-t">Drama &amp; Adaptation: Translating for the Stage</div><div class="wk-ws-s">Speakability → Translation vs Adaptation → Translate It</div></div><div class="wk-ws-go">Open →</div></a></div>
   <div class="section-label" style="margin-bottom:6px;">Your week, day by day</div>
-  <div class="days"><div class="day-card"><div class="day-head"><div class="day-when"><span class="day-dn">Sun</span><span class="day-dt">Aug 2</span></div></div><div class="day-label">Speakability</div><div class="day-desc">Read Translating for the Theatre; do the Speakability tab.</div><a class="btn btn-outline btn-sm" href="workshop-drama.html">Drama workshop →</a></div><div class="day-card"><div class="day-head"><div class="day-when"><span class="day-dn">Mon</span><span class="day-dt">Aug 3</span></div></div><div class="day-label">Translation vs adaptation</div><div class="day-desc">Read Adaptation or Translation; do that tab and the Translate It passages (Shakespeare &amp; Wilde).</div><a class="btn btn-outline btn-sm" href="workshop-drama.html">Translate It →</a></div><div class="day-card"><div class="day-head"><div class="day-when"><span class="day-dn">Tue</span><span class="day-dt">Aug 4</span></div><span class="day-tag">Quiz 5</span></div><div class="day-label">Review + Quiz 5</div><div class="day-desc">Review speakability and Bentley&#x27;s four phenomena; Quiz 5 (the last quiz).</div><a class="btn btn-outline btn-sm" href="workshop-drama.html">Final quiz →</a></div></div>
+  <div class="days"><div class="day-card"><div class="day-head"><div class="day-when"><span class="day-dn">Sun</span><span class="day-dt">Aug 2</span></div></div><div class="day-label">Speakability</div><div class="day-desc">Read Translating for the Theatre; do the Speakability tab.</div><a class="btn btn-outline btn-sm" href="workshop-drama.html">Drama workshop →</a></div><div class="day-card"><div class="day-head"><div class="day-when"><span class="day-dn">Mon</span><span class="day-dt">Aug 3</span></div></div><div class="day-label">Translation vs adaptation</div><div class="day-desc">Read Adaptation or Translation; do that tab and the Translate It passages (Shakespeare &amp; Wilde).</div><a class="btn btn-outline btn-sm" href="workshop-drama.html">Translate It →</a></div><div class="day-card"><div class="day-head"><div class="day-when"><span class="day-dn">Tue</span><span class="day-dt">Aug 4</span></div><span class="day-tag">Quiz 5</span></div><div class="day-label">Review + Quiz 5</div><div class="day-desc">Review speakability and Bentley&#x27;s four phenomena; Quiz 5 (the last quiz). <strong>Then finish the Final Project — it is due Thursday at midnight.</strong></div><a class="btn btn-outline btn-sm" href="workshop-drama.html">Final quiz →</a></div><div class="day-card" style="border:1.5px solid #dc2626;"><div class="day-head"><div class="day-when"><span class="day-dn" style="color:#dc2626;">Thu</span><span class="day-dt">Aug 6</span></div><span class="day-tag" style="background:#fee2e2;color:#991b1b;">Due</span></div><div class="day-label">Final Project due · midnight</div><div class="day-desc">Adult poem + children&#x27;s poem, song or limerick — two drafts and a 250-word annotation each. Submit on Blackboard Ultra.</div><a class="btn btn-outline btn-sm" href="final-project.html">Project page →</a></div></div>
   <div class="week-nav"><a href="week5.html">← Week 5</a><a href="week7.html">Week 7 →</a></div>
 </div>
 </div>

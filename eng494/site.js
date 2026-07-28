@@ -9,6 +9,7 @@
     { href: "workshop-poetry.html",  label: "Poetry" },
     { href: "workshop-children-poetry.html", label: "Children's Poetry" },
     { href: "workshop-drama.html",   label: "Drama & Adaptation" },
+    { href: "final-project.html",    label: "\u2b50 Final Project" },
     { href: "progress.html",         label: "My Progress" }
   ];
   function build() {

@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Project — Poetry Translation | ENG 494</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="ENG 494 Final Project — Poetry Translation. Full instructions, requirements, grading criteria, and the partner sign-up sheet. Due Thursday 6 August 2026, midnight.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 494">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 494 Literary Translation">
+<meta property="og:title" content="Final Project — Poetry Translation | ENG 494">
+<meta property="og:description" content="Full instructions, requirements, grading criteria, and the partner sign-up sheet. Due Thursday 6 August 2026, midnight.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng494/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng494/final-project.html">
+<meta name="twitter:card" content="summary">
+<style>
+body{background:var(--off-white);}
+.lead{font-size:14px;color:var(--text-2);line-height:1.6;margin:-2px 0 14px;}
+
+/* ── Deadline banner ─────────────────────────────── */
+.dl-band{background:linear-gradient(135deg,#7f1d1d,#b91c1c);color:#fff;border-radius:var(--r-lg);padding:20px 22px;margin-bottom:34px;box-shadow:var(--shadow-md);}
+.dl-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.dl-lab{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;opacity:.85;}
+.dl-date{font-size:20px;font-weight:800;letter-spacing:-.02em;margin-top:2px;}
+.dl-sub{font-size:13px;opacity:.9;margin-top:6px;line-height:1.55;}
+.cd{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
+.cd-u{background:rgba(255,255,255,.16);border-radius:var(--r-md);padding:8px 12px;min-width:62px;text-align:center;}
+.cd-n{font-size:20px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;}
+.cd-l{font-size:9px;text-transform:uppercase;letter-spacing:.08em;opacity:.8;margin-top:4px;}
+
+/* ── Part cards ──────────────────────────────────── */
+.part{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);overflow:hidden;margin-bottom:22px;}
+.part-head{padding:20px 24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;border-bottom:1px solid var(--border-light);}
+.part-1 .part-head{background:#f5f3ff;} .part-2 .part-head{background:#fdf2f8;}
+.part-ic{font-size:28px;line-height:1;}
+.part-tt{flex:1;min-width:180px;}
+.part-lab{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:var(--text-3);}
+.part-h{font-size:19px;font-weight:800;letter-spacing:-.02em;color:var(--text);margin-top:2px;}
+.part-marks{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-pill);padding:6px 14px;font-size:13px;font-weight:800;white-space:nowrap;}
+.part-1 .part-marks{color:#6d28d9;border-color:#c4b5fd;} .part-2 .part-marks{color:#be185d;border-color:#f9a8d4;}
+.part-body{padding:22px 24px;}
+.sub-h{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);margin:22px 0 10px;}
+.sub-h:first-child{margin-top:0;}
+.part p{font-size:14px;line-height:1.65;color:var(--text);margin-bottom:10px;}
+
+/* ── Strategy chips ──────────────────────────────── */
+.strats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+.strat{flex:1;min-width:200px;border:1.5px solid var(--border);border-radius:var(--r-md);padding:12px 14px;background:var(--off-white);}
+.strat-n{font-size:14px;font-weight:800;color:var(--text);}
+.strat-d{font-size:12.5px;color:var(--text-2);line-height:1.55;margin-top:3px;}
+
+/* ── Numbered steps ──────────────────────────────── */
+.steps{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;}
+.steps li{display:flex;gap:12px;align-items:flex-start;background:var(--off-white);border-radius:var(--r-md);padding:13px 15px;}
+.steps .ord{width:24px;height:24px;border-radius:50%;background:var(--green);color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.st-t{font-size:14px;font-weight:700;color:var(--text);line-height:1.4;}
+.st-s{font-size:13px;color:var(--text-2);margin-top:3px;line-height:1.6;}
+.st-s code{background:var(--white);border:1px solid var(--border-light);border-radius:5px;padding:1px 5px;font-size:12px;}
+
+/* ── Quote requirement boxes ─────────────────────── */
+.qreq{border-left:3px solid var(--blue);background:var(--blue-light);border-radius:var(--r-md);padding:13px 16px;margin-top:8px;}
+.qreq-t{font-size:13px;font-weight:800;color:#0b4f9e;margin-bottom:4px;}
+.qreq-d{font-size:13px;color:var(--text);line-height:1.6;}
+.cite{display:block;background:var(--white);border:1px solid var(--border-light);border-radius:6px;padding:8px 11px;margin-top:7px;font-size:12.5px;line-height:1.6;color:var(--text);direction:ltr;}
+.cite b{color:var(--green-dark);}
+
+/* ── Tables ──────────────────────────────────────── */
+.tbl{width:100%;border-collapse:collapse;font-size:13px;background:var(--white);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-xs);}
+.tbl thead tr{background:var(--off-white);text-align:left;}
+.tbl th{padding:11px 14px;font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-3);}
+.tbl td{padding:11px 14px;vertical-align:top;border-top:1px solid var(--border-light);line-height:1.55;}
+.tbl .grp td{background:#f5f3ff;font-weight:800;color:#5b21b6;}
+.tbl .grp2 td{background:#fdf2f8;font-weight:800;color:#9d174d;}
+.tbl .tot td{background:var(--green-light);font-weight:800;color:var(--green-dark);border-top:2px solid var(--green);}
+.tbl .mk{text-align:right;white-space:nowrap;font-weight:700;font-variant-numeric:tabular-nums;}
+
+/* ── Checklist ───────────────────────────────────── */
+.chk{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.chk li{display:flex;gap:9px;align-items:flex-start;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:12px 14px;font-size:13.5px;line-height:1.5;}
+.chk .tick{color:var(--green);font-weight:800;flex-shrink:0;}
+
+/* ── SIGN-UP SHEET ───────────────────────────────── */
+.su{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-md);overflow:hidden;scroll-margin-top:64px;}
+#signup{scroll-margin-top:64px;}
+.su-head{background:linear-gradient(135deg,#155230,#1a6b3c);color:#fff;padding:22px 24px;}
+.su-head h2{font-size:21px;font-weight:800;letter-spacing:-.02em;margin-bottom:5px;}
+.su-head p{font-size:13.5px;opacity:.92;line-height:1.6;margin:0;}
+.su-body{padding:22px 24px;}
+
+/* progress rail */
+.rail{display:flex;gap:6px;margin-bottom:22px;}
+.rail-s{flex:1;text-align:center;}
+.rail-d{height:4px;border-radius:2px;background:var(--border);transition:background .25s;}
+.rail-s.on .rail-d{background:var(--green);}
+.rail-s.done .rail-d{background:var(--green-mid);}
+.rail-l{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text-3);margin-top:6px;}
+.rail-s.on .rail-l{color:var(--green-dark);}
+
+.stage{display:none;} .stage.on{display:block;}
+.stage-h{font-size:16px;font-weight:800;color:var(--text);margin-bottom:4px;letter-spacing:-.01em;}
+.stage-s{font-size:13.5px;color:var(--text-2);line-height:1.6;margin-bottom:16px;}
+
+/* gate */
+.gate-item{display:flex;gap:11px;align-items:flex-start;background:var(--off-white);border-radius:var(--r-md);padding:14px 16px;margin-bottom:9px;cursor:pointer;transition:background .15s;}
+.gate-item:hover{background:#ececf0;}
+.gate-item input{width:19px;height:19px;margin-top:1px;flex-shrink:0;accent-color:var(--green);cursor:pointer;}
+.gate-tx{font-size:13.5px;line-height:1.6;color:var(--text);}
+
+/* search + roster */
+.su-search{width:100%;padding:12px 15px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:15px;font-family:var(--font);margin-bottom:12px;background:var(--white);color:var(--text);}
+.su-search:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(26,107,60,.13);}
+.rost{max-height:390px;overflow-y:auto;border:1.5px solid var(--border-light);border-radius:var(--r-md);background:var(--off-white);padding:7px;}
+.rw{display:flex;align-items:center;gap:11px;width:100%;text-align:right;background:var(--white);border:1.5px solid transparent;border-radius:var(--r-md);padding:11px 13px;margin-bottom:6px;cursor:pointer;font-family:var(--font);transition:border-color .13s,box-shadow .13s,transform .08s;}
+.rw:last-child{margin-bottom:0;}
+.rw:hover:not(:disabled){border-color:var(--green);box-shadow:var(--shadow-xs);}
+.rw:active:not(:disabled){transform:scale(.995);}
+.rw-n{width:26px;height:26px;border-radius:50%;background:var(--off-white);color:var(--text-3);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-variant-numeric:tabular-nums;}
+.rw-b{flex:1;min-width:0;text-align:right;display:block;}
+.rw-nm{display:block;font-size:14.5px;font-weight:600;color:var(--text);line-height:1.4;direction:rtl;}
+.rw-id{display:block;font-size:11.5px;color:var(--text-3);margin-top:2px;font-variant-numeric:tabular-nums;direction:ltr;text-align:right;}
+.rw-tw{flex-shrink:0;text-align:right;line-height:0;}
+.rw-tag{display:inline-block;font-size:10px;font-weight:800;padding:3px 9px;border-radius:var(--r-pill);white-space:nowrap;line-height:1.5;}
+.rw.sel{border-color:var(--green);background:var(--green-light);}
+.rw.sel .rw-n{background:var(--green);color:#fff;}
+.rw:disabled{cursor:not-allowed;}
+.rw.denied{opacity:.42;background:#fafafa;filter:grayscale(1);}
+.rw.denied .rw-tag{background:#fee2e2;color:#991b1b;}
+.rw.taken{opacity:.5;background:#fafafa;}
+.rw.taken .rw-tag{background:var(--border-light);color:var(--text-3);}
+.rw.me{opacity:.5;} .rw.me .rw-tag{background:var(--green-light);color:var(--green-dark);}
+.rost-empty{text-align:center;padding:26px 14px;font-size:13.5px;color:var(--text-3);}
+
+/* you-are chip */
+.chip{display:inline-flex;align-items:center;gap:9px;background:var(--green-light);border:1.5px solid var(--green);border-radius:var(--r-pill);padding:7px 8px 7px 15px;margin-bottom:14px;}
+.chip-l{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--green-dark);}
+.chip-v{font-size:14px;font-weight:700;color:var(--text);direction:rtl;}
+.chip-x{background:var(--white);border:none;border-radius:50%;width:24px;height:24px;cursor:pointer;color:var(--text-3);font-size:15px;line-height:1;font-family:var(--font);}
+.chip-x:hover{color:var(--red);}
+
+/* text fields */
+.fld{margin-bottom:15px;}
+.fld-l{display:block;font-size:13px;font-weight:700;color:var(--text);margin-bottom:5px;}
+.fld-l .req{color:var(--red);}
+.fld-h{font-size:12px;color:var(--text-3);line-height:1.55;margin-bottom:7px;}
+.fld input,.fld textarea{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:14.5px;font-family:var(--font);background:var(--white);color:var(--text);}
+.fld textarea{min-height:82px;resize:vertical;line-height:1.6;}
+.fld input:focus,.fld textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(26,107,60,.13);}
+.fld input.bad,.fld textarea.bad{border-color:var(--red);}
+.fld-box{background:var(--off-white);border-radius:var(--r-md);padding:16px 17px;margin-bottom:14px;}
+.fld-box-h{font-size:13.5px;font-weight:800;color:var(--text);margin-bottom:3px;}
+.fld-box-s{font-size:12.5px;color:var(--text-2);line-height:1.55;margin-bottom:13px;}
+
+/* review */
+.rev{border:1.5px solid var(--border);border-radius:var(--r-md);overflow:hidden;margin-bottom:16px;}
+.rev-r{display:flex;gap:12px;padding:12px 15px;border-bottom:1px solid var(--border-light);font-size:13.5px;}
+.rev-r:last-child{border-bottom:none;}
+.rev-k{width:126px;flex-shrink:0;font-weight:700;color:var(--text-3);font-size:12px;text-transform:uppercase;letter-spacing:.04em;padding-top:2px;}
+.rev-v{flex:1;min-width:0;color:var(--text);line-height:1.55;word-break:break-word;}
+.rev-v.ar{direction:rtl;text-align:right;}
+
+/* actions */
+.acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
+.su-note{font-size:12.5px;color:var(--text-2);line-height:1.6;margin-top:14px;}
+.warn{background:var(--red-light);border-left:3px solid var(--red);border-radius:var(--r-md);padding:12px 15px;font-size:13px;line-height:1.6;color:#991b1b;margin-bottom:14px;}
+.okbox{background:var(--green-light);border-left:3px solid var(--green);border-radius:var(--r-md);padding:14px 16px;font-size:13.5px;line-height:1.65;color:var(--green-dark);}
+.slip{background:var(--off-white);border:1px dashed var(--border);border-radius:var(--r-md);padding:14px 16px;font-size:12.5px;line-height:1.75;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;margin:12px 0;max-height:250px;overflow:auto;}
+
+/* registered table */
+.reg-empty{text-align:center;padding:30px 18px;background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);}
+.reg-empty-ic{font-size:30px;} .reg-empty-t{font-size:14px;font-weight:700;margin:8px 0 4px;} .reg-empty-s{font-size:13px;color:var(--text-2);line-height:1.6;}
+.ar{direction:rtl;text-align:right;}
+
+/* on narrow screens the status pill moves to its own line so the Arabic name keeps full width */
+@media(max-width:560px){
+  .rw{flex-wrap:wrap;}
+  .rw-b{flex:1 1 auto;}
+  .rw-tw{flex-basis:100%;margin-top:7px;}
+  .chip{display:flex;}
+  .chip-v{flex:1;min-width:0;}
+}
+@media(max-width:680px){
+  .chk{grid-template-columns:1fr;}
+  .rev-r{flex-direction:column;gap:3px;} .rev-k{width:auto;}
+  .part-head{padding:16px 17px;} .part-body{padding:18px 17px;} .su-body{padding:18px 17px;} .su-head{padding:18px 17px;}
+  .rail-l{font-size:9px;} .dl-date{font-size:17px;}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 494</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Final Project</span>
+    <div class="nav-spacer"></div>
+    <div class="nav-links"><a class="nav-link" href="#signup">Sign-up sheet</a><a class="nav-link" href="index.html">Hub</a></div>
+  </div>
+</nav>
+
+<div class="hero" style="padding-bottom:30px;">
+  <div class="hero-eyebrow">Final Project · 10 marks · Pairs</div>
+  <h1>Poetry Translation</h1>
+  <p class="hero-sub">One adult poem and one children's poem, song or limerick — translated, revised, and annotated. Section 173 · Summer 2026</p>
+</div>
+
+<div class="section-alt" style="padding:8px 0 64px;">
+<div class="section-inner">
+
+  <!-- ══ DEADLINE ══ -->
+  <div class="dl-band">
+    <div class="dl-top">
+      <div style="flex:1;min-width:200px;">
+        <div class="dl-lab">⏰ Submission deadline</div>
+        <div class="dl-date">Thursday 6 August 2026 · 11:59 PM</div>
+        <div class="dl-sub">Submitted on <strong>Blackboard Ultra</strong> — one file per group, uploaded by either partner. Late submissions lose <strong>10% per day</strong> unless a medical or official excuse is filed in advance.</div>
+      </div>
+    </div>
+    <div class="cd" id="cd" aria-live="polite"></div>
+  </div>
+
+  <!-- ══ AT A GLANCE ══ -->
+  <div class="section-label" style="margin-bottom:14px;">What this project is</div>
+  <div class="part" style="margin-bottom:26px;">
+    <div class="part-body">
+      <p>This is a <strong>take-home group project worth 10 marks</strong>. Each group of two students produces a full translation of <strong>two poems</strong> — one adult poem and one children's poem, song or limerick — both chosen by your group on the sign-up sheet at the bottom of this page.</p>
+      <p>The project has two parts of equal weight. <strong>Each part follows the same three-piece structure: a first draft, a second draft, and a written annotation.</strong> Every external source must be cited in APA 7th edition, in-text and in a reference list.</p>
+      <div class="warn" style="margin:14px 0 0;">
+        <strong>⚠️ Academic integrity — read this before you start.</strong><br>
+        Using AI-generated text in <em>any</em> part of this assignment — the translation drafts or the annotation — will result in a <strong>ZERO</strong>. This includes machine-translation output (Google Translate, DeepL and similar) presented as your own work. The translation and the reflection must be written by the two of you. Databases and search tools may be used to <em>find</em> your scholarly source; they may not be used to write it up.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PART 1 ══ -->
+  <div class="section-label" style="margin-bottom:14px;">The two parts</div>
+  <div class="part part-1">
+    <div class="part-head">
+      <div class="part-ic">🖋️</div>
+      <div class="part-tt"><div class="part-lab">Part 1</div><div class="part-h">Adult Poetry Translation</div></div>
+      <div class="part-marks">5 marks</div>
+    </div>
+    <div class="part-body">
+      <div class="sub-h">The task</div>
+      <p>Translate <strong>the entire adult poem</strong> your group selected on the sign-up sheet, from English into Arabic, using <em>one</em> of the following course strategies:</p>
+      <div class="strats">
+        <div class="strat"><div class="strat-n">Free Verse Translation</div><div class="strat-d">Abandon the source metre and rhyme; carry the imagery, tone and line-logic in unrhymed Arabic. You must still account for what the form was doing.</div></div>
+        <div class="strat"><div class="strat-n">Rhymed Translation</div><div class="strat-d">Reproduce a rhyme scheme in Arabic. It need not be the source scheme, but it must be a real scheme, held consistently, and you must be able to name it.</div></div>
+      </div>
+      <p style="font-size:13px;color:var(--text-2);margin-top:10px;">Strategy reference: <strong>Lahlali &amp; Abu Hatab</strong>, the lesson on poetic translation covered in Week 4, and the <a href="workshop-poetry.html">Poetry workshop</a> (six strategies) and <a href="workshop-rhyme-phonemic.html">Rhyme &amp; Phonemic workshop</a> on this site.</p>
+
+      <div class="sub-h">What you submit for Part 1</div>
+      <ol class="steps">
+        <li><span class="ord">1</span><div><div class="st-t">First Draft</div><div class="st-s">Your initial full translation of the entire poem. Do not polish it away — the marker wants to see where you started.</div></div></li>
+        <li><span class="ord">2</span><div><div class="st-t">Second Draft</div><div class="st-s">A revised and improved version, refining your chosen strategy (the free-verse line or the rhyme scheme). The difference between the two drafts is itself evidence.</div></div></li>
+        <li><span class="ord">3</span><div><div class="st-t">Annotation — minimum 250 words</div><div class="st-s">A written reflection containing all three of the elements below.</div></div></li>
+      </ol>
+
+      <div class="sub-h">Inside the Part 1 annotation</div>
+      <div class="qreq" style="border-left-color:#7c3aed;background:#f5f3ff;">
+        <div class="qreq-t" style="color:#5b21b6;">① Strategy discussion</div>
+        <div class="qreq-d">Explain which strategy you chose and <em>why</em>, and discuss the common challenges translators face with adult poetry. Name the specific problems your poem gave you, not problems in general.</div>
+      </div>
+      <div class="qreq">
+        <div class="qreq-t">② Course source quote — Landers</div>
+        <div class="qreq-d">Include a <strong>direct quote</strong> from Landers, "Some Notes on Translating Poetry," and explain its relevance to your process. Cite in APA.
+          <span class="cite"><b>In-text:</b> (Landers, 2001, p. 97)<br><b>Reference:</b> Landers, C. E. (2001). <em>Literary translation: A practical guide</em>. Multilingual Matters.<br><span style="color:var(--text-3);">Use the page number of the passage you quote in your own copy.</span></span>
+        </div>
+      </div>
+      <div class="qreq">
+        <div class="qreq-t">③ External scholarly quote</div>
+        <div class="qreq-d">Include a direct quote from <strong>one additional scholarly source</strong> on the challenges of adult poetry translation, with elaboration and an APA citation. Suggested databases: Google Scholar, SDL (Saudi Digital Library), Scispace, Elicit, Research Rabbit, RefSeek.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PART 2 ══ -->
+  <div class="part part-2">
+    <div class="part-head">
+      <div class="part-ic">🎶</div>
+      <div class="part-tt"><div class="part-lab">Part 2</div><div class="part-h">Children's Poetry, Song or Limerick</div></div>
+      <div class="part-marks">5 marks</div>
+    </div>
+    <div class="part-body">
+      <div class="sub-h">The task</div>
+      <p>Translate <strong>the entire children's poem, song or limerick</strong> your group selected on the sign-up sheet, using <em>one</em> of the same two strategies:</p>
+      <div class="strats">
+        <div class="strat"><div class="strat-n">Free Verse Translation</div><div class="strat-d">No rhyme — but for a child text you must still answer for rhythm, sound-play and read-aloud quality.</div></div>
+        <div class="strat"><div class="strat-n">Rhymed Translation</div><div class="strat-d">Keep a scheme. For a limerick that means holding <strong>AABBA</strong>; for a song it means lines that still fit the tune.</div></div>
+      </div>
+      <p style="font-size:13px;color:var(--text-2);margin-top:10px;">Strategy reference: apply the concepts from <strong>"Translating Sounds and Reading Aloud"</strong> (Lathey, 2016, Ch. 5) covered in Week 5, and the <a href="workshop-children-poetry.html">Children's Poetry &amp; Song workshop</a> — singability, the sing-or-clap test, animal cries, wordplay and nonsense.</p>
+      <div class="info-box info-green" style="text-align:left;margin-top:12px;">
+        <h3>🔊 The test that matters here</h3>
+        <p>A children's translation is not finished on the page. <strong>Read your second draft aloud — or sing it</strong> — before you submit. If it cannot be said or sung at speed by a child, it is not yet a children's translation, however accurate it is.</p>
+      </div>
+
+      <div class="sub-h">What you submit for Part 2</div>
+      <ol class="steps">
+        <li><span class="ord">1</span><div><div class="st-t">First Draft</div><div class="st-s">Your initial full translation of the entire poem, song or limerick.</div></div></li>
+        <li><span class="ord">2</span><div><div class="st-t">Second Draft</div><div class="st-s">A refined version after revision and after reading it aloud.</div></div></li>
+        <li><span class="ord">3</span><div><div class="st-t">Annotation — minimum 250 words</div><div class="st-s">A written reflection containing all three of the elements below.</div></div></li>
+      </ol>
+
+      <div class="sub-h">Inside the Part 2 annotation</div>
+      <div class="qreq" style="border-left-color:#db2777;background:#fdf2f8;">
+        <div class="qreq-t" style="color:#9d174d;">① Issues discussion</div>
+        <div class="qreq-d">Reflect on the <em>specific</em> challenges you met translating children's poetry — rhythm, sound and onomatopoeia, cultural adaptation, singability, the fixed tune, the picture the words sit beside. Say which of them beat you.</div>
+      </div>
+      <div class="qreq">
+        <div class="qreq-t">② Course source quote — "Translating Sounds and Reading Aloud"</div>
+        <div class="qreq-d">Include a <strong>direct quote</strong> from the Week 5 reading and explain how it shaped your translation decisions. Cite in APA.
+          <span class="cite"><b>In-text:</b> (Lathey, 2016, p. 89)<br><b>Reference:</b> Lathey, G. (2016). <em>Translating children's literature</em>. Routledge.<br><span style="color:var(--text-3);">The reading is Chapter 5, "Translating sound: Reading aloud, poetry, wordplay and onomatopoeia." Cite the chapter's own page number as it appears in your copy.</span></span>
+        </div>
+      </div>
+      <div class="qreq">
+        <div class="qreq-t">③ External scholarly quote</div>
+        <div class="qreq-d">Include a direct quote from <strong>one additional scholarly source</strong> on children's poetry translation, with elaboration and an APA citation. Same suggested databases as Part 1.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ APA ══ -->
+  <div class="section-label" style="margin:34px 0 14px;">APA 7th edition — how to cite</div>
+  <div class="part" style="margin-bottom:26px;">
+    <div class="part-body">
+      <p>All sources must be cited <strong>both</strong> in-text inside the annotation <strong>and</strong> in a References list at the end of your submission. Follow APA 7th edition.</p>
+      <div class="sub-h">The two course sources you already have</div>
+      <span class="cite">Landers, C. E. (2001). <em>Literary translation: A practical guide</em>. Multilingual Matters.</span>
+      <span class="cite">Lathey, G. (2016). <em>Translating children's literature</em>. Routledge.</span>
+      <div class="sub-h">Direct quotes</div>
+      <p style="font-size:13.5px;">A direct quote needs quotation marks, the author, the year <strong>and the page number</strong>: <em>Landers (2001) argues that "…" (p. 97).</em> A quote without a page number does not earn the mark. A quote dropped in without elaboration does not earn the mark either — say what it does for <em>your</em> translation.</p>
+      <div class="sub-h">Journal article, for your external sources</div>
+      <span class="cite">Author, A. A. (Year). Title of the article. <em>Title of the Journal, volume</em>(issue), pages. https://doi.org/xxxx</span>
+      <p style="font-size:13px;color:var(--text-2);margin-top:10px;">A fuller guide is in the <a href="../eng446/apa-quickref.html">APA quick reference</a> on the ENG 446 site.</p>
+    </div>
+  </div>
+
+  <!-- ══ GRADING ══ -->
+  <div class="section-label" style="margin-bottom:14px;">Grading criteria — 10 marks</div>
+  <div style="overflow-x:auto;" class="mb-32">
+  <table class="tbl">
+    <thead><tr><th>Component</th><th>Criteria</th><th class="mk">Marks</th></tr></thead>
+    <tbody>
+      <tr class="grp"><td colspan="2">PART 1 · Adult Poetry</td><td class="mk">5</td></tr>
+      <tr><td>First &amp; Second Drafts</td><td>Complete translation of the full poem across both drafts</td><td class="mk">1</td></tr>
+      <tr><td>Strategy Discussion</td><td>Clear explanation of the chosen strategy and of translation challenges</td><td class="mk">0.5</td></tr>
+      <tr><td>Course Source Quote <span style="color:var(--text-3);">(Landers)</span></td><td>Accurate quote + relevant explanation + APA citation</td><td class="mk">1</td></tr>
+      <tr><td>External Source Quote</td><td>Scholarly quote + elaboration + APA citation</td><td class="mk">0.5</td></tr>
+      <tr><td>Creativity in Translation</td><td>Poetic quality, preservation of literary elements, creative problem-solving</td><td class="mk">1</td></tr>
+      <tr><td>Presentation &amp; Language</td><td>Clarity, organisation and language accuracy of the annotation</td><td class="mk">1</td></tr>
+      <tr class="grp2"><td colspan="2">PART 2 · Children's Poetry / Limerick</td><td class="mk">5</td></tr>
+      <tr><td>First &amp; Second Drafts</td><td>Complete translation of the full poem, song or limerick across both drafts</td><td class="mk">1</td></tr>
+      <tr><td>Issues Discussion</td><td>Reflection on specific challenges (rhythm, sound, cultural nuance)</td><td class="mk">0.5</td></tr>
+      <tr><td>Course Source Quote <span style="color:var(--text-3);">(Sounds &amp; Reading Aloud)</span></td><td>Accurate quote + relevant explanation + APA citation</td><td class="mk">1</td></tr>
+      <tr><td>External Source Quote</td><td>Scholarly quote + elaboration + APA citation</td><td class="mk">0.5</td></tr>
+      <tr><td>Creativity in Translation</td><td>Imaginative adaptation, sound play, suitability for young readers</td><td class="mk">1</td></tr>
+      <tr><td>Presentation &amp; Language</td><td>Clarity, organisation and language accuracy of the annotation</td><td class="mk">1</td></tr>
+      <tr class="tot"><td colspan="2">TOTAL</td><td class="mk">10</td></tr>
+    </tbody>
+  </table></div>
+
+  <!-- ══ CHECKLIST ══ -->
+  <div class="section-label" style="margin-bottom:14px;">Before you submit — check all ten</div>
+  <ul class="chk mb-32">
+    <li><span class="tick">✓</span><span>Both poems translated <strong>in full</strong> — not the first stanza</span></li>
+    <li><span class="tick">✓</span><span>Four drafts in total: first and second for <strong>each</strong> part</span></li>
+    <li><span class="tick">✓</span><span>Both annotations reach <strong>250 words minimum</strong></span></li>
+    <li><span class="tick">✓</span><span>Strategy named and justified in Part 1</span></li>
+    <li><span class="tick">✓</span><span>Landers quote with a <strong>page number</strong> and elaboration</span></li>
+    <li><span class="tick">✓</span><span>"Translating Sounds and Reading Aloud" quote with a page number</span></li>
+    <li><span class="tick">✓</span><span>Two <strong>external</strong> scholarly quotes, one per part</span></li>
+    <li><span class="tick">✓</span><span>References list in APA 7 at the end</span></li>
+    <li><span class="tick">✓</span><span>Both partners' <strong>names and student IDs</strong> on the cover</span></li>
+    <li><span class="tick">✓</span><span>Part 2 read aloud or sung at least once</span></li>
+  </ul>
+
+  <!-- ══ SIGN-UP ══ -->
+  <div class="section-label" style="margin-bottom:14px;" id="signup">Sign-up sheet — choose your partner and your two texts</div>
+  <div class="su">
+    <div class="su-head">
+      <h2>📝 Group Sign-Up · Section 173</h2>
+      <p>Read the instructions above first, then pick yourself, pick your partner, and enter the two texts your group will translate. <strong>32 students · 16 groups.</strong> Once a student is in a group, nobody else can choose them.</p>
+    </div>
+    <div class="su-body">
+
+      <div class="rail" id="rail">
+        <div class="rail-s" data-r="0"><div class="rail-d"></div><div class="rail-l">Read</div></div>
+        <div class="rail-s" data-r="1"><div class="rail-d"></div><div class="rail-l">You</div></div>
+        <div class="rail-s" data-r="2"><div class="rail-d"></div><div class="rail-l">Partner</div></div>
+        <div class="rail-s" data-r="3"><div class="rail-d"></div><div class="rail-l">Texts</div></div>
+        <div class="rail-s" data-r="4"><div class="rail-d"></div><div class="rail-l">Confirm</div></div>
+      </div>
+
+      <!-- STAGE 0 — GATE -->
+      <div class="stage" id="s0">
+        <div class="stage-h">First — confirm you have read the instructions</div>
+        <div class="stage-s">The sign-up unlocks once all three are ticked. These are the three things students most often get wrong.</div>
+        <label class="gate-item"><input type="checkbox" class="gate"><span class="gate-tx">I have read the full instructions on this page, and I understand the project is worth <strong>10 marks</strong> and is due <strong>Thursday 6 August, midnight</strong>.</span></label>
+        <label class="gate-item"><input type="checkbox" class="gate"><span class="gate-tx">I understand we must translate <strong>two complete poems</strong> — one adult, one children's — each with <strong>two drafts and a 250-word annotation</strong> carrying two quoted sources in APA.</span></label>
+        <label class="gate-item"><input type="checkbox" class="gate"><span class="gate-tx">I understand that <strong>AI-generated text anywhere in this assignment results in a zero</strong>, and that a partner already taken by another group cannot be chosen.</span></label>
+        <div class="acts"><button class="btn btn-primary" id="b-gate" disabled>Start sign-up →</button></div>
+      </div>
+
+      <!-- STAGE 1 — WHO ARE YOU -->
+      <div class="stage" id="s1">
+        <div class="stage-h">Who are you?</div>
+        <div class="stage-s">Find your own name. Students marked <strong>محروم</strong> are shown for completeness but cannot sign up; students already in a group are greyed out.</div>
+        <input class="su-search" id="q1" type="search" placeholder="ابحث باسمك أو رقمك الجامعي — Search your name or ID" autocomplete="off">
+        <div class="rost" id="r1"></div>
+        <div class="acts"><button class="btn btn-secondary btn-sm" id="b1-back">← Back</button></div>
+      </div>
+
+      <!-- STAGE 2 — PARTNER -->
+      <div class="stage" id="s2">
+        <div class="stage-h">Choose your partner</div>
+        <div class="stage-s">Pick the one student you will work with. Talk to them first — this is a shared 10 marks.</div>
+        <div id="chip2"></div>
+        <input class="su-search" id="q2" type="search" placeholder="ابحث عن شريكك — Search for your partner" autocomplete="off">
+        <div class="rost" id="r2"></div>
+        <div class="acts"><button class="btn btn-secondary btn-sm" id="b2-back">← Change who I am</button></div>
+      </div>
+
+      <!-- STAGE 3 — TEXTS -->
+      <div class="stage" id="s3">
+        <div class="stage-h">Your two texts</div>
+        <div class="stage-s">Write in the adult poem and the children's poem, song or limerick your group will translate. Both must be in <strong>English</strong>, and you translate them into Arabic.</div>
+        <div id="chip3"></div>
+        <div id="warn3"></div>
+
+        <div class="fld-box">
+          <div class="fld-box-h">🖋️ Part 1 — the adult poem</div>
+          <div class="fld-box-s">A complete short poem, not an extract of a long one. You must translate all of it.</div>
+          <div class="fld"><label class="fld-l" for="a-t">Poem title <span class="req">*</span></label><input id="a-t" type="text" placeholder="e.g. The Road Not Taken" autocomplete="off"></div>
+          <div class="fld"><label class="fld-l" for="a-p">Poet <span class="req">*</span></label><input id="a-p" type="text" placeholder="e.g. Robert Frost" autocomplete="off"></div>
+          <div class="fld" style="margin-bottom:0;"><label class="fld-l" for="a-s">Where you found it</label><div class="fld-h">Book, anthology or website — so the marker can read the original beside your translation.</div><input id="a-s" type="text" placeholder="e.g. Poetry Foundation" autocomplete="off"></div>
+        </div>
+
+        <div class="fld-box">
+          <div class="fld-box-h">🎶 Part 2 — the children's poem, song or limerick</div>
+          <div class="fld-box-s">A nursery rhyme, children's poem, song lyric or limerick. Keep it short enough to translate whole and to read aloud.</div>
+          <div class="fld"><label class="fld-l" for="c-t">Title or first line <span class="req">*</span></label><input id="c-t" type="text" placeholder="e.g. There was an Old Man with a beard" autocomplete="off"></div>
+          <div class="fld"><label class="fld-l" for="c-k">Which is it? <span class="req">*</span></label>
+            <div class="strats" id="ckind" style="gap:8px;">
+              <button type="button" class="btn btn-outline btn-sm ck" data-k="Children's poem">Children's poem</button>
+              <button type="button" class="btn btn-outline btn-sm ck" data-k="Song">Song</button>
+              <button type="button" class="btn btn-outline btn-sm ck" data-k="Limerick">Limerick</button>
+              <button type="button" class="btn btn-outline btn-sm ck" data-k="Nursery rhyme">Nursery rhyme</button>
+            </div>
+          </div>
+          <div class="fld"><label class="fld-l" for="c-p">Poet, or "traditional"</label><input id="c-p" type="text" placeholder="e.g. Edward Lear — or: traditional" autocomplete="off"></div>
+          <div class="fld" style="margin-bottom:0;"><label class="fld-l" for="c-s">Where you found it</label><input id="c-s" type="text" placeholder="Book, website or recording" autocomplete="off"></div>
+        </div>
+
+        <div class="acts">
+          <button class="btn btn-primary" id="b3-next">Review my sign-up →</button>
+          <button class="btn btn-secondary btn-sm" id="b3-back">← Change partner</button>
+        </div>
+      </div>
+
+      <!-- STAGE 4 — CONFIRM -->
+      <div class="stage" id="s4">
+        <div class="stage-h">Check it, then send it</div>
+        <div class="stage-s">This is what your group is registering. Read it once more — then send it to Dr. Alatrash.</div>
+        <div class="rev" id="rev"></div>
+        <div class="okbox">
+          <strong>One more step — your group is not registered until Dr. Alatrash receives this.</strong><br>
+          Press <em>Send by email</em> (or copy the slip and send it by WhatsApp). Your group appears in the <strong>Registered groups</strong> table below once it is confirmed — check back after a day. If two groups claim the same student, the <strong>first message received</strong> wins.
+        </div>
+        <div class="slip" id="slip"></div>
+        <div class="acts">
+          <a class="btn btn-primary" id="b-mail" href="#">✉️ Send by email</a>
+          <button class="btn btn-secondary" id="b-copy">📋 Copy the slip</button>
+          <button class="btn btn-secondary btn-sm" id="b4-back">← Edit</button>
+          <button class="btn btn-secondary btn-sm" id="b-reset">Start over</button>
+        </div>
+        <div class="su-note">Your choices are saved on this device only, so you can come back to this page and they will still be here. Nothing is sent anywhere until you press the button above.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ REGISTERED ══ -->
+  <div class="section-label" style="margin:34px 0 14px;">Registered groups <span id="reg-count" style="color:var(--green);"></span></div>
+  <div id="reg-wrap"></div>
+
+  <div class="week-nav" style="margin-top:40px;"><a href="week7.html">← Week 7</a><a href="index.html">Course hub →</a></div>
+</div>
+</div>
+
+<footer>
+  <strong>ENG 494 Literary Translation</strong> · Final Project · Qassim University · Summer 2026<br>
+  Due Thursday 6 August 2026, midnight · Submitted on Blackboard Ultra.<br>
+  <a href="index.html">Course Hub</a> · <a href="week7.html">Week 7</a> · <a href="workshop-poetry.html">Poetry</a> · <a href="workshop-children-poetry.html">Children's Poetry</a>
+</footer>
+
+<script>
+/* ══════════════════════════════════════════════════════════
+   ENG 494 — Final Project sign-up
+   Roster: Section 173 official list. ok:false = محروم (denied).
+   ══════════════════════════════════════════════════════════ */
+var ROSTER = [
+  {n:1,id:"441109596",name:"ابراهيم عبدالله عبدالعزيز المنسلح",ok:true},
+  {n:2,id:"432111879",name:"أحمد ماجد صالح الفوزان",ok:true},
+  {n:3,id:"441109604",name:"تركي محمد تركي الفريدي",ok:true},
+  {n:4,id:"421108867",name:"حسام خالد عبدالكريم العوده",ok:true},
+  {n:5,id:"431110036",name:"خالد عبدالرحمن عبدالله الغميز",ok:true},
+  {n:6,id:"432112226",name:"سالم متعب سالم الخمشي",ok:true},
+  {n:7,id:"442106916",name:"سعود عبدالرحمن سعود الهذلي",ok:true},
+  {n:8,id:"442106912",name:"سليمان حسين سليمان المتوزي",ok:true},
+  {n:9,id:"422114156",name:"سليمان حمد سليمان الحسون",ok:true},
+  {n:10,id:"421108925",name:"صالح سعود عبدالعزيز الصمعاني",ok:false},
+  {n:11,id:"431108648",name:"صالح محمد صالح العواد",ok:true},
+  {n:12,id:"421110197",name:"صالح مساعد بن عبدالعزيز الغشام",ok:true},
+  {n:13,id:"431108687",name:"طارق سليمان عبدالله الزيداني",ok:false},
+  {n:14,id:"432110922",name:"عاصم محمد عثمان الفايز",ok:true},
+  {n:15,id:"442106937",name:"عبدالحميد خالد مصلح العتيبي",ok:false},
+  {n:16,id:"442106947",name:"عبدالرحمن محمد سليمان الجمعه",ok:true},
+  {n:17,id:"422112808",name:"عبدالله خالد فهد الربدي",ok:false},
+  {n:18,id:"431110332",name:"عبدالله فواز الحميدي الحربي",ok:true},
+  {n:19,id:"441109649",name:"عبدالله محمد عبدالله الميمان",ok:true},
+  {n:20,id:"442106964",name:"عبدالملك خالد ابراهيم الرومي",ok:true},
+  {n:21,id:"431108990",name:"عدنان عبدالله علي السلامه",ok:true},
+  {n:22,id:"442112878",name:"عزام سليمان صالح الحسين",ok:true},
+  {n:23,id:"411107687",name:"علي ابراهيم علي العضيبي",ok:false},
+  {n:24,id:"432112200",name:"علي عبدالرحمن علي المغير",ok:true},
+  {n:25,id:"421108397",name:"عمر ابراهيم علي الخشان",ok:false},
+  {n:26,id:"441109635",name:"عمر عبدالرحمن علي البويدي",ok:true},
+  {n:27,id:"451109787",name:"فيصل سامي بن عبدالله الرميان",ok:true},
+  {n:28,id:"443105444",name:"فيصل سعد خالد الحربي",ok:true},
+  {n:29,id:"441109662",name:"ماجد خالد عبدالله التركي",ok:true},
+  {n:30,id:"421108526",name:"ماجد عمر بن ابراهيم المشيقح",ok:true},
+  {n:31,id:"362114108",name:"محمد ابراهيم محمد الخضير",ok:true},
+  {n:32,id:"443116250",name:"محمد عبدالحميد احمد عبدالله",ok:true},
+  {n:33,id:"422113054",name:"مزيد ناصر صالح المزيد",ok:true},
+  {n:34,id:"443105479",name:"نواف عبدالعزيز عبدالله الثنيان",ok:true},
+  {n:35,id:"411110253",name:"وليد شالح بداح النحيت الحربي",ok:false},
+  {n:36,id:"442106948",name:"وليد عويد عبيد الرشيدي",ok:true},
+  {n:37,id:"421108876",name:"ياسر فهد عبدالعزيز المقيطيب",ok:true},
+  {n:38,id:"441109676",name:"ياسر حمود زنيوط المطيري",ok:true},
+  {n:39,id:"431110122",name:"ياسر محمد فرج المطيري",ok:true}
+];
+
+/* ══════════════════════════════════════════════════════════
+   CONFIRMED GROUPS — maintained by the instructor.
+   Add a line as each group is confirmed. Both students then
+   lock out of every list on this page, for everyone.
+   Format:
+     {a:"441109596", b:"432111879",
+      adult:"The Road Not Taken — Robert Frost",
+      child:"There was an Old Man with a beard — Edward Lear (limerick)"}
+   ══════════════════════════════════════════════════════════ */
+var CONFIRMED = [
+];
+
+var EMAIL = "atrsh@qu.edu.sa";
+var DUE   = "2026-08-06T23:59:00+03:00";
+
+(function(){
+  "use strict";
+  var KEY = "eng494_finalproject_signup_v1";
+  var $  = function(s,r){ return (r||document).querySelector(s); };
+  var $$ = function(s,r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); };
+  function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g,function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+
+  var BY_ID = {}; ROSTER.forEach(function(s){ BY_ID[s.id] = s; });
+
+  /* students already locked into a confirmed group */
+  var TAKEN = {};
+  CONFIRMED.forEach(function(g){
+    if (BY_ID[g.a]) TAKEN[g.a] = g;
+    if (BY_ID[g.b]) TAKEN[g.b] = g;
+  });
+  function partnerOf(id){ var g = TAKEN[id]; if(!g) return null; return BY_ID[g.a===id ? g.b : g.a] || null; }
+
+  /* ── state ── */
+  var S = { stage:0, me:null, buddy:null, adult:{t:"",p:"",s:""}, child:{t:"",k:"",p:"",s:""} };
+  function load(){
+    try{
+      var d = JSON.parse(localStorage.getItem(KEY));
+      if(!d) return;
+      if(d.me && BY_ID[d.me] && !TAKEN[d.me]) S.me = d.me;
+      if(d.buddy && BY_ID[d.buddy] && !TAKEN[d.buddy] && d.buddy !== S.me) S.buddy = d.buddy;
+      if(d.adult) S.adult = {t:d.adult.t||"",p:d.adult.p||"",s:d.adult.s||""};
+      if(d.child) S.child = {t:d.child.t||"",k:d.child.k||"",p:d.child.p||"",s:d.child.s||""};
+      if(!S.me) S.buddy = null;
+    }catch(e){}
+  }
+  function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
+
+  /* ── countdown ── */
+  function tick(){
+    var el = $("#cd"); if(!el) return;
+    var ms = new Date(DUE).getTime() - Date.now();
+    if(isNaN(ms)) { el.style.display="none"; return; }
+    if(ms <= 0){
+      el.innerHTML = '<div class="cd-u" style="min-width:auto;padding:8px 14px;"><div class="cd-n" style="font-size:14px;">Deadline passed</div></div>';
+      return;
+    }
+    var d = Math.floor(ms/864e5), h = Math.floor(ms/36e5)%24, m = Math.floor(ms/6e4)%60, s = Math.floor(ms/1e3)%60;
+    el.innerHTML = [[d,"days"],[h,"hours"],[m,"min"],[s,"sec"]].map(function(u){
+      return '<div class="cd-u"><div class="cd-n">'+u[0]+'</div><div class="cd-l">'+u[1]+'</div></div>'; }).join("");
+  }
+
+  /* ── rail ── */
+  function rail(){
+    $$(".rail-s").forEach(function(el){
+      var i = +el.getAttribute("data-r");
+      el.classList.toggle("on", i === S.stage);
+      el.classList.toggle("done", i < S.stage);
+    });
+  }
+  function go(n){
+    S.stage = n; save();
+    $$(".stage").forEach(function(el){ el.classList.remove("on"); });
+    var t = $("#s"+n); if(t) t.classList.add("on");
+    rail();
+    if(n===1) drawRoster(1);
+    if(n===2){ drawChip("#chip2"); drawRoster(2); }
+    if(n===3){ drawChip("#chip3"); fillTexts(); }
+    if(n===4) drawReview();
+    if(n>0){
+      var top = $(".su").getBoundingClientRect().top + window.pageYOffset - 62;
+      window.scrollTo({top:top, behavior:"smooth"});
+    }
+  }
+
+  /* ── roster rendering ── */
+  function drawRoster(which){
+    var q = ($("#q"+which).value || "").trim().toLowerCase();
+    var box = $("#r"+which);
+    var rows = ROSTER.filter(function(s){
+      if(!q) return true;
+      return s.name.toLowerCase().indexOf(q) > -1 || s.id.indexOf(q) > -1;
+    });
+    if(!rows.length){ box.innerHTML = '<div class="rost-empty">No student matches that search.</div>'; return; }
+    box.innerHTML = rows.map(function(s){
+      var cls = "rw", tag = "", dis = false;
+      if(!s.ok){ cls += " denied"; tag = '<span class="rw-tag">محروم · denied</span>'; dis = true; }
+      else if(TAKEN[s.id]){
+        var p = partnerOf(s.id);
+        cls += " taken"; dis = true;
+        tag = '<span class="rw-tag">In a group'+(p ? " · with "+esc(p.name.split(" ")[0]) : "")+'</span>';
+      }
+      else if(which===2 && s.id===S.me){ cls += " me"; dis = true; tag = '<span class="rw-tag">That&#39;s you</span>'; }
+      else if(which===1 && s.id===S.me){ cls += " sel"; tag = '<span class="rw-tag" style="background:var(--green);color:#fff;">Selected</span>'; }
+      else if(which===2 && s.id===S.buddy){ cls += " sel"; tag = '<span class="rw-tag" style="background:var(--green);color:#fff;">Selected</span>'; }
+      return '<button type="button" class="'+cls+'" data-id="'+s.id+'"'+(dis?" disabled":"")+'>'
+           + '<span class="rw-n">'+s.n+'</span>'
+           + '<span class="rw-b"><span class="rw-nm">'+esc(s.name)+'</span><span class="rw-id">'+s.id+'</span></span>'
+           + '<span class="rw-tw">'+tag+'</span></button>';
+    }).join("");
+    $$(".rw", box).forEach(function(b){
+      if(b.disabled) return;
+      b.addEventListener("click", function(){
+        var id = b.getAttribute("data-id");
+        if(which===1){
+          S.me = id;
+          if(S.buddy === id) S.buddy = null;
+          save(); go(2);
+        } else {
+          S.buddy = id; save(); go(3);
+        }
+      });
+    });
+  }
+
+  function drawChip(sel){
+    var el = $(sel); if(!el) return;
+    var me = BY_ID[S.me]; if(!me){ el.innerHTML=""; return; }
+    var html = '<div class="chip"><span class="chip-l">You</span><span class="chip-v">'+esc(me.name)+'</span>'
+             + '<button type="button" class="chip-x" data-x="me" aria-label="Change who I am">✕</button></div>';
+    if(sel === "#chip3" && S.buddy && BY_ID[S.buddy]){
+      html += ' <div class="chip"><span class="chip-l">Partner</span><span class="chip-v">'+esc(BY_ID[S.buddy].name)+'</span>'
+            + '<button type="button" class="chip-x" data-x="buddy" aria-label="Change partner">✕</button></div>';
+    }
+    el.innerHTML = html;
+    $$(".chip-x", el).forEach(function(b){
+      b.addEventListener("click", function(){
+        if(b.getAttribute("data-x") === "me"){ S.me=null; S.buddy=null; save(); go(1); }
+        else { S.buddy=null; save(); go(2); }
+      });
+    });
+  }
+
+  /* ── stage 3 ── */
+  function fillTexts(){
+    $("#a-t").value = S.adult.t; $("#a-p").value = S.adult.p; $("#a-s").value = S.adult.s;
+    $("#c-t").value = S.child.t; $("#c-p").value = S.child.p; $("#c-s").value = S.child.s;
+    $$(".ck").forEach(function(b){
+      var on = b.getAttribute("data-k") === S.child.k;
+      b.classList.toggle("btn-primary", on); b.classList.toggle("btn-outline", !on);
+    });
+    checkDup();
+  }
+  function readTexts(){
+    S.adult = {t:$("#a-t").value.trim(), p:$("#a-p").value.trim(), s:$("#a-s").value.trim()};
+    S.child.t = $("#c-t").value.trim(); S.child.p = $("#c-p").value.trim(); S.child.s = $("#c-s").value.trim();
+    save();
+  }
+  function norm(s){ return String(s||"").toLowerCase().replace(/[^a-z0-9؀-ۿ]+/g," ").trim(); }
+  function checkDup(){
+    var w = $("#warn3"); if(!w) return;
+    var at = norm($("#a-t").value), ct = norm($("#c-t").value), hits = [];
+    CONFIRMED.forEach(function(g){
+      if(at && norm(g.adult).indexOf(at) > -1) hits.push("the adult poem “"+$("#a-t").value.trim()+"”");
+      if(ct && norm(g.child).indexOf(ct) > -1) hits.push("the children's text “"+$("#c-t").value.trim()+"”");
+    });
+    w.innerHTML = hits.length
+      ? '<div class="warn">⚠️ Another group has already registered '+esc(hits.join(" and "))+'. Two groups may not translate the same text — please choose another.</div>'
+      : "";
+  }
+
+  /* ── stage 4 ── */
+  function drawReview(){
+    var me = BY_ID[S.me], bu = BY_ID[S.buddy];
+    if(!me || !bu){ go(1); return; }
+    var rows = [
+      ["Student 1", esc(me.name)+" · "+me.id, true],
+      ["Student 2", esc(bu.name)+" · "+bu.id, true],
+      ["Adult poem", esc(S.adult.t)+(S.adult.p ? " — "+esc(S.adult.p) : "")+(S.adult.s ? '<br><span style="color:var(--text-3);font-size:12.5px;">Source: '+esc(S.adult.s)+"</span>" : ""), false],
+      ["Children's text", esc(S.child.t)+(S.child.p ? " — "+esc(S.child.p) : "")+(S.child.k ? ' <span style="color:var(--text-3);">('+esc(S.child.k)+")</span>" : "")+(S.child.s ? '<br><span style="color:var(--text-3);font-size:12.5px;">Source: '+esc(S.child.s)+"</span>" : ""), false],
+      ["Due", "Thursday 6 August 2026, 11:59 PM · Blackboard Ultra", false]
+    ];
+    $("#rev").innerHTML = rows.map(function(r){
+      return '<div class="rev-r"><div class="rev-k">'+r[0]+'</div><div class="rev-v'+(r[2]?" ar":"")+'">'+r[1]+"</div></div>"; }).join("");
+
+    var slip = [
+      "ENG 494 — Final Project group sign-up (Section 173)",
+      "",
+      "Student 1: " + me.name + " — " + me.id,
+      "Student 2: " + bu.name + " — " + bu.id,
+      "",
+      "Part 1 — adult poem: " + S.adult.t + (S.adult.p ? " (" + S.adult.p + ")" : "") + (S.adult.s ? " [" + S.adult.s + "]" : ""),
+      "Part 2 — children's " + (S.child.k || "text").toLowerCase() + ": " + S.child.t + (S.child.p ? " (" + S.child.p + ")" : "") + (S.child.s ? " [" + S.child.s + "]" : ""),
+      "",
+      "Submitted from the course website on " + new Date().toLocaleString("en-GB", {timeZone:"Asia/Riyadh"}) + " (Riyadh)."
+    ].join("\n");
+    $("#slip").textContent = slip;
+    $("#b-mail").href = "mailto:" + EMAIL
+      + "?subject=" + encodeURIComponent("ENG 494 Final Project — group sign-up (" + me.id + " + " + bu.id + ")")
+      + "&body=" + encodeURIComponent(slip);
+  }
+
+  /* ── registered groups table ── */
+  function drawRegistered(){
+    var wrap = $("#reg-wrap"), cnt = $("#reg-count");
+    cnt.textContent = CONFIRMED.length ? "· " + CONFIRMED.length + " of 16" : "";
+    if(!CONFIRMED.length){
+      wrap.innerHTML = '<div class="reg-empty"><div class="reg-empty-ic">📋</div>'
+        + '<div class="reg-empty-t">No groups registered yet</div>'
+        + '<div class="reg-empty-s">Groups appear here as Dr. Alatrash confirms them. Check back after you have sent your sign-up — if your names are not here, your group is not yet registered.</div></div>';
+      return;
+    }
+    wrap.innerHTML = '<div style="overflow-x:auto;"><table class="tbl"><thead><tr>'
+      + '<th style="width:34px;">#</th><th>Group</th><th>Adult poem</th><th>Children\'s text</th>'
+      + '</tr></thead><tbody>'
+      + CONFIRMED.map(function(g,i){
+          var a = BY_ID[g.a], b = BY_ID[g.b];
+          return '<tr><td style="font-weight:800;color:var(--green-dark);">'+(i+1)+'</td>'
+            + '<td class="ar" style="font-weight:600;">'+esc(a?a.name:g.a)+'<br>'+esc(b?b.name:g.b)+'</td>'
+            + '<td>'+esc(g.adult||"—")+'</td><td>'+esc(g.child||"—")+'</td></tr>';
+        }).join("")
+      + "</tbody></table></div>";
+  }
+
+  /* ── wiring ── */
+  function init(){
+    load();
+    tick(); setInterval(tick, 1000);
+    drawRegistered();
+
+    var gates = $$(".gate");
+    function gchk(){ $("#b-gate").disabled = !gates.every(function(c){ return c.checked; }); }
+    gates.forEach(function(c){ c.addEventListener("change", gchk); });
+    $("#b-gate").addEventListener("click", function(){ go(1); });
+
+    $("#q1").addEventListener("input", function(){ drawRoster(1); });
+    $("#q2").addEventListener("input", function(){ drawRoster(2); });
+    $("#b1-back").addEventListener("click", function(){ go(0); });
+    $("#b2-back").addEventListener("click", function(){ S.me=null; S.buddy=null; save(); go(1); });
+    $("#b3-back").addEventListener("click", function(){ readTexts(); S.buddy=null; save(); go(2); });
+    $("#b4-back").addEventListener("click", function(){ go(3); });
+
+    $$(".ck").forEach(function(b){
+      b.addEventListener("click", function(){
+        S.child.k = b.getAttribute("data-k"); save();
+        $$(".ck").forEach(function(x){
+          var on = x === b;
+          x.classList.toggle("btn-primary", on); x.classList.toggle("btn-outline", !on);
+        });
+      });
+    });
+    ["#a-t","#a-p","#a-s","#c-t","#c-p","#c-s"].forEach(function(sel){
+      $(sel).addEventListener("input", function(){ readTexts(); checkDup(); });
+    });
+
+    $("#b3-next").addEventListener("click", function(){
+      readTexts();
+      var need = [["#a-t",S.adult.t],["#a-p",S.adult.p],["#c-t",S.child.t]], bad = false;
+      need.forEach(function(p){
+        var el = $(p[0]), empty = !p[1];
+        el.classList.toggle("bad", empty);
+        if(empty && !bad){ bad = true; el.focus(); }
+      });
+      if(!S.child.k){
+        bad = true;
+        $("#warn3").innerHTML = '<div class="warn">Please say whether your Part 2 text is a children\'s poem, a song, a limerick or a nursery rhyme.</div>';
+      }
+      if(bad){
+        if(S.child.k) $("#warn3").innerHTML = '<div class="warn">Please fill in the fields marked with a red star before continuing.</div>';
+        return;
+      }
+      checkDup();
+      go(4);
+    });
+
+    $("#b-copy").addEventListener("click", function(){
+      var t = $("#slip").textContent, btn = $("#b-copy"), old = btn.textContent;
+      function done(){ btn.textContent = "✅ Copied"; setTimeout(function(){ btn.textContent = old; }, 1800); }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(t).then(done, fallback);
+      } else fallback();
+      function fallback(){
+        var ta = document.createElement("textarea");
+        ta.value = t; ta.style.position="fixed"; ta.style.opacity="0";
+        document.body.appendChild(ta); ta.select();
+        try{ document.execCommand("copy"); done(); }catch(e){}
+        document.body.removeChild(ta);
+      }
+    });
+
+    $("#b-reset").addEventListener("click", function(){
+      if(!window.confirm("Clear your sign-up and start again?")) return;
+      S = { stage:0, me:null, buddy:null, adult:{t:"",p:"",s:""}, child:{t:"",k:"",p:"",s:""} };
+      try{ localStorage.removeItem(KEY); }catch(e){}
+      gates.forEach(function(c){ c.checked = false; }); gchk();
+      go(0);
+    });
+
+    /* resume where the student left off */
+    var start = 0;
+    if(S.me && S.buddy) start = (S.adult.t && S.adult.p && S.child.t && S.child.k) ? 4 : 3;
+    else if(S.me) start = 2;
+    if(start > 0){ gates.forEach(function(c){ c.checked = true; }); gchk(); }
+    S.stage = start;
+    $$(".stage").forEach(function(el){ el.classList.remove("on"); });
+    var t0 = $("#s"+start); if(t0) t0.classList.add("on");
+    rail();
+    if(start===1) drawRoster(1);
+    if(start===2){ drawChip("#chip2"); drawRoster(2); }
+    if(start===3){ drawChip("#chip3"); fillTexts(); }
+    if(start===4) drawReview();
+  }
+
+  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
+<script src="track.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>
