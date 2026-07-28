@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Real Articles Write Data Analysis | ENG 446</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="Three real published open-access studies on AI in English education — each with a pre-test/post-test and a survey. Download them, then work through how each one actually writes its Data Analysis section.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 446">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 446 Research Methods">
+<meta property="og:title" content="How Real Articles Write Data Analysis | ENG 446">
+<meta property="og:description" content="Three real open-access studies on AI in English education, and how each presents its Data Analysis section.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng446/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng446/workshop-real-analysis.html">
+<meta name="twitter:card" content="summary">
+<style>
+body{background:var(--off-white);}
+.lead{font-size:14px;color:var(--text-2);line-height:1.6;margin:-2px 0 14px;}
+
+/* tabs */
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:5px;background:var(--white);border-radius:var(--r-pill);box-shadow:var(--shadow-xs);margin-bottom:26px;-webkit-overflow-scrolling:touch;}
+.tab{flex:0 0 auto;padding:10px 16px;border:none;background:transparent;border-radius:var(--r-pill);font-size:13px;font-weight:700;color:var(--text-2);cursor:pointer;white-space:nowrap;font-family:var(--font);transition:background .15s,color .15s;}
+.tab:hover{background:var(--off-white);color:var(--text);}
+.tab.on{background:var(--green);color:#fff;}
+.panel{display:none;} .panel.on{display:block;}
+
+/* article cards */
+.art{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);overflow:hidden;margin-bottom:20px;}
+.art-head{padding:20px 22px;border-bottom:1px solid var(--border-light);display:flex;gap:15px;align-items:flex-start;}
+.art-n{width:34px;height:34px;border-radius:50%;color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.a1 .art-n{background:#0071e3;} .a2 .art-n{background:#c2410c;} .a3 .art-n{background:#7c3aed;}
+.a1 .art-head{background:#f0f7ff;} .a2 .art-head{background:#fff5ed;} .a3 .art-head{background:#f5f3ff;}
+.art-t{font-size:16px;font-weight:800;color:var(--text);line-height:1.35;letter-spacing:-.01em;}
+.art-meta{font-size:12.5px;color:var(--text-2);margin-top:5px;line-height:1.6;}
+.art-body{padding:20px 22px;}
+.pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px;}
+.pill{font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:var(--r-pill);background:var(--white);border:1px solid var(--border);color:var(--text-2);}
+.pill.oa{background:var(--green-light);border-color:var(--green);color:var(--green-dark);}
+.pill.hot{background:#fef3c7;border-color:#f59e0b;color:#92400e;}
+
+.dl{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px;}
+.dl-btn{display:inline-flex;align-items:center;gap:7px;padding:10px 17px;border-radius:var(--r-pill);font-size:13.5px;font-weight:700;text-decoration:none;background:var(--green);color:#fff;transition:opacity .15s;}
+.dl-btn:hover{opacity:.88;text-decoration:none;color:#fff;}
+.dl-alt{display:inline-flex;align-items:center;gap:6px;padding:10px 15px;border-radius:var(--r-pill);font-size:13px;font-weight:600;text-decoration:none;border:1.5px solid var(--border);color:var(--text-2);}
+.dl-alt:hover{border-color:var(--green);color:var(--green);text-decoration:none;}
+
+.kv{display:grid;grid-template-columns:150px 1fr;gap:0;border:1px solid var(--border-light);border-radius:var(--r-md);overflow:hidden;margin-top:6px;}
+.kv>div{padding:10px 14px;font-size:13.5px;line-height:1.55;border-bottom:1px solid var(--border-light);}
+.kv>div:nth-child(odd){background:var(--off-white);font-weight:700;color:var(--text-3);font-size:12px;text-transform:uppercase;letter-spacing:.04em;}
+.kv>div:nth-last-child(-n+2){border-bottom:none;}
+
+.sub-h{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);margin:22px 0 10px;}
+.sub-h:first-child{margin-top:0;}
+.art p,.panel>p{font-size:14px;line-height:1.65;color:var(--text);margin-bottom:10px;}
+
+/* the "how they did it" step strip */
+.flow{display:flex;flex-direction:column;gap:8px;}
+.flow-s{display:flex;gap:12px;align-items:flex-start;background:var(--off-white);border-radius:var(--r-md);padding:13px 15px;}
+.flow-n{width:23px;height:23px;border-radius:50%;background:var(--text);color:#fff;font-weight:800;font-size:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.flow-t{font-size:13.5px;font-weight:700;color:var(--text);line-height:1.4;}
+.flow-d{font-size:13px;color:var(--text-2);line-height:1.6;margin-top:3px;}
+
+/* stat tables */
+.tw{overflow-x:auto;border-radius:var(--r-md);margin:6px 0 4px;}
+.st{width:100%;border-collapse:collapse;font-size:13px;background:var(--white);min-width:420px;}
+.st thead tr{background:var(--off-white);}
+.st th{padding:9px 12px;font-weight:800;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-3);text-align:left;}
+.st td{padding:9px 12px;border-top:1px solid var(--border-light);line-height:1.5;font-variant-numeric:tabular-nums;}
+.st .exp{background:#f0fdf4;} .st .ctl{background:#fafafa;}
+.st .lab{font-weight:700;white-space:nowrap;}
+.cap{font-size:12px;color:var(--text-3);line-height:1.6;margin:6px 0 0;font-style:italic;}
+
+.note{border-left:3px solid var(--blue);background:var(--blue-light);border-radius:var(--r-md);padding:13px 16px;font-size:13.5px;line-height:1.65;margin:12px 0;}
+.note b{color:#0b4f9e;}
+.warnbox{border-left:3px solid var(--amber);background:var(--amber-light);border-radius:var(--r-md);padding:13px 16px;font-size:13.5px;line-height:1.65;margin:12px 0;color:#7c4a03;}
+
+/* exercises */
+.ex{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:20px 22px;margin-bottom:16px;}
+.ex-h{display:flex;gap:11px;align-items:center;margin-bottom:5px;}
+.ex-n{width:26px;height:26px;border-radius:var(--r-sm);background:var(--green);color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ex-t{font-size:15px;font-weight:800;color:var(--text);letter-spacing:-.01em;}
+.ex-s{font-size:13.5px;color:var(--text-2);line-height:1.65;margin-bottom:14px;}
+.ex ol,.ex ul{margin:0 0 12px 18px;font-size:13.5px;line-height:1.75;color:var(--text);}
+.ex li{margin-bottom:5px;}
+.ta{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:14px;font-family:var(--font);min-height:110px;resize:vertical;line-height:1.6;background:var(--white);color:var(--text);}
+.ta:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px rgba(26,107,60,.13);}
+.reveal{margin-top:12px;}
+.rv-btn{background:var(--white);border:1.5px solid var(--green);color:var(--green);padding:9px 17px;border-radius:var(--r-pill);font-size:13px;font-weight:700;cursor:pointer;font-family:var(--font);}
+.rv-btn:hover{background:var(--green-light);}
+.rv-body{display:none;margin-top:12px;background:var(--green-light);border-left:3px solid var(--green);border-radius:var(--r-md);padding:15px 17px;font-size:13.5px;line-height:1.7;color:var(--green-dark);}
+.rv-body.on{display:block;}
+.rv-body strong{color:var(--green-dark);}
+.rv-body ul{margin:8px 0 0 18px;} .rv-body li{margin-bottom:5px;}
+
+/* match exercise */
+.mrow{display:flex;gap:10px;align-items:center;background:var(--off-white);border-radius:var(--r-md);padding:11px 13px;margin-bottom:8px;flex-wrap:wrap;}
+.mq{flex:1;min-width:190px;font-size:13.5px;line-height:1.5;}
+.msel{padding:9px 12px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:13px;font-family:var(--font);background:var(--white);color:var(--text);min-width:172px;}
+.msel.ok{border-color:var(--green);background:var(--green-light);}
+.msel.no{border-color:var(--red);background:var(--red-light);}
+.mres{font-size:13.5px;font-weight:700;margin-top:10px;}
+
+/* quiz */
+.q{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:20px 22px;margin-bottom:14px;}
+.q-n{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);}
+.q-t{font-size:14.5px;font-weight:700;color:var(--text);margin:5px 0 13px;line-height:1.55;}
+.opt{display:flex;gap:11px;align-items:flex-start;width:100%;text-align:left;background:var(--off-white);border:1.5px solid transparent;border-radius:var(--r-md);padding:12px 14px;margin-bottom:8px;cursor:pointer;font-size:13.5px;font-family:var(--font);line-height:1.55;color:var(--text);transition:border-color .13s;}
+.opt:hover:not(:disabled){border-color:var(--green);}
+.opt:disabled{cursor:default;}
+.opt-l{width:22px;height:22px;border-radius:50%;background:var(--white);border:1.5px solid var(--border);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.opt.right{border-color:var(--green);background:var(--green-light);} .opt.right .opt-l{background:var(--green);color:#fff;border-color:var(--green);}
+.opt.wrong{border-color:var(--red);background:var(--red-light);} .opt.wrong .opt-l{background:var(--red);color:#fff;border-color:var(--red);}
+.fb{display:none;margin-top:10px;border-radius:var(--r-md);padding:13px 15px;font-size:13.5px;line-height:1.7;}
+.fb.on{display:block;} .fb.good{background:var(--green-light);color:var(--green-dark);border-left:3px solid var(--green);}
+.fb.bad{background:var(--red-light);color:#991b1b;border-left:3px solid var(--red);}
+.score{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-sm);padding:24px;text-align:center;margin-top:18px;}
+.score-n{font-size:40px;font-weight:800;color:var(--green);letter-spacing:-.03em;}
+.score-l{font-size:13.5px;color:var(--text-2);margin-top:5px;}
+
+@media(max-width:680px){
+  .kv{grid-template-columns:1fr;}
+  .kv>div:nth-child(odd){padding-bottom:2px;border-bottom:none;}
+  .art-head{padding:16px;} .art-body{padding:16px;} .ex{padding:16px;} .q{padding:16px;}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 446</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Real Data Analysis</span>
+    <div class="nav-spacer"></div>
+    <div class="nav-links"><a class="nav-link" href="week5.html">← Week 5</a><a class="nav-link" href="index.html">Hub</a></div>
+  </div>
+</nav>
+
+<div class="hero" style="padding-bottom:26px;">
+  <div class="hero-eyebrow">Week 5 · Unit: Analysis · Deep dive</div>
+  <h1>How Real Articles Write Data Analysis</h1>
+  <p class="hero-sub">Three <strong>real published studies</strong> on AI in English education. Every one of them used a pre-test/post-test <em>and</em> a survey — exactly your design. Download them, then see how each turns numbers into a section.</p>
+</div>
+
+<div class="section-alt" style="padding:8px 0 64px;">
+<div class="section-inner">
+
+  <div class="info-box info-green mb-32" style="text-align:left;">
+    <h3>📥 All three are free and legal to download</h3>
+    <p>These are <strong>open-access</strong> articles published under a Creative Commons Attribution (CC BY) licence — you may download, keep and quote them, provided you cite them properly. Nothing here is behind a paywall and nothing needs a library login. <strong>Download all three before you start the workshop</strong>; every task below sends you back into the PDFs.</p>
+  </div>
+
+  <div class="tabs" id="tabs">
+    <button class="tab on" data-p="p0">📚 1 · The Three Articles</button>
+    <button class="tab" data-p="p1">🔬 2 · Anatomy of the Section</button>
+    <button class="tab" data-p="p2">⚖️ 3 · Three Ways, One Design</button>
+    <button class="tab" data-p="p3">✍️ 4 · Your Turn</button>
+    <button class="tab" data-p="p4">📝 5 · Quiz</button>
+  </div>
+
+  <!-- ══════════ PANEL 0 ══════════ -->
+  <div class="panel on" id="p0">
+    <p class="lead">Each card gives you the citation in APA 7, what the study actually measured, and a direct download. Read the <strong>Results / Data Analysis</strong> section of each one — that is the part you are copying the craft of, not the topic.</p>
+
+    <!-- ARTICLE 1 -->
+    <div class="art a1">
+      <div class="art-head">
+        <div class="art-n">1</div>
+        <div>
+          <div class="art-t">Enhancing academic writing skills and motivation: assessing the efficacy of ChatGPT in AI-assisted language learning for EFL students</div>
+          <div class="art-meta">Song, C., &amp; Song, Y. (2023). <em>Frontiers in Psychology, 14</em>, 1260843.<br>North Minzu University &amp; Central South University, China · Published 15 December 2023</div>
+          <div class="pills">
+            <span class="pill oa">Open access · CC BY 4.0</span>
+            <span class="pill">Pre/post test</span>
+            <span class="pill">Motivation survey</span>
+            <span class="pill">Interviews</span>
+            <span class="pill hot">Uses ANCOVA</span>
+          </div>
+        </div>
+      </div>
+      <div class="art-body">
+        <div class="kv">
+          <div>Design</div><div>12-week quasi-experiment · 50 Chinese EFL students · experimental group used ChatGPT, control group had teacher-led instruction</div>
+          <div>Test instrument</div><div>IELTS academic writing tasks 1 &amp; 2, scored for content, organisation and language use</div>
+          <div>Survey instrument</div><div>Writing Motivation Scale — 7 items, 5-point Likert, Cronbach's α = 0.86</div>
+          <div>Also collected</div><div>Semi-structured interviews with 9 students from the experimental group</div>
+          <div>Analysis used</div><div>Descriptive statistics → independent-samples <em>t</em>-tests → a series of one-way <strong>ANCOVAs</strong> using the pre-test as covariate, with partial η² effect sizes</div>
+        </div>
+        <div class="dl">
+          <a class="dl-btn" href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1260843/pdf" target="_blank" rel="noopener">⬇ Download the PDF</a>
+          <a class="dl-alt" href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1260843/full" target="_blank" rel="noopener">Read online ↗</a>
+          <a class="dl-alt" href="https://doi.org/10.3389/fpsyg.2023.1260843" target="_blank" rel="noopener">DOI ↗</a>
+        </div>
+        <div class="note"><b>Why this one is on the list:</b> it is the closest to a textbook example. It reports the descriptive table first, then the inferential test, then the effect size — and it uses the pre-test as a <em>covariate</em> rather than just comparing gains. If your groups were not equal at the start, this is the model to follow.</div>
+      </div>
+    </div>
+
+    <!-- ARTICLE 2 -->
+    <div class="art a2">
+      <div class="art-head">
+        <div class="art-n">2</div>
+        <div>
+          <div class="art-t">Evaluating the Effectiveness of Chatbot-Assisted Learning in Enhancing English Conversational Skills Among Secondary School Students</div>
+          <div class="art-meta">Alenezi, A., &amp; Alenezi, A. (2025). <em>Education Sciences, 15</em>(9), 1136.<br>Northern Border University, Arar &amp; Jouf University, Al-Jawf — <strong>Saudi Arabia</strong> · Published 1 September 2025</div>
+          <div class="pills">
+            <span class="pill oa">Open access · CC BY 4.0</span>
+            <span class="pill">Pre/post test</span>
+            <span class="pill">Attitude questionnaire</span>
+            <span class="pill">Observation rubric</span>
+            <span class="pill hot">Uses paired &amp; independent <em>t</em>-tests</span>
+          </div>
+        </div>
+      </div>
+      <div class="art-body">
+        <div class="kv">
+          <div>Design</div><div>3-week intervention · 30 secondary students aged 15–17 in the Northern Borders Region · 15 experimental, 15 control</div>
+          <div>Test instrument</div><div>Structured conversation tasks marked on a 5-point rubric out of 20 — fluency, vocabulary, grammar, pronunciation, contextual relevance</div>
+          <div>Survey instrument</div><div>10-item student attitude questionnaire, 5-point Likert — enjoyment, motivation, confidence, perceived gains, satisfaction</div>
+          <div>Also collected</div><div>Teacher observation rubric (two independent raters) and automatic chatbot usage logs</div>
+          <div>Analysis used</div><div>Descriptive statistics → <strong>paired</strong> <em>t</em>-tests within each group → <strong>independent</strong> <em>t</em>-tests between groups → <strong>Pearson correlation</strong> between usage time and improvement</div>
+        </div>
+        <div class="dl">
+          <a class="dl-btn" href="https://www.mdpi.com/2227-7102/15/9/1136/pdf" target="_blank" rel="noopener">⬇ Download the PDF</a>
+          <a class="dl-alt" href="https://www.mdpi.com/2227-7102/15/9/1136" target="_blank" rel="noopener">Read online ↗</a>
+          <a class="dl-alt" href="https://doi.org/10.3390/educsci15091136" target="_blank" rel="noopener">DOI ↗</a>
+        </div>
+        <div class="note"><b>Why this one is on the list:</b> it is <strong>Saudi</strong>, it is <strong>small</strong> (30 students — about the size of your own samples), and it is the most imitable. It also does something the other two do not: it correlates <em>how much</em> students used the tool with <em>how much</em> they improved. If you logged any usage data, this is your model.</div>
+      </div>
+    </div>
+
+    <!-- ARTICLE 3 -->
+    <div class="art a3">
+      <div class="art-head">
+        <div class="art-n">3</div>
+        <div>
+          <div class="art-t">AI-generated corpus learning and EFL learners' learning of grammatical structures, lexical bundles, and willingness to write</div>
+          <div class="art-meta">Lu, C. (2025). <em>PLOS ONE, 20</em>(7), e0321544.<br>Baotou Teachers' College, China · Published 11 July 2025</div>
+          <div class="pills">
+            <span class="pill oa">Open access · CC BY 4.0</span>
+            <span class="pill">Pre/post + delayed test</span>
+            <span class="pill">Willingness scale</span>
+            <span class="pill hot">Uses mixed ANOVA</span>
+          </div>
+        </div>
+      </div>
+      <div class="art-body">
+        <div class="kv">
+          <div>Design</div><div>14 sessions · 80 EFL students at Baotou Teachers' College · 40 experimental (AI-generated corpus), 40 control (textbook)</div>
+          <div>Test instrument</div><div>Two 30-item multiple-choice tests — grammatical structures and lexical bundles (KR-21 = 0.79 pre, 0.81 post)</div>
+          <div>Survey instrument</div><div>Willingness to Write Scale — 8 items adapted from MacIntyre et al., Cronbach's α = 0.83</div>
+          <div>Distinctive move</div><div>Added a <strong>delayed post-test</strong> (follow-up) to test whether the gain lasted</div>
+          <div>Analysis used</div><div><strong>Mixed ANOVA</strong> — time (pre/post/follow-up) × group — reporting main effects, the interaction effect, and η²</div>
+        </div>
+        <div class="dl">
+          <a class="dl-btn" href="https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0321544&amp;type=printable" target="_blank" rel="noopener">⬇ Download the PDF</a>
+          <a class="dl-alt" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0321544" target="_blank" rel="noopener">Read online ↗</a>
+          <a class="dl-alt" href="https://doi.org/10.1371/journal.pone.0321544" target="_blank" rel="noopener">DOI ↗</a>
+        </div>
+        <div class="note"><b>Why this one is on the list:</b> three time points instead of two. The <strong>interaction effect</strong> is the finding that matters here — it is what tells you the two groups changed <em>differently over time</em>, which is the actual claim an intervention study wants to make.</div>
+      </div>
+    </div>
+
+    <div class="warnbox">
+      <strong>⚠️ A caution before you imitate anything.</strong> Published does not mean flawless. All three of these studies have small samples, and one of them reports no assumption checks at all before running its ANOVA. Part of your job in Tab 3 is to notice what each one <em>does not</em> report. Read like a researcher, not like a fan.
+    </div>
+  </div>
+
+  <!-- ══════════ PANEL 1 ══════════ -->
+  <div class="panel" id="p1">
+    <p class="lead">Strip away the topic and every good Data Analysis section does the same six things in the same order. Here is the pattern, illustrated with Article 1 because it follows it most cleanly.</p>
+
+    <div class="art" style="margin-bottom:22px;">
+      <div class="art-body">
+        <div class="sub-h">The six moves</div>
+        <div class="flow">
+          <div class="flow-s"><span class="flow-n">1</span><div><div class="flow-t">Say what you did to the data before you tested anything</div><div class="flow-d">Which software, how scores were computed, how raters were reconciled, how incomplete responses were handled. One short paragraph. This is the move students skip most often.</div></div></div>
+          <div class="flow-s"><span class="flow-n">2</span><div><div class="flow-t">Report reliability</div><div class="flow-d">Cronbach's α for a Likert survey; KR-21 or KR-20 for a right/wrong test; inter-rater agreement if humans marked anything. Article 1 reports α = 0.86 for its motivation scale, Article 3 reports α = 0.83 and KR-21 = 0.79/0.81. <strong>A survey with no reported reliability is a survey a reader cannot trust.</strong></div></div></div>
+          <div class="flow-s"><span class="flow-n">3</span><div><div class="flow-t">Show descriptive statistics first — in a table</div><div class="flow-d">Means and standard deviations for every group at every time point. The reader must be able to see the raw picture before you tell them what it means. Never open with a <em>p</em>-value.</div></div></div>
+          <div class="flow-s"><span class="flow-n">4</span><div><div class="flow-t">State the test and why that test</div><div class="flow-d">"Because the two groups differed slightly at pre-test, a one-way ANCOVA was run with the pre-test as covariate." The reason is as important as the test.</div></div></div>
+          <div class="flow-s"><span class="flow-n">5</span><div><div class="flow-t">Report the result in the standard format</div><div class="flow-d">Statistic, degrees of freedom, value, <em>p</em>, and effect size — in that order, e.g. <code>F(1, 47) = 19.01, p &lt; .001, partial η² = 0.27</code>.</div></div></div>
+          <div class="flow-s"><span class="flow-n">6</span><div><div class="flow-t">Say what it means in one plain sentence</div><div class="flow-d">A number is not a finding until you say what it shows. "The experimental group outperformed the control group on overall writing after controlling for pre-test scores."</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="art a1">
+      <div class="art-head"><div class="art-n">1</div><div><div class="art-t">Move 3 in practice — Article 1's descriptive table</div><div class="art-meta">Song &amp; Song (2023), overall writing score. These are the article's own reported figures.</div></div></div>
+      <div class="art-body">
+        <div class="tw"><table class="st">
+          <thead><tr><th>Group</th><th>Pre-test M (SD)</th><th>Post-test M (SD)</th><th>Change</th></tr></thead>
+          <tbody>
+            <tr class="exp"><td class="lab">Experimental (ChatGPT)</td><td>39.26 (12.03)</td><td>59.12 (14.23)</td><td>+19.86</td></tr>
+            <tr class="ctl"><td class="lab">Control (teacher-led)</td><td>37.31 (17.26)</td><td>45.18 (15.62)</td><td>+7.87</td></tr>
+          </tbody>
+        </table></div>
+        <p class="cap">Both groups improved. That is why a control group exists — without it, the +19.86 looks like proof and is not.</p>
+
+        <div class="sub-h">Then moves 4–6, in the article's own logic</div>
+        <p>The two groups were not identical at pre-test (39.26 vs 37.31), so a simple comparison of post-test scores would be unfair to the control group. The article therefore runs a <strong>one-way ANCOVA with the pre-test score as the covariate</strong> — statistically levelling the starting line — and reports:</p>
+        <div class="note" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;"><b>F(1, 47) = 19.01, p &lt; .001, partial η² = 0.27</b></div>
+        <p>Read left to right: an <em>F</em> test with 1 and 47 degrees of freedom returned 19.01; the probability of seeing a difference this large by chance is under one in a thousand; and the grouping accounts for about <strong>27%</strong> of the variance in writing scores — a large effect. The same three-part report appears again for motivation: <code>F(1, 47) = 29.62, p &lt; .001, partial η² = 0.38</code>.</p>
+
+        <div class="warnbox"><strong>The mark students lose most often.</strong> Reporting <em>p</em> and stopping. <em>p</em> tells you the difference is probably not luck; it says nothing about whether the difference is <strong>big enough to matter</strong>. That is what the effect size is for. With 30 participants you can have a real effect and a <em>p</em> above .05 — and with 3,000 you can have a trivial effect and <em>p</em> &lt; .001.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ PANEL 2 ══════════ -->
+  <div class="panel" id="p2">
+    <p class="lead">All three studies ran the same basic design — two groups, a test before and after, plus a survey. All three chose a <em>different</em> statistical route. Which one you copy depends on what your own data looks like.</p>
+
+    <div class="tw" style="margin-bottom:20px;"><table class="st" style="min-width:640px;">
+      <thead><tr><th>&nbsp;</th><th>Article 1 · Song &amp; Song</th><th>Article 2 · Alenezi &amp; Alenezi</th><th>Article 3 · Lu</th></tr></thead>
+      <tbody>
+        <tr><td class="lab">Sample</td><td>50</td><td>30</td><td>80</td></tr>
+        <tr><td class="lab">Time points</td><td>2 (pre, post)</td><td>2 (pre, post)</td><td>3 (pre, post, delayed)</td></tr>
+        <tr><td class="lab">Main test</td><td>One-way ANCOVA</td><td>Paired + independent <em>t</em>-tests</td><td>Mixed ANOVA (time × group)</td></tr>
+        <tr><td class="lab">Effect size</td><td>partial η²</td><td>Not consistently reported</td><td>η²</td></tr>
+        <tr><td class="lab">Extra analysis</td><td>Thematic analysis of interviews</td><td>Pearson <em>r</em>: usage ↔ gain</td><td>Follow-up test for durability</td></tr>
+        <tr><td class="lab">Survey handled by</td><td>Treated as a scored outcome, run through ANCOVA</td><td>Reported as descriptive means per item</td><td>Treated as a scored outcome in the ANOVA</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="art"><div class="art-body">
+      <div class="sub-h">Which route fits your project?</div>
+      <div class="flow">
+        <div class="flow-s"><span class="flow-n">A</span><div><div class="flow-t">Your two groups started roughly equal → independent <em>t</em>-test on post-test scores</div><div class="flow-d">Simplest defensible choice. Article 2's route. Report the paired <em>t</em>-test within each group as well, so the reader sees who improved and who did not.</div></div></div>
+        <div class="flow-s"><span class="flow-n">B</span><div><div class="flow-t">Your groups started unequal → ANCOVA with pre-test as covariate</div><div class="flow-d">Article 1's route. This is the honest answer to "but the experimental group was already better."</div></div></div>
+        <div class="flow-s"><span class="flow-n">C</span><div><div class="flow-t">You measured three or more times → mixed ANOVA</div><div class="flow-d">Article 3's route. The <strong>interaction</strong> is your headline, not the main effects.</div></div></div>
+        <div class="flow-s"><span class="flow-n">D</span><div><div class="flow-t">One group only, no control → paired <em>t</em>-test, and be honest in your limitations</div><div class="flow-d">Perfectly publishable at your level, but you cannot claim the intervention <em>caused</em> the gain. Say so explicitly rather than hoping nobody notices.</div></div></div>
+      </div>
+    </div></div>
+
+    <div class="art"><div class="art-body">
+      <div class="sub-h">Read critically — what these articles do <em>not</em> do</div>
+      <p>Open each PDF and check for yourself whether the following appear. In a strong Results section they should. Where they are missing, that is a limitation the authors should have named:</p>
+      <ul style="font-size:13.5px;line-height:1.85;margin-left:18px;">
+        <li><strong>Assumption checks</strong> — normality, Levene's test for equal variances, sphericity for repeated measures. Check Article 3 particularly carefully here.</li>
+        <li><strong>Effect sizes on every test</strong>, not just the headline one.</li>
+        <li><strong>Exact <em>p</em> values</strong> rather than only "p &lt; .001" or "p = 0.00" — a <em>p</em> can never truly equal zero.</li>
+        <li><strong>Group sizes stated in the results</strong>, not only in the methods.</li>
+        <li><strong>A limitations paragraph</strong> that admits what the small sample prevents them from claiming.</li>
+      </ul>
+      <div class="note"><b>This is a real skill, not a fault-finding game.</b> Every study is a set of compromises. The mark of a research-methods student is being able to say precisely which compromise was made and what it costs the conclusion.</div>
+    </div></div>
+  </div>
+
+  <!-- ══════════ PANEL 3 ══════════ -->
+  <div class="panel" id="p3">
+    <p class="lead">Four tasks. Do them with the PDFs open beside you. Your answers save on this device.</p>
+
+    <div class="ex">
+      <div class="ex-h"><span class="ex-n">1</span><span class="ex-t">Find the six moves</span></div>
+      <div class="ex-s">Open <strong>Article 1</strong> (Song &amp; Song) and go to the Results section. Locate each of the six moves from Tab 2 and write down the page or paragraph where it happens. Mark any move that is missing.</div>
+      <textarea class="ta" data-k="t1" placeholder="Move 1 — data preparation: …&#10;Move 2 — reliability: …&#10;Move 3 — descriptive table: …&#10;Move 4 — test named and justified: …&#10;Move 5 — full statistical report: …&#10;Move 6 — plain-language meaning: …"></textarea>
+      <div class="reveal"><button class="rv-btn" data-r="r1">Compare with the model answer</button>
+        <div class="rv-body" id="r1">
+          <strong>What you should have found.</strong> Article 1 is strong on moves 2, 3, 5 and 6 and thinner on move 1.
+          <ul>
+            <li><strong>Move 2</strong> is in the instruments section rather than the results — Cronbach's α = 0.86 for the Writing Motivation Scale. Reliability reported in Methods is perfectly acceptable; reliability reported <em>nowhere</em> is not.</li>
+            <li><strong>Move 3</strong> is Table 2: pre- and post-test means and SDs for both groups across overall writing, content, organisation, language use and motivation.</li>
+            <li><strong>Move 4</strong> is explicit — the ANCOVA is chosen so the pre-test can be controlled as a covariate.</li>
+            <li><strong>Move 5</strong> appears in Tables 3–7, each with <em>F</em>, df, <em>p</em> and partial η².</li>
+            <li><strong>Move 6</strong> follows each table in prose.</li>
+            <li><strong>Move 1</strong> is the weak one — there is little detail on how the IELTS tasks were marked and reconciled between raters. That is the gap you should <em>not</em> imitate.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="ex-h"><span class="ex-n">2</span><span class="ex-t">Match the situation to the test</span></div>
+      <div class="ex-s">Choose the analysis each situation calls for.</div>
+      <div id="match"></div>
+      <div class="acts" style="margin-top:12px;"><button class="rv-btn" id="m-check">Check my answers</button></div>
+      <div class="mres" id="m-res"></div>
+    </div>
+
+    <div class="ex">
+      <div class="ex-h"><span class="ex-n">3</span><span class="ex-t">Read a real table and write the sentence</span></div>
+      <div class="ex-s">These are <strong>Article 2</strong>'s actual reported figures for the conversation task, scored out of 20. Write the two or three sentences that would go underneath this table in a Results section. Use the format from Tab 2: describe, then test, then meaning.</div>
+      <div class="tw"><table class="st">
+        <thead><tr><th>Group</th><th>Pre-test M (SD)</th><th>Post-test M (SD)</th><th>Reported test</th></tr></thead>
+        <tbody>
+          <tr class="exp"><td class="lab">Experimental (chatbot), n = 15</td><td>10.40 (1.56)</td><td>15.64 (2.11)</td><td><em>t</em>(14) = 12.78, <em>p</em> &lt; .001</td></tr>
+          <tr class="ctl"><td class="lab">Control, n = 15</td><td>10.73 (1.41)</td><td>11.81 (1.65)</td><td><em>p</em> = .12</td></tr>
+        </tbody>
+      </table></div>
+      <p class="cap">Alenezi &amp; Alenezi (2025). The study also reports a Pearson <em>r</em> = 0.61 between minutes of chatbot use and score improvement.</p>
+      <textarea class="ta" data-k="t3" placeholder="Write your Results paragraph here…"></textarea>
+      <div class="reveal"><button class="rv-btn" data-r="r3">Compare with a model paragraph</button>
+        <div class="rv-body" id="r3">
+          <strong>A model paragraph.</strong> "Both groups began at a comparable level (experimental M = 10.40, SD = 1.56; control M = 10.73, SD = 1.41). After the three-week intervention the experimental group rose to M = 15.64 (SD = 2.11), a gain that a paired-samples <em>t</em>-test confirmed as statistically significant, <em>t</em>(14) = 12.78, <em>p</em> &lt; .001. The control group's smaller rise to M = 11.81 (SD = 1.65) was not significant (<em>p</em> = .12). A Pearson correlation further indicated a moderate-to-strong positive relationship between time spent using the chatbot and improvement in score, <em>r</em> = .61, suggesting that the gain was related to how much the tool was actually used."
+          <ul>
+            <li>Notice it opens by establishing the groups were <strong>comparable at baseline</strong> — that single clause is what licenses everything after it.</li>
+            <li>Notice the control group's non-significant result is reported, not hidden. <strong>Reporting what did not work is not a weakness; concealing it is misconduct.</strong></li>
+            <li>Notice the correlation is described as <em>related</em>, not as <em>caused by</em>.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex">
+      <div class="ex-h"><span class="ex-n">4</span><span class="ex-t">Draft your own group's Data Analysis section</span></div>
+      <div class="ex-s">Now write the real thing for <strong>your</strong> project, using whichever of the three articles matches your design. Answer these in order, in continuous prose:</div>
+      <ol>
+        <li>How was your data prepared — scoring, entry, software, missing responses?</li>
+        <li>What is the reliability of your instrument, and how did you obtain it?</li>
+        <li>What are your descriptive statistics? (Put them in a table.)</li>
+        <li>Which test did you run, and <em>why that one</em>?</li>
+        <li>What is the full result — statistic, df, value, <em>p</em>, effect size?</li>
+        <li>What does it mean, in one sentence a non-statistician would follow?</li>
+      </ol>
+      <textarea class="ta" data-k="t4" style="min-height:180px;" placeholder="Data Analysis&#10;&#10;…"></textarea>
+      <div class="reveal"><button class="rv-btn" data-r="r4">Self-check before you submit</button>
+        <div class="rv-body" id="r4">
+          <strong>Mark your own draft against this list.</strong>
+          <ul>
+            <li>Have you put a <strong>table</strong> of means and SDs before any test result?</li>
+            <li>Did you <strong>name the test and justify it</strong> in the same sentence?</li>
+            <li>Is every statistic reported <strong>in full</strong> — not just <em>p</em>?</li>
+            <li>Have you given an <strong>effect size</strong>?</li>
+            <li>Have you avoided the word <strong>"prove"</strong> entirely?</li>
+            <li>Have you reported anything that <strong>did not</strong> reach significance?</li>
+            <li>Have you kept interpretation out of the results and saved it for the discussion?</li>
+            <li>Are all three articles you consulted in your <strong>APA reference list</strong>?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box info-amber" style="text-align:left;">
+      <h3>📌 Citing these three in APA 7</h3>
+      <p style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;line-height:2;">
+        Alenezi, A., &amp; Alenezi, A. (2025). Evaluating the effectiveness of chatbot-assisted learning in enhancing English conversational skills among secondary school students. <em>Education Sciences, 15</em>(9), 1136. https://doi.org/10.3390/educsci15091136<br><br>
+        Lu, C. (2025). AI-generated corpus learning and EFL learners' learning of grammatical structures, lexical bundles, and willingness to write. <em>PLOS ONE, 20</em>(7), e0321544. https://doi.org/10.1371/journal.pone.0321544<br><br>
+        Song, C., &amp; Song, Y. (2023). Enhancing academic writing skills and motivation: Assessing the efficacy of ChatGPT in AI-assisted language learning for EFL students. <em>Frontiers in Psychology, 14</em>, 1260843. https://doi.org/10.3389/fpsyg.2023.1260843
+      </p>
+    </div>
+  </div>
+
+  <!-- ══════════ PANEL 4 ══════════ -->
+  <div class="panel" id="p4">
+    <p class="lead">Eight questions on how the three articles report their analysis. Immediate feedback on every answer.</p>
+    <div id="quiz"></div>
+    <div id="score-box"></div>
+  </div>
+
+  <div class="week-nav" style="margin-top:40px;"><a href="week5.html">← Week 5</a><a href="index.html">Course hub →</a></div>
+</div>
+</div>
+
+<footer>
+  <strong>ENG 446 Research Methods</strong> · Real Data Analysis · Qassim University · Summer 2026<br>
+  All three articles are open access under Creative Commons Attribution licences and are linked to their publishers.<br>
+  <a href="index.html">Course Hub</a> · <a href="week5.html">Week 5</a> · <a href="resources.html">Resources</a>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var $=function(s,r){return (r||document).querySelector(s);};
+  var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
+  var KEY="eng446_realanalysis_v1";
+
+  function load(){ try{ return JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){ return {}; } }
+  function save(d){ try{ localStorage.setItem(KEY, JSON.stringify(d)); }catch(e){} }
+
+  /* ── tabs ── */
+  $$(".tab").forEach(function(b){
+    b.addEventListener("click", function(){
+      $$(".tab").forEach(function(x){ x.classList.remove("on"); });
+      $$(".panel").forEach(function(x){ x.classList.remove("on"); });
+      b.classList.add("on");
+      var p=$("#"+b.getAttribute("data-p")); if(p) p.classList.add("on");
+      window.scrollTo({top:$(".tabs").offsetTop-70, behavior:"smooth"});
+    });
+  });
+
+  /* ── reveals ── */
+  $$(".rv-btn[data-r]").forEach(function(b){
+    b.addEventListener("click", function(){
+      var t=$("#"+b.getAttribute("data-r"));
+      if(!t) return;
+      var on=t.classList.toggle("on");
+      b.textContent = on ? "Hide" : b.getAttribute("data-label") || "Compare with the model answer";
+    });
+  });
+  $$(".rv-btn[data-r]").forEach(function(b){ b.setAttribute("data-label", b.textContent); });
+
+  /* ── textareas persist ── */
+  var d=load();
+  $$(".ta[data-k]").forEach(function(t){
+    var k=t.getAttribute("data-k");
+    if(d[k]) t.value=d[k];
+    t.addEventListener("input", function(){ var x=load(); x[k]=t.value; save(x); });
+  });
+
+  /* ── match exercise ── */
+  var OPTS=["Independent-samples t-test","Paired-samples t-test","One-way ANCOVA","Mixed ANOVA (time × group)","Pearson correlation"];
+  var MATCH=[
+    {q:"Two groups, tested before and after. The groups' pre-test means were almost identical. You want to compare their post-test scores.", a:"Independent-samples t-test"},
+    {q:"Two groups, but the experimental group scored noticeably higher than the control group before the intervention even began.", a:"One-way ANCOVA"},
+    {q:"One group only. You want to know whether their own scores rose from before to after.", a:"Paired-samples t-test"},
+    {q:"Two groups tested three times — before, immediately after, and again six weeks later.", a:"Mixed ANOVA (time × group)"},
+    {q:"You logged how many minutes each student used the app, and you want to know whether more use went with bigger gains.", a:"Pearson correlation"}
+  ];
+  var mbox=$("#match");
+  if(mbox){
+    mbox.innerHTML = MATCH.map(function(m,i){
+      return '<div class="mrow"><div class="mq"><strong>'+(i+1)+'.</strong> '+m.q+'</div>'
+        + '<select class="msel" data-i="'+i+'"><option value="">— choose —</option>'
+        + OPTS.map(function(o){ return '<option>'+o+'</option>'; }).join("")
+        + '</select></div>';
+    }).join("");
+    $("#m-check").addEventListener("click", function(){
+      var right=0;
+      $$(".msel", mbox).forEach(function(s,i){
+        s.classList.remove("ok","no");
+        if(!s.value) return;
+        if(s.value===MATCH[i].a){ s.classList.add("ok"); right++; }
+        else s.classList.add("no");
+      });
+      $("#m-res").innerHTML = right===MATCH.length
+        ? '<span style="color:var(--green);">✓ All '+MATCH.length+' correct — you can pick the right test for a design.</span>'
+        : '<span style="color:var(--text-2);">'+right+' of '+MATCH.length+' correct. Re-read Tab 3, then try the ones in red again.</span>';
+    });
+  }
+
+  /* ── quiz ── */
+  var QUIZ=[
+    {q:"In Song and Song (2023), why was an ANCOVA used rather than a simple independent-samples t-test on the post-test scores?",
+     o:["Because ANCOVA is always more accurate than a t-test",
+        "Because the two groups differed at pre-test, so the pre-test score was used as a covariate to level the starting line",
+        "Because the sample was smaller than 60 participants",
+        "Because the study also collected interview data"],
+     c:1,
+     g:"Exactly. ANCOVA statistically adjusts for the pre-existing difference so the comparison of post-test scores is fair.",
+     b:"No test is automatically better. ANCOVA was chosen for a specific reason: the groups were not equal at the start (39.26 vs 37.31), so the pre-test was entered as a covariate."},
+    {q:"What does <em>partial η² = 0.27</em> tell a reader that <em>p</em> &lt; .001 does not?",
+     o:["That the result is statistically significant","That the sample was large enough",
+        "How big the difference is — roughly 27% of the variance is associated with the grouping",
+        "That the researcher used the correct test"],
+     c:2,
+     g:"Correct. p addresses whether the effect is likely real; the effect size addresses whether it is large enough to matter.",
+     b:"p and effect size answer two different questions. p speaks to whether the difference is likely due to chance; η² speaks to its magnitude."},
+    {q:"In a Results section, which should appear FIRST?",
+     o:["The p value of the main test","The researcher's interpretation of what the findings mean",
+        "A table of means and standard deviations for each group","The limitations of the study"],
+     c:2,
+     g:"Right. Descriptives before inferentials — always. The reader needs to see the raw picture before being told what it means.",
+     b:"Descriptive statistics come first. Opening with a p value asks the reader to accept a conclusion before seeing the data, and interpretation belongs in the discussion."},
+    {q:"Alenezi and Alenezi (2025) report the control group's change as <em>p</em> = .12. What is the correct thing to do with this?",
+     o:["Leave it out, since it is not significant","Report it — a non-significant result is a finding and strengthens the comparison",
+        "Re-run the test until it becomes significant","Describe it as 'nearly significant'"],
+     c:1,
+     g:"Yes. The control group NOT improving significantly is precisely what makes the experimental group's gain meaningful.",
+     b:"Report it. Omitting non-significant results is selective reporting. And 'nearly significant' is not a real category — a result either met your threshold or it did not."},
+    {q:"Which reliability statistic belongs with a 10-item Likert attitude questionnaire?",
+     o:["KR-21","Cronbach's alpha","Cohen's d","Pearson's r"],
+     c:1,
+     g:"Correct. Cronbach's α is for multi-item scales with a range of responses, such as Likert scales.",
+     b:"Cronbach's alpha. KR-21 is for dichotomous right/wrong items (as in Lu's grammar test); Cohen's d is an effect size; Pearson's r measures correlation."},
+    {q:"In Lu's (2025) mixed ANOVA, which result best supports the claim that the intervention worked?",
+     o:["The main effect of time","The main effect of group",
+        "The interaction between time and group","The Cronbach's alpha of the willingness scale"],
+     c:2,
+     g:"Exactly. A main effect of time only shows everyone changed. The interaction shows the two groups changed DIFFERENTLY — which is the actual claim.",
+     b:"The interaction. A main effect of time would occur even if both groups improved identically, which would tell you nothing about the intervention."},
+    {q:"Alenezi and Alenezi report <em>r</em> = 0.61 between minutes of chatbot use and score improvement. What may you conclude?",
+     o:["That using the chatbot longer causes higher scores",
+        "That there is a moderate-to-strong positive association, but causation cannot be claimed from a correlation",
+        "That 61% of students improved","That the chatbot works for every learner"],
+     c:1,
+     g:"Correct. Correlation describes a relationship. Students who were already motivated may simply have used it more and scored higher for other reasons.",
+     b:"A correlation cannot establish causation, and r = 0.61 is not a percentage of students. It describes the strength and direction of an association."},
+    {q:"Your project has one group of 25 students, no control group, tested before and after. What must your Data Analysis section include?",
+     o:["A claim that the intervention caused the improvement",
+        "A paired-samples t-test, and an explicit limitation that causation cannot be established without a control group",
+        "An ANCOVA using the pre-test as a covariate","Nothing — the design is too weak to analyse"],
+     c:1,
+     g:"Right. A one-group pre/post design is perfectly analysable; the honesty is in naming what it cannot show.",
+     b:"A paired-samples t-test is the correct test for one group measured twice. The design is fine — but without a control group you cannot rule out other explanations, and you must say so."}
+  ];
+  var qbox=$("#quiz"), answered=0, correct=0;
+  if(qbox){
+    qbox.innerHTML = QUIZ.map(function(q,i){
+      return '<div class="q" data-q="'+i+'"><div class="q-n">Question '+(i+1)+' of '+QUIZ.length+'</div>'
+        + '<div class="q-t">'+q.q+'</div>'
+        + q.o.map(function(o,j){
+            return '<button class="opt" data-i="'+i+'" data-j="'+j+'"><span class="opt-l">'+"ABCD"[j]+'</span><span>'+o+'</span></button>';
+          }).join("")
+        + '<div class="fb" id="fb'+i+'"></div></div>';
+    }).join("");
+    $$(".opt", qbox).forEach(function(b){
+      b.addEventListener("click", function(){
+        var i=+b.getAttribute("data-i"), j=+b.getAttribute("data-j"), q=QUIZ[i];
+        var card=$('.q[data-q="'+i+'"]');
+        if(card.getAttribute("data-done")) return;
+        card.setAttribute("data-done","1");
+        $$(".opt", card).forEach(function(x){
+          x.disabled=true;
+          var xj=+x.getAttribute("data-j");
+          if(xj===q.c) x.classList.add("right");
+          else if(xj===j) x.classList.add("wrong");
+        });
+        var fb=$("#fb"+i), ok=(j===q.c);
+        fb.className="fb on "+(ok?"good":"bad");
+        fb.innerHTML=(ok?"✓ ":"✗ ")+(ok?q.g:q.b);
+        answered++; if(ok) correct++;
+        if(answered===QUIZ.length){
+          var pct=Math.round(correct/QUIZ.length*100);
+          $("#score-box").innerHTML='<div class="score"><div class="score-n">'+correct+' / '+QUIZ.length+'</div>'
+            + '<div class="score-l">'+pct+'% — '
+            + (pct>=87?"excellent; you can read a Results section properly."
+              : pct>=62?"solid. Re-read Tab 2 on the six moves."
+              : "worth another pass through Tabs 2 and 3 before you draft your own section.")
+            + '</div></div>';
+          $("#score-box").scrollIntoView({behavior:"smooth", block:"center"});
+        }
+      });
+    });
+  }
+})();
+</script>
+<script src="track.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>
