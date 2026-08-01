@@ -8,7 +8,10 @@
     { href: "workshop-children.html",label: "Children's: Multimodality" },
     { href: "workshop-poetry.html",  label: "Poetry" },
     { href: "workshop-children-poetry.html", label: "Children's Poetry" },
-    { href: "workshop-drama.html",   label: "Drama & Adaptation" },
+    { href: "workshop-drama.html",   label: "Drama Lab: Overview" },
+    { href: "workshop-drama-sunday.html", label: "Drama Lab: Sunday" },
+    { href: "workshop-drama-monday.html", label: "Drama Lab: Monday" },
+    { href: "workshop-drama-tuesday.html", label: "Drama Lab: Tuesday + Quiz" },
     { href: "final-project.html",    label: "\u2b50 Final Project" },
     { href: "progress.html",         label: "My Progress" }
   ];

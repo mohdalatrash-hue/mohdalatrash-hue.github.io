@@ -70,7 +70,7 @@ body{background:var(--off-white);}
 var KEY="eng494_progress_v1";
 var D={}; try{ D=JSON.parse(localStorage.getItem(KEY))||{}; }catch(e){ D={}; }
 D.pages=D.pages||{}; D.days=D.days||{}; D.quizzes=D.quizzes||{}; D.workshops=D.workshops||{}; D.downloads=D.downloads||{};
-var LABELS={"index.html":"Course Hub","progress.html":"My Progress","workshop-prose.html":"Adult Prose Workshop","workshop-children.html":"Children's Literature Workshop","workshop-poetry.html":"Poetry Workshop","workshop-drama.html":"Drama & Adaptation Workshop"};
+var LABELS={"index.html":"Course Hub","progress.html":"My Progress","workshop-prose.html":"Adult Prose Workshop","workshop-children.html":"Children's Literature Workshop","workshop-poetry.html":"Poetry Workshop","workshop-drama.html":"Drama Laboratory Overview","workshop-drama-sunday.html":"Drama Lab — Sunday","workshop-drama-monday.html":"Drama Lab — Monday","workshop-drama-tuesday.html":"Drama Lab — Tuesday + Quiz"};
 function lbl(p){return LABELS[p]||p;}
 function fmtTime(s){if(!s)return "0m";var h=Math.floor(s/3600),m=Math.round((s%3600)/60);return h>0?(h+"h "+m+"m"):(m+"m");}
 function fmtDate(ts){if(!ts)return "—";var d=new Date(ts);return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][d.getMonth()]+" "+d.getDate();}
