@@ -177,6 +177,53 @@ body{background:var(--off-white);}
 .reg-empty-ic{font-size:30px;} .reg-empty-t{font-size:14px;font-weight:700;margin:8px 0 4px;} .reg-empty-s{font-size:13px;color:var(--text-2);line-height:1.6;}
 .ar{direction:rtl;text-align:right;}
 
+/* ── POEM CATALOGUES ─────────────────────────────── */
+.cat-wrap{margin-bottom:20px;}
+.cat-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:4px;}
+.cat-head-t{font-size:14px;font-weight:800;color:var(--text);}
+.cat-head-s{font-size:12.5px;color:var(--text-2);line-height:1.55;margin-bottom:10px;}
+.cat-left{font-weight:700;color:var(--green-dark);}
+.kinds{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;}
+.kind{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-pill);padding:5px 12px;font-size:12px;font-weight:700;color:var(--text-2);cursor:pointer;font-family:var(--font);}
+.kind.on{background:var(--green);border-color:var(--green);color:#fff;}
+.cat{max-height:430px;overflow-y:auto;border:1.5px solid var(--border-light);border-radius:var(--r-md);background:var(--off-white);padding:7px;}
+.cat-i{background:var(--white);border:1.5px solid transparent;border-radius:var(--r-md);margin-bottom:6px;overflow:hidden;}
+.cat-i:last-child{margin-bottom:0;}
+.cat-i.sel{border-color:var(--green);background:var(--green-light);}
+.cat-i.gone{opacity:.5;background:#fafafa;}
+.cat-h{display:flex;align-items:flex-start;gap:11px;width:100%;text-align:left;background:none;border:none;padding:11px 13px;cursor:pointer;font-family:var(--font);}
+.cat-h:disabled{cursor:not-allowed;}
+.cat-i:not(.gone) .cat-h:hover{background:rgba(26,107,60,.05);}
+.cat-h:focus-visible{outline:2px solid var(--green);outline-offset:-2px;}
+.cat-tick{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:transparent;margin-top:1px;background:var(--white);}
+.cat-i.sel .cat-tick{background:var(--green);border-color:var(--green);color:#fff;}
+.cat-hb{flex:1;min-width:0;}
+.cat-t{display:block;font-size:14px;font-weight:700;color:var(--text);line-height:1.4;}
+.cat-sub{font-weight:500;color:var(--text-3);font-size:12.5px;}
+.cat-m{display:block;font-size:11.5px;color:var(--text-3);margin-top:3px;line-height:1.5;}
+.cat-tagw{flex-shrink:0;line-height:0;}
+.cat-tag{display:inline-block;font-size:10px;font-weight:800;padding:3px 9px;border-radius:var(--r-pill);white-space:nowrap;line-height:1.5;background:var(--border-light);color:var(--text-3);}
+.cat-tag.k{background:#eef2ff;color:#3730a3;}
+.cat-more{display:block;width:100%;text-align:left;background:var(--off-white);border:none;border-top:1px solid var(--border-light);padding:8px 13px;font-size:11.5px;font-weight:700;color:var(--green-dark);cursor:pointer;font-family:var(--font);}
+.cat-more:hover{background:var(--green-light);}
+.cat-body{padding:15px 15px 14px;border-top:1px solid var(--border-light);background:var(--white);}
+.cat-txt{font-family:var(--font);font-size:13.5px;line-height:1.8;white-space:pre-wrap;color:var(--text);margin:0 0 12px;direction:ltr;text-align:left;}
+.cat-note{font-size:12.5px;line-height:1.6;color:var(--text);background:var(--blue-light);border-left:3px solid var(--blue);border-radius:var(--r-md);padding:10px 13px;}
+.cat-note b{color:#0b4f9e;}
+.cat-src{font-size:11.5px;color:var(--text-3);margin-top:8px;line-height:1.5;}
+.cat-empty{text-align:center;padding:26px 14px;font-size:13.5px;color:var(--text-3);}
+.pick-sum{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;}
+.pick-c{flex:1;min-width:190px;background:var(--off-white);border:1.5px solid var(--border);border-radius:var(--r-md);padding:11px 13px;}
+.pick-c.done{border-color:var(--green);background:var(--green-light);}
+.pick-l{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);}
+.pick-v{font-size:13.5px;font-weight:700;color:var(--text);margin-top:3px;line-height:1.45;}
+.pick-v.none{font-weight:500;color:var(--text-3);}
+
+/* sign-up window */
+.closed-band{background:#7f1d1d;color:#fff;border-radius:var(--r-md);padding:15px 17px;margin-bottom:18px;font-size:13.5px;line-height:1.65;}
+.closed-band b{display:block;font-size:15px;margin-bottom:4px;}
+.su-when{border-top:1px solid rgba(255,255,255,.22);margin-top:14px;padding-top:12px;}
+
 /* on narrow screens the status pill moves to its own line so the Arabic name keeps full width */
 @media(max-width:560px){
   .rw{flex-wrap:wrap;}
@@ -184,6 +231,11 @@ body{background:var(--off-white);}
   .rw-tw{flex-basis:100%;margin-top:7px;}
   .chip{display:flex;}
   .chip-v{flex:1;min-width:0;}
+  /* same treatment for the poem cards: the kind pill drops to its own line
+     so the title keeps full width instead of breaking mid-name */
+  .cat-h{flex-wrap:wrap;}
+  .cat-hb{flex:1 1 auto;}
+  .cat-tagw{flex-basis:100%;margin-top:8px;padding-left:33px;}
 }
 @media(max-width:680px){
   .chk{grid-template-columns:1fr;}
@@ -225,6 +277,12 @@ body{background:var(--off-white);}
       </div>
     </div>
     <div class="cd" id="cd" aria-live="polite"></div>
+    <div class="su-when">
+      <div class="dl-lab">📝 Sign-up closes</div>
+      <div class="dl-date" style="font-size:16px;">Sunday 2 August 2026 · 11:59 PM</div>
+      <div class="dl-sub" style="margin-top:4px;">Choose your partner and your two texts <strong>before this</strong>. After it the sign-up sheet locks and you must email Dr. Alatrash directly.</div>
+      <div class="cd" id="cd2" aria-live="polite" style="margin-top:10px;"></div>
+    </div>
   </div>
 
   <!-- ══ AT A GLANCE ══ -->
@@ -387,9 +445,10 @@ body{background:var(--off-white);}
   <div class="su">
     <div class="su-head">
       <h2>📝 Group Sign-Up · Section 173</h2>
-      <p>Read the instructions above first, then pick yourself, pick your partner, and enter the two texts your group will translate. <strong>32 students · 16 groups.</strong> Once a student is in a group, nobody else can choose them.</p>
+      <p>Read the instructions above first, then pick yourself, pick your partner, and choose your two texts from the lists. <strong>32 students · 16 groups · 24 adult poems · 24 children's texts.</strong> Once a student or a text is taken, nobody else can choose it.</p>
     </div>
     <div class="su-body">
+      <div id="su-closed"></div>
 
       <div class="rail" id="rail">
         <div class="rail-s" data-r="0"><div class="rail-d"></div><div class="rail-l">Read</div></div>
@@ -403,8 +462,8 @@ body{background:var(--off-white);}
       <div class="stage" id="s0">
         <div class="stage-h">First — confirm you have read the instructions</div>
         <div class="stage-s">The sign-up unlocks once all three are ticked. These are the three things students most often get wrong.</div>
-        <label class="gate-item"><input type="checkbox" class="gate"><span class="gate-tx">I have read the full instructions on this page, and I understand the project is worth <strong>10 marks</strong> and is due <strong>Thursday 6 August, midnight</strong>.</span></label>
-        <label class="gate-item"><input type="checkbox" class="gate"><span class="gate-tx">I understand we must translate <strong>two complete poems</strong> — one adult, one children's — each with <strong>two drafts and a 250-word annotation</strong> carrying two quoted sources in APA.</span></label>
+        <label class="gate-item"><input type="checkbox" class="gate"><span class="gate-tx">I have read the full instructions on this page. The project is worth <strong>10 marks</strong> and is due <strong>Thursday 6 August, midnight</strong> — and <strong>sign-up itself closes on Sunday 2 August at midnight</strong>.</span></label>
+        <label class="gate-item"><input type="checkbox" class="gate"><span class="gate-tx">I understand we must translate <strong>two complete poems</strong> — one adult, one children's — <strong>chosen from the two lists on this page</strong>, each with <strong>two drafts and a 250-word annotation</strong> carrying two quoted sources in APA.</span></label>
         <label class="gate-item"><input type="checkbox" class="gate"><span class="gate-tx">I understand that <strong>AI-generated text anywhere in this assignment results in a zero</strong>, and that a partner already taken by another group cannot be chosen.</span></label>
         <div class="acts"><button class="btn btn-primary" id="b-gate" disabled>Start sign-up →</button></div>
       </div>
@@ -431,32 +490,33 @@ body{background:var(--off-white);}
       <!-- STAGE 3 — TEXTS -->
       <div class="stage" id="s3">
         <div class="stage-h">Your two texts</div>
-        <div class="stage-s">Write in the adult poem and the children's poem, song or limerick your group will translate. Both must be in <strong>English</strong>, and you translate them into Arabic.</div>
+        <div class="stage-s">Choose <strong>one poem from each list</strong>. Every text below is complete, out of copyright, and short enough to translate whole — no extracts. Open any card to read the entire poem before you decide. A text another group has already registered is greyed out.</div>
         <div id="chip3"></div>
         <div id="warn3"></div>
 
-        <div class="fld-box">
-          <div class="fld-box-h">🖋️ Part 1 — the adult poem</div>
-          <div class="fld-box-s">A complete short poem, not an extract of a long one. You must translate all of it.</div>
-          <div class="fld"><label class="fld-l" for="a-t">Poem title <span class="req">*</span></label><input id="a-t" type="text" placeholder="e.g. The Road Not Taken" autocomplete="off"></div>
-          <div class="fld"><label class="fld-l" for="a-p">Poet <span class="req">*</span></label><input id="a-p" type="text" placeholder="e.g. Robert Frost" autocomplete="off"></div>
-          <div class="fld" style="margin-bottom:0;"><label class="fld-l" for="a-s">Where you found it</label><div class="fld-h">Book, anthology or website — so the marker can read the original beside your translation.</div><input id="a-s" type="text" placeholder="e.g. Poetry Foundation" autocomplete="off"></div>
+        <div class="pick-sum" id="picked"></div>
+
+        <div class="cat-wrap">
+          <div class="cat-head"><div class="cat-head-t">🖋️ Part 1 — the adult poem</div></div>
+          <div class="cat-head-s">24 complete short poems, 6 to 24 lines, from Shakespeare to Frost. <span class="cat-left" id="a-left"></span></div>
+          <label class="fld-l" for="qa" style="position:absolute;left:-9999px;">Search the adult poems by title or poet</label>
+          <input class="su-search" id="qa" type="search" placeholder="ابحث بالعنوان أو الشاعر — Search by title or poet" autocomplete="off">
+          <div class="cat" id="cat-a" role="listbox" aria-label="Adult poems"></div>
         </div>
 
-        <div class="fld-box">
-          <div class="fld-box-h">🎶 Part 2 — the children's poem, song or limerick</div>
-          <div class="fld-box-s">A nursery rhyme, children's poem, song lyric or limerick. Keep it short enough to translate whole and to read aloud.</div>
-          <div class="fld"><label class="fld-l" for="c-t">Title or first line <span class="req">*</span></label><input id="c-t" type="text" placeholder="e.g. There was an Old Man with a beard" autocomplete="off"></div>
-          <div class="fld"><label class="fld-l" for="c-k">Which is it? <span class="req">*</span></label>
-            <div class="strats" id="ckind" style="gap:8px;">
-              <button type="button" class="btn btn-outline btn-sm ck" data-k="Children's poem">Children's poem</button>
-              <button type="button" class="btn btn-outline btn-sm ck" data-k="Song">Song</button>
-              <button type="button" class="btn btn-outline btn-sm ck" data-k="Limerick">Limerick</button>
-              <button type="button" class="btn btn-outline btn-sm ck" data-k="Nursery rhyme">Nursery rhyme</button>
-            </div>
+        <div class="cat-wrap">
+          <div class="cat-head"><div class="cat-head-t">🎶 Part 2 — the children's poem, song or limerick</div></div>
+          <div class="cat-head-s">24 complete texts — nursery rhymes, children's poems, limericks and one nonsense song. Short enough to read aloud or sing. <span class="cat-left" id="c-left"></span></div>
+          <div class="kinds" id="kinds" role="group" aria-label="Filter by kind">
+            <button type="button" class="kind on" data-k="">All</button>
+            <button type="button" class="kind" data-k="Nursery rhyme">Nursery rhymes</button>
+            <button type="button" class="kind" data-k="Children's poem">Children's poems</button>
+            <button type="button" class="kind" data-k="Limerick">Limericks</button>
+            <button type="button" class="kind" data-k="Song">Songs</button>
           </div>
-          <div class="fld"><label class="fld-l" for="c-p">Poet, or "traditional"</label><input id="c-p" type="text" placeholder="e.g. Edward Lear — or: traditional" autocomplete="off"></div>
-          <div class="fld" style="margin-bottom:0;"><label class="fld-l" for="c-s">Where you found it</label><input id="c-s" type="text" placeholder="Book, website or recording" autocomplete="off"></div>
+          <label class="fld-l" for="qc" style="position:absolute;left:-9999px;">Search the children's texts by title or poet</label>
+          <input class="su-search" id="qc" type="search" placeholder="ابحث بالعنوان أو الشاعر — Search by title or poet" autocomplete="off">
+          <div class="cat" id="cat-c" role="listbox" aria-label="Children's texts"></div>
         </div>
 
         <div class="acts">
@@ -548,24 +608,241 @@ var ROSTER = [
   {n:39,id:"431110122",name:"ياسر محمد فرج المطيري",ok:true}
 ];
 
+/* ══════════════════════════════════════════════════════════════════════
+   ENG 494 — PART 1 CATALOGUE · 24 complete adult poems
+   Every text fetched verbatim from a named public-domain source and
+   collated against a second witness where one could be obtained.
+   Copyright: all first published before 1929 (public domain in the US)
+   and all poets died more than 50 years ago (public domain in Saudi
+   Arabia, life + 50). Latest death in the list: Frost, 1963.
+   ══════════════════════════════════════════════════════════════════════ */
+var ADULT = [
+{id:"A01",t:"Sonnet 18",sub:"“Shall I compare thee to a summer’s day?”",poet:"William Shakespeare",yrs:"1564–1616",pub:1609,n:14,rhyme:"ABAB CDCD EFEF GG",form:"Shakespearean sonnet",src:"Poetry Foundation",
+note:"An English summer is mild and lovely; an Arab summer is harsh. The whole compliment turns on صيف — decide consciously whether to render it or adapt it.",
+text:"Shall I compare thee to a summer's day?\nThou art more lovely and more temperate:\nRough winds do shake the darling buds of May,\nAnd summer's lease hath all too short a date;\nSometime too hot the eye of heaven shines,\nAnd often is his gold complexion dimm'd;\nAnd every fair from fair sometime declines,\nBy chance or nature's changing course untrimm'd;\nBut thy eternal summer shall not fade,\nNor lose possession of that fair thou ow'st;\nNor shall death brag thou wander'st in his shade,\nWhen in eternal lines to time thou grow'st:\nSo long as men can breathe or eyes can see,\nSo long lives this, and this gives life to thee."},
+
+{id:"A02",t:"Death, be not proud",sub:"Holy Sonnet X",poet:"John Donne",yrs:"1572–1631",pub:1633,n:14,rhyme:"ABBA ABBA CDDC EE",form:"Sonnet",src:"Poetry Foundation (modern-spelling text)",
+note:"Fourteen lines of sustained apostrophe (نداء) to Death. Arabic الموت is masculine, which the personification can use. The closing paradox must land in four words, not fourteen.",
+text:"Death, be not proud, though some have called thee\nMighty and dreadful, for thou art not so;\nFor those whom thou think'st thou dost overthrow\nDie not, poor Death, nor yet canst thou kill me.\nFrom rest and sleep, which but thy pictures be,\nMuch pleasure; then from thee much more must flow,\nAnd soonest our best men with thee do go,\nRest of their bones, and soul's delivery.\nThou art slave to fate, chance, kings, and desperate men,\nAnd dost with poison, war, and sickness dwell,\nAnd poppy or charms can make us sleep as well\nAnd better than thy stroke; why swell'st thou then?\nOne short sleep past, we wake eternally\nAnd death shall be no more; Death, thou shalt die."},
+
+{id:"A03",t:"The Sick Rose",sub:"Songs of Experience",poet:"William Blake",yrs:"1757–1827",pub:1794,n:8,rhyme:"ABCB DEFE",form:"Two quatrains",src:"Poetry Foundation (engraved-plate text)",
+note:"Eight lines in which every noun is symbolically loaded. Resist explaining the allegory — Arabic’s pull towards clarification is the danger here.",
+text:"O Rose thou art sick.\nThe invisible worm,\nThat flies in the night\nIn the howling storm:\n\nHas found out thy bed\nOf crimson joy:\nAnd his dark secret love\nDoes thy life destroy."},
+
+{id:"A04",t:"The Tyger",sub:"Songs of Experience",poet:"William Blake",yrs:"1757–1827",pub:1794,n:24,rhyme:"AABB",form:"Six quatrains, trochaic tetrameter",src:"Poetry Foundation (engraved-plate text)",
+note:"A trochaic chant built on a paradox — “fearful symmetry”. Keep the incantation; “burning bright” is radiance and ferocity, not literal fire.",
+text:"Tyger Tyger, burning bright,\nIn the forests of the night;\nWhat immortal hand or eye,\nCould frame thy fearful symmetry?\n\nIn what distant deeps or skies.\nBurnt the fire of thine eyes?\nOn what wings dare he aspire?\nWhat the hand, dare seize the fire?\n\nAnd what shoulder, & what art,\nCould twist the sinews of thy heart?\nAnd when thy heart began to beat.\nWhat dread hand? & what dread feet?\n\nWhat the hammer? what the chain,\nIn what furnace was thy brain?\nWhat the anvil? what dread grasp.\nDare its deadly terrors clasp?\n\nWhen the stars threw down their spears\nAnd water'd heaven with their tears:\nDid he smile his work to see?\nDid he who made the Lamb make thee?\n\nTyger Tyger burning bright,\nIn the forests of the night:\nWhat immortal hand or eye,\nDare frame thy fearful symmetry?"},
+
+{id:"A05",t:"I Wandered Lonely as a Cloud",sub:"",poet:"William Wordsworth",yrs:"1770–1850",pub:1807,n:24,rhyme:"ABABCC",form:"Four sestets, iambic tetrameter",src:"Poetry Foundation; collated with Project Gutenberg 12383 — identical",
+note:"Ballad flow, and a sudden expansion from solitude into abundance. النرجس البري must enter smoothly; “crowd” and “host” need distinct Arabic synonyms.",
+text:"I wandered lonely as a cloud\nThat floats on high o'er vales and hills,\nWhen all at once I saw a crowd,\nA host, of golden daffodils;\nBeside the lake, beneath the trees,\nFluttering and dancing in the breeze.\n\nContinuous as the stars that shine\nAnd twinkle on the milky way,\nThey stretched in never-ending line\nAlong the margin of a bay:\nTen thousand saw I at a glance,\nTossing their heads in sprightly dance.\n\nThe waves beside them danced; but they\nOut-did the sparkling waves in glee:\nA poet could not but be gay,\nIn such a jocund company:\nI gazed—and gazed—but little thought\nWhat wealth the show to me had brought:\n\nFor oft, when on my couch I lie\nIn vacant or in pensive mood,\nThey flash upon that inward eye\nWhich is the bliss of solitude;\nAnd then my heart with pleasure fills,\nAnd dances with the daffodils."},
+
+{id:"A06",t:"She Walks in Beauty",sub:"",poet:"George Gordon, Lord Byron",yrs:"1788–1824",pub:1815,n:18,rhyme:"ABABAB CDCDCD EFEFEF",form:"Three sestets, iambic tetrameter",src:"Poetry Foundation",
+note:"“Walks in beauty” names a state, not an action — تمشي في الجمال is clumsy. Hold the dark/bright balance steady across all three sestets.",
+text:"She walks in beauty, like the night\nOf cloudless climes and starry skies;\nAnd all that's best of dark and bright\nMeet in her aspect and her eyes;\nThus mellowed to that tender light\nWhich heaven to gaudy day denies.\n\nOne shade the more, one ray the less,\nHad half impaired the nameless grace\nWhich waves in every raven tress,\nOr softly lightens o'er her face;\nWhere thoughts serenely sweet express,\nHow pure, how dear their dwelling-place.\n\nAnd on that cheek, and o'er that brow,\nSo soft, so calm, yet eloquent,\nThe smiles that win, the tints that glow,\nBut tell of days in goodness spent,\nA mind at peace with all below,\nA heart whose love is innocent!"},
+
+{id:"A07",t:"Ozymandias",sub:"",poet:"Percy Bysshe Shelley",yrs:"1792–1822",pub:1818,n:14,rhyme:"ABABACDCEDEFEF",form:"Sonnet, irregular rhyme",src:"Poetry Foundation; collated with Hutchinson (Gutenberg 4798)",
+note:"A sonnet of nested voices — traveller, sculptor, inscription, narrator. The irony lives in the gap between the boast and the sand that outlasted it.",
+text:"I met a traveller from an antique land\nWho said: Two vast and trunkless legs of stone\nStand in the desert. Near them, on the sand,\nHalf sunk, a shattered visage lies, whose frown,\nAnd wrinkled lip, and sneer of cold command,\nTell that its sculptor well those passions read\nWhich yet survive, stamped on these lifeless things,\nThe hand that mocked them and the heart that fed:\nAnd on the pedestal these words appear:\n\"My name is Ozymandias, king of kings:\nLook on my works, ye Mighty, and despair!\"\nNothing beside remains. Round the decay\nOf that colossal wreck, boundless and bare\nThe lone and level sands stretch far away."},
+
+{id:"A08",t:"On First Looking into Chapman’s Homer",sub:"",poet:"John Keats",yrs:"1795–1821",pub:1816,n:14,rhyme:"ABBAABBA CDCDCD",form:"Petrarchan sonnet",src:"Representative Poetry Online (copy-text: The Examiner, 1 Dec. 1816)",
+note:"A sonnet built on two similes and one famous historical error — Cortez for Balboa. Decide whether to gloss Darien and Ilium or let them stand foreign.",
+text:"Much have I travell'd in the realms of gold,\nAnd many goodly states and kingdoms seen;\nRound many western islands have I been\nWhich bards in fealty to Apollo hold.\nOft of one wide expanse had I been told\nThat deep-brow'd Homer ruled as his demesne;\nYet did I never breathe its pure serene\nTill I heard Chapman speak out loud and bold:\nThen felt I like some watcher of the skies\nWhen a new planet swims into his ken;\nOr like stout Cortez when with eagle eyes\nHe star'd at the Pacific—and all his men\nLook'd at each other with a wild surmise—\nSilent, upon a peak in Darien."},
+
+{id:"A09",t:"The Eagle",sub:"A Fragment",poet:"Alfred, Lord Tennyson",yrs:"1809–1892",pub:1851,n:6,rhyme:"AAA BBB",form:"Two tercets, iambic tetrameter",src:"Wikisource; collated with Project Gutenberg 8601 — identical",
+note:"Six lines, three of them hammered on hard consonants. The compression is the poem; any Arabic expansion loses it.",
+text:"He clasps the crag with crooked hands;\nClose to the sun in lonely lands,\nRing'd with the azure world, he stands.\n\nThe wrinkled sea beneath him crawls;\nHe watches from his mountain walls,\nAnd like a thunderbolt he falls."},
+
+{id:"A10",t:"Remember",sub:"",poet:"Christina Rossetti",yrs:"1830–1894",pub:1862,n:14,rhyme:"ABBAABBA CDDECE",form:"Petrarchan sonnet",src:"Poetry Foundation; collated with Project Gutenberg 16950 — identical",
+note:"An octave that commands and a sestet that withdraws the command. The volta must be audible in Arabic, not merely present.",
+text:"Remember me when I am gone away,\nGone far away into the silent land;\nWhen you can no more hold me by the hand,\nNor I half turn to go yet turning stay.\nRemember me when no more day by day\nYou tell me of our future that you plann'd:\nOnly remember me; you understand\nIt will be late to counsel then or pray.\nYet if you should forget me for a while\nAnd afterwards remember, do not grieve:\nFor if the darkness and corruption leave\nA vestige of the thoughts that once I had,\nBetter by far you should forget and smile\nThan that you should remember and be sad."},
+
+{id:"A11",t:"Song",sub:"“When I am dead, my dearest”",poet:"Christina Rossetti",yrs:"1830–1894",pub:1862,n:16,rhyme:"ABCB",form:"Two octaves, ballad measure",src:"Poetry Foundation; collated with Project Gutenberg 16950 — identical",
+note:"Deliberately plain diction over a ballad measure. Arabic’s pull towards ornament is precisely what this poem refuses.",
+text:"When I am dead, my dearest,\nSing no sad songs for me;\nPlant thou no roses at my head,\nNor shady cypress tree:\nBe the green grass above me\nWith showers and dewdrops wet;\nAnd if thou wilt, remember,\nAnd if thou wilt, forget.\n\nI shall not see the shadows,\nI shall not feel the rain;\nI shall not hear the nightingale\nSing on, as if in pain:\nAnd dreaming through the twilight\nThat doth not rise nor set,\nHaply I may remember,\nAnd haply may forget."},
+
+{id:"A12",t:"Because I could not stop for Death",sub:"Franklin 479 / Johnson 712",poet:"Emily Dickinson",yrs:"1830–1886",pub:1890,n:24,rhyme:"ABCB, largely slant",form:"Six quatrains, common metre",src:"Poetry Foundation (restored Franklin text, not the regularised 1890 version)",
+note:"Death as a courteous caller. The dashes are punctuation as breath — decide how to carry them, because Arabic has no equivalent convention.",
+text:"Because I could not stop for Death -\nHe kindly stopped for me -\nThe Carriage held but just Ourselves -\nAnd Immortality.\n\nWe slowly drove - He knew no haste\nAnd I had put away\nMy labor and my leisure too,\nFor His Civility -\n\nWe passed the School, where Children strove\nAt Recess - in the Ring -\nWe passed the Fields of Gazing Grain -\nWe passed the Setting Sun -\n\nOr rather - He passed Us -\nThe Dews drew quivering and Chill -\nFor only Gossamer, my Gown -\nMy Tippet - only Tulle -\n\nWe paused before a House that seemed\nA Swelling of the Ground -\nThe Roof was scarcely visible -\nThe Cornice - in the Ground -\n\nSince then - 'tis Centuries - and yet\nFeels shorter than the Day\nI first surmised the Horses' Heads\nWere toward Eternity -"},
+
+{id:"A13",t:"“Hope” is the thing with feathers",sub:"Franklin 314 / Johnson 254",poet:"Emily Dickinson",yrs:"1830–1886",pub:1891,n:12,rhyme:"ABCB, slant",form:"Three quatrains, common metre",src:"Poetry Foundation (restored Franklin text)",
+note:"An extended metaphor never named as a metaphor. Keep “Hope” inside its quotation marks and leave the bird unexplained.",
+text:"\"Hope\" is the thing with feathers -\nThat perches in the soul -\nAnd sings the tune without the words -\nAnd never stops - at all -\n\nAnd sweetest - in the Gale - is heard -\nAnd sore must be the storm -\nThat could abash the little Bird\nThat kept so many warm -\n\nI've heard it in the chillest land -\nAnd on the strangest Sea -\nYet - never - in Extremity,\nIt asked a crumb - of me."},
+
+{id:"A14",t:"I’m Nobody! Who are you?",sub:"Franklin 260 / Johnson 288",poet:"Emily Dickinson",yrs:"1830–1886",pub:1891,n:8,rhyme:"Irregular slant",form:"Two quatrains",src:"Poetry Foundation (restored Franklin text; manuscript “Dont” retained)",
+note:"Eight lines of conspiratorial address. The comedy is in register — “admiring Bog” must stay absurd, not drift into the abstract.",
+text:"I'm Nobody! Who are you?\nAre you - Nobody - too?\nThen there's a pair of us!\nDont tell! they'd banish us - you know!\n\nHow dreary - to be - Somebody!\nHow public - like a Frog -\nTo tell your name - the livelong June -\nTo an admiring Bog!"},
+
+{id:"A15",t:"O Captain! My Captain!",sub:"",poet:"Walt Whitman",yrs:"1819–1892",pub:1865,n:24,rhyme:"AABBCDED",form:"Elegy, three eight-line stanzas",src:"Poetry Foundation; confirmed against the Walt Whitman Archive facsimile, Leaves of Grass 1881–82",
+note:"A public elegy with a private grief underneath. Each stanza’s four-line coda is a refrain and must shorten in Arabic as it shortens in English.",
+text:"O Captain! my Captain! our fearful trip is done,\nThe ship has weather'd every rack, the prize we sought is won,\nThe port is near, the bells I hear, the people all exulting,\nWhile follow eyes the steady keel, the vessel grim and daring;\nBut O heart! heart! heart!\nO the bleeding drops of red,\nWhere on the deck my Captain lies,\nFallen cold and dead.\n\nO Captain! my Captain! rise up and hear the bells;\nRise up—for you the flag is flung—for you the bugle trills,\nFor you bouquets and ribbon'd wreaths—for you the shores a-crowding,\nFor you they call, the swaying mass, their eager faces turning;\nHere Captain! dear father!\nThis arm beneath your head!\nIt is some dream that on the deck,\nYou've fallen cold and dead.\n\nMy Captain does not answer, his lips are pale and still,\nMy father does not feel my arm, he has no pulse nor will,\nThe ship is anchor'd safe and sound, its voyage closed and done,\nFrom fearful trip the victor ship comes in with object won;\nExult O shores, and ring O bells!\nBut I with mournful tread,\nWalk the deck my Captain lies,\nFallen cold and dead."},
+
+{id:"A16",t:"Loveliest of trees, the cherry now",sub:"A Shropshire Lad, II",poet:"A. E. Housman",yrs:"1859–1936",pub:1896,n:12,rhyme:"AABB CCDD EEFF",form:"Three quatrains in couplets",src:"Poetry Foundation; collated with Project Gutenberg 5720 — identical",
+note:"Arithmetic as lyric. “Threescore years and ten” is a biblical idiom the Arabic reader knows by another route, and cherry blossom carries no Arabic connotation — decide what to do about both.",
+text:"Loveliest of trees, the cherry now\nIs hung with bloom along the bough,\nAnd stands about the woodland ride\nWearing white for Eastertide.\n\nNow, of my threescore years and ten,\nTwenty will not come again,\nAnd take from seventy springs a score,\nIt only leaves me fifty more.\n\nAnd since to look at things in bloom\nFifty springs are little room,\nAbout the woodlands I will go\nTo see the cherry hung with snow."},
+
+{id:"A17",t:"We Wear the Mask",sub:"",poet:"Paul Laurence Dunbar",yrs:"1872–1906",pub:1896,n:15,rhyme:"AABBA AABR AABBAR (R = refrain)",form:"Rondeau",src:"Project Gutenberg 18338, Lyrics of Lowly Life (1896)",
+note:"A rondeau: the refrain returns twice, identical and shorter than the lines around it. The mask is a figure for survival under domination, not for mere politeness.",
+text:"We wear the mask that grins and lies,\n  It hides our cheeks and shades our eyes,--\nThis debt we pay to human guile;\n  With torn and bleeding hearts we smile,\n  And mouth with myriad subtleties.\n\nWhy should the world be over-wise,\n  In counting all our tears and sighs?\nNay, let them only see us, while\n  We wear the mask.\n\nWe smile, but, O great Christ, our cries\n  To thee from tortured souls arise.\nWe sing, but oh the clay is vile\n  Beneath our feet, and long the mile;\nBut let the world dream otherwise,\n  We wear the mask!"},
+
+{id:"A18",t:"The New Colossus",sub:"",poet:"Emma Lazarus",yrs:"1849–1887",pub:1883,n:14,rhyme:"ABBAABBA CDCDCD",form:"Petrarchan sonnet",src:"Academy of American Poets; cross-checked — identical",
+note:"A sonnet that argues against a statue. “Mother of Exiles” and “huddled masses” carry the weight; the register must stay elevated without turning sentimental.",
+text:"Not like the brazen giant of Greek fame,\nWith conquering limbs astride from land to land;\nHere at our sea-washed, sunset gates shall stand\nA mighty woman with a torch, whose flame\nIs the imprisoned lightning, and her name\nMother of Exiles. From her beacon-hand\nGlows world-wide welcome; her mild eyes command\nThe air-bridged harbor that twin cities frame.\n\"Keep, ancient lands, your storied pomp!\" cries she\nWith silent lips. \"Give me your tired, your poor,\nYour huddled masses yearning to breathe free,\nThe wretched refuse of your teeming shore.\nSend these, the homeless, tempest-tost to me,\nI lift my lamp beside the golden door!\""},
+
+{id:"A19",t:"The Lake Isle of Innisfree",sub:"",poet:"W. B. Yeats",yrs:"1865–1939",pub:1890,n:12,rhyme:"ABAB CDCD EFEF",form:"Three quatrains, long lines",src:"Project Gutenberg 38877, Poems",
+note:"Long lines carrying an incantation — “I will arise and go now”. The bee-loud glade is a soundscape before it is a place.",
+text:"I will arise and go now, and go to Innisfree,\nAnd a small cabin build there, of clay and wattles made:\nNine bean rows will I have there, a hive for the honey bee,\nAnd live alone in the bee-loud glade.\n\nAnd I shall have some peace there, for peace comes dropping slow,\nDropping from the veils of the morning to where the cricket sings;\nThere midnight's all a glimmer, and noon a purple glow,\nAnd evening full of the linnet's wings.\n\nI will arise and go now, for always night and day\nI hear lake water lapping with low sounds by the shore;\nWhile I stand on the roadway, or on the pavements gray,\nI hear it in the deep heart's core."},
+
+{id:"A20",t:"There Will Come Soft Rains",sub:"(War Time)",poet:"Sara Teasdale",yrs:"1884–1933",pub:1918,n:12,rhyme:"AABBCCDDEEFF",form:"Six couplets",src:"Project Gutenberg 591, Flame and Shadow (1920)",
+note:"Six couplets of pastoral calm concealing a war poem. The turn at line 7 must not be softened — the poem’s ethics live there.",
+text:"There will come soft rains and the smell of the ground,\nAnd swallows circling with their shimmering sound;\n\nAnd frogs in the pools singing at night,\nAnd wild plum-trees in tremulous white;\n\nRobins will wear their feathery fire\nWhistling their whims on a low fence-wire;\n\nAnd not one will know of the war, not one\nWill care at last when it is done.\n\nNot one would mind, neither bird nor tree\nIf mankind perished utterly;\n\nAnd Spring herself, when she woke at dawn,\nWould scarcely know that we were gone."},
+
+{id:"A21",t:"Anthem for Doomed Youth",sub:"",poet:"Wilfred Owen",yrs:"1893–1918",pub:1920,n:14,rhyme:"ABABCDCD EFFEGG",form:"Sonnet",src:"Project Gutenberg 1034, Poems (1920); confirmed against The Poetry Archive",
+note:"A church funeral relocated to the trenches. Every liturgical term needs an Arabic decision: transpose, gloss, or replace.",
+text:"What passing-bells for these who die as cattle?\n   Only the monstrous anger of the guns.\n   Only the stuttering rifles' rapid rattle\nCan patter out their hasty orisons.\nNo mockeries for them; no prayers nor bells,\nNor any voice of mourning save the choirs,—\nThe shrill, demented choirs of wailing shells;\nAnd bugles calling for them from sad shires.\n\nWhat candles may be held to speed them all?\n   Not in the hands of boys, but in their eyes\nShall shine the holy glimmers of goodbyes.\n   The pallor of girls' brows shall be their pall;\nTheir flowers the tenderness of patient minds,\nAnd each slow dusk a drawing-down of blinds."},
+
+{id:"A22",t:"If We Must Die",sub:"",poet:"Claude McKay",yrs:"1889–1948",pub:1919,n:14,rhyme:"ABABCDCDEFEFGG",form:"Shakespearean sonnet",src:"Project Gutenberg 64989, Harlem Shadows (1922)",
+note:"A Shakespearean sonnet turned into a call to resistance. The Arabic must sound spoken aloud to a group, not written for a page.",
+text:"If we must die, let it not be like hogs\nHunted and penned in an inglorious spot,\nWhile round us bark the mad and hungry dogs,\nMaking their mock at our accursèd lot.\nIf we must die, O let us nobly die,\nSo that our precious blood may not be shed\nIn vain; then even the monsters we defy\nShall be constrained to honor us though dead!\nO kinsmen! we must meet the common foe!\nThough far outnumbered let us show us brave,\nAnd for their thousand blows deal one death-blow!\nWhat though before us lies the open grave?\nLike men we'll face the murderous, cowardly pack,\nPressed to the wall, dying, but fighting back!"},
+
+{id:"A23",t:"The Road Not Taken",sub:"",poet:"Robert Frost",yrs:"1874–1963",pub:1916,n:20,rhyme:"ABAAB",form:"Four quintains, iambic tetrameter",src:"Project Gutenberg 29345, Mountain Interval (1916); collated with Selected Poems",
+note:"Universally misread as a poem about boldness — yet it says twice that the two roads were the same. Do not let the Arabic resolve the irony.",
+text:"Two roads diverged in a yellow wood,\nAnd sorry I could not travel both\nAnd be one traveler, long I stood\nAnd looked down one as far as I could\nTo where it bent in the undergrowth;\n\nThen took the other, as just as fair,\nAnd having perhaps the better claim,\nBecause it was grassy and wanted wear;\nThough as for that the passing there\nHad worn them really about the same,\n\nAnd both that morning equally lay\nIn leaves no step had trodden black.\nOh, I kept the first for another day!\nYet knowing how way leads on to way,\nI doubted if I should ever come back.\n\nI shall be telling this with a sigh\nSomewhere ages and ages hence:\nTwo roads diverged in a wood, and I—\nI took the one less traveled by,\nAnd that has made all the difference."},
+
+{id:"A24",t:"Nothing Gold Can Stay",sub:"",poet:"Robert Frost",yrs:"1874–1963",pub:1923,n:8,rhyme:"AABBCCDD",form:"Four couplets, iambic trimeter",src:"Project Gutenberg 58611, New Hampshire (1923); punctuation confirmed against The Yale Review, Oct. 1923",
+note:"Eight lines of three beats each, four couplets, one argument. Compression is everything — “So Eden sank to grief” does a whole theology in six words.",
+text:"Nature's first green is gold,\nHer hardest hue to hold.\nHer early leaf's a flower;\nBut only so an hour.\nThen leaf subsides to leaf.\nSo Eden sank to grief,\nSo dawn goes down to day.\nNothing gold can stay."}
+];
+
+/* ══════════════════════════════════════════════════════════════════════
+   ENG 494 — PART 2 CATALOGUE · 24 complete children’s poems, songs,
+   nursery rhymes and limericks.
+   Same sourcing rule as Part 1: every text fetched verbatim from a named
+   public-domain source, collated against a second witness where one
+   could be obtained. Traditional rhymes vary between collections, so a
+   single printed collection is named per rhyme and quoted exactly.
+   ══════════════════════════════════════════════════════════════════════ */
+var CHILD = [
+{id:"C01",t:"The Star",sub:"“Twinkle, twinkle, little star”",poet:"Jane Taylor",yrs:"1783–1824",pub:1806,n:20,rhyme:"AABB",kind:"Children's poem",sing:true,src:"Project Gutenberg 77549, Rhymes for the Nursery",
+note:"The complete five-stanza original, not the single stanza everyone knows. The tune dictates the syllable count: if the Arabic is to be sung to the melody Arab children already have, singability outranks literal fidelity.",
+text:"Twinkle, twinkle, little star,\nHow I wonder what you are!\nUp above the world so high,\nLike a diamond in the sky.\n\nWhen the blazing sun is gone,\nWhen he nothing shines upon,\nThen you show your little light,\nTwinkle, twinkle, all the night.\n\nThen the trav'ller in the dark,\nThanks you for your tiny spark:\nHe could not see which way to go,\nIf you did not twinkle so.\n\nIn the dark blue sky you keep,\nAnd often through my curtains peep,\nFor you never shut your eye\nTill the sun is in the sky.\n\nAs your bright and tiny spark\nLights the trav'ller in the dark,\nThough I know not what you are,\nTwinkle, twinkle, little star."},
+
+{id:"C02",t:"Humpty Dumpty",sub:"",poet:"Traditional",yrs:"—",pub:1797,n:4,rhyme:"AABB",kind:"Nursery rhyme",sing:true,src:"Project Gutenberg 10607, The Real Mother Goose (1916)",
+note:"A nonsense name carrying the whole rhythm. An Arabic rhyming pair of the دحدوح type keeps the auditory identity that a literal gloss destroys.",
+text:"Humpty Dumpty sat on a wall,\nHumpty Dumpty had a great fall;\nAll the King's horses, and all the King's men\nCannot put Humpty Dumpty together again."},
+
+{id:"C03",t:"Jack and Jill",sub:"",poet:"Traditional",yrs:"—",pub:1765,n:8,rhyme:"ABCB",kind:"Nursery rhyme",sing:true,src:"Project Gutenberg 10607, The Real Mother Goose (1916)",
+note:"Compact narrative, a slant rhyme (water / after), and one idiom: “broke his crown” means hit his head. A functional rendering, not a literal one.",
+text:"Jack and Jill went up the hill,\nTo fetch a pail of water;\nJack fell down, and broke his crown,\nAnd Jill came tumbling after.\n\nThen up Jack got and off did trot,\nAs fast as he could caper,\nTo old Dame Dob, who patched his nob\nWith vinegar and brown paper."},
+
+{id:"C04",t:"Baa, Baa, Black Sheep",sub:"",poet:"Traditional",yrs:"—",pub:1744,n:8,rhyme:"ABCB",kind:"Nursery rhyme",sing:true,src:"Project Gutenberg 10607, The Real Mother Goose (1916)",
+note:"Render the bleat as a stylised sound — مَأْمَأة — and never as the noun ماء. Keep the question-and-answer snap.",
+text:"Baa, baa, black sheep,\nHave you any wool?\nYes, marry, have I,\nThree bags full;\n\nOne for my master,\nOne for my dame,\nBut none for the little boy\nWho cries in the lane."},
+
+{id:"C05",t:"Mary’s Lamb",sub:"“Mary had a little lamb”",poet:"Sarah Josepha Hale",yrs:"1788–1879",pub:1830,n:24,rhyme:"ABAB",kind:"Children's poem",sing:true,src:"Poems for Our Children (1830), Internet Archive full-text scan",
+note:"The complete original, ending in an explicit moral — a convention Arabic children’s verse shares and can meet head-on. Simple statements over a strong ballad metre.",
+text:"Mary had a little lamb,\nIts fleece was white as snow,\nAnd every where that Mary went\nThe lamb was sure to go;\nHe followed her to school one day—\nThat was against the rule,\nIt made the children laugh and play,\nTo see a lamb at school.\n\nAnd so the Teacher turned him out,\nBut still he lingered near,\nAnd waited patiently about,\nTill Mary did appear;\nAnd then he ran to her, and laid\nHis head upon her arm,\nAs if he said—'I'm not afraid—\nYou'll keep me from all harm.'\n\n'What makes the lamb love Mary so?'\nThe eager children cry—\n'O, Mary loves the lamb, you know,'\nThe Teacher did reply;—\n'And you each gentle animal\nIn confidence may bind,\nAnd make them follow at your call,\nIf you are always kind.'"},
+
+{id:"C06",t:"Hickory, Dickory, Dock",sub:"printed as “The Mouse and the Clock”",poet:"Traditional",yrs:"—",pub:1744,n:5,rhyme:"AABBA",kind:"Nursery rhyme",sing:true,src:"Project Gutenberg 10607, The Real Mother Goose (1916)",
+note:"Pure sound in lines 1 and 5; the meaning sits in the middle three. Invent Arabic syllables that tick.",
+text:"Hickory, dickory, dock!\nThe mouse ran up the clock.\nThe clock struck one,\nThe mouse ran down,\nHickory, dickory, dock!"},
+
+{id:"C07",t:"Little Miss Muffet",sub:"",poet:"Traditional",yrs:"—",pub:1805,n:6,rhyme:"AABCCB",kind:"Nursery rhyme",sing:false,src:"Project Gutenberg 10607, The Real Mother Goose (1916)",
+note:"Two feminine rhymes (Muffet / tuffet, spider / beside her) and one obsolete noun. Keep the rhyme pairs or lose the rhyme entirely.",
+text:"Little Miss Muffet\nSat on a tuffet,\nEating of curds and whey;\nThere came a big spider,\nAnd sat down beside her,\nAnd frightened Miss Muffet away."},
+
+{id:"C08",t:"Hey Diddle Diddle",sub:"printed as “The Cat and the Fiddle”",poet:"Traditional",yrs:"—",pub:1765,n:6,rhyme:"AABCDB",kind:"Nursery rhyme",sing:true,src:"Project Gutenberg 10607, The Real Mother Goose (1916)",
+note:"Escalating absurdity with no logic to preserve — only pace. The Arabic must not explain the cow.",
+text:"Hey, diddle, diddle!\nThe cat and the fiddle,\nThe cow jumped over the moon;\nThe little dog laughed\nTo see such sport,\nAnd the dish ran away with the spoon."},
+
+{id:"C09",t:"Sing a Song of Sixpence",sub:"",poet:"Traditional",yrs:"—",pub:1744,n:16,rhyme:"ABCB",kind:"Nursery rhyme",sing:true,src:"Project Gutenberg 10607, The Real Mother Goose (1916)",
+note:"A counting-and-catalogue song ending in sudden violence. Currency and blackbirds each need a decision: localise, or keep foreign.",
+text:"Sing a song of sixpence,\nA pocket full of rye;\nFour-and-twenty blackbirds\nBaked in a pie!\n\nWhen the pie was opened\nThe birds began to sing;\nWas not that a dainty dish\nTo set before the king?\n\nThe king was in his counting-house,\nCounting out his money;\nThe queen was in the parlor,\nEating bread and honey.\n\nThe maid was in the garden,\nHanging out the clothes;\nWhen down came a blackbird\nAnd snapped off her nose."},
+
+{id:"C10",t:"There was an Old Man with a beard",sub:"",poet:"Edward Lear",yrs:"1812–1888",pub:1846,n:5,rhyme:"AABBA",kind:"Limerick",sing:false,src:"Project Gutenberg 982, A Book of Nonsense",
+note:"AABBA is notoriously hard in Arabic. Lear repeats the rhyme word (beard / beard) rather than finding a new one — reproduce that repetition, or justify replacing it.",
+text:"There was an Old Man with a beard,\nWho said, \"It is just as I feared!--\nTwo Owls and a Hen,\nFour Larks and a Wren,\nHave all built their nests in my beard!\""},
+
+{id:"C11",t:"There was a Young Lady whose chin",sub:"",poet:"Edward Lear",yrs:"1812–1888",pub:1846,n:5,rhyme:"AABBA",kind:"Limerick",sing:false,src:"Project Gutenberg 982, A Book of Nonsense",
+note:"One absurd image extended into its consequence. Compress hard — the punchline must arrive on the fifth line, not the sixth.",
+text:"There was a Young Lady whose chin,\nResembled the point of a pin:\nSo she had it made sharp,\nAnd purchased a harp,\nAnd played several tunes with her chin."},
+
+{id:"C12",t:"There was an Old Man in a tree",sub:"",poet:"Edward Lear",yrs:"1812–1888",pub:1846,n:5,rhyme:"AABBA",kind:"Limerick",sing:false,src:"Project Gutenberg 982, A Book of Nonsense",
+note:"Dialogue inside a limerick: two speakers in five lines. Keep the exchange audible, and keep “a regular brute of a Bee” colloquial.",
+text:"There was an Old Man in a tree,\nWho was horribly bored by a Bee;\nWhen they said, \"Does it buzz?\"\nHe replied, \"Yes, it does!\n\"It's a regular brute of a Bee!\""},
+
+{id:"C13",t:"There was an old person of Dean",sub:"",poet:"Edward Lear",yrs:"1812–1888",pub:1872,n:4,rhyme:"AABBA in metre, printed as four lines",kind:"Limerick",sing:false,src:"Project Gutenberg 13648, More Nonsense (1872)",
+note:"From More Nonsense, not A Book of Nonsense. Printed as four lines with the b-rhyme internal to line 3 — a metrical shape to reproduce, not to normalise.",
+text:"There was an old person of Dean\nWho dined on one pea, and one bean;\nFor he said, \"More than that, would make me too fat,\"\nThat cautious old person of Dean."},
+
+{id:"C14",t:"The Owl and the Pussy-Cat",sub:"",poet:"Edward Lear",yrs:"1812–1888",pub:1871,n:33,rhyme:"ABCB DEDE + triple refrain",kind:"Song",sing:true,src:"Project Gutenberg 13650 and 13647, Nonsense Songs (1871)",
+note:"Internal rhyme (honey / money), a coined word (runcible), foreign currency, and a triple refrain. The most demanding text on this list — choose it only if your group wants the hardest one.",
+text:"The Owl and the Pussy-Cat went to sea\n  In a beautiful pea-green boat:\nThey took some honey, and plenty of money\n  Wrapped up in a five-pound note.\nThe Owl looked up to the stars above,\n  And sang to a small guitar,\n\"O lovely Pussy, O Pussy, my love,\n    What a beautiful Pussy you are,\n      You are,\n      You are!\n  What a beautiful Pussy you are!\"\n\nPussy said to the Owl, \"You elegant fowl,\n  How charmingly sweet you sing!\nOh! let us be married; too long we have tarried:\n  But what shall we do for a ring?\"\nThey sailed away, for a year and a day,\n  To the land where the bong-tree grows;\nAnd there in a wood a Piggy-wig stood,\n  With a ring at the end of his nose,\n      His nose,\n      His nose,\n  With a ring at the end of his nose.\n\n\"Dear Pig, are you willing to sell for one shilling\n  Your ring?\" Said the Piggy, \"I will.\"\nSo they took it away, and were married next day\n  By the Turkey who lives on the hill.\nThey dined on mince and slices of quince,\n  Which they ate with a runcible spoon;\nAnd hand in hand, on the edge of the sand,\n  They danced by the light of the moon,\n      The moon,\n      The moon,\nThey danced by the light of the moon."},
+
+{id:"C15",t:"The Purple Cow",sub:"",poet:"Gelett Burgess",yrs:"1866–1951",pub:1895,n:4,rhyme:"ABAB",kind:"Children's poem",sing:false,src:"Project Gutenberg 18464, The Wit and Humor of America (1907)",
+note:"Four lines turning on one pun — see one / be one. Arabic جناس is the natural equivalent: find it, or the joke dies. Note the printed capitals on the stressed words.",
+text:"I never Saw a Purple Cow;\n  I never Hope to See One;\nBut I can Tell you, Anyhow,\n  I'd rather See than Be One."},
+
+{id:"C16",t:"The Swing",sub:"A Child’s Garden of Verses",poet:"Robert Louis Stevenson",yrs:"1850–1894",pub:1885,n:12,rhyme:"ABAB",kind:"Children's poem",sing:true,src:"Project Gutenberg 25609",
+note:"A child’s voice describing motion, and a metre that swings with it. Keep the sentences short and the delight unironic.",
+text:"How do you like to go up in a swing,\nUp in the air so blue?\nOh, I do think it the pleasantest thing\nEver a child can do!\n\nUp in the air and over the wall,\nTill I can see so wide,\nRivers and trees and cattle and all\nOver the countryside—\n\nTill I look down on the garden green,\nDown on the roof so brown—\nUp in the air I go flying again,\nUp in the air and down!"},
+
+{id:"C17",t:"Bed in Summer",sub:"A Child’s Garden of Verses",poet:"Robert Louis Stevenson",yrs:"1850–1894",pub:1885,n:12,rhyme:"AABB",kind:"Children's poem",sing:false,src:"Project Gutenberg 25609",
+note:"Plain diction, a child’s complaint, and a seasonal fact that does not hold in Arabia. Decide whether to keep the northern light or transpose it.",
+text:"In winter I get up at night\nAnd dress by yellow candle-light.\nIn summer, quite the other way,\nI have to go to bed by day.\n\nI have to go to bed and see\nThe birds still hopping on the tree,\nOr hear the grown-up people's feet\nStill going past me in the street.\n\nAnd does it not seem hard to you,\nWhen all the sky is clear and blue,\nAnd I should like so much to play,\nTo have to go to bed by day?"},
+
+{id:"C18",t:"My Shadow",sub:"A Child’s Garden of Verses",poet:"Robert Louis Stevenson",yrs:"1850–1894",pub:1885,n:16,rhyme:"AABB",kind:"Children's poem",sing:false,src:"Project Gutenberg 25609",
+note:"Long fourteener couplets carrying a child’s mock-logic. “Nursie” and “india-rubber ball” are period items that each need a decision.",
+text:"I have a little shadow that goes in and out with me,\nAnd what can be the use of him is more than I can see.\nHe is very, very like me from the heels up to the head;\nAnd I see him jump before me, when I jump into my bed.\n\nThe funniest thing about him is the way he likes to grow—\nNot at all like proper children, which is always very slow;\nFor he sometimes shoots up taller like an india-rubber ball,\nAnd he sometimes gets so little that there's none of him at all.\n\nHe hasn't got a notion of how children ought to play,\nAnd can only make a fool of me in every sort of way.\nHe stays so close beside me, he's a coward you can see;\nI'd think shame to stick to nursie as that shadow sticks to me!\n\nOne morning, very early, before the sun was up,\nI rose and found the shining dew on every buttercup;\nBut my lazy little shadow, like an arrant sleepy-head,\nHad stayed at home behind me and was fast asleep in bed."},
+
+{id:"C19",t:"Rain",sub:"A Child’s Garden of Verses",poet:"Robert Louis Stevenson",yrs:"1850–1894",pub:1885,n:4,rhyme:"ABCB",kind:"Children's poem",sing:false,src:"Project Gutenberg 25609",
+note:"Four lines, one sentence, three places. The simplicity is the difficulty — there is nowhere to hide a clumsy phrase.",
+text:"The rain is raining all around,\nIt falls on field and tree,\nIt rains on the umbrellas here,\nAnd on the ships at sea."},
+
+{id:"C20",t:"Who has seen the wind?",sub:"Sing-Song (untitled in the original)",poet:"Christina Rossetti",yrs:"1830–1894",pub:1872,n:8,rhyme:"ABCB",kind:"Children's poem",sing:false,src:"Project Gutenberg 76703, Sing-Song (1872)",
+note:"Two mirrored quatrains turning on a chiasmus — I nor you / you nor I. Arabic does this elegantly; do not flatten it. Note Rossetti’s contracted “thro’”.",
+text:"Who has seen the wind?\nNeither I nor you:\nBut when the leaves hang trembling\nThe wind is passing thro'.\n\nWho has seen the wind?\nNeither you nor I:\nBut when the trees bow down their heads\nThe wind is passing by."},
+
+{id:"C21",t:"Brown and furry",sub:"Sing-Song (untitled; often headed “Caterpillar”)",poet:"Christina Rossetti",yrs:"1830–1894",pub:1872,n:10,rhyme:"AABBCCDDEE",kind:"Children's poem",sing:false,src:"Project Gutenberg 76703, Sing-Song (1872)",
+note:"Couplets of uneven length tracing a metamorphosis. The poem ends on “butterfly” — put the Arabic equivalent last, whatever it costs the syntax.",
+text:"Brown and furry\nCaterpillar in a hurry,\nTake your walk\nTo the shady leaf, or stalk,\nOr what not,\nWhich may be the chosen spot.\nNo toad spy you,\nHovering bird of prey pass by you\nSpin and die,\nTo live again a butterfly."},
+
+{id:"C22",t:"Jabberwocky",sub:"Through the Looking-Glass",poet:"Lewis Carroll",yrs:"1832–1898",pub:1871,n:28,rhyme:"ABAB",kind:"Children's poem",sing:false,src:"Project Gutenberg 12; confirmed against a Rand McNally 1917 scan",
+note:"Every coinage is a sound with a grammatical shape and no meaning. You must invent Arabic words that behave morphologically like Arabic and mean nothing at all.",
+text:"'Twas brillig, and the slithy toves\nDid gyre and gimble in the wabe;\nAll mimsy were the borogoves,\nAnd the mome raths outgrabe.\n\n\"Beware the Jabberwock, my son!\nThe jaws that bite, the claws that catch!\nBeware the Jubjub bird, and shun\nThe frumious Bandersnatch!\"\n\nHe took his vorpal sword in hand:\nLong time the manxome foe he sought—\nSo rested he by the Tumtum tree,\nAnd stood awhile in thought.\n\nAnd as in uffish thought he stood,\nThe Jabberwock, with eyes of flame,\nCame whiffling through the tulgey wood,\nAnd burbled as it came!\n\nOne, two! One, two! And through and through\nThe vorpal blade went snicker-snack!\nHe left it dead, and with its head\nHe went galumphing back.\n\n\"And hast thou slain the Jabberwock?\nCome to my arms, my beamish boy!\nO frabjous day! Callooh! Callay!\"\nHe chortled in his joy.\n\n'Twas brillig, and the slithy toves\nDid gyre and gimble in the wabe;\nAll mimsy were the borogoves,\nAnd the mome raths outgrabe."},
+
+{id:"C23",t:"The Yak",sub:"The Bad Child’s Book of Beasts",poet:"Hilaire Belloc",yrs:"1870–1953",pub:1896,n:12,rhyme:"ABAB",kind:"Children's poem",sing:false,src:"Project Gutenberg 27175",
+note:"Mock-instructional address to a child, deadpan throughout, with a parenthetical aside undercutting the last line. Tone is the whole task.",
+text:"As a friend to the children commend me the Yak.\nYou will find it exactly the thing:\nIt will carry and fetch, you can ride on its back,\nOr lead it about with a string.\n\nThe Tartar who dwells on the plains of Thibet\n(A desolate region of snow)\nHas for centuries made it a nursery pet,\nAnd surely the Tartar should know!\n\nThen tell your papa where the Yak can be got,\nAnd if he is awfully rich\nHe will buy you the creature—or else he will not.\n(I cannot be positive which.)"},
+
+{id:"C24",t:"Windy Nights",sub:"A Child’s Garden of Verses",poet:"Robert Louis Stevenson",yrs:"1850–1894",pub:1885,n:12,rhyme:"ABABCC",kind:"Children's poem",sing:false,src:"Project Gutenberg 25609",
+note:"The metre gallops; the rhythm is the horse. Arabic must reproduce the canter, not describe it.",
+text:"Whenever the moon and stars are set,\nWhenever the wind is high,\nAll night long in the dark and wet,\nA man goes riding by.\nLate in the night when the fires are out,\nWhy does he gallop and gallop about?\n\nWhenever the trees are crying aloud,\nAnd ships are tossed at sea,\nBy, on the highway, low and loud,\nBy at the gallop goes he.\nBy at the gallop he goes, and then\nBy he comes back at the gallop again."}
+];
+
 /* ══════════════════════════════════════════════════════════
    CONFIRMED GROUPS — maintained by the instructor.
-   Add a line as each group is confirmed. Both students then
-   lock out of every list on this page, for everyone.
+   Add one line per group as its email arrives, then re-upload.
+   Both students AND both poems then lock out of every list on
+   this page, for everyone.
+     a, b  = the two student IDs
+     ap    = the adult poem's catalogue id  (A01 … A24)
+     cp    = the children's text's id       (C01 … C24)
    Format:
-     {a:"441109596", b:"432111879",
-      adult:"The Road Not Taken — Robert Frost",
-      child:"There was an Old Man with a beard — Edward Lear (limerick)"}
+     {a:"441109596", b:"432111879", ap:"A23", cp:"C10"}
+   The poem titles are looked up automatically — do not retype
+   them. The email slip each group sends prints both codes.
    ══════════════════════════════════════════════════════════ */
 var CONFIRMED = [
 ];
 
-var EMAIL = "atrsh@qu.edu.sa";
-var DUE   = "2026-08-06T23:59:00+03:00";
+var EMAIL  = "atrsh@qu.edu.sa";
+var DUE    = "2026-08-06T23:59:00+03:00";
+var CLOSES = "2026-08-02T23:59:00+03:00";   /* sign-up window shuts */
 
 (function(){
   "use strict";
-  var KEY = "eng494_finalproject_signup_v1";
+  var KEY = "eng494_finalproject_signup_v2";   /* v2: texts are now catalogue ids, not free text */
   var $  = function(s,r){ return (r||document).querySelector(s); };
   var $$ = function(s,r){ return Array.prototype.slice.call((r||document).querySelectorAll(s)); };
   function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g,function(c){
@@ -573,41 +850,87 @@ var DUE   = "2026-08-06T23:59:00+03:00";
 
   var BY_ID = {}; ROSTER.forEach(function(s){ BY_ID[s.id] = s; });
 
-  /* students already locked into a confirmed group */
-  var TAKEN = {};
+  /* poem catalogues, indexed by id */
+  var CAT   = { a:ADULT, c:CHILD };
+  var BY_P  = {};
+  ADULT.forEach(function(p){ BY_P[p.id] = p; });
+  CHILD.forEach(function(p){ BY_P[p.id] = p; });
+
+  /* students, and poems, already locked into a confirmed group */
+  var TAKEN = {}, TAKEN_P = {};
   CONFIRMED.forEach(function(g){
     if (BY_ID[g.a]) TAKEN[g.a] = g;
     if (BY_ID[g.b]) TAKEN[g.b] = g;
+    if (g.ap && BY_P[g.ap]) TAKEN_P[g.ap] = g;
+    if (g.cp && BY_P[g.cp]) TAKEN_P[g.cp] = g;
   });
   function partnerOf(id){ var g = TAKEN[id]; if(!g) return null; return BY_ID[g.a===id ? g.b : g.a] || null; }
+  function poemLabel(id){ var p = BY_P[id]; return p ? p.t + " — " + p.poet : (id || "—"); }
+  function holderOf(pid){ var g = TAKEN_P[pid]; if(!g) return ""; var a = BY_ID[g.a]; return a ? a.name.split(" ")[0] : ""; }
+
+  /* the sign-up window */
+  var closesAt = new Date(CLOSES).getTime();
+  function isClosed(){ return !isNaN(closesAt) && Date.now() > closesAt; }
+  var lockedUI = false;
 
   /* ── state ── */
-  var S = { stage:0, me:null, buddy:null, adult:{t:"",p:"",s:""}, child:{t:"",k:"",p:"",s:""} };
+  var S = { stage:0, me:null, buddy:null, adult:null, child:null };
+  var filterKind = "";
+  var openBody = {};
+  function blank(){ return { stage:0, me:null, buddy:null, adult:null, child:null }; }
   function load(){
     try{
       var d = JSON.parse(localStorage.getItem(KEY));
       if(!d) return;
       if(d.me && BY_ID[d.me] && !TAKEN[d.me]) S.me = d.me;
       if(d.buddy && BY_ID[d.buddy] && !TAKEN[d.buddy] && d.buddy !== S.me) S.buddy = d.buddy;
-      if(d.adult) S.adult = {t:d.adult.t||"",p:d.adult.p||"",s:d.adult.s||""};
-      if(d.child) S.child = {t:d.child.t||"",k:d.child.k||"",p:d.child.p||"",s:d.child.s||""};
       if(!S.me) S.buddy = null;
+      /* a text the instructor has since confirmed for another group is dropped */
+      if(typeof d.adult === "string" && BY_P[d.adult] && !TAKEN_P[d.adult]) S.adult = d.adult;
+      if(typeof d.child === "string" && BY_P[d.child] && !TAKEN_P[d.child]) S.child = d.child;
     }catch(e){}
   }
   function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
 
-  /* ── countdown ── */
-  function tick(){
-    var el = $("#cd"); if(!el) return;
-    var ms = new Date(DUE).getTime() - Date.now();
-    if(isNaN(ms)) { el.style.display="none"; return; }
+  /* ── countdowns ── */
+  function units(ms){
+    var d = Math.floor(ms/864e5), h = Math.floor(ms/36e5)%24, m = Math.floor(ms/6e4)%60, s = Math.floor(ms/1e3)%60;
+    return [[d,"days"],[h,"hours"],[m,"min"],[s,"sec"]];
+  }
+  function paint(el, ms, passed, small){
+    if(!el) return;
+    if(isNaN(ms)){ el.style.display = "none"; return; }
     if(ms <= 0){
-      el.innerHTML = '<div class="cd-u" style="min-width:auto;padding:8px 14px;"><div class="cd-n" style="font-size:14px;">Deadline passed</div></div>';
+      el.innerHTML = '<div class="cd-u" style="min-width:auto;padding:8px 14px;"><div class="cd-n" style="font-size:14px;">'+passed+'</div></div>';
       return;
     }
-    var d = Math.floor(ms/864e5), h = Math.floor(ms/36e5)%24, m = Math.floor(ms/6e4)%60, s = Math.floor(ms/1e3)%60;
-    el.innerHTML = [[d,"days"],[h,"hours"],[m,"min"],[s,"sec"]].map(function(u){
-      return '<div class="cd-u"><div class="cd-n">'+u[0]+'</div><div class="cd-l">'+u[1]+'</div></div>'; }).join("");
+    el.innerHTML = units(ms).map(function(u){
+      return '<div class="cd-u"'+(small?' style="min-width:54px;padding:6px 10px;"':'')+'>'
+           + '<div class="cd-n"'+(small?' style="font-size:16px;"':'')+'>'+u[0]+'</div>'
+           + '<div class="cd-l">'+u[1]+'</div></div>'; }).join("");
+  }
+  function tick(){
+    paint($("#cd"),  new Date(DUE).getTime()    - Date.now(), "Deadline passed", false);
+    paint($("#cd2"), new Date(CLOSES).getTime() - Date.now(), "Sign-up closed",  true);
+    if(isClosed() && !lockedUI) lockSignup();
+  }
+
+  /* ── lock the whole sheet once sign-up closes ── */
+  function lockSignup(){
+    lockedUI = true;
+    var box = $("#su-closed");
+    if(box){
+      box.innerHTML = '<div class="closed-band"><b>🔒 Sign-up closed</b>'
+        + 'The sign-up window shut on <strong>Sunday 2 August 2026 at 11:59 PM</strong>. '
+        + 'If your group is not in the <em>Registered groups</em> table at the foot of this page, email '
+        + '<strong>' + esc(EMAIL) + '</strong> directly — do not assume you are registered. '
+        + 'The project itself is still due Thursday 6 August, midnight.</div>';
+    }
+    $$(".gate").forEach(function(c){ c.disabled = true; });
+    var g = $("#b-gate"); if(g){ g.disabled = true; g.textContent = "Sign-up closed"; }
+    $$(".rw").forEach(function(b){ b.disabled = true; });
+    $$(".cat-h").forEach(function(b){ b.disabled = true; });
+    var n = $("#b3-next"); if(n) n.disabled = true;
   }
 
   /* ── rail ── */
@@ -623,14 +946,19 @@ var DUE   = "2026-08-06T23:59:00+03:00";
     $$(".stage").forEach(function(el){ el.classList.remove("on"); });
     var t = $("#s"+n); if(t) t.classList.add("on");
     rail();
-    if(n===1) drawRoster(1);
-    if(n===2){ drawChip("#chip2"); drawRoster(2); }
-    if(n===3){ drawChip("#chip3"); fillTexts(); }
-    if(n===4) drawReview();
+    render(n);
     if(n>0){
       var top = $(".su").getBoundingClientRect().top + window.pageYOffset - 62;
       window.scrollTo({top:top, behavior:"smooth"});
     }
+  }
+  function render(n){
+    if(n===1) drawRoster(1);
+    if(n===2){ drawChip("#chip2"); drawRoster(2); }
+    if(n===3){ drawChip("#chip3"); drawPicked(); drawCat("a"); drawCat("c"); }
+    if(n===4) drawReview();
+    if(lockedUI){ $$(".rw").forEach(function(b){ b.disabled = true; });
+                  $$(".cat-h").forEach(function(b){ b.disabled = true; }); }
   }
 
   /* ── roster rendering ── */
@@ -661,6 +989,7 @@ var DUE   = "2026-08-06T23:59:00+03:00";
     $$(".rw", box).forEach(function(b){
       if(b.disabled) return;
       b.addEventListener("click", function(){
+        if(lockedUI) return;
         var id = b.getAttribute("data-id");
         if(which===1){
           S.me = id;
@@ -685,49 +1014,103 @@ var DUE   = "2026-08-06T23:59:00+03:00";
     el.innerHTML = html;
     $$(".chip-x", el).forEach(function(b){
       b.addEventListener("click", function(){
+        if(lockedUI) return;
         if(b.getAttribute("data-x") === "me"){ S.me=null; S.buddy=null; save(); go(1); }
         else { S.buddy=null; save(); go(2); }
       });
     });
   }
 
-  /* ── stage 3 ── */
-  function fillTexts(){
-    $("#a-t").value = S.adult.t; $("#a-p").value = S.adult.p; $("#a-s").value = S.adult.s;
-    $("#c-t").value = S.child.t; $("#c-p").value = S.child.p; $("#c-s").value = S.child.s;
-    $$(".ck").forEach(function(b){
-      var on = b.getAttribute("data-k") === S.child.k;
-      b.classList.toggle("btn-primary", on); b.classList.toggle("btn-outline", !on);
+  /* ── stage 3: the two catalogues ── */
+  function freeCount(which){
+    return CAT[which].filter(function(p){ return !TAKEN_P[p.id]; }).length;
+  }
+  function drawPicked(){
+    var wrap = $("#picked"); if(!wrap) return;
+    function card(lab, id){
+      var has = !!id;
+      return '<div class="pick-c'+(has?" done":"")+'"><div class="pick-l">'+lab+'</div>'
+           + '<div class="pick-v'+(has?"":" none")+'">'+(has ? esc(poemLabel(id)) : "not chosen yet")+'</div></div>';
+    }
+    wrap.innerHTML = card("Part 1 · adult poem", S.adult) + card("Part 2 · children's text", S.child);
+    var al = $("#a-left"), cl = $("#c-left");
+    if(al) al.textContent = freeCount("a") + " still free.";
+    if(cl) cl.textContent = freeCount("c") + " still free.";
+  }
+  function drawCat(which){
+    var box = $("#cat-" + which); if(!box) return;
+    var q   = (($("#q" + which) || {}).value || "").trim().toLowerCase();
+    var sel = which === "a" ? S.adult : S.child;
+    var rows = CAT[which].filter(function(p){
+      if(which === "c" && filterKind && p.kind !== filterKind) return false;
+      if(!q) return true;
+      return (p.t + " " + (p.sub||"") + " " + p.poet).toLowerCase().indexOf(q) > -1;
     });
-    checkDup();
-  }
-  function readTexts(){
-    S.adult = {t:$("#a-t").value.trim(), p:$("#a-p").value.trim(), s:$("#a-s").value.trim()};
-    S.child.t = $("#c-t").value.trim(); S.child.p = $("#c-p").value.trim(); S.child.s = $("#c-s").value.trim();
-    save();
-  }
-  function norm(s){ return String(s||"").toLowerCase().replace(/[^a-z0-9؀-ۿ]+/g," ").trim(); }
-  function checkDup(){
-    var w = $("#warn3"); if(!w) return;
-    var at = norm($("#a-t").value), ct = norm($("#c-t").value), hits = [];
-    CONFIRMED.forEach(function(g){
-      if(at && norm(g.adult).indexOf(at) > -1) hits.push("the adult poem “"+$("#a-t").value.trim()+"”");
-      if(ct && norm(g.child).indexOf(ct) > -1) hits.push("the children's text “"+$("#c-t").value.trim()+"”");
+    if(!rows.length){ box.innerHTML = '<div class="cat-empty">No text matches that search.</div>'; return; }
+    box.innerHTML = rows.map(function(p){
+      var gone = !!TAKEN_P[p.id], on = p.id === sel;
+      var meta = esc(p.poet) + " · " + p.pub + " · " + p.n + " lines · " + esc(p.rhyme)
+               + (p.form ? " · " + esc(p.form) : "");
+      var tag = gone
+        ? '<span class="cat-tag">Taken'+(holderOf(p.id) ? " · " + esc(holderOf(p.id)) : "")+'</span>'
+        : (which === "c" ? '<span class="cat-tag k">'+esc(p.kind)+'</span>' : "");
+      return '<div class="cat-i'+(on?" sel":"")+(gone?" gone":"")+'">'
+        + '<button type="button" class="cat-h" data-pick="'+p.id+'" data-w="'+which+'"'
+        +   (gone||lockedUI?" disabled":"") + ' role="option" aria-selected="'+(on?"true":"false")+'">'
+        +   '<span class="cat-tick" aria-hidden="true">✓</span>'
+        +   '<span class="cat-hb"><span class="cat-t">'+esc(p.t)
+        +     (p.sub ? ' <span class="cat-sub">'+esc(p.sub)+'</span>' : "")+'</span>'
+        +     '<span class="cat-m">'+meta+'</span></span>'
+        +   '<span class="cat-tagw">'+tag+'</span></button>'
+        + '<button type="button" class="cat-more" data-more="'+p.id+'" aria-expanded="'+(openBody[p.id]?"true":"false")+'" aria-controls="body-'+p.id+'">'
+        +   (openBody[p.id] ? "Hide the poem ▴" : "Read the whole poem ▾") + '</button>'
+        + '<div class="cat-body" id="body-'+p.id+'"'+(openBody[p.id]?"":" hidden")+'>'
+        +   '<pre class="cat-txt">'+esc(p.text)+'</pre>'
+        +   '<div class="cat-note"><b>Translation challenge:</b> '+esc(p.note)+'</div>'
+        +   '<div class="cat-src">Text: '+esc(p.src)+' · public domain.</div>'
+        + '</div></div>';
+    }).join("");
+    $$(".cat-h", box).forEach(function(b){
+      if(b.disabled) return;
+      b.addEventListener("click", function(){
+        if(lockedUI) return;
+        var id = b.getAttribute("data-pick"), w = b.getAttribute("data-w");
+        if(w === "a") S.adult = (S.adult === id ? null : id);
+        else          S.child = (S.child === id ? null : id);
+        save(); clearWarn(); drawPicked(); drawCat(w);
+      });
     });
-    w.innerHTML = hits.length
-      ? '<div class="warn">⚠️ Another group has already registered '+esc(hits.join(" and "))+'. Two groups may not translate the same text — please choose another.</div>'
-      : "";
+    $$(".cat-more", box).forEach(function(b){
+      b.addEventListener("click", function(){
+        var id = b.getAttribute("data-more");
+        openBody[id] = !openBody[id];
+        var body = $("#body-"+id);
+        if(body){
+          body.hidden = !openBody[id];
+          b.setAttribute("aria-expanded", openBody[id] ? "true" : "false");
+          b.textContent = openBody[id] ? "Hide the poem ▴" : "Read the whole poem ▾";
+        }
+      });
+    });
   }
+  function clearWarn(){ var w = $("#warn3"); if(w) w.innerHTML = ""; }
 
   /* ── stage 4 ── */
   function drawReview(){
     var me = BY_ID[S.me], bu = BY_ID[S.buddy];
+    var ap = BY_P[S.adult], cp = BY_P[S.child];
     if(!me || !bu){ go(1); return; }
+    if(!ap || !cp){ go(3); return; }
+    function poemCell(p){
+      return esc(p.t) + " — " + esc(p.poet)
+        + '<br><span style="color:var(--text-3);font-size:12.5px;">'
+        + p.pub + " · " + p.n + " lines · " + esc(p.rhyme) + " · code " + p.id + "</span>";
+    }
     var rows = [
       ["Student 1", esc(me.name)+" · "+me.id, true],
       ["Student 2", esc(bu.name)+" · "+bu.id, true],
-      ["Adult poem", esc(S.adult.t)+(S.adult.p ? " — "+esc(S.adult.p) : "")+(S.adult.s ? '<br><span style="color:var(--text-3);font-size:12.5px;">Source: '+esc(S.adult.s)+"</span>" : ""), false],
-      ["Children's text", esc(S.child.t)+(S.child.p ? " — "+esc(S.child.p) : "")+(S.child.k ? ' <span style="color:var(--text-3);">('+esc(S.child.k)+")</span>" : "")+(S.child.s ? '<br><span style="color:var(--text-3);font-size:12.5px;">Source: '+esc(S.child.s)+"</span>" : ""), false],
+      ["Adult poem", poemCell(ap), false],
+      ["Children's text", poemCell(cp) + ' <span style="color:var(--text-3);">('+esc(cp.kind)+")</span>", false],
       ["Due", "Thursday 6 August 2026, 11:59 PM · Blackboard Ultra", false]
     ];
     $("#rev").innerHTML = rows.map(function(r){
@@ -739,8 +1122,10 @@ var DUE   = "2026-08-06T23:59:00+03:00";
       "Student 1: " + me.name + " — " + me.id,
       "Student 2: " + bu.name + " — " + bu.id,
       "",
-      "Part 1 — adult poem: " + S.adult.t + (S.adult.p ? " (" + S.adult.p + ")" : "") + (S.adult.s ? " [" + S.adult.s + "]" : ""),
-      "Part 2 — children's " + (S.child.k || "text").toLowerCase() + ": " + S.child.t + (S.child.p ? " (" + S.child.p + ")" : "") + (S.child.s ? " [" + S.child.s + "]" : ""),
+      "Part 1 — adult poem: " + ap.t + " — " + ap.poet + "  [" + ap.id + "]",
+      "Part 2 — children's " + cp.kind.toLowerCase() + ": " + cp.t + " — " + cp.poet + "  [" + cp.id + "]",
+      "",
+      "Instructor line:  {a:\"" + me.id + "\", b:\"" + bu.id + "\", ap:\"" + ap.id + "\", cp:\"" + cp.id + "\"}",
       "",
       "Submitted from the course website on " + new Date().toLocaleString("en-GB", {timeZone:"Asia/Riyadh"}) + " (Riyadh)."
     ].join("\n");
@@ -765,9 +1150,11 @@ var DUE   = "2026-08-06T23:59:00+03:00";
       + '</tr></thead><tbody>'
       + CONFIRMED.map(function(g,i){
           var a = BY_ID[g.a], b = BY_ID[g.b];
+          var at = g.ap ? poemLabel(g.ap) : (g.adult || "—");
+          var ct = g.cp ? poemLabel(g.cp) : (g.child || "—");
           return '<tr><td style="font-weight:800;color:var(--green-dark);">'+(i+1)+'</td>'
             + '<td class="ar" style="font-weight:600;">'+esc(a?a.name:g.a)+'<br>'+esc(b?b.name:g.b)+'</td>'
-            + '<td>'+esc(g.adult||"—")+'</td><td>'+esc(g.child||"—")+'</td></tr>';
+            + '<td>'+esc(at)+'</td><td>'+esc(ct)+'</td></tr>';
         }).join("")
       + "</tbody></table></div>";
   }
@@ -779,47 +1166,50 @@ var DUE   = "2026-08-06T23:59:00+03:00";
     drawRegistered();
 
     var gates = $$(".gate");
-    function gchk(){ $("#b-gate").disabled = !gates.every(function(c){ return c.checked; }); }
+    function gchk(){ $("#b-gate").disabled = lockedUI || !gates.every(function(c){ return c.checked; }); }
     gates.forEach(function(c){ c.addEventListener("change", gchk); });
-    $("#b-gate").addEventListener("click", function(){ go(1); });
+    $("#b-gate").addEventListener("click", function(){ if(!lockedUI) go(1); });
 
     $("#q1").addEventListener("input", function(){ drawRoster(1); });
     $("#q2").addEventListener("input", function(){ drawRoster(2); });
+    $("#qa").addEventListener("input", function(){ drawCat("a"); });
+    $("#qc").addEventListener("input", function(){ drawCat("c"); });
     $("#b1-back").addEventListener("click", function(){ go(0); });
     $("#b2-back").addEventListener("click", function(){ S.me=null; S.buddy=null; save(); go(1); });
-    $("#b3-back").addEventListener("click", function(){ readTexts(); S.buddy=null; save(); go(2); });
+    $("#b3-back").addEventListener("click", function(){ S.buddy=null; save(); go(2); });
     $("#b4-back").addEventListener("click", function(){ go(3); });
 
-    $$(".ck").forEach(function(b){
+    $$(".kind").forEach(function(b){
       b.addEventListener("click", function(){
-        S.child.k = b.getAttribute("data-k"); save();
-        $$(".ck").forEach(function(x){
-          var on = x === b;
-          x.classList.toggle("btn-primary", on); x.classList.toggle("btn-outline", !on);
-        });
+        filterKind = b.getAttribute("data-k") || "";
+        $$(".kind").forEach(function(x){ x.classList.toggle("on", x === b); });
+        drawCat("c");
       });
-    });
-    ["#a-t","#a-p","#a-s","#c-t","#c-p","#c-s"].forEach(function(sel){
-      $(sel).addEventListener("input", function(){ readTexts(); checkDup(); });
     });
 
     $("#b3-next").addEventListener("click", function(){
-      readTexts();
-      var need = [["#a-t",S.adult.t],["#a-p",S.adult.p],["#c-t",S.child.t]], bad = false;
-      need.forEach(function(p){
-        var el = $(p[0]), empty = !p[1];
-        el.classList.toggle("bad", empty);
-        if(empty && !bad){ bad = true; el.focus(); }
-      });
-      if(!S.child.k){
-        bad = true;
-        $("#warn3").innerHTML = '<div class="warn">Please say whether your Part 2 text is a children\'s poem, a song, a limerick or a nursery rhyme.</div>';
-      }
-      if(bad){
-        if(S.child.k) $("#warn3").innerHTML = '<div class="warn">Please fill in the fields marked with a red star before continuing.</div>';
+      if(lockedUI) return;
+      var missing = [];
+      if(!S.adult) missing.push("an <strong>adult poem</strong> for Part 1");
+      if(!S.child) missing.push("a <strong>children's poem, song or limerick</strong> for Part 2");
+      if(missing.length){
+        $("#warn3").innerHTML = '<div class="warn">Please choose ' + missing.join(" and ")
+          + '. Open a card to read the whole text before you decide.</div>';
+        var t = $("#warn3").getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({top:t, behavior:"smooth"});
         return;
       }
-      checkDup();
+      /* a text confirmed for another group since this device last loaded */
+      if(TAKEN_P[S.adult] || TAKEN_P[S.child]){
+        var gone = [];
+        if(TAKEN_P[S.adult]){ gone.push(poemLabel(S.adult)); S.adult = null; }
+        if(TAKEN_P[S.child]){ gone.push(poemLabel(S.child)); S.child = null; }
+        save(); drawPicked(); drawCat("a"); drawCat("c");
+        $("#warn3").innerHTML = '<div class="warn">⚠️ Another group has registered ' + esc(gone.join(" and "))
+          + '. Two groups may not translate the same text — please choose another.</div>';
+        return;
+      }
+      clearWarn();
       go(4);
     });
 
@@ -840,7 +1230,7 @@ var DUE   = "2026-08-06T23:59:00+03:00";
 
     $("#b-reset").addEventListener("click", function(){
       if(!window.confirm("Clear your sign-up and start again?")) return;
-      S = { stage:0, me:null, buddy:null, adult:{t:"",p:"",s:""}, child:{t:"",k:"",p:"",s:""} };
+      S = blank();
       try{ localStorage.removeItem(KEY); }catch(e){}
       gates.forEach(function(c){ c.checked = false; }); gchk();
       go(0);
@@ -848,17 +1238,16 @@ var DUE   = "2026-08-06T23:59:00+03:00";
 
     /* resume where the student left off */
     var start = 0;
-    if(S.me && S.buddy) start = (S.adult.t && S.adult.p && S.child.t && S.child.k) ? 4 : 3;
+    if(S.me && S.buddy) start = (S.adult && S.child) ? 4 : 3;
     else if(S.me) start = 2;
-    if(start > 0){ gates.forEach(function(c){ c.checked = true; }); gchk(); }
+    if(start > 0){ gates.forEach(function(c){ c.checked = true; }); }
+    gchk();
     S.stage = start;
     $$(".stage").forEach(function(el){ el.classList.remove("on"); });
     var t0 = $("#s"+start); if(t0) t0.classList.add("on");
     rail();
-    if(start===1) drawRoster(1);
-    if(start===2){ drawChip("#chip2"); drawRoster(2); }
-    if(start===3){ drawChip("#chip3"); fillTexts(); }
-    if(start===4) drawReview();
+    render(start);
+    if(isClosed()) lockSignup();
   }
 
   if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
