@@ -15,6 +15,7 @@
     { href: "resources.html",     label: "Resources" },
     { href: "apa-quickref.html",  label: "APA 7 Guide" },
     { href: "quiz-final.html",    label: "Final Exam Bank" },
+    { href: "workshop-final-paper.html", label: "\ud83e\uddea Full-Paper Lab" },
     { href: "assignment-methodology-discussion.html", label: "\ud83d\udcc4 Assignment Brief" },
     { href: "progress.html",      label: "My Progress" }
   ];
