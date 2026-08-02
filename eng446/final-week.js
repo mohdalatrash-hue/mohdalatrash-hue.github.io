@@ -57,6 +57,38 @@
   document.querySelectorAll('[data-copy-target]').forEach(btn=>{
     btn.addEventListener('click',async()=>{const el=document.getElementById(btn.dataset.copyTarget);if(!el)return;try{await navigator.clipboard.writeText(el.value||el.textContent);btn.textContent='Copied';setTimeout(()=>btn.textContent='Copy output',1400)}catch(e){el.select&&el.select();}});
   });
+  document.querySelectorAll('[data-export-lab]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const order=['sunday','monday','tuesday'];
+      const lines=['ENG 446 — Full-Paper Imitation Laboratory','Saved group notes','Exported: '+new Date().toLocaleString(),''];
+      let responseCount=0;
+      order.forEach(day=>{
+        const data=saved[day];
+        if(!data)return;
+        lines.push('=== '+day.toUpperCase()+' ===');
+        Object.entries(data.fields||{}).forEach(([key,value])=>{
+          const clean=String(value||'').trim();
+          if(!clean)return;
+          responseCount+=1;
+          lines.push('',key.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())+':',clean);
+        });
+        const finished=Object.entries(data.done||{}).filter(([,value])=>value).map(([key])=>key.replace(/-/g,' '));
+        if(finished.length)lines.push('','Completed workshops: '+finished.join(', '));
+        lines.push('');
+      });
+      const state=document.querySelector('[data-export-state]');
+      if(!responseCount){
+        if(state)state.textContent='No written responses are saved yet. Begin Sunday, then export.';
+        return;
+      }
+      const blob=new Blob([lines.join('\n')],{type:'text/plain;charset=utf-8'});
+      const url=URL.createObjectURL(blob);
+      const link=document.createElement('a');
+      link.href=url;link.download='ENG446-Full-Paper-Lab-Notes-'+new Date().toISOString().slice(0,10)+'.txt';
+      document.body.appendChild(link);link.click();link.remove();URL.revokeObjectURL(url);
+      if(state)state.textContent=responseCount+' saved responses downloaded.';
+    });
+  });
   document.querySelectorAll('[data-print]').forEach(btn=>btn.addEventListener('click',()=>window.print()));
   const reset=document.querySelector('[data-reset-page]');
   if(reset)reset.addEventListener('click',()=>{if(confirm('Clear the saved answers and completion marks for this page?')){delete saved[page];localStorage.setItem(STORE,JSON.stringify(saved));location.reload();}});
