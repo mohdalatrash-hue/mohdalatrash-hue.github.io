@@ -243,6 +243,29 @@ body{background:var(--off-white);}
   .part-head{padding:16px 17px;} .part-body{padding:18px 17px;} .su-body{padding:18px 17px;} .su-head{padding:18px 17px;}
   .rail-l{font-size:9px;} .dl-date{font-size:17px;}
 }
+
+/* ── registration status board ── */
+.rg-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:10px;margin-bottom:16px;}
+.rg-s{background:var(--off-white);border:1px solid var(--border-light);border-radius:var(--r-md);padding:13px 14px;}
+.rg-s .v{font-size:24px;font-weight:800;color:var(--green-dark);line-height:1.1;letter-spacing:-.02em;}
+.rg-s .v small{font-size:14px;color:var(--text-3);font-weight:700;}
+.rg-s .k{font-size:11.5px;color:var(--text-2);font-weight:700;margin-top:3px;}
+.rg-s.open{background:var(--amber-light);border-color:#ffdca8;}
+.rg-s.open .v{color:#a35a00;}
+.rg-pend{display:inline-block;background:var(--amber-light);color:#7a4300;border:1px solid #ffdca8;
+  border-radius:var(--r-pill);padding:2px 10px;font-size:11.5px;font-weight:800;}
+.rg-h{font-size:13px;font-weight:800;color:var(--green-dark);text-transform:uppercase;
+  letter-spacing:.07em;margin:26px 0 9px;}
+.rg-note{font-size:13px;color:var(--text-2);margin:0 0 12px;line-height:1.6;}
+.rg-chips{display:flex;flex-wrap:wrap;gap:7px;}
+.rg-c{background:var(--white);border:1px solid var(--border);border-radius:var(--r-pill);
+  padding:6px 13px;font-size:13px;direction:rtl;}
+.rg-c.free{direction:ltr;}
+.rg-c.faded{opacity:.45;background:var(--off-white);text-decoration:line-through;}
+.rg-c .num{direction:ltr;display:inline-block;color:var(--text-3);font-size:11px;font-weight:700;
+  margin-inline-start:8px;padding-inline-start:8px;border-inline-start:1px solid var(--border);
+  font-variant-numeric:tabular-nums;text-decoration:none;}
+.rg-c .cd{font-weight:800;color:var(--green);margin-inline-end:5px;}
 </style>
 </head>
 <body>
@@ -834,6 +857,21 @@ text:"Whenever the moon and stars are set,\nWhenever the wind is high,\nAll nigh
    them. The email slip each group sends prints both codes.
    ══════════════════════════════════════════════════════════ */
 var CONFIRMED = [
+  /* Entered 3 August 2026 from the eleven slips received at atrsh@qu.edu.sa.
+     Order = order of arrival, which is the order that decides a contested text.
+     An empty "ap" or "cp" means that half of the choice is awaiting a re-pick
+     because another group had claimed the text first. */
+  {a:"431108990", b:"421108867", ap:"A24", cp:"C01"},
+  {a:"443105444", b:"442112878", ap:"A09", cp:"C02"},
+  {a:"422114156", b:"422113054", ap:"",    cp:"C10"},   /* A09 lost to group 2 by 103 seconds */
+  {a:"441109649", b:"432111879", ap:"A03", cp:"C16"},
+  {a:"432112200", b:"431110332", ap:"A14", cp:"C19"},
+  {a:"442106964", b:"443105479", ap:"",    cp:"C05"},   /* A03 lost to group 4 */
+  {a:"441109662", b:"441109635", ap:"A22", cp:""},      /* C01 lost to group 1 */
+  {a:"441109596", b:"442106916", ap:"A11", cp:"C04"},
+  {a:"441109604", b:"442106912", ap:"A04", cp:"C09"},
+  {a:"432112226", b:"431110036", ap:"A20", cp:"C20"},
+  {a:"432110922", b:"362114108", ap:"A13", cp:"C03"}
 ];
 
 var EMAIL  = "atrsh@qu.edu.sa";
@@ -1135,28 +1173,92 @@ var CLOSES = "2026-08-02T23:59:00+03:00";   /* sign-up window shuts */
       + "&body=" + encodeURIComponent(slip);
   }
 
-  /* ── registered groups table ── */
+  /* ── registration status board ── */
   function drawRegistered(){
     var wrap = $("#reg-wrap"), cnt = $("#reg-count");
     cnt.textContent = CONFIRMED.length ? "· " + CONFIRMED.length + " of 16" : "";
+
     if(!CONFIRMED.length){
       wrap.innerHTML = '<div class="reg-empty"><div class="reg-empty-ic">📋</div>'
         + '<div class="reg-empty-t">No groups registered yet</div>'
         + '<div class="reg-empty-s">Groups appear here as Dr. Alatrash confirms them. Check back after you have sent your sign-up — if your names are not here, your group is not yet registered.</div></div>';
       return;
     }
-    wrap.innerHTML = '<div style="overflow-x:auto;"><table class="tbl"><thead><tr>'
-      + '<th style="width:34px;">#</th><th>Group</th><th>Adult poem</th><th>Children\'s text</th>'
+
+    var eligible = ROSTER.filter(function(s){ return s.ok; });
+    var placedN  = eligible.filter(function(s){ return TAKEN[s.id]; }).length;
+    var waiting  = eligible.filter(function(s){ return !TAKEN[s.id]; });
+    var freeA    = ADULT.filter(function(p){ return !TAKEN_P[p.id]; });
+    var freeC    = CHILD.filter(function(p){ return !TAKEN_P[p.id]; });
+    var pending  = CONFIRMED.filter(function(g){ return !g.ap || !g.cp; }).length;
+
+    /* ── the numbers ── */
+    var html = '<div class="rg-stats">'
+      + '<div class="rg-s"><div class="v">' + CONFIRMED.length + ' <small>/ 16</small></div><div class="k">Groups registered</div></div>'
+      + '<div class="rg-s"><div class="v">' + placedN + ' <small>/ ' + eligible.length + '</small></div><div class="k">Students in a group</div></div>'
+      + '<div class="rg-s' + (waiting.length ? " open" : "") + '"><div class="v">' + waiting.length + '</div><div class="k">Still without a group</div></div>'
+      + '<div class="rg-s"><div class="v">' + freeA.length + ' <small>/ 24</small></div><div class="k">Adult poems free</div></div>'
+      + '<div class="rg-s"><div class="v">' + freeC.length + ' <small>/ 24</small></div><div class="k">Children\'s texts free</div></div>'
+      + '</div>';
+
+    if(pending){
+      html += '<div class="warn" style="margin-bottom:16px;">⚠️ <strong>' + pending
+        + ' group' + (pending===1?"":"s") + ' must choose one text again.</strong> Two groups had asked for the same poem, '
+        + 'and the rule announced on this page is that <em>the first slip received wins</em>. '
+        + 'Where you see <span class="rg-pend">choose again</span> below, that half of your choice is still open — '
+        + 'pick any text still shown as free further down and email it to <strong>' + esc(EMAIL) + '</strong>. '
+        + 'Your partner and your other text are secure and are not affected.</div>';
+    }
+
+    /* ── the groups ── */
+    html += '<div class="rg-h">Registered groups</div>'
+      + '<div style="overflow-x:auto;"><table class="tbl"><thead><tr>'
+      + '<th style="width:34px;">#</th><th>Group</th><th>Part 1 · adult poem</th><th>Part 2 · children\'s text</th>'
       + '</tr></thead><tbody>'
       + CONFIRMED.map(function(g,i){
           var a = BY_ID[g.a], b = BY_ID[g.b];
-          var at = g.ap ? poemLabel(g.ap) : (g.adult || "—");
-          var ct = g.cp ? poemLabel(g.cp) : (g.child || "—");
+          function cell(code){
+            if(!code) return '<span class="rg-pend">choose again</span>';
+            var p = BY_P[code];
+            if(!p) return esc(code);
+            return '<strong>' + esc(p.t) + '</strong><br><span style="color:var(--text-3);font-size:12.5px;">'
+                 + esc(p.poet) + ' · ' + p.n + ' lines · code ' + p.id + '</span>';
+          }
           return '<tr><td style="font-weight:800;color:var(--green-dark);">'+(i+1)+'</td>'
             + '<td class="ar" style="font-weight:600;">'+esc(a?a.name:g.a)+'<br>'+esc(b?b.name:g.b)+'</td>'
-            + '<td>'+esc(at)+'</td><td>'+esc(ct)+'</td></tr>';
+            + '<td>'+cell(g.ap)+'</td><td>'+cell(g.cp)+'</td></tr>';
         }).join("")
-      + "</tbody></table></div>";
+      + '</tbody></table></div>';
+
+    /* ── who is still out ── */
+    html += '<div class="rg-h">Students not yet in a group · ' + waiting.length + '</div>';
+    if(!waiting.length){
+      html += '<p class="rg-note">Every eligible student is registered.</p>';
+    } else {
+      html += '<p class="rg-note">If your name is here, we have <strong>not</strong> received a sign-up from you. '
+            + 'Email <strong>' + esc(EMAIL) + '</strong> today — the project is still due Thursday 6 August, midnight.</p>'
+            + '<div class="rg-chips">' + waiting.map(function(s){
+                return '<span class="rg-c">' + esc(s.name) + '<span class="num">' + esc(s.id) + '</span></span>';
+              }).join("") + '</div>';
+    }
+
+    /* ── what is left ── */
+    function texts(list, cat, label){
+      var free = cat.filter(function(p){ return !TAKEN_P[p.id]; });
+      var out = '<div class="rg-h">' + label + ' · ' + free.length + ' of ' + cat.length + ' still free</div>'
+              + '<div class="rg-chips">'
+              + cat.map(function(p){
+                  var gone = !!TAKEN_P[p.id];
+                  return '<span class="rg-c free' + (gone?" faded":"") + '">'
+                       + '<span class="cd">' + esc(p.id) + '</span>' + esc(p.t)
+                       + '<span class="num">' + (gone ? "taken" : esc(p.poet)) + '</span></span>';
+                }).join("")
+              + '</div>';
+      return out;
+    }
+    html += texts(null, ADULT, "Adult poems") + texts(null, CHILD, "Children’s texts");
+
+    wrap.innerHTML = html;
   }
 
   /* ── wiring ── */
