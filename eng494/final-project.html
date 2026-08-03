@@ -275,6 +275,11 @@ body{background:var(--off-white);}
 .rw.rp-pick{border:1.5px solid var(--border);background:var(--white);margin-bottom:8px;}
 .rw.rp-pick:hover:not(:disabled){border-color:var(--amber);background:var(--amber-light);}
 .rw.rp-pick .rw-n{background:var(--amber-light);color:#7a4300;}
+
+.rp-steps{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+.rp-step{background:var(--off-white);border:1px solid var(--border);border-radius:var(--r-pill);
+  padding:5px 13px;font-size:12.5px;font-weight:700;color:var(--text-2);}
+.rp-step.done{background:var(--green-light);border-color:#bfe0cc;color:var(--green-dark);}
 </style>
 </head>
 <body>
@@ -868,21 +873,25 @@ text:"Whenever the moon and stars are set,\nWhenever the wind is high,\nAll nigh
    them. The email slip each group sends prints both codes.
    ══════════════════════════════════════════════════════════ */
 var CONFIRMED = [
-  /* Entered 3 August 2026 from the eleven slips received at atrsh@qu.edu.sa.
+  /* Entered 3 August 2026 from every slip received at atrsh@qu.edu.sa.
      Order = order of arrival, which is the order that decides a contested text.
-     An empty "ap" or "cp" means that half of the choice is awaiting a re-pick
-     because another group had claimed the text first. */
+     An empty "ap" or "cp" means that half is awaiting a re-pick because
+     another group had claimed the text first. */
   {a:"431108990", b:"421108867", ap:"A24", cp:"C01"},
   {a:"443105444", b:"442112878", ap:"A09", cp:"C02"},
-  {a:"422114156", b:"422113054", ap:"",    cp:"C10"},   /* A09 lost to group 2 by 103 seconds */
+  {a:"422114156", b:"422113054", ap:"",    cp:"C10"},   /* A09 lost to group 2 by 103 seconds — still to re-pick */
   {a:"441109649", b:"432111879", ap:"A03", cp:"C16"},
   {a:"432112200", b:"431110332", ap:"A14", cp:"C19"},
-  {a:"442106964", b:"443105479", ap:"",    cp:"C05"},   /* A03 lost to group 4 */
-  {a:"441109662", b:"441109635", ap:"A22", cp:""},      /* C01 lost to group 1 */
+  {a:"442106964", b:"443105479", ap:"A10", cp:"C05"},   /* re-picked A10 after losing A03 */
+  {a:"441109662", b:"441109635", ap:"A22", cp:"C06"},   /* re-picked C06 after losing C01 */
   {a:"441109596", b:"442106916", ap:"A11", cp:"C04"},
   {a:"441109604", b:"442106912", ap:"A04", cp:"C09"},
   {a:"432112226", b:"431110036", ap:"A20", cp:"C20"},
-  {a:"432110922", b:"362114108", ap:"A13", cp:"C03"}
+  {a:"432110922", b:"362114108", ap:"A13", cp:"C03"},
+  {a:"451109787", b:"443116250", ap:"A01", cp:"C15"},
+  {a:"442106948", b:"442106947", ap:"",    cp:""   },   /* asked for A24 and C19 — both already taken; re-picks both */
+  {a:"431110122", b:"441109676", ap:"A16", cp:"C13"},
+  {a:"431108648", b:"421108526", ap:"A23", cp:"C24"}
 ];
 
 var EMAIL  = "atrsh@qu.edu.sa";
@@ -1214,12 +1223,12 @@ var CLOSES = "2026-08-04T23:59:00+03:00";   /* sign-up window shuts — reopened
 
     if(pending){
       html += '<div class="warn" style="margin-bottom:16px;">⚠️ <strong>' + pending
-        + ' group' + (pending===1?"":"s") + ' must choose one text again.</strong> Two groups had asked for the same poem, '
+        + ' group' + (pending===1?"":"s") + ' must choose again.</strong> Two groups had asked for the same text, '
         + 'and the rule announced on this page is that <em>the first slip received wins</em>. '
-        + 'Where you see <span class="rg-pend">choose again</span> below, that half of your choice is still open. '
+        + 'Wherever you see <span class="rg-pend">choose again</span> below, that choice is still open. '
         + 'Use the <strong>Choose your text again</strong> panel directly beneath this table — find your names, '
         + 'read what is still free, choose, and send the slip. '
-        + 'Your partner and your other text are secure and are not affected.</div>';
+        + 'Your partner is not affected, and neither is any text you did win.</div>';
     }
 
     /* ── the groups ── */
@@ -1277,33 +1286,51 @@ var CLOSES = "2026-08-04T23:59:00+03:00";   /* sign-up window shuts — reopened
   /* ══════════════════════════════════════════════════════
      RE-PICK PANEL
      A group whose slip lost a contested text keeps its
-     partnership and its other text; only the missing half
-     is re-chosen here. The main five-stage flow refuses
-     these students on purpose — they are already grouped —
-     so this is a separate, narrower path.
+     partnership and whatever it won; only the missing half
+     (or, rarely, both halves) is re-chosen here. The main
+     five-stage flow refuses these students on purpose —
+     they are already grouped — so this is a separate path.
      ══════════════════════════════════════════════════════ */
-  var RPKEY = "eng494_repick_v1";
-  var RP = { g:null, code:null };
+  var RPKEY = "eng494_repick_v2";
+  var RP = { g:null, a:null, c:null };
   var rpBody = {};
 
+  function rpMissing(g){
+    var m = [];
+    if(!g.ap) m.push("a");
+    if(!g.cp) m.push("c");
+    return m;
+  }
   function pendingGroups(){
     var out = [];
-    CONFIRMED.forEach(function(g,i){ if(!g.ap || !g.cp) out.push({g:g, i:i}); });
+    CONFIRMED.forEach(function(g,i){ if(rpMissing(g).length) out.push({g:g, i:i}); });
     return out;
   }
-  function rpNeeds(g){ return !g.ap ? "a" : "c"; }              /* which catalogue is missing */
-  function rpCat(g){ return rpNeeds(g) === "a" ? ADULT : CHILD; }
-  function rpLabel(g){ return rpNeeds(g) === "a" ? "adult poem" : "children\u2019s text"; }
+  function rpKindLabel(k){ return k === "a" ? "adult poem" : "children\u2019s text"; }
+  function rpNeedText(g){
+    return rpMissing(g).map(rpKindLabel).join(" and ");
+  }
+  /* the next slot still awaiting a choice in this session */
+  function rpNext(g){
+    var m = rpMissing(g);
+    for(var i=0; i<m.length; i++){ if(!RP[m[i]]) return m[i]; }
+    return null;
+  }
 
   function rpLoad(){
     try{
       var d = JSON.parse(localStorage.getItem(RPKEY));
       if(!d) return;
-      if(typeof d.g === "number" && CONFIRMED[d.g] && (!CONFIRMED[d.g].ap || !CONFIRMED[d.g].cp)) RP.g = d.g;
-      if(RP.g !== null && d.code && BY_P[d.code] && !TAKEN_P[d.code]) RP.code = d.code;
+      if(typeof d.g === "number" && CONFIRMED[d.g] && rpMissing(CONFIRMED[d.g]).length) RP.g = d.g;
+      if(RP.g === null) return;
+      var miss = rpMissing(CONFIRMED[RP.g]);
+      ["a","c"].forEach(function(k){
+        if(miss.indexOf(k) > -1 && d[k] && BY_P[d[k]] && !TAKEN_P[d[k]]) RP[k] = d[k];
+      });
     }catch(e){}
   }
   function rpSave(){ try{ localStorage.setItem(RPKEY, JSON.stringify(RP)); }catch(e){} }
+  function rpReset(){ RP.g = null; RP.a = null; RP.c = null; rpSave(); }
 
   function drawRepick(){
     var host = $("#repick");
@@ -1320,7 +1347,7 @@ var CLOSES = "2026-08-04T23:59:00+03:00";   /* sign-up window shuts — reopened
       h += '<p style="margin:0 0 6px;font-weight:700;font-size:15.5px;">Is your group one of these?</p>'
         +  '<p style="margin:0 0 14px;color:var(--text-2);font-size:13.5px;line-height:1.6;">'
         +  'Another group had asked for the same text before you, and the rule on this page is that the first slip received wins. '
-        +  'Your partner and your other text are safe \u2014 only the one text below needs choosing again. Find your names:</p>';
+        +  'Your partner is safe, and so is anything you won. Find your names:</p>';
       pend.forEach(function(x){
         var a = BY_ID[x.g.a], b = BY_ID[x.g.b];
         h += '<button type="button" class="rw rp-pick" data-rp="' + x.i + '"' + (lockedUI?" disabled":"") + '>'
@@ -1328,38 +1355,51 @@ var CLOSES = "2026-08-04T23:59:00+03:00";   /* sign-up window shuts — reopened
           +  '<span class="rw-b"><span class="rw-nm">' + esc(a?a.name:x.g.a) + '</span>'
           +  '<span class="rw-nm" style="font-weight:500;">' + esc(b?b.name:x.g.b) + '</span></span>'
           +  '<span class="rw-tw"><span class="rw-tag" style="background:var(--amber-light);color:#7a4300;">needs '
-          +  esc(rpLabel(x.g)) + '</span></span></button>';
+          +  esc(rpNeedText(x.g)) + '</span></span></button>';
       });
       h += "</div>";
-      host.innerHTML = h;
-      rpWire();
-      return;
+      host.innerHTML = h; rpWire(); return;
     }
 
-    /* ── steps 2–3 · the chosen group ── */
-    var g = CONFIRMED[RP.g], need = rpNeeds(g), cat = rpCat(g);
+    /* ── the chosen group ── */
+    var g = CONFIRMED[RP.g], miss = rpMissing(g);
     var a = BY_ID[g.a], b = BY_ID[g.b];
-    var keptCode = need === "a" ? g.cp : g.ap;
-    var kept = BY_P[keptCode];
+    var keptBits = [];
+    if(g.ap && BY_P[g.ap]) keptBits.push("<strong>" + esc(BY_P[g.ap].t) + "</strong> (" + esc(g.ap) + ")");
+    if(g.cp && BY_P[g.cp]) keptBits.push("<strong>" + esc(BY_P[g.cp].t) + "</strong> (" + esc(g.cp) + ")");
 
     h += '<div class="rp-head"><div>'
       +  '<div style="font-size:11.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--green);">Group ' + (RP.g+1) + '</div>'
       +  '<div class="ar" style="font-weight:700;font-size:15px;margin-top:3px;">' + esc(a?a.name:g.a) + ' \u00b7 ' + esc(b?b.name:g.b) + '</div>'
-      +  '<div style="font-size:13px;color:var(--text-2);margin-top:5px;">Keeping <strong>' + esc(kept ? kept.t : keptCode) + '</strong> ('
-      +  esc(keptCode) + ') \u2014 unchanged. Choosing a new <strong>' + esc(rpLabel(g)) + '</strong>.</div>'
-      +  '</div><button type="button" class="btn btn-secondary btn-sm" id="rp-back">Not my group</button></div>';
+      +  '<div style="font-size:13px;color:var(--text-2);margin-top:5px;">'
+      +  (keptBits.length ? "Keeping " + keptBits.join(" and ") + " \u2014 unchanged. Choosing a new <strong>" + esc(rpNeedText(g)) + "</strong>."
+                          : "Both of your texts had already been taken by earlier groups, so you choose <strong>both again</strong>.")
+      +  '</div></div><button type="button" class="btn btn-secondary btn-sm" id="rp-back">Not my group</button></div>';
 
-    if(!RP.code){
-      var free = cat.filter(function(p){ return !TAKEN_P[p.id]; });
+    /* progress, when two choices are needed */
+    if(miss.length > 1){
+      h += '<div class="rp-steps">' + miss.map(function(k,i){
+             var done = !!RP[k];
+             return '<span class="rp-step' + (done?" done":"") + '">' + (done ? "\u2713 " : (i+1) + ". ")
+                  + esc(rpKindLabel(k)) + (done ? " \u00b7 " + esc(BY_P[RP[k]].t) : "") + '</span>';
+           }).join("") + '</div>';
+    }
+
+    var next = rpNext(g);
+
+    if(next){
+      var cat = next === "a" ? ADULT : CHILD;
+      var free = cat.filter(function(p){ return !TAKEN_P[p.id] && p.id !== RP.a && p.id !== RP.c; });
       h += '<p style="margin:16px 0 12px;color:var(--text-2);font-size:13.5px;line-height:1.6;">'
-        +  '<strong>' + free.length + ' texts are still free.</strong> Open one to read it in full before you decide. '
-        +  'Anything greyed out on this page is already taken.</p>'
-        +  '<div class="cat-list">' + free.map(function(p){ return rpCard(p, need); }).join("") + '</div>';
+        +  'Now choose your <strong>' + esc(rpKindLabel(next)) + '</strong>. <strong>' + free.length + ' are still free.</strong> '
+        +  'Open one to read it in full before you decide. Anything greyed out on this page is already taken.</p>'
+        +  '<div class="cat-list">' + free.map(function(p){ return rpCard(p); }).join("") + '</div>';
     } else {
-      var p = BY_P[RP.code];
-      var slip = rpSlip(g, p, need);
-      h += '<div class="rp-done">\u2705 <strong>' + esc(p.t) + '</strong> \u2014 ' + esc(p.poet)
-        +  ' <span style="color:var(--text-3);">(' + esc(p.id) + ')</span></div>'
+      var slip = rpSlip(g);
+      h += '<div class="rp-done">\u2705 ' + miss.map(function(k){
+             var p = BY_P[RP[k]];
+             return '<strong>' + esc(p.t) + '</strong> \u2014 ' + esc(p.poet) + ' <span style="color:var(--text-3);">(' + esc(p.id) + ')</span>';
+           }).join('<br>\u2705 ') + '</div>'
         +  '<p style="margin:14px 0 10px;color:var(--text-2);font-size:13.5px;line-height:1.6;">'
         +  '<strong>You are not finished yet.</strong> Send this to Dr. Alatrash \u2014 the choice is not registered until he receives it. '
         +  'If two groups send for the same text, the first message received wins.</p>'
@@ -1367,22 +1407,21 @@ var CLOSES = "2026-08-04T23:59:00+03:00";   /* sign-up window shuts — reopened
         +  '<div class="acts">'
         +  '<a class="btn btn-primary" id="rp-mail" href="#">\u2709\ufe0f Send by email</a>'
         +  '<button type="button" class="btn btn-secondary" id="rp-copy">\ud83d\udccb Copy the slip</button>'
-        +  '<button type="button" class="btn btn-secondary btn-sm" id="rp-change">Choose a different text</button>'
+        +  '<button type="button" class="btn btn-secondary btn-sm" id="rp-change">Start these choices again</button>'
         +  '</div>';
     }
     h += "</div>";
     host.innerHTML = h;
 
-    if(RP.code){
-      var pp = BY_P[RP.code];
+    if(!next){
       $("#rp-mail").href = "mailto:" + EMAIL
         + "?subject=" + encodeURIComponent("ENG 494 Final Project \u2014 replacement text (" + g.a + " + " + g.b + ")")
-        + "&body="    + encodeURIComponent(rpSlip(g, pp, need));
+        + "&body="    + encodeURIComponent(rpSlip(g));
     }
     rpWire();
   }
 
-  function rpCard(p, need){
+  function rpCard(p){
     var open = !!rpBody[p.id];
     var meta = esc(p.poet) + " \u00b7 " + p.pub + " \u00b7 " + p.n + " lines \u00b7 " + esc(p.rhyme)
              + (p.form ? " \u00b7 " + esc(p.form) : "") + (p.kind ? " \u00b7 " + esc(p.kind) : "");
@@ -1402,43 +1441,48 @@ var CLOSES = "2026-08-04T23:59:00+03:00";   /* sign-up window shuts — reopened
       + '</div></div>';
   }
 
-  function rpSlip(g, p, need){
+  function rpSlip(g){
     var a = BY_ID[g.a], b = BY_ID[g.b];
-    var keptCode = need === "a" ? g.cp : g.ap, kept = BY_P[keptCode];
-    var ap = need === "a" ? p.id : g.ap;
-    var cp = need === "c" ? p.id : g.cp;
-    return [
+    var ap = g.ap || RP.a, cp = g.cp || RP.c;
+    var pa = BY_P[ap], pc = BY_P[cp];
+    var miss = rpMissing(g);
+    var lines = [
       "ENG 494 \u2014 Final Project REPLACEMENT text (Section 173)",
       "",
       "Student 1: " + (a?a.name:"") + " \u2014 " + g.a,
       "Student 2: " + (b?b.name:"") + " \u2014 " + g.b,
-      "",
-      "New " + rpLabel(g) + ": " + p.t + " \u2014 " + p.poet + "  [" + p.id + "]",
-      "Unchanged: " + (kept ? kept.t + " \u2014 " + kept.poet : keptCode) + "  [" + keptCode + "]",
-      "",
-      "Instructor line:  {a:\"" + g.a + "\", b:\"" + g.b + "\", ap:\"" + ap + "\", cp:\"" + cp + "\"}",
-      "",
-      "Sent from the course website on " + new Date().toLocaleString("en-GB", {timeZone:"Asia/Riyadh"}) + " (Riyadh)."
-    ].join("\n");
+      ""
+    ];
+    lines.push((miss.indexOf("a") > -1 ? "New adult poem: " : "Unchanged adult poem: ")
+      + (pa ? pa.t + " \u2014 " + pa.poet : ap) + "  [" + ap + "]");
+    lines.push((miss.indexOf("c") > -1 ? "New children\u2019s text: " : "Unchanged children\u2019s text: ")
+      + (pc ? pc.t + " \u2014 " + pc.poet : cp) + "  [" + cp + "]");
+    lines.push("");
+    lines.push("Instructor line:  {a:\"" + g.a + "\", b:\"" + g.b + "\", ap:\"" + ap + "\", cp:\"" + cp + "\"}");
+    lines.push("");
+    lines.push("Sent from the course website on " + new Date().toLocaleString("en-GB", {timeZone:"Asia/Riyadh"}) + " (Riyadh).");
+    return lines.join("\n");
   }
 
   function rpWire(){
     $$(".rp-pick").forEach(function(btn){
       btn.addEventListener("click", function(){
         if(lockedUI) return;
-        RP.g = parseInt(btn.getAttribute("data-rp"), 10); RP.code = null; rpSave(); drawRepick();
+        RP.g = parseInt(btn.getAttribute("data-rp"), 10); RP.a = null; RP.c = null; rpSave(); drawRepick();
         $("#repick").scrollIntoView({behavior:"smooth", block:"start"});
       });
     });
     var back = $("#rp-back");
-    if(back) back.addEventListener("click", function(){ RP.g = null; RP.code = null; rpSave(); drawRepick(); });
+    if(back) back.addEventListener("click", function(){ rpReset(); drawRepick(); });
 
     $$("[data-rpcode]").forEach(function(btn){
       btn.addEventListener("click", function(){
-        if(lockedUI) return;
+        if(lockedUI || RP.g === null) return;
         var code = btn.getAttribute("data-rpcode");
         if(TAKEN_P[code]) return;
-        RP.code = code; rpSave(); drawRepick();
+        var slot = rpNext(CONFIRMED[RP.g]);
+        if(!slot) return;
+        RP[slot] = code; rpSave(); drawRepick();
         $("#repick").scrollIntoView({behavior:"smooth", block:"start"});
       });
     });
@@ -1451,7 +1495,7 @@ var CLOSES = "2026-08-04T23:59:00+03:00";   /* sign-up window shuts — reopened
     });
 
     var ch = $("#rp-change");
-    if(ch) ch.addEventListener("click", function(){ RP.code = null; rpSave(); drawRepick(); });
+    if(ch) ch.addEventListener("click", function(){ RP.a = null; RP.c = null; rpSave(); drawRepick(); });
 
     var cp = $("#rp-copy");
     if(cp) cp.addEventListener("click", function(){
