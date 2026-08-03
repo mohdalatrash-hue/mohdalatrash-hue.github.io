@@ -302,7 +302,7 @@ body{background:var(--off-white);}
     <div class="cd" id="cd" aria-live="polite"></div>
     <div class="su-when">
       <div class="dl-lab">📝 Sign-up closes</div>
-      <div class="dl-date" style="font-size:16px;">Sunday 2 August 2026 · 11:59 PM</div>
+      <div class="dl-date" style="font-size:16px;">Tuesday 4 August 2026 · 11:59 PM</div>
       <div class="dl-sub" style="margin-top:4px;">Choose your partner and your two texts <strong>before this</strong>. After it the sign-up sheet locks and you must email Dr. Alatrash directly.</div>
       <div class="cd" id="cd2" aria-live="polite" style="margin-top:10px;"></div>
     </div>
@@ -485,7 +485,7 @@ body{background:var(--off-white);}
       <div class="stage" id="s0">
         <div class="stage-h">First — confirm you have read the instructions</div>
         <div class="stage-s">The sign-up unlocks once all three are ticked. These are the three things students most often get wrong.</div>
-        <label class="gate-item"><input type="checkbox" class="gate"><span class="gate-tx">I have read the full instructions on this page. The project is worth <strong>10 marks</strong> and is due <strong>Thursday 6 August, midnight</strong> — and <strong>sign-up itself closes on Sunday 2 August at midnight</strong>.</span></label>
+        <label class="gate-item"><input type="checkbox" class="gate"><span class="gate-tx">I have read the full instructions on this page. The project is worth <strong>10 marks</strong> and is due <strong>Thursday 6 August, midnight</strong> — and <strong>sign-up itself closes on Tuesday 4 August at midnight</strong>.</span></label>
         <label class="gate-item"><input type="checkbox" class="gate"><span class="gate-tx">I understand we must translate <strong>two complete poems</strong> — one adult, one children's — <strong>chosen from the two lists on this page</strong>, each with <strong>two drafts and a 250-word annotation</strong> carrying two quoted sources in APA.</span></label>
         <label class="gate-item"><input type="checkbox" class="gate"><span class="gate-tx">I understand that <strong>AI-generated text anywhere in this assignment results in a zero</strong>, and that a partner already taken by another group cannot be chosen.</span></label>
         <div class="acts"><button class="btn btn-primary" id="b-gate" disabled>Start sign-up →</button></div>
@@ -876,7 +876,7 @@ var CONFIRMED = [
 
 var EMAIL  = "atrsh@qu.edu.sa";
 var DUE    = "2026-08-06T23:59:00+03:00";
-var CLOSES = "2026-08-02T23:59:00+03:00";   /* sign-up window shuts */
+var CLOSES = "2026-08-04T23:59:00+03:00";   /* sign-up window shuts — reopened 3 Aug */
 
 (function(){
   "use strict";
@@ -959,7 +959,7 @@ var CLOSES = "2026-08-02T23:59:00+03:00";   /* sign-up window shuts */
     var box = $("#su-closed");
     if(box){
       box.innerHTML = '<div class="closed-band"><b>🔒 Sign-up closed</b>'
-        + 'The sign-up window shut on <strong>Sunday 2 August 2026 at 11:59 PM</strong>. '
+        + 'The sign-up window shut on <strong>Tuesday 4 August 2026 at 11:59 PM</strong>. '
         + 'If your group is not in the <em>Registered groups</em> table at the foot of this page, email '
         + '<strong>' + esc(EMAIL) + '</strong> directly — do not assume you are registered. '
         + 'The project itself is still due Thursday 6 August, midnight.</div>';
