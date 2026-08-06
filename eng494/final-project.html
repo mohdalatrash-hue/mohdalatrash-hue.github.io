@@ -482,7 +482,7 @@ body{background:var(--off-white);}
   <div class="su">
     <div class="su-head">
       <h2>📝 Group Sign-Up · Section 173</h2>
-      <p>Read the instructions above first, then pick yourself, pick your partner, and choose your two texts from the lists. <strong>33 students · up to 16 groups · 24 adult poems · 24 children's texts.</strong> Once a student or a text is taken, nobody else can choose it.</p>
+      <p>Read the instructions above first, then pick yourself, pick your partner, and choose your two texts from the lists. <strong>33 students · 24 adult poems · 24 children's texts.</strong> Once a student or a text is taken, nobody else can choose it.</p>
     </div>
     <div class="su-body">
       <div id="su-closed"></div>
@@ -889,9 +889,10 @@ var CONFIRMED = [
   {a:"432112226", b:"431110036", ap:"A20", cp:"C20"},
   {a:"432110922", b:"362114108", ap:"A13", cp:"C03"},
   {a:"451109787", b:"443116250", ap:"A01", cp:"C15"},
-  {a:"442106948", b:"442106947", ap:"",    cp:""   },   /* asked for A24 and C19 — both already taken; re-picks both */
+  {a:"442106948", b:"442106947", ap:"A18", cp:"C18"},   /* re-picked both after losing A24 and C19 */
   {a:"431110122", b:"441109676", ap:"A16", cp:"C13"},
-  {a:"431108648", b:"421108526", ap:"A23", cp:"C24"}
+  {a:"431108648", b:"421108526", ap:"A23", cp:"C24"},
+  {a:"421108876", b:"",          ap:"A21", cp:"C11"}    /* solo group — no partner available; approved by the instructor */
 ];
 
 var EMAIL  = "atrsh@qu.edu.sa";
@@ -1196,7 +1197,7 @@ var CLOSES = "2026-08-04T23:59:00+03:00";   /* sign-up window shuts — reopened
   /* ── registration status board ── */
   function drawRegistered(){
     var wrap = $("#reg-wrap"), cnt = $("#reg-count");
-    cnt.textContent = CONFIRMED.length ? "· " + CONFIRMED.length + " of 16" : "";
+    cnt.textContent = CONFIRMED.length ? "· " + CONFIRMED.length + " registered" : "";
 
     if(!CONFIRMED.length){
       wrap.innerHTML = '<div class="reg-empty"><div class="reg-empty-ic">📋</div>'
@@ -1214,7 +1215,7 @@ var CLOSES = "2026-08-04T23:59:00+03:00";   /* sign-up window shuts — reopened
 
     /* ── the numbers ── */
     var html = '<div class="rg-stats">'
-      + '<div class="rg-s"><div class="v">' + CONFIRMED.length + ' <small>/ 16</small></div><div class="k">Groups registered</div></div>'
+      + '<div class="rg-s"><div class="v">' + CONFIRMED.length + '</div><div class="k">Groups registered</div></div>'
       + '<div class="rg-s"><div class="v">' + placedN + ' <small>/ ' + eligible.length + '</small></div><div class="k">Students in a group</div></div>'
       + '<div class="rg-s' + (waiting.length ? " open" : "") + '"><div class="v">' + waiting.length + '</div><div class="k">Still without a group</div></div>'
       + '<div class="rg-s"><div class="v">' + freeA.length + ' <small>/ 24</small></div><div class="k">Adult poems free</div></div>'
@@ -1246,7 +1247,9 @@ var CLOSES = "2026-08-04T23:59:00+03:00";   /* sign-up window shuts — reopened
                  + esc(p.poet) + ' · ' + p.n + ' lines · code ' + p.id + '</span>';
           }
           return '<tr><td style="font-weight:800;color:var(--green-dark);">'+(i+1)+'</td>'
-            + '<td class="ar" style="font-weight:600;">'+esc(a?a.name:g.a)+'<br>'+esc(b?b.name:g.b)+'</td>'
+            + '<td class="ar" style="font-weight:600;">'+esc(a?a.name:g.a)
+            + (g.b ? '<br>'+esc(b?b.name:g.b)
+                   : '<br><span style="font-weight:500;color:var(--text-3);font-size:12.5px;">\u2014 يعمل منفرداً \u00b7 solo group \u2014</span>')+'</td>'
             + '<td>'+cell(g.ap)+'</td><td>'+cell(g.cp)+'</td></tr>';
         }).join("")
       + '</tbody></table></div>';
