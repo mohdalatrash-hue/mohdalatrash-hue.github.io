@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Exam Laboratory | ENG 494</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="ENG 494 whole-course final exam laboratory: 30 automatically graded marks and five short translation-evaluation cases across all five units.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 494 Literary Translation">
+<meta property="og:title" content="Final Exam Laboratory | ENG 494">
+<meta property="og:description" content="A 90-minute whole-course diagnostic built around evaluating flawed translations.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng494/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng494/workshop-final-review.html">
+<meta name="twitter:card" content="summary">
+<style>
+body{background:var(--off-white);}
+.exam-shell{max-width:1040px;margin:0 auto;padding:34px 20px 72px;}
+.exam-alert{display:flex;gap:13px;align-items:flex-start;background:#fff7ed;border:1px solid #fed7aa;border-radius:var(--r-lg);padding:15px 17px;margin-bottom:22px;color:#7c2d12;font-size:13px;line-height:1.6;}
+.exam-alert strong{color:#9a3412;}.exam-alert-ic{font-size:21px;line-height:1.2;}
+.blueprint{display:grid;grid-template-columns:1.05fr .95fr;gap:16px;margin:20px 0 26px;}
+.bp-card{background:#fff;border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:20px;border:1px solid var(--border-light);}
+.bp-kicker{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);margin-bottom:6px;}
+.bp-big{font-size:27px;font-weight:850;letter-spacing:-.035em;color:var(--text);line-height:1.1;}
+.bp-sub{font-size:13px;line-height:1.6;color:var(--text-2);margin-top:8px;}
+.mark-bar{display:flex;height:10px;border-radius:var(--r-pill);overflow:hidden;background:var(--border-light);margin:14px 0 9px;}
+.mark-auto{width:60%;background:var(--green);}.mark-text{width:40%;background:#7c3aed;}
+.mark-key{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--text-2);}.mark-key b{color:var(--text);}
+.rules{margin:10px 0 0;padding-left:19px;color:var(--text-2);font-size:13px;line-height:1.65;}.rules li+li{margin-top:4px;}
+.start-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:22px;}
+.privacy-note{font-size:12px;color:var(--text-3);line-height:1.55;max-width:520px;}
+.exam-app[hidden],.results[hidden],.self-panel[hidden]{display:none!important;}
+.exam-toolbar{position:sticky;top:0;z-index:20;background:rgba(247,248,246,.95);backdrop-filter:blur(12px);border:1px solid var(--border-light);border-radius:var(--r-lg);padding:12px 14px;margin-bottom:16px;box-shadow:var(--shadow-xs);}
+.tool-top{display:flex;align-items:center;gap:12px;}.timer{font-variant-numeric:tabular-nums;font-size:20px;font-weight:850;color:var(--green-dark);letter-spacing:-.02em;min-width:76px;}.timer.danger{color:#b91c1c;}.tool-progress{flex:1;}.tool-lab{display:flex;justify-content:space-between;gap:8px;font-size:11px;color:var(--text-3);margin-bottom:5px;}.tool-track{height:7px;border-radius:var(--r-pill);background:#e5e7eb;overflow:hidden;}.tool-fill{height:100%;background:var(--green);transition:width .25s;}
+.unit-tabs{display:flex;gap:7px;overflow-x:auto;padding-top:11px;scrollbar-width:thin;}.unit-tab{appearance:none;border:1px solid var(--border);background:#fff;color:var(--text-2);font:inherit;font-size:12px;font-weight:750;padding:8px 11px;border-radius:var(--r-pill);cursor:pointer;white-space:nowrap;}.unit-tab:hover{border-color:var(--green);}.unit-tab.active{background:var(--green);border-color:var(--green);color:#fff;}.unit-tab.done:not(.active)::after{content:" ✓";}
+.panel{display:none;}.panel.active{display:block;}.panel-head{background:#fff;border-radius:var(--r-lg);padding:18px 20px;margin-bottom:12px;border-left:5px solid var(--unit-color,var(--green));box-shadow:var(--shadow-xs);}.panel-eyebrow{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--unit-color,var(--green));}.panel-head h2{font-size:22px;margin:5px 0 3px;letter-spacing:-.025em;}.panel-head p{font-size:13px;color:var(--text-2);margin:0;line-height:1.5;}
+.q-card{background:#fff;border:1px solid var(--border-light);border-radius:var(--r-lg);padding:19px 20px;margin-bottom:12px;box-shadow:var(--shadow-xs);}.q-top{display:flex;gap:10px;align-items:center;margin-bottom:10px;}.q-num{width:29px;height:29px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--off-white);color:var(--text);font-size:12px;font-weight:850;flex-shrink:0;}.q-tag{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--unit-color,var(--green));}.q-mark{margin-left:auto;font-size:11px;color:var(--text-3);}.q-source{background:#f8fafc;border-left:3px solid var(--unit-color,var(--green));border-radius:0 var(--r-sm) var(--r-sm) 0;padding:10px 12px;font-size:13px;line-height:1.7;color:#334155;margin:8px 0 11px;white-space:pre-line;}.q-prompt{font-size:14px;line-height:1.65;font-weight:650;color:var(--text);margin:0 0 12px;}.opts{display:grid;gap:7px;}.opt{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--border);border-radius:var(--r-md);padding:10px 12px;cursor:pointer;font-size:13px;line-height:1.5;color:var(--text-2);transition:border-color .12s,background .12s;}.opt:hover{border-color:var(--green-mid);background:var(--green-light);}.opt input{margin-top:3px;accent-color:var(--green);}.opt:has(input:checked){border-color:var(--green);background:var(--green-light);color:var(--text);}.match-grid{display:grid;gap:8px;}.match-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(180px,.65fr);gap:10px;align-items:center;background:var(--off-white);border-radius:var(--r-sm);padding:9px 10px;font-size:12.5px;line-height:1.45;}.match-row select{width:100%;border:1px solid var(--border);border-radius:8px;background:#fff;padding:8px;font:inherit;color:var(--text);}.q-result{display:none;margin-top:12px;border-radius:var(--r-sm);padding:10px 12px;font-size:12.5px;line-height:1.55;}.q-card.graded.correct{border-color:#86c49f}.q-card.graded.incorrect{border-color:#f0a6a6}.q-card.graded.correct .q-result{display:block;background:var(--green-light);color:var(--green-dark)}.q-card.graded.incorrect .q-result{display:block;background:#fef2f2;color:#991b1b}.q-card.graded input,.q-card.graded select{pointer-events:none;}
+.case-card{background:#fff;border:1px solid var(--border-light);border-radius:var(--r-lg);padding:20px;margin-bottom:14px;box-shadow:var(--shadow-xs);}.case-title{font-size:16px;font-weight:800;margin-bottom:6px;color:var(--text);}.case-unit{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--unit-color,var(--green));margin-bottom:12px;}.case-block{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 12px;}.case-pane{background:#f8fafc;border-radius:var(--r-md);padding:12px;border:1px solid #e2e8f0;min-width:0;}.case-lab{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:#64748b;margin-bottom:6px;}.case-text{font-size:13px;line-height:1.75;white-space:pre-line;color:#1e293b;}.case-pane.ar .case-text{direction:rtl;text-align:right;font-family:Tahoma,Arial,sans-serif;}.case-prompt{font-size:13px;line-height:1.6;color:var(--text-2);margin-bottom:8px;}.response-wrap textarea{width:100%;min-height:112px;resize:vertical;border:1.5px solid var(--border);border-radius:var(--r-md);padding:12px;font:14px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif;box-sizing:border-box;}.response-wrap textarea:focus{outline:3px solid rgba(26,107,60,.14);border-color:var(--green);}.response-meta{display:flex;justify-content:space-between;gap:10px;font-size:11px;color:var(--text-3);margin-top:5px;}.marker-guide{display:none;margin-top:13px;background:#faf5ff;border:1px solid #e9d5ff;border-radius:var(--r-md);padding:13px 14px;}.submitted .marker-guide{display:block;}.marker-guide h4{font-size:12px;color:#6b21a8;margin:0 0 8px;}.guide-item{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;line-height:1.5;color:#581c87;margin-top:6px;}.guide-item input{margin-top:3px;accent-color:#7c3aed;}.self-score{font-size:12px;font-weight:800;color:#6b21a8;margin-top:10px;}
+.panel-nav{display:flex;justify-content:space-between;gap:10px;margin-top:18px;}.submit-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;background:#fff;border-radius:var(--r-lg);padding:17px;margin-top:18px;box-shadow:var(--shadow-xs);}.submit-note{font-size:12px;color:var(--text-3);line-height:1.5;flex:1;min-width:240px;}
+.results{background:#fff;border-radius:var(--r-xl);padding:24px;box-shadow:var(--shadow-sm);margin-top:18px;}.result-head{display:flex;align-items:flex-start;gap:20px;flex-wrap:wrap;}.score-ring{width:112px;height:112px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:conic-gradient(var(--green) var(--score-deg,0deg),#e5e7eb 0);position:relative;flex-shrink:0;}.score-ring::before{content:"";position:absolute;inset:9px;background:#fff;border-radius:50%;}.score-main,.score-sub{position:relative;z-index:1}.score-main{font-size:27px;font-weight:900;line-height:1}.score-sub{font-size:11px;color:var(--text-3);margin-top:4px}.result-copy{flex:1;min-width:240px}.result-copy h2{font-size:22px;margin:4px 0 7px}.result-copy p{font-size:13px;line-height:1.6;color:var(--text-2);margin:0}.unit-results{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:20px}.ur{border:1px solid var(--border-light);border-radius:var(--r-md);padding:11px;background:var(--off-white)}.ur-n{font-size:10px;font-weight:800;color:var(--text-3);text-transform:uppercase}.ur-v{font-size:18px;font-weight:850;margin:3px 0}.ur-t{font-size:11px;color:var(--text-2);line-height:1.35}.final-total{margin-top:16px;padding:13px 15px;background:var(--green-light);border-radius:var(--r-md);font-size:14px;color:var(--green-dark);display:flex;justify-content:space-between;gap:10px;align-items:center}.final-total strong{font-size:20px}.result-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}.danger-link{appearance:none;border:0;background:transparent;color:#991b1b;font:inherit;font-size:12px;font-weight:700;cursor:pointer;padding:9px;}
+@media(max-width:760px){.blueprint{grid-template-columns:1fr}.case-block{grid-template-columns:1fr}.unit-results{grid-template-columns:repeat(2,1fr)}.match-row{grid-template-columns:1fr}.exam-shell{padding-left:14px;padding-right:14px}.q-card,.case-card{padding:16px}.tool-top{align-items:flex-start}.timer{font-size:17px;min-width:64px}}
+@media print{.nav,.exam-toolbar,.panel-nav,.start-actions,.result-actions,footer{display:none!important}.panel{display:block!important}.q-card,.case-card{break-inside:avoid;box-shadow:none}.exam-shell{max-width:none;padding:0}.response-wrap textarea{min-height:80px}.marker-guide{display:none!important}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span><a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 494</a>
+    <span class="nav-sep">›</span><span class="nav-cur">Final Exam Laboratory</span>
+    <div class="nav-spacer"></div><div class="nav-links"><a class="nav-link" href="week7.html">Week 7</a><a class="nav-link" href="index.html">Hub</a></div>
+  </div>
+</nav>
+
+<div class="hero" style="padding-bottom:30px;">
+  <div class="hero-eyebrow">Week 7 · Whole-course diagnostic · 90 minutes</div>
+  <h1>Final Exam Laboratory</h1>
+  <p class="hero-sub">Do more than recognise terminology: diagnose flawed English→Arabic translations, choose defensible repairs, and justify decisions across all five units.</p>
+</div>
+
+<main class="exam-shell">
+  <section id="start-screen" aria-labelledby="start-title">
+    <div class="exam-alert"><span class="exam-alert-ic">🔒</span><div><strong>Practice form—not the official final examination.</strong> This public page saves work only on this device and sends nothing to the instructor. Because answers on a public webpage can be inspected, these exact items must not be reused unchanged in a graded exam.</div></div>
+    <div class="section-label" id="start-title">Assessment blueprint</div>
+    <div class="blueprint">
+      <div class="bp-card">
+        <div class="bp-kicker">One complete practice paper</div>
+        <div class="bp-big">50 marks · 90 minutes</div>
+        <div class="mark-bar" aria-hidden="true"><span class="mark-auto"></span><span class="mark-text"></span></div>
+        <div class="mark-key"><span><b>30 marks</b> automatically graded</span><span><b>20 marks</b> short evaluation</span></div>
+        <div class="bp-sub">Each of the five units contributes 10 marks: six objective questions and one four-mark translation-evaluation case.</div>
+      </div>
+      <div class="bp-card">
+        <div class="bp-kicker">The four-mark evaluation formula</div>
+        <div class="bp-big" style="font-size:21px;">2 problems · 1 repair · 1 concept</div>
+        <div class="bp-sub">Write no more than 80 words per case. Precision earns marks; length does not. A marker can grade each response against four visible criteria.</div>
+      </div>
+    </div>
+    <div class="bp-card">
+      <div class="bp-kicker">Before you begin</div>
+      <ul class="rules">
+        <li>Complete all five units, then the five short evaluation cases.</li>
+        <li>Multiple-select questions require the complete correct set; matching questions require every row correct.</li>
+        <li>Feedback and answer explanations appear only after submission.</li>
+        <li>Your timer and answers survive an accidental refresh on this device.</li>
+      </ul>
+      <div class="start-actions">
+        <button type="button" class="btn btn-primary" id="begin-exam">Begin the 90-minute laboratory →</button>
+        <button type="button" class="btn btn-secondary btn-sm" id="resume-exam" hidden>Resume saved attempt →</button>
+        <span class="privacy-note">Device-local practice only. No login, upload or network submission.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="exam-app" id="exam-app" hidden aria-live="polite">
+    <div class="exam-toolbar">
+      <div class="tool-top">
+        <div class="timer" id="timer" aria-label="Time remaining">90:00</div>
+        <div class="tool-progress"><div class="tool-lab"><span id="progress-copy">0 of 35 responses started</span><span id="save-state">Saved locally</span></div><div class="tool-track"><div class="tool-fill" id="progress-fill" style="width:0%"></div></div></div>
+      </div>
+      <div class="unit-tabs" id="unit-tabs" role="tablist" aria-label="Exam sections"></div>
+    </div>
+    <div id="panels"></div>
+    <div class="submit-row" id="submit-row">
+      <button type="button" class="btn btn-primary" id="submit-exam">Submit and grade objective section</button>
+      <div class="submit-note">Submission locks the objective answers and reveals their explanations. Your short responses remain available for four-point self-marking.</div>
+    </div>
+    <section class="results" id="results" hidden aria-labelledby="results-title"></section>
+  </section>
+</main>
+
+<footer><strong>ENG 494 Literary Translation</strong> · Final Exam Laboratory · Qassim University · Summer 2026<br><a href="week7.html">Week 7</a> · <a href="index.html">Course Hub</a> · <a href="progress.html">My Progress</a></footer>
+<script src="final-exam-bank.js"></script>
+<script src="final-review.js"></script>
+<script src="track.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>
