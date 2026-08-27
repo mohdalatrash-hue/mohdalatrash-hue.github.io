@@ -77,10 +77,10 @@ function fmtTime(s){if(!s)return "0m";var h=Math.floor(s/3600),m=Math.round((s%3
 function fmtDate(ts){if(!ts)return "—";var d=new Date(ts);return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][d.getMonth()]+" "+d.getDate();}
 function todayISO(){var t=new Date();return t.getFullYear()+"-"+String(t.getMonth()+1).padStart(2,"0")+"-"+String(t.getDate()).padStart(2,"0");}
 function scoreClass(p){return p>=80?"s-hi":p>=60?"s-mid":"s-lo";}
-function expectedWeek(){var ends=[["2026-08-28",1],["2026-09-04",2],["2026-09-11",3],["2026-09-18",4],["2026-10-02",5],["2026-10-09",6],["2026-10-16",7],["2026-10-23",8],["2026-10-30",9],["2026-11-06",10],["2026-11-13",11],["2026-11-20",12],["2026-12-04",13],["2026-12-11",14],["2026-12-18",15]];var now=todayISO();for(var i=0;i<ends.length;i++){if(now<=ends[i][0])return ends[i][1];}return 16;}
+function expectedWeek(){var ends=[["2026-08-29",1],["2026-09-05",2],["2026-09-12",3],["2026-09-26",4],["2026-10-03",5],["2026-10-10",6],["2026-10-17",7],["2026-10-24",8],["2026-10-31",9],["2026-11-07",10],["2026-11-14",11],["2026-11-28",12],["2026-12-05",13],["2026-12-12",14],["2026-12-19",15]];var now=todayISO();for(var i=0;i<ends.length;i++){if(now<=ends[i][0])return ends[i][1];}return 16;}
 var wsDone=Object.keys(D.workshops).length, exp=expectedWeek();
 var paceEl=document.getElementById("pace");
-if(todayISO()<"2026-08-26"){paceEl.className="pace pre";paceEl.innerHTML="<h3>The course hasn&rsquo;t started yet</h3><p>First class is Wed 26 August. Open Week 1 now &mdash; your progress starts counting.</p>";}
+if(todayISO()<"2026-08-23"){paceEl.className="pace pre";paceEl.innerHTML="<h3>The course hasn&rsquo;t started yet</h3><p>First class is Sunday 23 August, 2:00&ndash;3:40 PM. Open Week 1 now &mdash; your progress starts counting.</p>";}
 else if(exp>=16){paceEl.className="pace ok";paceEl.innerHTML="<h3>Final stretch</h3><p>Revise with the workshops before the final examination period (27 Dec &ndash; 7 Jan).</p>";}
 else if(wsDone>=Math.min(exp-1,4)){paceEl.className="pace ok";paceEl.innerHTML="<h3>&#10003; Keeping pace</h3><p>The calendar is on <strong>Week "+exp+"</strong>, and you&rsquo;ve completed <strong>"+wsDone+"</strong> workshop"+(wsDone===1?"":"s")+". Keep going.</p>";}
 else{paceEl.className="pace behind";paceEl.innerHTML="<h3>A little behind &mdash; easy to catch up</h3><p>The calendar is on <strong>Week "+exp+"</strong>; you&rsquo;ve completed <strong>"+wsDone+"</strong> workshop"+(wsDone===1?"":"s")+". Open this week&rsquo;s page to catch up.</p>";}
