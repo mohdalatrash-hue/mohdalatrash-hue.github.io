@@ -77,7 +77,7 @@ function fmtTime(s){if(!s)return "0m";var h=Math.floor(s/3600),m=Math.round((s%3
 function fmtDate(ts){if(!ts)return "—";var d=new Date(ts);return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][d.getMonth()]+" "+d.getDate();}
 function todayISO(){var t=new Date();return t.getFullYear()+"-"+String(t.getMonth()+1).padStart(2,"0")+"-"+String(t.getDate()).padStart(2,"0");}
 function scoreClass(p){return p>=80?"s-hi":p>=60?"s-mid":"s-lo";}
-function expectedWeek(){var ends=[["2026-08-29",1],["2026-09-05",2],["2026-09-12",3],["2026-09-26",4],["2026-10-03",5],["2026-10-10",6],["2026-10-17",7],["2026-10-24",8],["2026-10-31",9],["2026-11-07",10],["2026-11-14",11],["2026-11-28",12],["2026-12-05",13],["2026-12-12",14],["2026-12-19",15]];var now=todayISO();for(var i=0;i<ends.length;i++){if(now<=ends[i][0])return ends[i][1];}return 16;}
+function expectedWeek(){var ends=[["2026-08-29",1],["2026-09-05",2],["2026-09-12",3],["2026-09-19",4],["2026-09-26",5],["2026-10-03",6],["2026-10-10",7],["2026-10-17",8],["2026-10-24",9],["2026-10-31",10],["2026-11-07",11],["2026-11-14",12],["2026-11-28",13],["2026-12-05",14],["2026-12-12",15]];var now=todayISO();for(var i=0;i<ends.length;i++){if(now<=ends[i][0])return ends[i][1];}return 16;}
 var wsDone=Object.keys(D.workshops).length, exp=expectedWeek();
 var paceEl=document.getElementById("pace");
 if(todayISO()<"2026-08-23"){paceEl.className="pace pre";paceEl.innerHTML="<h3>The course hasn&rsquo;t started yet</h3><p>First class is Sunday 23 August, 2:00&ndash;3:40 PM. Open Week 1 now &mdash; your progress starts counting.</p>";}
