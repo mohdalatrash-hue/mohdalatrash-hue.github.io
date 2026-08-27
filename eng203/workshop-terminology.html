@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading &amp; Meaning: Scientific Terms in Context | ENG 203</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="Interactive ENG 203 workshop — read short scientific passages in medicine, computer science, physics and the general sciences, and work out what the technical terms mean from roots, affixes and context.">
+<meta name="theme-color" content="#0e7490">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 203">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 203 Scientific Terminology">
+<meta property="og:title" content="Reading &amp; Meaning: Scientific Terms in Context | ENG 203">
+<meta property="og:description" content="A 50-minute workshop: read the passage, then work out what the terms mean from word parts and context.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng203/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng203/workshop-terminology.html">
+<meta name="twitter:card" content="summary">
+<style>
+body{background:var(--off-white);}
+:root{--ac:#0e7490;--ac-soft:#ecfeff;--ac-ink:#164e63;}
+.tab-bar{display:flex;gap:4px;background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-xs);padding:6px;margin-bottom:28px;flex-wrap:wrap;}
+.tab-btn{flex:1;min-width:120px;padding:10px 14px;border:none;background:transparent;border-radius:var(--r-md);font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;transition:all .15s;}
+.tab-btn:hover{background:var(--off-white);} .tab-btn.active{background:var(--ac);color:#fff;}
+.tab-panel{display:none;} .tab-panel.active{display:block;}
+.ex-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:24px;margin-bottom:20px;}
+.ex-num{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);margin-bottom:8px;}
+.ex-q{font-size:15px;font-weight:600;color:var(--text);margin-bottom:16px;line-height:1.6;}
+.ex-opt{padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:14px;cursor:pointer;transition:all .15s;background:var(--white);color:var(--text);text-align:left;display:block;width:100%;margin-bottom:8px;}
+.ex-opt:hover{border-color:var(--text-2);}
+.ex-opt.correct-ans{border-color:#30d158;background:#f0fff4;color:#1a7f45;} .ex-opt.correct-ans::after{content:" ✓";font-weight:800;}
+.ex-opt.wrong-ans{border-color:#e53935;background:#fef2f2;color:#c0392b;} .ex-opt.wrong-ans::after{content:" ✗";font-weight:800;}
+.ex-feedback{margin-top:14px;padding:12px 16px;border-radius:var(--r-md);font-size:13px;line-height:1.7;display:none;} .ex-feedback.show{display:block;}
+.fb-correct{background:#f0fff4;border:1px solid #a2d9b0;color:#14532d;} .fb-wrong{background:#fef2f2;border:1px solid #fca5a5;color:#7f1d1d;}
+.tip-box{background:var(--ac-soft);border:1.5px solid #a5dbe5;border-radius:var(--r-md);padding:14px 16px;font-size:13px;line-height:1.7;color:var(--ac-ink);margin-bottom:20px;} .tip-box strong{color:var(--ac);}
+.prog-bar-wrap{height:6px;background:var(--off-white);border-radius:var(--r-pill);margin-bottom:24px;overflow:hidden;} .prog-bar{height:100%;background:var(--ac);border-radius:var(--r-pill);transition:width .4s;}
+.score-summary{text-align:center;padding:32px 20px;} .score-big{font-size:56px;font-weight:800;color:var(--ac);line-height:1;margin-bottom:8px;} .score-sub{font-size:14px;color:var(--text-2);}
+.excerpt{background:var(--off-white);border-left:3px solid var(--ac);padding:14px 16px;border-radius:0 var(--r-md) var(--r-md) 0;font-size:14px;line-height:1.8;color:var(--text);margin-bottom:10px;font-family:Georgia,'Times New Roman',serif;}
+.excerpt .cite{display:block;font-family:var(--font);font-size:11px;font-weight:700;color:var(--ac-ink);margin-top:8px;text-transform:none;}
+.tp-input{width:100%;min-height:120px;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:15px;font-family:inherit;line-height:1.9;resize:vertical;}
+.tp-input:focus{outline:none;border-color:var(--ac);}
+.tp-btn{margin-top:12px;}
+.tp-reveal{display:none;margin-top:16px;padding:16px;border-radius:var(--r-md);background:var(--ac-soft);border:1px solid #a5dbe5;font-size:13.5px;line-height:1.7;color:var(--text);} .tp-reveal.show{display:block;}
+.tp-reveal h4{font-size:13px;font-weight:800;color:var(--ac-ink);text-transform:uppercase;letter-spacing:.05em;margin:12px 0 6px;} .tp-reveal h4:first-child{margin-top:0;}
+.checklist2{list-style:none;padding:0;margin:6px 0 0;} .checklist2 li{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.6;margin-bottom:5px;} .checklist2 li::before{content:"☐";color:var(--ac);font-weight:800;}
+.src-note{font-size:12px;color:var(--text-3);margin-top:10px;}
+.tbd{background:var(--amber-light);border-bottom:1.5px dashed var(--amber);padding:0 3px;border-radius:3px;}
+.beta-badge{display:inline-block;background:#fff7ed;color:#9a3412;border:1.5px solid #fdba74;border-radius:var(--r-pill);font-size:10.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;padding:2px 9px;vertical-align:middle;margin-left:8px;}
+.pace-strip{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;}
+.pace-item{flex:1;min-width:118px;background:var(--white);border:1px solid var(--border-light);border-top:3px solid var(--ac);border-radius:var(--r-md);padding:10px 12px;box-shadow:var(--shadow-xs);}
+.pace-min{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ac);}
+.pace-lab{font-size:12.5px;color:var(--text-2);line-height:1.45;margin-top:3px;}
+.morph-tbl{width:100%;border-collapse:collapse;font-size:13px;}
+.morph-tbl th,.morph-tbl td{border-bottom:1px solid var(--border-light);padding:8px 10px;text-align:left;vertical-align:top;line-height:1.55;}
+.morph-tbl th{background:var(--ac-soft);color:var(--ac-ink);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;}
+.morph-tbl td:first-child{font-weight:700;color:var(--ac);white-space:nowrap;}
+.morph-tbl tr:last-child td{border-bottom:none;}
+.ff-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin-top:10px;}
+.ff-card{background:var(--white);border:1px solid var(--border-light);border-left:3px solid var(--ac);border-radius:var(--r-md);padding:11px 13px;font-size:13px;line-height:1.6;}
+.ff-word{font-weight:800;color:var(--ac);font-size:13.5px;}
+.ff-lab{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--text-3);display:block;margin-top:5px;}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 203</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Terminology Workshop</span>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:34px;">
+  <div class="hero-eyebrow" style="color:var(--ac);">Week 2 · Wed 2 Sep 2026 · 50 minutes<span class="beta-badge">Beta</span></div>
+  <h1>Reading &amp; Meaning: Scientific Terms in Context</h1>
+  <p class="hero-sub">Read the passage first, then work out what the terms mean &mdash; from Greek and Latin word parts, and above all from the words around them.</p>
+</div>
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+
+  <div class="info-box info-amber mb-24" style="text-align:left;">
+    <h3>🔍 Why this matters</h3>
+    <p>No one memorises every scientific term. Skilled readers <em>work them out</em> &mdash; by breaking the word into parts they already know, and by reading the sentence around it for a definition, a contrast or an example. This workshop trains both moves on four kinds of scientific writing. <strong>You do not need any science background.</strong></p>
+  </div>
+
+  <div class="pace-strip">
+    <div class="pace-item"><div class="pace-min">0–5 min</div><div class="pace-lab">Orientation &mdash; tab 1, the strategy</div></div>
+    <div class="pace-item"><div class="pace-min">5–15 min</div><div class="pace-lab">🩺 Medicine passage + 6 questions</div></div>
+    <div class="pace-item"><div class="pace-min">15–25 min</div><div class="pace-lab">💻 Computer Science passage + 6</div></div>
+    <div class="pace-item"><div class="pace-min">25–35 min</div><div class="pace-lab">⚛️ Physics passage + 6</div></div>
+    <div class="pace-item"><div class="pace-min">35–45 min</div><div class="pace-lab">🔬 General Sciences passage + 6</div></div>
+    <div class="pace-item"><div class="pace-min">45–50 min</div><div class="pace-lab">📝 Wrap-up &mdash; review quiz</div></div>
+  </div>
+
+  <div style="display:flex;gap:10px;align-items:flex-start;background:var(--white);border:1px solid var(--border-light);border-left:4px solid var(--ac);border-radius:var(--r-md);padding:12px 16px;margin-bottom:20px;font-size:13.5px;line-height:1.6;color:var(--text-2);"><span style="font-size:17px;line-height:1.3;">🧑‍🏫</span><div><strong style="color:var(--ac);">In class:</strong> ENG 203 Scientific Terminology &middot; Semester 481 &middot; Dr. Muhammad Alatrash &middot; <span class="tbd">Section TBD</span> &middot; <span class="tbd">Room TBD</span> &middot; <span class="tbd">Time TBD</span>. Work through the tabs in order; the passages are written for this course, not taken from any published source.</div></div>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('how',this)">🧩 How to Read a Term</button>
+    <button class="tab-btn" onclick="switchTab('med',this)">🩺 Medicine</button>
+    <button class="tab-btn" onclick="switchTab('cs',this)">💻 Computer Science</button>
+    <button class="tab-btn" onclick="switchTab('phys',this)">⚛️ Physics</button>
+    <button class="tab-btn" onclick="switchTab('gen',this)">🔬 General Sciences</button>
+    <button class="tab-btn" onclick="switchTab('quiz',this)">📝 Review Quiz</button>
+  </div>
+
+  <div id="tab-how" class="tab-panel active">
+    <div class="tip-box"><strong>🧩 Three tools, used in this order.</strong> (1) Break the word into <em>parts</em> you recognise. (2) Read the <em>context</em> for a cue that defines or limits it. (3) Ask whether this is an ordinary English word being used in a special technical sense &mdash; the commonest trap of all.</div>
+
+    <div class="ex-card">
+      <div class="ex-num">Tool 1 · Word parts</div>
+      <p style="font-size:14px;line-height:1.7;color:var(--text-2);margin:0 0 14px;">Most scientific English is built from Greek and Latin morphemes. A few dozen of them unlock thousands of terms. Learn these first &mdash; they carry the highest yield.</p>
+      <div class="table-wrap">
+      <table class="morph-tbl">
+        <thead><tr><th>Part</th><th>Origin &amp; meaning</th><th>Seen in</th></tr></thead>
+        <tbody>
+          <tr><td>cardi(o)-</td><td>Greek <em>kardia</em>, heart</td><td>cardiology, cardiac arrest, myocardial</td></tr>
+          <tr><td>-itis</td><td>Greek suffix, inflammation</td><td>arthritis, hepatitis, bronchitis</td></tr>
+          <tr><td>hypo-</td><td>Greek <em>hypo</em>, under / below normal</td><td>hypothermia, hypoglycaemia</td></tr>
+          <tr><td>hyper-</td><td>Greek <em>hyper</em>, over / above normal</td><td>hypertension, hyperactive</td></tr>
+          <tr><td>-ology / -logy</td><td>Greek <em>logos</em>, word, account &rarr; the study of</td><td>biology, geology, pathology</td></tr>
+          <tr><td>micro-</td><td>Greek <em>mikros</em>, small</td><td>microscope, microorganism</td></tr>
+          <tr><td>photo-</td><td>Greek <em>ph&#333;s, ph&#333;tos</em>, light</td><td>photosynthesis, photon, photograph</td></tr>
+          <tr><td>thermo-</td><td>Greek <em>therm&#275;</em>, heat</td><td>thermometer, thermodynamics</td></tr>
+          <tr><td>-lysis</td><td>Greek <em>lysis</em>, a loosening, breaking down</td><td>hydrolysis, electrolysis, dialysis</td></tr>
+          <tr><td>neuro-</td><td>Greek <em>neuron</em>, nerve</td><td>neurology, neuron, neurotransmitter</td></tr>
+          <tr><td>bio-</td><td>Greek <em>bios</em>, life</td><td>biology, antibiotic, biodiversity</td></tr>
+          <tr><td>endo- / exo-</td><td>Greek <em>endon</em>, within / <em>ex&#333;</em>, outside</td><td>endoskeleton, endocrine; exoskeleton, exothermic</td></tr>
+          <tr><td>poly-</td><td>Greek <em>polys</em>, many</td><td>polymer, polygon, polysaccharide</td></tr>
+          <tr><td>-aemia / -emia</td><td>Greek <em>haima</em>, blood &rarr; a blood condition</td><td>anaemia, leukaemia, hyperglycaemia</td></tr>
+          <tr><td>path(o)- / -pathy</td><td>Greek <em>pathos</em>, suffering, disease</td><td>pathology, pathogen, neuropathy</td></tr>
+          <tr><td>myo-</td><td>Greek <em>mys, myos</em>, muscle</td><td>myocardium, myopathy</td></tr>
+          <tr><td>-osis</td><td>Greek suffix, condition or process</td><td>osmosis, fibrosis, symbiosis</td></tr>
+          <tr><td>a- / an-</td><td>Greek, without, lacking</td><td>anaerobic, asymptomatic, atypical</td></tr>
+          <tr><td>syn- / sym-</td><td>Greek <em>syn</em>, together with</td><td>synthesis, symbiosis, synchronous</td></tr>
+          <tr><td>homeo-</td><td>Greek <em>homoios</em>, similar, alike</td><td>homeostasis, homeopathy</td></tr>
+          <tr><td>-stasis</td><td>Greek <em>stasis</em>, a standing still</td><td>homeostasis, haemostasis</td></tr>
+          <tr><td>-gen / -genesis</td><td>Greek <em>gen&#275;s</em>, born, produced</td><td>pathogen, oxygen, photogenesis</td></tr>
+          <tr><td>trans-</td><td>Latin <em>trans</em>, across, through</td><td>transmission, transparent, transfusion</td></tr>
+          <tr><td>sub-</td><td>Latin <em>sub</em>, under, below</td><td>subatomic, submarine, subsoil</td></tr>
+          <tr><td>equi- / aequi-</td><td>Latin <em>aequus</em>, equal</td><td>equilibrium, equidistant</td></tr>
+          <tr><td>contra-</td><td>Latin <em>contra</em>, against</td><td>contraindicated, contraction</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="src-note">A caution: word parts give you a <em>direction</em>, not a definition. <em>Antibiotic</em> is literally &ldquo;against life,&rdquo; but it means a drug that kills bacteria &mdash; not a poison. Always confirm the guess against the sentence.</div>
+    </div>
+
+    <div class="ex-card">
+      <div class="ex-num">Tool 2 · Context cues</div>
+      <p style="font-size:14px;line-height:1.7;color:var(--text-2);margin:0 0 10px;">Scientific writers expect readers who do not know every term, so they build help into the sentence. Four cues do most of the work:</p>
+      <ul style="font-size:13.5px;line-height:1.8;color:var(--text);padding-left:20px;margin:0;">
+        <li><strong>Definition cue</strong> &mdash; the meaning is stated outright: &ldquo;<em>Latency</em>, that is, <u>the delay between a request and its response</u>, rose sharply.&rdquo; Watch for <em>that is, in other words, is defined as, refers to, or</em>.</li>
+        <li><strong>Apposition</strong> &mdash; a gloss set off by commas, dashes or brackets: &ldquo;the myocardium (<u>the muscular wall of the heart</u>) was undamaged.&rdquo;</li>
+        <li><strong>Contrast cue</strong> &mdash; the opposite is named: &ldquo;The tumour was <em>benign</em>, <u>not malignant</u>.&rdquo; Watch for <em>unlike, whereas, in contrast, rather than, not</em>.</li>
+        <li><strong>Example cue</strong> &mdash; instances are listed: &ldquo;<em>Volatile</em> compounds &mdash; <u>ethanol, acetone and ammonia</u> &mdash; evaporate at room temperature.&rdquo; Watch for <em>such as, including, for example, e.g.</em></li>
+      </ul>
+    </div>
+
+    <div class="ex-card">
+      <div class="ex-num">Tool 3 · False friends &amp; everyday words with technical senses</div>
+      <p style="font-size:14px;line-height:1.7;color:var(--text-2);margin:0 0 4px;">These are ordinary English words you already know. In a scientific text they mean something narrower, and the everyday sense will mislead you.</p>
+      <div class="ff-grid">
+        <div class="ff-card"><span class="ff-word">culture</span><span class="ff-lab">Everyday</span>the arts, customs and beliefs of a people<span class="ff-lab">Biology</span>a population of microorganisms grown deliberately in a nutrient medium</div>
+        <div class="ff-card"><span class="ff-word">host</span><span class="ff-lab">Everyday</span>someone who receives guests<span class="ff-lab">Biology / computing</span>an organism a parasite lives in or on; a machine that runs a service</div>
+        <div class="ff-card"><span class="ff-word">vector</span><span class="ff-lab">Everyday</span>rarely used<span class="ff-lab">Medicine</span>an organism that carries a pathogen to a new host<span class="ff-lab">Physics</span>a quantity having both magnitude and direction</div>
+        <div class="ff-card"><span class="ff-word">stress</span><span class="ff-lab">Everyday</span>mental strain<span class="ff-lab">Physics / engineering</span>force acting per unit area within a material</div>
+        <div class="ff-card"><span class="ff-word">work</span><span class="ff-lab">Everyday</span>effort, employment<span class="ff-lab">Physics</span>energy transferred when a force moves its point of application</div>
+        <div class="ff-card"><span class="ff-word">plastic</span><span class="ff-lab">Everyday</span>a synthetic material<span class="ff-lab">Physics / biology</span>capable of permanent change of shape &mdash; opposite of <em>elastic</em></div>
+        <div class="ff-card"><span class="ff-word">significant</span><span class="ff-lab">Everyday</span>important, large<span class="ff-lab">Statistics</span>unlikely to have arisen by chance alone &mdash; which does not mean large</div>
+        <div class="ff-card"><span class="ff-word">volatile</span><span class="ff-lab">Everyday</span>unpredictable, quick to anger<span class="ff-lab">Chemistry</span>evaporating readily at ordinary temperatures</div>
+        <div class="ff-card"><span class="ff-word">bug</span><span class="ff-lab">Everyday</span>a small insect<span class="ff-lab">Computing</span>a defect in a program<span class="ff-lab">Informal medicine</span>a minor infection</div>
+        <div class="ff-card"><span class="ff-word">memory</span><span class="ff-lab">Everyday</span>the human faculty of recall<span class="ff-lab">Computing</span>hardware that stores data for immediate use</div>
+        <div class="ff-card"><span class="ff-word">solution</span><span class="ff-lab">Everyday</span>the answer to a problem<span class="ff-lab">Chemistry</span>a solid, liquid or gas dissolved evenly in a solvent</div>
+        <div class="ff-card"><span class="ff-word">medium</span><span class="ff-lab">Everyday</span>middling in size<span class="ff-lab">Science</span>the substance through which something travels or in which something grows</div>
+      </div>
+    </div>
+
+    <div class="tip-box" style="margin-top:24px;"><strong>Practice.</strong> Five questions on word parts before you start reading. Answer order is shuffled each time you load the page.</div>
+    <div id="how-qs"></div>
+  </div>
+
+  <div id="tab-med" class="tab-panel">
+    <div class="tip-box"><strong>🩺 Read first, then answer.</strong> The bold words are the ones the questions ask about. Read the whole passage once before looking at the questions &mdash; several answers depend on a cue that appears in a different sentence.</div>
+    <div class="ex-card">
+      <div class="ex-num">Passage 1 · Medicine</div>
+      <div class="excerpt">
+      A man of fifty-eight was referred to the cardiology clinic after a routine check showed sustained <strong>hypertension</strong> &mdash; a resting blood pressure persistently above the accepted threshold. He reported no chest pain. An initial scan found a small <strong>benign</strong> growth on the chest wall: it was well defined, slow-growing, and showed no sign of invading the surrounding tissue, unlike a malignant tumour.<br><br>
+      The team&rsquo;s first concern, however, was the heart muscle itself. Blood tests showed a raised level of troponin, a protein released when <strong>myocardial</strong> cells are injured, indicating that a small region of heart muscle had been deprived of oxygen.<br><br>
+      The <strong>etiology</strong> of the raised blood pressure was not obvious. No single cause could be identified, and the team recorded it as multifactorial, arising from diet, long inactivity and a family history of the same condition. One drug that would normally be offered was <strong>contraindicated</strong> in this patient, because his kidney function was already impaired and the drug would have worsened it. A different agent was chosen instead &mdash; one whose action on heart-muscle cells had first been characterised <strong>in vitro</strong>, in cultured cells outside the body, before any trial in patients. With treatment and weight loss the <strong>prognosis</strong> was described as good.
+      <span class="cite">Adapted from a clinical overview written for ENG 203 &middot; not a real patient record</span>
+      </div>
+    </div>
+    <div id="med-qs"></div>
+  </div>
+
+  <div id="tab-cs" class="tab-panel">
+    <div class="tip-box"><strong>💻 Read first, then answer.</strong> Computing recycles ordinary English words with narrowed meanings &mdash; <em>cache</em>, <em>memory</em>, <em>overhead</em>, <em>bug</em>. Watch for the sentence that quietly defines each one.</div>
+    <div class="ex-card">
+      <div class="ex-num">Passage 2 · Computer Science</div>
+      <div class="excerpt">
+      When the team measured the search service, the dominant complaint was <strong>latency</strong> &mdash; the delay between a user pressing Enter and the first result appearing on screen. For most requests the delay was about forty milliseconds, but the slowest one per cent took almost two seconds. These slow requests were not doing more work; they were waiting. Each triggered a fresh lookup in the main database, because the <strong>cache</strong>, a small fast store holding copies of recently requested results, had been sized too small to hold a working day&rsquo;s queries.<br><br>
+      Two changes followed. The first enlarged the cache. The second increased <strong>concurrency</strong>, so that several independent lookups could be in progress over the same period instead of strictly one after another. This is not free: each additional task carries <strong>overhead</strong> &mdash; the extra memory and coordination that the mechanism itself consumes and that does no useful work for the user.<br><br>
+      One <strong>recursive</strong> function, which had been written in terms of itself, was rewritten as a simple loop. The old ranking interface was marked <strong>deprecated</strong>: it still works and existing code still calls it, but new code must not use it and it will be removed in a later release. The ranking step was kept <strong>deterministic</strong>: the same query on the same index always returns the same ordering.
+      <span class="cite">Adapted from an engineering design note written for ENG 203</span>
+      </div>
+    </div>
+    <div id="cs-qs"></div>
+  </div>
+
+  <div id="tab-phys" class="tab-panel">
+    <div class="tip-box"><strong>⚛️ Read first, then answer.</strong> Physics is strict about pairs of words that ordinary English treats as synonyms &mdash; <em>speed</em> and <em>velocity</em>, <em>mass</em> and <em>weight</em>, <em>heat</em> and <em>temperature</em>. The distinction is usually stated in the sentence itself.</div>
+    <div class="ex-card">
+      <div class="ex-num">Passage 3 · Physics</div>
+      <div class="excerpt">
+      A steel trolley is released down a gentle ramp and its motion is recorded. Students must report the trolley&rsquo;s <strong>velocity</strong> and not merely its speed: velocity states both how fast the trolley moves and the direction in which it moves, whereas speed states the magnitude alone. Friction between wheels and ramp opposes the motion, and its strength is summarised by a <strong>coefficient</strong> &mdash; a pure number, carrying no units, that characterises the particular pair of surfaces in contact.<br><br>
+      The second experiment uses a mass hanging from a spring. Once the mass is set oscillating, the <strong>amplitude</strong> is measured: the greatest distance the mass reaches from its rest position. The same term is used of travelling waves, where it is paired with <strong>wavelength</strong>, the distance from one crest to the next. Left alone, the oscillation dies away and the mass settles where the spring&rsquo;s upward pull exactly balances its weight. There the system is in <strong>equilibrium</strong>, since the forces on the mass sum to zero.<br><br>
+      Two further ideas appear in outline. A <strong>body</strong> at rest resists being set moving, and a moving one resists being stopped; that resistance is <strong>inertia</strong>, and mass is its measure. The energy lost to friction and to the air is never recovered in usable form: the <strong>entropy</strong> of the laboratory has increased.
+      <span class="cite">Adapted from an introductory laboratory handout written for ENG 203</span>
+      </div>
+    </div>
+    <div id="phys-qs"></div>
+  </div>
+
+  <div id="tab-gen" class="tab-panel">
+    <div class="tip-box"><strong>🔬 Read first, then answer.</strong> One setting, three sciences: biology, chemistry and earth science share a vocabulary. Notice how often the writer supplies a definition immediately after the term, set off by a dash or a comma.</div>
+    <div class="ex-card">
+      <div class="ex-num">Passage 4 · General Sciences</div>
+      <div class="excerpt">
+      A shallow lake is a convenient meeting point for several sciences. At the surface, algae carry out <strong>photosynthesis</strong>: using energy from sunlight they combine carbon dioxide and water into sugars, releasing oxygen as a by-product. Which algae are present is a question of <strong>taxonomy</strong>, the orderly classification of living things into named groups such as genus and species.<br><br>
+      Below the surface, chemistry takes over. The <strong>solubility</strong> of oxygen in water &mdash; that is, the greatest amount that will dissolve at a given temperature &mdash; falls as the water warms, so a hot summer leaves less oxygen available to fish. Dissolved minerals behave differently again. When calcium and carbonate ions meet in sufficient concentration they form solid calcium carbonate, which is almost insoluble and leaves the solution as a <strong>precipitate</strong>. Grain by grain that material settles to the bottom and joins the <strong>sediment</strong>, the layer of particles that has settled out of the water over time.<br><br>
+      Living things in the lake must hold their internal conditions steady while the water around them changes; this regulation is called <strong>homeostasis</strong>. Enzymes make it possible. An enzyme is a biological <strong>catalyst</strong>: a substance that speeds up a chemical reaction without itself being used up, so a very small quantity goes on working indefinitely.
+      <span class="cite">Adapted from a general-science reading written for ENG 203</span>
+      </div>
+    </div>
+    <div id="gen-qs"></div>
+  </div>
+
+  <div id="tab-quiz" class="tab-panel">
+    <div class="tip-box"><strong>📝 Review quiz &mdash; 20 questions.</strong> Drawn from all four passages and from the word-parts table, and tagged by domain: 🩺 Medicine &middot; 💻 Computer Science &middot; ⚛️ Physics &middot; 🔬 General Sciences &middot; 🧩 Word Parts. Answer order is shuffled on every attempt. 80% or better is a pass.</div>
+    <div class="prog-bar-wrap"><div class="prog-bar" id="aq-prog" style="width:0%"></div></div>
+    <div id="aq-container"></div>
+    <div id="aq-score" class="score-summary" style="display:none;"></div>
+  </div>
+
+</div>
+</div>
+<footer><strong>ENG 203 Scientific Terminology</strong> &middot; Week 2 Workshop &middot; Qassim University &middot; Semester 481<br><a href="index.html">Course Hub</a> &middot; <a href="placement-test.html">Diagnostic Placement Test</a></footer>
+<script>
+function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
+var MCQ={};
+function shuffleQ(q){if(q._o0===undefined){q._o0=q.opts.slice();q._a0=q.ans;}var idx=q._o0.map(function(_,i){return i;});for(var i=idx.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=idx[i];idx[i]=idx[j];idx[j]=t;}q.opts=idx.map(function(k){return q._o0[k];});q.ans=idx.indexOf(q._a0);return q;}
+function mount(cid,items){MCQ[cid]=items;items.forEach(shuffleQ);document.getElementById(cid).innerHTML=items.map((q,qi)=>`<div class="ex-card">${q.pre||''}<div style="font-size:14px;font-weight:600;margin:6px 0 10px;">${q.q}</div>${q.opts.map((o,oi)=>`<button class="ex-opt" id="${cid}-${qi}-${oi}" onclick="ans('${cid}',${qi},${oi})">${o}</button>`).join('')}<div class="ex-feedback" id="${cid}-fb-${qi}"></div></div>`).join('');}
+function ans(cid,qi,ch){var q=MCQ[cid][qi];if(document.getElementById(`${cid}-${qi}-0`).disabled)return;q.opts.forEach((_,oi)=>{var b=document.getElementById(`${cid}-${qi}-${oi}`);b.disabled=true;if(oi===q.ans)b.classList.add('correct-ans');else if(oi===ch&&ch!==q.ans)b.classList.add('wrong-ans');});var fb=document.getElementById(`${cid}-fb-${qi}`);fb.className='ex-feedback show '+(ch===q.ans?'fb-correct':'fb-wrong');fb.innerHTML=q.why;}
+
+mount('how-qs',[
+ {q:"The suffix <em>-itis</em>, as in <em>hepatitis</em> and <em>bronchitis</em>, tells you the term names:",opts:["An inflammation of the organ or tissue named by the root","A surgical removal of the organ","A branch of scientific study","A shortage of something in the blood"],ans:0,why:"<em>-itis</em> is a Greek suffix meaning inflammation, and <em>hepat-</em> is liver &mdash; so <em>hepatitis</em> is inflammation of the liver. Surgical removal is <em>-ectomy</em> (appendectomy), a branch of study is <em>-ology</em>, and a blood condition is <em>-aemia</em>."},
+ {q:"<em>Hypoglycaemia</em> and <em>hyperglycaemia</em> differ only in their prefix. What does that tell you?",opts:["Both name too much sugar in the blood","<em>hypo-</em> means below normal and <em>hyper-</em> means above normal, so the two name opposite conditions","<em>hypo-</em> means blood and <em>hyper-</em> means sugar","The two prefixes are interchangeable"],ans:1,why:"Greek <em>hypo</em> is &lsquo;under&rsquo; and <em>hyper</em> is &lsquo;over&rsquo;. The shared ending <em>-aemia</em> is from Greek <em>haima</em>, blood, and <em>glyc-</em> is sugar: both words name a blood-sugar level, one below the normal range and one above it."},
+ {q:"<em>Electrolysis</em> is the breaking down of a compound by an electric current. Which part of the word carries &lsquo;breaking down&rsquo;?",opts:["<em>electro-</em>","<em>-lysis</em>, from Greek <em>lysis</em>, a loosening","<em>-sis</em>, meaning current","None &mdash; the word is not built from Greek parts"],ans:1,why:"Greek <em>lysis</em> means a loosening or dissolution, so <em>-lysis</em> names a breaking-down process. The same element gives <em>hydrolysis</em> (broken down by water) and <em>dialysis</em>. <em>electro-</em> only tells you what does the breaking."},
+ {q:"A term beginning <em>exo-</em> and a term beginning <em>endo-</em> are most likely to be:",opts:["Identical in meaning","Opposites &mdash; <em>exo-</em> is outside, <em>endo-</em> is within","Both concerned with heat","Both Latin in origin"],ans:1,why:"Greek <em>ex&#333;</em> means outside (an <em>exoskeleton</em> is an external skeleton, as in an insect) and <em>endon</em> means within (an <em>endoskeleton</em> is internal, as in a fish). Both prefixes are Greek, and only <em>exothermic</em> involves heat &mdash; that sense comes from <em>thermo-</em>, not from <em>exo-</em>."},
+ {q:"<em>Pathogen</em> is built from <em>path-</em> and <em>-gen</em>. The most defensible reading of the word is:",opts:["The study of suffering","Something that produces disease","A treatment that cures disease","A way of measuring pain"],ans:1,why:"Greek <em>pathos</em> is suffering or disease and <em>-gen&#275;s</em> means &lsquo;producing&rsquo;, so a pathogen is an agent that produces disease &mdash; a bacterium, a virus, a fungus. The <em>study</em> of disease would need <em>-logy</em>: that word is <em>pathology</em>."}
+]);
+
+mount('med-qs',[
+ {q:"<em>Hypertension</em> is built from a Greek prefix plus a noun meaning pressure. On its parts alone, it names:",opts:["Blood pressure below the normal range","Blood pressure above the normal range","Inflammation of the arteries","A complete absence of blood pressure"],ans:1,why:"Greek <em>hyper-</em> means over or above normal &mdash; contrast <em>hypo-</em>, under. Joined to <em>tension</em> in its sense of pressure, it names abnormally high blood pressure. The passage confirms the guess: &lsquo;persistently above the accepted threshold&rsquo;."},
+ {q:"In this passage, <em>benign</em> most nearly means:",opts:["Painless","Not cancerous &mdash; well defined and not invading the tissue around it","Very small","Easy to treat with drugs"],ans:1,why:"A contrast cue gives it away: the growth &lsquo;showed no sign of invading the surrounding tissue, <em>unlike a malignant tumour</em>&rsquo;. <em>Benign</em> is the opposite of <em>malignant</em>. It does not mean small or painless &mdash; a benign growth can be large and can still need removing."},
+ {q:"<em>Myocardial</em> is built from:",opts:["A root meaning muscle and a root meaning heart","A root meaning blood and a root meaning vessel","A prefix meaning many and a root meaning cell","A prefix meaning small and a root meaning nerve"],ans:0,why:"Greek <em>mys, myos</em> is muscle and <em>kardia</em> is heart, so <em>myocardial</em> means &lsquo;of the heart muscle&rsquo;. The passage supports it: troponin is released &lsquo;when myocardial cells are injured&rsquo;, and the next clause speaks of heart muscle deprived of oxygen."},
+ {q:"The drug&rsquo;s action was characterised &lsquo;in <strong>cultured</strong> cells outside the body&rsquo;. Here <em>cultured</em> means:",opts:["Refined, well educated","Grown deliberately in a prepared nutrient medium in the laboratory","Belonging to one national culture","Already treated with an antibiotic"],ans:1,why:"In biology a <em>culture</em> is a population of cells or microorganisms grown on purpose in a nutrient medium; the everyday sense &mdash; refined in taste &mdash; is a false friend. The neighbouring term points the same way: <em>in vitro</em> is Latin for &lsquo;in glass&rsquo;, meaning in a dish rather than in a living body."},
+ {q:"<em>Contraindicated</em> in this passage means that the drug:",opts:["Had been shown not to work in patients","Should not be given, because something about this patient would make it harmful","Was too expensive for the clinic to supply","Had to be given at a much higher dose"],ans:1,why:"Latin <em>contra-</em> means &lsquo;against&rsquo;, so a contraindication is a reason <em>against</em> using a treatment. The passage names the reason: impaired kidney function that the drug would have worsened. Nothing suggests the drug is ineffective in general &mdash; only that it is wrong for this patient."},
+ {q:"&lsquo;The <em>etiology</em> &hellip; was not obvious &hellip; the team recorded it as multifactorial.&rsquo; What follows from this?",opts:["The raised blood pressure had no cause at all","No single cause could be isolated; several factors contributed together","The team had not yet measured the blood pressure","The condition was purely inherited"],ans:1,why:"<em>Etiology</em> (Greek <em>aitia</em>, cause, plus <em>-logy</em>) is the cause or origin of a disease. <em>Multi-</em> &lsquo;many&rsquo; plus <em>factorial</em> points to several contributing causes, and the passage lists them: diet, long inactivity and family history. A cause exists &mdash; it is simply not a single one."}
+]);
+
+mount('cs-qs',[
+ {q:"In this passage, <em>latency</em> means:",opts:["The volume of data a request returns","The delay between an action and the result appearing","The number of users on the service at once","The number of errors recorded per hour"],ans:1,why:"The writer defines it in the same sentence, after a dash: &lsquo;the delay between a user pressing Enter and the first result appearing&rsquo;. That is a definition cue. The word is from Latin <em>lat&#275;re</em>, to lie hidden &mdash; the waiting time concealed inside a request."},
+ {q:"A <em>cache</em>, as the passage defines it, is:",opts:["A permanent archive of every search ever made","A small fast store holding copies of recently used results","A backup of the database taken once a day","A list of registered users"],ans:1,why:"The apposition after the comma defines it: &lsquo;a small fast store holding copies of recently requested results&rsquo;. A cache is deliberately small and temporary &mdash; which is exactly the problem here, since it was sized too small. The word comes from French <em>cacher</em>, to hide."},
+ {q:"&lsquo;The old ranking interface was marked <em>deprecated</em>.&rsquo; This means it:",opts:["No longer works and has already been deleted","Still works, but must not be used in new code and will be removed later","Contains an error that crashes the service","Simply runs more slowly than it used to"],ans:1,why:"The sentence spells it out: &lsquo;it still works and existing code still calls it, but new code must not use it&rsquo;. <em>Deprecated</em> is a warning about the future, not a report of failure. The everyday verb <em>deprecate</em> (to express disapproval of) is close, but the technical sense adds the scheduled removal."},
+ {q:"In computing, <em>overhead</em> means:",opts:["Fixed running costs such as rent and salaries","Something positioned physically above the user","The resources the mechanism itself consumes without doing useful work","The largest load the service can carry"],ans:2,why:"In everyday business English <em>overhead</em> means fixed running costs; computing narrows it. The passage supplies the technical definition after the dash: &lsquo;the extra memory and coordination that the mechanism itself consumes and that does no useful work for the user&rsquo;."},
+ {q:"<em>Recursive</em> is best explained as:",opts:["Latin <em>re-</em>, back, plus <em>currere</em>, to run &mdash; something that runs back into itself","Greek <em>rhein</em>, to flow &mdash; a continuous stream of data","Latin <em>recuperare</em>, to recover &mdash; a procedure that repairs errors","Greek <em>kyklos</em>, circle &mdash; a procedure that runs on a timer"],ans:0,why:"<em>Recursive</em> is from Latin <em>recurrere</em>: <em>re-</em> &lsquo;back&rsquo; plus <em>currere</em> &lsquo;to run&rsquo;. The passage matches the etymology exactly &mdash; the function &lsquo;had been written in terms of itself&rsquo;. The same root <em>currere</em> gives <em>current</em>, <em>occur</em> and <em>excursion</em>."},
+ {q:"Why were the slowest one per cent of requests slow?",opts:["They asked for far more data than the others","They were waiting on the database, because the cache was too small to hold them","They had been written as recursive functions","They were still calling the deprecated interface"],ans:1,why:"The passage rules the first option out in so many words: &lsquo;These slow requests were not doing more work; they were waiting.&rsquo; The cause it gives is a cache too small to hold a working day&rsquo;s queries, so each miss forced a fresh lookup in the main database. The recursion and the deprecated interface are separate issues."}
+]);
+
+mount('phys-qs',[
+ {q:"According to the passage, <em>velocity</em> differs from <em>speed</em> because velocity:",opts:["Is measured in different units","Includes the direction of motion as well as the magnitude","Is always a larger number than speed","Applies only to objects moving down a ramp"],ans:1,why:"The contrast cue is explicit: velocity states &lsquo;both how fast the trolley moves and the direction in which it moves&rsquo;, <em>whereas</em> speed states &lsquo;the magnitude alone&rsquo;. Velocity is a vector, speed a scalar. Their units are the same &mdash; metres per second."},
+ {q:"In this passage a <em>coefficient</em> is:",opts:["A force measured in newtons","A pure number, without units, describing a property of the two surfaces","A kind of measuring instrument","The total distance the trolley travels"],ans:1,why:"The dash introduces a definition: &lsquo;a pure number, carrying no units, that characterises the particular pair of surfaces in contact&rsquo;. Because it is a ratio of two forces, the units cancel. A coefficient of friction depends on which materials touch, not on how heavy the trolley is."},
+ {q:"<em>Equilibrium</em> is best explained as:",opts:["Latin <em>aequus</em>, equal, plus <em>libra</em>, balance &mdash; a state of balance","Greek <em>equus</em>, horse, plus <em>librum</em>, book","Greek <em>eq-</em>, motion, plus <em>-librium</em>, stopping","Latin <em>aequus</em>, equal, plus <em>liber</em>, free &mdash; freedom from all force"],ans:0,why:"<em>Equilibrium</em> is Latin <em>aequus</em> &lsquo;equal&rsquo; plus <em>libra</em> &lsquo;balance, scales&rsquo; &mdash; the same <em>libra</em> behind the constellation Libra. The passage gives the physics: the mass is in equilibrium because &lsquo;the forces on the mass sum to zero&rsquo;. Note that the forces are balanced, not absent."},
+ {q:"In the spring experiment, the <em>amplitude</em> is:",opts:["The time one complete oscillation takes","The greatest distance the mass reaches from its rest position","The distance from one crest of a wave to the next","The mass of the hanging object"],ans:1,why:"The passage defines it after the colon: &lsquo;the greatest distance the mass reaches from its rest position&rsquo;. The distance from crest to crest is the <em>wavelength</em>, named in the following sentence, and the time for one oscillation is the <em>period</em>."},
+ {q:"&lsquo;A <strong>body</strong> at rest resists being set moving.&rsquo; Here <em>body</em> means:",opts:["A human or animal body","Any physical object that has mass","The main part of a written text","An organised group of people"],ans:1,why:"In mechanics <em>body</em> is the general term for any object with mass &mdash; a trolley, a planet, a grain of sand. This is an everyday word narrowed by the discipline, in the same family as <em>work</em>, <em>stress</em> and <em>plastic</em>. Reading it as &lsquo;human body&rsquo; would make the sentence nonsense."},
+ {q:"&lsquo;The energy lost to friction and to the air is never recovered in usable form: the <em>entropy</em> of the laboratory has increased.&rsquo; The colon signals that the second clause:",opts:["Contradicts the first clause","Restates the first clause in technical language &mdash; entropy measures how far energy has spread out and become unusable","Introduces a completely separate experiment","Explains how to reduce the friction"],ans:1,why:"A colon here is a restatement cue: the technical sentence renames what the plain sentence just said. Entropy is a measure of how widely energy is dispersed. Be careful with the wording: the energy is not destroyed &mdash; it is spread into the surroundings, where it can no longer be harnessed to do work."}
+]);
+
+mount('gen-qs',[
+ {q:"<em>Photosynthesis</em> is built from:",opts:["<em>photo-</em>, light, plus <em>synthesis</em>, a putting-together","<em>photo-</em>, plant, plus <em>-synthesis</em>, growth","<em>phono-</em>, sound, plus <em>thesis</em>, a position","<em>photo-</em>, heat, plus <em>synthesis</em>, reaction"],ans:0,why:"Greek <em>ph&#333;s, ph&#333;tos</em> is light, and <em>synthesis</em> is <em>syn-</em> &lsquo;together&rsquo; plus <em>thesis</em> &lsquo;a placing&rsquo;. The parts predict the passage exactly: &lsquo;using energy from sunlight they combine carbon dioxide and water into sugars&rsquo;. Heat would be <em>thermo-</em> and sound <em>phono-</em>."},
+ {q:"In this passage, <em>solubility</em> means:",opts:["How quickly a substance dissolves","The greatest amount of a substance that will dissolve at a given temperature","The weight of a substance once dissolved","The temperature at which water begins to boil"],ans:1,why:"The writer signals a definition with <em>that is</em>: &lsquo;the greatest amount that will dissolve at a given temperature&rsquo;. Note the distinction the definition makes for you &mdash; solubility is an <em>amount</em>, not a rate. How fast something dissolves is its rate of dissolution."},
+ {q:"In everyday English <em>precipitate</em> means to make something happen suddenly. In this passage, a <em>precipitate</em> is:",opts:["A sudden rise in temperature","A solid that forms and separates out of a solution","Rain or snow falling from the sky","A decision taken too hastily"],ans:1,why:"In chemistry a precipitate is the solid that comes out of a solution &mdash; here calcium carbonate, &lsquo;which is almost insoluble and leaves the solution&rsquo;. All the senses trace back to Latin <em>praeceps</em>, &lsquo;headlong&rsquo;: the solid falls out. The weather sense belongs to the related noun <em>precipitation</em>."},
+ {q:"<em>Homeostasis</em> is built from:",opts:["Greek <em>homos</em>, human, plus <em>stasis</em>, health","Greek <em>homoios</em>, similar, plus <em>stasis</em>, a standing still &mdash; keeping conditions steady","Greek <em>homo-</em>, same, plus <em>-itis</em>, inflammation","Latin <em>domus</em>, house, plus <em>status</em>, condition"],ans:1,why:"<em>Homeostasis</em> is Greek <em>homoios</em> &lsquo;like, similar&rsquo; plus <em>stasis</em> &lsquo;a standing still&rsquo;. The passage gives the sense before naming it: organisms &lsquo;hold their internal conditions steady while the water around them changes&rsquo;. The first element is <em>homoios</em>, similar &mdash; not <em>homos</em>, and nothing to do with <em>Homo</em>, man."},
+ {q:"An enzyme is &lsquo;a substance that speeds up a chemical reaction without itself being used up&rsquo;. It follows that:",opts:["A very small quantity can go on acting again and again","The enzyme must be replaced after every reaction","The reaction ends up producing more product than it otherwise would","The reaction could not occur at all without it"],ans:0,why:"Because a <em>catalyst</em> is not consumed, each molecule is released at the end and is free to act again &mdash; which is why the passage says &lsquo;a very small quantity goes on working indefinitely&rsquo;. A catalyst changes the <em>rate</em> of a reaction, not the final amounts, and most catalysed reactions would still happen, only far more slowly."},
+ {q:"A long, hot summer would be expected to affect the lake&rsquo;s fish because:",opts:["Warmer water dissolves less oxygen, leaving less available to them","Warmer water dissolves more oxygen, which becomes toxic","Photosynthesis stops altogether when the water is warm","The sediment dissolves back into the water when it is warm"],ans:0,why:"The passage states the relationship directly: the solubility of oxygen &lsquo;falls as the water warms, so a hot summer leaves less oxygen available to fish&rsquo;. This is an inference question &mdash; the answer is in the passage, but in a different paragraph from the one about fish. Nothing links warmth to stopping photosynthesis or to redissolving sediment."}
+]);
+
+var AQ=[
+ {tag:"🧩 Word Parts",q:"<em>Neuropathy</em> is built from <em>neuro-</em> and <em>-pathy</em>. It names:",opts:["A disease or disorder of the nerves","An inflammation of the brain","The surgical repair of a nerve","The study of nervous behaviour"],ans:0,fb:"Greek <em>neuron</em> is nerve and <em>-pathy</em> (from <em>pathos</em>, suffering, disease) names a disease or disorder. Inflammation would be <em>-itis</em>, surgical repair <em>-plasty</em>, and a field of study <em>-logy</em>."},
+ {tag:"🧩 Word Parts",q:"<em>Polysaccharide</em>, <em>polymer</em> and <em>polygon</em> share the prefix <em>poly-</em>, which means:",opts:["Many","Small","Sweet","Around"],ans:0,fb:"Greek <em>polys</em> means many: a polygon has many angles, a polymer has many repeating units, and a polysaccharide is many sugar units joined together. Small is <em>micro-</em>, around is <em>peri-</em> or <em>circum-</em>."},
+ {tag:"🧩 Word Parts",q:"<em>Thermodynamics</em> and <em>hypothermia</em> share the element <em>thermo-/therm-</em>, which means:",opts:["Heat","Power","Speed","Pressure"],ans:0,fb:"Greek <em>therm&#275;</em> is heat. <em>Hypothermia</em> is <em>hypo-</em> &lsquo;below&rsquo; plus <em>therm&#275;</em>: a dangerously low body temperature. Pressure in <em>hypertension</em> comes from <em>tension</em>, not from <em>thermo-</em>."},
+ {tag:"🧩 Word Parts",q:"An organism described as <em>anaerobic</em>:",opts:["Lives and grows without oxygen","Requires unusually large amounts of oxygen","Lives only in the air","Cannot survive in water"],ans:0,fb:"The prefix <em>an-</em> (a variant of <em>a-</em> before a vowel) means &lsquo;without&rsquo;, and <em>aer-</em> is Greek for air. Anaerobic bacteria grow where there is no oxygen, such as deep in sediment. The same <em>a-</em> gives <em>asymptomatic</em> and <em>atypical</em>."},
+ {tag:"🩺 Medicine",q:"A <em>prognosis</em> is:",opts:["The forecast of how an illness is likely to develop","The name given to the illness once identified","The list of a patient&rsquo;s current symptoms","The record of an operation already performed"],ans:0,fb:"Greek <em>pro-</em> &lsquo;before&rsquo; plus <em>gn&#333;sis</em> &lsquo;knowledge&rsquo;: knowledge in advance, a forecast. Compare <em>diagnosis</em> &mdash; <em>dia-</em> &lsquo;through, apart&rsquo; plus the same <em>gn&#333;sis</em> &mdash; which is identifying <em>what</em> the illness is."},
+ {tag:"🩺 Medicine",q:"A result obtained <em>in vitro</em> was obtained:",opts:["In a dish or tube outside a living organism","Inside a living patient","During a surgical operation","In a computer simulation only"],ans:0,fb:"<em>In vitro</em> is Latin for &lsquo;in glass&rsquo; &mdash; in laboratory glassware, outside the body. Its counterpart is <em>in vivo</em>, &lsquo;in the living&rsquo;: in a whole organism. A computer-only study would be called, half in joke, <em>in silico</em>."},
+ {tag:"🩺 Medicine",q:"A patient described as <em>asymptomatic</em>:",opts:["Shows no symptoms of the condition","Has an unusually severe form of the condition","Has recovered completely","Cannot describe their symptoms"],ans:0,fb:"The prefix <em>a-</em> means &lsquo;without&rsquo;, so <em>asymptomatic</em> is &lsquo;without symptoms&rsquo;. It is an important word because a patient can be asymptomatic and still have the disease &mdash; and still be able to pass it on."},
+ {tag:"🩺 Medicine",q:"A laboratory report states: &lsquo;The <em>culture</em> was negative.&rsquo; This means that:",opts:["No microorganisms grew in the prepared medium","The patient comes from a different cultural background","The sample was refined and free of impurities","The laboratory refused to test the sample"],ans:0,fb:"In microbiology a <em>culture</em> is a deliberate attempt to grow microorganisms in a nutrient medium; <em>negative</em> means nothing grew, so no infecting organism was found. The everyday sense of &lsquo;culture&rsquo; &mdash; customs, refinement &mdash; is a false friend, and &lsquo;negative&rsquo; here means absent, not bad."},
+ {tag:"💻 Computer Science",q:"When a system is described as having greater <em>concurrency</em>, it means that:",opts:["Several tasks can be in progress over the same period rather than strictly one after another","Every task is guaranteed to finish faster","All tasks are executed in a fixed alphabetical order","Only one task may run at any time"],ans:0,fb:"<em>Concurrency</em> is Latin <em>con-</em> &lsquo;together&rsquo; plus <em>currere</em> &lsquo;to run&rsquo; &mdash; tasks running together in time. It does not promise speed: as the design note says, each extra task carries overhead. Doing things at literally the same instant on different processors is <em>parallelism</em>."},
+ {tag:"💻 Computer Science",q:"A process described as <em>deterministic</em>:",opts:["Always produces the same output from the same input","Decides for itself which task matters most","Cannot be interrupted once it has begun","Always finishes within a fixed time"],ans:0,fb:"<em>Deterministic</em> comes from <em>determine</em>: the input fully determines the output, with no element of chance. That is why the design note keeps the ranking step deterministic &mdash; it makes test results reproducible. Do not confuse it with the everyday sense of &lsquo;determined&rsquo;, meaning resolute."},
+ {tag:"💻 Computer Science",q:"In a computing text, <em>memory</em> refers to:",opts:["Hardware that stores data for the machine&rsquo;s immediate use","The machine&rsquo;s record of who has used it","The human ability to recall information","A log file kept for later inspection"],ans:0,fb:"This is an everyday word narrowed by a discipline: computing <em>memory</em> is the physical store a processor reads from and writes to while working. The mental faculty is the everyday sense, and a stored history of events would be a <em>log</em>."},
+ {tag:"💻 Computer Science",q:"<em>Volatile</em> memory is memory that:",opts:["Loses its contents when the power is switched off","Changes its size while the program runs","Is shared between several machines","Is protected against being written to"],ans:0,fb:"<em>Volatile</em> is from Latin <em>volare</em>, to fly &mdash; the sense of flying away runs through every use. A volatile chemical flies off as vapour at ordinary temperatures; volatile memory loses its contents the moment power is removed. Neither has anything to do with the everyday sense of a volatile temper."},
+ {tag:"⚛️ Physics",q:"<em>Inertia</em> is:",opts:["The resistance of a body to any change in its state of motion","The force that pulls objects towards the Earth","The energy a moving object carries","The friction between two surfaces"],ans:0,fb:"From Latin <em>iners</em>, inactive. A body at rest stays at rest, and a moving body keeps moving, unless a force acts &mdash; and mass is the measure of that resistance. The pull towards Earth is gravity, and the energy of motion is kinetic energy."},
+ {tag:"⚛️ Physics",q:"In physics, <em>work</em> is done when:",opts:["A force moves its point of application through a distance","A person feels tired after long effort","A machine is switched on","A material is heated"],ans:0,fb:"This is one of the sharpest false friends in science. Physics defines work as force times the distance moved in the direction of the force. Holding a heavy box perfectly still is exhausting, but no distance is covered, so in the technical sense no work is done at all."},
+ {tag:"⚛️ Physics",q:"The <em>wavelength</em> of a wave is:",opts:["The distance from one crest to the next","The greatest height a crest reaches","The number of crests passing per second","The speed at which the wave travels"],ans:0,fb:"Wavelength is a distance, measured in metres, between two corresponding points on successive cycles. The greatest height is the <em>amplitude</em>, and the number of cycles per second is the <em>frequency</em>, measured in hertz."},
+ {tag:"⚛️ Physics",q:"In an engineering report, <em>stress</em> means:",opts:["The force acting per unit area within a material","The strain felt by the engineering team","The total weight of the structure","The temperature inside a material"],ans:0,fb:"Technical <em>stress</em> is force divided by the area it acts over, measured in pascals. The mental sense is the everyday false friend. Note that engineering also distinguishes <em>strain</em> &mdash; the resulting change in shape &mdash; from the stress that causes it, though ordinary English treats the two words as synonyms."},
+ {tag:"🔬 General Sciences",q:"<em>Taxonomy</em> is:",opts:["The orderly classification of organisms into named groups","The chemical analysis of a water sample","The measurement of population size","The study of poisons"],ans:0,fb:"Greek <em>taxis</em> means arrangement or order, and <em>-nomia</em> a system or law &mdash; hence the naming and ranking of living things into genus, species and so on. The study of poisons is <em>toxicology</em>, from a different Greek root, <em>toxikon</em>."},
+ {tag:"🔬 General Sciences",q:"<em>Sediment</em> in a lake is:",opts:["The layer of particles that has settled out of the water","Dissolved salt that remains in the water","A gas released from the lake bed","A living mat of algae on the surface"],ans:0,fb:"<em>Sediment</em> is from Latin <em>sedere</em>, to sit or settle &mdash; the same root as <em>sedentary</em> and <em>reside</em>. The word names material that has come out of suspension and settled. Anything still dissolved is by definition not sediment."},
+ {tag:"🔬 General Sciences",q:"A researcher reports that a difference between two groups was <em>statistically significant</em>. This means the difference:",opts:["Is unlikely to have arisen by chance alone","Is large enough to matter in practice","Proves that one group caused the other","Was the largest difference the study found"],ans:0,fb:"This is the most costly false friend in science writing. <em>Significant</em> in statistics is a statement about chance, not about size or importance: with a large enough sample, a tiny and quite useless difference can be statistically significant. Nor does it establish a cause."},
+ {tag:"🔬 General Sciences",q:"In chemistry, a <em>solution</em> is:",opts:["A substance evenly dissolved throughout another substance","The answer to a difficult problem","A liquid that dissolves metals","Any liquid that is clear rather than cloudy"],ans:0,fb:"A chemical solution is a homogeneous mixture: the <em>solute</em> is dispersed evenly through the <em>solvent</em>. The everyday sense &mdash; the answer to a problem &mdash; is the false friend. Note too that being clear is not the test: a solution can be strongly coloured."}
+];
+var aqi=0,aqs=0,aqd=false;
+function rAQ(){if(aqi>=AQ.length){sAQ();return;}var q=shuffleQ(AQ[aqi]);document.getElementById('aq-prog').style.width=(aqi/AQ.length*100)+'%';document.getElementById('aq-container').innerHTML=`<div class="ex-card"><div class="ex-num">Question ${aqi+1} of ${AQ.length}${q.tag?` &middot; <span style="color:var(--ac);">${q.tag}</span>`:``}</div><div class="ex-q">${q.q}</div><div id="aq-opts">${q.opts.map((o,i)=>`<button class="ex-opt" onclick="aAQ(${i})">${o}</button>`).join('')}</div><div class="ex-feedback" id="aq-fb"></div><div><button class="btn btn-primary btn-sm" id="aq-next" style="display:none;margin-top:14px;background:var(--ac);" onclick="nAQ()">Next →</button></div></div>`;aqd=false;}
+function aAQ(i){if(aqd)return;aqd=true;var q=AQ[aqi];document.querySelectorAll('#aq-opts .ex-opt').forEach((b,j)=>{b.disabled=true;if(j===q.ans)b.classList.add('correct-ans');else if(j===i&&i!==q.ans)b.classList.add('wrong-ans');});if(i===q.ans)aqs++;var fb=document.getElementById('aq-fb');fb.innerHTML=q.fb;fb.className='ex-feedback show '+(i===q.ans?'fb-correct':'fb-wrong');document.getElementById('aq-next').style.display='inline-block';}
+function nAQ(){aqi++;rAQ();}
+function sAQ(){document.getElementById('aq-prog').style.width='100%';document.getElementById('aq-container').style.display='none';var pct=Math.round(aqs/AQ.length*100);document.getElementById('aq-score').style.display='block';document.getElementById('aq-score').innerHTML=`<div class="score-big">${pct}%</div><div class="score-sub">${aqs}/${AQ.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct>=80?'Strong work &mdash; you are reading terms from their parts and from their context, not from memory.':'Not yet. Go back to the 🧩 How to Read a Term tab, then re-read the passage for the domain that cost you the most marks.'}</p><button class="btn btn-primary" style="background:var(--ac);" onclick="reAQ()">Retry</button>`;}
+function reAQ(){aqi=0;aqs=0;document.getElementById('aq-container').style.display='block';document.getElementById('aq-score').style.display='none';rAQ();}
+
+rAQ();
+</script>
+<script src="track.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>
