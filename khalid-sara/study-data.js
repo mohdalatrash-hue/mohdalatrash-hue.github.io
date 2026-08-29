@@ -3735,3 +3735,77 @@ for (const [bookId, units] of Object.entries(scienceEnrichment)) {
     book.units[index].questions = unit.questions;
   });
 }
+
+const englishEnrichment = {
+  "khalid-1-motawaset-english": [
+    {
+      sections: [
+        {id:"keng-u1-1",type:"Speaking",title:"Greetings and Introductions",detail:"Greet people, say goodbye, and introduce yourself and others.",page:2,explanation:"Practice a four-line conversation: greeting, name, introduction, and goodbye. Change the names and repeat without reading."},
+        {id:"keng-u1-2",type:"Grammar",title:"Verb: be",detail:"Use am, is, and are with singular and plural subjects.",page:4,explanation:"Make one sentence with I am, he/she is, we are, and they are. Then change each sentence into a question."},
+        {id:"keng-u1-3",type:"Grammar",title:"Possessive adjectives",detail:"Use my, your, his, and her to show possession.",page:4,explanation:"Write four people or objects and describe them using my, your, his, and her."},
+        {id:"keng-u1-4",type:"Listening",title:"Names and responses",detail:"Listen for names, spelling, greetings, and appropriate responses.",page:5,explanation:"Ask and answer: What’s your name? How do you spell it? What do your friends call you?"},
+        {id:"keng-u1-5",type:"Conversation",title:"Meeting someone new",detail:"Use a polite airport-style introduction and welcome.",page:6,explanation:"Role-play meeting a visitor: confirm the name, introduce yourself, say Nice to meet you, and welcome the visitor."}
+      ],
+      questions: [
+        {prompt:"Complete: I ___ a student.",choices:["am","is","are","be"],answer:"am",source:"Super Goal 1, Unit 1 Grammar, printed p. 4"},
+        {prompt:"Complete: He is a teacher. ___ name is Mr. Farhat.",choices:["His","Her","My","Your"],answer:"His",source:"Super Goal 1, Unit 1 Grammar, printed p. 4"},
+        {prompt:"Which phrase is used when meeting someone for the first time?",choices:["Nice to meet you","How old is it?","What day is today?","Open the window"],answer:"Nice to meet you",source:"Super Goal 1, Unit 1 Conversation, printed p. 6"},
+        {prompt:"Which form matches they?",choices:["are","am","is","has"],answer:"are",source:"Super Goal 1, Unit 1 Grammar, printed p. 4"}
+      ]
+    },
+    {
+      sections: [
+        {id:"keng-u2-1",type:"Vocabulary",title:"Days, months, and numbers",detail:"Use days of the week, months, cardinal numbers to 1,000, and ordinal numbers.",page:10,explanation:"Say today’s day and date, then write three numbers as words and three ordinal numbers."},
+        {id:"keng-u2-2",type:"Speaking",title:"Age and classroom instructions",detail:"Talk about age and follow or give classroom instructions.",page:10,explanation:"Ask How old are you? Then give three clear classroom instructions to a partner."},
+        {id:"keng-u2-3",type:"Grammar",title:"Possessive adjectives",detail:"Use our, your, and their.",page:10,explanation:"Write one sentence about our class, your book, and their school supplies."},
+        {id:"keng-u2-4",type:"Grammar",title:"Question words and date prepositions",detail:"Use what, when, how old, and use in/on with dates.",page:10,explanation:"Write questions beginning with What, When, and How old. Use in before a month and on before a specific date."}
+      ],
+      questions: [
+        {prompt:"Choose the correct preposition: My birthday is ___ October.",choices:["in","on","at","from"],answer:"in",source:"Super Goal 1, Unit 2 Scope and Sequence, p. iv"},
+        {prompt:"Choose the correct preposition: The festival is ___ November 16th.",choices:["on","in","from","under"],answer:"on",source:"Super Goal 1, Unit 2 Scope and Sequence, p. iv"},
+        {prompt:"Which question asks about age?",choices:["How old are you?","Where are you from?","What is that?","How many books?"],answer:"How old are you?",source:"Super Goal 1, Unit 2 Scope and Sequence, p. iv"},
+        {prompt:"Which possessive adjective completes: We like ___ classroom?",choices:["our","their","his","her"],answer:"our",source:"Super Goal 1, Unit 2 Scope and Sequence, p. iv"}
+      ]
+    }
+  ],
+  "sara-khamis-english": [
+    {
+      sections: [
+        {id:"seng-u0-1",type:"Vocabulary",title:"Months and dates",detail:"Review months of the year, calendar vocabulary, dates, early, late, and ago.",page:4,explanation:"Put the twelve months in order, say a date with an ordinal number, and use early, late, and ago in short sentences."},
+        {id:"seng-u0-2",type:"Numbers",title:"Numbers 101-1,000",detail:"Read, say, and calculate with numbers from 101 to 1,000.",page:6,explanation:"Read 132, 421, 508, 795, and 1,000 aloud. Then solve two addition problems and say the answers in words."},
+        {id:"seng-u0-3",type:"Grammar",title:"How many and How long",detail:"Use How many for countable quantities and How long for duration.",page:8,explanation:"Write three How many questions and three How long questions about school."},
+        {id:"seng-u0-4",type:"Grammar",title:"Simple Past review",detail:"Review regular and irregular past forms in a daily routine story.",page:8,explanation:"Retell yesterday’s routine using five past-tense verbs, including one negative sentence."}
+      ],
+      questions: [
+        {prompt:"Complete: ___ is the lunch break?",choices:["How long","How many","How old","What number"],answer:"How long",source:"Top Goal 2, Welcome review, printed p. 8"},
+        {prompt:"Complete: ___ classes do you have?",choices:["How many","How long","When long","How much time"],answer:"How many",source:"Top Goal 2, Welcome review, printed p. 8"},
+        {prompt:"Which number is 'seven hundred ninety-five'?",choices:["795","759","579","975"],answer:"795",source:"Top Goal 2, Welcome, printed p. 6"},
+        {prompt:"Which month comes after October?",choices:["November","September","August","January"],answer:"November",source:"Top Goal 2, Welcome, printed p. 6"}
+      ]
+    },
+    {
+      sections: [
+        {id:"seng-u1-1",type:"Vocabulary",title:"Personal interests",detail:"Use words for hobbies and interests such as carving, origami, yarn, fair, hobby, believe, and prefer.",page:10,explanation:"Choose two hobbies. Explain which one you prefer and give one reason."},
+        {id:"seng-u1-2",type:"Grammar",title:"Simple Present vs. Simple Past",detail:"Use the Simple Present for routines and the Simple Past for completed past actions.",page:10,explanation:"Write two sentences about what you usually do and two about what you did yesterday."},
+        {id:"seng-u1-3",type:"Grammar",title:"State verbs vs. action verbs",detail:"Distinguish states such as believe or prefer from actions happening now.",page:10,explanation:"Sort six verbs into state and action groups. Use an action verb in a right-now sentence."},
+        {id:"seng-u1-4",type:"Reading and Writing",title:"A special interest",detail:"Read an e-mail about a special interest and write your own organized e-mail.",page:10,explanation:"Write a short e-mail with a greeting, the interest, when you started, why you like it, and a closing."}
+      ],
+      questions: [
+        {prompt:"Which sentence describes a routine?",choices:["I go nearly every day.","Yesterday, I didn’t go.","I went last year.","I was there yesterday."],answer:"I go nearly every day.",source:"Top Goal 2, Unit 1 Scope and Sequence, p. 4"},
+        {prompt:"Which sentence describes a completed past action?",choices:["Yesterday, I didn’t go.","I go nearly every day.","I prefer origami.","I believe you."],answer:"Yesterday, I didn’t go.",source:"Top Goal 2, Unit 1 Scope and Sequence, p. 4"},
+        {prompt:"Which is a state verb in this unit?",choices:["prefer","playing","carving","riding"],answer:"prefer",source:"Top Goal 2, Unit 1 Scope and Sequence, p. 4"},
+        {prompt:"What is the Unit 1 writing task?",choices:["Write an e-mail about a special interest","Write a weather report","Write a recipe","Write house instructions"],answer:"Write an e-mail about a special interest",source:"Top Goal 2, Unit 1 Scope and Sequence, p. 5"}
+      ]
+    }
+  ]
+};
+
+for (const [bookId, units] of Object.entries(englishEnrichment)) {
+  const book = window.STUDY_DATA.books.find((item) => item.id === bookId);
+  if (!book) continue;
+  units.forEach((unit, index) => {
+    if (!book.units[index]) return;
+    book.units[index].sections = unit.sections;
+    book.units[index].questions = unit.questions;
+  });
+}
