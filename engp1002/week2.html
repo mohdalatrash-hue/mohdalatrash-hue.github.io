@@ -46,6 +46,11 @@ details.key .keybody{margin-top:8px;padding:12px 14px;background:var(--ac-soft);
 .checklist li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--text-2);padding:6px 0;border-top:1px solid var(--border-light);}
 .checklist li:first-child{border-top:none;}
 .checklist input{margin-top:3px;}
+.aud{display:flex;align-items:center;gap:10px;background:var(--ac-soft);border-radius:var(--r-md);padding:10px 14px;margin:10px 0 14px;}
+.aud audio{flex:1;height:32px;}
+.aud .aud-lab{font-size:12px;font-weight:700;color:var(--ac-ink);white-space:nowrap;}
+.vid-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--r-md);margin:12px 0 16px;background:#000;}
+.vid-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
 @media(max-width:680px){.glance{grid-template-columns:1fr;}}
 </style>
 </head>
@@ -77,13 +82,13 @@ details.key .keybody{margin-top:8px;padding:12px 14px;background:var(--ac-soft);
 
   <div class="info-box info-amber mb-32">
     <h3>📚 No book yet — this page is the material</h3>
-    <p>Copies of <em>Q: Skills for Success</em> Level 3 are on the way, but until every student has one, this page stands in for the coursebook: original vocabulary, listening, grammar and speaking practice built around the same Unit 1 question — <strong>are first impressions accurate?</strong> Roughly 3.5 hours of material across six workshops. Once books arrive, we return to the official unit pages for reference and extra practice.</p>
+    <p>Copies of <em>Q: Skills for Success</em> Level 3 are on the way, but until every student has one, this page stands in for the coursebook: original vocabulary, listening, grammar and speaking practice built around the same Unit 1 question — <strong>are first impressions accurate?</strong> Roughly 4 hours of material across seven workshops — extra content is there so no class ever runs short. Once books arrive, we return to the official unit pages for reference and extra practice.</p>
   </div>
 
   <div class="section-label" style="margin-bottom:14px;">Today at a glance</div>
   <div class="glance">
     <div class="g-card g-read"><div class="g-ic">📖</div><div class="g-lab">Topic</div><div class="g-txt">Unit 1 — Psychology: first impressions</div></div>
-    <div class="g-card g-do"><div class="g-ic">🛠️</div><div class="g-lab">Do</div><div class="g-txt">6 workshops · ~3.5 hours · vocabulary → listening → grammar → speaking</div></div>
+    <div class="g-card g-do"><div class="g-ic">🛠️</div><div class="g-lab">Do</div><div class="g-txt">7 workshops · ~4 hours · vocabulary → listening → grammar → speaking → video</div></div>
     <div class="g-card g-due"><div class="g-ic">✅</div><div class="g-lab">Due</div><div class="g-txt">Complete the Unit Assignment discussion by end of session</div></div>
   </div>
 
@@ -143,6 +148,7 @@ details.key .keybody{margin-top:8px;padding:12px 14px;background:var(--ac-soft);
     <div class="exbox">
       <strong style="font-size:13px;">Exercise — Listen for the signposts</strong>
       <p style="font-size:13px;color:var(--text-2);margin:8px 0;">Read this short passage aloud once. Students close their books and just listen; then read it again while they take notes.</p>
+      <div class="aud"><span class="aud-lab">🔊 Listen</span><audio controls preload="none" src="audio/notetaking.mp3"></audio></div>
       <div class="passage" style="font-style:italic;">"Today I want to talk about why first impressions matter so much in job interviews. The main point is that interviewers often decide within the first few minutes whether they like a candidate — and that early feeling colors everything that follows. For example, a candidate who smiles, makes eye contact, and greets the interviewer by name is often rated as more competent later in the interview, even if their answers are no better than another candidate's. So, in short, how you begin an interview can matter as much as what you say during it."</p>
       <ol>
         <li>What is the topic of the talk?</li>
@@ -158,6 +164,7 @@ details.key .keybody{margin-top:8px;padding:12px 14px;background:var(--ac-soft);
     <h2><span class="ws-num">3</span>Listening Workshop A — Faces &amp; First Impressions <span class="ws-time">~35 min</span></h2>
     <span class="lvl lvl-basic">Basic level</span>
     <p class="ws-sub">Read the passage aloud (or have a confident student read it) at a natural pace. Students take notes, then answer.</p>
+    <div class="aud"><span class="aud-lab">🔊 Listen</span><audio controls preload="none" src="audio/listening-a.mp3"></audio></div>
     <div class="passage">"Psychologists who study first impressions say we judge new faces using four things. The first is <strong>babyfaceness</strong> — a person with a round face, large eyes, and a small nose tends to seem warm and trustworthy, the way a baby does, even as an adult. The second is <strong>familiarity</strong> — we tend to trust faces that remind us of people we already know, and we're a little more suspicious of faces that look completely unfamiliar. The third is <strong>fitness</strong> — a healthy, energetic-looking face makes us assume the person is also successful and reliable. And the fourth is <strong>emotional resemblance</strong> — if someone's neutral expression happens to look a little like a smile, we assume they're a friendly person, and if it looks a little like a frown, we assume the opposite — even though they aren't actually expressing anything at all."</div>
     <div class="exbox">
       <strong style="font-size:13px;">A. Note-taking — fill in the four aspects</strong>
@@ -193,6 +200,7 @@ details.key .keybody{margin-top:8px;padding:12px 14px;background:var(--ac-soft);
     <h2><span class="ws-num">4</span>Listening Workshop B — Fast Decisions <span class="ws-time">~35 min</span></h2>
     <span class="lvl lvl-inter">Intermediate level</span>
     <p class="ws-sub">Inspired by research on quick, "snap" decision-making — the kind popularized in Malcolm Gladwell's book <em>Blink</em>.</p>
+    <div class="aud"><span class="aud-lab">🔊 Listen</span><audio controls preload="none" src="audio/listening-b.mp3"></audio></div>
     <div class="passage">"Some researchers argue that our first, split-second judgment of a person or situation is often surprisingly accurate — this is sometimes called <strong>thin-slicing</strong>: making a fast, unconscious decision from a very small amount of information. Other researchers push back, warning that snap judgments can also be wrong, especially when they're based on someone's appearance rather than their actions. Most people, in fact, use both systems every day: an <strong>unconscious, instinctive</strong> system for quick, low-stakes choices — like whether a stranger seems friendly — and a <strong>conscious, deliberate</strong> system for important decisions that deserve more thought — like choosing a career or a business partner. The skill, these researchers suggest, isn't picking one system over the other — it's knowing which situations call for which."</div>
     <div class="exbox">
       <strong style="font-size:13px;">A. Categorize — quick/unconscious (U) or careful/conscious (C)?</strong>
@@ -280,6 +288,44 @@ details.key .keybody{margin-top:8px;padding:12px 14px;background:var(--ac-soft);
         <li><input type="checkbox"> I can use do/be/have to make questions and negatives</li>
         <li><input type="checkbox"> I can use contractions naturally in speech</li>
         <li><input type="checkbox"> I kept a conversation going using turn-taking phrases</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WORKSHOP 7 -->
+  <div class="ws">
+    <h2><span class="ws-num">7</span>Video Workshop — Should You Trust Your First Impression? <span class="ws-time">~25 min</span></h2>
+    <p class="ws-sub">A short TED-Ed talk that pulls together everything from today's session — watch once for general understanding, then again for detail.</p>
+    <div class="vid-wrap"><iframe src="https://www.youtube.com/embed/eK0NzsGRceg" title="Should you trust your first impression? - Peter Mende-Siedlecki (TED-Ed)" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+    <div class="exbox">
+      <strong style="font-size:13px;">A. First watch — general understanding</strong>
+      <ol>
+        <li>What question is the speaker trying to answer?</li>
+        <li>According to the video, do researchers think first impressions are usually accurate, usually wrong, or somewhere in between?</li>
+        <li>Name one situation the video mentions where a first impression could matter in real life (e.g. a job interview, a courtroom, meeting someone new).</li>
+      </ol>
+    </div>
+    <div class="exbox">
+      <strong style="font-size:13px;">B. Second watch — detail &amp; vocabulary</strong>
+      <ol>
+        <li>Listen for one piece of evidence (an experiment or a study) the video uses to support its argument. Summarize it in your own words.</li>
+        <li>Find one word or phrase in the video connected to today's vocabulary list (trait, judge, instinct, reliable, trust, snap judgment...) and note the sentence it appeared in.</li>
+        <li>Does the video's conclusion agree or disagree with what we discussed in Workshop 4 (Fast Decisions)? Explain.</li>
+      </ol>
+      <details class="key"><summary>Teacher notes</summary><div class="keybody">These questions are open-ended by design — there's no single fixed answer key, since responses depend on what students hear and how they phrase it. Use the first-watch questions to check general comprehension as a class, then let pairs compare answers to the second-watch questions before a short whole-class debrief.</div></details>
+    </div>
+    <div class="exbox">
+      <strong style="font-size:13px;">C. Discuss with a partner</strong>
+      <ul>
+        <li>Did anything in the video surprise you, given what we covered earlier in Workshops 3 and 4?</li>
+        <li>The video is about six minutes long — could you retell its main argument in 30 seconds to someone who hasn't seen it?</li>
+      </ul>
+    </div>
+    <div class="exbox">
+      <strong style="font-size:13px;">Further viewing (optional — for early finishers)</strong>
+      <p style="font-size:13px;color:var(--text-2);margin:6px 0 8px;">These weren't checked as carefully as the video above, so preview before assigning them as required watching. Useful for students who finish early or want extra practice at home.</p>
+      <ul>
+        <li><a href="https://www.youtube.com/watch?v=KVQhVMn_5qY" target="_blank" rel="noopener">3 Seconds to Judge? The Surprising Truth About Thin Slicing</a> — a short explainer connecting to Workshop 4's "thin-slicing" idea.</li>
       </ul>
     </div>
   </div>
