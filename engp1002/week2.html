@@ -51,6 +51,14 @@ details.key .keybody{margin-top:8px;padding:12px 14px;background:var(--ac-soft);
 .aud .aud-lab{font-size:12px;font-weight:700;color:var(--ac-ink);white-space:nowrap;}
 .vid-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--r-md);margin:12px 0 16px;background:#000;}
 .vid-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+.quizbox .quiz-list{list-style:decimal;}
+.quizbox li{margin-bottom:10px;}
+.qsel{padding:5px 8px;border-radius:6px;border:1px solid var(--border);font-size:13px;background:#fff;color:var(--text);margin:2px 4px;max-width:100%;}
+.qsel.correct{border-color:#16a34a;background:#f0fdf4;color:#166534;font-weight:700;}
+.qsel.incorrect{border-color:#dc2626;background:#fef2f2;color:#991b1b;font-weight:700;}
+.quiz-check{margin-top:6px;background:var(--ac);color:#fff;border:none;padding:8px 18px;border-radius:var(--r-pill);font-size:13px;font-weight:700;cursor:pointer;}
+.quiz-check:hover{opacity:.88;}
+.quiz-score{margin-top:10px;font-size:13px;font-weight:700;color:var(--ac-ink);}
 @media(max-width:680px){.glance{grid-template-columns:1fr;}}
 </style>
 </head>
@@ -82,13 +90,13 @@ details.key .keybody{margin-top:8px;padding:12px 14px;background:var(--ac-soft);
 
   <div class="info-box info-amber mb-32">
     <h3>📚 No book yet — this page is the material</h3>
-    <p>Copies of <em>Q: Skills for Success</em> Level 3 are on the way, but until every student has one, this page stands in for the coursebook: original vocabulary, listening, grammar and speaking practice built around the same Unit 1 question — <strong>are first impressions accurate?</strong> This page now holds a full bank of Unit 1 material — 6 original listening tracks (A–F) plus vocabulary, grammar, speaking and video workshops. It's built to outlast a single class: use Workshops 1–4, 9 and 10 for the main session, and treat Workshops 5–8 (Listening C–F) and 11 (video) as a second session, review day, or self-study set once books arrive. Once books arrive, we return to the official unit pages for reference and extra practice.</p>
+    <p>Copies of <em>Q: Skills for Success</em> Level 3 are on the way, but until every student has one, this page stands in for the coursebook: original vocabulary, listening, grammar and speaking practice built around the same Unit 1 question — <strong>are first impressions accurate?</strong> This page now holds a full bank of Unit 1 material — a textbook glossary, four short A1-level YouTube listening workshops (A–D) with interactive exercises, plus vocabulary, grammar and speaking practice. Once books arrive, we return to the official unit pages for reference and extra practice.</p>
   </div>
 
   <div class="section-label" style="margin-bottom:14px;">Today at a glance</div>
   <div class="glance">
     <div class="g-card g-read"><div class="g-ic">📖</div><div class="g-lab">Topic</div><div class="g-txt">Unit 1 — Psychology: first impressions</div></div>
-    <div class="g-card g-do"><div class="g-ic">🛠️</div><div class="g-lab">Do</div><div class="g-txt">11 workshops · 6 listening tracks · spread across this week and next as needed</div></div>
+    <div class="g-card g-do"><div class="g-ic">🛠️</div><div class="g-lab">Do</div><div class="g-txt">10 workshops · 4 listening videos · spread across this week and next as needed</div></div>
     <div class="g-card g-due"><div class="g-ic">✅</div><div class="g-lab">Due</div><div class="g-txt">Complete the Unit Assignment discussion by end of session</div></div>
   </div>
 
@@ -169,18 +177,68 @@ details.key .keybody{margin-top:8px;padding:12px 14px;background:var(--ac-soft);
       <tr><td class="term">mistakenly (adv.)</td><td>in a way that is wrong because it is based on a wrong opinion or bad judgment</td></tr>
       <tr><td class="term">symmetry (n.)</td><td>the quality of having parts that match each other, usually in an attractive way</td></tr>
     </table>
-    <div class="exbox">
-      <strong style="font-size:13px;">Exercise &mdash; Fill in the blank</strong>
-      <ol>
-        <li>People often __________ a warm smile with kindness, even when they've just met.</li>
-        <li>A face with good __________ &mdash; both sides matching &mdash; tends to be judged as more attractive.</li>
-        <li>He looked nervous during the interview, but the panel __________ believed he wasn't prepared.</li>
-        <li>She answered every question clearly, which made her seem very __________.</li>
+    <div class="exbox quizbox">
+      <strong style="font-size:13px;">A. Fill in the blank &mdash; choose the correct word</strong>
+      <ol class="quiz-list">
+        <li>People often
+          <select class="qsel" data-answer="associate"><option value="">Choose...</option><option>associate</option><option>competent</option><option>mistakenly</option><option>symmetry</option></select>
+          a warm smile with kindness, even when they've just met.
+        </li>
+        <li>A face with good
+          <select class="qsel" data-answer="symmetry"><option value="">Choose...</option><option>competent</option><option>symmetry</option><option>associate</option><option>mistakenly</option></select>
+          &mdash; both sides matching &mdash; tends to be judged as more attractive.
+        </li>
+        <li>He looked nervous during the interview, but the panel
+          <select class="qsel" data-answer="mistakenly"><option value="">Choose...</option><option>mistakenly</option><option>symmetry</option><option>competent</option><option>associate</option></select>
+          believed he wasn't prepared.
+        </li>
+        <li>She answered every question clearly, which made her seem very
+          <select class="qsel" data-answer="competent"><option value="">Choose...</option><option>associate</option><option>mistakenly</option><option>competent</option><option>symmetry</option></select>.
+        </li>
       </ol>
-      <details class="key"><summary>Show answer key</summary><div class="keybody">1. associate &nbsp; 2. symmetry &nbsp; 3. mistakenly &nbsp; 4. competent</div></details>
+      <button type="button" class="quiz-check">Check my answers</button>
+      <p class="quiz-score" hidden></p>
+    </div>
+    <div class="exbox quizbox">
+      <strong style="font-size:13px;">B. Match the word to its meaning</strong>
+      <ol class="quiz-list">
+        <li>associate (v.) &mdash;
+          <select class="qsel" data-answer="to connect something in your mind with something else">
+            <option value="">Choose...</option>
+            <option>to connect something in your mind with something else</option>
+            <option>to disagree strongly with an idea</option>
+            <option>to forget something quickly</option>
+          </select>
+        </li>
+        <li>competent (adj.) &mdash;
+          <select class="qsel" data-answer="able to do something well">
+            <option value="">Choose...</option>
+            <option>able to do something well</option>
+            <option>unable to make decisions</option>
+            <option>extremely famous</option>
+          </select>
+        </li>
+        <li>mistakenly (adv.) &mdash;
+          <select class="qsel" data-answer="in a way that is wrong because it is based on a wrong opinion or bad judgment">
+            <option value="">Choose...</option>
+            <option>in a way that is wrong because it is based on a wrong opinion or bad judgment</option>
+            <option>in a very careful and accurate way</option>
+            <option>in a loud and confident voice</option>
+          </select>
+        </li>
+        <li>symmetry (n.) &mdash;
+          <select class="qsel" data-answer="the quality of having parts that match each other, usually in an attractive way">
+            <option value="">Choose...</option>
+            <option>the quality of having parts that match each other, usually in an attractive way</option>
+            <option>a strong feeling of nervousness</option>
+            <option>the ability to remember faces easily</option>
+          </select>
+        </li>
+      </ol>
+      <button type="button" class="quiz-check">Check my answers</button>
+      <p class="quiz-score" hidden></p>
     </div>
   </div>
-
   <!-- WORKSHOP 4 -->
   <div class="ws">
     <h2><span class="ws-num">4</span>Listening Workshop A &mdash; My Best Friend <span class="ws-time">~30 min</span></h2>
@@ -202,25 +260,83 @@ details.key .keybody{margin-top:8px;padding:12px 14px;background:var(--ac-soft);
         <li>Name two things the speaker tells us about this person: their appearance, their studies, or their job.</li>
       </ol>
     </div>
-    <div class="exbox">
+    <div class="exbox quizbox">
       <strong style="font-size:13px;">B. Second listen &mdash; true or false</strong>
-      <ol>
-        <li>Emily has short brown hair. (T/F)</li>
-        <li>Emily and the speaker look very similar. (T/F)</li>
-        <li>Emily is studying medicine at university. (T/F)</li>
-        <li>Emily works at a restaurant on the weekend. (T/F)</li>
-        <li>Emily wants to be a teacher in the future. (T/F)</li>
+      <ol class="quiz-list">
+        <li>Emily has short brown hair.
+          <select class="qsel" data-answer="False"><option value="">Choose...</option><option>True</option><option>False</option></select>
+        </li>
+        <li>Emily and the speaker look very similar.
+          <select class="qsel" data-answer="False"><option value="">Choose...</option><option>True</option><option>False</option></select>
+        </li>
+        <li>Emily is studying medicine at university.
+          <select class="qsel" data-answer="True"><option value="">Choose...</option><option>True</option><option>False</option></select>
+        </li>
+        <li>Emily works at a restaurant on the weekend.
+          <select class="qsel" data-answer="True"><option value="">Choose...</option><option>True</option><option>False</option></select>
+        </li>
+        <li>Emily wants to be a teacher in the future.
+          <select class="qsel" data-answer="False"><option value="">Choose...</option><option>True</option><option>False</option></select>
+        </li>
       </ol>
-      <details class="key"><summary>Show answer key</summary><div class="keybody">1. False &mdash; long blonde hair &nbsp; 2. False &mdash; they look very different &nbsp; 3. True &nbsp; 4. True &nbsp; 5. False &mdash; she wants to be a doctor</div></details>
+      <button type="button" class="quiz-check">Check my answers</button>
+      <p class="quiz-score" hidden></p>
+      <details class="key"><summary>Show explanation</summary><div class="keybody">1. False &mdash; long blonde hair &nbsp; 2. False &mdash; they look very different &nbsp; 3. True &nbsp; 4. True &nbsp; 5. False &mdash; she wants to be a doctor</div></details>
+    </div>
+    <div class="exbox quizbox">
+      <strong style="font-size:13px;">C. Vocabulary check &mdash; choose the correct meaning</strong>
+      <ol class="quiz-list">
+        <li>tall / thin &mdash;
+          <select class="qsel" data-answer="words describing height and body shape">
+            <option value="">Choose...</option>
+            <option>words describing height and body shape</option>
+            <option>words describing someone's job</option>
+            <option>words describing the weather</option>
+          </select>
+        </li>
+        <li>blonde hair &mdash;
+          <select class="qsel" data-answer="light-colored (yellowish) hair">
+            <option value="">Choose...</option>
+            <option>light-colored (yellowish) hair</option>
+            <option>very short hair</option>
+            <option>hair that is always tied up</option>
+          </select>
+        </li>
+        <li>generous &mdash;
+          <select class="qsel" data-answer="happy to give time, help, or money to others">
+            <option value="">Choose...</option>
+            <option>happy to give time, help, or money to others</option>
+            <option>quick to get angry</option>
+            <option>afraid of new situations</option>
+          </select>
+        </li>
+        <li>waitress &mdash;
+          <select class="qsel" data-answer="a woman who brings food and drink to customers in a restaurant">
+            <option value="">Choose...</option>
+            <option>a woman who brings food and drink to customers in a restaurant</option>
+            <option>a woman who teaches young children</option>
+            <option>a woman who studies medicine</option>
+          </select>
+        </li>
+        <li>expensive &mdash;
+          <select class="qsel" data-answer="costing a lot of money">
+            <option value="">Choose...</option>
+            <option>costing a lot of money</option>
+            <option>very old</option>
+            <option>difficult to find</option>
+          </select>
+        </li>
+      </ol>
+      <button type="button" class="quiz-check">Check my answers</button>
+      <p class="quiz-score" hidden></p>
     </div>
     <div class="exbox">
-      <strong style="font-size:13px;">C. Discuss with a partner</strong>
+      <strong style="font-size:13px;">D. Discuss with a partner</strong>
       <ul>
         <li>Describe your own best friend in 3&ndash;4 sentences: their appearance, one personality trait, and what they do (study or work).</li>
       </ul>
     </div>
   </div>
-
   <!-- WORKSHOP 5 -->
   <div class="ws">
     <h2><span class="ws-num">5</span>Listening Workshop B &mdash; A Life Story <span class="ws-time">~30 min</span></h2>
@@ -234,12 +350,51 @@ details.key .keybody{margin-top:8px;padding:12px 14px;background:var(--ac-soft);
       <tr><td class="term">daily routine</td><td>the things a person does every day, in order</td></tr>
       <tr><td class="term">occupation</td><td>a person's job</td></tr>
     </table>
+    <div class="exbox quizbox">
+      <strong style="font-size:13px;">A. Vocabulary check &mdash; choose the correct meaning</strong>
+      <ol class="quiz-list">
+        <li>appearance &mdash;
+          <select class="qsel" data-answer="the way someone looks">
+            <option value="">Choose...</option>
+            <option>the way someone looks</option>
+            <option>the way someone speaks</option>
+            <option>a person's job</option>
+          </select>
+        </li>
+        <li>personality &mdash;
+          <select class="qsel" data-answer="the qualities that make someone who they are">
+            <option value="">Choose...</option>
+            <option>the qualities that make someone who they are</option>
+            <option>the clothes someone usually wears</option>
+            <option>the country someone comes from</option>
+          </select>
+        </li>
+        <li>daily routine &mdash;
+          <select class="qsel" data-answer="the things a person does every day, in order">
+            <option value="">Choose...</option>
+            <option>the things a person does every day, in order</option>
+            <option>a person's favorite hobby</option>
+            <option>the members of someone's family</option>
+          </select>
+        </li>
+        <li>occupation &mdash;
+          <select class="qsel" data-answer="a person's job">
+            <option value="">Choose...</option>
+            <option>a person's job</option>
+            <option>a person's home address</option>
+            <option>a person's age</option>
+          </select>
+        </li>
+      </ol>
+      <button type="button" class="quiz-check">Check my answers</button>
+      <p class="quiz-score" hidden></p>
+    </div>
     <div class="exbox">
-      <strong style="font-size:13px;">A. Pre-listening &mdash; predict</strong>
+      <strong style="font-size:13px;">B. Pre-listening &mdash; predict</strong>
       <p style="font-size:13px;color:var(--text-2);margin:6px 0;">Before you press play: this video describes a young man's life. What kind of information do you expect to hear? Make a list of 3 things.</p>
     </div>
     <div class="exbox">
-      <strong style="font-size:13px;">B. First listen &mdash; note-taking</strong>
+      <strong style="font-size:13px;">C. First listen &mdash; note-taking</strong>
       <ol>
         <li>What is this person's name?</li>
         <li>Write down two words that describe his appearance.</li>
@@ -247,7 +402,7 @@ details.key .keybody{margin-top:8px;padding:12px 14px;background:var(--ac-soft);
       </ol>
     </div>
     <div class="exbox">
-      <strong style="font-size:13px;">C. Second listen &mdash; detail</strong>
+      <strong style="font-size:13px;">D. Second listen &mdash; detail</strong>
       <ol>
         <li>What does he do &mdash; study, work, or both?</li>
         <li>Name one member of his family mentioned in the video.</li>
@@ -256,11 +411,10 @@ details.key .keybody{margin-top:8px;padding:12px 14px;background:var(--ac-soft);
       <details class="key"><summary>Teacher notes</summary><div class="keybody">Open-ended by design &mdash; check the video yourself before class to confirm the exact details, then use these as a guided listening/note-taking task rather than a fixed-answer quiz.</div></details>
     </div>
     <div class="exbox">
-      <strong style="font-size:13px;">D. Discuss with a partner</strong>
+      <strong style="font-size:13px;">E. Discuss with a partner</strong>
       <ul><li>Compare your notes with a partner. Did you hear the same details?</li></ul>
     </div>
   </div>
-
   <!-- WORKSHOP 6 -->
   <div class="ws">
     <h2><span class="ws-num">6</span>Listening Workshop C &mdash; Describing People &amp; Places <span class="ws-time">~30 min</span></h2>
@@ -273,20 +427,50 @@ details.key .keybody{margin-top:8px;padding:12px 14px;background:var(--ac-soft);
       <tr><td class="term">match</td><td>to find the two things that go together</td></tr>
       <tr><td class="term">location</td><td>a place</td></tr>
     </table>
+    <div class="exbox quizbox">
+      <strong style="font-size:13px;">A. Vocabulary check &mdash; choose the correct meaning</strong>
+      <ol class="quiz-list">
+        <li>describe &mdash;
+          <select class="qsel" data-answer="to say what someone or something is like">
+            <option value="">Choose...</option>
+            <option>to say what someone or something is like</option>
+            <option>to draw a picture with no words</option>
+            <option>to translate into another language</option>
+          </select>
+        </li>
+        <li>match &mdash;
+          <select class="qsel" data-answer="to find the two things that go together">
+            <option value="">Choose...</option>
+            <option>to find the two things that go together</option>
+            <option>to disagree with someone</option>
+            <option>to lose a game</option>
+          </select>
+        </li>
+        <li>location &mdash;
+          <select class="qsel" data-answer="a place">
+            <option value="">Choose...</option>
+            <option>a place</option>
+            <option>a time of day</option>
+            <option>a type of food</option>
+          </select>
+        </li>
+      </ol>
+      <button type="button" class="quiz-check">Check my answers</button>
+      <p class="quiz-score" hidden></p>
+    </div>
     <div class="exbox">
-      <strong style="font-size:13px;">A. Vocabulary pre-teach</strong>
+      <strong style="font-size:13px;">B. Vocabulary pre-teach</strong>
       <p style="font-size:13px;color:var(--text-2);margin:6px 0;">Before watching: brainstorm 5 words you already know for describing a person's appearance, and 5 words for describing a place.</p>
     </div>
     <div class="exbox">
-      <strong style="font-size:13px;">B. While watching &mdash; picture notes</strong>
+      <strong style="font-size:13px;">C. While watching &mdash; picture notes</strong>
       <p style="font-size:13px;color:var(--text-2);margin:6px 0;">Follow along with the video's own picture-matching questions. For each item, write down the ONE word or phrase that helped you choose the correct picture.</p>
     </div>
     <div class="exbox">
-      <strong style="font-size:13px;">C. After watching &mdash; check your score</strong>
+      <strong style="font-size:13px;">D. After watching &mdash; check your score</strong>
       <p style="font-size:13px;color:var(--text-2);margin:6px 0;">The video reveals the correct picture after each description, so you can self-check as you go. In pairs, compare how many you got right and discuss any you disagreed on.</p>
     </div>
   </div>
-
   <!-- WORKSHOP 7 -->
   <div class="ws">
     <h2><span class="ws-num">7</span>Listening Workshop D &mdash; Four Housemates <span class="ws-time">~30 min</span></h2>
@@ -301,30 +485,84 @@ details.key .keybody{margin-top:8px;padding:12px 14px;background:var(--ac-soft);
       <tr><td class="term">tidy</td><td>neat; everything in its proper place</td></tr>
       <tr><td class="term">noisy</td><td>making a lot of sound</td></tr>
     </table>
-    <div class="exbox">
-      <strong style="font-size:13px;">A. Vocabulary matching &mdash; sort each word into a category</strong>
+    <div class="exbox quizbox">
+      <strong style="font-size:13px;">A. Sort each word into the correct category</strong>
       <p style="font-size:13px;color:var(--text-2);margin:6px 0;">bald &middot; curly &middot; slim &middot; tidy &middot; noisy &middot; kind &middot; funny &middot; quiet &middot; tall &middot; fat</p>
-      <ol>
-        <li>Hair: __________</li>
-        <li>Build (body shape): __________</li>
-        <li>Personality: __________</li>
+      <ol class="quiz-list">
+        <li>bald &mdash; <select class="qsel" data-answer="Hair"><option value="">Choose...</option><option>Hair</option><option>Build</option><option>Personality</option></select></li>
+        <li>curly &mdash; <select class="qsel" data-answer="Hair"><option value="">Choose...</option><option>Hair</option><option>Build</option><option>Personality</option></select></li>
+        <li>slim &mdash; <select class="qsel" data-answer="Build"><option value="">Choose...</option><option>Hair</option><option>Build</option><option>Personality</option></select></li>
+        <li>tall &mdash; <select class="qsel" data-answer="Build"><option value="">Choose...</option><option>Hair</option><option>Build</option><option>Personality</option></select></li>
+        <li>fat &mdash; <select class="qsel" data-answer="Build"><option value="">Choose...</option><option>Hair</option><option>Build</option><option>Personality</option></select></li>
+        <li>tidy &mdash; <select class="qsel" data-answer="Personality"><option value="">Choose...</option><option>Hair</option><option>Build</option><option>Personality</option></select></li>
+        <li>noisy &mdash; <select class="qsel" data-answer="Personality"><option value="">Choose...</option><option>Hair</option><option>Build</option><option>Personality</option></select></li>
+        <li>kind &mdash; <select class="qsel" data-answer="Personality"><option value="">Choose...</option><option>Hair</option><option>Build</option><option>Personality</option></select></li>
+        <li>funny &mdash; <select class="qsel" data-answer="Personality"><option value="">Choose...</option><option>Hair</option><option>Build</option><option>Personality</option></select></li>
+        <li>quiet &mdash; <select class="qsel" data-answer="Personality"><option value="">Choose...</option><option>Hair</option><option>Build</option><option>Personality</option></select></li>
       </ol>
-      <details class="key"><summary>Show answer key</summary><div class="keybody">Hair: bald, curly &nbsp; Build: slim, tall, fat &nbsp; Personality: tidy, noisy, kind, funny, quiet</div></details>
+      <button type="button" class="quiz-check">Check my answers</button>
+      <p class="quiz-score" hidden></p>
+    </div>
+    <div class="exbox quizbox">
+      <strong style="font-size:13px;">B. Vocabulary check &mdash; choose the correct meaning</strong>
+      <ol class="quiz-list">
+        <li>bald &mdash;
+          <select class="qsel" data-answer="having no hair on the head">
+            <option value="">Choose...</option>
+            <option>having no hair on the head</option>
+            <option>having very long hair</option>
+            <option>wearing glasses</option>
+          </select>
+        </li>
+        <li>curly &mdash;
+          <select class="qsel" data-answer="hair that grows in curves or rings, not straight">
+            <option value="">Choose...</option>
+            <option>hair that grows in curves or rings, not straight</option>
+            <option>hair that is very short</option>
+            <option>hair that is very dark</option>
+          </select>
+        </li>
+        <li>slim &mdash;
+          <select class="qsel" data-answer="thin, in an attractive or healthy-looking way">
+            <option value="">Choose...</option>
+            <option>thin, in an attractive or healthy-looking way</option>
+            <option>very tall</option>
+            <option>very strong</option>
+          </select>
+        </li>
+        <li>tidy &mdash;
+          <select class="qsel" data-answer="neat; everything in its proper place">
+            <option value="">Choose...</option>
+            <option>neat; everything in its proper place</option>
+            <option>very messy</option>
+            <option>very quiet</option>
+          </select>
+        </li>
+        <li>noisy &mdash;
+          <select class="qsel" data-answer="making a lot of sound">
+            <option value="">Choose...</option>
+            <option>making a lot of sound</option>
+            <option>very calm and silent</option>
+            <option>very organized</option>
+          </select>
+        </li>
+      </ol>
+      <button type="button" class="quiz-check">Check my answers</button>
+      <p class="quiz-score" hidden></p>
     </div>
     <div class="exbox">
-      <strong style="font-size:13px;">B. While listening &mdash; note-taking grid</strong>
+      <strong style="font-size:13px;">C. While listening &mdash; note-taking grid</strong>
       <p style="font-size:13px;color:var(--text-2);margin:6px 0;">Draw four columns headed <strong>Jason / Sarah / Charlotte / Robert</strong>. As you listen, write down every word Emma uses to describe each housemate's hair, build, age, and personality.</p>
     </div>
     <div class="exbox">
-      <strong style="font-size:13px;">C. Self-check</strong>
+      <strong style="font-size:13px;">D. Self-check</strong>
       <p style="font-size:13px;color:var(--text-2);margin:6px 0;">Check your notes against the interactive quiz at <a href="https://test-english.com/listening/a1/describing-people-a1-english-listening-test/" target="_blank" rel="noopener">test-english.com</a> (12 questions, instant scoring).</p>
     </div>
     <div class="exbox">
-      <strong style="font-size:13px;">D. Discuss with a partner</strong>
+      <strong style="font-size:13px;">E. Discuss with a partner</strong>
       <ul><li>Which of the four housemates would you most like to live with? Use at least two describing words to explain why.</li></ul>
     </div>
   </div>
-
   <!-- WORKSHOP 9 -->
 
 
@@ -431,5 +669,35 @@ details.key .keybody{margin-top:8px;padding:12px 14px;background:var(--ac-soft);
 </footer>
 <script src="track.js" defer></script>
 <script src="site.js" defer></script>
+<script>
+(function(){
+  function grade(box){
+    var sels = box.querySelectorAll('.qsel');
+    var score = box.querySelector('.quiz-score');
+    var total = sels.length, answered = 0, correct = 0;
+    sels.forEach(function(sel){
+      sel.classList.remove('correct','incorrect');
+      if(!sel.value){ return; }
+      answered++;
+      if(sel.value === sel.getAttribute('data-answer')){ sel.classList.add('correct'); correct++; }
+      else { sel.classList.add('incorrect'); }
+    });
+    if(!score) return;
+    score.hidden = false;
+    if(answered < total){
+      score.textContent = 'Answer all ' + total + ' items, then check again (' + answered + '/' + total + ' answered).';
+    } else {
+      score.textContent = 'Score: ' + correct + ' / ' + total + ' correct.';
+    }
+  }
+  function init(){
+    document.querySelectorAll('.quizbox').forEach(function(box){
+      var btn = box.querySelector('.quiz-check');
+      if(btn) btn.addEventListener('click', function(){ grade(box); });
+    });
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
 </body>
 </html>
