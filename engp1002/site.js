@@ -1,12 +1,22 @@
-/* ENG 203 — shared mobile menu (mirror of the ENG 446 / ENG 494 pattern) */
+/* ENGP 1002 — shared mobile menu (mirror of the ENG 446 / ENG 494 / ENG 203 / ENG 270 pattern) */
 (function () {
   var LINKS = [
-    { href: "index.html",                    label: "Course Hub" },
-    { href: "week1.html",                    label: "Week 1" },
-    { href: "week2.html",                    label: "Week 2" },
-    { href: "workshop-terminology.html",     label: "Reading & Meaning Workshop" },
-    { href: "placement-test.html",           label: "⭐ Placement Test" },
-    { href: "progress.html",                 label: "My Progress" }
+    { href: "index.html", label: "Course Hub" },
+    { href: "week1.html", label: "Week 1" },
+    { href: "week2.html", label: "Week 2" },
+    { href: "week3.html", label: "Week 3" },
+    { href: "week4.html", label: "Week 4" },
+    { href: "week5.html", label: "Week 5" },
+    { href: "week6.html", label: "Week 6" },
+    { href: "week7.html", label: "Week 7" },
+    { href: "week8.html", label: "Week 8" },
+    { href: "week9.html", label: "Week 9" },
+    { href: "week10.html", label: "Week 10" },
+    { href: "week11.html", label: "Week 11" },
+    { href: "week12.html", label: "Week 12" },
+    { href: "week13.html", label: "Week 13" },
+    { href: "week14.html", label: "Week 14" },
+    { href: "week15.html", label: "Week 15" }
   ];
   function build() {
     var nav = document.querySelector(".nav");

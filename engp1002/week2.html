@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 2 — Unit 1 Psychology (2/2) Workshop | ENGP 1002</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="theme-color" content="#c2410c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+:root{--ac:#c2410c;--ac-soft:#fff7ed;--ac-ink:#9a3412;}
+body{background:var(--off-white);}
+.lead{font-size:14px;color:var(--text-2);line-height:1.6;margin:-6px 0 16px;}
+.wk-dots{display:flex;gap:5px;justify-content:center;margin-top:14px;flex-wrap:wrap;max-width:340px;margin-left:auto;margin-right:auto;}
+.wk-dot{width:9px;height:9px;border-radius:50%;background:var(--border);}
+.wk-dot.on{background:var(--ac);box-shadow:0 0 0 3px rgba(194,65,12,.18);}
+.glance{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:40px;}
+.g-card{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:18px;border-top:3px solid var(--border);}
+.g-read{border-top-color:#0071e3;} .g-do{border-top-color:#7c3aed;} .g-due{border-top-color:#dc2626;}
+.g-ic{font-size:22px;} .g-lab{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin:6px 0 4px;}
+.g-txt{font-size:14px;color:var(--text);line-height:1.5;font-weight:500;}
+.ws{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:24px 26px;margin-bottom:28px;border-top:4px solid var(--ac);}
+.ws-num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--ac);color:#fff;font-size:13px;font-weight:800;margin-right:8px;}
+.ws h2{font-size:18px;font-weight:800;margin:0 0 4px;display:flex;align-items:center;}
+.ws-sub{font-size:13px;color:var(--text-2);margin:0 0 18px;line-height:1.55;}
+.ws-time{display:inline-block;font-size:11px;font-weight:700;background:var(--ac-soft);color:var(--ac-ink);padding:3px 10px;border-radius:var(--r-pill);margin-left:8px;vertical-align:middle;}
+table.gloss{width:100%;border-collapse:collapse;font-size:13.5px;margin-bottom:16px;}
+table.gloss th{text-align:left;padding:8px 10px;background:var(--off-white);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--text-3);}
+table.gloss td{padding:8px 10px;border-top:1px solid var(--border-light);vertical-align:top;}
+table.gloss td.term{font-weight:700;color:var(--ac-ink);white-space:nowrap;}
+.exbox{background:var(--off-white);border-radius:var(--r-md);padding:14px 16px;margin:10px 0 18px;}
+.exbox ol,.exbox ul{margin:8px 0 0;padding-left:20px;}
+.exbox li{margin-bottom:6px;font-size:13.5px;line-height:1.6;color:var(--text);}
+details.key{margin-top:10px;}
+details.key summary{cursor:pointer;font-size:12.5px;font-weight:700;color:var(--ac);list-style:none;display:inline-flex;align-items:center;gap:5px;}
+details.key summary::before{content:"▶";font-size:9px;transition:transform .15s;}
+details.key[open] summary::before{transform:rotate(90deg);}
+details.key .keybody{margin-top:8px;padding:12px 14px;background:var(--ac-soft);border-radius:var(--r-md);font-size:13px;color:var(--ac-ink);line-height:1.65;}
+.lvl{display:inline-block;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;padding:2px 8px;border-radius:var(--r-pill);margin-bottom:8px;}
+.lvl-basic{background:#ecfeff;color:#164e63;}
+.lvl-inter{background:#eef2ff;color:#312e81;}
+.passage{font-size:14px;line-height:1.75;color:var(--text);background:var(--off-white);border-radius:var(--r-md);padding:16px 18px;margin:12px 0 16px;border-left:3px solid var(--ac);}
+.checklist{list-style:none;margin:0;padding:0;}
+.checklist li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--text-2);padding:6px 0;border-top:1px solid var(--border-light);}
+.checklist li:first-child{border-top:none;}
+.checklist input{margin-top:3px;}
+@media(max-width:680px){.glance{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENGP 1002</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Week 2</span>
+    <div class="nav-spacer"></div>
+    <div class="nav-links">
+      <a class="nav-link" href="week1.html">← Week 1</a>
+      <a class="nav-link" href="week3.html">Week 3 →</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero" style="padding-bottom:28px;">
+  <div class="hero-eyebrow">Week 2 of 15 · Mon 31 Aug 2026 <span class="nowtag" style="background:#fff;color:var(--ac);margin-left:6px;">This week</span></div>
+  <h1>Unit 1 · Psychology (Part 2 of 2)</h1>
+  <p class="hero-sub">Are first impressions accurate? — a standalone workshop covering vocabulary, listening, grammar, pronunciation and speaking, built for the class that doesn't have the coursebook yet.</p>
+  <div class="wk-dots"><span class="wk-dot"></span><span class="wk-dot on"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span></div>
+</div>
+
+<div class="section-alt" style="padding:8px 0 64px;">
+<div class="section-inner">
+
+  <div class="info-box info-amber mb-32">
+    <h3>📚 No book yet — this page is the material</h3>
+    <p>Copies of <em>Q: Skills for Success</em> Level 3 are on the way, but until every student has one, this page stands in for the coursebook: original vocabulary, listening, grammar and speaking practice built around the same Unit 1 question — <strong>are first impressions accurate?</strong> Roughly 3.5 hours of material across six workshops. Once books arrive, we return to the official unit pages for reference and extra practice.</p>
+  </div>
+
+  <div class="section-label" style="margin-bottom:14px;">Today at a glance</div>
+  <div class="glance">
+    <div class="g-card g-read"><div class="g-ic">📖</div><div class="g-lab">Topic</div><div class="g-txt">Unit 1 — Psychology: first impressions</div></div>
+    <div class="g-card g-do"><div class="g-ic">🛠️</div><div class="g-lab">Do</div><div class="g-txt">6 workshops · ~3.5 hours · vocabulary → listening → grammar → speaking</div></div>
+    <div class="g-card g-due"><div class="g-ic">✅</div><div class="g-lab">Due</div><div class="g-txt">Complete the Unit Assignment discussion by end of session</div></div>
+  </div>
+
+  <!-- WORKSHOP 1 -->
+  <div class="ws">
+    <h2><span class="ws-num">1</span>Vocabulary Glossary Primer <span class="ws-time">~30 min</span></h2>
+    <p class="ws-sub">The key words we'll need for today's two listening passages. Go through the glossary together, then try the exercises below.</p>
+    <table class="gloss">
+      <tr><th>Word / phrase</th><th>Meaning</th></tr>
+      <tr><td class="term">aspect</td><td>a particular part or feature of something</td></tr>
+      <tr><td class="term">assume</td><td>to think or accept that something is true without having proof</td></tr>
+      <tr><td class="term">encounter</td><td>a meeting with someone, especially one that is sudden or unexpected</td></tr>
+      <tr><td class="term">familiar</td><td>known to you; easily recognized</td></tr>
+      <tr><td class="term">form a first impression</td><td>to make a quick decision about someone when you first meet them</td></tr>
+      <tr><td class="term">judge (v.)</td><td>to form an opinion about someone or something</td></tr>
+      <tr><td class="term">preference</td><td>a greater interest in, or liking for, one thing over another</td></tr>
+      <tr><td class="term">tend to</td><td>to be likely to do something</td></tr>
+      <tr><td class="term">trait</td><td>a quality or characteristic of someone's personality</td></tr>
+      <tr><td class="term">trust</td><td>to believe that someone is honest and will not harm you</td></tr>
+      <tr><td class="term">conscious</td><td>aware of and deliberately thinking about what you are doing</td></tr>
+      <tr><td class="term">instinct</td><td>a way of behaving or reacting that is natural, not learned</td></tr>
+      <tr><td class="term">reliable</td><td>able to be trusted to do what is expected</td></tr>
+      <tr><td class="term">snap judgment</td><td>a quick decision made without much thought</td></tr>
+      <tr><td class="term">unconsciously</td><td>without realizing or being aware that you are doing it</td></tr>
+    </table>
+
+    <div class="exbox">
+      <strong style="font-size:13px;">Exercise A — Fill in the blank</strong>
+      <ol>
+        <li>I didn't recognize him at first, but his voice was very __________.</li>
+        <li>She made a __________ about the job candidate within the first ten seconds.</li>
+        <li>You shouldn't __________ that someone is unfriendly just because they look serious.</li>
+        <li>A good employee should be __________ — someone the team can count on.</li>
+        <li>Kindness is a __________ that people usually notice quickly.</li>
+      </ol>
+      <details class="key"><summary>Show answer key</summary><div class="keybody">1. familiar &nbsp; 2. snap judgment &nbsp; 3. assume &nbsp; 4. reliable &nbsp; 5. trait</div></details>
+    </div>
+
+    <div class="exbox">
+      <strong style="font-size:13px;">Exercise B — Matching (write the letter)</strong>
+      <ol>
+        <li>encounter</li>
+        <li>instinct</li>
+        <li>unconsciously</li>
+        <li>preference</li>
+      </ol>
+      <em style="font-size:12.5px;color:var(--text-3);">a) without noticing &nbsp; b) a liking for one thing over another &nbsp; c) a sudden meeting &nbsp; d) a natural reaction, not a learned one</em>
+      <details class="key"><summary>Show answer key</summary><div class="keybody">1–c, 2–d, 3–a, 4–b</div></details>
+    </div>
+  </div>
+
+  <!-- WORKSHOP 2 -->
+  <div class="ws">
+    <h2><span class="ws-num">2</span>Note-Taking Mini-Lesson <span class="ws-time">~20 min</span></h2>
+    <p class="ws-sub">The fastest way to remember a lecture is to write down the key ideas in your own words right after you hear them — the topic, the main idea, and two or three supporting points.</p>
+    <div class="passage">Lecturers often signal their structure with set phrases. Listen for them: <strong>"Today I want to talk about…"</strong> (topic) · <strong>"The main point is…"</strong> (main idea) · <strong>"For example…" / "For instance…"</strong> (supporting detail) · <strong>"To sum up…" / "So, in short…"</strong> (conclusion).</div>
+    <div class="exbox">
+      <strong style="font-size:13px;">Exercise — Listen for the signposts</strong>
+      <p style="font-size:13px;color:var(--text-2);margin:8px 0;">Read this short passage aloud once. Students close their books and just listen; then read it again while they take notes.</p>
+      <div class="passage" style="font-style:italic;">"Today I want to talk about why first impressions matter so much in job interviews. The main point is that interviewers often decide within the first few minutes whether they like a candidate — and that early feeling colors everything that follows. For example, a candidate who smiles, makes eye contact, and greets the interviewer by name is often rated as more competent later in the interview, even if their answers are no better than another candidate's. So, in short, how you begin an interview can matter as much as what you say during it."</p>
+      <ol>
+        <li>What is the topic of the talk?</li>
+        <li>What is the main idea?</li>
+        <li>What example does the speaker give?</li>
+      </ol>
+      <details class="key"><summary>Show answer key</summary><div class="keybody">1. First impressions in job interviews &nbsp; 2. Interviewers decide quickly whether they like a candidate, and this colors the rest of the interview &nbsp; 3. A candidate who smiles, makes eye contact, and uses the interviewer's name is rated as more competent</div></details>
+    </div>
+  </div>
+
+  <!-- WORKSHOP 3 -->
+  <div class="ws">
+    <h2><span class="ws-num">3</span>Listening Workshop A — Faces &amp; First Impressions <span class="ws-time">~35 min</span></h2>
+    <span class="lvl lvl-basic">Basic level</span>
+    <p class="ws-sub">Read the passage aloud (or have a confident student read it) at a natural pace. Students take notes, then answer.</p>
+    <div class="passage">"Psychologists who study first impressions say we judge new faces using four things. The first is <strong>babyfaceness</strong> — a person with a round face, large eyes, and a small nose tends to seem warm and trustworthy, the way a baby does, even as an adult. The second is <strong>familiarity</strong> — we tend to trust faces that remind us of people we already know, and we're a little more suspicious of faces that look completely unfamiliar. The third is <strong>fitness</strong> — a healthy, energetic-looking face makes us assume the person is also successful and reliable. And the fourth is <strong>emotional resemblance</strong> — if someone's neutral expression happens to look a little like a smile, we assume they're a friendly person, and if it looks a little like a frown, we assume the opposite — even though they aren't actually expressing anything at all."</div>
+    <div class="exbox">
+      <strong style="font-size:13px;">A. Note-taking — fill in the four aspects</strong>
+      <ol>
+        <li>Babyfaceness — round face, large eyes, small nose → seems __________</li>
+        <li>Familiarity — faces that remind us of people we know seem more __________</li>
+        <li>Fitness — a healthy, energetic look makes us assume __________</li>
+        <li>Emotional resemblance — a neutral face that slightly resembles a smile seems __________</li>
+      </ol>
+      <details class="key"><summary>Show answer key</summary><div class="keybody">1. warm/trustworthy &nbsp; 2. trustworthy &nbsp; 3. success/reliability &nbsp; 4. friendly</div></details>
+    </div>
+    <div class="exbox">
+      <strong style="font-size:13px;">B. True or False</strong>
+      <ol>
+        <li>A rounder face tends to seem less trustworthy. (T/F)</li>
+        <li>We are usually more suspicious of completely unfamiliar faces. (T/F)</li>
+        <li>Looking healthy has no effect on how reliable we seem. (T/F)</li>
+        <li>A neutral expression can still seem friendly or unfriendly depending on its shape. (T/F)</li>
+      </ol>
+      <details class="key"><summary>Show answer key</summary><div class="keybody">1. False &nbsp; 2. True &nbsp; 3. False &nbsp; 4. True</div></details>
+    </div>
+    <div class="exbox">
+      <strong style="font-size:13px;">C. Discuss with a partner</strong>
+      <ul>
+        <li>Do you think this is a fair way to judge someone? Why or why not?</li>
+        <li>Can you think of a time your first impression of someone turned out to be wrong?</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WORKSHOP 4 -->
+  <div class="ws">
+    <h2><span class="ws-num">4</span>Listening Workshop B — Fast Decisions <span class="ws-time">~35 min</span></h2>
+    <span class="lvl lvl-inter">Intermediate level</span>
+    <p class="ws-sub">Inspired by research on quick, "snap" decision-making — the kind popularized in Malcolm Gladwell's book <em>Blink</em>.</p>
+    <div class="passage">"Some researchers argue that our first, split-second judgment of a person or situation is often surprisingly accurate — this is sometimes called <strong>thin-slicing</strong>: making a fast, unconscious decision from a very small amount of information. Other researchers push back, warning that snap judgments can also be wrong, especially when they're based on someone's appearance rather than their actions. Most people, in fact, use both systems every day: an <strong>unconscious, instinctive</strong> system for quick, low-stakes choices — like whether a stranger seems friendly — and a <strong>conscious, deliberate</strong> system for important decisions that deserve more thought — like choosing a career or a business partner. The skill, these researchers suggest, isn't picking one system over the other — it's knowing which situations call for which."</div>
+    <div class="exbox">
+      <strong style="font-size:13px;">A. Categorize — quick/unconscious (U) or careful/conscious (C)?</strong>
+      <ol>
+        <li>___ Deciding if a stranger on the street seems approachable enough to ask for directions</li>
+        <li>___ Choosing which university major to study</li>
+        <li>___ Guessing whether a new classmate is friendly, in your first few seconds of meeting them</li>
+        <li>___ Deciding whether to accept a job offer</li>
+        <li>___ Picking a seat on a bus</li>
+        <li>___ Choosing who to trust with an important secret</li>
+      </ol>
+      <details class="key"><summary>Show answer key</summary><div class="keybody">1. U &nbsp; 2. C &nbsp; 3. U &nbsp; 4. C &nbsp; 5. U &nbsp; 6. C</div></details>
+    </div>
+    <div class="exbox">
+      <strong style="font-size:13px;">B. Multiple choice</strong>
+      <ol>
+        <li>"Thin-slicing" means — a) thinking for a long time b) making a fast decision from little information c) asking many people for advice</li>
+        <li>According to the passage, snap judgments are most risky when based on — a) someone's actions b) someone's appearance c) someone's age</li>
+        <li>The passage's main suggestion is to — a) always trust instinct b) always think carefully c) know which system fits the situation</li>
+      </ol>
+      <details class="key"><summary>Show answer key</summary><div class="keybody">1. b &nbsp; 2. b &nbsp; 3. c</div></details>
+    </div>
+  </div>
+
+  <!-- WORKSHOP 5 -->
+  <div class="ws">
+    <h2><span class="ws-num">5</span>Grammar &amp; Pronunciation Drill <span class="ws-time">~30 min</span></h2>
+    <p class="ws-sub">The auxiliary verbs <em>do, be,</em> and <em>have</em> are used to make questions and negative statements, and in speech they often shrink into contractions.</p>
+    <div class="passage">
+      <strong>Simple present/past →</strong> use <em>do/does/did</em>: "Does he like her? He doesn't like her." "Did they arrive? They didn't arrive."<br>
+      <strong>Continuous →</strong> use <em>be</em>: "Is she reading? She isn't reading." "Was he working? He wasn't working."<br>
+      <strong>Perfect →</strong> use <em>have</em>: "Has she left? She hasn't left."
+    </div>
+    <div class="exbox">
+      <strong style="font-size:13px;">A. Basic — rewrite as a negative statement</strong>
+      <ol>
+        <li>I trust him. →</li>
+        <li>She judged the book by its cover. →</li>
+        <li>They are forming a good impression. →</li>
+      </ol>
+      <details class="key"><summary>Show answer key</summary><div class="keybody">1. I don't trust him. &nbsp; 2. She didn't judge the book by its cover. &nbsp; 3. They aren't forming a good impression.</div></details>
+    </div>
+    <div class="exbox">
+      <strong style="font-size:13px;">B. Intermediate — rewrite as a question</strong>
+      <ol>
+        <li>He has changed his mind about her. →</li>
+        <li>They were discussing first impressions. →</li>
+        <li>She assumes people are honest. →</li>
+      </ol>
+      <details class="key"><summary>Show answer key</summary><div class="keybody">1. Has he changed his mind about her? &nbsp; 2. Were they discussing first impressions? &nbsp; 3. Does she assume people are honest?</div></details>
+    </div>
+    <div class="exbox">
+      <strong style="font-size:13px;">C. Pronunciation — say it with a contraction</strong>
+      <p style="font-size:13px;color:var(--text-2);">Practice saying each sentence with the contracted form: <em>she's, they're, doesn't, isn't, we've, didn't, wasn't, hasn't.</em></p>
+      <ol>
+        <li>She is very reliable. → She's very reliable.</li>
+        <li>They are not familiar to me. → They aren't familiar to me.</li>
+        <li>We have already met before. → We've already met before.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- WORKSHOP 6 -->
+  <div class="ws">
+    <h2><span class="ws-num">6</span>Speaking &amp; Unit Assignment <span class="ws-time">~40 min</span></h2>
+    <p class="ws-sub">A polite conversation keeps going by taking turns — asking a question back rather than letting the topic drop.</p>
+    <div class="passage">Useful phrases to keep a conversation going: <strong>"What do you think?" · "Do you agree?" · "Right?" · "How about you?" · "You know?" · "OK?"</strong></div>
+    <div class="exbox">
+      <strong style="font-size:13px;">A. Paired discussion (use the phrases above — keep it going for at least 3 turns each)</strong>
+      <ul>
+        <li>Who was your most memorable teacher, and what impression did they make on you?</li>
+        <li>Have you ever formed a bad first impression of someone that later changed? What happened?</li>
+        <li>Do you think first impressions from social media photos are accurate? Why or why not?</li>
+      </ul>
+    </div>
+    <div class="exbox">
+      <strong style="font-size:13px;">B. Unit Assignment — Have a Discussion</strong>
+      <p style="font-size:13px;color:var(--text-2);margin:6px 0;">With a partner, discuss the unit question one more time, now using what you've learned today: <em>Are first impressions accurate?</em> Consider: how much does appearance matter versus behavior? When should you trust a snap judgment, and when should you wait and think more carefully? Try to use at least two vocabulary words and one auxiliary-verb question from today's lesson.</p>
+    </div>
+    <div class="exbox">
+      <strong style="font-size:13px;">Check and reflect</strong>
+      <ul class="checklist">
+        <li><input type="checkbox"> I can use the four aspects of first impressions (babyfaceness, familiarity, fitness, emotional resemblance)</li>
+        <li><input type="checkbox"> I can tell the difference between an unconscious and a conscious decision</li>
+        <li><input type="checkbox"> I can use do/be/have to make questions and negatives</li>
+        <li><input type="checkbox"> I can use contractions naturally in speech</li>
+        <li><input type="checkbox"> I kept a conversation going using turn-taking phrases</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="week-nav">
+    <a href="index.html">← Course hub</a>
+    <a href="week1.html">← Week 1</a>
+    <a href="week3.html">Week 3 →</a>
+  </div>
+
+</div>
+</div>
+
+<footer>
+  <strong>ENGP 1002 General English Preparatory (2)</strong> · Week 2 · Qassim University · Semester 481<br>
+  Original workshop material written to accompany <em>Q: Skills for Success</em> Level 3, Unit 1, while books are on order.<br>
+  <a href="index.html">Course Hub</a> · <a href="week1.html">Week 1</a> · <a href="week3.html">Week 3</a>
+</footer>
+<script src="track.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>
