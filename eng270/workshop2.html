@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workshop 2 &mdash; Three Kinds of Literal | ENG 270</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="workshop.css">
+<meta name="description" content="ENG 270 Week 2 workshop &mdash; Word-for-word, one-to-one and direct translation, with the six risks of word-for-word.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 270">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 270 Introduction to Translation">
+<meta property="og:title" content="Workshop 2 &mdash; Three Kinds of Literal | ENG 270">
+<meta property="og:description" content="Word-for-word, one-to-one and direct translation, with the six risks of word-for-word.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng270/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng270/workshop2.html">
+<meta name="twitter:card" content="summary">
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>&#127891;</span><span>Qassim University</span></a>
+    <span class="nav-sep">&rsaquo;</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 270</a>
+    <span class="nav-sep">&rsaquo;</span>
+    <a class="nav-link" href="week2.html" style="padding:0;color:var(--text-2);">Week 2</a>
+    <span class="nav-sep">&rsaquo;</span>
+    <span class="nav-cur">Workshop</span>
+    <div class="nav-spacer"></div>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:34px;">
+  <div class="hero-eyebrow" style="color:var(--ac);">Week 2 workshop &middot; Translation methods &middot; the literal family</div>
+  <h1>Three Kinds of Literal</h1>
+  <p class="hero-sub">Word-for-word, one-to-one, and literal translation of meaning &mdash; told apart on real sentences, and each pushed until it breaks.</p>
+</div>
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+
+  <div class="info-box info-blue mb-24" style="text-align:left;">
+    <h3>&#127919; What this workshop trains</h3>
+    <p>Students lose marks by using the phrase &lsquo;literal translation&rsquo; for three different methods. This workshop makes you name which one you are using, and predict where each one fails before it fails.</p>
+  </div>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('concepts',this)">&#128218; Concepts</button>
+    <button class="tab-btn" onclick="switchTab('analyse',this)">&#128269; Analyse</button>
+    <button class="tab-btn" onclick="switchTab('translate',this)">&#9997;&#65039; Translate it</button>
+    <button class="tab-btn" onclick="switchTab('quiz',this)">&#128221; Quiz</button>
+  </div>
+
+  <div id="tab-concepts" class="tab-panel active">
+    <div class="tip-box"><strong>&#128214; Reading &rarr; Ghazala (2012), methods of translation; Lahlali &amp; Abu Hatab, Lessons 1&ndash;2 (pp. 2&ndash;8).</strong> Note that the two books define <em>literal translation</em> slightly differently &mdash; the questions below cover both.</div>
+    <div id="concept-qs"></div>
+  </div>
+
+  <div id="tab-analyse" class="tab-panel">
+    <div class="tip-box"><strong>&#128269; Diagnose the version.</strong> Each pair below shows an English sentence and an Arabic attempt. Name the method &mdash; and, where it fails, name the failure.</div>
+    <div id="analyse-qs"></div>
+  </div>
+
+  <div id="tab-translate" class="tab-panel">
+    <div class="tip-box"><strong>&#9997;&#65039; Translate each sentence twice</strong> &mdash; once word-for-word, then by literal translation of meaning &mdash; and keep both. Seeing them side by side is the point of the exercise.</div>
+    <div id="translate-tasks"></div>
+  </div>
+
+  <div id="tab-quiz" class="tab-panel">
+    <div class="tip-box"><strong>&#128221; Week 2 review &mdash; 10 questions</strong> on the literal family, its risks, and the difference between the two textbooks&rsquo; use of the term.</div>
+    <div class="prog-bar-wrap"><div class="prog-bar" id="aq-prog" style="width:0%"></div></div>
+    <div id="aq-container"></div>
+    <div id="aq-score" class="score-summary" style="display:none;"></div>
+  </div>
+
+  <div class="ws-nav"><a href="workshop1.html">&larr; Week 1 workshop</a><a href="workshop3.html">Week 3 workshop &rarr;</a></div>
+
+</div>
+</div>
+<footer><strong>ENG 270 Introduction to Translation</strong> &middot; Week 2 workshop &middot; Qassim University &middot; Semester 481<br><a href="week2.html">Week 2</a> &middot; <a href="index.html">Course Hub</a> &middot; <a href="../index.html">Qassim Courses</a></footer>
+<script src="workshop.js"></script>
+<script>
+mount('concept-qs',[{"q": "Word-for-word translation concentrates entirely on:", "opts": ["The target language", "The source language", "The reader", "The context"], "ans": 1, "why": "All attention sits on the SL. That single fact generates all six of its risks."}, {"q": "Which is <em>not</em> one of the six risks of word-for-word translation?", "opts": ["It ignores the TL completely", "It transfers SL grammar and word order", "It over-interprets the author&rsquo;s intentions", "It cannot deal with SL words that have no TL equivalent"], "ans": 2, "why": "Over-interpreting intentions is the failure of <em>loose free</em> translation, at the opposite end of the axis. Word-for-word does too little interpreting, not too much."}, {"q": "One-to-one literal translation differs from word-for-word in which two respects?", "opts": ["It is faster and shorter", "It takes context into account, and it translates collocational, special and metaphorical items into TL equivalents", "It ignores grammar and word order", "It uses footnotes and interpolation"], "ans": 1, "why": "Context and collocation are what it adds. What it keeps from word-for-word is SL word order and the insistence on matching word type and number."}, {"q": "In Lahlali &amp; Abu Hatab&rsquo;s Lesson 2, literal translation is said to occur when:", "opts": ["The translator prefers it", "The SL and TL share parallel structures, and words are translated out of context", "The text is literary", "No dictionary is available"], "ans": 1, "why": "Their definition emphasises parallel structures and the disregarding of connotative meaning &mdash; which is why their example, <em>to throw dust in the eyes</em>, misfires in Arabic."}, {"q": "Literal translation of meaning is best described as:", "opts": ["The full translation of lexis", "The full translation of style", "The full translation of meaning, in context, respecting TL grammar and word order", "A synonym for free translation"], "ans": 2, "why": "Also called <strong>direct translation</strong>, and the best member of the literal family. Note the exam-style wording: full translation of <em>meaning</em>, not of lexis or style."}, {"q": "Why can we not speak of &lsquo;the literal meaning&rsquo; of the verb <em>run</em>?", "opts": ["Because it is an irregular verb", "Because it has a common or primary meaning plus whatever the context requires", "Because it has no Arabic equivalent", "Because it is always metaphorical"], "ans": 1, "why": "Compare <em>run in a race</em>, <em>run a company</em>, <em>in the long run</em>: three contexts, three unrelated Arabic renderings, none of them more literal than the others."}]);
+mount('analyse-qs',[{"pre": "<div class=\"excerpt\">Let us shake hands.<span class=\"cite\">rendered as</span></div><div class=\"excerpt ar\">&#1583;&#1593;&#1606;&#1575; &#1606;&#1578;&#1589;&#1575;&#1601;&#1581; &#1576;&#1575;&#1604;&#1571;&#1610;&#1583;&#1610;</div>", "q": "What has gone wrong?", "opts": ["The verb is wrong", "A phrase has been added to match the English word count &mdash; the one-to-one habit", "The register is too formal", "Nothing; this is correct"], "ans": 1, "why": "<span dir=\"rtl\">&#1576;&#1575;&#1604;&#1571;&#1610;&#1583;&#1610;</span> is unnecessary in Arabic; it exists only to mirror <em>hands</em>. Direct translation gives <span dir=\"rtl\">&#1583;&#1593;&#1606;&#1575; &#1606;&#1578;&#1589;&#1575;&#1601;&#1581;</span>."}, {"pre": "<div class=\"excerpt\">I have blind confidence in you.<span class=\"cite\">rendered as</span></div><div class=\"excerpt ar\">&#1571;&#1606;&#1575; &#1571;&#1605;&#1604;&#1603; &#1579;&#1602;&#1577; &#1593;&#1605;&#1610;&#1575;&#1569; &#1576;&#1603;</div>", "q": "Which SL habit has been carried across?", "opts": ["The metaphor", "The verb <em>have</em>, dragged in as a verb where Arabic prefers a possessive construction", "The word order of the adjective", "The pronoun"], "ans": 1, "why": "Translating every <em>be</em> as <span dir=\"rtl\">&#1610;&#1603;&#1608;&#1606;</span> and every <em>have</em> as <span dir=\"rtl\">&#1610;&#1605;&#1604;&#1603;</span> is the classic one-to-one failure. Direct translation gives <span dir=\"rtl\">&#1593;&#1606;&#1583;&#1610; &#1579;&#1602;&#1577; &#1593;&#1605;&#1610;&#1575;&#1569; &#1576;&#1603;</span>."}, {"pre": "<div class=\"excerpt\">To throw dust in the eyes.<span class=\"cite\">rendered as</span></div><div class=\"excerpt ar\">&#1610;&#1604;&#1602;&#1610; &#1575;&#1604;&#1578;&#1585;&#1575;&#1576; &#1601;&#1610; &#1575;&#1604;&#1593;&#1610;&#1608;&#1606;</div>", "q": "Lahlali &amp; Abu Hatab use this to illustrate what?", "opts": ["Successful communicative translation", "Literal translation that misses the established Arabic equivalent", "Adaptation", "Coinage"], "ans": 1, "why": "The Arabic idiom uses ashes, not dust &mdash; <span dir=\"rtl\">&#1610;&#1584;&#1585;&#1617; &#1575;&#1604;&#1585;&#1605;&#1575;&#1583; &#1601;&#1610; &#1575;&#1604;&#1593;&#1610;&#1608;&#1606;</span>. The literal version keeps the words and loses the expression."}, {"pre": "<div class=\"excerpt\">In the long run, the policy will pay for itself.</div>", "q": "Which method must you use for <em>in the long run</em>?", "opts": ["Word-for-word, to preserve the image", "One-to-one, to keep the same number of words", "Literal translation of meaning &mdash; context decides, and the verb disappears", "Transliteration"], "ans": 2, "why": "<span dir=\"rtl\">&#1593;&#1604;&#1609; &#1575;&#1604;&#1605;&#1583;&#1609; &#1575;&#1604;&#1576;&#1593;&#1610;&#1583;</span>. No verb survives, and no amount of attention to the word <em>run</em> would have produced it."}]);
+TASKS=[{"title": "Task 1 &mdash; a sentence built to break word-for-word", "text": "Of the three books you have recommended to me, I have chosen only one.", "cite": "example after Ghazala (2012)", "challenges": "The English fronts a long prepositional phrase before the main clause. Word-for-word will follow that order into Arabic and produce something heavy and unnatural.", "strategy": "Simplify the structure first, in English, then translate the simplified version: <em>I have chosen only one of the three books you have recommended to me</em>. Restructuring before translating is a legitimate step, not cheating.", "sample": "&#1575;&#1582;&#1578;&#1585;&#1578; &#1608;&#1575;&#1581;&#1583;&#1611;&#1575; &#1601;&#1602;&#1591; &#1605;&#1606; &#1576;&#1610;&#1606; &#1575;&#1604;&#1603;&#1578;&#1576; &#1575;&#1604;&#1579;&#1604;&#1575;&#1579;&#1577; &#1575;&#1604;&#1578;&#1610; &#1606;&#1589;&#1581;&#1578;&#1606;&#1610; &#1576;&#1607;&#1575;", "sampleNote": "Ghazala treats this as a grammatical problem &mdash; complicated SL grammar &mdash; solved by simplification before transfer.", "check": ["Did you write the word-for-word version first, and can you say why it fails?", "Did you restructure before translating rather than while translating?", "Does the Arabic begin with the verb, as a verbal sentence normally does?", "Is anything from the English left in that Arabic does not need?"]}, {"title": "Task 2 &mdash; one verb, three contexts", "text": "He can run a mile, run a company, and in the long run he will run for office.", "cite": "original teaching sentence", "challenges": "Four occurrences of <em>run</em>, no two of them the same. Any method that fixes an equivalent in advance will produce nonsense in at least two places.", "strategy": "Segment into units first (Week 3&rsquo;s habit, brought forward). Choose the Arabic verb for each unit separately, from the context. Expect the fourth to lose the verb entirely.", "sample": "&#1610;&#1587;&#1578;&#1591;&#1610;&#1593; &#1571;&#1606; &#1610;&#1593;&#1583;&#1608; &#1605;&#1610;&#1604;&#1575;&#1611;&#1548; &#1608;&#1571;&#1606; &#1610;&#1583;&#1610;&#1585; &#1588;&#1585;&#1603;&#1577;&#1548; &#1608;&#1593;&#1604;&#1609; &#1575;&#1604;&#1605;&#1583;&#1609; &#1575;&#1604;&#1576;&#1593;&#1610;&#1583; &#1587;&#1610;&#1578;&#1585;&#1588;&#1617;&#1581; &#1604;&#1604;&#1605;&#1606;&#1589;&#1576;", "sampleNote": "Four different solutions for one English verb &mdash; which is exactly Ghazala&rsquo;s point about primary meaning versus contextual meaning.", "check": ["Did you use a different Arabic verb for each sense?", "Did <em>in the long run</em> lose its verb?", "Would a reader who did not know the English notice anything odd?", "Can you name the method you used for each unit?"]}];
+AQ=[{"tag": "Methods", "q": "A method of translation is best defined as:", "opts": ["the way we translate &mdash; literally or freely", "the order in which we read", "the dictionary we use", "the length of the target text"], "ans": 0, "fb": "Every classification in the course is a refinement of the literal&ndash;free axis."}, {"tag": "Word-for-word", "q": "Word-for-word translation transfers which of the following?", "opts": ["Context and collocation", "SL grammar and word order", "Only the message", "Prosody"], "ans": 1, "fb": "It carries SL grammar and word order into the TL, which is the third of its six risks."}, {"tag": "Word-for-word", "q": "Its treatment of context is that it:", "opts": ["weighs context heavily", "allows words to be understood in isolation rather than in combination", "uses context only for idioms", "adds footnotes for context"], "ans": 1, "fb": "No respect for context is risk four &mdash; and the reason it cannot handle <em>run</em>."}, {"tag": "One-to-one", "q": "One-to-one translation insists on:", "opts": ["the same number and type of words", "the same page count", "free rendering of proverbs", "phonetic equivalence"], "ans": 0, "fb": "A noun for a noun, an adjective for an adjective &mdash; which is what forces <span dir=\"rtl\">&#1576;&#1575;&#1604;&#1571;&#1610;&#1583;&#1610;</span> into <em>shake hands</em>."}, {"tag": "One-to-one", "q": "Unlike word-for-word, one-to-one translation does take account of:", "opts": ["rhyme", "context, and collocational and metaphorical meaning", "page layout", "the translator&rsquo;s preferences"], "ans": 1, "fb": "That is its single real advance &mdash; and it is not enough."}, {"tag": "Direct", "q": "&lsquo;Literal translation of meaning&rsquo; is also called:", "opts": ["free translation", "direct translation", "communicative translation", "adaptation"], "ans": 1, "fb": "Direct translation: meaning in context, with TL grammar and word order respected."}, {"tag": "Direct", "q": "Which best describes direct translation?", "opts": ["full translation of lexis", "full translation of style", "full translation of meaning", "full translation of sound"], "ans": 2, "fb": "Meaning. This exact phrasing turns up in exam questions."}, {"tag": "Textbook", "q": "In Lahlali &amp; Abu Hatab, <em>to throw dust in the eyes</em> shows that literal translation:", "opts": ["always works for idioms", "can preserve words while losing the established TL expression", "is the same as adaptation", "requires a footnote"], "ans": 1, "fb": "Arabic uses ashes rather than dust; the literal version keeps the image and loses the idiom."}, {"tag": "Diagnosis", "q": "A student translates every English <em>be</em> as <span dir=\"rtl\">&#1610;&#1603;&#1608;&#1606;</span>. Which method are they applying?", "opts": ["one-to-one literal translation", "communicative translation", "bound free translation", "adaptation"], "ans": 0, "fb": "Dragging SL grammar across word by word is precisely why one-to-one is described as sometimes unsatisfactory."}, {"tag": "Axis", "q": "Ranked from most SL-bound to least, the literal family runs:", "opts": ["direct &rarr; one-to-one &rarr; word-for-word", "word-for-word &rarr; one-to-one &rarr; direct", "one-to-one &rarr; direct &rarr; word-for-word", "they are equally SL-bound"], "ans": 1, "fb": "Each step releases a little more of the source form in exchange for a little more target-language sense."}];
+initWorkshop();
+</script>
+<script src="track.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>

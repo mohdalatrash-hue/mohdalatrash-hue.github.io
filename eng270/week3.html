@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Week 3 &mdash; Translation Methods | ENG 270</title>
+<title>Week 3 &mdash; Translation Methods (2 of 3) | ENG 270</title>
 <link rel="stylesheet" href="../style.css">
-<meta name="description" content="ENG 270 Week 3 (6-10 Sep 2026) &mdash; Translation methods - 2 of 3. Introduction to Translation, Qassim University, Semester 481.">
+<meta name="description" content="ENG 270 Week 3 &mdash; Translation methods 2 of 3 &mdash; bound and loose free translation, the process and the unit of translation.">
 <meta name="theme-color" content="#1a6b3c">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -15,8 +15,8 @@
 <meta name="apple-mobile-web-app-title" content="ENG 270">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ENG 270 Introduction to Translation">
-<meta property="og:title" content="Week 3 &mdash; Translation Methods | ENG 270">
-<meta property="og:description" content="Translation methods - 2 of 3 &mdash; ENG 270 Week 3.">
+<meta property="og:title" content="Week 3 &mdash; Translation Methods (2 of 3) | ENG 270">
+<meta property="og:description" content="Translation methods 2 of 3 &mdash; bound and loose free translation, the process and the unit of translation.">
 <meta property="og:image" content="https://mohdalatrash-hue.github.io/eng270/icon-512.png">
 <meta property="og:url" content="https://mohdalatrash-hue.github.io/eng270/week3.html">
 <meta name="twitter:card" content="summary">
@@ -34,13 +34,38 @@ body{background:var(--off-white);}
 .ass-t{font-size:15px;font-weight:800;color:var(--text);}
 .ass-w{font-size:11px;font-weight:800;background:#fdeaea;color:#a01010;padding:3px 10px;border-radius:var(--r-pill);}
 .ass-d{font-size:13px;color:var(--text-2);line-height:1.65;}
-.soon{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);border:1.5px dashed var(--border);padding:34px 26px;text-align:center;margin:0 0 32px;}
-.soon-ic{font-size:32px;margin-bottom:10px;}
-.soon-t{font-size:16px;font-weight:800;color:var(--ac-ink);margin-bottom:8px;}
-.soon-p{font-size:13px;color:var(--text-2);line-height:1.7;max-width:56ch;margin:0 auto;}
 .meta{list-style:none;padding:0;margin:0 0 32px;display:flex;flex-direction:column;gap:8px;}
 .meta li{display:flex;gap:12px;align-items:flex-start;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px;font-size:13px;color:var(--text-2);line-height:1.6;}
 .meta .k{font-weight:800;color:var(--ac-ink);min-width:120px;flex-shrink:0;}
+.obj{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:8px;}
+.obj li{position:relative;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px 13px 44px;font-size:13.5px;color:var(--text);line-height:1.6;}
+.obj li:before{content:"\2713";position:absolute;left:16px;top:12px;color:var(--ac);font-weight:800;}
+.idea{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:20px 22px;margin:0 0 12px;}
+.idea h3{font-size:15px;font-weight:800;color:var(--ac-ink);margin:0 0 8px;letter-spacing:-.01em;}
+.idea p{font-size:13.5px;color:var(--text-2);line-height:1.75;margin:0 0 9px;}
+.idea p:last-child{margin-bottom:0;}
+.idea ul{margin:6px 0 0;padding-left:20px;}
+.idea li{font-size:13.5px;color:var(--text-2);line-height:1.7;margin-bottom:5px;}
+.ex{width:100%;border-collapse:collapse;background:var(--white);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-xs);font-size:13px;}
+.ex th{background:var(--off-white);text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-2);font-weight:800;padding:10px 14px;border-bottom:1px solid var(--border);}
+.ex td{padding:12px 14px;border-bottom:1px solid var(--border-light);color:var(--text-2);line-height:1.65;vertical-align:top;}
+.ex tr:last-child td{border-bottom:none;}
+.ex .en{color:var(--text);font-weight:500;min-width:170px;}
+.ex .ar{font-size:16px;color:var(--text);direction:rtl;text-align:right;min-width:150px;line-height:1.9;}
+.ex .nt{font-size:12.5px;}
+.exwrap{overflow-x:auto;margin:0 0 32px;}
+.pr{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);overflow:hidden;margin:0 0 32px;}
+.pr details{border-bottom:1px solid var(--border-light);}
+.pr details:last-child{border-bottom:none;}
+.pr summary{cursor:pointer;padding:14px 18px;font-size:13.5px;font-weight:600;color:var(--text);list-style:none;display:flex;gap:10px;align-items:flex-start;}
+.pr summary::-webkit-details-marker{display:none;}
+.pr summary:before{content:"?";flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--ac-soft);color:var(--ac-ink);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.pr details[open] summary{background:var(--ac-soft);}
+.pr .ans{padding:2px 18px 16px 48px;font-size:13px;color:var(--text-2);line-height:1.75;}
+.pr .ans .ara{font-size:16px;direction:rtl;display:inline-block;}
+.rd{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:8px;}
+.rd li{background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px;font-size:13px;color:var(--text-2);line-height:1.6;}
+.rd .src{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ac-ink);margin-bottom:3px;}
 </style>
 </head>
 <body>
@@ -52,41 +77,45 @@ body{background:var(--off-white);}
     <span class="nav-sep">&rsaquo;</span>
     <span class="nav-cur">Week 3</span>
     <div class="nav-spacer"></div>
-    <div class="nav-links"><a class="nav-link" href="week2.html">&larr; Week 2</a><a class="nav-link" href="week4.html">Week 4 &rarr;</a></div>
+    <div class="nav-links"><a class="nav-link" href="week4.html">Week 4</a></div>
   </div>
 </nav>
 <div class="hero" style="padding-bottom:28px;">
   <div class="hero-eyebrow">Week 3 of 15 &middot; Tue 8 &amp; Wed 9 Sep 2026</div>
-  <h1>Translation Methods</h1>
+  <h1>Translation Methods (2 of 3)</h1>
   <p class="hero-sub"><span class="tbd">Section TBD</span> &middot; Tue 11:00&ndash;11:50 AM &middot; Wed 10:00&ndash;11:40 AM &middot; <span class="tbd">Room TBD</span></p>
   <div class="wk-dots"><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot on"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span></div>
 </div>
 <div class="section-alt" style="padding:8px 0 64px;">
 <div class="section-inner">
 
-  <div class="strand">Translation methods &middot; 2 of 3</div>
-  <p class="lead">This week belongs to the <strong>translation methods</strong> strand &mdash; nine contact hours spread across Weeks&nbsp;2&ndash;4. The strand works through the methods and techniques a translator chooses between, and the grounds on which the choice is made.</p>
+  <div class="strand">Translation methods &middot; the free family</div>
+  <p class="lead">The free end of the axis &mdash; bound free translation and loose free translation &mdash; followed by the process of translation and the unit that process works on.</p>
 
-  <div class="section-label" style="margin-bottom:14px;">Week at a glance</div>
-  <ul class="meta">
-    <li><span class="k">Dates</span><span>Tue 8 &amp; Wed 9 Sep 2026</span></li>
-    <li><span class="k">Meeting</span><span>Tuesday 11:00&ndash;11:50 AM (1 hour) &middot; Wednesday 10:00&ndash;11:40 AM (2 hours) &middot; <span class="tbd">Section TBD</span> &middot; <span class="tbd">Room TBD</span></span></li>
-    <li><span class="k">Contact hours</span><span>3 hours this week (45 across the semester)</span></li>
-    <li><span class="k">Spec topic</span><span>Translation methods &middot; 2 of 3</span></li>
-    <li><span class="k">Graded work</span><span>Submissions and marks are in Blackboard Ultra</span></li>
-  </ul>
+<div class="section-label" style="margin-bottom:14px;">Week at a glance</div>
+<ul class="meta"><li><span class="k">Dates</span><span>Tue 8 &amp; Wed 9 Sep 2026</span></li><li><span class="k">Meeting</span><span>Tuesday 11:00&ndash;11:50 AM (1 hour) &middot; Wednesday 10:00&ndash;11:40 AM (2 hours) &middot; <span class="tbd">Section TBD</span> &middot; <span class="tbd">Room TBD</span></span></li><li><span class="k">Contact hours</span><span>3 hours this week &middot; second of the three method weeks</span></li><li><span class="k">Spec topic</span><span>Translation methods &mdash; the free family, and the process of translation</span></li><li><span class="k">Reading</span><span>Ghazala (2012), free translation and the process &middot; Lahlali &amp; Abu Hatab, <strong>Lesson 6</strong> (p. 18) and Module 1 review (p. 20)</span></li><li><span class="k">Graded work</span><span>Submissions and marks are in Blackboard Ultra</span></li></ul>
+<div class="section-label" style="margin-bottom:14px;">By the end of the week you should be able to</div>
+<ul class="obj"><li>State the governing principle of free translation: the translator translates not as he likes, but as he understands.</li><li>Tell bound free translation from loose free translation, and justify the line between them.</li><li>Recognise loose free translation as the translation of <em>intentions</em> &mdash; a form of pragmatic translation.</li><li>Define the <strong>unit of translation</strong> and say what its upper limit is.</li><li>Describe translating as an organised process that proceeds unit by unit.</li></ul>
+<div class="section-label" style="margin-bottom:14px;">Core ideas</div>
+<div class="mb-32"><div class="idea"><h3>Free translation, and the sentence that keeps it honest</h3><p>Free translation is associated with translating the <em>spirit</em> or the <em>message</em> &mdash; not the letter or the form of the text. It is not committed to translating every single word.</p><p>That freedom is bounded by one rule, and it is the most quoted line in the chapter: <strong>the translator cannot translate the way he likes, but the way he understands.</strong> Freedom of method is not licence to invent. Everything you produce must still be recoverable from the source text.</p><p>The method splits in two by <em>distance from context</em>: the first type stays close and relates to context directly; the second goes far and relates to it only indirectly.</p></div><div class="idea"><h3>1 &middot; Bound free translation</h3><p>Derived from the context in a direct way, though it may go outside it somewhat &mdash; often in the form of exaggeration. This is the type most people mean when they say &lsquo;free translation&rsquo;.</p><p>Its renderings travel a long way from the words, but not away from the text: they are still bound to context. This is the type that sits closest to <em>creative</em> translation, and it is where Arabic proverbs and idioms earn their place.</p></div><div class="idea"><h3>2 &middot; Loose free translation</h3><p>This method goes far away from the direct linguistic context into <strong>inferences</strong>. It is based on the translator&rsquo;s conclusions about what the speaker or writer wants to say &mdash; in other words, it is the <strong>translation of intentions</strong>, a version of pragmatic translation.</p><p>The renderings do not relate directly to the original context; they are concluded from it. Two consequences follow, and both matter for your marks. First, different translators will reach different conclusions, because these are personal conclusions rather than context-restricted transfers. Second, the interpretation beyond the text is normally the <em>reader&rsquo;s</em> job in both languages &mdash; which is why loose free translation is so often the wrong choice.</p></div><div class="idea"><h3>The process of translation, and the unit</h3><p>The process of translation is the organised stages of translating in application: we proceed <strong>unit by unit</strong>.</p><p>A <strong>unit of translation</strong> is any word or group of words that can give either a small or a large part of the meaning of a sentence. Its upper limit is fixed: <strong>the largest unit of translation is the sentence</strong>.</p><p>Practically, this is the habit the practical sessions are training. You do not translate a text; you segment it, decide the method for each unit, render it, then check the unit against the whole. Weeks 5&ndash;15 apply that habit to five different genres.</p></div></div>
+<div class="section-label" style="margin-bottom:14px;">Worked examples &mdash; bound free</div>
+<div class="exwrap"><table class="ex"><thead><tr><th>English source</th><th>Arabic rendering</th><th>What is happening</th></tr></thead><tbody><tr><td class="en">He got nothing at the end</td><td class="ar" lang="ar" dir="rtl">&#1585;&#1580;&#1593; &#1576;&#1582;&#1601;&#1610; &#1581;&#1615;&#1606;&#1610;&#1606; / &#1593;&#1575;&#1583; &#1582;&#1575;&#1604;&#1610; &#1575;&#1604;&#1608;&#1601;&#1575;&#1590;</td><td class="nt">A fixed Arabic idiom carries the sense. It leaves the English words far behind but stays inside the context. The plain version <span class="ara">&#1604;&#1605; &#1610;&#1581;&#1589;&#1604; &#1593;&#1604;&#1609; &#1588;&#1610;&#1569; &#1601;&#1610; &#1575;&#1604;&#1606;&#1607;&#1575;&#1610;&#1577;</span> is also available.</td></tr><tr><td class="en">East or west, home is best</td><td class="ar" lang="ar" dir="rtl">&#1603;&#1605; &#1605;&#1606;&#1586;&#1604; &#1576;&#1575;&#1604;&#1571;&#1585;&#1590; &#1610;&#1571;&#1604;&#1601;&#1607; &#1575;&#1604;&#1601;&#1578;&#1609; &#1608;&#1581;&#1606;&#1610;&#1606;&#1607; &#1571;&#1576;&#1583;&#1611;&#1575; &#1604;&#1571;&#1608;&#1604; &#1605;&#1606;&#1586;&#1604;&#1616;</td><td class="nt">A line of classical verse replaces an English proverb &mdash; the strongest form of bound free translation. The neutral option <span class="ara">&#1604;&#1575; &#1588;&#1610;&#1569; &#1605;&#1579;&#1604; &#1575;&#1604;&#1608;&#1591;&#1606;</span> keeps the sense with less colour.</td></tr></tbody></table></div>
+<div class="section-label" style="margin-bottom:14px;">Worked examples &mdash; loose free</div>
+<div class="exwrap"><table class="ex"><thead><tr><th>English source</th><th>Arabic rendering</th><th>What is happening</th></tr></thead><tbody><tr><td class="en">Books are very expensive</td><td class="ar" lang="ar" dir="rtl">&#1604;&#1602;&#1583; &#1593;&#1586;&#1601; &#1575;&#1604;&#1606;&#1575;&#1587; &#1593;&#1606; &#1575;&#1604;&#1602;&#1585;&#1575;&#1569;&#1577; &#1575;&#1604;&#1610;&#1608;&#1605;</td><td class="nt">An inference about <em>why</em> the speaker said it, not a rendering of what was said. The text supports <span class="ara">&#1575;&#1604;&#1603;&#1578;&#1576; &#1576;&#1575;&#1607;&#1592;&#1577; &#1575;&#1604;&#1579;&#1605;&#1606; &#1575;&#1604;&#1610;&#1608;&#1605;</span> &mdash; and that is what it should be.</td></tr><tr><td class="en">It is half past nine</td><td class="ar" lang="ar" dir="rtl">&#1575;&#1606;&#1578;&#1607;&#1609; &#1575;&#1604;&#1608;&#1602;&#1578; / &#1575;&#1606;&#1578;&#1607;&#1578; &#1575;&#1604;&#1581;&#1589;&#1577; / &#1593;&#1604;&#1610;&#1606;&#1575; &#1576;&#1575;&#1604;&#1605;&#1594;&#1575;&#1583;&#1585;&#1577;</td><td class="nt">Five different translators would produce five different conclusions here. The defensible rendering is <span class="ara">&#1573;&#1606;&#1607;&#1575; &#1575;&#1604;&#1578;&#1575;&#1587;&#1593;&#1577; &#1608;&#1575;&#1604;&#1606;&#1589;&#1601;</span>; the inference belongs to the reader.</td></tr></tbody></table></div>
+<div class="section-label" style="margin-bottom:14px;">In class</div>
+<div class="mb-32"><div class="idea"><h3>Tuesday &mdash; one hour</h3><p>Free translation and its two types, with the bound / loose distinction drawn on real examples.</p></div><div class="idea"><h3>Wednesday &mdash; two hours</h3><p>The process of translation and the unit of translation, then guided segmentation practice: take a short paragraph, mark its units, choose a method for each, and defend the choice.</p></div></div>
+<div class="section-label" style="margin-bottom:14px;">Check yourself</div>
+<div class="pr"><details><summary>Bound free translation is often described as &lsquo;not loose, not without limitations&rsquo;. Limited by what?</summary><div class="ans">By context. Bound free renderings may go outside the wording &mdash; often by exaggeration &mdash; but they remain derived from the context in a direct way. That is precisely what distinguishes them from loose free translation, which moves into inference.</div></details><details><summary>Why is <em>&lsquo;It is half past nine&rsquo; &rarr; <span class="ara">&#1593;&#1604;&#1610;&#1606;&#1575; &#1576;&#1575;&#1604;&#1605;&#1594;&#1575;&#1583;&#1585;&#1577;</span></em> a weak translation even though it may be what the speaker meant?</summary><div class="ans">It translates an intention rather than an utterance. The conclusion is the translator&rsquo;s, not the text&rsquo;s, and another translator would draw a different one. The interpretation beyond the words should be left to the reader in both languages.</div></details><details><summary>What is the largest unit of translation?</summary><div class="ans">The sentence. Anything larger is the text, and the text is translated as a sequence of units &mdash; which is why the process is described as proceeding unit by unit.</div></details><details><summary>A student renders every English proverb with an Arabic proverb, in a legal contract. What has gone wrong?</summary><div class="ans">Method has been chosen without regard to text type. Bound free translation is right for proverbs in literary or general prose; legal texts (Weeks 14&ndash;15) demand precision and admit almost no creative freedom. Method follows genre &mdash; that is the whole logic of the second half of this course.</div></details></div>
+<div class="section-label" style="margin-bottom:14px;">Take it further</div>
+<ul class="rd"><li><span class="src">Set textbook</span>Ghazala, H. (2012). <em>Translation as Problems and Solutions.</em> Free translation; the process of translation; the unit of translation.</li><li><span class="src">Lecture handout</span><strong>Chapter One</strong> &mdash; free translation and the process.</li></ul>
 
-  <div class="section-label" style="margin-bottom:14px;">Materials</div>
-  <div class="soon">
-    <div class="soon-ic">&#128296;</div>
-    <div class="soon-t">Content coming soon</div>
-    <div class="soon-p">The readings, in-class activities and practice for this week are still being prepared and will be published here before the week begins. The topic, dates and assessment information above are final and come from the official course specification. Check Blackboard Ultra for anything graded.</div>
-  </div>
+  <div class="section-label" style="margin-bottom:14px;">Workshop</div>
+  <a href="workshop3.html" style="display:block;background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);border-left:4px solid var(--ac);padding:20px 22px;margin:0 0 32px;text-decoration:none;color:inherit;"><div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--ac);margin-bottom:7px;">Week 3 workshop &middot; interactive</div><div style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:7px;letter-spacing:-.01em;">How Free Is Free?</div><div style="font-size:13.5px;color:var(--text-2);line-height:1.7;margin-bottom:10px;">Bound against loose free translation, and the unit the whole process moves through.</div><div style="font-size:13px;font-weight:700;color:var(--ac);">Concepts &middot; Analyse &middot; Translate it &middot; Quiz &nbsp;&rarr;</div></a>
 
   <div class="week-nav"><a href="week2.html">&larr; Week 2</a><a href="week4.html">Week 4 &rarr;</a></div>
 </div>
 </div>
-<footer><strong>ENG 270 Introduction to Translation</strong> &middot; Week 3 &middot; 6&ndash;10 Sep 2026 &middot; Qassim University &middot; Semester 481<br><a href="index.html">Course Hub</a> &middot; <a href="../index.html">Qassim Courses</a></footer>
+<footer><strong>ENG 270 Introduction to Translation</strong> &middot; Week 3 &middot; 8&ndash;9 Sep 2026 &middot; Qassim University &middot; Semester 481<br><a href="index.html">Course Hub</a> &middot; <a href="../index.html">Qassim Courses</a></footer>
 <script src="track.js" defer></script>
 <script src="site.js" defer></script>
 </body>

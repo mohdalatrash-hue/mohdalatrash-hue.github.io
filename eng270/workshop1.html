@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workshop 1 &mdash; Meaning, Not Words | ENG 270</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="workshop.css">
+<meta name="description" content="ENG 270 Week 1 workshop &mdash; Definitions, the six abbreviations, the four routes into Arabic, and translation as process, product and field.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 270">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 270 Introduction to Translation">
+<meta property="og:title" content="Workshop 1 &mdash; Meaning, Not Words | ENG 270">
+<meta property="og:description" content="Definitions, the six abbreviations, the four routes into Arabic, and translation as process, product and field.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng270/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng270/workshop1.html">
+<meta name="twitter:card" content="summary">
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>&#127891;</span><span>Qassim University</span></a>
+    <span class="nav-sep">&rsaquo;</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 270</a>
+    <span class="nav-sep">&rsaquo;</span>
+    <a class="nav-link" href="week1.html" style="padding:0;color:var(--text-2);">Week 1</a>
+    <span class="nav-sep">&rsaquo;</span>
+    <span class="nav-cur">Workshop</span>
+    <div class="nav-spacer"></div>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:34px;">
+  <div class="hero-eyebrow" style="color:var(--ac);">Week 1 workshop &middot; Introducing translation</div>
+  <h1>Meaning, Not Words</h1>
+  <p class="hero-sub">Fix the vocabulary of the course, decide what actually crosses from English into Arabic, and learn to name the four routes a word can take.</p>
+</div>
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+
+  <div class="info-box info-blue mb-24" style="text-align:left;">
+    <h3>&#127919; What this workshop trains</h3>
+    <p>Every later week assumes you can say what translation transfers and name the route a given rendering took. This workshop makes both automatic, so that in Week 9 you can say &lsquo;that is naturalisation&rsquo; without stopping to think.</p>
+  </div>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('concepts',this)">&#128218; Concepts</button>
+    <button class="tab-btn" onclick="switchTab('analyse',this)">&#128269; Analyse</button>
+    <button class="tab-btn" onclick="switchTab('translate',this)">&#9997;&#65039; Translate it</button>
+    <button class="tab-btn" onclick="switchTab('quiz',this)">&#128221; Quiz</button>
+  </div>
+
+  <div id="tab-concepts" class="tab-panel active">
+    <div class="tip-box"><strong>&#128214; Reading &rarr; Ghazala (2012), opening chapter, and the Chapter One handout.</strong> Definition of translation, what we translate, and the process / product / field distinction.</div>
+    <div id="concept-qs"></div>
+  </div>
+
+  <div id="tab-analyse" class="tab-panel">
+    <div class="tip-box"><strong>&#128269; Name the route.</strong> Each Arabic item below reached the language by one of the four routes: a ready equivalent, a coined term, transliteration, or naturalisation. Decide which.</div>
+    <div id="analyse-qs"></div>
+  </div>
+
+  <div id="tab-translate" class="tab-panel">
+    <div class="tip-box"><strong>&#9997;&#65039; Two short tasks.</strong> Both are ordinary sentences. The point is not difficulty &mdash; it is noticing that you have already made three or four decisions before you finish the first clause.</div>
+    <div id="translate-tasks"></div>
+  </div>
+
+  <div id="tab-quiz" class="tab-panel">
+    <div class="tip-box"><strong>&#128221; Week 1 review &mdash; 10 questions.</strong> Definitions, the abbreviations, the four routes, and the three senses of the word <em>translation</em>. Answer order is shuffled on every attempt.</div>
+    <div class="prog-bar-wrap"><div class="prog-bar" id="aq-prog" style="width:0%"></div></div>
+    <div id="aq-container"></div>
+    <div id="aq-score" class="score-summary" style="display:none;"></div>
+  </div>
+
+  <div class="ws-nav"><a class="disabled">&larr; First workshop</a><a href="workshop2.html">Week 2 workshop &rarr;</a></div>
+
+</div>
+</div>
+<footer><strong>ENG 270 Introduction to Translation</strong> &middot; Week 1 workshop &middot; Qassim University &middot; Semester 481<br><a href="week1.html">Week 1</a> &middot; <a href="index.html">Course Hub</a> &middot; <a href="../index.html">Qassim Courses</a></footer>
+<script src="workshop.js"></script>
+<script>
+mount('concept-qs',[{"q": "Ghazala&rsquo;s definition makes translation the transfer of meaning &lsquo;as closely, completely and accurately as possible&rsquo;. What does the qualifier <em>as possible</em> concede?", "opts": ["That translation is impossible", "That perfect transfer is unavailable, so closeness, completeness and accuracy are traded against one another", "That only literary texts can be translated", "That dictionaries are unnecessary"], "ans": 1, "why": "The phrase is an admission built into the definition. You are always spending one of the three to buy another &mdash; which is why every later week is about choosing, not about finding the one right answer."}, {"q": "&lsquo;We translate neither grammar, words, style nor sounds.&rsquo; What do we translate?", "opts": ["Meaning", "Vocabulary", "Word order", "Punctuation"], "ans": 0, "why": "Meaning &mdash; understood as a network built out of syntax, vocabulary, style and phonology taken together. The four named items are the carriers, not the cargo."}, {"q": "Which is the standing exception to &lsquo;anything not relevant to meaning is disregarded&rsquo;?", "opts": ["Legal contracts, where punctuation is fixed", "Scientific texts, where symbols must be copied", "Poetry and certain texts, where sound and prosodic features may matter more than meaning", "Newspaper headlines, where layout matters"], "ans": 2, "why": "Ghazala flags poetry explicitly. It is also why the course treats poetry as its own problem in Week 7 rather than folding it into general prose."}, {"q": "A student describes the twenty minutes she spent choosing between two Arabic renderings. She is describing translation as:", "opts": ["a product", "a process", "a field of study", "a profession"], "ans": 1, "why": "Process is what the translator does &mdash; reading, segmenting, choosing, checking, revising. The finished Arabic version would be the product; the discipline that theorises both is the field of study."}, {"q": "Which pair of abbreviations causes most trouble later in the course, and why?", "opts": ["SL and TL, because they are easy to confuse", "ST and TT, because texts are long", "SC and TC, because most real difficulty is cultural rather than linguistic", "None of them &mdash; abbreviations are decoration"], "ans": 2, "why": "Source culture and target culture. From Week 5 onward the problems that stop you &mdash; idioms, proverbs, culture-bound objects, religious and social assumptions &mdash; sit in the gap between cultures, not between grammars."}, {"q": "Why does the course open with a historical account at all?", "opts": ["To fill the first week", "Because the choices you make in Week 12 are old choices that already have names", "Because translation theory was complete by the ninth century", "Because Arabic translation began in Europe"], "ans": 1, "why": "The literal-versus-free argument you meet in Week 2 is centuries old, and Arabic sits in the middle of the transmission of Greek learning, not at its edge. History gives the vocabulary a pedigree."}]);
+mount('analyse-qs',[{"pre": "<div class=\"excerpt ar\">&#1602;&#1605;&#1585; &#1589;&#1606;&#1575;&#1593;&#1610;<span class=\"cite\">for &lsquo;satellite&rsquo;</span></div>", "q": "Which route produced this?", "opts": ["A ready-made direct equivalent", "A coined term built from existing Arabic material", "Transliteration", "Naturalisation"], "ans": 1, "why": "Nothing foreign is carried over. Arabic material &mdash; &lsquo;moon&rsquo; plus &lsquo;made&rsquo; &mdash; is combined to name a thing the language had no word for."}, {"pre": "<div class=\"excerpt ar\">&#1571;&#1587;&#1576;&#1585;&#1610;&#1606;<span class=\"cite\">for &lsquo;aspirin&rsquo;</span></div>", "q": "Which route produced this?", "opts": ["A coined term", "Transliteration &mdash; written in Arabic letters as pronounced in its origin", "A ready equivalent", "A calque"], "ans": 1, "why": "The foreign word is simply respelled in Arabic script. Compare naturalisation, where the word is also bent to Arabic morphology."}, {"pre": "<div class=\"excerpt ar\">&#1583;&#1610;&#1605;&#1602;&#1585;&#1575;&#1591;&#1610;&#1577;<span class=\"cite\">for &lsquo;democracy&rsquo;</span></div>", "q": "How does this differ from the &lsquo;aspirin&rsquo; case?", "opts": ["It does not &mdash; both are transliteration", "It is made to fit Arabic pronunciation, spelling and grammar, so it behaves like an Arabic word", "It is a ready equivalent", "It is a coined term from a trilateral root"], "ans": 1, "why": "Naturalisation. The borrowed word takes an Arabic shape and can then be inflected and modified like native vocabulary."}, {"pre": "<div class=\"excerpt\">&lsquo;She speaks three languages.&rsquo;</div>", "q": "Rendering <em>speaks</em> as <span dir=\"rtl\">&#1578;&#1578;&#1603;&#1604;&#1605;</span> uses which route?", "opts": ["A ready-made direct equivalent", "Coinage", "Transliteration", "Naturalisation"], "ans": 0, "why": "Arabic already had the word. Most of any text travels by this route &mdash; the other three exist for the gaps."}]);
+TASKS=[{"title": "Task 1 &mdash; the copula trap", "text": "That child is intelligent.", "cite": "original teaching sentence", "challenges": "English needs a linking verb here; Arabic does not. A student translating word by word will produce a verb that has no business in the sentence, and will then have to inflect an adjective to match it.", "strategy": "Translate the <em>meaning in context</em>, not the word inventory. Ask what an Arabic speaker actually says to attribute a quality to a child, then write that.", "sample": "&#1584;&#1604;&#1603; &#1575;&#1604;&#1591;&#1601;&#1604; &#1584;&#1603;&#1610;&#1617;", "sampleNote": "A nominal sentence &mdash; no copula, no forced word-for-word matching. Compare the word-for-word version you will meet in Week 2.", "check": ["Did you avoid inserting a verb for <em>is</em>?", "Is your sentence nominal rather than a calque of the English?", "Would a native reader hear this as ordinary Arabic?", "Did you decide, rather than default?"]}, {"title": "Task 2 &mdash; four routes in one sentence", "text": "The technician checked the satellite feed on his computer and took an aspirin.", "cite": "original teaching sentence", "challenges": "One short sentence contains a ready equivalent, a coined term, a naturalised borrowing and a transliteration. Naming which is which is the whole of Week 1.", "strategy": "Translate normally, then go back and label each content word with the route it took. If two routes were available for a word, say why you chose the one you did.", "sample": "&#1601;&#1581;&#1589; &#1575;&#1604;&#1601;&#1606;&#1610;&#1617; &#1576;&#1579;&#1617; &#1575;&#1604;&#1602;&#1605;&#1585; &#1575;&#1604;&#1589;&#1606;&#1575;&#1593;&#1610;&#1617; &#1593;&#1604;&#1609; &#1581;&#1575;&#1587;&#1608;&#1576;&#1607; &#1579;&#1605;&#1617; &#1578;&#1606;&#1575;&#1608;&#1604; &#1602;&#1585;&#1589; &#1571;&#1587;&#1576;&#1585;&#1610;&#1606;", "sampleNote": "Note the choice of <span dir=\"rtl\">&#1581;&#1575;&#1587;&#1608;&#1576;</span> over <span dir=\"rtl\">&#1603;&#1605;&#1576;&#1610;&#1608;&#1578;&#1585;</span> &mdash; a coined term where a naturalised borrowing was also available. Both are defensible; the point is that you chose.", "check": ["Can you name the route for each of: technician, satellite, computer, aspirin?", "Did you make a conscious choice where two routes were open?", "Is the Arabic a sentence, or a list of equivalents?", "Could you defend each choice to a reader who preferred the other?"]}];
+AQ=[{"tag": "Definitions", "q": "Translation transfers meaning into the target language as closely, completely and ______ as possible.", "opts": ["quickly", "accurately", "freely", "literally"], "ans": 1, "fb": "Closeness, completeness and accuracy are the three criteria, and they compete with one another."}, {"tag": "Definitions", "q": "Meaning is described as a network comprising:", "opts": ["Syntax, vocabulary, style and phonology", "Grammar and vocabulary only", "Culture and history", "Sound and rhythm"], "ans": 0, "fb": "All four components taken together produce meaning &mdash; which is why translating any one of them alone fails."}, {"tag": "Abbreviations", "q": "SC and TC stand for:", "opts": ["Source clause and target clause", "Source culture and target culture", "Semantic content and textual content", "Standard corpus and target corpus"], "ans": 1, "fb": "The culture pair &mdash; and the one students forget until Week 5 makes it unavoidable."}, {"tag": "Four routes", "q": "&lsquo;Kleija&rsquo; written in English letters in an English text is closest to which route?", "opts": ["A ready equivalent", "Transliteration / preserving the source term", "Coinage by derivation", "Naturalisation"], "ans": 1, "fb": "The source term is preserved. You will meet this again in Week 7 as one of Graedler&rsquo;s four steps for culture-bound words."}, {"tag": "Four routes", "q": "Which route is used when Arabic already has the word?", "opts": ["Coinage", "Naturalisation", "A ready-made direct equivalent", "Transliteration"], "ans": 2, "fb": "Most of a text travels this way. The other three routes exist for the gaps."}, {"tag": "Three senses", "q": "The academic discipline that describes and theorises translating is translation as:", "opts": ["process", "product", "field of study", "profession"], "ans": 2, "fb": "Field of study &mdash; the reason the course cites Newmark, Venuti, Baker and Graedler rather than simply issuing instructions."}, {"tag": "Three senses", "q": "An Arabic novel translated from English, sitting on a shelf, is translation as:", "opts": ["process", "product", "field of study", "method"], "ans": 1, "fb": "Product &mdash; a finished object that can be compared, judged and marked."}, {"tag": "What we translate", "q": "Which statement matches the textbook?", "opts": ["We translate words, and meaning follows", "We translate grammar into grammar", "We translate meaning, and disregard what is irrelevant to it", "We translate style above all"], "ans": 2, "fb": "Anything not relevant to meaning is normally disregarded &mdash; with poetry as the standing exception."}, {"tag": "History", "q": "The ninth-century Abbasid translation movement is significant to this course because it shows:", "opts": ["that translation is a modern invention", "Arabic at the centre of the transmission of Greek learning", "that literal translation always wins", "that translation theory preceded translation"], "ans": 1, "fb": "Greek philosophy, medicine and mathematics entered Arabic in Baghdad and later passed from Arabic into Latin at Toledo."}, {"tag": "Course frame", "q": "Which of these is <em>not</em> one of the five practical genres in the ENG 270 specification?", "opts": ["Literary texts", "Scientific texts", "Economics texts", "Legal texts"], "ans": 2, "fb": "The five are literary, scientific, media, administrative and legal. The set textbook also has an economics module (Lessons 13&ndash;18), but it falls outside this specification."}];
+initWorkshop();
+</script>
+<script src="track.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>

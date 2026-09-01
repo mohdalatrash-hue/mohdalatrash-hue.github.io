@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Week 5 &mdash; Literary Texts | ENG 270</title>
+<title>Week 5 &mdash; Literary Texts (1 of 3) | ENG 270</title>
 <link rel="stylesheet" href="../style.css">
-<meta name="description" content="ENG 270 Week 5 (20-24 Sep 2026) &mdash; Practical session: literary texts - 1 of 3. Introduction to Translation, Qassim University, Semester 481.">
+<meta name="description" content="ENG 270 Week 5 &mdash; Literary texts 1 of 3 &mdash; fiction, narration, and the translator as social mediator between two cultures.">
 <meta name="theme-color" content="#1a6b3c">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -15,8 +15,8 @@
 <meta name="apple-mobile-web-app-title" content="ENG 270">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ENG 270 Introduction to Translation">
-<meta property="og:title" content="Week 5 &mdash; Literary Texts | ENG 270">
-<meta property="og:description" content="Practical session: literary texts - 1 of 3 &mdash; ENG 270 Week 5.">
+<meta property="og:title" content="Week 5 &mdash; Literary Texts (1 of 3) | ENG 270">
+<meta property="og:description" content="Literary texts 1 of 3 &mdash; fiction, narration, and the translator as social mediator between two cultures.">
 <meta property="og:image" content="https://mohdalatrash-hue.github.io/eng270/icon-512.png">
 <meta property="og:url" content="https://mohdalatrash-hue.github.io/eng270/week5.html">
 <meta name="twitter:card" content="summary">
@@ -34,13 +34,38 @@ body{background:var(--off-white);}
 .ass-t{font-size:15px;font-weight:800;color:var(--text);}
 .ass-w{font-size:11px;font-weight:800;background:#fdeaea;color:#a01010;padding:3px 10px;border-radius:var(--r-pill);}
 .ass-d{font-size:13px;color:var(--text-2);line-height:1.65;}
-.soon{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);border:1.5px dashed var(--border);padding:34px 26px;text-align:center;margin:0 0 32px;}
-.soon-ic{font-size:32px;margin-bottom:10px;}
-.soon-t{font-size:16px;font-weight:800;color:var(--ac-ink);margin-bottom:8px;}
-.soon-p{font-size:13px;color:var(--text-2);line-height:1.7;max-width:56ch;margin:0 auto;}
 .meta{list-style:none;padding:0;margin:0 0 32px;display:flex;flex-direction:column;gap:8px;}
 .meta li{display:flex;gap:12px;align-items:flex-start;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px;font-size:13px;color:var(--text-2);line-height:1.6;}
 .meta .k{font-weight:800;color:var(--ac-ink);min-width:120px;flex-shrink:0;}
+.obj{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:8px;}
+.obj li{position:relative;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px 13px 44px;font-size:13.5px;color:var(--text);line-height:1.6;}
+.obj li:before{content:"\2713";position:absolute;left:16px;top:12px;color:var(--ac);font-weight:800;}
+.idea{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:20px 22px;margin:0 0 12px;}
+.idea h3{font-size:15px;font-weight:800;color:var(--ac-ink);margin:0 0 8px;letter-spacing:-.01em;}
+.idea p{font-size:13.5px;color:var(--text-2);line-height:1.75;margin:0 0 9px;}
+.idea p:last-child{margin-bottom:0;}
+.idea ul{margin:6px 0 0;padding-left:20px;}
+.idea li{font-size:13.5px;color:var(--text-2);line-height:1.7;margin-bottom:5px;}
+.ex{width:100%;border-collapse:collapse;background:var(--white);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-xs);font-size:13px;}
+.ex th{background:var(--off-white);text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-2);font-weight:800;padding:10px 14px;border-bottom:1px solid var(--border);}
+.ex td{padding:12px 14px;border-bottom:1px solid var(--border-light);color:var(--text-2);line-height:1.65;vertical-align:top;}
+.ex tr:last-child td{border-bottom:none;}
+.ex .en{color:var(--text);font-weight:500;min-width:170px;}
+.ex .ar{font-size:16px;color:var(--text);direction:rtl;text-align:right;min-width:150px;line-height:1.9;}
+.ex .nt{font-size:12.5px;}
+.exwrap{overflow-x:auto;margin:0 0 32px;}
+.pr{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);overflow:hidden;margin:0 0 32px;}
+.pr details{border-bottom:1px solid var(--border-light);}
+.pr details:last-child{border-bottom:none;}
+.pr summary{cursor:pointer;padding:14px 18px;font-size:13.5px;font-weight:600;color:var(--text);list-style:none;display:flex;gap:10px;align-items:flex-start;}
+.pr summary::-webkit-details-marker{display:none;}
+.pr summary:before{content:"?";flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--ac-soft);color:var(--ac-ink);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.pr details[open] summary{background:var(--ac-soft);}
+.pr .ans{padding:2px 18px 16px 48px;font-size:13px;color:var(--text-2);line-height:1.75;}
+.pr .ans .ara{font-size:16px;direction:rtl;display:inline-block;}
+.rd{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:8px;}
+.rd li{background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px;font-size:13px;color:var(--text-2);line-height:1.6;}
+.rd .src{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ac-ink);margin-bottom:3px;}
 </style>
 </head>
 <body>
@@ -52,43 +77,42 @@ body{background:var(--off-white);}
     <span class="nav-sep">&rsaquo;</span>
     <span class="nav-cur">Week 5</span>
     <div class="nav-spacer"></div>
-    <div class="nav-links"><a class="nav-link" href="week4.html">&larr; Week 4</a><a class="nav-link" href="week6.html">Week 6 &rarr;</a></div>
+    <div class="nav-links"><a class="nav-link" href="week6.html">Week 6</a></div>
   </div>
 </nav>
 <div class="hero" style="padding-bottom:28px;">
-  <div class="hero-eyebrow">Week 5 of 15 &middot; Tue 22 Sep 2026 &mdash; Tuesday only</div>
-  <h1>Literary Texts</h1>
+  <div class="hero-eyebrow">Week 5 of 15 &middot; Tue 22 Sep 2026 &middot; Tuesday only</div>
+  <h1>Literary Texts (1 of 3)</h1>
   <p class="hero-sub"><span class="tbd">Section TBD</span> &middot; Tue 11:00&ndash;11:50 AM &middot; Wed 10:00&ndash;11:40 AM &middot; <span class="tbd">Room TBD</span></p>
   <div class="wk-dots"><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot on"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span></div>
 </div>
 <div class="section-alt" style="padding:8px 0 64px;">
 <div class="section-inner">
 
-  <div class="strand">Practical session: literary texts &middot; 1 of 3</div>
-  <p class="lead">This week belongs to the <strong>literary texts</strong> practical strand &mdash; nine contact hours across Weeks&nbsp;5&ndash;7. Practical sessions apply the methods from Weeks&nbsp;2&ndash;4 to literary material, and to the characteristics and challenges of the genre.</p>
+  <div class="strand">Practical session &middot; literary texts</div>
+  <p class="lead">The first of three literary weeks. Literary translation is the hard case of the course because it works across two cultures rather than two languages &mdash; and fiction, built on narration, is where that starts.</p>
 
-  <div class="info-box info-amber mb-32" style="text-align:left;"><h3>&#127477;&#127462; National Day &mdash; no Wednesday class</h3><p>This week meets on <strong>Tuesday 22 September only</strong>, 11:00&ndash;11:50 AM. The <strong>Wednesday session of 23 September does not meet</strong>: 23 and 24 September are the National Day holiday. Teaching resumes on the normal Tuesday&nbsp;+&nbsp;Wednesday pattern in Week&nbsp;6.</p></div>
+<div class="info-box info-amber mb-32" style="text-align:left;"><h3>&#128197; Tuesday only this week</h3><p>The Wednesday session falls on the <strong>National Day holiday (23&ndash;24 September)</strong>, so Week 5 meets on <strong>Tuesday 22 September</strong> only. The Wednesday material is folded into Week 6.</p></div>
+<div class="section-label" style="margin-bottom:14px;">Week at a glance</div>
+<ul class="meta"><li><span class="k">Dates</span><span>Tue 22 Sep 2026 &mdash; Tuesday only</span></li><li><span class="k">Meeting</span><span>Tuesday 11:00&ndash;11:50 AM (1 hour) &middot; <strong>no Wednesday class &mdash; National Day</strong> &middot; <span class="tbd">Section TBD</span> &middot; <span class="tbd">Room TBD</span></span></li><li><span class="k">Contact hours</span><span>1 hour this week &middot; first of the three literary weeks (9 hours in total)</span></li><li><span class="k">Spec topic</span><span>Practical session: literary texts</span></li><li><span class="k">Reading</span><span>Lahlali &amp; Abu Hatab (2014), <strong>Lesson 7: Fiction</strong> (pp. 24&ndash;26)</span></li><li><span class="k">Graded work</span><span>Submissions and marks are in Blackboard Ultra</span></li></ul>
+<div class="section-label" style="margin-bottom:14px;">By the end of the week you should be able to</div>
+<ul class="obj"><li>Say why literary translation is harder than the other genres on this course &mdash; in terms of two cultures, not two languages.</li><li>Describe the translator&rsquo;s role as a <strong>social mediator</strong> between source and target culture.</li><li>Name the three literary genres the course treats: fiction, drama, poetry.</li><li>Choose consciously between being source-language-oriented and target-language-oriented, and defend the choice.</li><li>Explain why English&ndash;Arabic literary translation is structurally demanding: two different language families.</li></ul>
+<div class="section-label" style="margin-bottom:14px;">Core ideas</div>
+<div class="mb-32"><div class="idea"><h3>Why literary translation is the hard case</h3><p>Translating literary texts is more demanding than other types because it deals with <strong>two cultures</strong> &mdash; a source culture and a target culture &mdash; and not merely two languages.</p><p>The translator therefore has the duty of a <strong>social mediator</strong>. Two decisions follow from that role and recur in every literary text you touch: how to translate concepts represented in the SL and TL using different ideas and images, and how to translate idiomatic expressions that carry extra meaning in the genre being translated.</p><p>The course treats three literary genres &mdash; <strong>fiction</strong>, <strong>drama</strong> and <strong>poetry</strong> &mdash; and for each one asks the same three questions: what are the distinctive features of the genre, what problems does it create in translation, and what strategies deal with those problems.</p></div><div class="idea"><h3>Fiction</h3><em>Fiction</em> names a literary genre characterised by <strong>narration</strong>, usually prose in the form of a novel, a short story or a novella. It sub-classifies into themes &mdash; mystery, historical, romance, fantasy, western, science fiction, action adventure, humour, medical, tragedy, thriller, horror, and more &mdash; and each sub-genre has its own linguistic characteristics.<p>Translating fiction is challenging in general because it relies so heavily on narration. Beyond that, the translator has to make a standing decision: <strong>source-language-oriented or target-language-oriented?</strong> Adapting, managing and monitoring are the further issues that follow from it.</p></div><div class="idea"><h3>Two language families, one text</h3><p>When translating from English into Arabic the job is more demanding still, because the two languages belong to different families: <strong>Arabic is Semitic, English is Indo-European</strong>. They differ in their syntactic, phonological and lexical systems, on top of complicated cultural differences.</p><p>This is not a complaint; it is the reason the next two weeks exist. Week 6 takes the discourse and syntactic consequences of that gap; Week 7 takes the cultural ones.</p></div></div>
+<div class="section-label" style="margin-bottom:14px;">In class &mdash; Tuesday</div>
+<div class="mb-32"><div class="idea"><h3>First in-class translation &mdash; a literary text</h3><p>The opening literary practical is an extract from Charles Dickens&rsquo;s <em>Great Expectations</em> &mdash; the convict seizing Pip in the churchyard. It is chosen because it is almost all dialogue, and dialogue is where the orientation decision bites first.</p><p>Work through it in class with a dictionary. Three things to watch: the threatening register of the convict&rsquo;s speech, the child&rsquo;s frightened politeness, and the fact that English exclamatory dialogue does not survive word-for-word treatment. Keep your draft &mdash; you will revisit it in Week 6 once you have the discourse and syntax tools.</p><p>This is <strong>class practice, not graded work</strong>. The graded in-class group task falls in Week 10.</p></div></div>
+<div class="section-label" style="margin-bottom:14px;">Check yourself</div>
+<div class="pr"><details><summary>Why is the literary translator described as a social mediator rather than a language converter?</summary><div class="ans">Because the work sits between two <em>cultures</em>. Concepts, images and idiomatic expressions carry meaning that exists in the source culture and may have no counterpart in the target one; the translator has to decide how that meaning will reach a reader who does not share the source culture.</div></details><details><summary>What is the standing decision a translator of fiction has to make?</summary><div class="ans">Whether to be source-language-oriented or target-language-oriented &mdash; and to make that choice deliberately, for the whole text, rather than drifting between the two. Adapting, managing and monitoring follow from it.</div></details><details><summary>Why does the English&ndash;Arabic pair make literary translation structurally harder?</summary><div class="ans">The two languages belong to different language families &mdash; Arabic is Semitic, English is Indo-European &mdash; so their syntactic, phonological and lexical systems differ, and the cultural distance is added on top of that.</div></details></div>
+<div class="section-label" style="margin-bottom:14px;">Take it further</div>
+<ul class="rd"><li><span class="src">Essential reference</span>Lahlali &amp; Abu Hatab (2014), Lesson 7: Fiction. Worked examples with translations, pp. 24&ndash;26.</li><li><span class="src">Lecture handout</span><strong>Chapter Two</strong> &mdash; literary texts, opening section.</li></ul>
 
-  <div class="section-label" style="margin-bottom:14px;">Week at a glance</div>
-  <ul class="meta">
-    <li><span class="k">Dates</span><span>Tue 22 Sep 2026</span></li>
-    <li><span class="k">Meeting</span><span>Tuesday 11:00&ndash;11:50 AM (1 hour) &middot; Wednesday 10:00&ndash;11:40 AM (2 hours) &mdash; <strong>no Wednesday session this week</strong> (National Day holiday) &middot; <span class="tbd">Section TBD</span> &middot; <span class="tbd">Room TBD</span></span></li>
-    <li><span class="k">Contact hours</span><span>1 hour this week &mdash; Tuesday only; the Wednesday session falls on the National Day holiday</span></li>
-    <li><span class="k">Spec topic</span><span>Practical session: literary texts &middot; 1 of 3</span></li>
-    <li><span class="k">Graded work</span><span>Submissions and marks are in Blackboard Ultra</span></li>
-  </ul>
-
-  <div class="section-label" style="margin-bottom:14px;">Materials</div>
-  <div class="soon">
-    <div class="soon-ic">&#128296;</div>
-    <div class="soon-t">Content coming soon</div>
-    <div class="soon-p">The readings, in-class activities and practice for this week are still being prepared and will be published here before the week begins. The topic, dates and assessment information above are final and come from the official course specification. Check Blackboard Ultra for anything graded.</div>
-  </div>
+  <div class="section-label" style="margin-bottom:14px;">Workshop</div>
+  <a href="workshop5.html" style="display:block;background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);border-left:4px solid var(--ac);padding:20px 22px;margin:0 0 32px;text-decoration:none;color:inherit;"><div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--ac);margin-bottom:7px;">Week 5 workshop &middot; interactive</div><div style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:7px;letter-spacing:-.01em;">Two Cultures, One Story</div><div style="font-size:13.5px;color:var(--text-2);line-height:1.7;margin-bottom:10px;">Fiction, narration, and the orientation decision &mdash; with the Dickens extract to translate.</div><div style="font-size:13px;font-weight:700;color:var(--ac);">Concepts &middot; Analyse &middot; Translate it &middot; Quiz &nbsp;&rarr;</div></a>
 
   <div class="week-nav"><a href="week4.html">&larr; Week 4</a><a href="week6.html">Week 6 &rarr;</a></div>
 </div>
 </div>
-<footer><strong>ENG 270 Introduction to Translation</strong> &middot; Week 5 &middot; 20&ndash;24 Sep 2026 &middot; Qassim University &middot; Semester 481<br><a href="index.html">Course Hub</a> &middot; <a href="../index.html">Qassim Courses</a></footer>
+<footer><strong>ENG 270 Introduction to Translation</strong> &middot; Week 5 &middot; 22 Sep 2026 &middot; Qassim University &middot; Semester 481<br><a href="index.html">Course Hub</a> &middot; <a href="../index.html">Qassim Courses</a></footer>
 <script src="track.js" defer></script>
 <script src="site.js" defer></script>
 </body>

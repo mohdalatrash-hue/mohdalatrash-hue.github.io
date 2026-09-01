@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Week 6 &mdash; Literary Texts | ENG 270</title>
+<title>Week 6 &mdash; Literary Texts (2 of 3) | ENG 270</title>
 <link rel="stylesheet" href="../style.css">
-<meta name="description" content="ENG 270 Week 6 (27 Sep - 1 Oct 2026) &mdash; Practical session: literary texts - 2 of 3. Introduction to Translation, Qassim University, Semester 481.">
+<meta name="description" content="ENG 270 Week 6 &mdash; Literary texts 2 of 3 &mdash; narrative discourse and syntactic problems, cohesion, word order, tense and aspect.">
 <meta name="theme-color" content="#1a6b3c">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -15,8 +15,8 @@
 <meta name="apple-mobile-web-app-title" content="ENG 270">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ENG 270 Introduction to Translation">
-<meta property="og:title" content="Week 6 &mdash; Literary Texts | ENG 270">
-<meta property="og:description" content="Practical session: literary texts - 2 of 3 &mdash; ENG 270 Week 6.">
+<meta property="og:title" content="Week 6 &mdash; Literary Texts (2 of 3) | ENG 270">
+<meta property="og:description" content="Literary texts 2 of 3 &mdash; narrative discourse and syntactic problems, cohesion, word order, tense and aspect.">
 <meta property="og:image" content="https://mohdalatrash-hue.github.io/eng270/icon-512.png">
 <meta property="og:url" content="https://mohdalatrash-hue.github.io/eng270/week6.html">
 <meta name="twitter:card" content="summary">
@@ -34,13 +34,38 @@ body{background:var(--off-white);}
 .ass-t{font-size:15px;font-weight:800;color:var(--text);}
 .ass-w{font-size:11px;font-weight:800;background:#fdeaea;color:#a01010;padding:3px 10px;border-radius:var(--r-pill);}
 .ass-d{font-size:13px;color:var(--text-2);line-height:1.65;}
-.soon{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);border:1.5px dashed var(--border);padding:34px 26px;text-align:center;margin:0 0 32px;}
-.soon-ic{font-size:32px;margin-bottom:10px;}
-.soon-t{font-size:16px;font-weight:800;color:var(--ac-ink);margin-bottom:8px;}
-.soon-p{font-size:13px;color:var(--text-2);line-height:1.7;max-width:56ch;margin:0 auto;}
 .meta{list-style:none;padding:0;margin:0 0 32px;display:flex;flex-direction:column;gap:8px;}
 .meta li{display:flex;gap:12px;align-items:flex-start;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px;font-size:13px;color:var(--text-2);line-height:1.6;}
 .meta .k{font-weight:800;color:var(--ac-ink);min-width:120px;flex-shrink:0;}
+.obj{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:8px;}
+.obj li{position:relative;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px 13px 44px;font-size:13.5px;color:var(--text);line-height:1.6;}
+.obj li:before{content:"\2713";position:absolute;left:16px;top:12px;color:var(--ac);font-weight:800;}
+.idea{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:20px 22px;margin:0 0 12px;}
+.idea h3{font-size:15px;font-weight:800;color:var(--ac-ink);margin:0 0 8px;letter-spacing:-.01em;}
+.idea p{font-size:13.5px;color:var(--text-2);line-height:1.75;margin:0 0 9px;}
+.idea p:last-child{margin-bottom:0;}
+.idea ul{margin:6px 0 0;padding-left:20px;}
+.idea li{font-size:13.5px;color:var(--text-2);line-height:1.7;margin-bottom:5px;}
+.ex{width:100%;border-collapse:collapse;background:var(--white);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-xs);font-size:13px;}
+.ex th{background:var(--off-white);text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-2);font-weight:800;padding:10px 14px;border-bottom:1px solid var(--border);}
+.ex td{padding:12px 14px;border-bottom:1px solid var(--border-light);color:var(--text-2);line-height:1.65;vertical-align:top;}
+.ex tr:last-child td{border-bottom:none;}
+.ex .en{color:var(--text);font-weight:500;min-width:170px;}
+.ex .ar{font-size:16px;color:var(--text);direction:rtl;text-align:right;min-width:150px;line-height:1.9;}
+.ex .nt{font-size:12.5px;}
+.exwrap{overflow-x:auto;margin:0 0 32px;}
+.pr{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);overflow:hidden;margin:0 0 32px;}
+.pr details{border-bottom:1px solid var(--border-light);}
+.pr details:last-child{border-bottom:none;}
+.pr summary{cursor:pointer;padding:14px 18px;font-size:13.5px;font-weight:600;color:var(--text);list-style:none;display:flex;gap:10px;align-items:flex-start;}
+.pr summary::-webkit-details-marker{display:none;}
+.pr summary:before{content:"?";flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--ac-soft);color:var(--ac-ink);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.pr details[open] summary{background:var(--ac-soft);}
+.pr .ans{padding:2px 18px 16px 48px;font-size:13px;color:var(--text-2);line-height:1.75;}
+.pr .ans .ara{font-size:16px;direction:rtl;display:inline-block;}
+.rd{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:8px;}
+.rd li{background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px;font-size:13px;color:var(--text-2);line-height:1.6;}
+.rd .src{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ac-ink);margin-bottom:3px;}
 </style>
 </head>
 <body>
@@ -52,41 +77,43 @@ body{background:var(--off-white);}
     <span class="nav-sep">&rsaquo;</span>
     <span class="nav-cur">Week 6</span>
     <div class="nav-spacer"></div>
-    <div class="nav-links"><a class="nav-link" href="week5.html">&larr; Week 5</a><a class="nav-link" href="week7.html">Week 7 &rarr;</a></div>
+    <div class="nav-links"><a class="nav-link" href="week7.html">Week 7</a></div>
   </div>
 </nav>
 <div class="hero" style="padding-bottom:28px;">
   <div class="hero-eyebrow">Week 6 of 15 &middot; Tue 29 &amp; Wed 30 Sep 2026</div>
-  <h1>Literary Texts</h1>
+  <h1>Literary Texts (2 of 3)</h1>
   <p class="hero-sub"><span class="tbd">Section TBD</span> &middot; Tue 11:00&ndash;11:50 AM &middot; Wed 10:00&ndash;11:40 AM &middot; <span class="tbd">Room TBD</span></p>
   <div class="wk-dots"><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot on"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span></div>
 </div>
 <div class="section-alt" style="padding:8px 0 64px;">
 <div class="section-inner">
 
-  <div class="strand">Practical session: literary texts &middot; 2 of 3</div>
-  <p class="lead">This week belongs to the <strong>literary texts</strong> practical strand &mdash; nine contact hours across Weeks&nbsp;5&ndash;7. Practical sessions apply the methods from Weeks&nbsp;2&ndash;4 to literary material, and to the characteristics and challenges of the genre.</p>
+  <div class="strand">Practical session &middot; narrative: discourse and syntax</div>
+  <p class="lead">The two technical problems narrative fiction sets: discourse problems, where English subordination meets Arabic conjunction, and syntactic problems, where SVO meets VSO and the English perfect meets an Arabic verb that does not have one.</p>
 
-  <div class="section-label" style="margin-bottom:14px;">Week at a glance</div>
-  <ul class="meta">
-    <li><span class="k">Dates</span><span>Tue 29 &amp; Wed 30 Sep 2026</span></li>
-    <li><span class="k">Meeting</span><span>Tuesday 11:00&ndash;11:50 AM (1 hour) &middot; Wednesday 10:00&ndash;11:40 AM (2 hours) &middot; <span class="tbd">Section TBD</span> &middot; <span class="tbd">Room TBD</span></span></li>
-    <li><span class="k">Contact hours</span><span>3 hours this week (45 across the semester)</span></li>
-    <li><span class="k">Spec topic</span><span>Practical session: literary texts &middot; 2 of 3</span></li>
-    <li><span class="k">Graded work</span><span>Submissions and marks are in Blackboard Ultra</span></li>
-  </ul>
+<div class="section-label" style="margin-bottom:14px;">Week at a glance</div>
+<ul class="meta"><li><span class="k">Dates</span><span>Tue 29 &amp; Wed 30 Sep 2026</span></li><li><span class="k">Meeting</span><span>Tuesday 11:00&ndash;11:50 AM (1 hour) &middot; Wednesday 10:00&ndash;11:40 AM (2 hours) &middot; <span class="tbd">Section TBD</span> &middot; <span class="tbd">Room TBD</span></span></li><li><span class="k">Contact hours</span><span>3 hours this week &middot; second of the three literary weeks</span></li><li><span class="k">Spec topic</span><span>Practical session: literary texts &mdash; narrative</span></li><li><span class="k">Reading</span><span>Lahlali &amp; Abu Hatab (2014), <strong>Lesson 8</strong> (pp. 27&ndash;30) and <strong>Lesson 9</strong> (pp. 31&ndash;34) &middot; exercises 8.3, 9.1, 9.3</span></li><li><span class="k">Graded work</span><span>Submissions and marks are in Blackboard Ultra</span></li></ul>
+<div class="section-label" style="margin-bottom:14px;">By the end of the week you should be able to</div>
+<ul class="obj"><li>Name the three layers of a narrative text and the elements the translator must be aware of.</li><li>Contrast English and Arabic cohesion: subordination versus conjunction, general words versus lexical repetition.</li><li>Explain why run-on sentences are normal in Arabic and what that means for your punctuation decisions.</li><li>State the basic word-order difference &mdash; English SVO, Arabic VSO &mdash; and apply it without being told.</li><li>Render the English perfect and progressive into Arabic using adverbs and the <span class="ara">&#1603;&#1575;&#1606; + &#1602;&#1583;</span> construction, rather than hunting for a tense that does not exist.</li></ul>
+<div class="section-label" style="margin-bottom:14px;">Core ideas</div>
+<div class="mb-32"><div class="idea"><h3>Narrative, and what the translator has to see</h3><p>Narration is the most distinctive feature of fiction. It forms the plot of the story or novel, which has a specific setting and a point of view &mdash; the voice of the narrator. The translator&rsquo;s awareness of the elements of fiction and of narrative technique is what makes the process manageable.</p><p>Technically, a narrative text contains <strong>three layers</strong> &mdash; the text, the story and the fabula &mdash; and deals with a series of connected events caused or experienced by the actors (Bal 1985). You are not asked to become a narratologist; you are asked to notice that a narrative has a voice and a viewpoint, and that both can be destroyed in translation without a single word being mistranslated.</p></div><div class="idea"><h3>Discourse problems &mdash; cohesion and coherence</h3><p>Discourse problems are problems of cohesion and coherence, and English and Arabic build them differently.</p><ul><li><strong>Arabic relies heavily on conjunction</strong> as a cohesive device; <strong>English uses more subordination</strong>.</li><li><strong>Run-on sentences are usual in Arabic</strong>, since punctuation is not traditionally used as a cohesive device.</li><li>English uses subordinates and general words as lexical cohesive devices; <strong>Arabic favours repetition of the same lexical item</strong> (Dickins 2002, 2009).</li></ul><p>In a comprehensive taxonomy, English cohesive devices classify as <strong>reference, substitution, ellipsis, conjunction and lexical cohesion</strong>. The practical consequence: an English paragraph of long subordinated sentences often becomes an Arabic paragraph of coordinated clauses &mdash; and repeating the noun where English would have used a pronoun or a general word is good Arabic, not clumsy Arabic.</p></div><div class="idea"><h3>Syntactic problems &mdash; word order</h3><p>English is usually considered an <strong>SVO</strong> language; Arabic is basically <strong>VSO</strong>, since SVO structures are less frequent. A translator working into Arabic must take that difference into account rather than importing English order.</p><p>English also makes heavy use of auxiliary verbs in questions and negation. Such use is not frequent in Arabic, so <strong>auxiliaries are not always translated</strong>.</p></div><div class="idea"><h3>Tense and aspect &mdash; the real difficulty</h3><p>Arabic tense is classified into past, present and future, and depends on inflections of both verb and subject. One verb form covers several categories of past or present, and <strong>adverbs</strong> are what disambiguate.</p><p>Three rules cover most cases:</p><ul><li>The <strong>perfective aspect</strong> is normally indicated by adding an adverb: <span class="ara">&#1578;&#1608;&#1611;&#1575;&#1548; &#1581;&#1575;&#1604;&#1575;&#1611;&#1548; &#1601;&#1610; &#1575;&#1604;&#1578;&#1608;&#1548; &#1593;&#1604;&#1609; &#1575;&#1604;&#1601;&#1608;&#1585;&#1548; &#1604;&#1578;&#1608;&#1607;&#1605;</span>.</li><li>The <strong>past perfect</strong> uses the construction <span class="ara">&#1603;&#1575;&#1606; + &#1602;&#1583;</span> and its derivatives.</li><li>The <strong>progressive</strong> is not carried by auxiliaries in Standard Arabic; it too depends on adverbs, combined with <span class="ara">&#1603;&#1575;&#1606;</span> and its derivatives for the past progressive.</li></ul></div></div>
+<div class="section-label" style="margin-bottom:14px;">Worked examples &mdash; tense and aspect</div>
+<div class="exwrap"><table class="ex"><thead><tr><th>English source</th><th>Arabic rendering</th><th>What is happening</th></tr></thead><tbody><tr><td class="en">Ahmed went to school / Ahmed has gone to school</td><td class="ar" lang="ar" dir="rtl">&#1584;&#1607;&#1576; &#1571;&#1581;&#1605;&#1583; &#1573;&#1604;&#1609; &#1575;&#1604;&#1605;&#1583;&#1585;&#1587;&#1577;</td><td class="nt">Both English sentences give the same Arabic. The distinction English marks with the perfect simply is not marked by the Arabic verb.</td></tr><tr><td class="en">They have just arrived from the airport</td><td class="ar" lang="ar" dir="rtl">&#1608;&#1589;&#1604;&#1608;&#1575; &#1605;&#1606; &#1575;&#1604;&#1605;&#1591;&#1575;&#1585; &#1578;&#1608;&#1611;&#1575; &#1571;&#1608; &#1581;&#1575;&#1604;&#1575;&#1611;</td><td class="nt">An <strong>adverb</strong> has to be added to carry the perfective aspect &mdash; the verb alone cannot.</td></tr><tr><td class="en">They arrived from the airport yesterday</td><td class="ar" lang="ar" dir="rtl">&#1608;&#1589;&#1604;&#1608;&#1575; &#1605;&#1606; &#1575;&#1604;&#1605;&#1591;&#1575;&#1585; &#1571;&#1605;&#1587;</td><td class="nt">Same verb form; a different adverb fixes it in the past.</td></tr><tr><td class="en">She felt sad about losing her watch because she had had it for twenty years</td><td class="ar" lang="ar" dir="rtl">&#1588;&#1593;&#1585;&#1578; &#1576;&#1575;&#1604;&#1581;&#1586;&#1606; &#1604;&#1571;&#1606;&#1607;&#1575; &#1571;&#1590;&#1575;&#1593;&#1578; &#1587;&#1575;&#1593;&#1578;&#1607;&#1575; &#1604;&#1571;&#1606;&#1607;&#1575; &#1602;&#1583; &#1575;&#1581;&#1578;&#1601;&#1592;&#1578; &#1576;&#1607;&#1575; &#1593;&#1588;&#1585;&#1610;&#1606; &#1593;&#1575;&#1605;&#1611;&#1575;</td><td class="nt">The past perfect is carried by <span class="ara">&#1602;&#1583;</span> &mdash; the <span class="ara">&#1603;&#1575;&#1606; + &#1602;&#1583;</span> family at work.</td></tr><tr><td class="en">My sister is waiting for me at the park</td><td class="ar" lang="ar" dir="rtl">&#1571;&#1582;&#1578;&#1610; &#1578;&#1606;&#1578;&#1592;&#1585;&#1606;&#1610; &#1601;&#1610; &#1575;&#1604;&#1605;&#1606;&#1578;&#1586;&#1607;</td><td class="nt">No auxiliary crosses. Standard Arabic has no <em>is + -ing</em> to translate.</td></tr><tr><td class="en">Alice was beginning to get very tired of sitting by her sister on the bank</td><td class="ar" lang="ar" dir="rtl">&#1603;&#1575;&#1606;&#1578; &#1571;&#1604;&#1610;&#1587; &#1576;&#1583;&#1571;&#1578; &#1578;&#1578;&#1593;&#1576; &#1605;&#1606; &#1575;&#1604;&#1580;&#1604;&#1608;&#1587; &#1576;&#1580;&#1575;&#1606;&#1576; &#1571;&#1582;&#1578;&#1607;&#1575; &#1593;&#1604;&#1609; &#1590;&#1601;&#1577; &#1575;&#1604;&#1606;&#1607;&#1585;</td><td class="nt">Past progressive built with <span class="ara">&#1603;&#1575;&#1606;</span> plus a past verb.</td></tr></tbody></table></div>
+<div class="section-label" style="margin-bottom:14px;">In class</div>
+<div class="mb-32"><div class="idea"><h3>Tuesday &mdash; one hour</h3><p>Narrative layers, voice and point of view; discourse problems &mdash; cohesion and coherence contrasted across the two languages. Exercise 8.3 (p. 30).</p></div><div class="idea"><h3>Wednesday &mdash; two hours</h3><p>Syntactic problems: word order, auxiliaries, tense and aspect, worked on real sentences. Exercises 9.1 (p. 32) and 9.3 (p. 34). Then return to your Week 5 <em>Great Expectations</em> draft and revise it with this week&rsquo;s tools &mdash; most students find their punctuation and their pronouns were the problem, not their vocabulary.</p></div></div>
+<div class="section-label" style="margin-bottom:14px;">Check yourself</div>
+<div class="pr"><details><summary>Your Arabic paragraph repeats the same noun four times where the English used <em>it</em>, <em>the matter</em> and <em>this issue</em>. Is that a fault?</summary><div class="ans">No &mdash; it is normal Arabic cohesion. English uses subordinates and general words as lexical cohesive devices; Arabic favours repetition of the same lexical item. Forcing English-style variation into Arabic is the more common error.</div></details><details><summary>Translate the aspectual difference: <em>They have just arrived</em> versus <em>They arrived yesterday</em>.</summary><div class="ans">The Arabic verb is the same in both. The difference is carried by the adverb: <span class="ara">&#1578;&#1608;&#1611;&#1575; / &#1581;&#1575;&#1604;&#1575;&#1611;</span> for the perfective, <span class="ara">&#1571;&#1605;&#1587;</span> for the simple past. Adverbs, not tenses, do the aspectual work in Arabic.</div></details><details><summary>An English source has one 60-word sentence with three subordinate clauses. What is likely to happen in Arabic?</summary><div class="ans">It becomes a run of coordinated clauses joined by conjunction &mdash; which is normal, because Arabic relies on conjunction where English relies on subordination, and run-on sentences are usual since punctuation is not traditionally a cohesive device in Arabic.</div></details><details><summary>Why are English auxiliary verbs often left untranslated?</summary><div class="ans">Because English uses auxiliaries heavily in questions and negation, and such use is not frequent in Arabic. Translating them mechanically produces the <span class="ara">&#1610;&#1603;&#1608;&#1606; / &#1610;&#1605;&#1604;&#1603;</span> problem you met in Week 2.</div></details></div>
+<div class="section-label" style="margin-bottom:14px;">Take it further</div>
+<ul class="rd"><li><span class="src">Essential reference</span>Lahlali &amp; Abu Hatab (2014), Lesson 8: Narrative texts &mdash; discourse problems; Lesson 9: Narrative texts &mdash; syntactic problems.</li><li><span class="src">Exercises</span>8.3 (p. 30) in class &middot; 9.1 (p. 32) and 9.3 (p. 34).</li><li><span class="src">Lecture handout</span><strong>Chapter Two</strong>, Module 2.</li></ul>
 
-  <div class="section-label" style="margin-bottom:14px;">Materials</div>
-  <div class="soon">
-    <div class="soon-ic">&#128296;</div>
-    <div class="soon-t">Content coming soon</div>
-    <div class="soon-p">The readings, in-class activities and practice for this week are still being prepared and will be published here before the week begins. The topic, dates and assessment information above are final and come from the official course specification. Check Blackboard Ultra for anything graded.</div>
-  </div>
+  <div class="section-label" style="margin-bottom:14px;">Workshop</div>
+  <a href="workshop6.html" style="display:block;background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);border-left:4px solid var(--ac);padding:20px 22px;margin:0 0 32px;text-decoration:none;color:inherit;"><div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--ac);margin-bottom:7px;">Week 6 workshop &middot; interactive</div><div style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:7px;letter-spacing:-.01em;">Cohesion, Word Order, Aspect</div><div style="font-size:13.5px;color:var(--text-2);line-height:1.7;margin-bottom:10px;">The three contrasts that break student translations: conjunction, VSO, and aspect by adverb.</div><div style="font-size:13px;font-weight:700;color:var(--ac);">Concepts &middot; Analyse &middot; Translate it &middot; Quiz &nbsp;&rarr;</div></a>
 
   <div class="week-nav"><a href="week5.html">&larr; Week 5</a><a href="week7.html">Week 7 &rarr;</a></div>
 </div>
 </div>
-<footer><strong>ENG 270 Introduction to Translation</strong> &middot; Week 6 &middot; 27 Sep &ndash; 1 Oct 2026 &middot; Qassim University &middot; Semester 481<br><a href="index.html">Course Hub</a> &middot; <a href="../index.html">Qassim Courses</a></footer>
+<footer><strong>ENG 270 Introduction to Translation</strong> &middot; Week 6 &middot; 29&ndash;30 Sep 2026 &middot; Qassim University &middot; Semester 481<br><a href="index.html">Course Hub</a> &middot; <a href="../index.html">Qassim Courses</a></footer>
 <script src="track.js" defer></script>
 <script src="site.js" defer></script>
 </body>

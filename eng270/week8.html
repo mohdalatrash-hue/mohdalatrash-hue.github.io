@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Week 8 &mdash; Scientific Texts | ENG 270</title>
+<title>Week 8 &mdash; Scientific Texts (1 of 2) | ENG 270</title>
 <link rel="stylesheet" href="../style.css">
-<meta name="description" content="ENG 270 Week 8 (11-15 Oct 2026) &mdash; Practical session: scientific texts - 1 of 2. Introduction to Translation, Qassim University, Semester 481.">
+<meta name="description" content="ENG 270 Week 8 &mdash; Scientific texts 1 of 2 &mdash; borrowing, calque, naturalisation, coinage, and the two-level analysis.">
 <meta name="theme-color" content="#1a6b3c">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -15,8 +15,8 @@
 <meta name="apple-mobile-web-app-title" content="ENG 270">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ENG 270 Introduction to Translation">
-<meta property="og:title" content="Week 8 &mdash; Scientific Texts | ENG 270">
-<meta property="og:description" content="Practical session: scientific texts - 1 of 2 &mdash; ENG 270 Week 8.">
+<meta property="og:title" content="Week 8 &mdash; Scientific Texts (1 of 2) | ENG 270">
+<meta property="og:description" content="Scientific texts 1 of 2 &mdash; borrowing, calque, naturalisation, coinage, and the two-level analysis.">
 <meta property="og:image" content="https://mohdalatrash-hue.github.io/eng270/icon-512.png">
 <meta property="og:url" content="https://mohdalatrash-hue.github.io/eng270/week8.html">
 <meta name="twitter:card" content="summary">
@@ -34,13 +34,38 @@ body{background:var(--off-white);}
 .ass-t{font-size:15px;font-weight:800;color:var(--text);}
 .ass-w{font-size:11px;font-weight:800;background:#fdeaea;color:#a01010;padding:3px 10px;border-radius:var(--r-pill);}
 .ass-d{font-size:13px;color:var(--text-2);line-height:1.65;}
-.soon{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);border:1.5px dashed var(--border);padding:34px 26px;text-align:center;margin:0 0 32px;}
-.soon-ic{font-size:32px;margin-bottom:10px;}
-.soon-t{font-size:16px;font-weight:800;color:var(--ac-ink);margin-bottom:8px;}
-.soon-p{font-size:13px;color:var(--text-2);line-height:1.7;max-width:56ch;margin:0 auto;}
 .meta{list-style:none;padding:0;margin:0 0 32px;display:flex;flex-direction:column;gap:8px;}
 .meta li{display:flex;gap:12px;align-items:flex-start;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px;font-size:13px;color:var(--text-2);line-height:1.6;}
 .meta .k{font-weight:800;color:var(--ac-ink);min-width:120px;flex-shrink:0;}
+.obj{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:8px;}
+.obj li{position:relative;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px 13px 44px;font-size:13.5px;color:var(--text);line-height:1.6;}
+.obj li:before{content:"\2713";position:absolute;left:16px;top:12px;color:var(--ac);font-weight:800;}
+.idea{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:20px 22px;margin:0 0 12px;}
+.idea h3{font-size:15px;font-weight:800;color:var(--ac-ink);margin:0 0 8px;letter-spacing:-.01em;}
+.idea p{font-size:13.5px;color:var(--text-2);line-height:1.75;margin:0 0 9px;}
+.idea p:last-child{margin-bottom:0;}
+.idea ul{margin:6px 0 0;padding-left:20px;}
+.idea li{font-size:13.5px;color:var(--text-2);line-height:1.7;margin-bottom:5px;}
+.ex{width:100%;border-collapse:collapse;background:var(--white);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-xs);font-size:13px;}
+.ex th{background:var(--off-white);text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-2);font-weight:800;padding:10px 14px;border-bottom:1px solid var(--border);}
+.ex td{padding:12px 14px;border-bottom:1px solid var(--border-light);color:var(--text-2);line-height:1.65;vertical-align:top;}
+.ex tr:last-child td{border-bottom:none;}
+.ex .en{color:var(--text);font-weight:500;min-width:170px;}
+.ex .ar{font-size:16px;color:var(--text);direction:rtl;text-align:right;min-width:150px;line-height:1.9;}
+.ex .nt{font-size:12.5px;}
+.exwrap{overflow-x:auto;margin:0 0 32px;}
+.pr{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);overflow:hidden;margin:0 0 32px;}
+.pr details{border-bottom:1px solid var(--border-light);}
+.pr details:last-child{border-bottom:none;}
+.pr summary{cursor:pointer;padding:14px 18px;font-size:13.5px;font-weight:600;color:var(--text);list-style:none;display:flex;gap:10px;align-items:flex-start;}
+.pr summary::-webkit-details-marker{display:none;}
+.pr summary:before{content:"?";flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--ac-soft);color:var(--ac-ink);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.pr details[open] summary{background:var(--ac-soft);}
+.pr .ans{padding:2px 18px 16px 48px;font-size:13px;color:var(--text-2);line-height:1.75;}
+.pr .ans .ara{font-size:16px;direction:rtl;display:inline-block;}
+.rd{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:8px;}
+.rd li{background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px;font-size:13px;color:var(--text-2);line-height:1.6;}
+.rd .src{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ac-ink);margin-bottom:3px;}
 </style>
 </head>
 <body>
@@ -52,46 +77,44 @@ body{background:var(--off-white);}
     <span class="nav-sep">&rsaquo;</span>
     <span class="nav-cur">Week 8</span>
     <div class="nav-spacer"></div>
-    <div class="nav-links"><a class="nav-link" href="week7.html">&larr; Week 7</a><a class="nav-link" href="week9.html">Week 9 &rarr;</a></div>
+    <div class="nav-links"><a class="nav-link" href="week9.html">Week 9</a></div>
   </div>
 </nav>
 <div class="hero" style="padding-bottom:28px;">
   <div class="hero-eyebrow">Week 8 of 15 &middot; Tue 13 &amp; Wed 14 Oct 2026</div>
-  <h1>Scientific Texts</h1>
+  <h1>Scientific Texts (1 of 2)</h1>
   <p class="hero-sub"><span class="tbd">Section TBD</span> &middot; Tue 11:00&ndash;11:50 AM &middot; Wed 10:00&ndash;11:40 AM &middot; <span class="tbd">Room TBD</span></p>
   <div class="wk-dots"><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot on"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span></div>
 </div>
 <div class="section-alt" style="padding:8px 0 64px;">
 <div class="section-inner">
 
-  <div class="strand">Practical session: scientific texts &middot; 1 of 2</div>
-  <p class="lead">This week belongs to the <strong>scientific texts</strong> practical strand &mdash; six contact hours across Weeks&nbsp;8&ndash;9, working on the characteristics of scientific writing and on the resources a translator needs for it.</p>
+  <div class="strand">Practical session &middot; scientific strategies</div>
+  <p class="lead">A change of register. Scientific texts are objective, terminologically dense and unforgiving &mdash; and the textbook calls them more challenging than literary texts. This week gives you the six named ways of filling a lexical gap, and the analysis that has to happen first.</p>
 
-  <div class="ass">
-    <div class="ass-h"><span style="font-size:20px;">&#128221;</span><span class="ass-t">Mid-term exam</span><span class="ass-w">20% of the course grade</span></div>
-    <div class="ass-d">This is the second half of the Weeks&nbsp;7&ndash;8 mid-term window. The exact date is set by the department and announced through Blackboard Ultra.</div>
-  </div>
+<div class="section-label" style="margin-bottom:14px;">Week at a glance</div>
+<ul class="meta"><li><span class="k">Dates</span><span>Tue 13 &amp; Wed 14 Oct 2026</span></li><li><span class="k">Meeting</span><span>Tuesday 11:00&ndash;11:50 AM (1 hour) &middot; Wednesday 10:00&ndash;11:40 AM (2 hours) &middot; <span class="tbd">Section TBD</span> &middot; <span class="tbd">Room TBD</span></span></li><li><span class="k">Contact hours</span><span>3 hours this week &middot; first of the two scientific weeks (6 hours in total)</span></li><li><span class="k">Spec topic</span><span>Practical session: scientific texts</span></li><li><span class="k">Reading</span><span>Lahlali &amp; Abu Hatab (2014), Module 4 opening; <strong>Lesson 19</strong> (pp. 90&ndash;93) and <strong>Lesson 20</strong> (pp. 94&ndash;97)</span></li><li><span class="k">Exercises</span><span>19.3 (p. 92) and 20.1&ndash;20.3 (pp. 94&ndash;96) in class &middot; 19.4 (p. 93) and 20.4 (p. 96) at home</span></li><li><span class="k">Assessment</span><span><strong>Mid-term exam window</strong> (Weeks 7&ndash;8) &middot; 20%</span></li><li><span class="k">Graded work</span><span>Submissions and marks are in Blackboard Ultra</span></li></ul>
+<div class="ass"><div class="ass-h"><span class="ass-t">Mid-term exam window</span><span class="ass-w">20%</span></div><div class="ass-d">The mid-term falls in the <strong>Weeks 7&ndash;8 window</strong> and covers Weeks 1&ndash;7: the definition and types of translation, the literal and free methods, the foundation methods, and the four families of translation problem. The paper, the date and the marks are in Blackboard Ultra.</div></div>
+<div class="section-label" style="margin-bottom:14px;">By the end of the week you should be able to</div>
+<ul class="obj"><li>Say what makes scientific texts the most challenging genre &mdash; and why that claim is defensible against literary texts.</li><li>Apply the three kinds of borrowing: total borrowing (Arabisation), calque, and naturalisation.</li><li>Distinguish a <strong>calque</strong> from a <strong>loanword</strong> in one sentence.</li><li>Apply the three coinage strategies for Arabic: derivation, <em>al-istinb&#257;t</em>, and loan translation.</li><li>Carry out the two-level analysis &mdash; lexical and grammatical &mdash; that must precede a scientific translation.</li></ul>
+<div class="section-label" style="margin-bottom:14px;">Core ideas</div>
+<div class="mb-32"><div class="idea"><h3>Why scientific texts are the hard genre</h3><p>The term <em>science</em> covers physics, biology, chemistry, astronomy, mathematics, geology, biochemistry, astrophysics, ecology and the engineering sciences. Scientific texts differ from other texts basically because scientific language draws on humanistic education (Pinchuk 1977), and because they are set out in unqualifiedly objective terms for the reader of the source and target text alike (Bassnett-McGuire 1991b).</p><p>The textbook states plainly that they are more challenging than, for example, literary texts. That is worth pausing on: literary texts are harder to translate <em>well</em>, but scientific texts are harder to translate <em>at all</em>, because a translator who does not understand the content cannot begin.</p><p>The difficulty sits in the terminology &mdash; a large number of very specific terms and concepts, plus numbers, symbols, graphs and diagrams &mdash; and terminology changes continuously, so a five-year-old glossary is a liability rather than an asset.</p></div><div class="idea"><h3>Lesson 19 &middot; Borrowing, in three forms</h3><p>Borrowing introduces the source term into the target language, and it is done three ways:</p><ul><li><strong>Total borrowing</strong> &mdash; full phonological borrowing, usually called <strong>Arabisation</strong>. It accepts derivation, so the borrowed stem then behaves like an Arabic noun. Best for new terms, inventions, diseases and discoveries with no TL equivalent.</li><li><strong>Loan translation, or calque</strong> &mdash; the new term is translated into the TL, element by element.</li><li><strong>Naturalisation</strong> &mdash; the source term is adapted to TL morphology. Common in computing, chemistry and biology.</li></ul><p>One definition to keep straight, because it is easy to lose under exam pressure: a <strong>calque</strong> is a word or phrase taken from one language and translated literally, word for word, into another; a <strong>loanword</strong> is a foreign word or expression maintained in its original form in the target language.</p></div><div class="idea"><h3>Lesson 19 &middot; Coinage, in three forms</h3><p>With coinage, new terms are created in the target language. Baker (1987) gives three basic strategies for Arabic:</p><ul><li><strong>Derivation</strong> &mdash; new terms by analogy through Arabic&rsquo;s own derivation system, nominal and verbal forms from the trilateral root. Described as the most natural way of enriching the language without altering its identity.</li><li><strong><em>Al-istinb&#257;t</em> (discovery)</strong> &mdash; reviving old words by extending their meanings to express new concepts.</li><li><strong>Loan translation</strong> &mdash; the meaning of the term rendered literally into Arabic.</li></ul></div><div class="idea"><h3>Lesson 20 &middot; Analyse before you translate</h3><p>Accuracy is the major issue: the translation must convey the same objectives as the source. The first step is understanding the scientific content, and that means analysing the text on <strong>two levels</strong>.</p><strong>Lexical analysis</strong> &mdash; look up the technical terms, use a good technical dictionary, and identify the text&rsquo;s register.<strong>Grammatical analysis</strong> &mdash; a contrastive analysis of the structures of both languages. English is characterised by connectives, little repetition of keywords, extensive use of passive forms, and the verbs <em>to be</em> and <em>to have</em>. Arabic uses more connectives, repeats keywords more often, and favours active structures. Tense and aspect are problematic in both, so the Week 6 rules apply here too.<p>Where a term has no target equivalent, the common strategy is to leave it in the original language and add a <strong>footnote</strong> that fully explains it. Scientific translation is a <strong>communicative service</strong>, offering new information to a new audience so that it can be used easily, properly and effectively (Byrne 2006) &mdash; which settles many small decisions: the question is always whether the reader can use it.</p></div></div>
+<div class="section-label" style="margin-bottom:14px;">Worked examples</div>
+<div class="exwrap"><table class="ex"><thead><tr><th>English source</th><th>Arabic rendering</th><th>What is happening</th></tr></thead><tbody><tr><td class="en">computer / computers</td><td class="ar" lang="ar" dir="rtl">&#1603;&#1605;&#1576;&#1610;&#1608;&#1578;&#1585; / &#1603;&#1605;&#1576;&#1610;&#1608;&#1578;&#1585;&#1575;&#1578;</td><td class="nt"><strong>Total borrowing (Arabisation).</strong> The borrowed stem takes an Arabic plural.</td></tr><tr><td class="en">atomic number</td><td class="ar" lang="ar" dir="rtl">&#1575;&#1604;&#1593;&#1583;&#1583; &#1575;&#1604;&#1584;&#1585;&#1610;</td><td class="nt"><strong>Calque.</strong> Both elements translated; the phrase structure crosses.</td></tr><tr><td class="en">atomic mass</td><td class="ar" lang="ar" dir="rtl">&#1575;&#1604;&#1603;&#1578;&#1604;&#1577; &#1575;&#1604;&#1584;&#1585;&#1610;&#1577;</td><td class="nt"><strong>Calque</strong> again &mdash; and note the feminine agreement that Arabic requires and English does not mark.</td></tr><tr><td class="en">e-mails / faxes</td><td class="ar" lang="ar" dir="rtl">&#1573;&#1610;&#1605;&#1610;&#1604;&#1575;&#1578; / &#1601;&#1575;&#1603;&#1587;&#1575;&#1578;</td><td class="nt"><strong>Naturalisation.</strong> The borrowed word is bent to Arabic morphology.</td></tr><tr><td class="en">data</td><td class="ar" lang="ar" dir="rtl">&#1605;&#1593;&#1591;&#1610;&#1575;&#1578;</td><td class="nt"><strong>Coinage by derivation</strong> from <span class="ara">&#1571;&#1593;&#1591;&#1609;</span> &mdash; entirely Arabic material.</td></tr><tr><td class="en">cloning</td><td class="ar" lang="ar" dir="rtl">&#1575;&#1587;&#1578;&#1606;&#1587;&#1575;&#1582;</td><td class="nt"><strong>Coinage by <em>al-istinb&#257;t</em></strong> &mdash; an existing word revived for a new concept.</td></tr><tr><td class="en">electronic mail</td><td class="ar" lang="ar" dir="rtl">&#1575;&#1604;&#1576;&#1585;&#1610;&#1583; &#1575;&#1604;&#1573;&#1604;&#1603;&#1578;&#1585;&#1608;&#1606;&#1610;</td><td class="nt"><strong>Loan translation.</strong> Sense rendered literally; nothing transliterated.</td></tr></tbody></table></div>
+<div class="section-label" style="margin-bottom:14px;">In class</div>
+<div class="mb-32"><div class="idea"><h3>Tuesday &mdash; one hour</h3><p>Features of scientific texts; borrowing and coinage, with the calque / loanword distinction drilled. Exercise 19.3 (p. 92) in pairs.</p></div><div class="idea"><h3>Wednesday &mdash; two hours</h3><p>Practical steps: lexical and grammatical analysis of a scientific passage, in groups of three. Exercises 20.1&ndash;20.3 (pp. 94&ndash;96) in class; 19.4 (p. 93) and 20.4 (p. 96) at home. Mid-term arrangements are confirmed in this session.</p></div></div>
+<div class="section-label" style="margin-bottom:14px;">Check yourself</div>
+<div class="pr"><details><summary>Is <span class="ara">&#1603;&#1605;&#1576;&#1610;&#1608;&#1578;&#1585;</span> a calque or a loanword? And <span class="ara">&#1575;&#1604;&#1593;&#1583;&#1583; &#1575;&#1604;&#1584;&#1585;&#1610;</span>?</summary><div class="ans"><span class="ara">&#1603;&#1605;&#1576;&#1610;&#1608;&#1578;&#1585;</span> is a loanword &mdash; the foreign word kept in its original form. <span class="ara">&#1575;&#1604;&#1593;&#1583;&#1583; &#1575;&#1604;&#1584;&#1585;&#1610;</span> is a calque &mdash; the phrase translated word for word.</div></details><details><summary>Which coinage strategy is called the most natural way of enriching Arabic, and why?</summary><div class="ans">Derivation. It builds new nominal and verbal forms by analogy from the trilateral root, so the term is generated by Arabic&rsquo;s own machinery rather than imported &mdash; and the language&rsquo;s identity is unaltered.</div></details><details><summary>A disease named last year has no Arabic equivalent. Rank your options.</summary><div class="ans">Total borrowing with a footnote is the safest first move, since the term must stay recognisable to specialists. Loan translation works if the name is descriptive. Derivation or <em>al-istinb&#257;t</em> risk producing a term no reader recognises &mdash; appropriate only once an authority has adopted it.</div></details><details><summary>Why can a translator with excellent Arabic still fail at a physics paper?</summary><div class="ans">Because proficiency in the target language is not sufficient. Translators need the language of the discipline and its background in order to articulate the ideas competently, following the content and style of the source &mdash; which is why the textbook says the scientific translator must be a good researcher.</div></details></div>
+<div class="section-label" style="margin-bottom:14px;">Take it further</div>
+<ul class="rd"><li><span class="src">Essential reference</span>Lahlali &amp; Abu Hatab (2014), Module 4: Scientific Texts &mdash; opening section; Lesson 19: Translation strategies (pp. 90&ndash;93); Lesson 20: Translation problems and practical steps (pp. 94&ndash;97).</li><li><span class="src">Exercises</span>19.3 (p. 92), 20.1&ndash;20.3 (pp. 94&ndash;96) in class &middot; 19.4 (p. 93) and 20.4 (p. 96) at home.</li><li><span class="src">Lecture handout</span><strong>Chapter Two</strong>, Module 4.</li><li><span class="src">Next week</span>Lessons 21&ndash;24 take the same module down to the level of equivalence: word, phrase and text.</li></ul>
 
-  <div class="section-label" style="margin-bottom:14px;">Week at a glance</div>
-  <ul class="meta">
-    <li><span class="k">Dates</span><span>Tue 13 &amp; Wed 14 Oct 2026</span></li>
-    <li><span class="k">Meeting</span><span>Tuesday 11:00&ndash;11:50 AM (1 hour) &middot; Wednesday 10:00&ndash;11:40 AM (2 hours) &middot; <span class="tbd">Section TBD</span> &middot; <span class="tbd">Room TBD</span></span></li>
-    <li><span class="k">Contact hours</span><span>3 hours this week (45 across the semester)</span></li>
-    <li><span class="k">Spec topic</span><span>Practical session: scientific texts &middot; 1 of 2</span></li>
-    <li><span class="k">Graded work</span><span>Submissions and marks are in Blackboard Ultra</span></li>
-  </ul>
-
-  <div class="section-label" style="margin-bottom:14px;">Materials</div>
-  <div class="soon">
-    <div class="soon-ic">&#128296;</div>
-    <div class="soon-t">Content coming soon</div>
-    <div class="soon-p">The readings, in-class activities and practice for this week are still being prepared and will be published here before the week begins. The topic, dates and assessment information above are final and come from the official course specification. Check Blackboard Ultra for anything graded.</div>
-  </div>
+  <div class="section-label" style="margin-bottom:14px;">Workshop</div>
+  <a href="workshop8.html" style="display:block;background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);border-left:4px solid var(--ac);padding:20px 22px;margin:0 0 32px;text-decoration:none;color:inherit;"><div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--ac);margin-bottom:7px;">Week 8 workshop &middot; interactive</div><div style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:7px;letter-spacing:-.01em;">Terms You Do Not Have</div><div style="font-size:13.5px;color:var(--text-2);line-height:1.7;margin-bottom:10px;">Borrowing and coinage in three forms each, and the analysis that comes first.</div><div style="font-size:13px;font-weight:700;color:var(--ac);">Concepts &middot; Analyse &middot; Translate it &middot; Quiz &nbsp;&rarr;</div></a>
 
   <div class="week-nav"><a href="week7.html">&larr; Week 7</a><a href="week9.html">Week 9 &rarr;</a></div>
 </div>
 </div>
-<footer><strong>ENG 270 Introduction to Translation</strong> &middot; Week 8 &middot; 11&ndash;15 Oct 2026 &middot; Qassim University &middot; Semester 481<br><a href="index.html">Course Hub</a> &middot; <a href="../index.html">Qassim Courses</a></footer>
+<footer><strong>ENG 270 Introduction to Translation</strong> &middot; Week 8 &middot; 13&ndash;14 Oct 2026 &middot; Qassim University &middot; Semester 481<br><a href="index.html">Course Hub</a> &middot; <a href="../index.html">Qassim Courses</a></footer>
 <script src="track.js" defer></script>
 <script src="site.js" defer></script>
 </body>

@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Week 14 &mdash; Legal Texts | ENG 270</title>
+<title>Week 14 &mdash; Legal Texts (1 of 2) | ENG 270</title>
 <link rel="stylesheet" href="../style.css">
-<meta name="description" content="ENG 270 Week 14 (29 Nov - 3 Dec 2026) &mdash; Practical session: legal texts - 1 of 2. Introduction to Translation, Qassim University, Semester 481.">
+<meta name="description" content="ENG 270 Week 14 &mdash; Legal texts 1 of 2 &mdash; legal language, classification, and the directive, informative and expressive functions.">
 <meta name="theme-color" content="#1a6b3c">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -15,8 +15,8 @@
 <meta name="apple-mobile-web-app-title" content="ENG 270">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ENG 270 Introduction to Translation">
-<meta property="og:title" content="Week 14 &mdash; Legal Texts | ENG 270">
-<meta property="og:description" content="Practical session: legal texts - 1 of 2 &mdash; ENG 270 Week 14.">
+<meta property="og:title" content="Week 14 &mdash; Legal Texts (1 of 2) | ENG 270">
+<meta property="og:description" content="Legal texts 1 of 2 &mdash; legal language, classification, and the directive, informative and expressive functions.">
 <meta property="og:image" content="https://mohdalatrash-hue.github.io/eng270/icon-512.png">
 <meta property="og:url" content="https://mohdalatrash-hue.github.io/eng270/week14.html">
 <meta name="twitter:card" content="summary">
@@ -34,13 +34,38 @@ body{background:var(--off-white);}
 .ass-t{font-size:15px;font-weight:800;color:var(--text);}
 .ass-w{font-size:11px;font-weight:800;background:#fdeaea;color:#a01010;padding:3px 10px;border-radius:var(--r-pill);}
 .ass-d{font-size:13px;color:var(--text-2);line-height:1.65;}
-.soon{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);border:1.5px dashed var(--border);padding:34px 26px;text-align:center;margin:0 0 32px;}
-.soon-ic{font-size:32px;margin-bottom:10px;}
-.soon-t{font-size:16px;font-weight:800;color:var(--ac-ink);margin-bottom:8px;}
-.soon-p{font-size:13px;color:var(--text-2);line-height:1.7;max-width:56ch;margin:0 auto;}
 .meta{list-style:none;padding:0;margin:0 0 32px;display:flex;flex-direction:column;gap:8px;}
 .meta li{display:flex;gap:12px;align-items:flex-start;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px;font-size:13px;color:var(--text-2);line-height:1.6;}
 .meta .k{font-weight:800;color:var(--ac-ink);min-width:120px;flex-shrink:0;}
+.obj{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:8px;}
+.obj li{position:relative;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px 13px 44px;font-size:13.5px;color:var(--text);line-height:1.6;}
+.obj li:before{content:"\2713";position:absolute;left:16px;top:12px;color:var(--ac);font-weight:800;}
+.idea{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:20px 22px;margin:0 0 12px;}
+.idea h3{font-size:15px;font-weight:800;color:var(--ac-ink);margin:0 0 8px;letter-spacing:-.01em;}
+.idea p{font-size:13.5px;color:var(--text-2);line-height:1.75;margin:0 0 9px;}
+.idea p:last-child{margin-bottom:0;}
+.idea ul{margin:6px 0 0;padding-left:20px;}
+.idea li{font-size:13.5px;color:var(--text-2);line-height:1.7;margin-bottom:5px;}
+.ex{width:100%;border-collapse:collapse;background:var(--white);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-xs);font-size:13px;}
+.ex th{background:var(--off-white);text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-2);font-weight:800;padding:10px 14px;border-bottom:1px solid var(--border);}
+.ex td{padding:12px 14px;border-bottom:1px solid var(--border-light);color:var(--text-2);line-height:1.65;vertical-align:top;}
+.ex tr:last-child td{border-bottom:none;}
+.ex .en{color:var(--text);font-weight:500;min-width:170px;}
+.ex .ar{font-size:16px;color:var(--text);direction:rtl;text-align:right;min-width:150px;line-height:1.9;}
+.ex .nt{font-size:12.5px;}
+.exwrap{overflow-x:auto;margin:0 0 32px;}
+.pr{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);overflow:hidden;margin:0 0 32px;}
+.pr details{border-bottom:1px solid var(--border-light);}
+.pr details:last-child{border-bottom:none;}
+.pr summary{cursor:pointer;padding:14px 18px;font-size:13.5px;font-weight:600;color:var(--text);list-style:none;display:flex;gap:10px;align-items:flex-start;}
+.pr summary::-webkit-details-marker{display:none;}
+.pr summary:before{content:"?";flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--ac-soft);color:var(--ac-ink);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.pr details[open] summary{background:var(--ac-soft);}
+.pr .ans{padding:2px 18px 16px 48px;font-size:13px;color:var(--text-2);line-height:1.75;}
+.pr .ans .ara{font-size:16px;direction:rtl;display:inline-block;}
+.rd{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:8px;}
+.rd li{background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px;font-size:13px;color:var(--text-2);line-height:1.6;}
+.rd .src{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ac-ink);margin-bottom:3px;}
 </style>
 </head>
 <body>
@@ -52,43 +77,41 @@ body{background:var(--off-white);}
     <span class="nav-sep">&rsaquo;</span>
     <span class="nav-cur">Week 14</span>
     <div class="nav-spacer"></div>
-    <div class="nav-links"><a class="nav-link" href="week13.html">&larr; Week 13</a><a class="nav-link" href="week15.html">Week 15 &rarr;</a></div>
+    <div class="nav-links"><a class="nav-link" href="week15.html">Week 15</a></div>
   </div>
 </nav>
 <div class="hero" style="padding-bottom:28px;">
   <div class="hero-eyebrow">Week 14 of 15 &middot; Tue 1 &amp; Wed 2 Dec 2026</div>
-  <h1>Legal Texts</h1>
+  <h1>Legal Texts (1 of 2)</h1>
   <p class="hero-sub"><span class="tbd">Section TBD</span> &middot; Tue 11:00&ndash;11:50 AM &middot; Wed 10:00&ndash;11:40 AM &middot; <span class="tbd">Room TBD</span></p>
   <div class="wk-dots"><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot on"></span><span class="wk-dot"></span></div>
 </div>
 <div class="section-alt" style="padding:8px 0 64px;">
 <div class="section-inner">
 
-  <div class="strand">Practical session: legal texts &middot; 1 of 2</div>
-  <p class="lead">This week belongs to the <strong>legal texts</strong> practical strand &mdash; six contact hours across Weeks&nbsp;14&ndash;15, the final genre of the course.</p>
+  <div class="strand">Practical session &middot; legal texts</div>
+  <p class="lead">The last genre, and the strictest. Legal language allows no creative style; what it demands instead is that you identify what a passage is doing &mdash; directing, informing, or expressing &mdash; before you translate a word of it.</p>
 
-  <div class="info-box info-amber mb-32" style="text-align:left;"><h3>&#128197; Calendar note</h3><p>Teaching resumes this week after the fall break (22&ndash;26 November).</p></div>
+<div class="section-label" style="margin-bottom:14px;">Week at a glance</div>
+<ul class="meta"><li><span class="k">Dates</span><span>Tue 1 &amp; Wed 2 Dec 2026</span></li><li><span class="k">Meeting</span><span>Tuesday 11:00&ndash;11:50 AM (1 hour) &middot; Wednesday 10:00&ndash;11:40 AM (2 hours) &middot; <span class="tbd">Section TBD</span> &middot; <span class="tbd">Room TBD</span></span></li><li><span class="k">Contact hours</span><span>3 hours this week &middot; first of the two legal weeks (6 hours in total)</span></li><li><span class="k">Spec topic</span><span>Practical session: legal texts</span></li><li><span class="k">Reading</span><span>Lahlali &amp; Abu Hatab (2014), Module 7 opening and <strong>Lesson 31: Translating legal texts</strong> (pp. 186&ndash;193)</span></li><li><span class="k">Note</span><span>Teaching resumes after Fall Break (24&ndash;25 Nov)</span></li><li><span class="k">Graded work</span><span>Submissions and marks are in Blackboard Ultra</span></li></ul>
+<div class="section-label" style="margin-bottom:14px;">By the end of the week you should be able to</div>
+<ul class="obj"><li>Describe legal language as strict and precise, with no freedom for creative style.</li><li>Classify legal texts by the functions of legal discourse and its sub-types.</li><li>Distinguish the <strong>directive</strong>, <strong>informative</strong> and <strong>expressive</strong> functions of legal texts.</li><li>Explain Sager&rsquo;s point that a legal text can be informative for the general reader and directive for a specific group at the same time.</li><li>Say what legal translation shares with general translation, and what it does not.</li></ul>
+<div class="section-label" style="margin-bottom:14px;">Core ideas</div>
+<div class="mb-32"><div class="idea"><h3>Legal language</h3><p>Legal language is known to be <strong>very strict and precise, with no freedom for a creative style</strong>. If you have been enjoying the range of choice available in the literary weeks, this is where it closes.</p><p>Although legal translation belongs to specialised translation, it shares some characteristics of general translation &mdash; which is why the methods of Weeks 2&ndash;4 still apply. What changes is how far along the literal&ndash;free axis you are permitted to travel: in this genre, very little.</p></div><div class="idea"><h3>Classifying legal texts</h3><p>Legal texts can be classified according to the <strong>functions of legal discourse</strong> and in connection with the sub-types of legal discourse. Similar to other specialised texts, legal texts serve an <em>informative function</em> according to Reiss (cf. &#352;ar&#269;evi&#263; 1997: 7).</p><p>They can also have <strong>directive</strong> and <strong>imperative</strong> functions, as well as an <strong>expressive</strong> one (Newmark 1982). Sager (1993) adds the point that makes the classification useful rather than academic: legal texts are <strong>informative for the general reader and directive for a specific group of people</strong> &mdash; the same document, two audiences, two functions.</p></div><div class="idea"><h3>The three functions in practice</h3><ul><li><strong>Directive</strong> &mdash; the text guides behaviour by setting out norms, rules and standards that tell people how they ought to act. Statutes, regulations, contractual obligations. Here the modality is the content, and the Week 13 discipline applies without relaxation.</li><li><strong>Informative</strong> &mdash; the text tells a reader what the law is: commentaries, explanatory notes, the recitals of a convention. Precision still governs, but the target reader is being informed rather than bound.</li><li><strong>Expressive</strong> &mdash; the text carries the voice and authority of its author: judgments, preambles, declarations. This is the one function in the genre where style is doing work, and it is still not an invitation to be creative.</li></ul><p>Identify the function of the passage in front of you before you choose anything else. A translator who renders a directive provision in the register of a commentary has mistranslated the document even if every word is right.</p></div><div class="idea"><h3>Where the earlier weeks come back</h3><p>Almost everything you have learned reappears here in a stricter form. The <strong>unit of translation</strong> from Week 3 matters, because legal sentences are long and their sub-clauses are separately operative. The <strong>lexical problems</strong> from Week 4 matter, because legal terms are often false friends across systems. The <strong>terminology list</strong> from Weeks 9 and 13 is now mandatory. And the <strong>cultural</strong> awareness of Week 7 matters most of all: legal concepts are institutional, and an institution that does not exist in the target legal system cannot simply be given a target-language name.</p></div></div>
+<div class="section-label" style="margin-bottom:14px;">In class</div>
+<div class="mb-32"><div class="idea"><h3>Tuesday &mdash; one hour</h3><p>Legal language and the classification of legal texts; the three functions identified on real extracts.</p></div><div class="idea"><h3>Wednesday &mdash; two hours</h3><p>Practical translation of a legal extract in the style of the take-home task &mdash; convention articles setting out obligations, notification requirements and scope of application. Terminology list first, translation second.</p></div></div>
+<div class="section-label" style="margin-bottom:14px;">Check yourself</div>
+<div class="pr"><details><summary>How can one legal text be both informative and directive?</summary><div class="ans">Because it addresses two audiences. Sager&rsquo;s point is that legal texts are informative for the general reader &mdash; who learns what the law is &mdash; and directive for the specific group whose conduct the text governs. Both functions live in the same words.</div></details><details><summary>A convention article reads: &lsquo;Each Contracting Party shall give notice&hellip; within three months&rsquo;. Which function is operating, and what follows for your Arabic?</summary><div class="ans">Directive. The sentence imposes a duty with a deadline, so the Arabic must impose a duty with a deadline &mdash; not report that notice is given, and not soften <em>shall</em> into a future. The time limit and the addressee must both survive exactly.</div></details><details><summary>Legal translation is specialised, yet it shares characteristics with general translation. What does that mean practically?</summary><div class="ans">That the methods from Weeks 2&ndash;4 still apply &mdash; you are still choosing between literal and free, still working unit by unit. What the genre removes is latitude: creative style has no place, so the workable range narrows to the precise end of the axis.</div></details><details><summary>Why is a legal term more dangerous than a scientific term?</summary><div class="ans">Because scientific concepts are largely shared across languages, while legal concepts are institutional and belong to a particular legal system. A term may have a familiar-looking equivalent that names a different institution &mdash; the cultural problem of Week 7, with legal consequences.</div></details></div>
+<div class="section-label" style="margin-bottom:14px;">Take it further</div>
+<ul class="rd"><li><span class="src">Essential reference</span>Lahlali &amp; Abu Hatab (2014), legal texts &mdash; legal language and the classification of legal discourse.</li><li><span class="src">Lecture handout</span><strong>Chapter Two</strong> &mdash; legal texts, including the functions of legal texts.</li></ul>
 
-  <div class="section-label" style="margin-bottom:14px;">Week at a glance</div>
-  <ul class="meta">
-    <li><span class="k">Dates</span><span>Tue 1 &amp; Wed 2 Dec 2026</span></li>
-    <li><span class="k">Meeting</span><span>Tuesday 11:00&ndash;11:50 AM (1 hour) &middot; Wednesday 10:00&ndash;11:40 AM (2 hours) &middot; <span class="tbd">Section TBD</span> &middot; <span class="tbd">Room TBD</span></span></li>
-    <li><span class="k">Contact hours</span><span>3 hours this week (45 across the semester)</span></li>
-    <li><span class="k">Spec topic</span><span>Practical session: legal texts &middot; 1 of 2</span></li>
-    <li><span class="k">Graded work</span><span>Submissions and marks are in Blackboard Ultra</span></li>
-  </ul>
-
-  <div class="section-label" style="margin-bottom:14px;">Materials</div>
-  <div class="soon">
-    <div class="soon-ic">&#128296;</div>
-    <div class="soon-t">Content coming soon</div>
-    <div class="soon-p">The readings, in-class activities and practice for this week are still being prepared and will be published here before the week begins. The topic, dates and assessment information above are final and come from the official course specification. Check Blackboard Ultra for anything graded.</div>
-  </div>
+  <div class="section-label" style="margin-bottom:14px;">Workshop</div>
+  <a href="workshop14.html" style="display:block;background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);border-left:4px solid var(--ac);padding:20px 22px;margin:0 0 32px;text-decoration:none;color:inherit;"><div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--ac);margin-bottom:7px;">Week 14 workshop &middot; interactive</div><div style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:7px;letter-spacing:-.01em;">One Legal System into Another</div><div style="font-size:13.5px;color:var(--text-2);line-height:1.7;margin-bottom:10px;">The three types of legal vocabulary, and identifying what a passage does before rendering it.</div><div style="font-size:13px;font-weight:700;color:var(--ac);">Concepts &middot; Analyse &middot; Translate it &middot; Quiz &nbsp;&rarr;</div></a>
 
   <div class="week-nav"><a href="week13.html">&larr; Week 13</a><a href="week15.html">Week 15 &rarr;</a></div>
 </div>
 </div>
-<footer><strong>ENG 270 Introduction to Translation</strong> &middot; Week 14 &middot; 29 Nov &ndash; 3 Dec 2026 &middot; Qassim University &middot; Semester 481<br><a href="index.html">Course Hub</a> &middot; <a href="../index.html">Qassim Courses</a></footer>
+<footer><strong>ENG 270 Introduction to Translation</strong> &middot; Week 14 &middot; 1&ndash;2 Dec 2026 &middot; Qassim University &middot; Semester 481<br><a href="index.html">Course Hub</a> &middot; <a href="../index.html">Qassim Courses</a></footer>
 <script src="track.js" defer></script>
 <script src="site.js" defer></script>
 </body>

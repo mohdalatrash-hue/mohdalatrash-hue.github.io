@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Week 12 &mdash; Administrative Texts | ENG 270</title>
+<title>Week 12 &mdash; Administrative Texts (1 of 2) | ENG 270</title>
 <link rel="stylesheet" href="../style.css">
-<meta name="description" content="ENG 270 Week 12 (8-12 Nov 2026) &mdash; Practical session: administrative texts - 1 of 2. Introduction to Translation, Qassim University, Semester 481.">
+<meta name="description" content="ENG 270 Week 12 &mdash; Administrative texts 1 of 2 &mdash; the register of governing bodies. Take-home translation task, 15%.">
 <meta name="theme-color" content="#1a6b3c">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -15,8 +15,8 @@
 <meta name="apple-mobile-web-app-title" content="ENG 270">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ENG 270 Introduction to Translation">
-<meta property="og:title" content="Week 12 &mdash; Administrative Texts | ENG 270">
-<meta property="og:description" content="Practical session: administrative texts - 1 of 2 &mdash; ENG 270 Week 12.">
+<meta property="og:title" content="Week 12 &mdash; Administrative Texts (1 of 2) | ENG 270">
+<meta property="og:description" content="Administrative texts 1 of 2 &mdash; the register of governing bodies. Take-home translation task, 15%.">
 <meta property="og:image" content="https://mohdalatrash-hue.github.io/eng270/icon-512.png">
 <meta property="og:url" content="https://mohdalatrash-hue.github.io/eng270/week12.html">
 <meta name="twitter:card" content="summary">
@@ -34,13 +34,38 @@ body{background:var(--off-white);}
 .ass-t{font-size:15px;font-weight:800;color:var(--text);}
 .ass-w{font-size:11px;font-weight:800;background:#fdeaea;color:#a01010;padding:3px 10px;border-radius:var(--r-pill);}
 .ass-d{font-size:13px;color:var(--text-2);line-height:1.65;}
-.soon{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);border:1.5px dashed var(--border);padding:34px 26px;text-align:center;margin:0 0 32px;}
-.soon-ic{font-size:32px;margin-bottom:10px;}
-.soon-t{font-size:16px;font-weight:800;color:var(--ac-ink);margin-bottom:8px;}
-.soon-p{font-size:13px;color:var(--text-2);line-height:1.7;max-width:56ch;margin:0 auto;}
 .meta{list-style:none;padding:0;margin:0 0 32px;display:flex;flex-direction:column;gap:8px;}
 .meta li{display:flex;gap:12px;align-items:flex-start;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px;font-size:13px;color:var(--text-2);line-height:1.6;}
 .meta .k{font-weight:800;color:var(--ac-ink);min-width:120px;flex-shrink:0;}
+.obj{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:8px;}
+.obj li{position:relative;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px 13px 44px;font-size:13.5px;color:var(--text);line-height:1.6;}
+.obj li:before{content:"\2713";position:absolute;left:16px;top:12px;color:var(--ac);font-weight:800;}
+.idea{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:20px 22px;margin:0 0 12px;}
+.idea h3{font-size:15px;font-weight:800;color:var(--ac-ink);margin:0 0 8px;letter-spacing:-.01em;}
+.idea p{font-size:13.5px;color:var(--text-2);line-height:1.75;margin:0 0 9px;}
+.idea p:last-child{margin-bottom:0;}
+.idea ul{margin:6px 0 0;padding-left:20px;}
+.idea li{font-size:13.5px;color:var(--text-2);line-height:1.7;margin-bottom:5px;}
+.ex{width:100%;border-collapse:collapse;background:var(--white);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-xs);font-size:13px;}
+.ex th{background:var(--off-white);text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-2);font-weight:800;padding:10px 14px;border-bottom:1px solid var(--border);}
+.ex td{padding:12px 14px;border-bottom:1px solid var(--border-light);color:var(--text-2);line-height:1.65;vertical-align:top;}
+.ex tr:last-child td{border-bottom:none;}
+.ex .en{color:var(--text);font-weight:500;min-width:170px;}
+.ex .ar{font-size:16px;color:var(--text);direction:rtl;text-align:right;min-width:150px;line-height:1.9;}
+.ex .nt{font-size:12.5px;}
+.exwrap{overflow-x:auto;margin:0 0 32px;}
+.pr{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);overflow:hidden;margin:0 0 32px;}
+.pr details{border-bottom:1px solid var(--border-light);}
+.pr details:last-child{border-bottom:none;}
+.pr summary{cursor:pointer;padding:14px 18px;font-size:13.5px;font-weight:600;color:var(--text);list-style:none;display:flex;gap:10px;align-items:flex-start;}
+.pr summary::-webkit-details-marker{display:none;}
+.pr summary:before{content:"?";flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--ac-soft);color:var(--ac-ink);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.pr details[open] summary{background:var(--ac-soft);}
+.pr .ans{padding:2px 18px 16px 48px;font-size:13px;color:var(--text-2);line-height:1.75;}
+.pr .ans .ara{font-size:16px;direction:rtl;display:inline-block;}
+.rd{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:8px;}
+.rd li{background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px;font-size:13px;color:var(--text-2);line-height:1.6;}
+.rd .src{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ac-ink);margin-bottom:3px;}
 </style>
 </head>
 <body>
@@ -52,46 +77,42 @@ body{background:var(--off-white);}
     <span class="nav-sep">&rsaquo;</span>
     <span class="nav-cur">Week 12</span>
     <div class="nav-spacer"></div>
-    <div class="nav-links"><a class="nav-link" href="week11.html">&larr; Week 11</a><a class="nav-link" href="week13.html">Week 13 &rarr;</a></div>
+    <div class="nav-links"><a class="nav-link" href="week13.html">Week 13</a></div>
   </div>
 </nav>
 <div class="hero" style="padding-bottom:28px;">
   <div class="hero-eyebrow">Week 12 of 15 &middot; Tue 10 &amp; Wed 11 Nov 2026</div>
-  <h1>Administrative Texts</h1>
+  <h1>Administrative Texts (1 of 2)</h1>
   <p class="hero-sub"><span class="tbd">Section TBD</span> &middot; Tue 11:00&ndash;11:50 AM &middot; Wed 10:00&ndash;11:40 AM &middot; <span class="tbd">Room TBD</span></p>
   <div class="wk-dots"><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot on"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span></div>
 </div>
 <div class="section-alt" style="padding:8px 0 64px;">
 <div class="section-inner">
 
-  <div class="strand">Practical session: administrative texts &middot; 1 of 2</div>
-  <p class="lead">This week belongs to the <strong>administrative texts</strong> practical strand &mdash; six contact hours across Weeks&nbsp;12&ndash;13, working on the conventions of administrative documents.</p>
+  <div class="strand">Practical session &middot; administrative texts</div>
+  <p class="lead">Company regulations, job descriptions, the documents of governing bodies. A very formal register, close enough to legal language that the two are treated together &mdash; and, for that reason, more tractable than it looks. The take-home translation task is issued this week.</p>
 
-  <div class="ass">
-    <div class="ass-h"><span style="font-size:20px;">&#128221;</span><span class="ass-t">Take-home translation task</span><span class="ass-w">15% of the course grade</span></div>
-    <div class="ass-d">A translation task completed in your own time this week and submitted through Blackboard Ultra.</div>
-  </div>
+<div class="section-label" style="margin-bottom:14px;">Week at a glance</div>
+<ul class="meta"><li><span class="k">Dates</span><span>Tue 10 &amp; Wed 11 Nov 2026</span></li><li><span class="k">Meeting</span><span>Tuesday 11:00&ndash;11:50 AM (1 hour) &middot; Wednesday 10:00&ndash;11:40 AM (2 hours) &middot; <span class="tbd">Section TBD</span> &middot; <span class="tbd">Room TBD</span></span></li><li><span class="k">Contact hours</span><span>3 hours this week &middot; first of the two administrative weeks (6 hours in total)</span></li><li><span class="k">Spec topic</span><span>Practical session: administrative texts</span></li><li><span class="k">Reading</span><span>Lahlali &amp; Abu Hatab (2014), Module 6 opening and <strong>Lesson 29</strong> (pp. 162&ndash;167)</span></li><li><span class="k">Assessment</span><span><strong>Take-home translation task</strong> &middot; 10%</span></li><li><span class="k">Graded work</span><span>Submissions and marks are in Blackboard Ultra</span></li></ul>
+<div class="ass"><div class="ass-h"><span class="ass-t">Take-home translation task</span><span class="ass-w">10%</span></div><div class="ass-d">An <strong>individual</strong> piece of work, done solely in your own words. The specification sets this task on a <strong>media text</strong>, drawing on Weeks 10&ndash;11 rather than on the administrative register being studied this week &mdash; so revise the media material before you start. (A past semester used a legal extract instead; the V2025 specification is what governs this year.) Deadlines are firm: extensions are not granted and late submissions are not accepted. No translation software or application, and no AI. Submit in Blackboard Ultra and check for the confirmation email; if it does not arrive, your submission did not go through.</div></div>
+<div class="section-label" style="margin-bottom:14px;">By the end of the week you should be able to</div>
+<ul class="obj"><li>Say what makes a text administrative, and why administrative and legal language are treated together.</li><li>Recognise the formality of administrative documents and reproduce it in Arabic.</li><li>Identify the document types: regulations of a company, job descriptions, and the like.</li><li>Explain why administrative texts are, for the most part, relatively straightforward to translate.</li><li>Build and use a terminology list for the administrative language of both languages.</li></ul>
+<div class="section-label" style="margin-bottom:14px;">Core ideas</div>
+<div class="mb-32"><div class="idea"><h3>What administrative texts are</h3><p>Administrative texts are associated with the <strong>governing bodies of any entity</strong>. They include documents connected with the legal issues of such bodies &mdash; for example the regulations of a company, or the responsibilities attached to a job (job descriptions). They are therefore usually linked with legal texts, and the language features of the two are very similar.</p><p>This is why the course places administrative texts immediately before legal texts: Weeks 12&ndash;15 form a single register block.</p></div><div class="idea"><h3>The register</h3><p>Most of the vocabulary in these texts consists of terms and idioms usually associated with courts and public authorities. These texts are undoubtedly <strong>very formal</strong>, without much use of literary features.</p><p>They also differ from language to language, so the translator is advised to become acquainted with the terminology of both the source and the target texts. That is a research task, and it is the task this week sets.</p></div><div class="idea"><h3>Why they are, in fact, translatable</h3><p>For the most part administrative texts have a <strong>relatively strict language style that can easily be translated</strong>. That is not a contradiction of their formality &mdash; it is a consequence of it. Where a genre restricts style, it restricts choice, and restricted choice is what makes a translation decision tractable.</p><p>The genre is close to legal language because it deals with formal sets of rules or regulations to be followed and administered within the entity concerned. Compare this with Week 7: literary translation offers you thirty defensible renderings; an administrative text offers you one or two.</p></div></div>
+<div class="section-label" style="margin-bottom:14px;">In class</div>
+<div class="mb-32"><div class="idea"><h3>Tuesday &mdash; one hour</h3><p>Administrative texts: the entities, the document types, the register. Terminology building from authentic regulations and job descriptions.</p></div><div class="idea"><h3>Wednesday &mdash; two hours</h3><p>Guided practical translation of an administrative extract, with attention to formulaic openings, obligations and the naming of bodies. The <strong>take-home translation task (15%)</strong> is issued in this session &mdash; read the assessment criteria before you begin.</p></div></div>
+<div class="section-label" style="margin-bottom:14px;">Check yourself</div>
+<div class="pr"><details><summary>Why are administrative and legal texts treated as one register block?</summary><div class="ans">Because administrative texts are associated with the governing bodies of an entity and include documents connected with their legal issues, so they are usually linked with legal texts, and their language features are very similar &mdash; formal, formulaic, and drawn from the vocabulary of courts and public authorities.</div></details><details><summary>A student says formal texts must be the hardest to translate. Answer them.</summary><div class="ans">Formality restricts style, and restricted style restricts choice. Administrative texts have a relatively strict language style that can, for the most part, be translated straightforwardly. The difficulty is terminological and precisional, not interpretive &mdash; unlike literary translation, where the range of defensible renderings is wide.</div></details><details><summary>What preparation does the textbook explicitly advise before translating in this genre?</summary><div class="ans">Becoming acquainted with the terminology of the texts in <em>both</em> the source and the target language, since administrative language differs from language to language.</div></details></div>
+<div class="section-label" style="margin-bottom:14px;">Take it further</div>
+<ul class="rd"><li><span class="src">Essential reference</span>Lahlali &amp; Abu Hatab (2014), administrative texts.</li><li><span class="src">Lecture handout</span><strong>Chapter Two</strong> &mdash; administrative texts.</li></ul>
 
-  <div class="section-label" style="margin-bottom:14px;">Week at a glance</div>
-  <ul class="meta">
-    <li><span class="k">Dates</span><span>Tue 10 &amp; Wed 11 Nov 2026</span></li>
-    <li><span class="k">Meeting</span><span>Tuesday 11:00&ndash;11:50 AM (1 hour) &middot; Wednesday 10:00&ndash;11:40 AM (2 hours) &middot; <span class="tbd">Section TBD</span> &middot; <span class="tbd">Room TBD</span></span></li>
-    <li><span class="k">Contact hours</span><span>3 hours this week (45 across the semester)</span></li>
-    <li><span class="k">Spec topic</span><span>Practical session: administrative texts &middot; 1 of 2</span></li>
-    <li><span class="k">Graded work</span><span>Submissions and marks are in Blackboard Ultra</span></li>
-  </ul>
-
-  <div class="section-label" style="margin-bottom:14px;">Materials</div>
-  <div class="soon">
-    <div class="soon-ic">&#128296;</div>
-    <div class="soon-t">Content coming soon</div>
-    <div class="soon-p">The readings, in-class activities and practice for this week are still being prepared and will be published here before the week begins. The topic, dates and assessment information above are final and come from the official course specification. Check Blackboard Ultra for anything graded.</div>
-  </div>
+  <div class="section-label" style="margin-bottom:14px;">Workshop</div>
+  <a href="workshop12.html" style="display:block;background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);border-left:4px solid var(--ac);padding:20px 22px;margin:0 0 32px;text-decoration:none;color:inherit;"><div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--ac);margin-bottom:7px;">Week 12 workshop &middot; interactive</div><div style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:7px;letter-spacing:-.01em;">The Language of Rules</div><div style="font-size:13.5px;color:var(--text-2);line-height:1.7;margin-bottom:10px;">Modality, defined terms, and why the most formal genre is the most tractable.</div><div style="font-size:13px;font-weight:700;color:var(--ac);">Concepts &middot; Analyse &middot; Translate it &middot; Quiz &nbsp;&rarr;</div></a>
 
   <div class="week-nav"><a href="week11.html">&larr; Week 11</a><a href="week13.html">Week 13 &rarr;</a></div>
 </div>
 </div>
-<footer><strong>ENG 270 Introduction to Translation</strong> &middot; Week 12 &middot; 8&ndash;12 Nov 2026 &middot; Qassim University &middot; Semester 481<br><a href="index.html">Course Hub</a> &middot; <a href="../index.html">Qassim Courses</a></footer>
+<footer><strong>ENG 270 Introduction to Translation</strong> &middot; Week 12 &middot; 10&ndash;11 Nov 2026 &middot; Qassim University &middot; Semester 481<br><a href="index.html">Course Hub</a> &middot; <a href="../index.html">Qassim Courses</a></footer>
 <script src="track.js" defer></script>
 <script src="site.js" defer></script>
 </body>

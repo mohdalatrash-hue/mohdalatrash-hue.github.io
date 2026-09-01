@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Week 7 &mdash; Literary Texts | ENG 270</title>
+<title>Week 7 &mdash; Literary Texts (3 of 3) | ENG 270</title>
 <link rel="stylesheet" href="../style.css">
-<meta name="description" content="ENG 270 Week 7 (4-8 Oct 2026) &mdash; Practical session: literary texts - 3 of 3. Introduction to Translation, Qassim University, Semester 481.">
+<meta name="description" content="ENG 270 Week 7 &mdash; Literary texts 3 of 3 &mdash; cultural problems, domestication and foreignisation, drama and adaptation.">
 <meta name="theme-color" content="#1a6b3c">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -15,8 +15,8 @@
 <meta name="apple-mobile-web-app-title" content="ENG 270">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ENG 270 Introduction to Translation">
-<meta property="og:title" content="Week 7 &mdash; Literary Texts | ENG 270">
-<meta property="og:description" content="Practical session: literary texts - 3 of 3 &mdash; ENG 270 Week 7.">
+<meta property="og:title" content="Week 7 &mdash; Literary Texts (3 of 3) | ENG 270">
+<meta property="og:description" content="Literary texts 3 of 3 &mdash; cultural problems, domestication and foreignisation, drama and adaptation.">
 <meta property="og:image" content="https://mohdalatrash-hue.github.io/eng270/icon-512.png">
 <meta property="og:url" content="https://mohdalatrash-hue.github.io/eng270/week7.html">
 <meta name="twitter:card" content="summary">
@@ -34,13 +34,38 @@ body{background:var(--off-white);}
 .ass-t{font-size:15px;font-weight:800;color:var(--text);}
 .ass-w{font-size:11px;font-weight:800;background:#fdeaea;color:#a01010;padding:3px 10px;border-radius:var(--r-pill);}
 .ass-d{font-size:13px;color:var(--text-2);line-height:1.65;}
-.soon{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);border:1.5px dashed var(--border);padding:34px 26px;text-align:center;margin:0 0 32px;}
-.soon-ic{font-size:32px;margin-bottom:10px;}
-.soon-t{font-size:16px;font-weight:800;color:var(--ac-ink);margin-bottom:8px;}
-.soon-p{font-size:13px;color:var(--text-2);line-height:1.7;max-width:56ch;margin:0 auto;}
 .meta{list-style:none;padding:0;margin:0 0 32px;display:flex;flex-direction:column;gap:8px;}
 .meta li{display:flex;gap:12px;align-items:flex-start;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px;font-size:13px;color:var(--text-2);line-height:1.6;}
 .meta .k{font-weight:800;color:var(--ac-ink);min-width:120px;flex-shrink:0;}
+.obj{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:8px;}
+.obj li{position:relative;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px 13px 44px;font-size:13.5px;color:var(--text);line-height:1.6;}
+.obj li:before{content:"\2713";position:absolute;left:16px;top:12px;color:var(--ac);font-weight:800;}
+.idea{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:20px 22px;margin:0 0 12px;}
+.idea h3{font-size:15px;font-weight:800;color:var(--ac-ink);margin:0 0 8px;letter-spacing:-.01em;}
+.idea p{font-size:13.5px;color:var(--text-2);line-height:1.75;margin:0 0 9px;}
+.idea p:last-child{margin-bottom:0;}
+.idea ul{margin:6px 0 0;padding-left:20px;}
+.idea li{font-size:13.5px;color:var(--text-2);line-height:1.7;margin-bottom:5px;}
+.ex{width:100%;border-collapse:collapse;background:var(--white);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-xs);font-size:13px;}
+.ex th{background:var(--off-white);text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-2);font-weight:800;padding:10px 14px;border-bottom:1px solid var(--border);}
+.ex td{padding:12px 14px;border-bottom:1px solid var(--border-light);color:var(--text-2);line-height:1.65;vertical-align:top;}
+.ex tr:last-child td{border-bottom:none;}
+.ex .en{color:var(--text);font-weight:500;min-width:170px;}
+.ex .ar{font-size:16px;color:var(--text);direction:rtl;text-align:right;min-width:150px;line-height:1.9;}
+.ex .nt{font-size:12.5px;}
+.exwrap{overflow-x:auto;margin:0 0 32px;}
+.pr{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);overflow:hidden;margin:0 0 32px;}
+.pr details{border-bottom:1px solid var(--border-light);}
+.pr details:last-child{border-bottom:none;}
+.pr summary{cursor:pointer;padding:14px 18px;font-size:13.5px;font-weight:600;color:var(--text);list-style:none;display:flex;gap:10px;align-items:flex-start;}
+.pr summary::-webkit-details-marker{display:none;}
+.pr summary:before{content:"?";flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--ac-soft);color:var(--ac-ink);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.pr details[open] summary{background:var(--ac-soft);}
+.pr .ans{padding:2px 18px 16px 48px;font-size:13px;color:var(--text-2);line-height:1.75;}
+.pr .ans .ara{font-size:16px;direction:rtl;display:inline-block;}
+.rd{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:8px;}
+.rd li{background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px;font-size:13px;color:var(--text-2);line-height:1.6;}
+.rd .src{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ac-ink);margin-bottom:3px;}
 </style>
 </head>
 <body>
@@ -52,46 +77,46 @@ body{background:var(--off-white);}
     <span class="nav-sep">&rsaquo;</span>
     <span class="nav-cur">Week 7</span>
     <div class="nav-spacer"></div>
-    <div class="nav-links"><a class="nav-link" href="week6.html">&larr; Week 6</a><a class="nav-link" href="week8.html">Week 8 &rarr;</a></div>
+    <div class="nav-links"><a class="nav-link" href="week8.html">Week 8</a></div>
   </div>
 </nav>
 <div class="hero" style="padding-bottom:28px;">
   <div class="hero-eyebrow">Week 7 of 15 &middot; Tue 6 &amp; Wed 7 Oct 2026</div>
-  <h1>Literary Texts</h1>
+  <h1>Literary Texts (3 of 3)</h1>
   <p class="hero-sub"><span class="tbd">Section TBD</span> &middot; Tue 11:00&ndash;11:50 AM &middot; Wed 10:00&ndash;11:40 AM &middot; <span class="tbd">Room TBD</span></p>
   <div class="wk-dots"><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot on"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span></div>
 </div>
 <div class="section-alt" style="padding:8px 0 64px;">
 <div class="section-inner">
 
-  <div class="strand">Practical session: literary texts &middot; 3 of 3</div>
-  <p class="lead">This week belongs to the <strong>literary texts</strong> practical strand &mdash; nine contact hours across Weeks&nbsp;5&ndash;7. Practical sessions apply the methods from Weeks&nbsp;2&ndash;4 to literary material, and to the characteristics and challenges of the genre.</p>
+  <div class="strand">Practical session &middot; culture, drama and poetry</div>
+  <p class="lead">The cultural half of literary translation: the strategies for culture-bound words, the domestication and foreignisation debate, and drama, the genre where adaptation is the norm rather than the exception. The mid-term window opens this week.</p>
 
-  <div class="ass">
-    <div class="ass-h"><span style="font-size:20px;">&#128221;</span><span class="ass-t">Mid-term exam</span><span class="ass-w">20% of the course grade</span></div>
-    <div class="ass-d">The mid-term exam falls in the Weeks&nbsp;7&ndash;8 window. The exact date is set by the department; it is announced and administered through Blackboard Ultra.</div>
-  </div>
+<div class="section-label" style="margin-bottom:14px;">Week at a glance</div>
+<ul class="meta"><li><span class="k">Dates</span><span>Tue 6 &amp; Wed 7 Oct 2026</span></li><li><span class="k">Meeting</span><span>Tuesday 11:00&ndash;11:50 AM (1 hour) &middot; Wednesday 10:00&ndash;11:40 AM (2 hours) &middot; <span class="tbd">Section TBD</span> &middot; <span class="tbd">Room TBD</span></span></li><li><span class="k">Contact hours</span><span>3 hours this week &middot; last of the three literary weeks</span></li><li><span class="k">Spec topic</span><span>Practical session: literary texts &mdash; culture, drama and poetry</span></li><li><span class="k">Reading</span><span>Lahlali &amp; Abu Hatab (2014), <strong>Lesson 10</strong> (pp. 35&ndash;39), <strong>Lesson 11: Drama</strong> (pp. 40&ndash;44), <strong>Lesson 12: Poetry</strong> (pp. 45&ndash;49) &middot; exercise 10.3 (p. 38); extracts p. 41</span></li><li><span class="k">Assessment</span><span><strong>Mid-term exam window opens</strong> (Weeks 7&ndash;8) &middot; 20%</span></li><li><span class="k">Graded work</span><span>Submissions and marks are in Blackboard Ultra</span></li></ul>
+<div class="ass"><div class="ass-h"><span class="ass-t">Mid-term exam &mdash; window opens</span><span class="ass-w">20%</span></div><div class="ass-d">The mid-term falls in the <strong>Weeks 7&ndash;8 window</strong> and covers everything from Week 1 to here: the definition and types of translation, the literal and free methods, the foundation methods, and the four families of translation problem. Expect multiple-choice and true/false items on the method names &mdash; the distinctions between one-to-one literal, direct translation, bound free and loose free are exactly the kind of thing that is asked. The paper, the date and the marks are in Blackboard Ultra.</div></div>
+<div class="section-label" style="margin-bottom:14px;">By the end of the week you should be able to</div>
+<ul class="obj"><li>Explain why translating culture is not the same as translating language.</li><li>Apply Graedler&rsquo;s four steps for translating culturally bound words.</li><li>Apply Harvey&rsquo;s four strategies: functional equivalence, formal equivalence, transcription (borrowing), and descriptive translation.</li><li>Define <strong>domestication</strong> and <strong>foreignisation</strong> after Venuti, and produce both versions of the same sentence.</li><li>Say why drama is translated by adaptation and domestication more often than other genres.</li></ul>
+<div class="section-label" style="margin-bottom:14px;">Core ideas</div>
+<div class="mb-32"><div class="idea"><h3>Culture is the second half of the job</h3><p>Translation is not simply a matter of translating words. When you translate you are working with <strong>language and culture</strong> &mdash; language being one of the many social activities through which the culture of its speakers is manifested. You stand as a mediator between SL and TL, and you need to understand the culture of the audience you are communicating with.</p><p>Cultural problems are also sociolinguistic: politeness and terms of address, and discourse-level matters such as speech acts, maxims of speech, implicature and inference. Each culture manifests these differently, and the translator has to know how.</p></div><div class="idea"><h3>Graedler&rsquo;s four steps for culturally bound words</h3><p>Four moves are available when a word carries culture rather than only sense (Graedler 2000: 3). The textbook illustrates all four on the same Saudi pastry, <span class="ara">&#1603;&#1604;&#1610;&#1580;&#1575;</span>:</p><ul><li><strong>Making up a new word</strong> &mdash; <em>datebite</em>.</li><li><strong>Explaining the meaning</strong> of the SL expression instead of translating it &mdash; <em>date-filled spice pastry</em>.</li><li><strong>Preserving the SL term</strong> &mdash; <em>Kleija</em>.</li><li><strong>Opting for a TL word</strong> that seems similar or has the same relevance &mdash; <em>cookie, pastry, biscuit, filled pastry</em>.</li></ul><p>Notice that the four are ordered by how much of the source culture survives. That ordering <em>is</em> the decision you are making.</p></div><div class="idea"><h3>Harvey&rsquo;s four strategies</h3><p>A second, overlapping set (Harvey 2000: 2&ndash;6):</p><ul><li><strong>Functional equivalence</strong> &mdash; use a TL referent whose function is similar to the SL one: <em>bar</em> &rarr; <em>caf&eacute;</em>.</li><li><strong>Formal equivalence</strong> &mdash; linguistic or word-for-word equivalence: <em>fast food</em> <span class="ara">&#1608;&#1580;&#1576;&#1575;&#1578; &#1587;&#1585;&#1610;&#1593;&#1577;</span>.</li><li><strong>Transcription or borrowing</strong> &mdash; reproduce or transliterate the original term; the far end of SL-oriented strategies: <em>telephone</em> <span class="ara">&#1578;&#1604;&#1601;&#1608;&#1606;</span>.</li><li><strong>Descriptive or self-explanatory translation</strong> &mdash; generic terms that convey the meaning: <em>Lexus</em> &rarr; <em>luxury car</em>; <span class="ara">&#1603;&#1604;&#1610;&#1580;&#1575;</span> &rarr; <em>a traditional Saudi date-filled spiced pastry</em>.</li></ul></div><div class="idea"><h3>Domestication and foreignisation</h3><p>Two further strategies bridge cultural gaps (Venuti 1995: 49). <strong>Domestication</strong> makes the translated text closer to the TL culture, so that the foreign text is imprinted with values specific to the target culture. <strong>Foreignisation</strong> preserves the values of the source text, resisting dominant target-language cultural values in order to signify the linguistic and cultural difference of the foreign text.</p><p>The argument is live, and you are expected to be able to state both sides. Supporters of domestication say it helps the reader understand the text easily. Critics say it violates the source culture and discourages the critical thought that comes from being challenged by difference.</p></div><div class="idea"><h3>Drama, and why adaptation dominates it</h3><p>Drama differs from fiction in one decisive respect: it is <strong>written to be performed on stage</strong>. Dialogue therefore carries most of the weight, and the translator deals with meta-linguistic elements too &mdash; body language and gesture. Prosodic features demand special attention, since stage dialogue is characterised by rhythm, intonation, pitch and loudness, none of which is obvious from reading the script in isolation.</p><strong>Adaptation and domestication</strong> are consequently the most frequent techniques in drama translation. Adaptation is a set of translative interventions producing a text not generally accepted as a translation but nevertheless recognised as representing a source text. Its procedures (Bastin 2009) are: <strong>transcription, omission, expansion, exoticism, updating, situational or cultural adequacy,</strong> and <strong>creation</strong>. It may be <em>local</em> (parts of the text, internal causes) or <em>global</em> (the whole text, external causes).</div></div>
+<div class="section-label" style="margin-bottom:14px;">Poetry &mdash; the hardest genre of all</div>
+<div class="mb-32"><div class="idea"><h3>Why poetry resists translation</h3><p>Poetry is thought to be the most challenging genre for the translator. What distinguishes it from the others is its reliance on <strong>figurative language, rhyme and rhythm</strong>. To be a poet is to deviate from the usual linguistic norm &mdash; to play with words and twist them &mdash; and those foregrounding strategies put pressure on a translator working between two languages as linguistically and culturally distant as Arabic and English.</p><p>Before you begin, read the source poem carefully, understand it, and read <em>about</em> the poet &mdash; the ideology, the recurring metaphors, the diction that can only be recognised across several poems. That reading gives you a direction; without it you are translating lines rather than a poem.</p></div><div class="idea"><h3>Six strategies for translating poetry (after Bassnett-McGuire)</h3><ul><li><strong>Phonemic translation</strong> &mdash; recreates the sounds of the SL in the TL while transferring meaning at the same time.</li><li><strong>Literal translation</strong> &mdash; word-for-word rendering.</li><li><strong>Metrical translation</strong> &mdash; reproduces the original meter. Not always successful, since each language has its own metrical structure.</li><li><strong>Verse-to-prose translation</strong> &mdash; produces prose from a poem. Its biggest weakness is the loss of the beauty of the original, or of the poetic shape.</li><li><strong>Rhymed translation</strong> &mdash; transfers the rhyme of the original. The result is phonetically appropriate but tends to be semantically inappropriate.</li><li><strong>Free verse translation</strong> &mdash; achieves accurate equivalents at the expense of literary value.</li></ul><p>Each strategy buys one thing and sells another. The exam does not ask which is best; it asks you to name the strategy and state the trade.</p></div><div class="idea"><h3>Metaphor, and Newmark&rsquo;s seven procedures</h3><p>Poetry is a condensed form of language, rich with meaning, and it works through imagery and figures of speech &mdash; metaphor above all. Newmark (1988b) sets out seven procedures for translating a metaphor:</p><ul><li>Reproducing the same image in the TL.</li><li>Replacing the SL image with a standard TL image.</li><li>Translating the metaphor as a simile.</li><li>Translating the metaphor or simile as a simile plus sense.</li><li>Converting the metaphor into sense &mdash; explanation.</li><li>Deletion.</li><li>Translating the same metaphor combined with sense.</li></ul><p>The list runs, roughly, from most image-preserving to least. Choosing from it is the poetic equivalent of choosing along the literal&ndash;free axis.</p></div></div>
+<div class="section-label" style="margin-bottom:14px;">Domestication versus foreignisation</div>
+<div class="exwrap"><table class="ex"><thead><tr><th>English source</th><th>Arabic rendering</th><th>What is happening</th></tr></thead><tbody><tr><td class="en">I will see you Friday noon in the bar</td><td class="ar" lang="ar" dir="rtl">&#1571;&#1585;&#1575;&#1603; &#1592;&#1607;&#1585; &#1575;&#1604;&#1580;&#1605;&#1593;&#1577; &#1601;&#1610; &#1575;&#1604;&#1605;&#1602;&#1607;&#1609;<br><span style="opacity:.6;font-size:13px">vs.</span> &#1571;&#1585;&#1575;&#1603; &#1592;&#1607;&#1585; &#1575;&#1604;&#1580;&#1605;&#1593;&#1577; &#1601;&#1610; &#1575;&#1604;&#1581;&#1575;&#1606;&#1577;</td><td class="nt">Domesticated first, foreignised second. The domesticated version substitutes an institution the target culture accepts; the foreignised one keeps the source institution and its strangeness.</td></tr><tr><td class="en">Thousands were killed in the raid</td><td class="ar" lang="ar" dir="rtl">&#1575;&#1587;&#1578;&#1588;&#1607;&#1583; &#1570;&#1604;&#1575;&#1601; &#1601;&#1610; &#1575;&#1604;&#1594;&#1575;&#1585;&#1577;<br><span style="opacity:.6;font-size:13px">vs.</span> &#1602;&#1578;&#1604; &#1570;&#1604;&#1575;&#1601; &#1601;&#1610; &#1575;&#1604;&#1594;&#1575;&#1585;&#1577;</td><td class="nt">Here domestication imports a value judgement that the English does not carry. Cases like this are why the domestication debate is not merely stylistic &mdash; see also Week 11 on conflict reporting.</td></tr><tr><td class="en">Their story reminds you of Romeo and Juliet</td><td class="ar" lang="ar" dir="rtl">&#1578;&#1584;&#1603;&#1585;&#1603; &#1602;&#1589;&#1578;&#1607;&#1605; &#1576;&#1602;&#1610;&#1587; &#1608;&#1604;&#1610;&#1604;&#1609;<br><span style="opacity:.6;font-size:13px">vs.</span> &#1578;&#1584;&#1603;&#1585;&#1603; &#1602;&#1589;&#1578;&#1607;&#1605; &#1576;&#1585;&#1608;&#1605;&#1610;&#1608; &#1608;&#1580;&#1608;&#1604;&#1610;&#1578;</td><td class="nt">The classic pair. Domestication swaps in the Arabic archetype of doomed love; foreignisation keeps Shakespeare and trusts the reader.</td></tr></tbody></table></div>
+<div class="section-label" style="margin-bottom:14px;">In class</div>
+<div class="mb-32"><div class="idea"><h3>Tuesday &mdash; one hour</h3><p>Cultural problems; Graedler&rsquo;s steps and Harvey&rsquo;s strategies, drilled on culture-bound items in both directions.</p></div><div class="idea"><h3>Wednesday &mdash; two hours</h3><p>Domestication and foreignisation, exercise 10.3 (p. 38); then drama and adaptation, working on the <em>Pygmalion</em> extracts (p. 41) in which names of characters and places have been replaced by Arabic ones. Mid-term revision time is set aside at the end of the session.</p></div></div>
+<div class="section-label" style="margin-bottom:14px;">Check yourself</div>
+<div class="pr"><details><summary>Produce both a domesticated and a foreignised Arabic rendering of <em>Their story reminds you of Romeo and Juliet</em>, and say what each costs.</summary><div class="ans">Domesticated: <span class="ara">&#1578;&#1584;&#1603;&#1585;&#1603; &#1602;&#1589;&#1578;&#1607;&#1605; &#1576;&#1602;&#1610;&#1587; &#1608;&#1604;&#1610;&#1604;&#1609;</span> &mdash; immediately intelligible, but it erases the fact that the source text is English and the allusion Shakespearean. Foreignised: <span class="ara">&#1578;&#1584;&#1603;&#1585;&#1603; &#1602;&#1589;&#1578;&#1607;&#1605; &#1576;&#1585;&#1608;&#1605;&#1610;&#1608; &#1608;&#1580;&#1608;&#1604;&#1610;&#1578;</span> &mdash; keeps the source culture visible, at the cost of assuming the reader knows the reference.</div></details><details><summary>Which of Harvey&rsquo;s strategies stands at the far SL-oriented end, and why?</summary><div class="ans">Transcription or borrowing &mdash; reproducing or transliterating the original term. Nothing of the source item is converted, so the source culture is maximally preserved and the target reader is given the least help.</div></details><details><summary>A translator renders <span class="ara">&#1603;&#1604;&#1610;&#1580;&#1575;</span> as <em>cookie</em>. Which strategy is that, and what has been lost?</summary><div class="ans">Graedler&rsquo;s fourth step &mdash; opting for a TL word of similar relevance. It reads naturally but loses the specificity: the dates, the spices, and the Saudi setting all disappear. Descriptive translation (<em>a traditional Saudi date-filled spiced pastry</em>) keeps them at the cost of fluency.</div></details><details><summary>Why does drama attract adaptation more than fiction does?</summary><div class="ans">Because drama is written to be performed. Dialogue, prosody, gesture and audience response all have to work in the theatre of the target culture, and adaptation &mdash; preserving theme, character and plot while converting the culture and rewriting the text &mdash; is what makes that possible.</div></details></div>
+<div class="section-label" style="margin-bottom:14px;">Take it further</div>
+<ul class="rd"><li><span class="src">Essential reference</span>Lahlali &amp; Abu Hatab (2014), Lesson 10: Cultural problems, domestication and foreignisation; and the drama section.</li><li><span class="src">Exercises</span>10.3 (p. 38) &middot; <em>Pygmalion</em> extracts, p. 41.</li><li><span class="src">Lecture handout</span><strong>Chapter Two</strong>, Module 2 &mdash; culture and drama.</li></ul>
 
-  <div class="section-label" style="margin-bottom:14px;">Week at a glance</div>
-  <ul class="meta">
-    <li><span class="k">Dates</span><span>Tue 6 &amp; Wed 7 Oct 2026</span></li>
-    <li><span class="k">Meeting</span><span>Tuesday 11:00&ndash;11:50 AM (1 hour) &middot; Wednesday 10:00&ndash;11:40 AM (2 hours) &middot; <span class="tbd">Section TBD</span> &middot; <span class="tbd">Room TBD</span></span></li>
-    <li><span class="k">Contact hours</span><span>3 hours this week (45 across the semester)</span></li>
-    <li><span class="k">Spec topic</span><span>Practical session: literary texts &middot; 3 of 3</span></li>
-    <li><span class="k">Graded work</span><span>Submissions and marks are in Blackboard Ultra</span></li>
-  </ul>
-
-  <div class="section-label" style="margin-bottom:14px;">Materials</div>
-  <div class="soon">
-    <div class="soon-ic">&#128296;</div>
-    <div class="soon-t">Content coming soon</div>
-    <div class="soon-p">The readings, in-class activities and practice for this week are still being prepared and will be published here before the week begins. The topic, dates and assessment information above are final and come from the official course specification. Check Blackboard Ultra for anything graded.</div>
-  </div>
+  <div class="section-label" style="margin-bottom:14px;">Workshop</div>
+  <a href="workshop7.html" style="display:block;background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);border-left:4px solid var(--ac);padding:20px 22px;margin:0 0 32px;text-decoration:none;color:inherit;"><div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--ac);margin-bottom:7px;">Week 7 workshop &middot; interactive</div><div style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:7px;letter-spacing:-.01em;">Culture on the Page</div><div style="font-size:13.5px;color:var(--text-2);line-height:1.7;margin-bottom:10px;">Graedler, Harvey, Venuti, drama and poetry &mdash; the densest set of named strategies on the course.</div><div style="font-size:13px;font-weight:700;color:var(--ac);">Concepts &middot; Analyse &middot; Translate it &middot; Quiz &nbsp;&rarr;</div></a>
 
   <div class="week-nav"><a href="week6.html">&larr; Week 6</a><a href="week8.html">Week 8 &rarr;</a></div>
 </div>
 </div>
-<footer><strong>ENG 270 Introduction to Translation</strong> &middot; Week 7 &middot; 4&ndash;8 Oct 2026 &middot; Qassim University &middot; Semester 481<br><a href="index.html">Course Hub</a> &middot; <a href="../index.html">Qassim Courses</a></footer>
+<footer><strong>ENG 270 Introduction to Translation</strong> &middot; Week 7 &middot; 6&ndash;7 Oct 2026 &middot; Qassim University &middot; Semester 481<br><a href="index.html">Course Hub</a> &middot; <a href="../index.html">Qassim Courses</a></footer>
 <script src="track.js" defer></script>
 <script src="site.js" defer></script>
 </body>

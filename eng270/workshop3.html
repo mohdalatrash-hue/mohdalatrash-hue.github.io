@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workshop 3 &mdash; How Free Is Free? | ENG 270</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="workshop.css">
+<meta name="description" content="ENG 270 Week 3 workshop &mdash; Bound and loose free translation, the translation of intentions, and the unit of translation.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 270">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 270 Introduction to Translation">
+<meta property="og:title" content="Workshop 3 &mdash; How Free Is Free? | ENG 270">
+<meta property="og:description" content="Bound and loose free translation, the translation of intentions, and the unit of translation.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng270/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng270/workshop3.html">
+<meta name="twitter:card" content="summary">
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>&#127891;</span><span>Qassim University</span></a>
+    <span class="nav-sep">&rsaquo;</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 270</a>
+    <span class="nav-sep">&rsaquo;</span>
+    <a class="nav-link" href="week3.html" style="padding:0;color:var(--text-2);">Week 3</a>
+    <span class="nav-sep">&rsaquo;</span>
+    <span class="nav-cur">Workshop</span>
+    <div class="nav-spacer"></div>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:34px;">
+  <div class="hero-eyebrow" style="color:var(--ac);">Week 3 workshop &middot; Translation methods &middot; the free family</div>
+  <h1>How Free Is Free?</h1>
+  <p class="hero-sub">Bound free against loose free, the rule that keeps freedom honest, and the unit that the whole process moves through.</p>
+</div>
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+
+  <div class="info-box info-blue mb-24" style="text-align:left;">
+    <h3>&#127919; What this workshop trains</h3>
+    <p>Free translation is where students either find their voice or start inventing. This workshop draws the line between the two, using the textbook&rsquo;s own test: is the rendering derived from the context, or concluded from it?</p>
+  </div>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('concepts',this)">&#128218; Concepts</button>
+    <button class="tab-btn" onclick="switchTab('analyse',this)">&#128269; Analyse</button>
+    <button class="tab-btn" onclick="switchTab('translate',this)">&#9997;&#65039; Translate it</button>
+    <button class="tab-btn" onclick="switchTab('quiz',this)">&#128221; Quiz</button>
+  </div>
+
+  <div id="tab-concepts" class="tab-panel active">
+    <div class="tip-box"><strong>&#128214; Reading &rarr; Ghazala (2012), free translation and the process; Lahlali &amp; Abu Hatab, Lesson 6 (p. 18) and the Module 1 review (p. 20).</strong></div>
+    <div id="concept-qs"></div>
+  </div>
+
+  <div id="tab-analyse" class="tab-panel">
+    <div class="tip-box"><strong>&#128269; Bound or loose?</strong> For each rendering, decide whether it is derived from the context (bound) or concluded from it (loose) &mdash; and whether it is defensible.</div>
+    <div id="analyse-qs"></div>
+  </div>
+
+  <div id="tab-translate" class="tab-panel">
+    <div class="tip-box"><strong>&#9997;&#65039; Two proverbs, two methods.</strong> For each, produce a <em>bound free</em> rendering and a plain direct rendering, then decide which you would submit and why.</div>
+    <div id="translate-tasks"></div>
+  </div>
+
+  <div id="tab-quiz" class="tab-panel">
+    <div class="tip-box"><strong>&#128221; Week 3 review &mdash; 10 questions</strong> on free translation, its two types, and the process and unit of translation.</div>
+    <div class="prog-bar-wrap"><div class="prog-bar" id="aq-prog" style="width:0%"></div></div>
+    <div id="aq-container"></div>
+    <div id="aq-score" class="score-summary" style="display:none;"></div>
+  </div>
+
+  <div class="ws-nav"><a href="workshop2.html">&larr; Week 2 workshop</a><a href="workshop4.html">Week 4 workshop &rarr;</a></div>
+
+</div>
+</div>
+<footer><strong>ENG 270 Introduction to Translation</strong> &middot; Week 3 workshop &middot; Qassim University &middot; Semester 481<br><a href="week3.html">Week 3</a> &middot; <a href="index.html">Course Hub</a> &middot; <a href="../index.html">Qassim Courses</a></footer>
+<script src="workshop.js"></script>
+<script>
+mount('concept-qs',[{"q": "Which sentence states the governing rule of free translation?", "opts": ["The translator may translate as he likes", "The translator cannot translate the way he likes, but the way he understands", "Freedom of method allows invention", "Free translation ignores the source text"], "ans": 1, "why": "Freedom of method is not licence to invent. Everything produced must still be recoverable from the source."}, {"q": "Bound free translation is derived from the context:", "opts": ["indirectly, through inference", "in a direct way, though it may go outside the wording, often by exaggeration", "only through the dictionary", "by reproducing the sound"], "ans": 1, "why": "It travels far from the words but stays inside the text. That is why it sits closest to creative translation."}, {"q": "Loose free translation is best described as:", "opts": ["the translation of intentions &mdash; a version of pragmatic translation", "the translation of sounds", "word-for-word with additions", "a synonym for adaptation"], "ans": 0, "why": "It moves from the linguistic context into inference, rendering what the speaker is concluded to have meant."}, {"q": "Why does the textbook treat loose free translation with suspicion?", "opts": ["It is too slow", "Different translators reach different conclusions, and the interpretation beyond the text is normally the reader&rsquo;s job in both languages", "It cannot handle proverbs", "It requires footnotes"], "ans": 1, "why": "The renderings are personal conclusions rather than context-restricted transfers &mdash; so they are not reproducible, and they do the reader&rsquo;s thinking."}, {"q": "A unit of translation is:", "opts": ["always a single word", "always a paragraph", "any word or group of words giving a small or large part of a sentence&rsquo;s meaning", "the whole text"], "ans": 2, "why": "And its upper limit is fixed: the largest unit of translation is the sentence."}, {"q": "The process of translation is described as:", "opts": ["a single pass from beginning to end", "the organised stages of translating in application, proceeding unit by unit", "reading the text twice", "checking the dictionary first"], "ans": 1, "why": "Segment, choose a method per unit, render, then check the unit against the whole. Weeks 5&ndash;15 apply this habit to five genres."}]);
+mount('analyse-qs',[{"pre": "<div class=\"excerpt\">He got nothing at the end.<span class=\"cite\">rendered as</span></div><div class=\"excerpt ar\">&#1585;&#1580;&#1593; &#1576;&#1582;&#1601;&#1610; &#1581;&#1615;&#1606;&#1610;&#1606;</div>", "q": "Which type of free translation is this?", "opts": ["Loose free &mdash; an inference about the speaker", "Bound free &mdash; a fixed Arabic idiom carrying the same sense", "Word-for-word", "Communicative translation of a road sign"], "ans": 1, "why": "Bound free. The idiom leaves the English words behind but stays inside the context. The plainer <span dir=\"rtl\">&#1604;&#1605; &#1610;&#1581;&#1589;&#1604; &#1593;&#1604;&#1609; &#1588;&#1610;&#1569; &#1601;&#1610; &#1575;&#1604;&#1606;&#1607;&#1575;&#1610;&#1577;</span> is also available."}, {"pre": "<div class=\"excerpt\">It is half past nine.<span class=\"cite\">rendered as</span></div><div class=\"excerpt ar\">&#1593;&#1604;&#1610;&#1606;&#1575; &#1576;&#1575;&#1604;&#1605;&#1594;&#1575;&#1583;&#1585;&#1577;</div>", "q": "What is the problem?", "opts": ["The Arabic is ungrammatical", "It translates an intention rather than an utterance, and another translator would infer something else", "It is too literal", "The register is wrong"], "ans": 1, "why": "Loose free translation. The defensible rendering is <span dir=\"rtl\">&#1573;&#1606;&#1607;&#1575; &#1575;&#1604;&#1578;&#1575;&#1587;&#1593;&#1577; &#1608;&#1575;&#1604;&#1606;&#1589;&#1601;</span>; the inference belongs to the reader."}, {"pre": "<div class=\"excerpt\">East or west, home is best.<span class=\"cite\">rendered with a line of classical Arabic verse</span></div>", "q": "Why is this still bound rather than loose?", "opts": ["Because verse is always bound", "Because the rendering carries the proverb&rsquo;s own sense, not a conclusion about the speaker", "Because it is shorter", "Because it rhymes"], "ans": 1, "why": "Distance from the wording is not the test. The test is whether the sense is derived from the context or inferred beyond it."}, {"pre": "<div class=\"excerpt\">Books are very expensive.<span class=\"cite\">rendered as</span></div><div class=\"excerpt ar\">&#1604;&#1602;&#1583; &#1593;&#1586;&#1601; &#1575;&#1604;&#1606;&#1575;&#1587; &#1593;&#1606; &#1575;&#1604;&#1602;&#1585;&#1575;&#1569;&#1577; &#1575;&#1604;&#1610;&#1608;&#1605;</div>", "q": "What does the source text actually support?", "opts": ["This rendering exactly", "<span dir=\"rtl\">&#1575;&#1604;&#1603;&#1578;&#1576; &#1576;&#1575;&#1607;&#1592;&#1577; &#1575;&#1604;&#1579;&#1605;&#1606; &#1575;&#1604;&#1610;&#1608;&#1605;</span>", "A word-for-word version", "Nothing; the sentence is untranslatable"], "ans": 1, "why": "The inference about people turning away from reading may well be true, but it is the translator&rsquo;s conclusion, not the text&rsquo;s claim."}]);
+TASKS=[{"title": "Task 1 &mdash; a proverb with an Arabic counterpart", "text": "A bird in the hand is worth two in the bush.", "cite": "traditional English proverb &middot; public domain", "challenges": "Arabic has its own proverbs for this idea. Choosing one is bound free translation; explaining the English image is not.", "strategy": "Write the direct version first so you know what the proverb claims. Then find an Arabic saying that makes the same claim, and check that it does not import a different moral.", "sample": "&#1593;&#1589;&#1601;&#1608;&#1585; &#1601;&#1610; &#1575;&#1604;&#1610;&#1583; &#1582;&#1610;&#1585; &#1605;&#1606; &#1593;&#1588;&#1585;&#1577; &#1593;&#1604;&#1609; &#1575;&#1604;&#1588;&#1580;&#1585;&#1577;", "sampleNote": "A widely used Arabic equivalent. Note that it changes the bird and the number &mdash; and that this is licensed, because the claim is unchanged.", "check": ["Did you write the direct version first?", "Does your Arabic proverb make the same claim, not merely a similar-sounding one?", "Have you avoided adding a moral the English does not have?", "Could you justify your choice to a reader who preferred the literal version?"]}, {"title": "Task 2 &mdash; where loose free tempts", "text": "The lamp has been burning since midnight.", "cite": "original teaching sentence", "challenges": "It is easy to write &lsquo;he has not slept all night&rsquo; &mdash; which may be true, and is not what the sentence says. This is the loose free trap in miniature.", "strategy": "Translate what is asserted. If you find yourself adding a fact about the person rather than the lamp, you have crossed from bound to loose.", "sample": "&#1604;&#1575; &#1610;&#1586;&#1575;&#1604; &#1575;&#1604;&#1605;&#1589;&#1576;&#1575;&#1581; &#1605;&#1590;&#1575;&#1569;&#1611; &#1605;&#1606;&#1584; &#1605;&#1606;&#1578;&#1589;&#1601; &#1575;&#1604;&#1604;&#1610;&#1604;", "sampleNote": "The inference is left to the reader &mdash; exactly as the textbook recommends for both languages.", "check": ["Is your subject still the lamp?", "Have you added any fact that the English does not assert?", "Did you handle the continuing aspect with an adverbial or a suitable construction rather than an English-style auxiliary?", "Would a second translator produce something close to yours?"]}];
+AQ=[{"tag": "Free", "q": "Free translation is associated with translating:", "opts": ["the letter and form", "the spirit or the message", "the sound", "the layout"], "ans": 1, "fb": "And it is not committed to translating every single word."}, {"tag": "Free", "q": "Complete the rule: the translator cannot translate the way he likes, but the way he ______.", "opts": ["remembers", "understands", "prefers", "imagines"], "ans": 1, "fb": "Understanding is the constraint that keeps freedom from becoming invention."}, {"tag": "Bound", "q": "Bound free translation may go outside the context, typically in the form of:", "opts": ["omission", "exaggeration", "transliteration", "footnotes"], "ans": 1, "fb": "It travels far from the wording yet stays bound to the context in some way."}, {"tag": "Bound", "q": "Bound free translation is described as very close to:", "opts": ["creative translation", "word-for-word translation", "machine translation", "back translation"], "ans": 0, "fb": "Which is why proverbs and idioms are its natural home."}, {"tag": "Loose", "q": "Loose free translation moves from the linguistic context into:", "opts": ["etymology", "inferences", "phonology", "syntax"], "ans": 1, "fb": "It is based on the translator&rsquo;s conclusions about what the speaker or writer wants to say."}, {"tag": "Loose", "q": "It is described as a version of which kind of translation?", "opts": ["semantic", "pragmatic", "phonemic", "metrical"], "ans": 1, "fb": "Pragmatic translation &mdash; the translation of intentions."}, {"tag": "Loose", "q": "A consequence of loose free translation is that:", "opts": ["it is always shorter", "other translators may reach different conclusions", "it cannot be marked", "it needs a glossary"], "ans": 1, "fb": "Personal conclusions are not reproducible, which is a serious defect in an assessed translation."}, {"tag": "Unit", "q": "The largest unit of translation is:", "opts": ["the paragraph", "the sentence", "the clause", "the text"], "ans": 1, "fb": "Anything larger is the text, translated as a sequence of units."}, {"tag": "Process", "q": "The process of translation proceeds:", "opts": ["paragraph by paragraph", "unit by unit", "chapter by chapter", "word by word"], "ans": 1, "fb": "Organised stages, applied unit by unit &mdash; the habit the practical sessions are training."}, {"tag": "Judgement", "q": "A student renders every English proverb with an Arabic proverb inside a contract. The error is:", "opts": ["choosing bound free translation where the genre forbids it", "using loose free translation", "mistranslating the proverbs", "using the wrong dictionary"], "ans": 0, "fb": "Method follows genre. Bound free suits literary and general prose; legal texts admit almost no creative freedom."}];
+initWorkshop();
+</script>
+<script src="track.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>

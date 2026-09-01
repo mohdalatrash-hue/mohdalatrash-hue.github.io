@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Week 10 &mdash; Media Texts | ENG 270</title>
+<title>Week 10 &mdash; Media Texts (1 of 2) | ENG 270</title>
 <link rel="stylesheet" href="../style.css">
-<meta name="description" content="ENG 270 Week 10 (25-29 Oct 2026) &mdash; Practical session: media texts - 1 of 2. Introduction to Translation, Qassim University, Semester 481.">
+<meta name="description" content="ENG 270 Week 10 &mdash; Media texts 1 of 2 &mdash; leads, headlines, media style and the four categories. In-class group translation task, 15%.">
 <meta name="theme-color" content="#1a6b3c">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -15,8 +15,8 @@
 <meta name="apple-mobile-web-app-title" content="ENG 270">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ENG 270 Introduction to Translation">
-<meta property="og:title" content="Week 10 &mdash; Media Texts | ENG 270">
-<meta property="og:description" content="Practical session: media texts - 1 of 2 &mdash; ENG 270 Week 10.">
+<meta property="og:title" content="Week 10 &mdash; Media Texts (1 of 2) | ENG 270">
+<meta property="og:description" content="Media texts 1 of 2 &mdash; leads, headlines, media style and the four categories. In-class group translation task, 15%.">
 <meta property="og:image" content="https://mohdalatrash-hue.github.io/eng270/icon-512.png">
 <meta property="og:url" content="https://mohdalatrash-hue.github.io/eng270/week10.html">
 <meta name="twitter:card" content="summary">
@@ -34,13 +34,38 @@ body{background:var(--off-white);}
 .ass-t{font-size:15px;font-weight:800;color:var(--text);}
 .ass-w{font-size:11px;font-weight:800;background:#fdeaea;color:#a01010;padding:3px 10px;border-radius:var(--r-pill);}
 .ass-d{font-size:13px;color:var(--text-2);line-height:1.65;}
-.soon{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);border:1.5px dashed var(--border);padding:34px 26px;text-align:center;margin:0 0 32px;}
-.soon-ic{font-size:32px;margin-bottom:10px;}
-.soon-t{font-size:16px;font-weight:800;color:var(--ac-ink);margin-bottom:8px;}
-.soon-p{font-size:13px;color:var(--text-2);line-height:1.7;max-width:56ch;margin:0 auto;}
 .meta{list-style:none;padding:0;margin:0 0 32px;display:flex;flex-direction:column;gap:8px;}
 .meta li{display:flex;gap:12px;align-items:flex-start;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px;font-size:13px;color:var(--text-2);line-height:1.6;}
 .meta .k{font-weight:800;color:var(--ac-ink);min-width:120px;flex-shrink:0;}
+.obj{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:8px;}
+.obj li{position:relative;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px 13px 44px;font-size:13.5px;color:var(--text);line-height:1.6;}
+.obj li:before{content:"\2713";position:absolute;left:16px;top:12px;color:var(--ac);font-weight:800;}
+.idea{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:20px 22px;margin:0 0 12px;}
+.idea h3{font-size:15px;font-weight:800;color:var(--ac-ink);margin:0 0 8px;letter-spacing:-.01em;}
+.idea p{font-size:13.5px;color:var(--text-2);line-height:1.75;margin:0 0 9px;}
+.idea p:last-child{margin-bottom:0;}
+.idea ul{margin:6px 0 0;padding-left:20px;}
+.idea li{font-size:13.5px;color:var(--text-2);line-height:1.7;margin-bottom:5px;}
+.ex{width:100%;border-collapse:collapse;background:var(--white);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-xs);font-size:13px;}
+.ex th{background:var(--off-white);text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-2);font-weight:800;padding:10px 14px;border-bottom:1px solid var(--border);}
+.ex td{padding:12px 14px;border-bottom:1px solid var(--border-light);color:var(--text-2);line-height:1.65;vertical-align:top;}
+.ex tr:last-child td{border-bottom:none;}
+.ex .en{color:var(--text);font-weight:500;min-width:170px;}
+.ex .ar{font-size:16px;color:var(--text);direction:rtl;text-align:right;min-width:150px;line-height:1.9;}
+.ex .nt{font-size:12.5px;}
+.exwrap{overflow-x:auto;margin:0 0 32px;}
+.pr{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);overflow:hidden;margin:0 0 32px;}
+.pr details{border-bottom:1px solid var(--border-light);}
+.pr details:last-child{border-bottom:none;}
+.pr summary{cursor:pointer;padding:14px 18px;font-size:13.5px;font-weight:600;color:var(--text);list-style:none;display:flex;gap:10px;align-items:flex-start;}
+.pr summary::-webkit-details-marker{display:none;}
+.pr summary:before{content:"?";flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--ac-soft);color:var(--ac-ink);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.pr details[open] summary{background:var(--ac-soft);}
+.pr .ans{padding:2px 18px 16px 48px;font-size:13px;color:var(--text-2);line-height:1.75;}
+.pr .ans .ara{font-size:16px;direction:rtl;display:inline-block;}
+.rd{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:8px;}
+.rd li{background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px;font-size:13px;color:var(--text-2);line-height:1.6;}
+.rd .src{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ac-ink);margin-bottom:3px;}
 </style>
 </head>
 <body>
@@ -52,46 +77,42 @@ body{background:var(--off-white);}
     <span class="nav-sep">&rsaquo;</span>
     <span class="nav-cur">Week 10</span>
     <div class="nav-spacer"></div>
-    <div class="nav-links"><a class="nav-link" href="week9.html">&larr; Week 9</a><a class="nav-link" href="week11.html">Week 11 &rarr;</a></div>
+    <div class="nav-links"><a class="nav-link" href="week11.html">Week 11</a></div>
   </div>
 </nav>
 <div class="hero" style="padding-bottom:28px;">
   <div class="hero-eyebrow">Week 10 of 15 &middot; Tue 27 &amp; Wed 28 Oct 2026</div>
-  <h1>Media Texts</h1>
+  <h1>Media Texts (1 of 2)</h1>
   <p class="hero-sub"><span class="tbd">Section TBD</span> &middot; Tue 11:00&ndash;11:50 AM &middot; Wed 10:00&ndash;11:40 AM &middot; <span class="tbd">Room TBD</span></p>
   <div class="wk-dots"><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot on"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span></div>
 </div>
 <div class="section-alt" style="padding:8px 0 64px;">
 <div class="section-inner">
 
-  <div class="strand">Practical session: media texts &middot; 1 of 2</div>
-  <p class="lead">This week belongs to the <strong>media texts</strong> practical strand &mdash; six contact hours across Weeks&nbsp;10&ndash;11, working on the characteristics and challenges of media material.</p>
+  <div class="strand">Practical session &middot; media texts</div>
+  <p class="lead">Media language is fast, plain, front-loaded and built for attention. This week establishes what that means structurally and stylistically &mdash; and the graded in-class group translation task is completed on Wednesday.</p>
 
-  <div class="ass">
-    <div class="ass-h"><span style="font-size:20px;">&#128221;</span><span class="ass-t">In-class group translation task</span><span class="ass-w">15% of the course grade</span></div>
-    <div class="ass-d">A group translation task completed in class this week. It assesses both the translation itself and how effectively you work in a team (CLO&nbsp;3.2). Marks are recorded in Blackboard Ultra.</div>
-  </div>
+<div class="section-label" style="margin-bottom:14px;">Week at a glance</div>
+<ul class="meta"><li><span class="k">Dates</span><span>Tue 27 &amp; Wed 28 Oct 2026</span></li><li><span class="k">Meeting</span><span>Tuesday 11:00&ndash;11:50 AM (1 hour) &middot; Wednesday 10:00&ndash;11:40 AM (2 hours) &middot; <span class="tbd">Section TBD</span> &middot; <span class="tbd">Room TBD</span></span></li><li><span class="k">Contact hours</span><span>3 hours this week &middot; first of the two media weeks (6 hours in total)</span></li><li><span class="k">Spec topic</span><span>Practical session: media texts</span></li><li><span class="k">Reading</span><span>Lahlali &amp; Abu Hatab (2014), Module 5 opening: general information about media texts (pp. 125&ndash;126)</span></li><li><span class="k">Assessment</span><span><strong>In-class group translation task</strong> &middot; 15%</span></li><li><span class="k">Graded work</span><span>Submissions and marks are in Blackboard Ultra</span></li></ul>
+<div class="ass"><div class="ass-h"><span class="ass-t">In-class group translation task</span><span class="ass-w">15%</span></div><div class="ass-d">Completed <strong>during the lecture</strong>, so attendance this week is not optional &mdash; and attendance is itself worth 5% across the semester. The specification sets this task on a <strong>literary or scientific text</strong> &mdash; the two genres you have already worked through &mdash; not on the media texts being studied this week. You translate it into Arabic under the standard conditions: the work must be your own, no translation software or application may be used, and the use of AI is strictly prohibited. Bring a dictionary &mdash; paper or electronic. The assessment criteria are published with the task and are what the marking follows. Submission and marks are in Blackboard Ultra.</div></div>
+<div class="section-label" style="margin-bottom:14px;">By the end of the week you should be able to</div>
+<ul class="obj"><li>Describe the structural difference between a media text and a literary one, starting with the <em>lead</em>.</li><li>Explain why media sentences and paragraphs are short and economical.</li><li>Analyse a headline: what it omits, and why it is free of grammatical constraint.</li><li>Name the four categories of media text.</li><li>Match Arabic media register &mdash; plain, informative, emotive where it needs to be &mdash; rather than importing literary style.</li></ul>
+<div class="section-label" style="margin-bottom:14px;">Core ideas</div>
+<div class="mb-32"><div class="idea"><h3>What a media text is</h3><p>Media texts are the main means of receiving information and entertainment: the language of articles and advertisements published in newspapers or broadcast on radio, TV and websites. They depend on the addressee, and their main function is to express the message effectively &mdash; which is why they emphasise <strong>layout and mode of presentation</strong>.</p><p>In newspapers the message is aided by heavy focus on the display of headlines and banners &mdash; font size, organisation, prominence, typography &mdash; in whatever way most appeals to readers. Being a sub-category of non-fiction, media texts do not always apply the literary use of language.</p></div><div class="idea"><h3>Structure &mdash; the lead, not the introduction</h3><p>Careful structuring matters for every text, but media texts open differently. Where a literary text habitually offers a clear introduction, a media text opens with what is called a <strong>lead</strong>, used to create suspense or surprise, or to shock or arouse emotion in the reader (Rowland and Avery 2001).</p><p>Structuring is vital not only for strengthening an argument but for the coherent flow of information &mdash; and in media writing the flow is front-loaded.</p></div><div class="idea"><h3>Style &mdash; short, plain and active</h3><p>Media language is freer than standard language and is geared to producing news within a very limited timeframe. The consequences are concrete:</p><ul><li>Sentences and paragraphs are <strong>short and economical</strong>.</li><li><strong>Active</strong> verbs are preferred over passive, and adjectives are limited.</li><li>Elaborate cohesive devices are less common; because media text aims to grab attention, <strong>emotive language</strong> is used more.</li><li>In Arabic, media sentences are less complex, conveying information away from creative stylistic aspects; media texts emphasise <strong>plain language</strong>.</li></ul><p>Media language is less elaborate than other types. That is a specification of the target register, not a licence to write badly.</p></div><div class="idea"><h3>Headlines</h3><p>When media language is attention-grabbing it tends to be free from grammatical constraints. A newspaper headline reads <em>&lsquo;State population to double by 2040; babies to blame&rsquo;</em> rather than the fully grammatical <em>&lsquo;The state population is expected to double by 2040 and babies are the ones to blame&rsquo;</em>. Function words are omitted and only the meaningful lexis is kept.</p><p>The headline has a range of functions that specifically dictate its shape, content and structure, and operates within restrictions that limit the writer&rsquo;s freedom (Reah 2002). For the translator this means a headline is translated as a <em>headline</em> &mdash; you reconstruct the function in Arabic, you do not expand the ellipsis into a sentence.</p></div><div class="idea"><h3>The four categories</h3><p>Media texts divide into <strong>hard news, feature articles, special-topic news</strong> and <strong>headlines</strong>, each with different features depending on theme and structure.</p><p>Different media also have their own characteristics: magazine covers carry less text and no advertising compared with newspapers, while a newspaper runs separate sections &mdash; sports, entertainment, TV guide, medical and scientific news &mdash; each with its own genre-specific language. Some texts are written very quickly with the sole aim of publishing on the same day (Bell 1991), and may originate as an interview, a press release, a government briefing, or agency copy &mdash; each differing in form and language.</p></div></div>
+<div class="section-label" style="margin-bottom:14px;">In class</div>
+<div class="mb-32"><div class="idea"><h3>Tuesday &mdash; one hour</h3><p>Media text features, the lead, headline analysis, and the four categories, worked on current front pages.</p></div><div class="idea"><h3>Wednesday &mdash; two hours</h3><strong>The graded in-class group translation task (15%)</strong> is completed in this session. Read the assessment criteria issued with the task before you start.</div></div>
+<div class="section-label" style="margin-bottom:14px;">Check yourself</div>
+<div class="pr"><details><summary>What is a &lsquo;lead&rsquo;, and how does it differ from an introduction?</summary><div class="ans">A lead is the opening of a media text, used to create suspense or surprise, or to shock or arouse emotion. A literary text offers a clear introduction that sets up what follows; a media lead front-loads the most arresting material instead.</div></details><details><summary>Translate the function, not the form: <em>&lsquo;State population to double by 2040; babies to blame&rsquo;</em>. What must survive into Arabic?</summary><div class="ans">Its headline character: brevity, the omission of function words, the punch of the second clause. Expanding it into a full grammatical Arabic sentence would be an accurate translation of the words and a failed translation of the text type.</div></details><details><summary>Name the four categories of media text.</summary><div class="ans">Hard news, feature articles, special-topic news, and headlines.</div></details><details><summary>Why do media texts favour active verbs and few adjectives?</summary><div class="ans">Because the genre is produced under time pressure for rapid comprehension. Active structures and lean modification carry information faster &mdash; and Arabic already favours active structures, so this is one of the rare places where the two languages pull the same way.</div></details></div>
+<div class="section-label" style="margin-bottom:14px;">Take it further</div>
+<ul class="rd"><li><span class="src">Essential reference</span>Lahlali &amp; Abu Hatab (2014), media texts &mdash; general information about media texts.</li><li><span class="src">Lecture handout</span><strong>Chapter Two</strong> &mdash; media texts.</li></ul>
 
-  <div class="section-label" style="margin-bottom:14px;">Week at a glance</div>
-  <ul class="meta">
-    <li><span class="k">Dates</span><span>Tue 27 &amp; Wed 28 Oct 2026</span></li>
-    <li><span class="k">Meeting</span><span>Tuesday 11:00&ndash;11:50 AM (1 hour) &middot; Wednesday 10:00&ndash;11:40 AM (2 hours) &middot; <span class="tbd">Section TBD</span> &middot; <span class="tbd">Room TBD</span></span></li>
-    <li><span class="k">Contact hours</span><span>3 hours this week (45 across the semester)</span></li>
-    <li><span class="k">Spec topic</span><span>Practical session: media texts &middot; 1 of 2</span></li>
-    <li><span class="k">Graded work</span><span>Submissions and marks are in Blackboard Ultra</span></li>
-  </ul>
-
-  <div class="section-label" style="margin-bottom:14px;">Materials</div>
-  <div class="soon">
-    <div class="soon-ic">&#128296;</div>
-    <div class="soon-t">Content coming soon</div>
-    <div class="soon-p">The readings, in-class activities and practice for this week are still being prepared and will be published here before the week begins. The topic, dates and assessment information above are final and come from the official course specification. Check Blackboard Ultra for anything graded.</div>
-  </div>
+  <div class="section-label" style="margin-bottom:14px;">Workshop</div>
+  <a href="workshop10.html" style="display:block;background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);border-left:4px solid var(--ac);padding:20px 22px;margin:0 0 32px;text-decoration:none;color:inherit;"><div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--ac);margin-bottom:7px;">Week 10 workshop &middot; interactive</div><div style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:7px;letter-spacing:-.01em;">Leads and Headlines</div><div style="font-size:13.5px;color:var(--text-2);line-height:1.7;margin-bottom:10px;">Translate a headline as a headline, and a lead as a lead.</div><div style="font-size:13px;font-weight:700;color:var(--ac);">Concepts &middot; Analyse &middot; Translate it &middot; Quiz &nbsp;&rarr;</div></a>
 
   <div class="week-nav"><a href="week9.html">&larr; Week 9</a><a href="week11.html">Week 11 &rarr;</a></div>
 </div>
 </div>
-<footer><strong>ENG 270 Introduction to Translation</strong> &middot; Week 10 &middot; 25&ndash;29 Oct 2026 &middot; Qassim University &middot; Semester 481<br><a href="index.html">Course Hub</a> &middot; <a href="../index.html">Qassim Courses</a></footer>
+<footer><strong>ENG 270 Introduction to Translation</strong> &middot; Week 10 &middot; 27&ndash;28 Oct 2026 &middot; Qassim University &middot; Semester 481<br><a href="index.html">Course Hub</a> &middot; <a href="../index.html">Qassim Courses</a></footer>
 <script src="track.js" defer></script>
 <script src="site.js" defer></script>
 </body>

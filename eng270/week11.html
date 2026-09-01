@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Week 11 &mdash; Media Texts | ENG 270</title>
+<title>Week 11 &mdash; Media Texts (2 of 2) | ENG 270</title>
 <link rel="stylesheet" href="../style.css">
-<meta name="description" content="ENG 270 Week 11 (1-5 Nov 2026) &mdash; Practical session: media texts - 2 of 2. Introduction to Translation, Qassim University, Semester 481.">
+<meta name="description" content="ENG 270 Week 11 &mdash; Media texts 2 of 2 &mdash; interpreting, machine translation, and the ideological problems of conflict and disaster reporting.">
 <meta name="theme-color" content="#1a6b3c">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -15,8 +15,8 @@
 <meta name="apple-mobile-web-app-title" content="ENG 270">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ENG 270 Introduction to Translation">
-<meta property="og:title" content="Week 11 &mdash; Media Texts | ENG 270">
-<meta property="og:description" content="Practical session: media texts - 2 of 2 &mdash; ENG 270 Week 11.">
+<meta property="og:title" content="Week 11 &mdash; Media Texts (2 of 2) | ENG 270">
+<meta property="og:description" content="Media texts 2 of 2 &mdash; interpreting, machine translation, and the ideological problems of conflict and disaster reporting.">
 <meta property="og:image" content="https://mohdalatrash-hue.github.io/eng270/icon-512.png">
 <meta property="og:url" content="https://mohdalatrash-hue.github.io/eng270/week11.html">
 <meta name="twitter:card" content="summary">
@@ -34,13 +34,38 @@ body{background:var(--off-white);}
 .ass-t{font-size:15px;font-weight:800;color:var(--text);}
 .ass-w{font-size:11px;font-weight:800;background:#fdeaea;color:#a01010;padding:3px 10px;border-radius:var(--r-pill);}
 .ass-d{font-size:13px;color:var(--text-2);line-height:1.65;}
-.soon{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);border:1.5px dashed var(--border);padding:34px 26px;text-align:center;margin:0 0 32px;}
-.soon-ic{font-size:32px;margin-bottom:10px;}
-.soon-t{font-size:16px;font-weight:800;color:var(--ac-ink);margin-bottom:8px;}
-.soon-p{font-size:13px;color:var(--text-2);line-height:1.7;max-width:56ch;margin:0 auto;}
 .meta{list-style:none;padding:0;margin:0 0 32px;display:flex;flex-direction:column;gap:8px;}
 .meta li{display:flex;gap:12px;align-items:flex-start;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px;font-size:13px;color:var(--text-2);line-height:1.6;}
 .meta .k{font-weight:800;color:var(--ac-ink);min-width:120px;flex-shrink:0;}
+.obj{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:8px;}
+.obj li{position:relative;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px 13px 44px;font-size:13.5px;color:var(--text);line-height:1.6;}
+.obj li:before{content:"\2713";position:absolute;left:16px;top:12px;color:var(--ac);font-weight:800;}
+.idea{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:20px 22px;margin:0 0 12px;}
+.idea h3{font-size:15px;font-weight:800;color:var(--ac-ink);margin:0 0 8px;letter-spacing:-.01em;}
+.idea p{font-size:13.5px;color:var(--text-2);line-height:1.75;margin:0 0 9px;}
+.idea p:last-child{margin-bottom:0;}
+.idea ul{margin:6px 0 0;padding-left:20px;}
+.idea li{font-size:13.5px;color:var(--text-2);line-height:1.7;margin-bottom:5px;}
+.ex{width:100%;border-collapse:collapse;background:var(--white);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-xs);font-size:13px;}
+.ex th{background:var(--off-white);text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-2);font-weight:800;padding:10px 14px;border-bottom:1px solid var(--border);}
+.ex td{padding:12px 14px;border-bottom:1px solid var(--border-light);color:var(--text-2);line-height:1.65;vertical-align:top;}
+.ex tr:last-child td{border-bottom:none;}
+.ex .en{color:var(--text);font-weight:500;min-width:170px;}
+.ex .ar{font-size:16px;color:var(--text);direction:rtl;text-align:right;min-width:150px;line-height:1.9;}
+.ex .nt{font-size:12.5px;}
+.exwrap{overflow-x:auto;margin:0 0 32px;}
+.pr{background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);overflow:hidden;margin:0 0 32px;}
+.pr details{border-bottom:1px solid var(--border-light);}
+.pr details:last-child{border-bottom:none;}
+.pr summary{cursor:pointer;padding:14px 18px;font-size:13.5px;font-weight:600;color:var(--text);list-style:none;display:flex;gap:10px;align-items:flex-start;}
+.pr summary::-webkit-details-marker{display:none;}
+.pr summary:before{content:"?";flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--ac-soft);color:var(--ac-ink);font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.pr details[open] summary{background:var(--ac-soft);}
+.pr .ans{padding:2px 18px 16px 48px;font-size:13px;color:var(--text-2);line-height:1.75;}
+.pr .ans .ara{font-size:16px;direction:rtl;display:inline-block;}
+.rd{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:8px;}
+.rd li{background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:13px 16px;font-size:13px;color:var(--text-2);line-height:1.6;}
+.rd .src{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ac-ink);margin-bottom:3px;}
 </style>
 </head>
 <body>
@@ -52,41 +77,43 @@ body{background:var(--off-white);}
     <span class="nav-sep">&rsaquo;</span>
     <span class="nav-cur">Week 11</span>
     <div class="nav-spacer"></div>
-    <div class="nav-links"><a class="nav-link" href="week10.html">&larr; Week 10</a><a class="nav-link" href="week12.html">Week 12 &rarr;</a></div>
+    <div class="nav-links"><a class="nav-link" href="week12.html">Week 12</a></div>
   </div>
 </nav>
 <div class="hero" style="padding-bottom:28px;">
   <div class="hero-eyebrow">Week 11 of 15 &middot; Tue 3 &amp; Wed 4 Nov 2026</div>
-  <h1>Media Texts</h1>
+  <h1>Media Texts (2 of 2)</h1>
   <p class="hero-sub"><span class="tbd">Section TBD</span> &middot; Tue 11:00&ndash;11:50 AM &middot; Wed 10:00&ndash;11:40 AM &middot; <span class="tbd">Room TBD</span></p>
   <div class="wk-dots"><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot on"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span><span class="wk-dot"></span></div>
 </div>
 <div class="section-alt" style="padding:8px 0 64px;">
 <div class="section-inner">
 
-  <div class="strand">Practical session: media texts &middot; 2 of 2</div>
-  <p class="lead">This week belongs to the <strong>media texts</strong> practical strand &mdash; six contact hours across Weeks&nbsp;10&ndash;11, working on the characteristics and challenges of media material.</p>
+  <div class="strand">Practical session &middot; translating the media</div>
+  <p class="lead">Media texts from the translator&rsquo;s side: why the work is more often interpreting than translation, why the genre suits machine translation, and the two places where neither of those claims holds &mdash; conflict reporting and natural disasters.</p>
 
-  <div class="section-label" style="margin-bottom:14px;">Week at a glance</div>
-  <ul class="meta">
-    <li><span class="k">Dates</span><span>Tue 3 &amp; Wed 4 Nov 2026</span></li>
-    <li><span class="k">Meeting</span><span>Tuesday 11:00&ndash;11:50 AM (1 hour) &middot; Wednesday 10:00&ndash;11:40 AM (2 hours) &middot; <span class="tbd">Section TBD</span> &middot; <span class="tbd">Room TBD</span></span></li>
-    <li><span class="k">Contact hours</span><span>3 hours this week (45 across the semester)</span></li>
-    <li><span class="k">Spec topic</span><span>Practical session: media texts &middot; 2 of 2</span></li>
-    <li><span class="k">Graded work</span><span>Submissions and marks are in Blackboard Ultra</span></li>
-  </ul>
+<div class="section-label" style="margin-bottom:14px;">Week at a glance</div>
+<ul class="meta"><li><span class="k">Dates</span><span>Tue 3 &amp; Wed 4 Nov 2026</span></li><li><span class="k">Meeting</span><span>Tuesday 11:00&ndash;11:50 AM (1 hour) &middot; Wednesday 10:00&ndash;11:40 AM (2 hours) &middot; <span class="tbd">Section TBD</span> &middot; <span class="tbd">Room TBD</span></span></li><li><span class="k">Contact hours</span><span>3 hours this week &middot; second of the two media weeks</span></li><li><span class="k">Spec topic</span><span>Practical session: media texts &mdash; translating the media</span></li><li><span class="k">Reading</span><span>Lahlali &amp; Abu Hatab (2014), <strong>Lesson 25</strong> (pp. 127&ndash;131), <strong>Lesson 26</strong> (pp. 132&ndash;137), <strong>Lesson 27</strong> (pp. 138&ndash;143), <strong>Lesson 28</strong> (pp. 144&ndash;150), Module 5 review (p. 151)</span></li><li><span class="k">Graded work</span><span>Submissions and marks are in Blackboard Ultra</span></li></ul>
+<div class="section-label" style="margin-bottom:14px;">By the end of the week you should be able to</div>
+<ul class="obj"><li>Explain why media work demands more interpreting than written translation, and why interpreting is harder.</li><li>Say why media texts are unusually good candidates for machine translation &mdash; and where that argument stops.</li><li>Handle ideologically loaded terminology in conflict reporting without taking a side by accident.</li><li>Use footnotes to contextualise controversial terms.</li><li>Recognise the religious and sentimental register of Arabic disaster reporting and translate into and out of it responsibly.</li></ul>
+<div class="section-label" style="margin-bottom:14px;">Core ideas</div>
+<div class="mb-32"><div class="idea"><h3>Media in the translation profession</h3><p>With regard to the profession, media texts require <strong>more interpreting than written translation</strong> &mdash; and interpreting is usually more complicated and harder to tackle, because of difficulties of setting, time, voice and participants.</p><p>As for written translation, media texts can be translated more easily than complex genres such as literary texts. In translating lexis, the strategies are restricted to using a borrowed term, either transliterated or translated literally, because media terms tend to be restricted in meaning and cannot normally carry connotative senses such as metaphor or metonymy. <em>Piggyback</em>, for example, has straightforward equivalents in other languages.</p><p>That characteristic makes media texts a successful candidate for <strong>machine translation</strong>: the language of the media can be anticipated, much like other technical uses. Media texts could even be called a category of technical texts, if we treat the media as a field rather than strictly a discipline.</p></div><div class="idea"><h3>Conflicts and civil wars</h3><p>Translating texts about conflicts and wars remains one of the most complex tasks a translator faces, because the register used may be <strong>interpreted differently by different parties</strong> to the conflict. What one side calls a <em>holy war</em>, another calls a <em>guerrilla war</em>.</p><p>These ideological differences in how terms are approached and actions labelled make a representative translation genuinely difficult. The translator must take cultural, social and political aspects of both source and target text into account, and be very aware of the differences, in order to produce a balanced translation.</p><p>Where terminology is controversial, the translator may resort to <strong>footnotes</strong> to explain or contextualise key source-language terms, so that the target audience understands what underlies them. Recall the Week 7 example: <em>Thousands were killed in the raid</em> can be rendered with a neutral verb or with one that confers a status the English does not confer. That is not a stylistic choice.</p></div><div class="idea"><h3>Natural disasters</h3><p>As with other genres, this type of text requires good knowledge of both cultural contexts, since texts may be influenced by cultural and religious beliefs that different audiences receive differently.</p><p>The Arabic culture is religious-oriented, and this is often evident in texts about natural disasters, since most Arabs and Muslims believe that disasters are an act of God. That may not be the case in other cultures, so the translator should exercise extra caution in conveying the meaning of the source text to the target audience.</p><p>Awareness of the recipients&rsquo; cultural beliefs and values is vital. The Arabic style in this genre can be very informative while also employing religious and sentimental lexis &mdash; and a translation into English that reproduces that lexis literally will read as editorialising.</p></div></div>
+<div class="section-label" style="margin-bottom:14px;">Uprisings, revolutions, elections</div>
+<div class="mb-32"><div class="idea"><h3>Lesson 26 &middot; Uprisings and revolutions</h3><p>The 2011 uprisings across the Middle East coined new terminology and phrases that have since entered the Arabic glossary and culture, and which some translators will not be familiar with. Part of that register is specific to individual countries and groups.</p><p>Two demands follow. The translator must be aware of the <strong>new register</strong> and of the <strong>internal or local context</strong> attached to it, in order to produce a representative and accurate rendering. And because much of this register is culture-specific, the <strong>historical context</strong> can prove essential &mdash; some terms are tied directly to national and regional issues that belong to the source context alone.</p></div><div class="idea"><h3>Lesson 27 &middot; Elections and oppositions</h3><p>Translating election texts is often considered straightforward and in reality is not, for translators with little knowledge of the target-text culture: some election terminology is interpreted differently depending on the context of the source.</p><p>In Arabic, different groups and opposition parties are given different labels and attributions, and a translator unaware of those political distinctions will misidentify the actors. The strategy the textbook recommends is unglamorous and effective: a good acquaintance with current affairs, familiarity with the registers of elections and oppositions, and <strong>a glossary</strong> built and maintained for the purpose.</p></div></div>
+<div class="section-label" style="margin-bottom:14px;">In class</div>
+<div class="mb-32"><div class="idea"><h3>Tuesday &mdash; one hour</h3><p>Media texts in translation; interpreting versus written translation; the machine-translation argument and its limits. Exercises 25.1 (p. 127) and 25.2 (p. 128).</p></div><div class="idea"><h3>Wednesday &mdash; two hours</h3><p>Conflict and disaster reporting: terminology audits on parallel news items, in groups of three. Exercise 28.2 (p. 145) and 28.3 (p. 146) in class; 25.3, 25.4 (p. 129) and 28.4 (p. 147) at home.</p></div></div>
+<div class="section-label" style="margin-bottom:14px;">Check yourself</div>
+<div class="pr"><details><summary>Why are media texts described as good candidates for machine translation?</summary><div class="ans">Because their language can be anticipated. Media terms tend to be restricted in meaning and do not normally carry connotative senses such as metaphor or metonymy, so lexical strategies reduce to borrowing or literal translation &mdash; the conditions machine translation handles best.</div></details><details><summary>Where does that argument stop?</summary><div class="ans">At loaded terminology. A machine will render a conflict term with whatever equivalent is statistically common, and in conflict reporting the choice of term <em>is</em> the political content. That is a judgement, and the textbook&rsquo;s answer is translator awareness plus footnotes, not automation.</div></details><details><summary>A source text describes a flood without any religious framing; the Arabic target register normally carries some. What do you do?</summary><div class="ans">Exercise caution rather than assimilate. The Arabic style in this genre can be informative while employing religious and sentimental lexis, but importing that framing into a text that did not have it changes the source&rsquo;s claim. Awareness of the recipients&rsquo; beliefs is required &mdash; adopting them on the author&rsquo;s behalf is not.</div></details><details><summary>Why is interpreting harder than written media translation?</summary><div class="ans">Because of the setting, the time available, the voice, and the participants &mdash; none of which the interpreter controls, and all of which the written translator can work around.</div></details></div>
+<div class="section-label" style="margin-bottom:14px;">Take it further</div>
+<ul class="rd"><li><span class="src">Essential reference</span>Lahlali &amp; Abu Hatab (2014), Lesson 25: Conflicts / civil wars; Lesson 28: Natural disasters.</li><li><span class="src">Exercises</span>25.1 (p. 127), 25.2 (p. 128), 28.2 (p. 145), 28.3 (p. 146) in class &middot; 25.3&ndash;25.4 (p. 129) and 28.4 (p. 147) at home.</li><li><span class="src">Lecture handout</span><strong>Chapter Two</strong> &mdash; media texts in terms of translation.</li></ul>
 
-  <div class="section-label" style="margin-bottom:14px;">Materials</div>
-  <div class="soon">
-    <div class="soon-ic">&#128296;</div>
-    <div class="soon-t">Content coming soon</div>
-    <div class="soon-p">The readings, in-class activities and practice for this week are still being prepared and will be published here before the week begins. The topic, dates and assessment information above are final and come from the official course specification. Check Blackboard Ultra for anything graded.</div>
-  </div>
+  <div class="section-label" style="margin-bottom:14px;">Workshop</div>
+  <a href="workshop11.html" style="display:block;background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);border-left:4px solid var(--ac);padding:20px 22px;margin:0 0 32px;text-decoration:none;color:inherit;"><div style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--ac);margin-bottom:7px;">Week 11 workshop &middot; interactive</div><div style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:7px;letter-spacing:-.01em;">Words That Take Sides</div><div style="font-size:13.5px;color:var(--text-2);line-height:1.7;margin-bottom:10px;">Conflict, uprisings, elections and disasters &mdash; where a word choice is a position.</div><div style="font-size:13px;font-weight:700;color:var(--ac);">Concepts &middot; Analyse &middot; Translate it &middot; Quiz &nbsp;&rarr;</div></a>
 
   <div class="week-nav"><a href="week10.html">&larr; Week 10</a><a href="week12.html">Week 12 &rarr;</a></div>
 </div>
 </div>
-<footer><strong>ENG 270 Introduction to Translation</strong> &middot; Week 11 &middot; 1&ndash;5 Nov 2026 &middot; Qassim University &middot; Semester 481<br><a href="index.html">Course Hub</a> &middot; <a href="../index.html">Qassim Courses</a></footer>
+<footer><strong>ENG 270 Introduction to Translation</strong> &middot; Week 11 &middot; 3&ndash;4 Nov 2026 &middot; Qassim University &middot; Semester 481<br><a href="index.html">Course Hub</a> &middot; <a href="../index.html">Qassim Courses</a></footer>
 <script src="track.js" defer></script>
 <script src="site.js" defer></script>
 </body>
