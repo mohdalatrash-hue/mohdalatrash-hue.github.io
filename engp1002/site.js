@@ -44,3 +44,41 @@
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", build); else build();
 })();
+
+/* Week 3 enhancement: use separate, classroom-ready MP3 players and
+   present the Oxford → original-workshop lesson flow at the top of the page. */
+(function () {
+  if (!/week3\.html$/i.test(location.pathname)) return;
+  var sources = [
+    'assets/unit1/listening-1-debate-5m48.mp3',
+    'assets/unit1/listening-2-evidence-7m.mp3',
+    'assets/unit1/listening-3-bias-context-8m.mp3',
+    'assets/unit1/listening-4-conclusion-8m18.mp3'
+  ];
+  var players = document.querySelectorAll('.audio audio');
+  players.forEach(function (audio, i) {
+    var source = audio.querySelector('source');
+    if (!source || !sources[i]) return;
+    source.src = sources[i];
+    source.type = 'audio/mpeg';
+    audio.load();
+  });
+  var inner = document.querySelector('.section-inner');
+  var firstInfo = inner && inner.querySelector('.info-box');
+  if (!inner || !firstInfo || document.getElementById('week3-lesson-plan')) return;
+  var plan = document.createElement('section');
+  plan.className = 'lab'; plan.id = 'week3-lesson-plan';
+  plan.innerHTML = '<h2>Teacher lesson plan <span class="tag">210 minutes</span></h2>' +
+    '<p class="sub">Use the licensed Oxford platform first, then use this page for original practice, note-taking, and speaking. Do not copy or redistribute Oxford material from the platform.</p>' +
+    '<div class="box"><b>Part A — Oxford English Hub (45 minutes)</b><ol>' +
+    '<li>Open the authorised <a href="https://englishhub.oup.com/launch/teacher/QSKILLS4RWOP3" target="_blank" rel="noopener">Oxford English Hub course</a> and choose Unit 1.</li>' +
+    '<li>Preview the Unit 1 question and target vocabulary. Ask students to predict which details may influence a first impression.</li>' +
+    '<li>Complete the assigned official Unit 1 reading/listening activity in English Hub. Students take four-column notes: main idea, evidence, new word, question.</li>' +
+    '<li>Pair-check notes; collect one unresolved question from each pair.</li></ol></div>' +
+    '<div class="box"><b>Part B — GitHub practice workshop (165 minutes)</b><ol>' +
+    '<li>Exercises 1–2: activate background knowledge and separate observation from interpretation.</li>' +
+    '<li>Listenings 1–4: play each visible MP3 once for gist and once for notes; do not provide a transcript before the first listen.</li>' +
+    '<li>Exercises 10–13: synthesize evidence through the evidence ladder, role-play, case conference, and assessed group response.</li></ol></div>' +
+    '<div class="grid"><div class="card"><b>🎧 MP3 1 · 5:48</b><br>Debate: the main argument</div><div class="card"><b>🎧 MP3 2 · 7:00</b><br>Evidence and provisional judgment</div><div class="card"><b>🎧 MP3 3 · 8:00</b><br>Bias, stereotype, and context</div><div class="card"><b>🎧 MP3 4 · 8:18</b><br>Qualified conclusion and application</div></div>';
+  firstInfo.insertAdjacentElement('afterend', plan);
+})();
