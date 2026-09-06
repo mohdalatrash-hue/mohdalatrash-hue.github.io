@@ -2,6 +2,7 @@
 (function () {
   var LINKS = [
     { href: "index.html", label: "Course Hub" },
+    { href: "syllabus.html", label: "Syllabus & Assessment" },
     { href: "week1.html", label: "Week 1" },
     { href: "week2.html", label: "Week 2" },
     { href: "week3.html", label: "Week 3" },
@@ -9,14 +10,17 @@
     { href: "week5.html", label: "Week 5" },
     { href: "week6.html", label: "Week 6" },
     { href: "week7.html", label: "Week 7" },
-    { href: "week8.html", label: "Week 8" },
-    { href: "week9.html", label: "Week 9" },
+    { href: "week8.html", label: "Week 8 — Presentations" },
+    { href: "week9.html", label: "Week 9 — Midterm" },
     { href: "week10.html", label: "Week 10" },
     { href: "week11.html", label: "Week 11" },
     { href: "week12.html", label: "Week 12" },
     { href: "week13.html", label: "Week 13" },
-    { href: "week14.html", label: "Week 14" },
-    { href: "week15.html", label: "Week 15" }
+    { href: "week14.html", label: "Week 14 — Break" },
+    { href: "week15.html", label: "Week 15" },
+    { href: "week16.html", label: "Week 16 — Presentations" },
+    { href: "week17.html", label: "Week 17" },
+    { href: "finals.html", label: "Weeks 18–20 — Finals" }
   ];
   function build() {
     var nav = document.querySelector(".nav");
@@ -44,8 +48,3 @@
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", build); else build();
 })();
-
-/* Week 3 content now lives entirely in week3.html (no runtime injection).
-   Removed 2026-09-04: the per-listening pack injector and the MP3/lesson-plan
-   injector, which duplicated page content and left students with two
-   competing sets of exercises. */
