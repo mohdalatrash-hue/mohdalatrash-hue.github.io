@@ -22,6 +22,20 @@ body{background:var(--off-white);}
 .excerpt.ar{direction:rtl;text-align:right;font-size:16px;}
 .tp-input{width:100%;min-height:120px;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:15px;font-family:inherit;line-height:1.9;direction:rtl;text-align:right;resize:vertical;}
 .tp-input:focus{outline:none;border-color:var(--ac);}
+.ws-field-label{display:block;font-size:12px;font-weight:800;color:var(--ac-ink);margin:14px 0 6px;line-height:1.5;}
+.ws-short-input{min-height:78px;}
+.ws-plan{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin:0 0 24px;}
+.ws-plan-item{background:var(--white);border:1px solid var(--border-light);border-radius:var(--r-md);padding:11px 9px;text-align:center;box-shadow:var(--shadow-xs);}
+.ws-plan-time{display:block;font-size:17px;font-weight:800;color:var(--ac);margin-bottom:3px;}
+.ws-plan-label{display:block;font-size:10.5px;font-weight:700;color:var(--text-2);line-height:1.35;}
+.ws-writing-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:24px;margin-bottom:20px;}
+.ws-step{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start;margin:10px 0;font-size:13.5px;line-height:1.65;color:var(--text-2);}
+.ws-step-num{width:27px;height:27px;border-radius:50%;background:var(--ac-soft);color:var(--ac-ink);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+.ws-reveal{margin-top:14px;border:1px solid #c7d2fe;border-radius:var(--r-md);background:var(--ac-soft);overflow:hidden;}
+.ws-reveal summary{cursor:pointer;padding:12px 14px;font-size:13px;font-weight:800;color:var(--ac-ink);}
+.ws-reveal-body{padding:0 14px 14px;font-size:13px;line-height:1.7;color:var(--text-2);}
+.unit-source{font-family:Georgia,'Times New Roman',serif;font-size:15px;line-height:1.85;background:var(--off-white);border-left:3px solid var(--ac);padding:14px 16px;border-radius:0 var(--r-md) var(--r-md) 0;margin:10px 0 16px;}
+@media(max-width:760px){.ws-plan{grid-template-columns:repeat(2,minmax(0,1fr));}}
 .tp-btn{margin-top:12px;}
 .tp-reveal{display:none;margin-top:16px;padding:16px;border-radius:var(--r-md);background:var(--ac-soft);border:1px solid #c7d2fe;font-size:13.5px;line-height:1.7;color:var(--text);} .tp-reveal.show{display:block;}
 .tp-reveal h4{font-size:13px;font-weight:800;color:var(--ac-ink);text-transform:uppercase;letter-spacing:.05em;margin:12px 0 6px;} .tp-reveal h4:first-child{margin-top:0;}
