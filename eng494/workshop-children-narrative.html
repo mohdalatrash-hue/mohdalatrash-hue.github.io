@@ -48,6 +48,12 @@ body{background:var(--off-white);}
 .unit-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;}
 .unit-tab{font-size:12px;font-weight:700;padding:6px 12px;border-radius:var(--r-pill);text-decoration:none;border:1.5px solid var(--border);color:var(--text-2);}
 .unit-tab.cur{background:var(--ac);border-color:var(--ac);color:#fff;}
+
+.guide-intro{background:var(--ac-soft);border:1.5px solid #a7f3d0;border-radius:var(--r-lg);padding:18px 20px;margin-bottom:18px;line-height:1.7;}
+.guide-card{background:var(--white);border:1px solid var(--border-light);border-radius:var(--r-xl);box-shadow:var(--shadow-xs);padding:22px 24px;margin-bottom:16px;}
+.guide-card h3{color:var(--ac-ink);margin:0 0 10px;font-size:18px;}
+.guide-card ol{margin:0;padding-left:22px;}
+.guide-card li{margin:8px 0;line-height:1.65;color:var(--text-2);}
 </style>
 </head>
 <body>
@@ -81,6 +87,7 @@ body{background:var(--off-white);}
     <button class="tab-btn active" onclick="switchTab('voice',this)">🎙️ The Narrator's Voice</button>
     <button class="tab-btn" onclick="switchTab('address',this)">👥 Modes of Address</button>
     <button class="tab-btn" onclick="switchTab('translate',this)">✍️ Translate It</button>
+    <button class="tab-btn" onclick="switchTab('guide',this)">📚 Reading Guide</button>
     <button class="tab-btn" onclick="switchTab('quiz',this)">📝 Quiz</button>
   </div>
   <div id="tab-voice" class="tab-panel active">
@@ -94,6 +101,19 @@ body{background:var(--off-white);}
   <div id="tab-translate" class="tab-panel">
     <div class="tip-box"><strong>Translate the voice, not just the sense.</strong> Keep the narrator's relationship with the child — the direct address, the warmth, the rhythm. Type your version, then reveal the notes.</div>
     <div id="translate-tasks"></div>
+  </div>
+
+  <div id="tab-guide" class="tab-panel">
+    <div class="guide-intro"><strong>Required reading guide:</strong> Lathey (2016), “Narrative in Children’s Literature” (Ch. 1). Work through each section and use the questions to prepare for class discussion.</div>
+    <div class="guide-card"><h3>1. Narrative communication with the child reader</h3><ol><li>How does translation for children create a dialogue among the author, translator, and child reader?</li><li>What kinds of knowledge about childhood help a translator address young readers convincingly?</li><li>How can a narrative voice be didactic, subversive, conspiratorial, or directed at both children and adults?</li></ol></div>
+    <div class="guide-card"><h3>2. Dual address in children’s literature</h3><ol><li>What signals show that a passage is addressing adults as well as children?</li><li>What is lost when a translator simplifies a joke or ambiguity that younger readers may not fully understand?</li><li>How could a translator preserve two different readings without making either one too explicit?</li></ol></div>
+    <div class="guide-card"><h3>3. Narrative voice</h3><ol><li>How do pronouns, asides, punctuation, or italics position the narrator in relation to the child reader?</li><li>When a language cannot reproduce a shift in narrative perspective directly, what compensatory devices are available?</li><li>Why might an author’s preface or biography matter when translating narrative voice?</li></ol></div>
+    <div class="guide-card"><h3>4. Child narrators</h3><ol><li>Which features make a child narrator sound convincing: vocabulary, syntax, punctuation, repetition, or something else?</li><li>How can a translator preserve emotional intensity without caricaturing child speech?</li><li>What target-language books could serve as useful voice models for a narrator of the same age and social background?</li></ol></div>
+    <div class="guide-card"><h3>5. The translator’s voice: interventions</h3><ol><li>What information is essential for comprehension, and what can safely remain unfamiliar or implicit?</li><li>Should an explanation appear inside the story, in a preface, or in an afterword—and how would each placement affect the reading experience?</li><li>How can the translator’s added voice blend with the narrator without falsely appearing to be the author’s own words?</li></ol></div>
+    <div class="guide-card"><h3>6. Censorship and ideological messages</h3><ol><li>Which changes protect a child, and which merely reflect adult discomfort or cultural prejudice?</li><li>What literary or ideological effects are lost when a troubling detail is softened or removed?</li><li>How should a translator respond when a publisher, state body, or religious authority requests censorship?</li></ol></div>
+    <div class="guide-card"><h3>7. Narrative communication and reader response theory</h3><ol><li>How would an aesthetic first reading change the decisions made during an efferent, problem-solving reading?</li><li>Which gaps in a children’s text invite productive inference, and which create avoidable confusion across cultures?</li><li>What kind of evidence from actual child readers would be most useful when revising a translation?</li></ol></div>
+    <div class="guide-card"><h3>8. Stylistic and linguistic issues</h3><ol><li>How can syntax be made accessible without flattening rhythm, variation, or stylistic experimentation?</li><li>What cultural assumptions enter a translation when an animal must be assigned a gendered pronoun?</li><li>Which features of the target writing system must be adjusted for the readers’ age and literacy level?</li></ol></div>
+    <div class="guide-card"><h3>9. Tense</h3><ol><li>How does present versus past tense change immediacy, suspense, and the child listener’s sense of witnessing events?</li><li>When should target-language convention outweigh the source text’s tense pattern?</li><li>Why might picture books and comics justify a different tense strategy from a conventional prose novel?</li></ol></div>
   </div>
   <div id="tab-quiz" class="tab-panel">
         <div class="tip-box"><strong>📝 Review quiz &mdash; grounded in Lathey (2016), &ldquo;Narrative in Children&rsquo;s Literature&rdquo; (Ch.&nbsp;1).</strong> 10 questions; each is tagged with the topic it tests (Dual address &middot; Narrative voice &middot; Translator&rsquo;s voice &middot; Reader response). Answer order is shuffled on every attempt.</div>
