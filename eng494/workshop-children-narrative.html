@@ -54,6 +54,12 @@ body{background:var(--off-white);}
 .guide-card h3{color:var(--ac-ink);margin:0 0 10px;font-size:18px;}
 .guide-card ol{margin:0;padding-left:22px;}
 .guide-card li{margin:8px 0;line-height:1.65;color:var(--text-2);}
+.quiz-actions{position:sticky;bottom:12px;background:rgba(255,255,255,.96);border:1px solid var(--border-light);border-radius:var(--r-lg);box-shadow:var(--shadow-md);padding:16px 18px;margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:14px;backdrop-filter:blur(8px);}
+.quiz-status{font-size:14px;color:var(--text-2);line-height:1.5;}
+.quiz-alert{display:none;margin:0 0 16px;padding:12px 16px;border-radius:var(--r-md);background:#fff7ed;border:1px solid #fdba74;color:#9a3412;font-size:14px;font-weight:600;} .quiz-alert.show{display:block;}
+.quiz-choice{display:flex;gap:10px;align-items:flex-start;} .quiz-choice input{margin-top:3px;accent-color:var(--ac);}
+.quiz-review-title{font-size:18px;font-weight:800;margin:28px 0 14px;color:var(--text);}
+@media(max-width:600px){.quiz-actions{align-items:stretch;flex-direction:column;}.quiz-actions .btn{width:100%;}}
 </style>
 </head>
 <body>
@@ -116,16 +122,18 @@ body{background:var(--off-white);}
     <div class="guide-card"><h3>9. Tense</h3><ol><li>How does present versus past tense change immediacy, suspense, and the child listener’s sense of witnessing events?</li><li>When should target-language convention outweigh the source text’s tense pattern?</li><li>Why might picture books and comics justify a different tense strategy from a conventional prose novel?</li></ol></div>
   </div>
   <div id="tab-quiz" class="tab-panel">
-        <div class="tip-box"><strong>📝 Review quiz &mdash; grounded in Lathey (2016), &ldquo;Narrative in Children&rsquo;s Literature&rdquo; (Ch.&nbsp;1).</strong> 10 questions; each is tagged with the topic it tests (Dual address &middot; Narrative voice &middot; Translator&rsquo;s voice &middot; Reader response). Answer order is shuffled on every attempt.</div>
+        <div class="tip-box"><strong>📝 Beginning-of-class quiz &mdash; Lathey (2016), &ldquo;Narrative in Children&rsquo;s Literature&rdquo; (Ch.&nbsp;1).</strong> Answer all 10 questions, then press <strong>Submit and check my performance</strong>. Your result is for practice and is marked out of 10. After submitting, review every missed answer and its short explanation.</div>
     <div class="prog-bar-wrap"><div class="prog-bar" id="aq-prog" style="width:0%"></div></div>
-    <div id="aq-container"></div>
+    <div id="aq-alert" class="quiz-alert" role="alert"></div>
     <div id="aq-score" class="score-summary" style="display:none;"></div>
+    <form id="aq-form" onsubmit="submitAQ(event)"><div id="aq-container"></div><div class="quiz-actions"><div class="quiz-status" id="aq-status">0 of 10 questions answered</div><button class="btn btn-primary" style="background:var(--ac);" type="submit">Submit and check my performance</button></div></form>
   </div>
 </div>
 </div>
 <footer><strong>ENG 494 Literary Translation</strong> · Children's Lit · Narrative · Qassim University<br><a href="index.html">Course Hub</a> · <a href="workshop-children-dialogue.html">Next: Dialogue & Dialect →</a></footer>
 <script>
-function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
+function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');history.replaceState(null,'','#'+id);}
+function openHash(){var id=location.hash.slice(1);if(!id)return;var panel=document.getElementById('tab-'+id);if(!panel)return;var btn=[...document.querySelectorAll('.tab-btn')].find(function(b){return b.getAttribute('onclick').indexOf("'"+id+"'")>-1;});if(btn)switchTab(id,btn);}
 var MCQ={};
 function shuffleQ(q){if(q._o0===undefined){q._o0=q.opts.slice();q._a0=q.ans;}var idx=q._o0.map(function(_,i){return i;});for(var i=idx.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=idx[i];idx[i]=idx[j];idx[j]=t;}q.opts=idx.map(function(k){return q._o0[k];});q.ans=idx.indexOf(q._a0);return q;}
 function mount(cid,items){MCQ[cid]=items;items.forEach(shuffleQ);document.getElementById(cid).innerHTML=items.map((q,qi)=>`<div class="ex-card">${q.pre||''}<div style="font-size:14px;font-weight:600;margin:6px 0 10px;">${q.q}</div>${q.opts.map((o,oi)=>`<button class="ex-opt" id="${cid}-${qi}-${oi}" onclick="ans('${cid}',${qi},${oi})">${o}</button>`).join('')}<div class="ex-feedback" id="${cid}-fb-${qi}"></div></div>`).join('');}
@@ -178,13 +186,39 @@ var AQ=[
  {tag:"Reader response",q:"Oittinen argues that to communicate with a child reader is to:",opts:["enter an imaginary dialogue and re-experience the dynamic intensity of childhood", "write down to the child", "ignore the child and please adults", "standardise the language"],ans:0,fb:"Oittinen: translators hold a dialogue with childhood and the 'child within themselves', reaching out to the target-culture child."},
  {tag:"Reader response",q:"Oittinen frames translating for children around:",opts:["author and publisher only", "the triangle of author–translator–child, applying reader-response theory", "translator and editor only", "the marketplace alone"],ans:1,fb:"Lathey highlights the third party — the child — in the author–translator–child triangle, drawing on reader-response theory."}
 ];
-var aqi=0,aqs=0,aqd=false;
-function rAQ(){if(aqi>=AQ.length){sAQ();return;}var q=shuffleQ(AQ[aqi]);document.getElementById('aq-prog').style.width=(aqi/AQ.length*100)+'%';document.getElementById('aq-container').innerHTML=`<div class="ex-card"><div class="ex-num">Question ${aqi+1} of ${AQ.length}${q.tag?` &middot; <span style="color:var(--ac);">${q.tag}</span>`:``}</div><div class="ex-q">${q.q}</div><div id="aq-opts">${q.opts.map((o,i)=>`<button class="ex-opt" onclick="aAQ(${i})">${o}</button>`).join('')}</div><div class="ex-feedback" id="aq-fb"></div><div><button class="btn btn-primary btn-sm" id="aq-next" style="display:none;margin-top:14px;background:var(--ac);" onclick="nAQ()">Next →</button></div></div>`;aqd=false;}
-function aAQ(i){if(aqd)return;aqd=true;var q=AQ[aqi];document.querySelectorAll('#aq-opts .ex-opt').forEach((b,j)=>{b.disabled=true;if(j===q.ans)b.classList.add('correct-ans');else if(j===i&&i!==q.ans)b.classList.add('wrong-ans');});if(i===q.ans)aqs++;var fb=document.getElementById('aq-fb');fb.innerHTML=q.fb;fb.className='ex-feedback show '+(i===q.ans?'fb-correct':'fb-wrong');document.getElementById('aq-next').style.display='inline-block';}
-function nAQ(){aqi++;rAQ();}
-function sAQ(){document.getElementById('aq-prog').style.width='100%';document.getElementById('aq-container').style.display='none';var pct=Math.round(aqs/AQ.length*100);document.getElementById('aq-score').style.display='block';document.getElementById('aq-score').innerHTML=`<div class="score-big">${pct}%</div><div class="score-sub">${aqs}/${AQ.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct>=80?'You hear the narrator before you translate.':'Revisit the Voice and Address tabs.'}</p><button class="btn btn-primary" style="background:var(--ac);" onclick="reAQ()">Retry</button>`;}
-function reAQ(){aqi=0;aqs=0;document.getElementById('aq-container').style.display='block';document.getElementById('aq-score').style.display='none';rAQ();}
-initTasks();rAQ();
+var quizSubmitted=false;
+function renderQuiz(){
+ AQ.forEach(shuffleQ);
+ document.getElementById('aq-container').innerHTML=AQ.map(function(q,qi){return '<div class="ex-card" id="aq-card-'+qi+'"><div class="ex-num">Question '+(qi+1)+' of '+AQ.length+' &middot; <span style="color:var(--ac);">'+q.tag+'</span></div><div class="ex-q" style="font-size:15px;font-weight:650;line-height:1.6;margin-bottom:12px;">'+q.q+'</div><div class="aq-opts">'+q.opts.map(function(o,oi){return '<label class="ex-opt quiz-choice" id="aq-'+qi+'-'+oi+'"><input type="radio" name="aq-'+qi+'" value="'+oi+'" onchange="updateQuizStatus()"><span>'+o+'</span></label>';}).join('')+'</div><div class="ex-feedback" id="aq-fb-'+qi+'"></div></div>';}).join('');
+ updateQuizStatus();
+}
+function updateQuizStatus(){
+ var answered=AQ.filter(function(_,i){return document.querySelector('input[name="aq-'+i+'"]:checked');}).length;
+ document.getElementById('aq-status').textContent=answered+' of '+AQ.length+' questions answered';
+ document.getElementById('aq-prog').style.width=(answered/AQ.length*100)+'%';
+}
+function submitAQ(e){
+ e.preventDefault();
+ if(quizSubmitted)return;
+ var unanswered=[];var score=0;
+ AQ.forEach(function(_,i){if(!document.querySelector('input[name="aq-'+i+'"]:checked'))unanswered.push(i+1);});
+ var alert=document.getElementById('aq-alert');
+ if(unanswered.length){alert.textContent='Please answer every question before submitting. Still unanswered: '+unanswered.join(', ')+'.';alert.classList.add('show');document.getElementById('aq-card-'+(unanswered[0]-1)).scrollIntoView({behavior:'smooth',block:'center'});return;}
+ alert.classList.remove('show');quizSubmitted=true;
+ AQ.forEach(function(q,qi){
+  var chosen=Number(document.querySelector('input[name="aq-'+qi+'"]:checked').value);
+  if(chosen===q.ans)score++;
+  q.opts.forEach(function(_,oi){var lab=document.getElementById('aq-'+qi+'-'+oi);var inp=lab.querySelector('input');inp.disabled=true;if(oi===q.ans)lab.classList.add('correct-ans');else if(oi===chosen)lab.classList.add('wrong-ans');});
+  var fb=document.getElementById('aq-fb-'+qi);fb.className='ex-feedback show '+(chosen===q.ans?'fb-correct':'fb-wrong');fb.innerHTML=(chosen===q.ans?'<strong>Correct.</strong> ':'<strong>Review this point.</strong> ')+q.fb;
+ });
+ var pct=score*10;var msg=score>=9?'Excellent — you can explain the chapter’s central ideas and examples.':score>=7?'Good work — review the marked questions before class discussion.':score>=5?'Developing — revisit the Reading Guide and the explanations below.':'Please reread the chapter guide, then retry the quiz.';
+ var summary=document.getElementById('aq-score');summary.style.display='block';summary.innerHTML='<div class="score-big">'+score+' / 10</div><div class="score-sub">'+pct+'% · '+score+' correct, '+(AQ.length-score)+' missed</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 8px;">'+msg+'</p><div class="quiz-review-title">Your answer review</div><button class="btn btn-primary" style="background:var(--ac);" onclick="retryAQ()">Retry the quiz</button>';
+ document.querySelector('.quiz-actions').style.display='none';
+ document.getElementById('aq-prog').style.width='100%';
+ summary.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function retryAQ(){quizSubmitted=false;document.getElementById('aq-score').style.display='none';document.querySelector('.quiz-actions').style.display='flex';renderQuiz();document.getElementById('tab-quiz').scrollIntoView({behavior:'smooth',block:'start'});}
+initTasks();renderQuiz();openHash();
 </script>
 <script src="track.js" defer></script>
 <script src="site.js" defer></script>
