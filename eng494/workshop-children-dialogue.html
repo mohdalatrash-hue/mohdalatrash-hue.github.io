@@ -48,6 +48,8 @@ body{background:var(--off-white);}
 .unit-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;}
 .unit-tab{font-size:12px;font-weight:700;padding:6px 12px;border-radius:var(--r-pill);text-decoration:none;border:1.5px solid var(--border);color:var(--text-2);}
 .unit-tab.cur{background:var(--ac);border-color:var(--ac);color:#fff;}
+.lab-intro{background:linear-gradient(135deg,#164e63,#0891b2);color:#fff;border-radius:var(--r-xl);padding:24px;margin-bottom:22px}.lab-grid{display:grid;gap:18px}.lab-station{background:#fff;border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:22px}.lab-level{border-left:4px solid var(--ac);background:var(--off-white);padding:14px 16px;margin:14px 0;border-radius:0 var(--r-md) var(--r-md) 0}.lab-level h4{margin:0 0 8px;color:var(--ac-ink)}.lab-level blockquote{margin:0;line-height:1.75;font-size:14px}.lab-q{columns:2;column-gap:28px}.lab-q li{break-inside:avoid;margin:0 0 9px;line-height:1.5}.lab-answer{width:100%;min-height:100px;border:1.5px solid var(--border);border-radius:var(--r-md);padding:12px;font:inherit;margin:10px 0}.lab-feedback{display:none;background:var(--ac-soft);border-left:4px solid var(--ac);padding:14px;margin-top:12px;border-radius:var(--r-md)}.lab-feedback.show{display:block}.lab-progress{position:sticky;top:8px;z-index:3;background:#fff;border:1px solid var(--border);border-radius:var(--r-pill);padding:9px 14px;margin-bottom:14px;font-size:13px;font-weight:700}.lab-agenda{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:16px 0 0}.lab-agenda div{background:rgba(255,255,255,.14);border-radius:var(--r-md);padding:10px 12px;font-size:12.5px;line-height:1.5}.lab-agenda b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.05em;opacity:.85;margin-bottom:2px}@media(max-width:700px){.lab-q{columns:1}}
+
 </style>
 </head>
 <body>
@@ -82,6 +84,7 @@ body{background:var(--off-white);}
     <button class="tab-btn" onclick="switchTab('slang',this)">⏳ Slang &amp; Register</button>
     <button class="tab-btn" onclick="switchTab('translate',this)">✍️ Translate It</button>
     <button class="tab-btn" onclick="switchTab('quiz',this)">📝 Quiz</button>
+    <button class="tab-btn" onclick="switchTab('lab',this)">🧪 90-Min Lab</button>
   </div>
   <div id="tab-voices" class="tab-panel active">
     <div class="tip-box"><strong>The range of child voices:</strong> a toddler's lisping inaccuracies, a schoolchild's chatter, a teenager's fashionable slang, regional/urban dialect, and migrant children's heritage-language accents. Each needs a different Arabic solution.</div>
@@ -100,6 +103,23 @@ body{background:var(--off-white);}
     <div class="prog-bar-wrap"><div class="prog-bar" id="aq-prog" style="width:0%"></div></div>
     <div id="aq-container"></div>
     <div id="aq-score" class="score-summary" style="display:none;"></div>
+  </div>
+
+  <div id="tab-lab" class="tab-panel">
+    <div class="lab-intro"><div class="section-label" style="color:#cffafe">LATHEY CHAPTER 4 &middot; 90 MINUTES</div><h2 style="margin:6px 0 10px">Dialogue &amp; Dialect Translation Laboratory</h2><p style="margin:0;line-height:1.7">Seven stations &middot; Hirano&rsquo;s drafts, three historical <em>Emil</em> translations, Ronia&rsquo;s rumphobs, <em>The Secret Garden</em>&rsquo;s Yorkshire, <em>Anne of Green Gables</em>&rsquo; idiolect, Lottie&rsquo;s toddler fragments, and the chapter&rsquo;s own two exercises. Work in groups, submit textual evidence and Arabic renderings, then unlock feedback.</p>
+      <div class="lab-agenda">
+        <div><b>0&ndash;5 min</b>Framing &amp; group assignment</div>
+        <div><b>5&ndash;15 min</b>St. 1 &middot; Why dialogue is hard</div>
+        <div><b>15&ndash;27 min</b>St. 2 &middot; Linguistic constraints</div>
+        <div><b>27&ndash;41 min</b>St. 3 &middot; Slang &amp; street talk</div>
+        <div><b>41&ndash;54 min</b>St. 4 &middot; Regional dialect</div>
+        <div><b>54&ndash;66 min</b>St. 5 &middot; Idiolect</div>
+        <div><b>66&ndash;78 min</b>St. 6 &middot; Youngest voices</div>
+        <div><b>78&ndash;90 min</b>St. 7 &middot; Synthesis &amp; exercises</div>
+      </div>
+    </div>
+    <div class="lab-progress" id="dlab-progress">0 of 7 stations completed</div>
+    <div class="lab-grid" id="dlab-stations"></div>
   </div>
 </div>
 </div>
@@ -164,7 +184,140 @@ function aAQ(i){if(aqd)return;aqd=true;var q=AQ[aqi];document.querySelectorAll('
 function nAQ(){aqi++;rAQ();}
 function sAQ(){document.getElementById('aq-prog').style.width='100%';document.getElementById('aq-container').style.display='none';var pct=Math.round(aqs/AQ.length*100);document.getElementById('aq-score').style.display='block';document.getElementById('aq-score').innerHTML=`<div class="score-big">${pct}%</div><div class="score-sub">${aqs}/${AQ.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct>=80?'You give each child a believable voice.':'Revisit the Child Voices and Slang tabs.'}</p><button class="btn btn-primary" style="background:var(--ac);" onclick="reAQ()">Retry</button>`;}
 function reAQ(){aqi=0;aqs=0;document.getElementById('aq-container').style.display='block';document.getElementById('aq-score').style.display='none';rAQ();}
-initTasks();rAQ();
+var DIALECT_LABS=[
+{t:"Station 1 · Why Dialogue Is the Hard Part",
+c:"Lathey opens the chapter by arguing that dialogue drives character and plot and gives young readers respite from description — and that Cathy Hirano, translator of Japanese fiction, found conversation could demand <em>more ingenuity than descriptive passages</em> (2006: 230). Compare her own literal draft of a passage from Kazumi Yumoto's <em>The Friends</em> with her final published version.",
+e:[
+["Level 1 · Literal draft (Hirano's first pass)","&lsquo;All right.&rsquo;<br>&lsquo;. . . say?&rsquo; Yamashita is nervous.<br>&lsquo;To be more precise,&rsquo; I avoid Yamashita&rsquo;s accusing eyes. &lsquo;It must not cause trouble for the old man.&rsquo;<br>&lsquo;Ehh?&rsquo;<br>&lsquo;Did it! Two against one!&rsquo; Kawabe dances a little jig.<span class=\"cite\">— Hirano&rsquo;s literal translation, cited in Lathey (2016: 72)</span>"],
+["Level 2 · Hirano's published version","&lsquo;All right&rsquo; I say.<br>&lsquo;All right <em>what</em>?&rsquo; Yamashita asks nervously.<br>I avoid Yamashita&rsquo;s accusing eyes. &lsquo;But only on condition that it doesn&rsquo;t bother the old man.&rsquo;<br>&lsquo;No!&rsquo; Yamashita explodes.<br>&lsquo;Yes! Two against one!&rsquo; Kawabe shouts gleefully, and he dances a little jig.<span class=\"cite\">— Hirano, trans. of Yumoto, <em>The Friends</em> (2006: 230), cited in Lathey (2016: 72)</span>"]
+],
+q:[
+"Name three concrete changes between the two versions (word choice, punctuation, deleted phrase).",
+"Why does &lsquo;All right <em>what</em>?&rsquo; work better than &lsquo;. . . say?&rsquo; as a teenage boy's riposte?",
+"What is lost, and what is gained, by deleting the formal &lsquo;To be more precise&rsquo;?",
+"Hirano read target-language children's books and watched films while translating, and even closed her eyes to imagine American children speaking. What is the Arabic equivalent resource you could build for yourself before translating a children's scene?",
+"Translate BOTH versions into Arabic. Does your Arabic draft of the literal version sound more natural than the English literal draft did? Why might that happen with translated dialogue?",
+"Where else in fiction (not necessarily children's) have you seen a translator sacrifice literal accuracy for a convincing spoken rhythm? Give one example.",
+"Lathey says dialogue gives readers &lsquo;respite from&rsquo; description. Pick any page of your current translation project and check: is there a passage where dialogue is doing that job? What happens to it if you flatten the register?",
+"Devil's advocate: argue for the literal version. Is there ever a pedagogical case (a foreign-language reader, a bilingual edition) for keeping &lsquo;To be more precise&rsquo;?"
+],
+fb:"Full credit requires: identification of specific micro-edits (not just \"it sounds better\"); an Arabic sample for at least one line; and direct engagement with Hirano's own translating method, not just the finished text."},
+
+{t:"Station 2 · Linguistic Constraints Across Languages",
+c:"Before slang and dialect, Lathey surveys constraints specific to individual languages: Modern Standard Arabic (MSA) versus colloquial, Hebrew vocalization, Japanese written style, and forms of address (French <em>tu/vous</em>, Spanish <em>tú/usted</em>, German <em>du</em>) used with child characters across the Harry Potter translations.",
+e:[
+["Case A · Arabic register","Translator Fatima Sharafeddine wanted to translate into colloquial Lebanese, but publishers insisted on MSA for pan-Arab distribution. Her hybrid compromise: &lsquo;scooter&rsquo; becomes &lsquo;&#1583;&#1585;&#1610;&#1580;&#1577;&rsquo; (a small bicycle).<span class=\"cite\">— Lathey (2016: 73), citing arablit.wordpress.com (2012)</span>"],
+["Case B · Forms of address across four languages","In the Spanish Harry Potter, Hagrid and the children move from formal &lsquo;usted&rsquo; to informal &lsquo;t&uacute;&rsquo;; in German all four use informal &lsquo;du&rsquo; from the start; in French, Hagrid says &lsquo;tu&rsquo; to the children, but they answer with the respectful &lsquo;vous&rsquo;.<span class=\"cite\">— Jentsch (2006), cited in Lathey (2016: 74)</span>"]
+],
+q:[
+"Why does pan-Arab distribution push publishers toward MSA rather than colloquial, even for dialogue?",
+"Is &lsquo;&#1583;&#1585;&#1610;&#1580;&#1577;&rsquo; a domesticating or foreignizing solution for &lsquo;scooter&rsquo;? Justify your label.",
+"Which of the three Harry Potter address strategies (Spanish, German, French) best preserves Hagrid's special closeness with the children? Which weakens it, and why?",
+"Arabic has no direct grammatical tu/vous distinction of this kind — what devices (verb forms, honorifics, vocatives, name use) could an Arabic translator use instead to mark a shift from formal to informal address between a child and an adult authority figure?",
+"Take the Hirano/Tomomi example from your reading (the boy who says &lsquo;your&rsquo; using the elevated pronoun <em>kimi</em>, which she compensates for with the archaic &lsquo;I presume&rsquo;): design an Arabic compensation strategy for the same social nuance.",
+"Find one moment in your own current translation project where a character's relative status (age, class, authority) is marked in the source only through pronoun or address form. How will Arabic mark it instead?",
+"e-Arabic (numerals, Latin letters, emoticons, colloquial mixing) appears in <em>Banat Al Riyadh</em>. When, if ever, would you use e-Arabic in a translation for children rather than for young adults?",
+"Draft two short lines of dialogue between an Arabic-speaking child and a teacher, first in a formal register and then in a deliberately informal one, and explain in one sentence what changed."
+],
+fb:"Look for explicit named strategies (not just \"use different words\") and for at least one original Arabic-specific proposal that goes beyond what the chapter itself offers, since Arabic address forms are not Lathey's main focus."},
+
+{t:"Station 3 · Slang and Street Talk That Dates",
+c:"Van Coillie's markers of teenage speech (intensifiers, insults, neologisms, slang, clipped words) recur across languages. Lathey tracks the same passage of Kästner's <em>Emil and the Detectives</em> (1929) through three English translations, sixty years apart, to show how each generation's translator reaches for its own moment's slang — and how quickly that slang ages.",
+e:[
+["1931 · Goldsmith (UK)","&lsquo;Well, I think this thief affair is going to be <strong>tophole</strong>. <strong>First-rate</strong>. And, <strong>I say</strong>, if you don&rsquo;t mind, I think I&rsquo;ll help you&rsquo;<span class=\"cite\">— trans. Goldsmith (1931: 95)</span>"],
+["1930 · Massee (US)","&lsquo;This looks like a <strong>swell stunt</strong> to me — <strong>some class</strong>, I&rsquo;ll say. And man, I&rsquo;m with you, if that&rsquo;s all right with you.&rsquo;<span class=\"cite\">— trans. Massee (1930: 77)</span>"],
+["2014 · Martin (US, updated)","&lsquo;Listen, this thing with the robber is <strong>cool</strong>. It&rsquo;s <strong>awesome</strong>, actually! So unless you have a problem with it, I&rsquo;d like to help out.&rsquo;<span class=\"cite\">— trans. Martin (2014: 80)</span>"]
+],
+q:[
+"Rank the three translations from most to least socially formal, and justify the order using specific words.",
+"Goldsmith's UK version reaches for British boarding-school slang. What real-world pressure (Lathey names it) pushed her toward that register instead of Kästner's Berlin street tone?",
+"Would &lsquo;tophole&rsquo; and &lsquo;swell&rsquo; still work for a 2026 reader? Why or why not — and what does that prove about slang as a translation choice?",
+"Laurie Thompson, translating 1950s Stockholm slang, changed &lsquo;bobby&rsquo; to the American &lsquo;cop&rsquo; late in drafting. What audience reasoning justified that specific swap?",
+"Translate Martin's 2014 line into Arabic using a register you believe will still sound current in five years. Then translate it again using today's most fashionable slang. Compare the two — which would you actually publish, and why?",
+"Sarah Ardizzone calls her task &lsquo;engineer an equivalent: but preferably with a longer shelf-life&rsquo; (2005: 13). Propose one concrete technique for building Arabic slang with a longer shelf-life than a direct calque of current teen speech would have.",
+"Carlos Fuentes argues translators should give slang an &lsquo;onomatopoeic resonance&rsquo; through comical transformation rather than literal transfer. Try this: invent ONE short Arabic slang coinage (not an existing word) for &lsquo;awesome&rsquo; that a translator might use in exactly this spirit.",
+"If you were translating Emil today for an Arabic-speaking Gulf audience, would you localize the slang to a specific country's youth register, or aim for Anthea Bell's &lsquo;non-specific demotic&rsquo;? Defend your choice in light of Bell's Cologne/Yorkshire warning."
+],
+fb:"Full credit needs explicit reference to at least two of the three historical translations by name, an original Arabic slang proposal (not a straight dictionary equivalent), and engagement with the shelf-life problem specifically."},
+
+{t:"Station 4 · Regional Dialect — Compensate, Don't Copy",
+c:"Anthea Bell warns against 'a man from Cologne speaking broad Yorkshire' — mapping a source-culture regional accent onto an unrelated target-culture one breaks the fiction. Lathey's cases (Crampton's rumphobs, the Scottish <em>Black Island</em>) show how translators instead invent a STYLIZED dialect that signals \"non-standard, rural, comic\" without claiming a real place. Then work hands-on with a real, richly dialectal children's classic.",
+e:[
+["Bell's warning","&lsquo;What, thinks the reader, is this man from Cologne (or Marseilles or wherever) doing speaking broad Yorkshire (or Deep South or whatever)? ... what am <em>I</em> doing reading anything so artificial as a translation anyway?&rsquo;<span class=\"cite\">— Bell (1986: 18&ndash;19), cited in Lathey (2016: 84)</span>"],
+["The rumphobs (Ronia, the Robber's Daughter)","&lsquo;She do go!&rsquo; &lsquo;She do swing there! . . . Lil&rsquo; boy he be rockin&rsquo; proper, see!&rsquo;<span class=\"cite\">— Lindgren, trans. Crampton (1990: 84), cited in Lathey (2016: 84)</span>"],
+["Hands-on practice text · The Secret Garden (1911, public domain)","&lsquo;Canna&rsquo; tha&rsquo; dress thysen!&rsquo; she said.<br>&lsquo;What do you mean? I don&rsquo;t understand your language,&rsquo; said Mary.<br>&lsquo;Eh! I forgot,&rsquo; Martha said. &lsquo;Mrs. Medlock told me I&rsquo;d have to be careful or you wouldn&rsquo;t know what I was sayin&rsquo;. I mean can&rsquo;t you put on your own clothes?&rsquo;<span class=\"cite\">— Frances Hodgson Burnett, <em>The Secret Garden</em> (1911), ch. IV &ldquo;Martha&rdquo; — public domain</span>"]
+],
+q:[
+"In your own words, what exactly is the &lsquo;whole translation enterprise&rsquo; that Bell says a mismatched regional dialect undermines?",
+"Patricia Crampton chose her own local Wiltshire dialect for the rumphobs on purpose. What is gained, comically, by using a real (but unnamed, unplaced) English dialect for mythical creatures rather than standard English?",
+"The Black Island translators invented a Scottish accent that did not exist in Herg&eacute;'s French original, purely for &lsquo;congruity with the accompanying images&rsquo; of a Scottish setting. When, if ever, is it legitimate to ADD dialect that the source text didn't have?",
+"Martha's Yorkshire in <em>The Secret Garden</em> uses &lsquo;tha&rsquo;, &lsquo;thysen&rsquo;, dropped final consonants, and dialect vocabulary. List three specific linguistic markers you notice in the excerpt.",
+"Translate Martha's three lines above into Arabic using a STYLIZED spoken register (not a specific real-world Arabic dialect tied to one country) — following Bell's warning against mismatched real-world mapping.",
+"Now translate the same lines again, but this time deliberately into ONE real, named colloquial Arabic (e.g. Gulf, Levantine, Egyptian). What is gained in warmth and specificity — and what is risked, per Bell's warning, for a pan-Arab readership?",
+"Mary tells Martha &lsquo;I don&rsquo;t understand your language&rsquo; — the novel itself treats Yorkshire almost as a foreign tongue for the outsider child. How could a translator signal that same in-story alienness in Arabic, where a shift into colloquial won't necessarily read as &lsquo;foreign&rsquo; the way Yorkshire does to Mary?",
+"Discussion-point prompt from the chapter itself: is it best to AVOID translating regional dialect altogether, by finding a localized equivalent, or is stylized non-standard dialogue the safer default? Take a position and defend it against the opposite view."
+],
+fb:"Full marks require both Arabic translations (stylized AND a named real dialect) plus explicit reasoning about which Bell would endorse and why; a station that only translates once is incomplete."},
+
+{t:"Station 5 · Idiolect — When a Character Owns a Phrase",
+c:"Idiolect is invented language tied to ONE character rather than a region or age group: Tintin's Thomson and Thompson repeat &lsquo;to be precise&rsquo;; Captain Haddock has a signature register of curses; Roald Dahl's Miss Trunchbull speaks in short, clipped, menacing sentences. Lathey argues translators of idiolect have &lsquo;free reign&rsquo; compared with regional dialect, because there is no real-world place to get wrong. Now find and build an idiolect of your own from a genuinely idiosyncratic child narrator.",
+e:[
+["Hands-on practice text · Anne of Green Gables (1908, public domain)","&lsquo;Isn&rsquo;t it splendid to think of all the things there are to find out about? It just makes me feel glad to be alive.&rsquo; ... &lsquo;Mrs. Spencer said that my tongue must be hung in the middle. But it isn&rsquo;t &mdash; it&rsquo;s firmly fastened at one end.&rsquo;<span class=\"cite\">— L. M. Montgomery, <em>Anne of Green Gables</em> (1908), ch. II &ndash; public domain</span>"],
+["Anne's habit of renaming the world","&lsquo;Well, don&rsquo;t tell me,&rsquo; she interrupted... &lsquo;That&rsquo;s Barry&rsquo;s pond,&rsquo; said Matthew. &lsquo;Oh, I don&rsquo;t like that name, either. I shall call it &mdash; let me see &mdash; the Lake of Shining Waters.&rsquo;<span class=\"cite\">— Montgomery (1908), ch. II &ndash; public domain</span>"]
+],
+q:[
+"List the specific verbal habits that make Anne's idiolect recognizable across even a single page (at least three distinct features).",
+"Why does Lathey say translators of idiolect have &lsquo;free reign&rsquo; compared with translators of regional dialect? Do you agree that invented, character-specific language is genuinely less constrained?",
+"Translate BOTH excerpts into Arabic while preserving Anne's habit of instantly renaming ordinary things with grander words. Does Arabic's own resources for elevated/poetic register make this easier or harder than in English?",
+"Miss Trunchbull's idiolect (per Victòria Alsina's analysis, cited in the chapter) is built from short, clipped sentences. Anne's idiolect is built from long, breathless, run-on ones. Which is harder to sustain consistently across a whole translated novel, and why?",
+"Captain Haddock's idiolect is a &lsquo;rich resource of curses&rsquo; that must stay funny, not merely offensive, in translation. What is the key difference between translating an idiolect for comic effect versus translating ordinary insults literally?",
+"Choose one character from a text you are currently translating (any genre) who has a verbal tic, catchphrase, or signature register. Name it precisely and propose an Arabic equivalent tic — not a literal translation of the English tic, but a new one with the same FUNCTION.",
+"Anne asks Matthew, &lsquo;But am I talking too much? ... Would you rather I didn&rsquo;t talk?&rsquo; — a moment of self-aware idiolect. Why might preserving a character's awareness of their OWN verbal style matter as much as preserving the style itself?",
+"Devil's advocate: could an overly consistent, heavily marked idiolect become tiring or comic in translation when it wasn't meant to be? Where is the line between a strong character voice and self-parody?"
+],
+fb:"Full credit requires at least one full Arabic rendering of both excerpts that preserves Anne's renaming habit specifically (not just general cheerfulness), plus a named original idiolect proposal for a character outside the set texts."},
+
+{t:"Station 6 · The Youngest Voices",
+c:"Lathey notes that the speech of a two-to-four-year-old is &lsquo;limited to snatches of dialogue&rsquo; built from rhythm, repetition and fragmentary utterance — a different problem from idiolect or dialect because there is no adult grammatical competence underneath to compensate for. Compare a raw toddler outburst with a composed, articulate child narrator's voice for contrast.",
+e:[
+["The youngest voice · Lottie, age four","&lsquo;Oh&mdash;oh&mdash;oh! I have n&rsquo;t got any mam&mdash;ma-a!&rsquo; ... &lsquo;I&mdash;have n&rsquo;t&mdash;any&mdash;ma&mdash;ma&mdash;ma-a!&rsquo;<span class=\"cite\">— Frances Hodgson Burnett, <em>A Little Princess</em> (1905), ch. IV &ldquo;Lottie&rdquo; &ndash; public domain</span>"],
+["Contrast · a composed child narrator's voice, age seven","&lsquo;I suppose you are Mr. Matthew Cuthbert of Green Gables?&rsquo; she said in a peculiarly clear, sweet voice. &lsquo;I&rsquo;m very glad to see you.&rsquo;<span class=\"cite\">— L. M. Montgomery, <em>Anne of Green Gables</em> (1908), ch. II &ndash; public domain</span>"]
+],
+q:[
+"Identify the specific formal devices (not just &lsquo;it sounds like crying&rsquo;) that make Lottie's line read as very young: repetition, broken syllables, dashes, doubled words.",
+"Why would translating Lottie's fragments word-for-word into grammatically complete Arabic sentences destroy the effect Burnett is going for?",
+"Translate Lottie's two lines into Arabic while preserving the fragmentary, sobbing rhythm — not the literal words, but the BREAKDOWN pattern of speech under distress.",
+"Sara's reply to Lottie is only two words: &lsquo;Neither have I.&rsquo; Why is restraint — NOT elaborating — the correct translation choice for Sara's line in this scene, given everything the chapter says about matching a character's established register?",
+"Lathey observes that authors try to capture &lsquo;the humour and sometimes the pathos&rsquo; of a young child's incomplete language. Which is Lottie's scene primarily aiming for, and how would your Arabic word choices shift if you were instead asked to make an equivalent scene funny rather than pathetic?",
+"A translator can't consult a corpus of a two-year-old's Arabic the way Hirano consulted corpora of spoken English. What real-world listening or research strategy could you use instead, specific to Arabic-speaking toddlers?",
+"Compare Lottie's fragmentary idiolect to Anne's (Station 5) breathless-but-grammatical run-ons. Both are &lsquo;young,&rsquo; but for different reasons. Explain the difference in translation terms: what changes structurally, not just in vocabulary choice?",
+"Exit-ticket question: of all six stations today, which single English-to-Arabic move (a specific word, structure, or strategy) are you most confident about, and which are you least confident about? Name both specifically."
+],
+fb:"Full credit requires the Arabic Lottie translation to actually break down into fragments (not a complete grammatical Arabic sentence), plus explicit comparison to the Anne of Green Gables idiolect from Station 5."},
+
+{t:"Station 7 · Synthesis — The Chapter's Own Exercises",
+c:"Close with Lathey's own discussion points and both end-of-chapter exercises, worked exactly as the required reading sets them. Bring everything from Stations 1&ndash;6 to bear: register, slang shelf-life, regional-vs-stylized dialect, idiolect, and the ever-present editorial pressure to standardize a child's book.",
+e:[
+["Exercise 1 · Doing It, Melvin Burgess (2003)","Four young male friends are smoking cannabis and discussing the girlfriends of two of them:<br>&lsquo;Seeing Deborah tonight?&rsquo; whispered Dino.<br>&lsquo;Yeah.&rsquo;<br>&lsquo;How&rsquo;s it going?&rsquo;<br>&lsquo;Dunno.&rsquo;<br>&lsquo;Good luck with it, mate.&rsquo;<br>&lsquo;Thanks.&rsquo;<span class=\"cite\">— Burgess (2003: 188&ndash;9), cited as Exercise 1 in Lathey (2016: 90&ndash;91)</span>"],
+["Exercise 2 · Hagrid, Harry Potter and the Philosopher's Stone","&lsquo;[...] I got him out all right before the Muggles started swarmin&rsquo; around. He fell asleep as we was flyin&rsquo; over Bristol.&rsquo;<span class=\"cite\">— Rowling (1997: 16), cited as Exercise 2 in Lathey (2016: 91)</span>"]
+],
+q:[
+"Chapter discussion point: should a translator always attempt to replicate street slang — including for a novel, like <em>Doing It</em>, dealing with drugs and teenage sex that a publisher might want toned down for the Arabic market? Take a position.",
+"Chapter discussion point: is it best to avoid translating regional dialect altogether by finding a localized equivalent? Revisit your Station 4 answer in light of everything covered since.",
+"Chapter discussion point: what is your opinion of publishers insisting on standard, &lsquo;prestige&rsquo; forms of a language in children's translations — and what effect might that have on a child's developing ear for linguistic difference?",
+"Exercise 1: translate the Burgess dialogue into Arabic and be ready to justify your strategy to the group. What register did you choose for &lsquo;Dunno&rsquo;, and why?",
+"Exercise 1 continued: this scene involves a taboo topic (drugs) inside a children's-literature reading list. Would you flag, soften, or footnote anything for an Arabic teenage readership, and does that editorial decision belong to the translator or the publisher?",
+"Exercise 2: translate Hagrid's line into Arabic. Which Station-2 and Station-4 strategies did you draw on (pronoun/address shifts? stylized non-standard grammar? a specific real dialect?) — name them explicitly.",
+"Across the Harry Potter translators surveyed in the chapter (Serbian pidgin, Thai standard, French standard, German elided &lsquo;e&rsquo;, Catalan colloquial touches), which comes closest to what you just did with Hagrid in Arabic, and which is furthest away?",
+"Final synthesis: write a two-sentence translator's note, in the style of Ardizzone's &lsquo;Note on the Slang&rsquo;, explaining to your own Arabic reader the ONE overall strategy you used across today's lab for representing non-standard children's speech."
+],
+fb:"This is the capstone station: both required exercises must be attempted in Arabic with named strategies, and the final synthesis note must explicitly reference at least two earlier stations by number or topic."}
+];
+function renderDialectLab(){var box=document.getElementById("dlab-stations");if(!box)return;box.innerHTML=DIALECT_LABS.map(function(s,i){return `<section class="lab-station" id="dlab-${i+1}"><div class="ex-num">${s.t}</div>${s.c?`<p>${s.c}</p>`:''}${s.e.map(function(x){return `<article class="lab-level"><h4>${x[0]}</h4><blockquote>${x[1]}</blockquote></article>`}).join("")}<h4>Required analysis &middot; answer all ${s.q.length}</h4><ol class="lab-q">${s.q.map(function(q){return `<li>${q}</li>`}).join("")}</ol><textarea class="lab-answer" aria-label="Group response for station ${i+1}" placeholder="Write textual evidence, your Arabic rendering(s), and named strategies (minimum 90 words)..."></textarea><button class="btn btn-primary" style="background:var(--ac)" onclick="checkDialectLab(${i},this)">Submit station and unlock feedback</button><div class="lab-feedback"><strong>Feedback criteria</strong><br>${s.fb}<br><br><strong>Revision requirement:</strong> after peer challenge, revise at least one Arabic rendering and note what changed and why.</div></section>`}).join("");DIALECT_LABS.forEach(function(_,i){var v=localStorage.getItem("dialect-lab-"+i);if(v)box.querySelectorAll(".lab-answer")[i].value=v;});updateDialectLabProgress();}
+function checkDialectLab(i,btn){var card=document.getElementById("dlab-"+(i+1)),ta=card.querySelector("textarea"),words=ta.value.trim().split(/\s+/).filter(Boolean);if(words.length<90){alert("Keep working: submit at least 90 words with textual evidence, your Arabic rendering(s), and named strategies. Current count: "+words.length);return;}localStorage.setItem("dialect-lab-"+i,ta.value);localStorage.setItem("dialect-done-"+i,"1");card.querySelector(".lab-feedback").classList.add("show");btn.textContent="Completed — revise after peer challenge";updateDialectLabProgress();}
+function updateDialectLabProgress(){var n=0;DIALECT_LABS.forEach(function(_,i){if(localStorage.getItem("dialect-done-"+i))n++;});var p=document.getElementById("dlab-progress");if(p)p.textContent=n+" of "+DIALECT_LABS.length+" stations completed";}
+
+initTasks();rAQ();renderDialectLab();
 </script>
 <script src="track.js" defer></script>
 <script src="site.js" defer></script>
