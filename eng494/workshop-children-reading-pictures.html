@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multimediality, Onomatopoeia and Inscriptions · Workshop A: Reading Pictures | ENG 494</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="ENG 494 extra workshop: read real public-domain picture pages (Orbis Pictus 1659, Lear) and decide how word, picture and inscription fit in Arabic.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 494">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 494 Literary Translation">
+<meta property="og:title" content="Multimediality, Onomatopoeia and Inscriptions · Workshop A: Reading Pictures | ENG 494">
+<meta property="og:description" content="ENG 494 extra workshop: read real public-domain picture pages (Orbis Pictus 1659, Lear) and decide how word, picture and inscription fit in Arabic.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng494/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng494/workshop-children-reading-pictures.html">
+<meta name="twitter:card" content="summary">
+<style>
+body{background:var(--off-white);}
+:root{--ac:#0d9488;--ac-soft:#ecfdf5;--ac-ink:#115e59;}
+.unit-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;}
+.unit-tab{font-size:12px;font-weight:700;padding:6px 12px;border-radius:var(--r-pill);text-decoration:none;border:1.5px solid var(--border);color:var(--text-2);}
+.unit-tab.cur{background:var(--ac);border-color:var(--ac);color:#fff;}
+.tab-bar{display:flex;gap:4px;background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-xs);padding:6px;margin-bottom:28px;flex-wrap:wrap;}
+.tab-btn{flex:1;min-width:120px;padding:10px 14px;border:none;background:transparent;border-radius:var(--r-md);font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;transition:all .15s;}
+.tab-btn:hover{background:var(--off-white);} .tab-btn.active{background:var(--ac);color:#fff;}
+.tab-panel{display:none;} .tab-panel.active{display:block;}
+.ex-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:24px;margin-bottom:20px;}
+.ex-num{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);margin-bottom:8px;}
+.ex-opt{padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:14px;cursor:pointer;transition:all .15s;background:var(--white);color:var(--text);text-align:left;display:block;width:100%;margin-bottom:8px;}
+.ex-opt:hover{border-color:var(--text-2);}
+.ex-opt.correct-ans{border-color:#30d158;background:#f0fff4;color:#1a7f45;} .ex-opt.correct-ans::after{content:" ✓";font-weight:800;}
+.ex-opt.wrong-ans{border-color:#e53935;background:#fef2f2;color:#c0392b;} .ex-opt.wrong-ans::after{content:" ✗";font-weight:800;}
+.ex-feedback{margin-top:14px;padding:12px 16px;border-radius:var(--r-md);font-size:13px;line-height:1.7;display:none;} .ex-feedback.show{display:block;}
+.fb-correct{background:#f0fff4;border:1px solid #a2d9b0;color:#14532d;} .fb-wrong{background:#fef2f2;border:1px solid #fca5a5;color:#7f1d1d;}
+.tip-box{background:var(--ac-soft);border:1.5px solid #99f6e4;border-radius:var(--r-md);padding:14px 16px;font-size:13px;line-height:1.7;color:var(--ac-ink);margin-bottom:20px;} .tip-box strong{color:var(--ac);}
+.prog-bar-wrap{height:6px;background:var(--off-white);border-radius:var(--r-pill);margin-bottom:24px;overflow:hidden;} .prog-bar{height:100%;background:var(--ac);border-radius:var(--r-pill);transition:width .4s;}
+.score-summary{text-align:center;padding:32px 20px;} .score-big{font-size:56px;font-weight:800;color:var(--ac);line-height:1;margin-bottom:8px;} .score-sub{font-size:14px;color:var(--text-2);}
+.excerpt{background:var(--off-white);border-left:3px solid var(--ac);padding:14px 16px;border-radius:0 var(--r-md) var(--r-md) 0;font-size:14px;line-height:1.9;color:var(--text);margin-bottom:10px;font-family:Georgia,serif;white-space:pre-line;}
+.excerpt .cite{display:block;font-family:var(--font);font-size:11px;font-weight:700;color:var(--ac-ink);margin-top:8px;text-transform:none;}
+.tp-input{width:100%;min-height:110px;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:15px;font-family:inherit;line-height:1.9;direction:rtl;text-align:right;resize:vertical;} .tp-input:focus{outline:none;border-color:var(--ac);}
+.tp-reveal{display:none;margin-top:16px;padding:16px;border-radius:var(--r-md);background:var(--ac-soft);border:1px solid #99f6e4;font-size:13.5px;line-height:1.7;color:var(--text);} .tp-reveal.show{display:block;}
+.tp-reveal h4{font-size:13px;font-weight:800;color:var(--ac-ink);text-transform:uppercase;letter-spacing:.05em;margin:12px 0 6px;} .tp-reveal h4:first-child{margin-top:0;}
+.checklist2{list-style:none;padding:0;margin:6px 0 0;} .checklist2 li{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.6;margin-bottom:5px;} .checklist2 li::before{content:"☐";color:var(--ac);font-weight:800;}
+.src-note{font-size:12px;color:var(--text-3);margin-top:8px;}
+.onoma{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:6px;}
+.ocard{background:var(--off-white);border-radius:var(--r-md);padding:12px;text-align:center;} .ocard .en{font-weight:800;color:var(--ac-ink);font-size:15px;} .ocard .ar{font-size:14px;direction:rtl;margin-top:4px;color:var(--text);}
+
+.runsheet{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px;}
+.rs{background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:12px 14px;border-top:3px solid var(--ac);}
+.rs b{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--ac);margin-bottom:3px;} .rs span{font-size:13px;line-height:1.5;color:var(--text-2);}
+.timer{display:flex;align-items:center;gap:12px;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:10px 16px;margin-bottom:22px;font-size:13px;color:var(--text-2);}
+.timer .clock{font-size:26px;font-weight:800;color:var(--ac);font-variant-numeric:tabular-nums;min-width:74px;} .timer button{margin-left:auto;}
+.plate{margin:0 0 16px;text-align:center;background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:14px;}
+.plate img{max-width:100%;height:auto;background:#fff;border:1px solid var(--border-light);image-rendering:auto;}
+.plate figcaption{font-size:11.5px;line-height:1.5;color:var(--text-3);margin-top:8px;text-align:left;}
+.plate-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;}
+.plate-row .plate{margin:0;} .plate-row .plate img{width:100%;max-width:300px;}
+.step-h{display:flex;gap:10px;align-items:center;margin:26px 0 12px;} .step-h .badge{width:28px;height:28px;border-radius:50%;background:var(--ac);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;} .step-h h2{font-size:18px;margin:0;} .step-h .min{margin-left:auto;font-size:11px;font-weight:800;color:var(--ac-ink);background:var(--ac-soft);border-radius:var(--r-pill);padding:3px 10px;}
+.q-list{margin:6px 0 0;padding-left:20px;font-size:13.5px;line-height:1.75;} .q-list li{margin-bottom:6px;}
+details.note{margin-top:12px;background:var(--ac-soft);border:1px solid #99f6e4;border-radius:var(--r-md);padding:10px 14px;font-size:13.5px;line-height:1.7;} details.note summary{cursor:pointer;font-weight:700;color:var(--ac-ink);}
+.ar-box{direction:rtl;text-align:right;background:var(--white);border-radius:var(--r-sm);padding:10px 14px;line-height:2;font-size:16px;border:1px solid var(--border-light);margin-top:6px;}
+.vote{display:block;width:100%;text-align:left;padding:12px 16px;margin-bottom:8px;border:1.5px solid var(--border);border-radius:var(--r-md);background:var(--white);cursor:pointer;font-size:14px;line-height:1.8;}
+.vote:hover{border-color:var(--ac);} .vote.sel{border-color:var(--ac);background:var(--ac-soft);}
+.letter-demo{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:10px 0;}
+.letter-demo div{background:var(--off-white);border-radius:var(--r-md);padding:14px;text-align:center;direction:rtl;}
+.letter-demo small{display:block;direction:ltr;font-size:11px;color:var(--text-3);margin-top:8px;font-family:var(--font);}
+.cred{font-size:12px;line-height:1.7;color:var(--text-3);margin-top:30px;border-top:1px solid var(--border-light);padding-top:12px;}
+@media(max-width:680px){.runsheet{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 494</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Children's Lit · Extra workshop</span>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:34px;">
+  <div class="hero-eyebrow" style="color:var(--ac);">Multimediality, Onomatopoeia and Inscriptions · Workshop A · 20 min</div>
+  <h1>Reading Pictures</h1>
+  <p class="hero-sub">Before you translate a page, read it. Work with real public-domain plates from the first English picture book for children and from Edward Lear. Based on Lathey (2016), Ch. 3.</p>
+</div>
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+  <div class="unit-tabs">
+    <a class="unit-tab" href="workshop-children.html">3 · Multimodality &amp; Sound</a>
+    <a class="unit-tab cur" href="workshop-children-reading-pictures.html">A · Reading Pictures</a>
+    <a class="unit-tab" href="workshop-children-sound-lettering.html">B · Sound &amp; Lettering</a>
+    <a class="unit-tab" href="workshop-children-studio.html">C · Translate-and-Compare Studio</a>
+  </div>
+<div class="runsheet"><div class="rs"><b>Minutes 0–5 · Look</b><span>Read the plates in silence and answer the Look questions in pairs.</span></div><div class="rs"><b>Minutes 5–13 · Compare</b><span>Numbers, labels and the HONEY jar: what is part of the picture?</span></div><div class="rs"><b>Minutes 13–20 · Decide</b><span>Translate the sieve couplet, then take the 6-question check.</span></div></div>
+  <div class="timer"><span>⏱ 20-minute workshop clock</span><span class="clock" id="clock">20:00</span><button class="btn btn-primary btn-sm" style="background:var(--ac);" onclick="toggleTimer(this)">Start</button></div><div class="info-box info-amber mb-24" style="text-align:left;"><h3>📖 The reading behind this workshop</h3><p>Lathey (2016, Ch. 3, &ldquo;Translating the visual&rdquo;) cites Hoole&rsquo;s 1659 translation of Comenius&rsquo;s <em>Orbis Pictus</em>, where the translator already worries about words that no longer fit the pictures. Today we start from Hoole&rsquo;s own plates.</p></div><div class="step-h"><div class="badge">1</div><h2>Look first: the Master and the Boy</h2><span class="min">5 min</span></div><figure class="plate"><img src="https://www.gutenberg.org/cache/epub/28299/images/page1.png" alt="Opening plate (&ldquo;Invitation&rdquo;), Orbis Pictus, English edition by Charles Hoole, 1659; reprint 1887. Public domain. Source: Project Gutenberg eBook #28299." style="width:380px" loading="lazy"><figcaption>Opening plate (&ldquo;Invitation&rdquo;), <em>Orbis Pictus</em>, English edition by Charles Hoole, 1659; reprint 1887. Public domain. Source: Project Gutenberg eBook #28299.</figcaption></figure><div class="ex-card"><div class="ex-num">Look questions · 5 minutes · cover the text, read only the picture</div>
+<ol class="q-list"><li>Who is bigger, and who is holding something? What does each posture tell you about their relationship?</li><li>What is the setting (weather, buildings, distance)? What could an Arabic reader bring to this landscape?</li><li>Which gesture would you describe in words, and which would you leave for the picture to show?</li><li>If the Arabic text said <em>Come, boy, I will teach you</em> in a very formal register, would it suit these two figures?</li></ol>
+<details class="note"><summary>Notes after you have written something</summary><div style="margin-top:8px;">The picture is already a speech situation: an older man with a staff and a child with a hat in hand. The register of the Arabic invitation should match this relationship (respectful but warm, not lecturing). This is the first lesson of Lathey&rsquo;s chapter: the picture constrains what the words can do.</div></details></div><div class="step-h"><div class="badge">2</div><h2>Compare: numbers, labels, jars</h2><span class="min">8 min</span></div><div class="plate-row"><figure class="plate"><img src="https://www.gutenberg.org/cache/epub/28299/images/page25.png" alt="Plate for &ldquo;Tame Fowls&rdquo;. Notice the numerals drawn into the picture. Orbis Pictus (1659/1887). Public domain." loading="lazy"><figcaption>Plate for &ldquo;Tame Fowls&rdquo;. Notice the numerals drawn into the picture. <em>Orbis Pictus</em> (1659/1887). Public domain.</figcaption></figure><figure class="plate"><img src="https://www.gutenberg.org/cache/epub/13650/images/117.gif" alt="Lear&rsquo;s owl and cat in their boat: the jar carries a printed label. Lear, Nonsense books. Public domain." loading="lazy"><figcaption>Lear&rsquo;s owl and cat in their boat: the jar carries a printed label. Lear, <em>Nonsense books</em>. Public domain.</figcaption></figure></div><div class="ex-card"><div class="ex-num">Inscription audit · 8 minutes</div>
+<ol class="q-list"><li><strong>Numbers.</strong> On the <em>Orbis Pictus</em> plate each creature carries a number that points to a word in the text. If your Arabic list of names puts the words in a different order, what breaks? Who has to fix it, you or the printer?</li><li><strong>The label.</strong> The jar in Lear&rsquo;s boat carries an English label. The text of the poem tells us the jar holds honey. Choose: <em>keep</em> the label, <em>gloss</em> it in the text, or ask the printer to <em>re-letter</em> it (عسل). Write one sentence defending your choice.</li><li><strong>Colour.</strong> The poem says <em>pea-green</em> boat; the picture is black and white. What does the Arabic text have to do (and not do)?</li></ol>
+<details class="note"><summary>Notes</summary><div style="margin-top:8px;">Numbers: numerals are inscriptions that bind words to a picture. If the Arabic order differs, the numbers must be re-keyed or the order kept; this is a production decision, not a translator&rsquo;s private choice (Lathey, 2016). Label: if the artwork cannot be changed (co-production), the text carries the meaning or the label stays; if it can, re-lettering in Arabic is cleanest. Colour: the picture cannot show it, so the words must (لونُ البازلاء الأخضر). Do not explain what the picture already shows.</div></details></div><div class="step-h"><div class="badge">3</div><h2>Decide: the sieve</h2><span class="min">7 min</span></div><figure class="plate"><img src="https://www.gutenberg.org/cache/epub/13650/images/126.gif" alt="Lear&rsquo;s sieve-boat: the vessel the poem names is shown, and so the Arabic word must look like it. Lear, Nonsense books. Public domain." style="width:326px" loading="lazy"><figcaption>Lear&rsquo;s sieve-boat: the vessel the poem names is shown, and so the Arabic word must look like it. Lear, <em>Nonsense books</em>. Public domain.</figcaption></figure><div id="a-tasks"></div><div class="step-h"><div class="badge">✓</div><h2>Six-question check</h2><span class="min">3 min</span></div><div id="a-qs"></div><div class="cred" style="margin-top:20px;"><strong>Works used.</strong><br>Comenius, J. A. (1887). <em>The Orbis Pictus of John Amos Comenius</em> (C. Hoole, Trans.; C. W. Bardeen, Ed.). C. W. Bardeen. (Original English translation published 1659). Project Gutenberg eBook #28299.<br>Lear, E. <em>Nonsense books</em> [Project Gutenberg eBook #13650]. (Poems first published 1846&ndash;1871.)<br>Lathey, G. (2016). <em>Translating children&rsquo;s literature</em>. Routledge.</div>
+  <div class="cred"><strong>Practice only.</strong> Your marks are recorded in Blackboard, not on this page. All English texts and plates on this page are in the public domain. Picture books discussed in Lathey (2016, Ch. 3) that are still in copyright are not reproduced here: use your Blackboard copies for those.</div>
+</div>
+</div>
+<footer><strong>ENG 494 Literary Translation</strong> · Children's Literature · Qassim University<br><a href="index.html">Course Hub</a> · <a href="workshop-children.html">Multimodality &amp; Sound workshop</a></footer>
+<script>
+function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
+var MCQ={};
+function shuffleQ(q){if(q._o0===undefined){q._o0=q.opts.slice();q._a0=q.ans;}var idx=q._o0.map(function(_,i){return i;});for(var i=idx.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=idx[i];idx[i]=idx[j];idx[j]=t;}q.opts=idx.map(function(k){return q._o0[k];});q.ans=idx.indexOf(q._a0);return q;}
+function mount(cid,items){MCQ[cid]=items;items.forEach(shuffleQ);document.getElementById(cid).innerHTML=items.map((q,qi)=>`<div class="ex-card">${q.pre||''}<div style="font-size:14px;font-weight:600;margin:6px 0 10px;">${q.q}</div>${q.opts.map((o,oi)=>`<button class="ex-opt" id="${cid}-${qi}-${oi}" onclick="ans('${cid}',${qi},${oi})">${o}</button>`).join('')}<div class="ex-feedback" id="${cid}-fb-${qi}"></div></div>`).join('');}
+function ans(cid,qi,ch){var q=MCQ[cid][qi];if(document.getElementById(`${cid}-${qi}-0`).disabled)return;q.opts.forEach((_,oi)=>{var b=document.getElementById(`${cid}-${qi}-${oi}`);b.disabled=true;if(oi===q.ans)b.classList.add('correct-ans');else if(oi===ch&&ch!==q.ans)b.classList.add('wrong-ans');});var fb=document.getElementById(`${cid}-fb-${qi}`);fb.className='ex-feedback show '+(ch===q.ans?'fb-correct':'fb-wrong');fb.innerHTML=q.why;}
+function mountTasks(cid,TASKS){document.getElementById(cid).innerHTML=TASKS.map((t,i)=>{var id=cid+'-'+i;return `<div class="ex-card"><div class="ex-num">${t.title}</div>${t.panel?`<div class="tip-box" style="margin-bottom:12px;">${t.panel}</div>`:''}<div class="excerpt">${t.text}<span class="cite">— ${t.cite}</span></div><p style="font-size:13px;color:var(--text-2);margin:8px 0 6px;">Type your Arabic translation:</p><textarea class="tp-input" id="tp-${id}" placeholder="اكتب ترجمتك هنا…" ${t.limit?`oninput="cnt('${id}',${t.limit})"`:''}></textarea>${t.limit?`<div class="src-note" id="cnt-${id}">0 / ${t.limit} characters</div>`:''}<button class="btn btn-primary btn-sm" style="margin-top:12px;background:var(--ac);" onclick="document.getElementById('rev-${id}').classList.add('show')">Reveal translator's notes →</button><div class="tp-reveal" id="rev-${id}"><h4>The challenge</h4><div>${t.challenges}</div><h4>Recommended approach</h4><div>${t.strategy}</div>${t.sample?`<h4>A starting point</h4><div class="ar-box">${t.sample}</div><div class="src-note">${t.sampleNote||''}</div>`:''}<h4>Check your version</h4><ul class="checklist2">${t.check.map(c=>`<li>${c}</li>`).join('')}</ul></div></div>`}).join('');}
+function cnt(id,l){var n=document.getElementById('tp-'+id).value.length;var e=document.getElementById('cnt-'+id);e.textContent=n+' / '+l+' characters'+(n>l?' — over the limit; condense':'');e.style.color=n>l?'#c0392b':'';}
+var _tm=null,_left=1200;
+function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+function toggleTimer(btn){if(_tm){clearInterval(_tm);_tm=null;btn.textContent='Resume';return;}btn.textContent='Pause';_tm=setInterval(function(){_left--;document.getElementById('clock').textContent=fmt(Math.max(_left,0));if(_left<=0){clearInterval(_tm);_tm=null;btn.textContent='Time!';}},1000);}
+function vote(g,i,btn){document.querySelectorAll('[data-g="'+g+'"]').forEach(b=>b.classList.remove('sel'));btn.classList.add('sel');var r=document.getElementById('vr-'+g);if(r)r.classList.add('show');}
+
+mountTasks('a-tasks',[
+ {title:"Word that must match the picture: the sieve",text:`They went to sea in a Sieve, they did,\nIn a Sieve they went to sea:`,cite:"Edward Lear, “The Jumblies” (1871) · public domain",
+  panel:"<strong>Picture first:</strong> the plate above shows the vessel with its crew. Choose an Arabic noun for <em>sieve</em> that a child can picture as the thing in the drawing.",
+  challenges:"A repeated line and a picture of an impossible boat. The noun has to name the object in the drawing, and the repetition (a sea-chanty beat) should survive.",
+  strategy:"Pick غِربال (a coarse sieve) rather than a technical word; keep the echo of the first line in the second, and read it aloud as a chant.",
+  sample:"«في غِربالٍ ركبوا البحرَ، نعم فعلوا، في غِربالٍ ركبوا البحرَ:»",sampleNote:"(Illustrative. The point is that the noun matches the picture and the line echoes itself.)",
+  check:["Does your noun match the object in the drawing?","Is the echo between the two lines kept?","Can it be chanted aloud in one breath per line?","Did you avoid explaining the picture?"]}
+]);
+mount('a-qs',[
+ {q:"Hoole&rsquo;s 1659 translation of Orbis Pictus is important to Lathey&rsquo;s chapter because:",opts:["It was the first book to use colour","It already shows a translator worrying about words and pictures fitting together","It has no pictures","It was written in Arabic"],ans:1,why:"Lathey cites Hoole, who noticed that the source text could not always be rendered without altering pictures as well as words."},
+ {q:"The numerals drawn into an Orbis Pictus plate link each picture to a word. In a translation, the numbers:",opts:["can be ignored","are part of the picture-and-text system and must still match the word list","should be translated into Latin","are decorative"],ans:1,why:"A numbered plate works only if numbers and words stay keyed together. Reordering the Arabic word list means re-keying the artwork or keeping the order."},
+ {q:"Lear&rsquo;s jar of honey carries a printed label. If the artwork cannot be changed, a translator may:",opts:["delete the jar","leave the label or carry its meaning in the text","draw a new boat","change honey to oil"],ans:1,why:"Where artwork is fixed, the label stays or the text carries its meaning (Lathey, 2016, on inscriptions)."},
+ {q:"The poem says the boat is pea-green, but the plate is black and white. The Arabic text should:",opts:["leave out the colour","carry the colour in words, since the picture cannot","add a footnote","paint the picture"],ans:1,why:"Where the picture is silent, the words must carry the detail; where the picture speaks, they must not repeat it."},
+ {q:"For <em>sieve</em> in the Jumblies couplet, the Arabic noun should above all:",opts:["be the most technical word","name the object a child can see in the drawing","be in English","be a verb"],ans:1,why:"Word–picture agreement: the child sees the vessel and hears the noun."},
+ {q:"When you read a spread before translating, the first step is:",opts:["to translate the words immediately","to read the pictures alone and list what they show that the words do not","to count the pages","to find the author&rsquo;s biography"],ans:1,why:"The workshop routine from the Multimodality page: pictures first, then words."}
+]);
+</script>
+<script src="track.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multimediality, Onomatopoeia and Inscriptions · Workshop C: Translate-and-Compare Studio | ENG 494</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="ENG 494 extra workshop: translate a Lear stanza, then compare a literal version with a re-voiced version using a four-point rubric.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 494">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 494 Literary Translation">
+<meta property="og:title" content="Multimediality, Onomatopoeia and Inscriptions · Workshop C: Translate-and-Compare Studio | ENG 494">
+<meta property="og:description" content="ENG 494 extra workshop: translate a Lear stanza, then compare a literal version with a re-voiced version using a four-point rubric.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng494/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng494/workshop-children-studio.html">
+<meta name="twitter:card" content="summary">
+<style>
+body{background:var(--off-white);}
+:root{--ac:#0d9488;--ac-soft:#ecfdf5;--ac-ink:#115e59;}
+.unit-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;}
+.unit-tab{font-size:12px;font-weight:700;padding:6px 12px;border-radius:var(--r-pill);text-decoration:none;border:1.5px solid var(--border);color:var(--text-2);}
+.unit-tab.cur{background:var(--ac);border-color:var(--ac);color:#fff;}
+.tab-bar{display:flex;gap:4px;background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-xs);padding:6px;margin-bottom:28px;flex-wrap:wrap;}
+.tab-btn{flex:1;min-width:120px;padding:10px 14px;border:none;background:transparent;border-radius:var(--r-md);font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;transition:all .15s;}
+.tab-btn:hover{background:var(--off-white);} .tab-btn.active{background:var(--ac);color:#fff;}
+.tab-panel{display:none;} .tab-panel.active{display:block;}
+.ex-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:24px;margin-bottom:20px;}
+.ex-num{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);margin-bottom:8px;}
+.ex-opt{padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:14px;cursor:pointer;transition:all .15s;background:var(--white);color:var(--text);text-align:left;display:block;width:100%;margin-bottom:8px;}
+.ex-opt:hover{border-color:var(--text-2);}
+.ex-opt.correct-ans{border-color:#30d158;background:#f0fff4;color:#1a7f45;} .ex-opt.correct-ans::after{content:" ✓";font-weight:800;}
+.ex-opt.wrong-ans{border-color:#e53935;background:#fef2f2;color:#c0392b;} .ex-opt.wrong-ans::after{content:" ✗";font-weight:800;}
+.ex-feedback{margin-top:14px;padding:12px 16px;border-radius:var(--r-md);font-size:13px;line-height:1.7;display:none;} .ex-feedback.show{display:block;}
+.fb-correct{background:#f0fff4;border:1px solid #a2d9b0;color:#14532d;} .fb-wrong{background:#fef2f2;border:1px solid #fca5a5;color:#7f1d1d;}
+.tip-box{background:var(--ac-soft);border:1.5px solid #99f6e4;border-radius:var(--r-md);padding:14px 16px;font-size:13px;line-height:1.7;color:var(--ac-ink);margin-bottom:20px;} .tip-box strong{color:var(--ac);}
+.prog-bar-wrap{height:6px;background:var(--off-white);border-radius:var(--r-pill);margin-bottom:24px;overflow:hidden;} .prog-bar{height:100%;background:var(--ac);border-radius:var(--r-pill);transition:width .4s;}
+.score-summary{text-align:center;padding:32px 20px;} .score-big{font-size:56px;font-weight:800;color:var(--ac);line-height:1;margin-bottom:8px;} .score-sub{font-size:14px;color:var(--text-2);}
+.excerpt{background:var(--off-white);border-left:3px solid var(--ac);padding:14px 16px;border-radius:0 var(--r-md) var(--r-md) 0;font-size:14px;line-height:1.9;color:var(--text);margin-bottom:10px;font-family:Georgia,serif;white-space:pre-line;}
+.excerpt .cite{display:block;font-family:var(--font);font-size:11px;font-weight:700;color:var(--ac-ink);margin-top:8px;text-transform:none;}
+.tp-input{width:100%;min-height:110px;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:15px;font-family:inherit;line-height:1.9;direction:rtl;text-align:right;resize:vertical;} .tp-input:focus{outline:none;border-color:var(--ac);}
+.tp-reveal{display:none;margin-top:16px;padding:16px;border-radius:var(--r-md);background:var(--ac-soft);border:1px solid #99f6e4;font-size:13.5px;line-height:1.7;color:var(--text);} .tp-reveal.show{display:block;}
+.tp-reveal h4{font-size:13px;font-weight:800;color:var(--ac-ink);text-transform:uppercase;letter-spacing:.05em;margin:12px 0 6px;} .tp-reveal h4:first-child{margin-top:0;}
+.checklist2{list-style:none;padding:0;margin:6px 0 0;} .checklist2 li{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.6;margin-bottom:5px;} .checklist2 li::before{content:"☐";color:var(--ac);font-weight:800;}
+.src-note{font-size:12px;color:var(--text-3);margin-top:8px;}
+.onoma{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:6px;}
+.ocard{background:var(--off-white);border-radius:var(--r-md);padding:12px;text-align:center;} .ocard .en{font-weight:800;color:var(--ac-ink);font-size:15px;} .ocard .ar{font-size:14px;direction:rtl;margin-top:4px;color:var(--text);}
+
+.runsheet{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px;}
+.rs{background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:12px 14px;border-top:3px solid var(--ac);}
+.rs b{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--ac);margin-bottom:3px;} .rs span{font-size:13px;line-height:1.5;color:var(--text-2);}
+.timer{display:flex;align-items:center;gap:12px;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:10px 16px;margin-bottom:22px;font-size:13px;color:var(--text-2);}
+.timer .clock{font-size:26px;font-weight:800;color:var(--ac);font-variant-numeric:tabular-nums;min-width:74px;} .timer button{margin-left:auto;}
+.plate{margin:0 0 16px;text-align:center;background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:14px;}
+.plate img{max-width:100%;height:auto;background:#fff;border:1px solid var(--border-light);image-rendering:auto;}
+.plate figcaption{font-size:11.5px;line-height:1.5;color:var(--text-3);margin-top:8px;text-align:left;}
+.plate-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;}
+.plate-row .plate{margin:0;} .plate-row .plate img{width:100%;max-width:300px;}
+.step-h{display:flex;gap:10px;align-items:center;margin:26px 0 12px;} .step-h .badge{width:28px;height:28px;border-radius:50%;background:var(--ac);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;} .step-h h2{font-size:18px;margin:0;} .step-h .min{margin-left:auto;font-size:11px;font-weight:800;color:var(--ac-ink);background:var(--ac-soft);border-radius:var(--r-pill);padding:3px 10px;}
+.q-list{margin:6px 0 0;padding-left:20px;font-size:13.5px;line-height:1.75;} .q-list li{margin-bottom:6px;}
+details.note{margin-top:12px;background:var(--ac-soft);border:1px solid #99f6e4;border-radius:var(--r-md);padding:10px 14px;font-size:13.5px;line-height:1.7;} details.note summary{cursor:pointer;font-weight:700;color:var(--ac-ink);}
+.ar-box{direction:rtl;text-align:right;background:var(--white);border-radius:var(--r-sm);padding:10px 14px;line-height:2;font-size:16px;border:1px solid var(--border-light);margin-top:6px;}
+.vote{display:block;width:100%;text-align:left;padding:12px 16px;margin-bottom:8px;border:1.5px solid var(--border);border-radius:var(--r-md);background:var(--white);cursor:pointer;font-size:14px;line-height:1.8;}
+.vote:hover{border-color:var(--ac);} .vote.sel{border-color:var(--ac);background:var(--ac-soft);}
+.letter-demo{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:10px 0;}
+.letter-demo div{background:var(--off-white);border-radius:var(--r-md);padding:14px;text-align:center;direction:rtl;}
+.letter-demo small{display:block;direction:ltr;font-size:11px;color:var(--text-3);margin-top:8px;font-family:var(--font);}
+.cred{font-size:12px;line-height:1.7;color:var(--text-3);margin-top:30px;border-top:1px solid var(--border-light);padding-top:12px;}
+@media(max-width:680px){.runsheet{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 494</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Children's Lit · Extra workshop</span>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:34px;">
+  <div class="hero-eyebrow" style="color:var(--ac);">Multimediality, Onomatopoeia and Inscriptions · Workshop C · 20 min</div>
+  <h1>Translate-and-Compare Studio</h1>
+  <p class="hero-sub">Work alone for ten minutes, then compare your version with two contrasting Arabic versions and decide, with a rubric, which better serves a child reading aloud. Based on Lathey (2016), Ch. 3.</p>
+</div>
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+  <div class="unit-tabs">
+    <a class="unit-tab" href="workshop-children.html">3 · Multimodality &amp; Sound</a>
+    <a class="unit-tab" href="workshop-children-reading-pictures.html">A · Reading Pictures</a>
+    <a class="unit-tab" href="workshop-children-sound-lettering.html">B · Sound &amp; Lettering</a>
+    <a class="unit-tab cur" href="workshop-children-studio.html">C · Translate-and-Compare Studio</a>
+  </div>
+<div class="runsheet"><div class="rs"><b>Minutes 0–10 · Draft</b><span>Translate the Owl and Pussy-cat stanza with the picture in view.</span></div><div class="rs"><b>Minutes 10–16 · Compare</b><span>Vote between Version A and Version B and read the notes.</span></div><div class="rs"><b>Minutes 16–20 · Swap</b><span>Swap with a partner and complete the exit ticket.</span></div></div>
+  <div class="timer"><span>⏱ 20-minute workshop clock</span><span class="clock" id="clock">20:00</span><button class="btn btn-primary btn-sm" style="background:var(--ac);" onclick="toggleTimer(this)">Start</button></div><div class="step-h"><div class="badge">1</div><h2>Draft: the Owl and the Pussy-cat</h2><span class="min">10 min</span></div><div class="plate-row"><figure class="plate"><img src="https://www.gutenberg.org/cache/epub/13650/images/117.gif" alt="Lear’s picture for the first stanza. Public domain." loading="lazy"><figcaption>Lear’s picture for the first stanza. Public domain.</figcaption></figure><figure class="plate"><img src="https://www.gutenberg.org/cache/epub/13650/images/118.gif" alt="The same pair, later in the poem. Public domain." loading="lazy"><figcaption>The same pair, later in the poem. Public domain.</figcaption></figure></div><div id="c-tasks"></div><div class="step-h"><div class="badge">2</div><h2>Compare: which version serves the child?</h2><span class="min">6 min</span></div><div class="ex-card"><div class="ex-num">Two Arabic versions (written for this exercise)</div>
+<p style="font-size:13.5px;margin:0 0 8px;color:var(--text-2);">The English is the first stanza of &ldquo;The Owl and the Pussy-cat&rdquo; (Lear, 1871).</p>
+<div class="ar-box"><strong>Version A (close to the words):</strong><br>ذهبَ البومُ والقِطّةُ إلى البحرِ في قاربٍ أخضرَ جميلٍ، أخذا بعضَ العسلِ ومالًا كثيرًا، ملفوفًا في ورقةِ نقدٍ.</div>
+<div class="ar-box"><strong>Version B (re-voiced for the ear):</strong><br>أبحرَ البومُ والقِطّةُ معًا، في زورقٍ أخضرَ كالبازِلاءِ، حملا العسلَ وكثيرَ النقودِ، ملفوفةً في ورقةٍ زرقاءِ.</div>
+<p style="font-size:13px;margin:12px 0 6px;color:var(--text-2);">Which one would you rather read aloud to a five-year-old?</p>
+<button class="vote" data-g="cmp" onclick="vote('cmp',0,this)">Version A</button>
+<button class="vote" data-g="cmp" onclick="vote('cmp',1,this)">Version B</button>
+<div class="tp-reveal" id="vr-cmp"><h4>Rubric</h4><ul class="checklist2"><li>Voice: does it sound like a story told to a child?</li><li>Sound: does it have a beat or rhyme when read aloud?</li><li>Picture fit: does it agree with the plate and avoid explaining it?</li><li>Faithfulness: does it keep what the English says (honey, money, note)?</li></ul>
+<h4>What to notice</h4><div>Version A keeps the facts but is flat when read aloud. Version B gains rhythm and a vivid colour comparison (<em>pea-green</em> becomes <em>كالبازلاء</em>) but adds a colour for the note (زرقاء) that Lear does not give: it invents a detail. A strong version would keep B&rsquo;s rhythm and drop that invented colour. Translators always trade; the rubric makes the trade visible.</div></div></div><div class="step-h"><div class="badge">3</div><h2>Swap and exit ticket</h2><span class="min">4 min</span></div><div class="ex-card"><div class="ex-num">Swap with a partner</div>
+<ul class="checklist2"><li>Read your partner&rsquo;s Arabic aloud, once, without stopping.</li><li>Mark the place where you stumbled.</li><li>Say one thing you would borrow and one thing you would change.</li></ul>
+<div class="ex-num" style="margin-top:16px;">Exit ticket (write for yourself)</div>
+<textarea class="tp-input" style="direction:ltr;text-align:left;min-height:90px;" placeholder="Today I learned that, when picture and words meet, a translator must…"></textarea></div><div class="cred" style="margin-top:20px;"><strong>Works used.</strong><br>Lear, E. <em>Nonsense books</em> [Project Gutenberg eBook #13650]. (Poems first published 1846&ndash;1871.)<br>Lathey, G. (2016). <em>Translating children&rsquo;s literature</em>. Routledge.</div>
+  <div class="cred"><strong>Practice only.</strong> Your marks are recorded in Blackboard, not on this page. All English texts and plates on this page are in the public domain. Picture books discussed in Lathey (2016, Ch. 3) that are still in copyright are not reproduced here: use your Blackboard copies for those.</div>
+</div>
+</div>
+<footer><strong>ENG 494 Literary Translation</strong> · Children's Literature · Qassim University<br><a href="index.html">Course Hub</a> · <a href="workshop-children.html">Multimodality &amp; Sound workshop</a></footer>
+<script>
+function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
+var MCQ={};
+function shuffleQ(q){if(q._o0===undefined){q._o0=q.opts.slice();q._a0=q.ans;}var idx=q._o0.map(function(_,i){return i;});for(var i=idx.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=idx[i];idx[i]=idx[j];idx[j]=t;}q.opts=idx.map(function(k){return q._o0[k];});q.ans=idx.indexOf(q._a0);return q;}
+function mount(cid,items){MCQ[cid]=items;items.forEach(shuffleQ);document.getElementById(cid).innerHTML=items.map((q,qi)=>`<div class="ex-card">${q.pre||''}<div style="font-size:14px;font-weight:600;margin:6px 0 10px;">${q.q}</div>${q.opts.map((o,oi)=>`<button class="ex-opt" id="${cid}-${qi}-${oi}" onclick="ans('${cid}',${qi},${oi})">${o}</button>`).join('')}<div class="ex-feedback" id="${cid}-fb-${qi}"></div></div>`).join('');}
+function ans(cid,qi,ch){var q=MCQ[cid][qi];if(document.getElementById(`${cid}-${qi}-0`).disabled)return;q.opts.forEach((_,oi)=>{var b=document.getElementById(`${cid}-${qi}-${oi}`);b.disabled=true;if(oi===q.ans)b.classList.add('correct-ans');else if(oi===ch&&ch!==q.ans)b.classList.add('wrong-ans');});var fb=document.getElementById(`${cid}-fb-${qi}`);fb.className='ex-feedback show '+(ch===q.ans?'fb-correct':'fb-wrong');fb.innerHTML=q.why;}
+function mountTasks(cid,TASKS){document.getElementById(cid).innerHTML=TASKS.map((t,i)=>{var id=cid+'-'+i;return `<div class="ex-card"><div class="ex-num">${t.title}</div>${t.panel?`<div class="tip-box" style="margin-bottom:12px;">${t.panel}</div>`:''}<div class="excerpt">${t.text}<span class="cite">— ${t.cite}</span></div><p style="font-size:13px;color:var(--text-2);margin:8px 0 6px;">Type your Arabic translation:</p><textarea class="tp-input" id="tp-${id}" placeholder="اكتب ترجمتك هنا…" ${t.limit?`oninput="cnt('${id}',${t.limit})"`:''}></textarea>${t.limit?`<div class="src-note" id="cnt-${id}">0 / ${t.limit} characters</div>`:''}<button class="btn btn-primary btn-sm" style="margin-top:12px;background:var(--ac);" onclick="document.getElementById('rev-${id}').classList.add('show')">Reveal translator's notes →</button><div class="tp-reveal" id="rev-${id}"><h4>The challenge</h4><div>${t.challenges}</div><h4>Recommended approach</h4><div>${t.strategy}</div>${t.sample?`<h4>A starting point</h4><div class="ar-box">${t.sample}</div><div class="src-note">${t.sampleNote||''}</div>`:''}<h4>Check your version</h4><ul class="checklist2">${t.check.map(c=>`<li>${c}</li>`).join('')}</ul></div></div>`}).join('');}
+function cnt(id,l){var n=document.getElementById('tp-'+id).value.length;var e=document.getElementById('cnt-'+id);e.textContent=n+' / '+l+' characters'+(n>l?' — over the limit; condense':'');e.style.color=n>l?'#c0392b':'';}
+var _tm=null,_left=1200;
+function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+function toggleTimer(btn){if(_tm){clearInterval(_tm);_tm=null;btn.textContent='Resume';return;}btn.textContent='Pause';_tm=setInterval(function(){_left--;document.getElementById('clock').textContent=fmt(Math.max(_left,0));if(_left<=0){clearInterval(_tm);_tm=null;btn.textContent='Time!';}},1000);}
+function vote(g,i,btn){document.querySelectorAll('[data-g="'+g+'"]').forEach(b=>b.classList.remove('sel'));btn.classList.add('sel');var r=document.getElementById('vr-'+g);if(r)r.classList.add('show');}
+
+mountTasks('c-tasks',[
+ {title:"Lear: a voyage in four lines",text:`The Owl and the Pussy-cat went to sea\nIn a beautiful pea-green boat,\nThey took some honey, and plenty of money,\nWrapped up in a five-pound note.`,cite:"Edward Lear, “The Owl and the Pussy-Cat” (1871) · public domain",
+  panel:"<strong>Picture:</strong> the owl plays a guitar; the cat sits by a jar labelled <em>honey</em>. The picture shows the characters and the jar; the words must supply the colour and the money.",
+  challenges:"Sing-song rhythm and internal rhyme (honey / money), a colour compound (pea-green), a foreign unit (five-pound note) and a picture that already shows the label.",
+  strategy:"Keep the four-line shape, find an Arabic equivalent for the pea colour (البازلاء), echo honey/money with an Arabic pair (عسل / مال or نقود), and decide how to render the five-pound note (keep the currency, or generalise to a note).",
+  sample:"«ذهبَ البومُ والقِطّةُ في البحرِ، في قاربٍ أخضرَ كالبازِلاءِ، أخذا العسلَ والنقودَ معًا، ملفوفةً في ورقةِ نقدٍ.»",sampleNote:"(Illustrative. A starting point to improve, not a model to copy.)",
+  check:["Is there a beat when you read it aloud?","Is honey / money echoed?","Is the pea colour kept and not over-explained?","Did you decide what to do with the five-pound note?","Does it agree with the plate?"]}
+]);
+</script>
+<script src="track.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>

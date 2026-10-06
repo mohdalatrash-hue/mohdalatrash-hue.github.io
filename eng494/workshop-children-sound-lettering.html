@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multimediality, Onomatopoeia and Inscriptions · Workshop B: Sound and Lettering | ENG 494</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="ENG 494 extra workshop: animal cries from Orbis Pictus (1659), Lear's nonsense sounds, and how to letter a sound in Arabic.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 494">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 494 Literary Translation">
+<meta property="og:title" content="Multimediality, Onomatopoeia and Inscriptions · Workshop B: Sound and Lettering | ENG 494">
+<meta property="og:description" content="ENG 494 extra workshop: animal cries from Orbis Pictus (1659), Lear's nonsense sounds, and how to letter a sound in Arabic.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng494/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng494/workshop-children-sound-lettering.html">
+<meta name="twitter:card" content="summary">
+<style>
+body{background:var(--off-white);}
+:root{--ac:#0d9488;--ac-soft:#ecfdf5;--ac-ink:#115e59;}
+.unit-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;}
+.unit-tab{font-size:12px;font-weight:700;padding:6px 12px;border-radius:var(--r-pill);text-decoration:none;border:1.5px solid var(--border);color:var(--text-2);}
+.unit-tab.cur{background:var(--ac);border-color:var(--ac);color:#fff;}
+.tab-bar{display:flex;gap:4px;background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-xs);padding:6px;margin-bottom:28px;flex-wrap:wrap;}
+.tab-btn{flex:1;min-width:120px;padding:10px 14px;border:none;background:transparent;border-radius:var(--r-md);font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;transition:all .15s;}
+.tab-btn:hover{background:var(--off-white);} .tab-btn.active{background:var(--ac);color:#fff;}
+.tab-panel{display:none;} .tab-panel.active{display:block;}
+.ex-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:24px;margin-bottom:20px;}
+.ex-num{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);margin-bottom:8px;}
+.ex-opt{padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:14px;cursor:pointer;transition:all .15s;background:var(--white);color:var(--text);text-align:left;display:block;width:100%;margin-bottom:8px;}
+.ex-opt:hover{border-color:var(--text-2);}
+.ex-opt.correct-ans{border-color:#30d158;background:#f0fff4;color:#1a7f45;} .ex-opt.correct-ans::after{content:" ✓";font-weight:800;}
+.ex-opt.wrong-ans{border-color:#e53935;background:#fef2f2;color:#c0392b;} .ex-opt.wrong-ans::after{content:" ✗";font-weight:800;}
+.ex-feedback{margin-top:14px;padding:12px 16px;border-radius:var(--r-md);font-size:13px;line-height:1.7;display:none;} .ex-feedback.show{display:block;}
+.fb-correct{background:#f0fff4;border:1px solid #a2d9b0;color:#14532d;} .fb-wrong{background:#fef2f2;border:1px solid #fca5a5;color:#7f1d1d;}
+.tip-box{background:var(--ac-soft);border:1.5px solid #99f6e4;border-radius:var(--r-md);padding:14px 16px;font-size:13px;line-height:1.7;color:var(--ac-ink);margin-bottom:20px;} .tip-box strong{color:var(--ac);}
+.prog-bar-wrap{height:6px;background:var(--off-white);border-radius:var(--r-pill);margin-bottom:24px;overflow:hidden;} .prog-bar{height:100%;background:var(--ac);border-radius:var(--r-pill);transition:width .4s;}
+.score-summary{text-align:center;padding:32px 20px;} .score-big{font-size:56px;font-weight:800;color:var(--ac);line-height:1;margin-bottom:8px;} .score-sub{font-size:14px;color:var(--text-2);}
+.excerpt{background:var(--off-white);border-left:3px solid var(--ac);padding:14px 16px;border-radius:0 var(--r-md) var(--r-md) 0;font-size:14px;line-height:1.9;color:var(--text);margin-bottom:10px;font-family:Georgia,serif;white-space:pre-line;}
+.excerpt .cite{display:block;font-family:var(--font);font-size:11px;font-weight:700;color:var(--ac-ink);margin-top:8px;text-transform:none;}
+.tp-input{width:100%;min-height:110px;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:15px;font-family:inherit;line-height:1.9;direction:rtl;text-align:right;resize:vertical;} .tp-input:focus{outline:none;border-color:var(--ac);}
+.tp-reveal{display:none;margin-top:16px;padding:16px;border-radius:var(--r-md);background:var(--ac-soft);border:1px solid #99f6e4;font-size:13.5px;line-height:1.7;color:var(--text);} .tp-reveal.show{display:block;}
+.tp-reveal h4{font-size:13px;font-weight:800;color:var(--ac-ink);text-transform:uppercase;letter-spacing:.05em;margin:12px 0 6px;} .tp-reveal h4:first-child{margin-top:0;}
+.checklist2{list-style:none;padding:0;margin:6px 0 0;} .checklist2 li{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.6;margin-bottom:5px;} .checklist2 li::before{content:"☐";color:var(--ac);font-weight:800;}
+.src-note{font-size:12px;color:var(--text-3);margin-top:8px;}
+.onoma{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:6px;}
+.ocard{background:var(--off-white);border-radius:var(--r-md);padding:12px;text-align:center;} .ocard .en{font-weight:800;color:var(--ac-ink);font-size:15px;} .ocard .ar{font-size:14px;direction:rtl;margin-top:4px;color:var(--text);}
+
+.runsheet{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px;}
+.rs{background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:12px 14px;border-top:3px solid var(--ac);}
+.rs b{display:block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--ac);margin-bottom:3px;} .rs span{font-size:13px;line-height:1.5;color:var(--text-2);}
+.timer{display:flex;align-items:center;gap:12px;background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:10px 16px;margin-bottom:22px;font-size:13px;color:var(--text-2);}
+.timer .clock{font-size:26px;font-weight:800;color:var(--ac);font-variant-numeric:tabular-nums;min-width:74px;} .timer button{margin-left:auto;}
+.plate{margin:0 0 16px;text-align:center;background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-xs);padding:14px;}
+.plate img{max-width:100%;height:auto;background:#fff;border:1px solid var(--border-light);image-rendering:auto;}
+.plate figcaption{font-size:11.5px;line-height:1.5;color:var(--text-3);margin-top:8px;text-align:left;}
+.plate-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;}
+.plate-row .plate{margin:0;} .plate-row .plate img{width:100%;max-width:300px;}
+.step-h{display:flex;gap:10px;align-items:center;margin:26px 0 12px;} .step-h .badge{width:28px;height:28px;border-radius:50%;background:var(--ac);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;} .step-h h2{font-size:18px;margin:0;} .step-h .min{margin-left:auto;font-size:11px;font-weight:800;color:var(--ac-ink);background:var(--ac-soft);border-radius:var(--r-pill);padding:3px 10px;}
+.q-list{margin:6px 0 0;padding-left:20px;font-size:13.5px;line-height:1.75;} .q-list li{margin-bottom:6px;}
+details.note{margin-top:12px;background:var(--ac-soft);border:1px solid #99f6e4;border-radius:var(--r-md);padding:10px 14px;font-size:13.5px;line-height:1.7;} details.note summary{cursor:pointer;font-weight:700;color:var(--ac-ink);}
+.ar-box{direction:rtl;text-align:right;background:var(--white);border-radius:var(--r-sm);padding:10px 14px;line-height:2;font-size:16px;border:1px solid var(--border-light);margin-top:6px;}
+.vote{display:block;width:100%;text-align:left;padding:12px 16px;margin-bottom:8px;border:1.5px solid var(--border);border-radius:var(--r-md);background:var(--white);cursor:pointer;font-size:14px;line-height:1.8;}
+.vote:hover{border-color:var(--ac);} .vote.sel{border-color:var(--ac);background:var(--ac-soft);}
+.letter-demo{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin:10px 0;}
+.letter-demo div{background:var(--off-white);border-radius:var(--r-md);padding:14px;text-align:center;direction:rtl;}
+.letter-demo small{display:block;direction:ltr;font-size:11px;color:var(--text-3);margin-top:8px;font-family:var(--font);}
+.cred{font-size:12px;line-height:1.7;color:var(--text-3);margin-top:30px;border-top:1px solid var(--border-light);padding-top:12px;}
+@media(max-width:680px){.runsheet{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 494</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Children's Lit · Extra workshop</span>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:34px;">
+  <div class="hero-eyebrow" style="color:var(--ac);">Multimediality, Onomatopoeia and Inscriptions · Workshop B · 20 min</div>
+  <h1>Sound &amp; Lettering</h1>
+  <p class="hero-sub">How do you say a sound on a page? Start with Hoole&rsquo;s 1659 &ldquo;vocal alphabet&rdquo; of animal cries, then Lear&rsquo;s nonsense song, then letter a sound in Arabic. Based on Lathey (2016), Ch. 3.</p>
+</div>
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+  <div class="unit-tabs">
+    <a class="unit-tab" href="workshop-children.html">3 · Multimodality &amp; Sound</a>
+    <a class="unit-tab" href="workshop-children-reading-pictures.html">A · Reading Pictures</a>
+    <a class="unit-tab cur" href="workshop-children-sound-lettering.html">B · Sound &amp; Lettering</a>
+    <a class="unit-tab" href="workshop-children-studio.html">C · Translate-and-Compare Studio</a>
+  </div>
+<div class="runsheet"><div class="rs"><b>Minutes 0–6 · Hear</b><span>Four creatures, four cries in Hoole&rsquo;s English. Find the Arabic cries.</span></div><div class="rs"><b>Minutes 6–14 · Sing</b><span>Lear&rsquo;s <em>Calico Pie</em>: coin a sound for <em>Tilly-loo</em>.</span></div><div class="rs"><b>Minutes 14–20 · Letter</b><span>Choose how <em>ding dong</em> looks in Arabic, then take the check.</span></div></div>
+  <div class="timer"><span>⏱ 20-minute workshop clock</span><span class="clock" id="clock">20:00</span><button class="btn btn-primary btn-sm" style="background:var(--ac);" onclick="toggleTimer(this)">Start</button></div><div class="step-h"><div class="badge">1</div><h2>Hear it: Hoole&rsquo;s vocal alphabet</h2><span class="min">6 min</span></div><div class="plate-row"><figure class="plate"><img src="https://www.gutenberg.org/cache/epub/28299/images/page3_a.png" alt="A: the crow" style="width:308px" loading="lazy"><figcaption>A: the crow</figcaption></figure><figure class="plate"><img src="https://www.gutenberg.org/cache/epub/28299/images/page3_b.png" alt="B: the lamb" style="width:306px" loading="lazy"><figcaption>B: the lamb</figcaption></figure><figure class="plate"><img src="https://www.gutenberg.org/cache/epub/28299/images/page3_c.png" alt="C: the grasshopper" style="width:306px" loading="lazy"><figcaption>C: the grasshopper</figcaption></figure><figure class="plate"><img src="https://www.gutenberg.org/cache/epub/28299/images/page3_d.png" alt="D: the hoopoe" style="width:308px" loading="lazy"><figcaption>D: the hoopoe</figcaption></figure></div><div class="src-note" style="margin-bottom:14px;">Woodcuts from the &ldquo;vocal alphabet&rdquo; of <em>Orbis Pictus</em> (Hoole, 1659; 1887 reprint). In Hoole&rsquo;s English the creatures <em>crieth</em>, <em>blaiteth</em>, <em>chirpeth</em> and <em>saith</em>. Public domain; Project Gutenberg eBook #28299.</div><div class="ex-card"><div class="ex-num">Cry-match · type your Arabic cry first, then reveal</div>
+<p style="font-size:13.5px;line-height:1.7;margin:0 0 8px;">For each creature write the Arabic verb and the cry a child would say aloud. Then compare.</p>
+<textarea class="tp-input" style="min-height:90px;" placeholder="الغراب … الحمل … الجندب … الهدهد …"></textarea>
+<details class="note"><summary>Reveal: one set of options</summary><div style="margin-top:8px;"><div class='ar-box'>الغُرابُ ينعِقُ: «غاق غاق» · الحَمَلُ يَثْغو: «ماع ماع» · الجُندُبُ يَصِرّ: «صِرْ صِرْ» · الهُدهُدُ: «هُدْ هُدْ»</div><div class='src-note'>Illustrative sound-words; check them against Arabic children&rsquo;s books you know. Note that the English <em>hoopoe</em> and the Arabic هدهد are both often explained as imitating the bird&rsquo;s call: the name is the sound.</div></div></details></div><div class="step-h"><div class="badge">2</div><h2>Sing it: Lear&rsquo;s Calico Pie</h2><span class="min">8 min</span></div><figure class="plate"><img src="https://www.gutenberg.org/cache/epub/13650/images/128.gif" alt="Birds flying down to the calico-tree. Lear, Nonsense books. Public domain." style="width:252px" loading="lazy"><figcaption>Birds flying down to the calico-tree. Lear, <em>Nonsense books</em>. Public domain.</figcaption></figure><div id="b-tasks"></div><div class="step-h"><div class="badge">3</div><h2>Letter it: how does a sound look?</h2><span class="min">6 min</span></div><div class="ex-card"><div class="ex-num">Lettering lab · ding dong</div>
+<p style="font-size:13.5px;line-height:1.7;margin:0 0 6px;">In a picture book the shape of a sound-word is part of the picture (Lathey, 2016, drawing on Zanettin). Arabic has no italics or capitals, but it has other tools. Here are three treatments of the same sound:</p>
+<div class="letter-demo">
+<div><span style="font-size:22px;">دِنْج دُونْج</span><small>1 · plain, same size</small></div>
+<div><span style="font-size:22px;">دِيييييـنْج &nbsp; دُوووووونْج</span><small>2 · stretched letters (tatweel / long vowels)</small></div>
+<div><span style="font-size:15px;">دِنْج</span> <span style="font-size:34px;font-weight:800;">دُونْج</span><small>3 · small then large, like a bell swinging</small></div>
+</div>
+<button class="vote" data-g="lt" onclick="vote('lt',0,this)">I choose 1: plain. It is easy to read for a beginner.</button>
+<button class="vote" data-g="lt" onclick="vote('lt',1,this)">I choose 2: stretched. The sound lasts, like a bell.</button>
+<button class="vote" data-g="lt" onclick="vote('lt',2,this)">I choose 3: small then large. The size tells the rhythm.</button>
+<div class="tp-reveal" id="vr-lt"><h4>Discuss</h4><div>There is no single right answer. Ask: which would a five-year-old read aloud correctly? Which suits the artwork, if the bell is drawn swinging? Remember that Zitawi found Arabic publishers favouring forms that a child still learning Arabic can read (see Lathey, 2016, p. 64), so legibility is part of the decision.</div></div>
+</div><div class="step-h"><div class="badge">✓</div><h2>Six-question check</h2><span class="min">2 min</span></div><div id="b-qs"></div><div class="cred" style="margin-top:20px;"><strong>Works used.</strong><br>Comenius, J. A. (1887). <em>The Orbis Pictus of John Amos Comenius</em> (C. Hoole, Trans.; C. W. Bardeen, Ed.). C. W. Bardeen. (Original English translation published 1659). Project Gutenberg eBook #28299.<br>Lear, E. <em>Nonsense books</em> [Project Gutenberg eBook #13650]. (Poems first published 1846&ndash;1871.)<br>Lathey, G. (2016). <em>Translating children&rsquo;s literature</em>. Routledge.</div>
+  <div class="cred"><strong>Practice only.</strong> Your marks are recorded in Blackboard, not on this page. All English texts and plates on this page are in the public domain. Picture books discussed in Lathey (2016, Ch. 3) that are still in copyright are not reproduced here: use your Blackboard copies for those.</div>
+</div>
+</div>
+<footer><strong>ENG 494 Literary Translation</strong> · Children's Literature · Qassim University<br><a href="index.html">Course Hub</a> · <a href="workshop-children.html">Multimodality &amp; Sound workshop</a></footer>
+<script>
+function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
+var MCQ={};
+function shuffleQ(q){if(q._o0===undefined){q._o0=q.opts.slice();q._a0=q.ans;}var idx=q._o0.map(function(_,i){return i;});for(var i=idx.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=idx[i];idx[i]=idx[j];idx[j]=t;}q.opts=idx.map(function(k){return q._o0[k];});q.ans=idx.indexOf(q._a0);return q;}
+function mount(cid,items){MCQ[cid]=items;items.forEach(shuffleQ);document.getElementById(cid).innerHTML=items.map((q,qi)=>`<div class="ex-card">${q.pre||''}<div style="font-size:14px;font-weight:600;margin:6px 0 10px;">${q.q}</div>${q.opts.map((o,oi)=>`<button class="ex-opt" id="${cid}-${qi}-${oi}" onclick="ans('${cid}',${qi},${oi})">${o}</button>`).join('')}<div class="ex-feedback" id="${cid}-fb-${qi}"></div></div>`).join('');}
+function ans(cid,qi,ch){var q=MCQ[cid][qi];if(document.getElementById(`${cid}-${qi}-0`).disabled)return;q.opts.forEach((_,oi)=>{var b=document.getElementById(`${cid}-${qi}-${oi}`);b.disabled=true;if(oi===q.ans)b.classList.add('correct-ans');else if(oi===ch&&ch!==q.ans)b.classList.add('wrong-ans');});var fb=document.getElementById(`${cid}-fb-${qi}`);fb.className='ex-feedback show '+(ch===q.ans?'fb-correct':'fb-wrong');fb.innerHTML=q.why;}
+function mountTasks(cid,TASKS){document.getElementById(cid).innerHTML=TASKS.map((t,i)=>{var id=cid+'-'+i;return `<div class="ex-card"><div class="ex-num">${t.title}</div>${t.panel?`<div class="tip-box" style="margin-bottom:12px;">${t.panel}</div>`:''}<div class="excerpt">${t.text}<span class="cite">— ${t.cite}</span></div><p style="font-size:13px;color:var(--text-2);margin:8px 0 6px;">Type your Arabic translation:</p><textarea class="tp-input" id="tp-${id}" placeholder="اكتب ترجمتك هنا…" ${t.limit?`oninput="cnt('${id}',${t.limit})"`:''}></textarea>${t.limit?`<div class="src-note" id="cnt-${id}">0 / ${t.limit} characters</div>`:''}<button class="btn btn-primary btn-sm" style="margin-top:12px;background:var(--ac);" onclick="document.getElementById('rev-${id}').classList.add('show')">Reveal translator's notes →</button><div class="tp-reveal" id="rev-${id}"><h4>The challenge</h4><div>${t.challenges}</div><h4>Recommended approach</h4><div>${t.strategy}</div>${t.sample?`<h4>A starting point</h4><div class="ar-box">${t.sample}</div><div class="src-note">${t.sampleNote||''}</div>`:''}<h4>Check your version</h4><ul class="checklist2">${t.check.map(c=>`<li>${c}</li>`).join('')}</ul></div></div>`}).join('');}
+function cnt(id,l){var n=document.getElementById('tp-'+id).value.length;var e=document.getElementById('cnt-'+id);e.textContent=n+' / '+l+' characters'+(n>l?' — over the limit; condense':'');e.style.color=n>l?'#c0392b':'';}
+var _tm=null,_left=1200;
+function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+function toggleTimer(btn){if(_tm){clearInterval(_tm);_tm=null;btn.textContent='Resume';return;}btn.textContent='Pause';_tm=setInterval(function(){_left--;document.getElementById('clock').textContent=fmt(Math.max(_left,0));if(_left<=0){clearInterval(_tm);_tm=null;btn.textContent='Time!';}},1000);}
+function vote(g,i,btn){document.querySelectorAll('[data-g="'+g+'"]').forEach(b=>b.classList.remove('sel'));btn.classList.add('sel');var r=document.getElementById('vr-'+g);if(r)r.classList.add('show');}
+
+mountTasks('b-tasks',[
+ {title:"Lear: a sound in a song",text:`Calico pie,\nThe little Birds fly\nDown to the calico-tree,\nTheir wings were blue,\nAnd they sang 'Tilly-loo!'`,cite:"Edward Lear, “Calico Pie” (1871) · public domain",
+  panel:"<strong>Picture:</strong> the plate above shows birds streaming down to a tree. Keep the movement in the words and invent a cry for <em>Tilly-loo</em>.",
+  challenges:"A nonsense compound (calico-tree), a rhyme (fly / pie) and an invented birdsong (Tilly-loo) that the child sings.",
+  strategy:"Treat Tilly-loo as a re-voice case: coin an Arabic birdsong on a light bounce (for example تِلي لو، or زِقْ زِقْ لو), rhyme the first two lines if you can, and keep the picture’s downward movement.",
+  sample:"«فطيرةُ الكاليكو، تُرفرِفُ الطيورُ، نحوَ شجرةِ الكاليكو، زُرقةُ الأجنحةِ، وغنَّتْ: «تِلي لو!»»",sampleNote:"(Illustrative; yours will differ. Invent the cry, then read it aloud.)",
+  check:["Did you invent a cry rather than leave Tilly-loo in English?","Does the song bounce when read aloud?","Is the downward movement of the birds preserved?","Did you decide what to do with the invented ‘calico’?"]}
+]);
+mount('b-qs',[
+ {q:"Hoole&rsquo;s vocal alphabet is useful for this class because it shows:",opts:["a 1659 translator choosing English cries for each animal","modern Arabic comics","only Latin spelling","that animals cannot be translated"],ans:0,why:"Hoole’s English (crieth, blaiteth, chirpeth, saith) is already a set of translation choices for animal sounds."},
+ {q:"The English <em>hoopoe</em> and Arabic هدهد share a feature:",opts:["both are in capital letters","both are often explained as imitating the bird&rsquo;s call, so the name itself is the sound","both are verbs","neither is a word"],ans:1,why:"When the name of a creature is itself onomatopoeic, the translator should check whether the target language also has an imitative name."},
+ {q:"For an invented birdsong like <em>Tilly-loo</em>, the best Arabic strategy is usually to:",opts:["leave it in Latin script","coin a singable cry and read it aloud","delete it","explain it in a footnote"],ans:1,why:"Re-voice: invent a sound the child can sing, keeping the bounce."},
+ {q:"In Arabic lettering of a sound, tools like long vowels or stretched letters can show:",opts:["nothing","duration and volume, as capitals and italics do in English","only price","the author&rsquo;s name"],ans:1,why:"The shape and placement of sound-letters are visual meaning (Zanettin, cited in Lathey, 2016)."},
+ {q:"Why might a publisher prefer a legible Arabic form like طاخ to a Latin sound-word in a children&rsquo;s comic?",opts:["Arabic readers cannot see Latin","A child still learning Arabic may read the Arabic form more easily (Zitawi)","Latin letters are illegal","Colour printing costs more"],ans:1,why:"Zitawi’s suggestion, reported in Lathey (2016, p. 64)."},
+ {q:"Reading a sound aloud before you finalise it matters because:",opts:["picture books are performed aloud","it saves paper","it shows the page count","it is required by the printer"],ans:0,why:"Picture books are read aloud to children, so a sound that stumbles fails its main use."}
+]);
+</script>
+<script src="track.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>
