@@ -3,6 +3,7 @@
   var LINKS = [
     { href: "index.html", label: "Course Hub" },
     { href: "syllabus.html", label: "Syllabus & Assessment" },
+    { href: "listening.html", label: "Listening & Note-taking Lab" },
     { href: "week1.html", label: "Week 1" },
     { href: "week2.html", label: "Week 2" },
     { href: "week3.html", label: "Week 3" },
