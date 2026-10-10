@@ -6,6 +6,7 @@
     { href: "workshop-children-narrative.html", label: "Children's: Narrative" },
     { href: "workshop-children-dialogue.html",  label: "Children's: Dialogue" },
     { href: "workshop-children.html",label: "Children's: Multimodality" },
+    { href: "workshop-children-picturebooks.html", label: "Children's: Five-Story Lab" },
     { href: "workshop-poetry.html",  label: "Poetry" },
     { href: "workshop-children-poetry.html", label: "Children's Poetry" },
     { href: "workshop-drama.html",   label: "Drama Lab: Overview" },
