@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mid-term Practice Bank | ENG 270</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="workshop.css">
+<link rel="stylesheet" href="lab.css">
+<meta name="description" content="ENG 270 mid-term practice bank &mdash; True/False, multiple-choice and evaluate-the-translation questions on Weeks 1&ndash;8, in the same format as the mid-term exam.">
+<meta name="theme-color" content="#4338ca">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 270">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 270 Introduction to Translation">
+<meta property="og:title" content="Mid-term Practice Bank | ENG 270">
+<meta property="og:description" content="Practise for the ENG 270 mid-term: True/False, multiple choice and evaluate-the-translation questions on Weeks 1&ndash;8.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng270/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng270/midterm.html">
+<meta name="twitter:card" content="summary">
+<style>
+.stt{background:var(--off-white);border-left:3px solid var(--ac);border-radius:0 var(--r-md) var(--r-md) 0;padding:10px 14px;margin-bottom:10px;}
+.stt div{display:flex;gap:12px;align-items:baseline;padding:3px 0;}
+.stt b{min-width:46px;font-size:12.5px;color:var(--ac-ink);}
+.stt .en{font-family:Georgia,'Times New Roman',serif;font-style:italic;}
+.stt .ar{font-size:18px;}
+.fmt{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 4px;}
+.fmt th,.fmt td{border:1px solid var(--border,#ddd);padding:7px 10px;text-align:left;vertical-align:top;}
+.fmt th{background:var(--off-white);}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>&#127891;</span><span>Qassim University</span></a>
+    <span class="nav-sep">&rsaquo;</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 270</a>
+    <span class="nav-sep">&rsaquo;</span>
+    <span class="nav-cur">Mid-term practice</span>
+    <div class="nav-spacer"></div>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:34px;">
+  <div class="hero-eyebrow" style="color:var(--ac);">Week 9 &middot; Mid-term exam &middot; 20% &middot; covers Weeks 1&ndash;8</div>
+  <h1>Mid-term Practice Bank</h1>
+  <p class="hero-sub">Practice questions in the same three formats as the mid-term: True/False, multiple choice, and short evaluate-the-translation questions. None of these questions is on the exam, but if you can answer these, you can answer the exam.</p>
+  <div class="lab-hero-chips" style="display:none"></div>
+</div>
+<div class="section-alt" style="padding:0 0 40px;">
+<div id="lab-root"></div>
+<div class="lab-wrap" style="padding-bottom:0"><div class="ws-nav"><a href="week8.html">&larr; Week 8</a><a href="index.html">Course Hub &rarr;</a></div></div>
+</div>
+<footer><strong>ENG 270 Introduction to Translation</strong> &middot; Mid-term practice bank &middot; Qassim University &middot; Semester 481<br><a href="index.html">Course Hub</a> &middot; <a href="reading-schedule.html">Reading Schedule</a> &middot; <a href="../index.html">Qassim Courses</a></footer>
+<script src="lab.js"></script>
+<script>
+/* ST / TT box: STT("English source", [["TT A","عربي"],["TT B","عربي"]]) */
+function STT(st, tts) {
+  var h = '<div class="stt">';
+  if (st) h += '<div><b>ST</b><span class="en">' + st + '</span></div>';
+  (tts || []).forEach(function (t) { h += '<div><b>' + t[0] + '</b><span class="ar" dir="rtl" lang="ar">' + t[1] + '</span></div>'; });
+  return h + '</div>';
+}
+function TERMS(rows) { return '<div class="stt">' + rows.map(function (r) { return '<div><b>' + r[0] + '</b><span class="en" style="font-style:normal">' + r[1] + ' &rarr; </span><span class="ar" dir="rtl" lang="ar">' + r[2] + '</span></div>'; }).join("") + '</div>'; }
+
+LAB.start({
+id: "midterm-practice",
+solo: true,
+title: "ENG 270 · Mid-term practice bank · Weeks 1–8",
+intro: `<div class="lab-box">
+<h2>🎯 How the mid-term works</h2>
+<p>The mid-term is in <b>Week 9</b>. It lasts <b>50 minutes</b>, is worth <b>20 marks (20% of the course)</b>, and covers <b>Weeks 1–8</b>. It is one sheet, printed on both sides:</p>
+<table class="fmt">
+<tr><th>Part</th><th>What you do</th><th>Marks</th></tr>
+<tr><td>One · True / False</td><td>5 statements. Shade <b>A = True</b>, <b>B = False</b> on the ZipGrade answer sheet.</td><td>7.5</td></tr>
+<tr><td>Two · Multiple choice</td><td>5 questions, A–D. Several give you an English source and an Arabic translation and ask you to name the method or strategy.</td><td>7.5</td></tr>
+<tr><td>Three · Evaluate the translation</td><td>4 short questions; you answer <b>any two</b>. Each has parts (a) and (b), and each part is answered in <b>one word or one short phrase</b>.</td><td>5</td></tr>
+</table>
+<h3>📖 What to revise</h3>
+<ul>
+<li><b>Weeks 1–4 · basics and methods:</b> SL/TL/ST/TT/SC/TC; the four routes into Arabic; process, product, field; word-for-word, one-to-one, direct translation; bound and loose free translation; the unit of translation; faithful, communicative, adaptation; the four problem families.</li>
+<li><b>Weeks 5–7 · literary texts:</b> two cultures; narrative cohesion and word order; tense and aspect (adverbs, كان + قد); Graedler, Harvey, Venuti; drama and Bastin; poetry and Newmark's metaphor procedures.</li>
+<li><b>Week 8 · scientific texts:</b> total borrowing, calque, naturalisation; derivation, al-istinbāṭ, loan translation; the two-level analysis.</li>
+</ul>
+<h3>✍️ How to use this page</h3>
+<p>Work through the four stations. Multiple-choice and True/False items are marked at once and explain the answer. In Station 4, write your short answer first, then compare it with the model. Your work is saved on this device only, and you can reset it and try again.</p>
+</div>`,
+stations: [
+
+/* ============ STATION 1 · TRUE / FALSE ============ */
+{ short: "1 · True / False", title: "Part One practice · True or False", time: "10 min",
+goal: "Decide quickly and accurately. In the exam you shade A for True and B for False.",
+rule: "Watch for one wrong word in an otherwise correct statement: <i>always</i>, <i>never</i>, <i>no account of</i>, or a swapped term (calque ↔ loanword, coined ↔ naturalised).",
+items: [
+ tf("SL stands for source language and TL stands for target language.", true, "The six abbreviations: SL/TL, ST/TT, SC/TC (Week 1)."),
+ tf("‘aspirin’ → " + A("أسبرين") + " is an example of transliteration.", true, "The foreign word is written in Arabic letters as it is pronounced (Week 1)."),
+ tf("‘democracy’ → " + A("ديمقراطية") + " is an example of a coined term.", false, "It is naturalisation: the borrowed word is made to fit Arabic pronunciation, spelling and grammar. A coined term is built from existing Arabic material instead (Week 1)."),
+ tf("Translation became an academic field in its own right only in the twentieth century.", true, "Translation Studies was named as a discipline from the 1970s (Week 1)."),
+ tf("The Toledo translators carried much Arabic learning into Latin.", true, "Arabic sits in the middle of the transmission, not at its edge (Week 1)."),
+ tf("In word-for-word translation, the whole attention is on the target language.", false, "The whole attention is on the source language; word-for-word ignores the TL completely (Week 2)."),
+ tf("Word-for-word translation transfers only the primary meaning of words.", true, "This is one of Ghazala's six reasons it is risky (Week 2)."),
+ tf("Every English word has one fixed ‘literal meaning’ that must be used in every context.", false, "A word has a common or primary meaning, and then whatever the context requires: <i>run a race / run a company / in the long run</i> (Week 2)."),
+ tf("Bound free translation is derived from the context in a direct way.", true, "It may travel far from the words, but it stays bound to context (Week 3)."),
+ tf("In loose free translation, different translators are likely to reach the same rendering.", false, "Loose free renderings are personal conclusions, so different translators reach different ones (Week 3)."),
+ tf("A method is the overall approach to a whole text; a procedure is a smaller decision for a sentence, phrase or word.", true, "Method versus procedure (Week 4)."),
+ tf("Punctuation marks carry no meaning in translation.", false, "Punctuation is meaningful: pause, connection, suspense and tone (Week 4, stylistic problems)."),
+ tf("An English passive should always be turned into an Arabic active.", false, "The textbook warns against doing this automatically; changing the voice may force you to add or guess an agent (Week 4)."),
+ tf("A faithful translation must not change the English word order, even when the Arabic sounds unnatural.", false, "Faithful translation protects the author's precise meaning, not the English word order (Week 4)."),
+ tf("In literary translation, the translator acts as a social mediator between source and target culture.", true, "Lesson 7 (Week 5)."),
+ tf("Arabic and English belong to the same language family.", false, "Arabic is Semitic; English is Indo-European (Week 5)."),
+ tf("Run-on sentences joined by conjunction are usual in Arabic narrative.", true, "Arabic relies on conjunction as a cohesive device; punctuation is not traditionally used for cohesion (Week 6)."),
+ tf("The Arabic past perfect is commonly expressed with the construction " + A("كان + قد") + ".", true, "Lesson 9 (Week 6)."),
+ tf("Foreignisation preserves the values of the source text and signals its cultural difference.", true, "Venuti (Week 7)."),
+ tf("Omission and expansion are among Bastin's adaptation procedures for drama.", true, "The seven: transcription, omission, expansion, exoticism, updating, cultural adequacy, creation (Week 7)."),
+ tf("Rhymed translation of poetry is both phonetically and semantically appropriate.", false, "It tends to be phonetically appropriate but semantically inappropriate (Week 7)."),
+ tf("Total borrowing (Arabisation) does not allow the borrowed word to take Arabic derivation.", false, "It accepts derivation, so the borrowed stem behaves like an Arabic noun (Week 8)."),
+ tf("In scientific translation, the lexical analysis comes before the grammatical analysis.", true, "First establish what the term means and its register, then restructure the sentence (Week 8)."),
+ tf("A translator may add his own opinion to a scientific text if he is sure it is correct.", false, "Accuracy is the major issue: the translation must convey the same objectives as the source. Professional ethics: you translate what the text says (Week 8)."),
+]},
+
+/* ============ STATION 2 · MCQ CONCEPTS ============ */
+{ short: "2 · MCQ: concepts", title: "Part Two practice · Multiple choice (concepts)", time: "10 min",
+goal: "Know the names, definitions and lists exactly.",
+items: [
+ mcq("The original English text that a translator starts from is called the:", ["ST", "TT", "TL", "TC"], 0, "ST = source text. The Arabic result is the TT."),
+ mcq("‘speak’ → " + A("يتكلم") + " illustrates:", ["a ready-made direct equivalent", "a coined term", "transliteration", "naturalisation"], 0, "Arabic already has an equivalent; nothing is invented (Week 1)."),
+ mcq("Which of these is NOT one of the three ways of looking at translation?", ["a process", "a product", "a field of study", "a procedure"], 3, "Process, product and field of study (Week 1)."),
+ mcq("One-to-one literal translation is better than word-for-word mainly because it:", ["takes context into consideration", "keeps the SL word order", "keeps the same number of words", "translates every <i>be</i> as " + A("يكون")], 0, "The other three are habits it still shares with word-for-word, or its faults (Week 2)."),
+ mcq("Ghazala's governing principle of free translation is that the translator translates:", ["as he understands, not as he likes", "as he likes, not as he understands", "every single word", "only the form of the text"], 0, "Freedom of method is not licence to invent (Week 3)."),
+ mcq("According to Ghazala, the unit of translation can be as large as:", ["a word", "a phrase", "a sentence", "a whole book"], 2, "The largest unit of translation is the sentence (Week 3)."),
+ mcq("Which of these is NOT one of the four families of translation problems?", ["grammatical", "lexical", "phonological", "financial"], 3, "Grammatical, lexical, stylistic, phonological (Week 4)."),
+ mcq("‘make a decision’ → " + A("يتخذ قراراً") + " shows a lexical problem of:", ["collocation", "polysemy", "synonymy", "metaphor"], 0, "Words that conventionally occur together (Week 4)."),
+ mcq("Which method suits a locally staged comedy whose jokes depend on local customs?", ["adaptation", "faithful translation", "word-for-word translation", "one-to-one literal translation"], 0, "Adaptation rebuilds the cultural world while keeping the core work (Week 4)."),
+ mcq("English cohesion relies on subordination; Arabic cohesion relies more on:", ["conjunction", "ellipsis", "punctuation", "passive verbs"], 0, "Lesson 8 (Week 6)."),
+ mcq("The basic Arabic word order, as opposed to English SVO, is:", ["VSO", "SOV", "OSV", "OVS"], 0, "Lesson 9 (Week 6)."),
+ mcq("Domestication and foreignisation are associated with:", ["Venuti", "Graedler", "Harvey", "Bastin"], 0, "Venuti (1995) (Week 7)."),
+ mcq("Which of Harvey's strategies is at the far SL-oriented end?", ["transcription (borrowing)", "functional equivalence", "descriptive translation", "formal equivalence"], 0, "Nothing is converted, so the source culture is kept most fully (Week 7)."),
+ mcq("Drama translators must deal with meta-linguistic elements such as:", ["body language and gesture", "footnotes", "chapter headings", "technical glossaries"], 0, "Drama is written to be performed on stage (Week 7)."),
+ mcq("Which coinage strategy is described as the most natural way of enriching Arabic?", ["derivation", "total borrowing", "naturalisation", "calque"], 0, "New terms by analogy from the trilateral root (Week 8)."),
+]},
+
+/* ============ STATION 3 · MCQ NAME THE METHOD ============ */
+{ short: "3 · MCQ: name it", title: "Part Two practice · Name the method or strategy", time: "15 min",
+goal: "Read the English source and the Arabic rendering, then name what the translator did.",
+rule: "Ask three questions: Did the words cross one by one? Did the meaning cross in natural Arabic? Did the culture or the image change?",
+items: [
+ mcq("‘The girl is happy’ → " + A("البنت تكون سعيدة") + " is an example of:", ["word-for-word translation", "direct translation", "communicative translation", "bound free translation"], 0, "The copula <i>is</i> is translated as " + A("تكون") + "; direct translation would be " + A("البنت سعيدة") + " (Week 2)."),
+ mcq("‘Birds of a feather flock together’ → " + A("الطيور على أشكالها تقع") + " is an example of:", ["bound free translation", "loose free translation", "word-for-word translation", "one-to-one literal translation"], 0, "An Arabic proverb carries the sense; it stays bound to the context (Week 3)."),
+ mcq("A guest says ‘I am very hungry.’ The translator writes " + A("متى يُقدَّم العشاء؟") + " This is:", ["loose free translation", "bound free translation", "direct translation", "faithful translation"], 0, "The translator has translated an assumed intention, not what was said (Week 3)."),
+ mcq("‘It is raining cats and dogs’ → " + A("إنها تمطر بغزارة") + ". The English sentence is a problem of:", ["idiom", "collocation", "polysemy", "synonymy"], 0, "The meaning is not the sum of the words (Week 4)."),
+ mcq("The sign ‘No parking’ → " + A("ممنوع الوقوف") + " is best described as:", ["communicative translation", "word-for-word translation", "adaptation", "loose free translation"], 0, "The settled Arabic notice performs the same function (Week 4)."),
+ mcq("‘Never have I seen such courage.’ The inversion for emphasis makes this a problem that is:", ["stylistic", "lexical", "phonological", "grammatical only"], 0, "Fronting/inversion for emphasis is a stylistic choice that carries meaning (Week 4)."),
+ mcq("‘She sells sea shells by the sea shore’ mainly presents a problem that is:", ["phonological", "lexical", "grammatical", "cultural"], 0, "The repeated sounds are the point of the line (Week 4)."),
+ mcq("Choose the best Arabic rendering of ‘She had already left when we arrived.’", ["كانت قد غادرت عندما وصلنا", "تكون غادرت عندما وصلنا", "هي تملك المغادرة عندما وصلنا", "ستغادر عندما وصلنا"], 0, "The past perfect uses كان + قد (Week 6)."),
+ mcq("Choose the best Arabic rendering of ‘Do you speak English?’", ["هل تتكلم الإنجليزية؟", "هل تفعل تتكلم الإنجليزية؟", "أنت تفعل تتكلم الإنجليزية؟", "هل يكون تتكلم الإنجليزية؟"], 0, "English auxiliaries in questions are not translated (Week 6)."),
+ mcq("The Saudi dish " + A("كبسة") + " rendered as ‘Kabsa’ is which of Graedler's steps?", ["preserving the SL term", "making up a new word", "explaining the meaning", "opting for a similar TL word"], 0, "The source term is kept as it is (Week 7)."),
+ mcq("‘pub’ → " + A("مقهى") + " is, in Harvey's terms:", ["functional equivalence", "formal equivalence", "transcription", "descriptive translation"], 0, "A TL referent with a similar function (Week 7)."),
+ mcq("‘Thanksgiving dinner’ → " + A("عشاء العيد") + ", replacing the American festival with a familiar one, is an example of:", ["domestication", "foreignisation", "transcription", "formal equivalence"], 0, "The text is moved closer to the target culture (Week 7)."),
+ mcq("‘He is a lion in battle’ → " + A("هو شجاع جداً في المعركة") + " uses which of Newmark's procedures for metaphor?", ["converting the metaphor into sense", "reproducing the same image", "translating it as a simile", "deletion"], 0, "The image disappears and only its meaning (courage) is kept (Week 7)."),
+ mcq("‘laser’ → " + A("ليزر") + " is an example of:", ["total borrowing (Arabisation)", "calque", "derivation", "al-istinbāṭ"], 0, "The whole term is borrowed phonologically (Week 8)."),
+ mcq("‘mobile phone’ → " + A("الهاتف المحمول") + " is an example of:", ["calque", "total borrowing", "naturalisation", "al-istinbāṭ"], 0, "Both elements are translated literally, element by element (Week 8)."),
+ mcq("‘faxes’ → " + A("فاكسات") + " is an example of:", ["naturalisation", "calque", "derivation", "descriptive translation"], 0, "The borrowed word is bent to Arabic morphology: an Arabic plural (Week 8)."),
+ mcq(A("قطار") + " once meant a line of camels; it was given a new meaning for ‘train’. This is coinage by:", ["al-istinbāṭ", "derivation", "total borrowing", "calque"], 0, "An old word revived with an extended meaning (Week 8)."),
+]},
+
+/* ============ STATION 4 · EVALUATE ============ */
+{ short: "4 · Evaluate", title: "Part Three practice · Evaluate the translation", time: "20 min",
+goal: "Answer each part in ONE word or ONE short phrase, exactly as in the exam. Then compare.",
+rule: "Short is right. ‘TT B; ‘have’ translated as a verb’ is a full answer. Name the term from the reading rather than describing it.",
+items: [
+ wr({ q: "Name the strategy used for each scientific term: (a) ____ (b) ____", pre: TERMS([["(a)", "television", "تلفزيون"], ["(b)", "hard disk", "القرص الصلب"]]), ltr: true, rows: 2, ph: "(a) …   (b) …",
+   model: "(a) total borrowing (Arabisation)<br>(b) calque (translated element by element)", check: ["I used the exact names from Lesson 19.", "I did not call (a) ‘naturalisation’: no Arabic morphology has been added."] }),
+ wr({ q: "Name the strategy used for each term: (a) ____ (b) ____", pre: TERMS([["(a)", "genes", "جينات"], ["(b)", "mobile", "جوّال (from جال)"]]), ltr: true, rows: 2, ph: "(a) …   (b) …",
+   model: "(a) naturalisation (Arabic plural on a borrowed word)<br>(b) coinage by derivation (from the Arabic root)" }),
+ wr({ q: "(a) Which TT is direct translation? (b) Write the ONE Arabic word that is wrong in the other TT.", pre: STT("The book is on the table.", [["TT A", "الكتاب يكون على الطاولة"], ["TT B", "الكتاب على الطاولة"]]), ltr: true, rows: 2, ph: "(a) TT …   (b) …",
+   model: "(a) TT B<br>(b) " + A("يكون") + " (the copula <i>is</i> is not needed in Arabic)" }),
+ wr({ q: "(a) Which TT is the literal translation of meaning? (b) Name the method used in the other TT.", pre: STT("We have a meeting at ten.", [["TT A", "نحن نملك اجتماعاً في العاشرة"], ["TT B", "لدينا اجتماع في العاشرة"]]), ltr: true, rows: 2, ph: "(a) TT …   (b) …",
+   model: "(a) TT B<br>(b) one-to-one literal translation (<i>have</i> dragged across as " + A("نملك") + ")" }),
+ wr({ q: "(a) Which TT is communicative? (b) Name the method used in the other TT.", pre: STT("Actions speak louder than words.", [["TT A", "الأفعال تتكلم بصوت أعلى من الكلمات"], ["TT B", "العبرة بالأفعال لا بالأقوال"]]), ltr: true, rows: 2, ph: "(a) TT …   (b) …",
+   model: "(a) TT B<br>(b) word-for-word / literal translation" }),
+ wr({ q: "(a) Which TT is bound free translation? (b) Name the method used in the other TT.", pre: STT("Don't count your chickens before they hatch.", [["TT A", "لا تعُدَّ دجاجاتك قبل أن تفقس"], ["TT B", "لا تقل فول حتى يصير في المكيول"]]), ltr: true, rows: 2, ph: "(a) TT …   (b) …",
+   model: "(a) TT B (an Arabic proverb carries the sense)<br>(b) word-for-word / literal translation" }),
+ wr({ q: "(a) Which TT is loose free translation? (b) In ONE phrase, why is it weak?", pre: STT("The room is very cold.", [["TT A", "الغرفة باردة جداً"], ["TT B", "أغلق النافذة من فضلك"]]), ltr: true, rows: 2, ph: "(a) TT …   (b) …",
+   model: "(a) TT B<br>(b) it translates the speaker's assumed intention, not what was said; the inference belongs to the reader" }),
+ wr({ q: "The TT below is missing ONE word. (a) Write it. (b) In ONE phrase, say why it is needed.", pre: STT("The boys were playing in the garden.", [["TT", "الأولاد يلعبون في الحديقة"]]), ltr: true, rows: 2, ph: "(a) …   (b) …",
+   model: "(a) " + A("كان / كانوا") + " (" + A("كان الأولاد يلعبون") + ")<br>(b) the past progressive is built with كان + a present verb; without it the sentence is present" }),
+ wr({ q: "(a) Which TT is correct? (b) In ONE phrase, what carries the meaning of <i>has just</i> in Arabic?", pre: STT("The train has just left.", [["TT A", "غادر القطار أمس"], ["TT B", "غادر القطار للتو"]]), ltr: true, rows: 2, ph: "(a) TT …   (b) …",
+   model: "(a) TT B<br>(b) the adverb " + A("للتو") + ": Arabic shows the perfective aspect with an adverb, not a tense" }),
+ wr({ q: "(a) Which TT is domesticated? (b) In ONE phrase, what is lost in it?", pre: STT("They had fish and chips for lunch.", [["TT A", "تناولوا السمك والبطاطا المقلية على الغداء"], ["TT B", "تناولوا الكبسة على الغداء"]]), ltr: true, rows: 2, ph: "(a) TT …   (b) …",
+   model: "(a) TT B<br>(b) the British setting / the source culture" }),
+ wr({ q: "Name Harvey's strategy for each rendering: (a) ____ (b) ____", pre: TERMS([["(a)", "Thanksgiving", "عيد الشكر"], ["(b)", "Lexus", "سيارة فاخرة"]]), ltr: true, rows: 2, ph: "(a) …   (b) …",
+   model: "(a) formal equivalence (word-for-word equivalent)<br>(b) descriptive (self-explanatory) translation" }),
+ wr({ q: "Name Graedler's step for each rendering of " + A("مندي") + ": (a) ____ (b) ____", pre: '<div class="stt"><div><b>(a)</b><span class="en" style="font-style:normal">Mandi</span></div><div><b>(b)</b><span class="en" style="font-style:normal">rice and meat slow-cooked in an underground oven</span></div></div>', ltr: true, rows: 2, ph: "(a) …   (b) …",
+   model: "(a) preserving the SL term<br>(b) explaining the meaning of the SL expression" }),
+ wr({ q: "(a) Which TT keeps a value judgement out of the news? (b) In ONE phrase, what does the other TT add?", pre: STT("Two soldiers died in the attack.", [["TT A", "لقي جنديان حتفهما في الهجوم"], ["TT B", "سقط بطلان في الهجوم الغادر"]]), ltr: true, rows: 2, ph: "(a) TT …   (b) …",
+   model: "(a) TT A<br>(b) the translator's own judgement (" + A("بطلان") + ", " + A("الغادر") + "), which the neutral English does not carry", check: ["I named the ethical problem: the translator added an evaluation that is not in the ST."] }),
+]}
+
+],
+sibs: ""
+});
+</script>
+<script src="track.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>

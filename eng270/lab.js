@@ -39,8 +39,8 @@
     if (it.t === "wr") {
       var dir = it.ltr ? ' style="direction:ltr;text-align:left;"' : "";
       var hint = it.hint ? '<details class="hint"><summary>💡 Hint from the reading</summary><div>' + it.hint + "</div></details>" : "";
-      var model = '<div class="modelbox" id="' + id + '-model"><h4>One possible answer</h4><div class="tp-sample' + (it.ltr ? " ltr" : "") + '">' + (it.model || "") + "</div>" + (it.note ? '<h4>Why it works</h4><div>' + it.note + "</div>" : "") + (it.check && it.check.length ? '<h4>Check your group\'s version</h4><ul class="checklist2">' + it.check.map(function (c) { return "<li>" + c + "</li>"; }).join("") + "</ul>" : "") + "</div>";
-      return '<div class="lab-item" id="' + id + '">' + head + pre + '<div class="ex-q">' + it.q + "</div><textarea class=\"tp-input\" id=\"" + id + '-t" rows="' + (it.rows || 3) + '"' + dir + ' placeholder="' + (it.ph || (it.ltr ? "Write your group's answer here…" : "اكتبوا إجابة المجموعة هنا…")) + '" oninput="LAB.typed(\'' + id + "')\"></textarea>" + hint + '<div><button class="lab-btn" style="margin-top:12px" onclick="LAB.reveal(\'' + id + "')\">Compare with the model →</button></div>" + '<div class="msg-warn" id="' + id + '-w">Write your group\'s attempt first, then compare. The learning happens in the attempt.</div>' + model + "</div>";
+      var model = '<div class="modelbox" id="' + id + '-model"><h4>One possible answer</h4><div class="tp-sample' + (it.ltr ? " ltr" : "") + '">' + (it.model || "") + "</div>" + (it.note ? '<h4>Why it works</h4><div>' + it.note + "</div>" : "") + (it.check && it.check.length ? '<h4>' + (CFG.solo ? "Check your answer" : "Check your group\'s version") + '</h4><ul class="checklist2">' + it.check.map(function (c) { return "<li>" + c + "</li>"; }).join("") + "</ul>" : "") + "</div>";
+      return '<div class="lab-item" id="' + id + '">' + head + pre + '<div class="ex-q">' + it.q + "</div><textarea class=\"tp-input\" id=\"" + id + '-t" rows="' + (it.rows || 3) + '"' + dir + ' placeholder="' + (it.ph || (it.ltr ? "Write your group's answer here…" : "اكتبوا إجابة المجموعة هنا…")) + '" oninput="LAB.typed(\'' + id + "')\"></textarea>" + hint + '<div><button class="lab-btn" style="margin-top:12px" onclick="LAB.reveal(\'' + id + "')\">Compare with the model →</button></div>" + '<div class="msg-warn" id="' + id + '-w">' + (CFG.solo ? "Write your own attempt first, then compare." : "Write your group\'s attempt first, then compare.") + ' The learning happens in the attempt.</div>' + model + "</div>";
     }
     if (it.t === "mt") {
       it._rp = shuffle(it.p);
@@ -60,7 +60,7 @@
     if (st.read) out += '<div class="readbox"><span class="boxlab">📖 Read first' + (st.page ? " · " + st.page : "") + "</span>" + st.read + "</div>";
     if (st.learn) out += '<div class="learnbox"><span class="boxlab">💡 Learn · explanation and examples</span>' + st.learn + "</div>";
     if (st.rule) out += '<div class="rulebox"><span class="boxlab">📌 Remember</span>' + st.rule + "</div>";
-    out += '<h3 style="font-size:15px;margin:22px 0 4px;color:var(--ac-ink)">✍️ Try it as a group</h3>';
+    out += '<h3 style="font-size:15px;margin:22px 0 4px;color:var(--ac-ink)">' + (CFG.solo ? "✍️ Practise" : "✍️ Try it as a group") + '</h3>';
     var n = 0;
     st.items.forEach(function (it, ii) { n++; var id = "s" + si + "i" + ii; ITEMS[id] = it; ORDER.push(id); out += renderItem(it, id, n); });
     if (st.check && st.check.length) {
@@ -75,13 +75,16 @@
     var jump = cfg.stations.map(function (s, i) { return '<a href="#st' + i + '" id="j' + i + '">' + (s.short || "Station " + (i + 1)) + "</a>"; }).join("");
     var bar = '<div class="lab-bar"><div class="lab-bar-in"><div class="lab-prog"><span id="prog-txt">0 / 0 done</span><div class="prog-bar-wrap"><div class="prog-bar" id="prog-bar" style="width:0%"></div></div></div><div class="lab-jump">' + jump + "</div></div></div>";
     var top = '<div class="lab-wrap">' + (cfg.intro || "") + '<div class="lab-box"><h2>👥 Set up your group</h2><p>Work in groups of 3 or 4. Choose roles and <b>rotate them at every station</b>.</p><div class="roles"><div class="role"><b>Reader</b>Reads the “Read first” box and each question aloud.</div><div class="role"><b>Writer</b>Types the group\'s answer in the box.</div><div class="role"><b>Checker</b>Compares with the model and the checklist.</div><div class="role"><b>Reporter</b>Explains one answer to the class.</div></div><div class="steps5"><div><span>1</span>Read</div><div><span>2</span>Learn</div><div><span>3</span>Try</div><div><span>4</span>Compare</div><div><span>5</span>Report</div></div><div class="grp-in"><input id="g-n" placeholder="Group name" aria-label="Group name"><input id="g-m" placeholder="Members (names)" aria-label="Members"></div></div>';
+    if (cfg.solo) top = '<div class="lab-wrap">' + (cfg.intro || "");
     var sts = cfg.stations.map(renderStation).join("");
     var end = '<div class="lab-box lab-final"><h2>🏁 Finish</h2><div id="final-msg"></div><div class="lab-actions" style="justify-content:center"><button class="lab-btn" onclick="LAB.copy()">📋 Copy our answers</button><button class="lab-btn ghost" onclick="window.print()">🖨️ Print / save as PDF</button><button class="lab-btn warn" id="reset-btn" onclick="LAB.reset()">Reset this workshop</button></div><p style="font-size:12.5px">Copy or print your group\'s answers and hand them in as your instructor directs. Your work is saved on this device only.</p><textarea class="export-area" id="export-area" readonly></textarea></div>' + (cfg.sibs || "") + "</div>";
     root.innerHTML = bar + top + sts + end;
     /* restore group + answers */
+    if ($("g-n")) {
     $("g-n").value = state.g.n || ""; $("g-m").value = state.g.m || "";
     $("g-n").addEventListener("input", function () { state.g.n = this.value; save(); });
     $("g-m").addEventListener("input", function () { state.g.m = this.value; save(); });
+    }
     ORDER.forEach(restore);
     Object.keys(state.c).forEach(function (k) { var e = $(k); if (e) e.checked = !!state.c[k]; });
     progress();
@@ -149,7 +152,7 @@
   }
 
   LAB.copy = function () {
-    var L = [CFG.title, "Group: " + (state.g.n || "—"), "Members: " + (state.g.m || "—"), ""];
+    var L = CFG.solo ? [CFG.title, ""] : [CFG.title, "Group: " + (state.g.n || "—"), "Members: " + (state.g.m || "—"), ""];
     CFG.stations.forEach(function (st, si) {
       L.push("=== " + strip(st.title) + " ===");
       st.items.forEach(function (it, ii) {
