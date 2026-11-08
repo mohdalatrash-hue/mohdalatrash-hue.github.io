@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landers Reading Lab: Some Notes on Translating Poetry | ENG 494</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="ENG 494 reading lab on Landers, Some Notes on Translating Poetry (pp. 97–102): guided questions, Arabic translation tasks, a 15-question reading check and an exit ticket.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 494">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 494 Literary Translation">
+<meta property="og:title" content="Landers Reading Lab | ENG 494">
+<meta property="og:description" content="A guided, section-by-section lab on Landers, Some Notes on Translating Poetry.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng494/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng494/workshop-poetry-landers.html">
+<meta name="twitter:card" content="summary">
+<style>
+body{background:var(--off-white);}
+:root{--ac:#7c3aed;--ac-soft:#f5f3ff;--ac-ink:#5b21b6;}
+.tab-bar{display:flex;gap:4px;background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-xs);padding:6px;margin-bottom:28px;flex-wrap:wrap;}
+.tab-btn{flex:1;min-width:120px;padding:10px 14px;border:none;background:transparent;border-radius:var(--r-md);font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;transition:all .15s;}
+.tab-btn:hover{background:var(--off-white);} .tab-btn.active{background:var(--ac);color:#fff;}
+.tab-panel{display:none;} .tab-panel.active{display:block;}
+.ex-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:24px;margin-bottom:20px;}
+.ex-num{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);margin-bottom:8px;}
+.ex-q{font-size:15px;font-weight:600;color:var(--text);margin-bottom:16px;line-height:1.6;}
+.ex-opt{padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:14px;cursor:pointer;transition:all .15s;background:var(--white);color:var(--text);text-align:left;display:block;width:100%;margin-bottom:8px;}
+.ex-opt:hover{border-color:var(--text-2);}
+.ex-opt.correct-ans{border-color:#30d158;background:#f0fff4;color:#1a7f45;} .ex-opt.correct-ans::after{content:" ✓";font-weight:800;}
+.ex-opt.wrong-ans{border-color:#e53935;background:#fef2f2;color:#c0392b;} .ex-opt.wrong-ans::after{content:" ✗";font-weight:800;}
+.ex-feedback{margin-top:14px;padding:12px 16px;border-radius:var(--r-md);font-size:13px;line-height:1.7;display:none;} .ex-feedback.show{display:block;}
+.fb-correct{background:#f0fff4;border:1px solid #a2d9b0;color:#14532d;} .fb-wrong{background:#fef2f2;border:1px solid #fca5a5;color:#7f1d1d;}
+.tip-box{background:var(--ac-soft);border:1.5px solid #ddd6fe;border-radius:var(--r-md);padding:14px 16px;font-size:13px;line-height:1.7;color:var(--ac-ink);margin-bottom:20px;} .tip-box strong{color:var(--ac);}
+.prog-bar-wrap{height:6px;background:var(--off-white);border-radius:var(--r-pill);margin-bottom:24px;overflow:hidden;} .prog-bar{height:100%;background:var(--ac);border-radius:var(--r-pill);transition:width .4s;}
+.score-summary{text-align:center;padding:32px 20px;} .score-big{font-size:56px;font-weight:800;color:var(--ac);line-height:1;margin-bottom:8px;} .score-sub{font-size:14px;color:var(--text-2);}
+.excerpt{background:var(--off-white);border-left:3px solid var(--ac);padding:14px 16px;border-radius:0 var(--r-md) var(--r-md) 0;font-size:14px;line-height:1.9;color:var(--text);margin-bottom:10px;font-family:Georgia,serif;white-space:pre-line;}
+.excerpt .cite{display:block;font-family:var(--font);font-size:11px;font-weight:700;color:var(--ac-ink);margin-top:8px;text-transform:none;}
+.tp-input{width:100%;min-height:120px;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:15px;font-family:inherit;line-height:1.9;direction:rtl;text-align:right;resize:vertical;} .tp-input:focus{outline:none;border-color:var(--ac);}
+.tp-reveal{display:none;margin-top:16px;padding:16px;border-radius:var(--r-md);background:var(--ac-soft);border:1px solid #ddd6fe;font-size:13.5px;line-height:1.7;color:var(--text);} .tp-reveal.show{display:block;}
+.tp-reveal h4{font-size:13px;font-weight:800;color:var(--ac-ink);text-transform:uppercase;letter-spacing:.05em;margin:12px 0 6px;} .tp-reveal h4:first-child{margin-top:0;}
+.checklist2{list-style:none;padding:0;margin:6px 0 0;} .checklist2 li{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.6;margin-bottom:5px;} .checklist2 li::before{content:"☐";color:var(--ac);font-weight:800;}
+.src-note{font-size:12px;color:var(--text-3);margin-top:8px;}
+
+.tab-btn{min-width:100px;}
+.map-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;}
+.map-c{background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:12px 14px;border-top:3px solid var(--ac);}
+.map-p{font-size:11px;font-weight:800;color:var(--ac);letter-spacing:.05em;text-transform:uppercase;}
+.map-t{font-size:14px;font-weight:700;margin:3px 0 2px;color:var(--text);} .map-s{font-size:12px;color:var(--text-2);line-height:1.5;}
+.task-p{font-size:14px;line-height:1.7;color:var(--text);margin:10px 0;}
+.tp-input.en{direction:ltr;text-align:left;min-height:90px;}
+.ar{direction:rtl;text-align:right;font-family:"Geeza Pro","Noto Naskh Arabic","Amiri","Traditional Arabic",Tahoma,serif;font-size:1.08em;line-height:2;}
+span.ar{display:inline;}
+.vbox{background:var(--off-white);border-radius:var(--r-md);padding:10px 14px;margin:8px 0;}
+.poll{margin:6px 0 10px;} .ex-opt.picked{border-color:var(--ac);background:var(--ac-soft);color:var(--ac-ink);font-weight:600;}
+.pgref{color:var(--ac-ink);}
+.next-row{margin-top:8px;}
+.tp-reveal p{margin:0 0 8px;}
+.pad-line{font-size:22px;margin:6px 0;} .pw{cursor:pointer;padding:2px 6px;border-radius:6px;border:1.5px solid transparent;display:inline-block;}
+.pw:hover{background:var(--off-white);} .pw.sel{background:#fff7d6;border-color:#d9a520;} .pw.good{background:#f0fff4;border-color:#30d158;} .pw.bad{background:#fef2f2;border-color:#e53935;}
+.ck{display:flex;gap:8px;align-items:center;font-size:14px;padding:7px 10px;border-radius:var(--r-md);margin-bottom:4px;border:1.5px solid transparent;cursor:pointer;}
+.ck.good{border-color:#30d158;background:#f0fff4;} .ck.bad{border-color:#e53935;background:#fef2f2;}
+.mrow{display:grid;grid-template-columns:1fr 240px;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);}
+.mcase{font-size:14px;line-height:1.6;} .mrow select{padding:8px;border-radius:var(--r-md);border:1.5px solid var(--border);font-size:13px;width:100%;}
+.mrow select.good{border-color:#30d158;} .mrow select.bad{border-color:#e53935;}
+.wc{font-size:12px;color:var(--text-3);margin:4px 0 10px;}
+@media(max-width:640px){.mrow{grid-template-columns:1fr;}.tab-btn{min-width:46%;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 494</a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="week4.html" style="padding:0;color:var(--text-2);">Unit 3</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Landers Lab</span>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:34px;">
+  <div class="hero-eyebrow" style="color:var(--ac);">Unit 3 · Adult Poetry · Reading Lab</div>
+  <h1>Inside Landers: Some Notes on Translating Poetry</h1>
+  <p class="hero-sub">A guided, section-by-section lab on the required reading (Landers, 2001, pp. 97–102). Read a few pages, answer, translate, check, then read on.</p>
+</div>
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+
+  <div class="info-box info-amber mb-24" style="text-align:left;">
+    <h3>📖 How this lab works · about 2 hours</h3>
+    <p>Open the reading in <strong>Blackboard</strong> next to this page. Each tab tells you <strong>which pages to read first</strong>, then tests what Landers actually says and asks you to try his ideas in Arabic. Your typed answers are saved on this device. Finish with the <strong>Reading Check</strong> (it counts in My Progress) and the <strong>Exit Ticket</strong>.</p>
+  </div>
+
+  <div class="map-grid mb-24">
+    <div class="map-c"><div class="map-p">pp. 97–98</div><div class="map-t">The “impossible” art</div><div class="map-s">Ciardi, Frost, Wood and Keats</div></div>
+    <div class="map-c"><div class="map-p">pp. 98–99</div><div class="map-t">To rhyme or not to rhyme?</div><div class="map-s">Landers vs Shapiro · Quevedo · verse ≠ rhyme</div></div>
+    <div class="map-c"><div class="map-p">pp. 99–100</div><div class="map-t">Sensitivity, sound, the author</div><div class="map-s">Read it aloud · Buarque’s double meaning</div></div>
+    <div class="map-c"><div class="map-p">pp. 100–101</div><div class="map-t">Every syllable counts</div><div class="map-s">Padding · Du Val’s bee</div></div>
+    <div class="map-c"><div class="map-p">pp. 101–102</div><div class="map-t">Humorous verse</div><div class="map-s">Four rules · “unrhymable” words</div></div>
+  </div>
+
+  <div class="tab-bar">
+    <button class="tab-btn active" onclick="switchTab('s0',this)">🧭 0 · Before</button>
+    <button class="tab-btn" onclick="switchTab('s1',this)">🕯️ 1 · Impossible art</button>
+    <button class="tab-btn" onclick="switchTab('s2',this)">🎼 2 · Rhyme</button>
+    <button class="tab-btn" onclick="switchTab('s3',this)">🔊 3 · Sound &amp; author</button>
+    <button class="tab-btn" onclick="switchTab('s4',this)">✂️ 4 · Every syllable</button>
+    <button class="tab-btn" onclick="switchTab('s5',this)">😄 5 · Comic verse</button>
+    <button class="tab-btn" onclick="switchTab('quiz',this)">📝 Reading check</button>
+    <button class="tab-btn" onclick="switchTab('exit',this)">🚪 Exit ticket</button>
+  </div>
+
+  <!-- ========== 0 BEFORE ========== -->
+  <div id="tab-s0" class="tab-panel active">
+    <div class="tip-box"><strong>10 minutes · before you open the reading.</strong> There are no right answers here. Commit to a view now; at the end you will check whether Landers changed your mind.</div>
+    <div class="ex-card">
+      <div class="ex-num">Warm-up 1 · your view</div>
+      <div class="ex-q">An Arabic translation of an English poem must rhyme, or Arabic readers will not accept it as poetry.</div>
+      <div class="poll" data-k="p1"><button class="ex-opt">Agree</button><button class="ex-opt">Partly agree</button><button class="ex-opt">Disagree</button></div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Warm-up 2 · your view</div>
+      <div class="ex-q">Only a poet can translate a poem well.</div>
+      <div class="poll" data-k="p2"><button class="ex-opt">Agree</button><button class="ex-opt">Partly agree</button><button class="ex-opt">Disagree</button></div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Warm-up 3 · your view</div>
+      <div class="ex-q">If I cannot keep both the meaning and the sound of a line, I should keep the meaning.</div>
+      <div class="poll" data-k="p3"><button class="ex-opt">Agree</button><button class="ex-opt">Partly agree</button><button class="ex-opt">Disagree</button></div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Warm-up 4 · write</div>
+      <div class="ex-q">Write one sentence: what is the hardest thing about translating a poem into Arabic?</div>
+      <textarea class="tp-input en" data-k="w0" placeholder="One sentence in English…"></textarea>
+    </div>
+    <div class="next-row"><button class="btn btn-primary btn-sm" style="background:var(--ac)" onclick="goTab('s1')">Now read pp. 97–98, then open Section 1 →</button></div>
+  </div>
+
+  <!-- ========== 1 IMPOSSIBLE ART ========== -->
+  <div id="tab-s1" class="tab-panel">
+    <div class="tip-box"><strong>Read first: pp. 97–98</strong>, from the opening to “a proper attitude of humility is called for”, plus the paragraph on what the target audience regards as a “poem”.</div>
+    <div id="s1-qs"></div>
+    <div class="ex-card">
+      <div class="ex-num">Task 1A · kill the poem, then save it</div>
+      <div class="excerpt">Charmed magic casements, opening on the foam
+Of perilous seas, in faery lands forlorn.<span class="cite">— John Keats, “Ode to a Nightingale” (1819) · public domain · the lines Wood uses on p. 97</span></div>
+      <p class="task-p"><strong>Step 1.</strong> Do what Wood’s “trot” does: translate the two lines into Arabic word for word, choosing a dictionary meaning for each word.</p>
+      <textarea class="tp-input" data-k="t1a" placeholder="ترجمة حرفية كلمة بكلمة…"></textarea>
+      <p class="task-p"><strong>Step 2.</strong> Now <em>recreate</em> the lines as Arabic poetry: keep the magic, not the dictionary.</p>
+      <textarea class="tp-input" data-k="t1b" placeholder="إعادة خلق شعرية…"></textarea>
+      <button class="btn btn-outline btn-sm" onclick="reveal('r1a')">Compare with the notes</button>
+      <div class="tp-reveal" id="r1a">
+        <h4>What Wood’s point predicts</h4>
+        <p>Your Step 1 version is probably “correct” and dead: every word is right, but nothing enchants. That is exactly Wood’s claim on pp. 97–98: with absolute fidelity “the poetry is dead”; it must be recreated.</p>
+        <h4>One possible pair</h4>
+        <p class="ar">حرفيًّا: «نوافذُ سحريةٌ مسحورةٌ، تنفتحُ على زَبَدِ بحارٍ خطِرةٍ، في أراضي الجِنِّيّاتِ البائسة.»</p>
+        <p class="ar">إعادة خلق: «نوافذُ مسحورةٌ تُطِلُّ على زَبَدِ البحارِ المُهلِكة، في دنيا الجِنِّ الحزينةِ النائية.»</p>
+        <h4>Check yourself</h4>
+        <ul class="checklist2"><li>Did Step 2 change words in order to save the music?</li><li>Did you keep the key images (windows, foam, danger, fairyland, loneliness)?</li><li>Read both aloud: which one would a reader remember?</li></ul>
+      </div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Task 1B · who decides what a “poem” is? (p. 98)</div>
+      <p class="task-p">Landers says to ask first what the <strong>target audience</strong> regards as a poem. For English readers he names iambic pentameter, blank verse and, today, unrhymed metrical verse. Write 2–3 sentences: what forms would an <strong>Arabic</strong> reader accept as a poem (for example عمودي with وزن and قافية, شعر التفعيلة, قصيدة النثر), and which would you choose for a translated English love poem? Why?</p>
+      <textarea class="tp-input en" data-k="t1c" placeholder="2–3 sentences…"></textarea>
+      <button class="btn btn-outline btn-sm" onclick="reveal('r1b')">See points to include</button>
+      <div class="tp-reveal" id="r1b"><ul class="checklist2"><li>Landers’ test: the final product must stand as a poem in its own right in the target language.</li><li>His warning (Iglesias): the translator is not more important than the poem, so the form must serve the original, not show off.</li><li>A good answer links the choice to the reader <em>and</em> to the source poem’s own form.</li></ul></div>
+    </div>
+  </div>
+
+  <!-- ========== 2 RHYME ========== -->
+  <div id="tab-s2" class="tab-panel">
+    <div class="tip-box"><strong>Read first: pp. 98–99</strong>, “To rhyme or not to rhyme?”: Landers on English as rhyme-poor, Shapiro’s reply, Quevedo’s sonnet, and “verse is not rhyme”.</div>
+    <div id="s2-qs"></div>
+    <div class="ex-card">
+      <div class="ex-num">Task 2A · the debate</div>
+      <p class="task-p">Landers says English is rhyme-poor; Shapiro says its huge vocabulary more than compensates. Choose a side, then write three sentences using evidence <strong>from the reading</strong> (an example word pair, a language comparison).</p>
+      <div class="poll" data-k="deb"><button class="ex-opt">I side with Landers</button><button class="ex-opt">I side with Shapiro</button></div>
+      <textarea class="tp-input en" data-k="t2a" placeholder="Three sentences with evidence…"></textarea>
+      <button class="btn btn-outline btn-sm" onclick="reveal('r2a')">See the evidence each side has</button>
+      <div class="tp-reveal" id="r2a"><h4>Landers (p. 98)</h4><p>Few rhymes for key words (love: four rhymes, one useless); Romance languages rhyme easily (padre/madre, amare/odiare, âme/dame, sorte/morte); many verbs rhyme across their forms in Romance.</p><h4>Shapiro (pp. 98–99)</h4><p>English has a far larger lexicon; plural nouns rhyme with verb forms (apples/dapples, facts/acts); Italian and Portuguese, and even more Spanish, are weaker here; the difficulty is part of the fun.</p></div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Task 2B · now turn it around: Arabic</div>
+      <p class="task-p">Landers writes about translating <em>into English</em>. Our direction is <strong>into Arabic</strong>. Is Arabic closer to “rhyme-poor” English or to the “rhyme-rich” Romance languages? Give two Arabic word pairs that rhyme easily because of shared patterns or endings.</p>
+      <textarea class="tp-input en" data-k="t2b" placeholder="Your answer + two Arabic rhyming pairs…"></textarea>
+      <button class="btn btn-outline btn-sm" onclick="reveal('r2b')">Check</button>
+      <div class="tp-reveal" id="r2b"><p>Arabic behaves more like Landers’ Romance languages: shared morphological patterns and endings make rhyme easy, e.g. <span class="ar">قلوب / دروب</span>, <span class="ar">أحلام / أيّام</span>, <span class="ar">ساهرين / حالمين</span>. So for us the bigger danger is not finding a rhyme but Quevedo’s problem: letting the rhyme dictate the meaning.</p></div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Task 2C · find the padding (Quevedo’s trap)</div>
+      <div class="excerpt">Tyger Tyger, burning bright,
+In the forests of the night;<span class="cite">— William Blake, “The Tyger” (1794) · public domain</span></div>
+      <p class="task-p">A student produced this rhymed version. <strong>Click every word that is not in Blake</strong> and was added only to make the rhyme, then press Check.</p>
+      <div class="pad-line ar" id="pad1"></div>
+      <div class="pad-line ar" id="pad2"></div>
+      <button class="btn btn-outline btn-sm" onclick="checkPad()">Check</button>
+      <div class="ex-feedback" id="pad-fb"></div>
+    </div>
+  </div>
+
+  <!-- ========== 3 SOUND & AUTHOR ========== -->
+  <div id="tab-s3" class="tab-panel">
+    <div class="tip-box"><strong>Read first: pp. 99–100</strong>: “Must one be a poet?”, reading aloud for sonority, and the author’s input (Chico Buarque).</div>
+    <div id="s3-qs"></div>
+    <div class="ex-card">
+      <div class="ex-num">Task 3A · the read-aloud test</div>
+      <div class="excerpt">I wandered lonely as a cloud
+That floats on high o’er vales and hills,<span class="cite">— William Wordsworth (1807) · public domain</span></div>
+      <p class="task-p">Read both Arabic versions <strong>aloud</strong>, twice each. Which one would Landers prefer, and why?</p>
+      <div class="ar vbox">أ) «تجوّلتُ وحيدًا مثلَ غيمةٍ تطفو في الأعالي فوقَ الوديانِ والتلال»</div>
+      <div class="ar vbox">ب) «هِمتُ وحيدًا كغيمةٍ / تطفو عاليًا فوقَ تلٍّ ووادِ»</div>
+      <div class="poll" data-k="aloud"><button class="ex-opt">Version A</button><button class="ex-opt">Version B</button></div>
+      <textarea class="tp-input en" data-k="t3a" placeholder="Why? Refer to sound, rhythm, length…"></textarea>
+      <button class="btn btn-outline btn-sm" onclick="reveal('r3a')">Notes</button>
+      <div class="tp-reveal" id="r3a"><p>Version B is shorter and has a beat: <span class="ar">هِمتُ</span> carries “I wandered” in one word, and the line breaks give it breath. Version A is accurate but reads like prose. Landers (p. 100): every translation must be read aloud, and a translation that sounds bad is, almost certainly, bad. Notice that B also pays a price: “vales and hills” has been reduced to one hill and one valley to keep the rhythm.</p></div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Task 3B · the double meaning (p. 100)</div>
+      <p class="task-p">In Buarque’s line, <em>viram</em> can mean “they <strong>saw</strong> (Jesus)” or “they <strong>become</strong> (Jesus)”. Arabic cannot hold both in one verb. What are your options? Choose the one you would take and justify it.</p>
+      <div class="poll" data-k="amb"><button class="ex-opt">Choose one reading and drop the other</button><button class="ex-opt">Keep one reading in the line and add a note</button><button class="ex-opt">Find a different Arabic double meaning nearby (compensation)</button><button class="ex-opt">Ask the author first</button></div>
+      <textarea class="tp-input en" data-k="t3b" placeholder="Your justification…"></textarea>
+      <button class="btn btn-outline btn-sm" onclick="reveal('r3b')">What Landers did</button>
+      <div class="tp-reveal" id="r3b"><p>Landers asked the author. Buarque was surprised and pleased: he had not consciously intended the double meaning. Landers’ lesson: there is no better source than the author, but in poetry even the author may not know exactly what an allusion “means”. Any of the options above can be defended; what matters is that you <em>notice</em> the ambiguity and decide deliberately.</p></div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Task 3C · poetic sensitivity checklist (p. 99)</div>
+      <p class="task-p">Landers lists what poetic sensitivity includes. Tick the items <strong>he names</strong>. (Some below are not his.)</p>
+      <div id="sens"></div>
+      <button class="btn btn-outline btn-sm" onclick="checkSens()">Check</button>
+      <div class="ex-feedback" id="sens-fb"></div>
+    </div>
+  </div>
+
+  <!-- ========== 4 EVERY SYLLABLE ========== -->
+  <div id="tab-s4" class="tab-panel">
+    <div class="tip-box"><strong>Read first: pp. 100–101</strong>: poetry as extreme concision, padding, and John Du Val’s long struggle with Trilussa’s five-line poem.</div>
+    <div id="s4-qs"></div>
+    <div class="ex-card">
+      <div class="ex-num">Task 4A · Arabic gains a syllable</div>
+      <p class="task-p">Landers notes that Spanish <em>piensa</em> (“he thinks”) costs English an extra syllable for the pronoun. Arabic is like Spanish here. Translate these into Arabic and count how many <strong>words</strong> you need compared with English.</p>
+      <div class="excerpt">I wandered · She sings · They waited</div>
+      <textarea class="tp-input" data-k="t4a" placeholder="ترجمتك…"></textarea>
+      <button class="btn btn-outline btn-sm" onclick="reveal('r4a')">Check</button>
+      <div class="tp-reveal" id="r4a"><p class="ar">هِمتُ · تُغنّي · انتظَروا</p><p>Each two-word English phrase becomes one Arabic word. Translating <em>into</em> Arabic often gives the translator room to spare, which is a reason not to pad.</p></div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Task 4B · Du Val’s bee, in Arabic</div>
+      <p class="task-p">Trilussa’s point is that happiness is small and light, so the last line must <em>sound</em> light. Using the literal English on p. 101, write an Arabic version of the whole poem in <strong>no more than 20 words</strong>. Make the last line the lightest.</p>
+      <textarea class="tp-input" data-k="t4b" placeholder="نحلةٌ…" oninput="countW(this,'wc4b',20)"></textarea>
+      <div class="wc" id="wc4b">0 / 20 words</div>
+      <button class="btn btn-outline btn-sm" onclick="reveal('r4b')">Compare</button>
+      <div class="tp-reveal" id="r4b"><p class="ar">نحلةٌ حطّتْ على بُرعُمِ وردة، رشفَتْ… ثمّ طارت. وفي النهاية، السعادةُ شيءٌ صغير.</p><h4>Check yourself</h4><ul class="checklist2"><li>Is your last line short, with light sounds and no heavy consonant clusters?</li><li>Did you avoid explaining the poem (no <span class="ar">إنّ … في نهاية المطاف … أمرٌ ضئيلُ الشأن</span>)?</li><li>Read it aloud: does it have “bread in the mouth”?</li></ul></div>
+    </div>
+  </div>
+
+  <!-- ========== 5 COMIC VERSE ========== -->
+  <div id="tab-s5" class="tab-panel">
+    <div class="tip-box"><strong>Read first: pp. 101–102</strong>: “Translating humorous verse”, the four rules, and the “unrhymable” words.</div>
+    <div class="ex-card">
+      <div class="ex-num">Task 5A · match each case to Landers’ rule</div>
+      <div id="match"></div>
+      <button class="btn btn-outline btn-sm" onclick="checkMatch()">Check</button>
+      <div class="ex-feedback" id="match-fb"></div>
+    </div>
+    <div id="s5-qs"></div>
+    <div class="ex-card">
+      <div class="ex-num">Task 5B · save the funny rhyme for last</div>
+      <p class="task-p">This Arabic couplet puts the joke in the wrong place. Rewrite it so the funny word lands <strong>at the very end</strong>.</p>
+      <div class="ar vbox">«الكبسةُ أكلتُها كلَّها، أنا البطلُ! — قالَ الطبيبُ: خفِّفْ قليلًا يا رجلُ»</div>
+      <textarea class="tp-input" data-k="t5b" placeholder="أعد الترتيب…"></textarea>
+      <button class="btn btn-outline btn-sm" onclick="reveal('r5b')">One solution</button>
+      <div class="tp-reveal" id="r5b"><p class="ar">«قالَ الطبيبُ: خفِّفِ الأكلَ يا رجلْ / فخفّفتُ… وأكلتُ الكبسةَ بالعسلْ!»</p><p>The surprise (<span class="ar">بالعسل</span>) now arrives last, on the rhyme: Landers’ rule 3.</p></div>
+    </div>
+    <div class="ex-card">
+      <div class="ex-num">Task 5C · the “unrhymable” challenge</div>
+      <p class="task-p">Landers shows that, with ingenuity, even <em>orange</em> and <em>month</em> can be rhymed when the goal is humour. Choose one Arabic word that seems hard to rhyme (for example <span class="ar">برتقالة</span>, <span class="ar">ثلاجة</span>, <span class="ar">واجب منزلي</span>) and write a funny two-line rhyme that ends on it.</p>
+      <textarea class="tp-input" data-k="t5c" placeholder="بيتان فكاهيان…"></textarea>
+    </div>
+  </div>
+
+  <!-- ========== QUIZ ========== -->
+  <div id="tab-quiz" class="tab-panel">
+    <div class="tip-box"><strong>📝 Reading check · 15 questions · Landers, pp. 97–102.</strong> Answer from the reading, not from memory of other lessons. Your score is saved in My Progress.</div>
+    <div class="prog-bar-wrap"><div class="prog-bar" id="aq-prog" style="width:0%"></div></div>
+    <div id="aq-container"></div>
+    <div id="aq-score" class="score-summary" style="display:none;"></div>
+  </div>
+
+  <!-- ========== EXIT ========== -->
+  <div id="tab-exit" class="tab-panel">
+    <div class="tip-box"><strong>🚪 Exit ticket · 10 minutes.</strong> Go back to your warm-up answers in Section 0. Has Landers changed any of them?</div>
+    <div class="ex-card"><div class="ex-num">Exit 1</div><div class="ex-q">Which warm-up answer would you now change, and which sentence in Landers made you change it (give the page)?</div><textarea class="tp-input en" data-k="x1"></textarea></div>
+    <div class="ex-card"><div class="ex-num">Exit 2</div><div class="ex-q">Landers writes for translators <em>into English</em>. Name one piece of his advice that changes when we translate <em>into Arabic</em>, and one that stays exactly the same.</div><textarea class="tp-input en" data-k="x2"></textarea></div>
+    <div class="ex-card"><div class="ex-num">Exit 3</div><div class="ex-q">Write your own one-sentence rule for translating a poem, in Landers’ spirit.</div><textarea class="tp-input en" data-k="x3"></textarea></div>
+    <div class="next-row"><a class="btn btn-primary btn-sm" style="background:var(--ac)" href="workshop-poetry.html">Next: Six Strategies workshop →</a></div>
+  </div>
+
+  <div class="week-nav" style="margin-top:36px;"><a href="week4.html">← Adult Poetry (Weeks 9–12)</a><a href="workshop-poetry.html">Six Strategies →</a></div>
+</div>
+</div>
+<footer><strong>ENG 494 Literary Translation</strong> · Landers Reading Lab · Qassim University · Semester 481<br><a href="index.html">Course Hub</a> · <a href="week4.html">Adult Poetry</a> · <a href="workshop-rhyme-phonemic.html">Rhyme &amp; Phonemic</a> · <a href="workshop-poetry.html">Six Strategies</a></footer>
+<script>
+var SKEY="eng494_landers_lab_v1";
+function ld(){try{return JSON.parse(localStorage.getItem(SKEY))||{};}catch(e){return {};}}
+function sv(k,v){try{var d=ld();d[k]=v;localStorage.setItem(SKEY,JSON.stringify(d));}catch(e){}}
+function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');btn.classList.add('active');}
+function goTab(id){var b=[...document.querySelectorAll('.tab-btn')].find(x=>(x.getAttribute('onclick')||'').indexOf("'"+id+"'")>-1);switchTab(id,b);window.scrollTo({top:document.querySelector('.tab-bar').offsetTop-70,behavior:'smooth'});}
+function reveal(id){document.getElementById(id).classList.add('show');}
+function countW(el,id,max){var n=(el.value.trim().match(/\S+/g)||[]).length;var c=document.getElementById(id);c.textContent=n+' / '+max+' words';c.style.color=n>max?'#c0392b':'';}
+/* saved text + polls */
+(function(){var d=ld();
+ document.querySelectorAll('textarea[data-k]').forEach(function(t){if(d[t.dataset.k])t.value=d[t.dataset.k];t.addEventListener('input',function(){sv(t.dataset.k,t.value);});});
+ document.querySelectorAll('.poll').forEach(function(p){var bs=p.querySelectorAll('button');bs.forEach(function(b,i){if(d[p.dataset.k]===i)b.classList.add('picked');b.addEventListener('click',function(){bs.forEach(x=>x.classList.remove('picked'));b.classList.add('picked');sv(p.dataset.k,i);});});});
+})();
+/* MCQ blocks */
+var MCQ={};
+function shuffleQ(q){if(q._o0===undefined){q._o0=q.opts.slice();q._a0=q.ans;}var idx=q._o0.map(function(_,i){return i;});for(var i=idx.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=idx[i];idx[i]=idx[j];idx[j]=t;}q.opts=idx.map(function(k){return q._o0[k];});q.ans=idx.indexOf(q._a0);return q;}
+function mount(cid,items,label){MCQ[cid]=items;items.forEach(shuffleQ);document.getElementById(cid).innerHTML=items.map((q,qi)=>`<div class="ex-card"><div class="ex-num">${label} ${qi+1}${q.pg?` · <span class="pgref">${q.pg}</span>`:''}</div><div class="ex-q">${q.q}</div>${q.opts.map((o,oi)=>`<button class="ex-opt" id="${cid}-${qi}-${oi}" onclick="ans('${cid}',${qi},${oi})">${o}</button>`).join('')}<div class="ex-feedback" id="${cid}-fb-${qi}"></div></div>`).join('');}
+function ans(cid,qi,ch){var q=MCQ[cid][qi];if(document.getElementById(`${cid}-${qi}-0`).disabled)return;q.opts.forEach((_,oi)=>{var b=document.getElementById(`${cid}-${qi}-${oi}`);b.disabled=true;if(oi===q.ans)b.classList.add('correct-ans');else if(oi===ch)b.classList.add('wrong-ans');});var fb=document.getElementById(`${cid}-fb-${qi}`);fb.innerHTML=(ch===q.ans?'<strong>Yes.</strong> ':'<strong>Not quite.</strong> ')+q.why;fb.className='ex-feedback show '+(ch===q.ans?'fb-correct':'fb-wrong');}
+
+mount('s1-qs',[
+ {pg:'p. 97',q:'Who called translation “the art of failure”?',opts:['John Ciardi','Robert Frost','Clement Wood','Jorge Iglesias'],ans:0,why:'The late John Ciardi. Frost’s famous line is different: poetry is “what is lost in translation”.'},
+ {pg:'p. 97',q:'According to Landers, where does the challenge of translating poetry show itself most clearly?',opts:['In scansion and rhyme','In ambiguity and polysemy: figurative language that goes beyond ordinary meaning','In the length of poems','In finding a publisher'],ans:1,why:'Landers says the soul of poetry is figurative, metaphorical expression; the embrace of ambiguity and polysemy, more than any problem of scansion or rhyme, is where the challenge appears.'},
+ {pg:'pp. 97–98',q:'What does Wood’s word-for-word “trot” of the Keats lines prove?',opts:['That Keats is easy to translate','That with absolute fidelity the poetry is dead; it must be recreated by a poet of like emotional power','That English has too few rhymes','That poetry should be translated into prose'],ans:1,why:'Wood: “Poetry cannot be translated; it can only be recreated in the new language.” The trot keeps every meaning and loses the poem.'},
+ {pg:'p. 98',q:'Which attitude does Landers say is called for before translating poetry?',opts:['Confidence','Speed','Humility','Indifference to the author'],ans:2,why:'“A proper attitude of humility is called for.”'},
+ {pg:'p. 98',q:'What question should be considered before beginning, according to Landers?',opts:['How long the translation should be','What the target audience regards as a “poem”','Which dictionary to use','Whether the poet is still alive'],ans:1,why:'Must it rhyme? Which metre conveys the feel of the original? Whatever works, provided the result stands as a poem in its own right.'}
+],'Check');
+mount('s2-qs',[
+ {pg:'p. 98',q:'Landers’ discussion of rhyme assumes translation in which direction?',opts:['Into English','Into Spanish','Into Arabic','Into any language'],ans:0,why:'“Like the rest of this guide, the following discussion assumes translation into English.” This is why we must rethink it for Arabic.'},
+ {pg:'p. 98',q:'In Romance languages, Landers says the poet’s real problem is…',opts:['finding any rhyme at all','avoiding hackneyed (over-used) rhymes','keeping the metre','choosing a title'],ans:1,why:'In Romance languages “it’s almost a challenge not to rhyme”; the problem is avoiding hackneyed rhymes.'},
+ {pg:'pp. 98–99',q:'What advantage of English does Shapiro point to?',opts:['Its short words','Its vast lexicon, e.g. plural nouns that rhyme with verb forms (apples/dapples, facts/acts)','Its lack of grammar','Its silent letters'],ans:1,why:'Shapiro: the Romance advantage is more than compensated by English’s vast lexicon.'},
+ {pg:'p. 99',q:'Why does Landers quote Quevedo’s sonnet?',opts:['To show that rhyme can force a poet to say something he did not mean','To praise Spanish rhyme','To show that sonnets cannot be translated','To define blank verse'],ans:0,why:'To end the quatrain, the rhyme made Quevedo turn a lady “more honest than Lucretia” into a whore: the tyranny of rhyme, even in rhyme-rich Spanish.'},
+ {pg:'p. 99',q:'Landers says “verse” is not the same as rhyme. Which example does he give?',opts:['Shakespeare’s sonnets','Classical Greek and Roman poetry, and biblical verse in Hebrew and Greek, which did not rhyme','Limericks','Modern song lyrics'],ans:1,why:'Greek and Roman poetry was unrhymed, and so were biblical “verses” in the original Hebrew and Greek.'}
+],'Check');
+mount('s3-qs',[
+ {pg:'p. 99',q:'Must one be a poet to translate poetry?',opts:['Yes, always','No, but one needs poetic sensitivity','Only for rhymed poems','Only when the author is alive'],ans:1,why:'Landers: no, but the translator must possess a poetic sensitivity, even without having written a line of original poetry.'},
+ {pg:'p. 100',q:'What advice have poets given translators when meaning and sound cannot both be kept?',opts:['Keep the meaning','Go with the sound','Add a footnote','Give up the poem'],ans:1,why:'“When it’s impossible to preserve both meaning and sound, go with the sound.”'},
+ {pg:'p. 100',q:'Landers’ conclusion about translations that sound bad:',opts:['They may still be good','It is a pretty safe bet that they are bad','Sound does not matter on the page','Only poets can judge sound'],ans:1,why:'Not every poem that sounds good is good, but a translation that sounds bad is, well, bad.'}
+],'Check');
+mount('s4-qs',[
+ {pg:'p. 100',q:'What does Landers mean by “padding”?',opts:['Adding notes at the end','Adding feet (and often new meaning) to make a metrical line come out right','Translating very slowly','Using a softer font'],ans:1,why:'To effect a metrical translation it is often necessary to pad, which often means adding semantic elements not in the original.'},
+ {pg:'p. 100',q:'How much padding is acceptable?',opts:['None, ever','As much as the metre needs','There is no hard-and-fast rule; it is an individual aesthetic decision','Exactly one word per line'],ans:2,why:'Translators must decide individually; no hard-and-fast rules exist for what is essentially an aesthetic decision.'},
+ {pg:'p. 101',q:'What was wrong with Du Val’s first last line, “Happiness, too, requires little”?',opts:['It did not rhyme','Four heavy syllables (“requires little”) could not carry the light, delicate feeling of the original’s seven light syllables','It was too long','It changed the bee into a butterfly'],ans:1,why:'Du Val said it read “like there’s bread in the mouth”: the sound contradicted the meaning.'},
+ {pg:'p. 101',q:'Which saying does Landers apply to translations at the end of the Du Val story?',opts:['“Less is more”','“A poem is never finished, only abandoned” (Valéry)','“Brevity is the soul of wit”','“Translate prose as prose, verse as verse”'],ans:1,why:'Years later Du Val still caught himself reworking the poem.'}
+],'Check');
+mount('s5-qs',[
+ {pg:'pp. 101–102',q:'Why must a comic rhyme not fall on a word like “route” or “either”?',opts:['They are too long','They have two accepted pronunciations, so some readers will miss the rhyme and the joke','They are not English','They are too formal'],ans:1,why:'Rule 1: the rhyme must be unmistakable.'},
+ {pg:'p. 102',q:'What do the “orange” and “month” examples show?',opts:['Some English words can never rhyme','With enough ingenuity, anything can be rhymed when humour is the goal','Fruit cannot appear in poems','Comic verse should avoid rhyme'],ans:1,why:'As Ogden Nash showed (Kleenex / V-necks), given ingenuity and humour as the aim, anything can be rhymed.'}
+],'Check');
+
+/* padding finder */
+var PAD=[[['يا',0],['نَمِرًا',0],['يَتَوَهَّجُ',0],['لَهَبًا',0],['ويُضيءُ',1],['الأرجاءَ',1],['ذَهَبا',1]],[['في',0],['غاباتِ',0],['الليلِ',0],['يَشُقُّ',1],['الحُجُبا',1]]];
+function drawPad(){[0,1].forEach(function(l){document.getElementById('pad'+(l+1)).innerHTML=PAD[l].map(function(w,i){return '<span class="pw" data-l="'+l+'" data-i="'+i+'" onclick="this.classList.toggle(\'sel\')">'+w[0]+'</span>';}).join(' ');});}
+function checkPad(){var ok=0,wrong=0,miss=0;document.querySelectorAll('.pw').forEach(function(s){var pad=PAD[s.dataset.l][s.dataset.i][1];var sel=s.classList.contains('sel');s.classList.remove('good','bad');if(sel&&pad){ok++;s.classList.add('good');}else if(sel&&!pad){wrong++;s.classList.add('bad');}else if(!sel&&pad){miss++;s.classList.add('bad');}});var fb=document.getElementById('pad-fb');var all=(wrong===0&&miss===0);fb.className='ex-feedback show '+(all?'fb-correct':'fb-wrong');fb.innerHTML=(all?'<strong>Exactly.</strong> ':'<strong>Look again</strong> (red = wrong or missed). ')+'Blake has a tiger, burning bright, in the forests of the night. <span class="ar">ويُضيءُ الأرجاءَ ذهبا</span> and <span class="ar">يشقُّ الحُجُبا</span> are added to reach the rhyme: this is Landers’ “padding” and Quevedo’s trap. The rhyme is neat; the meaning has grown.';}
+drawPad();
+
+/* sensitivity checklist */
+var SENS=[['An appreciation for nuance',1],['Sonority (feeling for sound)',1],['Metaphor and simile',1],['Allusion',1],['Reading between and above the lines',1],['Flexibility',1],['Humility',1],['A large vocabulary of rare words',0],['Having published original poetry',0],['Fast typing',0]];
+document.getElementById('sens').innerHTML=SENS.map(function(s,i){return '<label class="ck"><input type="checkbox" id="sn'+i+'"> '+s[0]+'</label>';}).join('');
+function checkSens(){var bad=0;SENS.forEach(function(s,i){var c=document.getElementById('sn'+i);var lab=c.parentNode;lab.classList.remove('good','bad');if(c.checked!==!!s[1]){bad++;lab.classList.add('bad');}else if(s[1])lab.classList.add('good');});var fb=document.getElementById('sens-fb');fb.className='ex-feedback show '+(bad?'fb-wrong':'fb-correct');fb.innerHTML=bad?'<strong>'+bad+' to fix</strong> (marked red). Re-read p. 99, the paragraph that begins “Must one be a poet”.':'<strong>All correct.</strong> Landers adds a test: anyone who cannot read an English poem “with feeling and more than surface comprehension” is an unlikely candidate for poetic translation.';}
+
+/* matching */
+var RULES=['1 · It must rhyme, unmistakably','2 · Brevity is the soul of wit','3 · Save the funny rhyme for last','4 · Sound trumps meaning'];
+var CASES=[['A translator rejects a rhyme on “route”, because half the readers say it to rhyme with “out” and half with “boot”.',0],['A comic stanza is cut from six lines to four, and every extra syllable is removed.',1],['In a limerick, the absurd word arrives at the end of line 5, not in line 1.',2],['To keep a joke working, the translator invents new content that is not in the original.',3],['“lederhosen” is placed after “frozen”, not before it.',2]];
+document.getElementById('match').innerHTML=CASES.map(function(c,i){return '<div class="mrow"><div class="mcase">'+c[0]+'</div><select id="m'+i+'"><option value="">Choose a rule…</option>'+RULES.map(function(r,j){return '<option value="'+j+'">'+r+'</option>';}).join('')+'</select></div>';}).join('');
+function checkMatch(){var bad=0;CASES.forEach(function(c,i){var s=document.getElementById('m'+i);s.classList.remove('good','bad');if(+s.value!==c[1]||s.value===''){bad++;s.classList.add('bad');}else s.classList.add('good');});var fb=document.getElementById('match-fb');fb.className='ex-feedback show '+(bad?'fb-wrong':'fb-correct');fb.innerHTML=bad?'<strong>'+bad+' to fix.</strong> Re-read the four numbered rules on pp. 101–102.':'<strong>All matched.</strong> Notice that rules 1 and 3 are both about where and how clearly the rhyme lands.';}
+
+/* reading check */
+var AQ=[
+ {q:'Robert Frost’s “put-down” of translation defines poetry as…',opts:['“what is lost in translation”','“memorable speech”','“the art of failure”','“elevated thoughts”'],ans:0,fb:'Frost: poetry is what is lost in translation (p. 97). “The art of failure” is Ciardi’s phrase.'},
+ {q:'Clement Wood, whose example Landers uses, was the editor of…',opts:['The Random House Unabridged Dictionary','The Complete Rhyming Dictionary','Delos','Source'],ans:1,fb:'Wood edited The Complete Rhyming Dictionary (p. 97); Landers recommends its introduction as a primer on verse (p. 102).'},
+ {q:'Which form do English readers usually consider the most “poetic”, according to Landers?',opts:['Free verse','Iambic pentameter','The limerick','Prose poetry'],ans:1,fb:'Iambic pentameter; unrhymed iambic pentameter (blank verse) is an acceptable alternative for many (p. 98).'},
+ {q:'Jorge Iglesias’s admonition, quoted by Landers:',opts:['“A translator isn’t more important than the poem he’s translating.”','“Always rhyme.”','“Translate prose as prose.”','“Poetry is untranslatable.”'],ans:0,fb:'p. 98: the form you choose must serve the poem.'},
+ {q:'How many rhymes for “love” does Landers count in English?',opts:['None','Four, one of which (shove) is a non-starter','Twelve','Hundreds'],ans:1,fb:'p. 98, part of his case that English is rhyme-poor.'},
+ {q:'Shapiro published his reply to the “rhyme-poor” claim in…',opts:['A letter to Source (Summer/Fall 2000)','Delos (1995)','The New Yorker','A rhyming dictionary'],ans:0,fb:'pp. 98–99.'},
+ {q:'The old rule that many once followed was:',opts:['“Translate verse as prose”','“Translate prose as prose, verse as verse”','“Always rhyme”','“Never translate poetry”'],ans:1,fb:'p. 99. Landers adds that no one now seriously proposes turning prose into verse.'},
+ {q:'Landers borrows “In fine” from which poem, noting the poet did not say “in short”?',opts:['“Ode to a Nightingale”','“Richard Cory” by E. A. Robinson','“The Road Not Taken”','“La Felicità”'],ans:1,fb:'p. 99, a small demonstration of sensitivity to word choice.'},
+ {q:'Buarque’s word viram is ambiguous because it is the form of…',opts:['two different nouns','both “to become” (present) and “to see” (past)','a Spanish and a Portuguese word','a curse word'],ans:1,fb:'p. 100: “some who have seen Jesus” or “some who become Jesus”.'},
+ {q:'What was Buarque’s reaction when Landers asked about the ambiguity?',opts:['Annoyance','Surprise and pleasure; he had not been conscious of it','He refused to answer','He rewrote the line'],ans:1,fb:'p. 100: even the author may not know exactly what a line “means”.'},
+ {q:'Why does a Spanish verb like piensa create a problem for an English metrical translation?',opts:['It has no meaning','English needs an extra syllable for the subject pronoun (“he thinks”)','It cannot rhyme','It is too formal'],ans:1,fb:'p. 100: poetry is extreme concision; every syllable counts.'},
+ {q:'Trilussa’s “La Felicità” was written in…',opts:['Standard Italian','Romanesco, the dialect of Rome','Spanish','Latin'],ans:1,fb:'p. 100; Du Val’s account appeared in Delos (October 1995).'},
+ {q:'Which is Du Val’s second, published version of the last line?',opts:['“Happiness, too, requires little.”','“All in all, happiness, too, is something little.”','“What a little thing happiness is!”','“Happiness is a bee.”'],ans:1,fb:'p. 101. The other drafts he tried are listed just before it.'},
+ {q:'Landers says Polonius’s “Brevity is the soul of wit” is a joke on Shakespeare’s part because…',opts:['Polonius is a rambling, loquacious old man','Polonius is a poet','the line rhymes','Hamlet says it'],ans:0,fb:'p. 102: the long-winded Polonius praises brevity.'},
+ {q:'For further, more advanced reading on poetic translation in practice, Landers recommends…',opts:['Translating Poetry: The Double Labyrinth, ed. Daniel Weissbort (1989)','A Textbook of Translation','Translating Children’s Literature','In Other Words'],ans:0,fb:'p. 102, where a score of working translators describe their process.'}
+];
+var aqi=0,aqs=0,aqd=false;
+function rAQ(){if(aqi>=AQ.length){sAQ();return;}var q=shuffleQ(AQ[aqi]);document.getElementById('aq-prog').style.width=(aqi/AQ.length*100)+'%';document.getElementById('aq-container').innerHTML=`<div class="ex-card"><div class="ex-num">Question ${aqi+1} of ${AQ.length}</div><div class="ex-q">${q.q}</div><div id="aq-opts">${q.opts.map((o,i)=>`<button class="ex-opt" onclick="aAQ(${i})">${o}</button>`).join('')}</div><div class="ex-feedback" id="aq-fb"></div><div><button class="btn btn-primary btn-sm" id="aq-next" style="display:none;margin-top:14px;background:var(--ac);" onclick="nAQ()">Next →</button></div></div>`;aqd=false;}
+function aAQ(i){if(aqd)return;aqd=true;var q=AQ[aqi];document.querySelectorAll('#aq-opts .ex-opt').forEach((b,j)=>{b.disabled=true;if(j===q.ans)b.classList.add('correct-ans');else if(j===i&&i!==q.ans)b.classList.add('wrong-ans');});if(i===q.ans)aqs++;var fb=document.getElementById('aq-fb');fb.innerHTML=q.fb;fb.className='ex-feedback show '+(i===q.ans?'fb-correct':'fb-wrong');document.getElementById('aq-next').style.display='inline-block';}
+function nAQ(){aqi++;rAQ();}
+function sAQ(){document.getElementById('aq-prog').style.width='100%';document.getElementById('aq-container').style.display='none';var pct=Math.round(aqs/AQ.length*100);var el=document.getElementById('aq-score');el.style.display='block';el.innerHTML=`<div class="score-big">${pct}%</div><div class="score-sub">${aqs}/${AQ.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct>=80?'You have read Landers closely. Now try the Exit Ticket.':'Re-read the pages named in the feedback, then try again.'}</p><button class="btn btn-primary" style="background:var(--ac);" onclick="reAQ()">Retry</button>`;}
+function reAQ(){aqi=0;aqs=0;document.getElementById('aq-container').style.display='block';document.getElementById('aq-score').style.display='none';rAQ();}
+rAQ();
+</script>
+<script src="track.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>
