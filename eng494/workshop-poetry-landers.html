@@ -68,6 +68,8 @@ span.ar{display:inline;}
 .mrow{display:grid;grid-template-columns:1fr 240px;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);}
 .mcase{font-size:14px;line-height:1.6;} .mrow select{padding:8px;border-radius:var(--r-md);border:1.5px solid var(--border);font-size:13px;width:100%;}
 .mrow select.good{border-color:#30d158;} .mrow select.bad{border-color:#e53935;}
+.tfrow{display:flex;gap:8px;}.tfrow .ex-opt{flex:1;margin:0;}
+.tf-score{font-size:13px;font-weight:700;color:var(--ac-ink);margin:-8px 0 14px;}
 .wc{font-size:12px;color:var(--text-3);margin:4px 0 10px;}
 @media(max-width:640px){.mrow{grid-template-columns:1fr;}.tab-btn{min-width:46%;}}
 </style>
@@ -93,8 +95,8 @@ span.ar{display:inline;}
 <div class="section-inner">
 
   <div class="info-box info-amber mb-24" style="text-align:left;">
-    <h3>📖 How this lab works · about 2 hours</h3>
-    <p>Open the reading in <strong>Blackboard</strong> next to this page. Each tab tells you <strong>which pages to read first</strong>, then tests what Landers actually says and asks you to try his ideas in Arabic. Your typed answers are saved on this device. Finish with the <strong>Reading Check</strong> (it counts in My Progress) and the <strong>Exit Ticket</strong>.</p>
+    <h3>📖 How this lab works · about 2–3 hours</h3>
+    <p>Open the reading in <strong>Blackboard</strong> next to this page. Each tab tells you <strong>which pages to read first</strong>, then tests what Landers actually says and asks you to try his ideas in Arabic. Your typed answers are saved on this device. After the five sections come <strong>62 section checks</strong>, <strong>20 true-or-false statements</strong>, a <strong>Who said it?</strong> match and a <strong>30-question Reading Check</strong> (it counts in My Progress). Finish with the <strong>Exit Ticket</strong>.</p>
   </div>
 
   <div class="map-grid mb-24">
@@ -112,6 +114,8 @@ span.ar{display:inline;}
     <button class="tab-btn" onclick="switchTab('s3',this)">🔊 3 · Sound &amp; author</button>
     <button class="tab-btn" onclick="switchTab('s4',this)">✂️ 4 · Every syllable</button>
     <button class="tab-btn" onclick="switchTab('s5',this)">😄 5 · Comic verse</button>
+    <button class="tab-btn" onclick="switchTab('tf',this)">✅ True or false</button>
+    <button class="tab-btn" onclick="switchTab('who',this)">🗣️ Who said it?</button>
     <button class="tab-btn" onclick="switchTab('quiz',this)">📝 Reading check</button>
     <button class="tab-btn" onclick="switchTab('exit',this)">🚪 Exit ticket</button>
   </div>
@@ -285,9 +289,22 @@ That floats on high o’er vales and hills,<span class="cite">— William Wordsw
     </div>
   </div>
 
+  <!-- ========== TRUE / FALSE ========== -->
+  <div id="tab-tf" class="tab-panel">
+    <div class="tip-box"><strong>✅ 20 statements · pp. 97–102.</strong> Decide whether each one is true <em>according to Landers</em>. The feedback gives the page, so you can check the text.</div>
+    <div class="tf-score" id="tf-score">0 / 0 correct so far (20 statements)</div>
+    <div id="tf-qs"></div>
+  </div>
+
+  <!-- ========== WHO SAID IT ========== -->
+  <div id="tab-who" class="tab-panel">
+    <div class="tip-box"><strong>🗣️ Who said it?</strong> Landers builds his chapter from other voices. Match each quotation or idea to its source, then press Check.</div>
+    <div class="ex-card"><div id="who"></div><button class="btn btn-outline btn-sm" onclick="checkWho()" style="margin-top:12px">Check</button><div class="ex-feedback" id="who-fb"></div></div>
+  </div>
+
   <!-- ========== QUIZ ========== -->
   <div id="tab-quiz" class="tab-panel">
-    <div class="tip-box"><strong>📝 Reading check · 15 questions · Landers, pp. 97–102.</strong> Answer from the reading, not from memory of other lessons. Your score is saved in My Progress.</div>
+    <div class="tip-box"><strong>📝 Reading check · 30 questions · Landers, pp. 97–102.</strong> Answer from the reading, not from memory of other lessons. Your score is saved in My Progress.</div>
     <div class="prog-bar-wrap"><div class="prog-bar" id="aq-prog" style="width:0%"></div></div>
     <div id="aq-container"></div>
     <div id="aq-score" class="score-summary" style="display:none;"></div>
@@ -326,34 +343,123 @@ function mount(cid,items,label){MCQ[cid]=items;items.forEach(shuffleQ);document.
 function ans(cid,qi,ch){var q=MCQ[cid][qi];if(document.getElementById(`${cid}-${qi}-0`).disabled)return;q.opts.forEach((_,oi)=>{var b=document.getElementById(`${cid}-${qi}-${oi}`);b.disabled=true;if(oi===q.ans)b.classList.add('correct-ans');else if(oi===ch)b.classList.add('wrong-ans');});var fb=document.getElementById(`${cid}-fb-${qi}`);fb.innerHTML=(ch===q.ans?'<strong>Yes.</strong> ':'<strong>Not quite.</strong> ')+q.why;fb.className='ex-feedback show '+(ch===q.ans?'fb-correct':'fb-wrong');}
 
 mount('s1-qs',[
+ {pg:'p. 97',q:'How does Landers describe his own position when he writes about poetry?',opts:['As a translator primarily of fiction, who defers to more expert minds in poetry','As a leading poet-translator','As a critic who opposes poetry translation','As an editor of rhyming dictionaries'],ans:0,why:'He calls himself “a translator primarily of fiction” and says he must defer to more expert minds in the poetry genre.'},
  {pg:'p. 97',q:'Who called translation “the art of failure”?',opts:['John Ciardi','Robert Frost','Clement Wood','Jorge Iglesias'],ans:0,why:'The late John Ciardi. Frost’s famous line is different: poetry is “what is lost in translation”.'},
- {pg:'p. 97',q:'According to Landers, where does the challenge of translating poetry show itself most clearly?',opts:['In scansion and rhyme','In ambiguity and polysemy: figurative language that goes beyond ordinary meaning','In the length of poems','In finding a publisher'],ans:1,why:'Landers says the soul of poetry is figurative, metaphorical expression; the embrace of ambiguity and polysemy, more than any problem of scansion or rhyme, is where the challenge appears.'},
- {pg:'pp. 97–98',q:'What does Wood’s word-for-word “trot” of the Keats lines prove?',opts:['That Keats is easy to translate','That with absolute fidelity the poetry is dead; it must be recreated by a poet of like emotional power','That English has too few rhymes','That poetry should be translated into prose'],ans:1,why:'Wood: “Poetry cannot be translated; it can only be recreated in the new language.” The trot keeps every meaning and loses the poem.'},
+ {pg:'p. 97',q:'If literary translation is a leap of faith, poetic translation, says Landers…',opts:['makes that faith unnecessary','puts that faith to the severest of all tests','is a matter of technique only','is easier than prose'],ans:1,why:'“Poetic translation puts that faith to the severest of all tests.”'},
+ {pg:'p. 97',q:'Which is the Random House Unabridged Dictionary definition Landers quotes?',opts:['“memorable speech”','“what is lost in translation”','“the art of rhythmical composition, written or spoken, for exciting pleasure by beautiful, imaginative, or elevated thoughts”','“the art of failure”'],ans:2,why:'He gives three definitions: the dictionary’s, “memorable speech”, and Frost’s put-down.'},
+ {pg:'p. 97',q:'According to Landers, where does the challenge of translating poetry show itself most clearly?',opts:['In scansion and rhyme','In ambiguity and polysemy: figurative language that goes beyond ordinary meaning','In the length of poems','In finding a publisher'],ans:1,why:'The soul of poetry is figurative, metaphorical expression; the embrace of ambiguity and polysemy, more than scansion or rhyme, is where the challenge appears.'},
+ {pg:'p. 97',q:'Which Keats poem supplies Wood’s example?',opts:['“Ode on a Grecian Urn”','“Ode to a Nightingale”','“To Autumn”','“Bright Star”'],ans:1,why:'The two lines are from “Ode to a Nightingale”: “Charmed magic casements, opening on the foam / Of perilous seas, in faery lands forlorn.”'},
+ {pg:'p. 97',q:'In Wood’s mock trot, “Charmed magic casements” becomes…',opts:['“Enchanted supernatural windows”','“Magic open doors”','“Charming windows”','“Bewitched glass”'],ans:0,why:'And “foam” becomes “bubbles”, “perilous seas” “dangerous oceans”: every meaning kept, the poetry gone.'},
+ {pg:'pp. 97–98',q:'What does Wood’s trot prove?',opts:['That Keats is easy to translate','That with absolute fidelity the poetry is dead; it must be recreated by a poet of like emotional power','That English has too few rhymes','That poetry should be translated into prose'],ans:1,why:'Wood: “Poetry cannot be translated; it can only be recreated in the new language.”'},
  {pg:'p. 98',q:'Which attitude does Landers say is called for before translating poetry?',opts:['Confidence','Speed','Humility','Indifference to the author'],ans:2,why:'“A proper attitude of humility is called for.”'},
- {pg:'p. 98',q:'What question should be considered before beginning, according to Landers?',opts:['How long the translation should be','What the target audience regards as a “poem”','Which dictionary to use','Whether the poet is still alive'],ans:1,why:'Must it rhyme? Which metre conveys the feel of the original? Whatever works, provided the result stands as a poem in its own right.'}
+ {pg:'p. 98',q:'What question should be considered before beginning, according to Landers?',opts:['How long the translation should be','What the target audience regards as a “poem”','Which dictionary to use','Whether the poet is still alive'],ans:1,why:'Must it rhyme? Which metre conveys the feel of the original?'},
+ {pg:'p. 98',q:'What is “blank verse”?',opts:['Verse with no metre','Unrhymed iambic pentameter','Rhymed couplets','Prose printed as lines'],ans:1,why:'Landers: unrhymed iambic pentameter, “known as blank verse”, is an acceptable alternative for many readers.'},
+ {pg:'p. 98',q:'What does Landers call “the trend these days”?',opts:['Rhymed sonnets','Unrhymed but metric verse in various metrical schemes','Prose translation','Free verse with no rhythm'],ans:1,why:'“The trend these days is to unrhymed but metric verse in various metrical schemes.”'},
+ {pg:'p. 98',q:'Landers allows any form (“go with whatever works”) on one condition. Which?',opts:['It must rhyme','The final product must stand as a poem in its own right in the target language','It must keep the original line count','The author must approve it'],ans:1,why:'“…provided that the final product stands as an English-language poem in its own right.”'}
 ],'Check');
 mount('s2-qs',[
- {pg:'p. 98',q:'Landers’ discussion of rhyme assumes translation in which direction?',opts:['Into English','Into Spanish','Into Arabic','Into any language'],ans:0,why:'“Like the rest of this guide, the following discussion assumes translation into English.” This is why we must rethink it for Arabic.'},
- {pg:'p. 98',q:'In Romance languages, Landers says the poet’s real problem is…',opts:['finding any rhyme at all','avoiding hackneyed (over-used) rhymes','keeping the metre','choosing a title'],ans:1,why:'In Romance languages “it’s almost a challenge not to rhyme”; the problem is avoiding hackneyed rhymes.'},
- {pg:'pp. 98–99',q:'What advantage of English does Shapiro point to?',opts:['Its short words','Its vast lexicon, e.g. plural nouns that rhyme with verb forms (apples/dapples, facts/acts)','Its lack of grammar','Its silent letters'],ans:1,why:'Shapiro: the Romance advantage is more than compensated by English’s vast lexicon.'},
- {pg:'p. 99',q:'Why does Landers quote Quevedo’s sonnet?',opts:['To show that rhyme can force a poet to say something he did not mean','To praise Spanish rhyme','To show that sonnets cannot be translated','To define blank verse'],ans:0,why:'To end the quatrain, the rhyme made Quevedo turn a lady “more honest than Lucretia” into a whore: the tyranny of rhyme, even in rhyme-rich Spanish.'},
- {pg:'p. 99',q:'Landers says “verse” is not the same as rhyme. Which example does he give?',opts:['Shakespeare’s sonnets','Classical Greek and Roman poetry, and biblical verse in Hebrew and Greek, which did not rhyme','Limericks','Modern song lyrics'],ans:1,why:'Greek and Roman poetry was unrhymed, and so were biblical “verses” in the original Hebrew and Greek.'}
+ {pg:'p. 98',q:'Landers’ discussion of rhyme assumes translation in which direction?',opts:['Into English','Into Spanish','Into Arabic','Into any language'],ans:0,why:'“Like the rest of this guide, the following discussion assumes translation into English.”'},
+ {pg:'p. 98',q:'How does Landers describe English?',opts:['A rhyme-rich language','A “notoriously rhyme-poor” language','A language without metre','A language that cannot do blank verse'],ans:1,why:'He calls English “a notoriously rhyme-poor language”.'},
+ {pg:'p. 98',q:'In Romance languages, Landers says the poet’s real problem is…',opts:['finding any rhyme at all','avoiding hackneyed (over-used) rhymes','keeping the metre','choosing a title'],ans:1,why:'In Romance “it’s almost a challenge not to rhyme”.'},
+ {pg:'p. 98',q:'How many rhymes does Landers count for “love”, and which one is “a non-starter”?',opts:['Two; “dove”','Four; “shove”','Six; “glove”','None'],ans:1,why:'“Love – four rhymes, one of which (shove) is a non-starter.”'},
+ {pg:'p. 98',q:'Which of these is NOT one of the hard-to-rhyme key words Landers lists?',opts:['Children','Happiness','Mortality','Ocean'],ans:3,why:'His list: love, children, happiness, friendship, have, mortality, woman.'},
+ {pg:'p. 98',q:'Which “lucky” English rhymes does Landers mention, adding that they quickly wear out their welcome?',opts:['death/breath, youth/truth, life/strife','moon/June, heart/part','sea/me, sky/high','love/dove, rose/close'],ans:0,why:'These happy accidents exist, but overuse makes them stale.'},
+ {pg:'p. 98',q:'Which pair is Landers’ Portuguese example of a fortunate rhyme?',opts:['padre/madre','amare/odiare','âme/dame','sorte/morte (fate/death)'],ans:3,why:'Spanish padre/madre, Italian amare/odiare, French âme/dame, Portuguese sorte/morte.'},
+ {pg:'p. 98',q:'Which English verbs does Landers say all rhyme in several Romance languages?',opts:['hope, sin, desire, kill, sing, find, save, help, transgress','run, walk, talk, sit','be, have, do, go','love, hate, fear'],ans:0,why:'In both the infinitive and most conjugated forms, so the translator into English starts at a serious disadvantage.'},
+ {pg:'pp. 98–99',q:'Who is Norman R. Shapiro, as Landers presents him?',opts:['A critic of rhyme','A masterly practitioner who produces award-winning metrical and rhymed translations of French poetry','Landers’ editor','A Spanish poet'],ans:1,why:'Shapiro, an expert practitioner, disagrees with Landers in a letter to Source.'},
+ {pg:'pp. 98–99',q:'What advantage of English does Shapiro point to?',opts:['Its short words','Its vast lexicon, e.g. plural nouns that rhyme with verb forms (apples/dapples, facts/acts)','Its lack of grammar','Its silent letters'],ans:1,why:'The Romance advantage is “more than compensated” by English’s vast lexicon.'},
+ {pg:'p. 99',q:'Which language does Shapiro call “poorer still” in noun–verb rhymes?',opts:['French','Italian','Portuguese','Spanish'],ans:3,why:'Italian and Portuguese are “poor relations”; Spanish “poorer still”.'},
+ {pg:'p. 99',q:'For Shapiro, the challenge of rhyme is…',opts:['a reason to give up','where the feeling of accomplishment, and the fun, come in','only for French','a myth'],ans:1,why:'Translators should not be put off formal renderings by the “too-facile claim” that English is rhyme-deprived.'},
+ {pg:'p. 99',q:'Why does Landers quote Quevedo’s sonnet?',opts:['To show that rhyme can force a poet to say something he did not mean','To praise Spanish rhyme','To show that sonnets cannot be translated','To define blank verse'],ans:0,why:'To end the quatrain, Quevedo turned a lady “more honest than Lucretia” into a whore.'},
+ {pg:'p. 99',q:'Quevedo (1580–1645) belongs to which period?',opts:['The Spanish Golden Age','The Romantic era','The Renaissance in Italy','The modern Brazilian period'],ans:0,why:'Landers calls him a Spanish Golden Age poet.'},
+ {pg:'p. 99',q:'Landers says “verse” is not the same as rhyme. Which example does he give?',opts:['Shakespeare’s sonnets','Classical Greek and Roman poetry, and biblical verse in Hebrew and Greek','Limericks','Modern song lyrics'],ans:1,why:'All unrhymed, yet all verse.'},
+ {pg:'p. 99',q:'According to Landers, has anyone recently proposed translating a prose work into verse?',opts:['Yes, often','No, not seriously, to his knowledge','Only for children’s books','Only for drama'],ans:1,why:'But over the centuries many felt only a verse translation could do justice to a poem.'}
 ],'Check');
 mount('s3-qs',[
- {pg:'p. 99',q:'Must one be a poet to translate poetry?',opts:['Yes, always','No, but one needs poetic sensitivity','Only for rhymed poems','Only when the author is alive'],ans:1,why:'Landers: no, but the translator must possess a poetic sensitivity, even without having written a line of original poetry.'},
+ {pg:'p. 99',q:'Must one be a poet to translate poetry?',opts:['Yes, always','No, but one needs poetic sensitivity','Only for rhymed poems','Only when the author is alive'],ans:1,why:'Even if one has never written a line of original poetry.'},
+ {pg:'p. 99',q:'Who, says Landers, is an “unlikely candidate” for poetic translation?',opts:['Anyone who has not studied metre','Anyone who can’t read an English-language poem with feeling and more than surface comprehension','Anyone who does not speak the source language natively','Anyone under thirty'],ans:1,why:'A test of sensitivity, not of credentials.'},
+ {pg:'p. 99',q:'Landers writes “In fine” and notes it is a “crib” from E. A. Robinson’s “Richard Cory”. What is his point?',opts:['That he plagiarises','That the poet chose “in fine” rather than “in short”: word choice matters','That “Richard Cory” rhymes badly','That old poems are better'],ans:1,why:'A small demonstration of the sensitivity he is describing.'},
+ {pg:'p. 100',q:'How must any translation be tested for sonority?',opts:['By counting syllables','By reading it aloud','By asking a dictionary','By printing it'],ans:1,why:'“Any translation should – make that must – be read aloud for sonority.”'},
  {pg:'p. 100',q:'What advice have poets given translators when meaning and sound cannot both be kept?',opts:['Keep the meaning','Go with the sound','Add a footnote','Give up the poem'],ans:1,why:'“When it’s impossible to preserve both meaning and sound, go with the sound.”'},
- {pg:'p. 100',q:'Landers’ conclusion about translations that sound bad:',opts:['They may still be good','It is a pretty safe bet that they are bad','Sound does not matter on the page','Only poets can judge sound'],ans:1,why:'Not every poem that sounds good is good, but a translation that sounds bad is, well, bad.'}
+ {pg:'p. 100',q:'Landers’ conclusion about translations that sound bad:',opts:['They may still be good','It is a pretty safe bet that they are bad','Sound does not matter on the page','Only poets can judge sound'],ans:1,why:'Not every poem that sounds good is good, but a translation that sounds bad is, well, bad.'},
+ {pg:'p. 100',q:'Why is the author’s input especially vital in poetry?',opts:['Poets are always available','Ambiguity is often a conscious objective','Poems are short','Authors control the copyright'],ans:1,why:'So the translator needs to know which double meanings are intended.'},
+ {pg:'p. 100',q:'Who is Chico Buarque, in Landers’ account?',opts:['A Portuguese novelist','A renowned Brazilian composer whose lyrics rise to the level of poetry','A Spanish Golden Age poet','An Italian dialect poet'],ans:1,why:'Landers translated his poem “Brejo da Cruz”.'},
+ {pg:'p. 100',q:'Who are the people described in Buarque’s line?',opts:['Sailors','Migrants to the cities from a small town in the interior','Priests','Students'],ans:1,why:'The line describes the many adaptations of migrants from Brejo da Cruz.'},
+ {pg:'p. 100',q:'Why is viram ambiguous?',opts:['It is slang','It is the third-person plural of both virar (“to become”, present) and ver (“to see”, past)','It is misspelled','It is Spanish'],ans:1,why:'“Some who have seen Jesus” or “some who become Jesus”.'},
+ {pg:'p. 100',q:'What did Buarque’s reaction reveal?',opts:['He had planned the double meaning carefully','The double meaning had not occurred to him consciously','He disliked the translation','He refused to answer'],ans:1,why:'There is no better source than the author, but even the author may not know exactly what an allusion “means”.'}
 ],'Check');
 mount('s4-qs',[
- {pg:'p. 100',q:'What does Landers mean by “padding”?',opts:['Adding notes at the end','Adding feet (and often new meaning) to make a metrical line come out right','Translating very slowly','Using a softer font'],ans:1,why:'To effect a metrical translation it is often necessary to pad, which often means adding semantic elements not in the original.'},
- {pg:'p. 100',q:'How much padding is acceptable?',opts:['None, ever','As much as the metre needs','There is no hard-and-fast rule; it is an individual aesthetic decision','Exactly one word per line'],ans:2,why:'Translators must decide individually; no hard-and-fast rules exist for what is essentially an aesthetic decision.'},
- {pg:'p. 101',q:'What was wrong with Du Val’s first last line, “Happiness, too, requires little”?',opts:['It did not rhyme','Four heavy syllables (“requires little”) could not carry the light, delicate feeling of the original’s seven light syllables','It was too long','It changed the bee into a butterfly'],ans:1,why:'Du Val said it read “like there’s bread in the mouth”: the sound contradicted the meaning.'},
- {pg:'p. 101',q:'Which saying does Landers apply to translations at the end of the Du Val story?',opts:['“Less is more”','“A poem is never finished, only abandoned” (Valéry)','“Brevity is the soul of wit”','“Translate prose as prose, verse as verse”'],ans:1,why:'Years later Du Val still caught himself reworking the poem.'}
+ {pg:'p. 100',q:'How does Landers describe poetry’s use of language?',opts:['As the most ornate form of language','As probably the most extreme instance of linguistic concision','As close to everyday speech','As the least precise form'],ans:1,why:'“Every syllable counts.”'},
+ {pg:'p. 100',q:'Why does a Spanish verb like piensa create a problem for a translator into English?',opts:['It has no meaning','English needs an extra syllable for the subject pronoun (“he thinks”)','It cannot rhyme','It is too formal'],ans:1,why:'Spanish incorporates the subject pronoun in the verb form.'},
+ {pg:'p. 100',q:'What does Landers mean by “padding”?',opts:['Adding notes at the end','Adding feet (and often new meaning) to make a metrical line come out right','Translating very slowly','Using a softer font'],ans:1,why:'This often means introducing semantic elements not present in the original.'},
+ {pg:'p. 100',q:'How much padding is acceptable?',opts:['None, ever','As much as the metre needs','There is no hard-and-fast rule; it is an individual aesthetic decision','Exactly one word per line'],ans:2,why:'Translators must decide individually.'},
+ {pg:'p. 100',q:'Where did John Du Val publish the account of his attempt?',opts:['Source, 2000','Delos, October 1995','The New Yorker','The Complete Rhyming Dictionary'],ans:1,why:'Delos, October 1995.'},
+ {pg:'p. 100',q:'Trilussa’s “La Felicità” is how long, and in what language?',opts:['Fourteen lines, Latin','Five lines, Romanesco (the dialect of Rome)','Ten lines, standard Italian','Three lines, French'],ans:1,why:'A “deceptively simple” five-line poem in Romanesco.'},
+ {pg:'p. 101',q:'What is the poem about?',opts:['A bee that settles on a rosebud, sucks it and leaves: happiness is a little thing','A lost love','A storm at sea','The city of Rome'],ans:0,why:'The literal translation is on p. 101.'},
+ {pg:'p. 101',q:'What happened to Du Val’s first version?',opts:['It was rejected','It was duly published','He never finished it','Trilussa corrected it'],ans:1,why:'He published it, and still was not satisfied.'},
+ {pg:'p. 101',q:'What was wrong with Du Val’s first last line, “Happiness, too, requires little”?',opts:['It did not rhyme','Four heavy English syllables could not carry the light, delicate feeling of the original’s seven light syllables','It was too long','It changed the bee into a butterfly'],ans:1,why:'It read “like there’s bread in the mouth”.'},
+ {pg:'p. 101',q:'How does Du Val describe his later drafts?',opts:['They improved steadily','They seemed to lead further and further away from the goal','He made none','They were all published'],ans:1,why:'Landers lists several, e.g. “What a little thing happiness is!”'},
+ {pg:'p. 101',q:'Which saying does Landers apply to translations at the end of the Du Val story?',opts:['“Less is more”','“A poem is never finished, only abandoned” (Valéry)','“Brevity is the soul of wit”','“Translate prose as prose, verse as verse”'],ans:1,why:'Years later Du Val still catches himself reworking the poem.'}
 ],'Check');
 mount('s5-qs',[
- {pg:'pp. 101–102',q:'Why must a comic rhyme not fall on a word like “route” or “either”?',opts:['They are too long','They have two accepted pronunciations, so some readers will miss the rhyme and the joke','They are not English','They are too formal'],ans:1,why:'Rule 1: the rhyme must be unmistakable.'},
- {pg:'p. 102',q:'What do the “orange” and “month” examples show?',opts:['Some English words can never rhyme','With enough ingenuity, anything can be rhymed when humour is the goal','Fruit cannot appear in poems','Comic verse should avoid rhyme'],ans:1,why:'As Ogden Nash showed (Kleenex / V-necks), given ingenuity and humour as the aim, anything can be rhymed.'}
+ {pg:'p. 101',q:'How common, says Landers, are opportunities to translate comic verse?',opts:['Very common','Rare, but an unusually provocative challenge','Non-existent','Common only in Spanish'],ans:1,why:'“Opportunities to translate comic verse are rare but constitute an unusually provocative challenge.”'},
+ {pg:'p. 101',q:'What does Landers concede about doggerel?',opts:['It is the highest poetry','It may not be true literature, but its effect must still transfer','It should never be translated','It cannot rhyme'],ans:1,why:'If its effect is to transfer, the translator must know certain principles.'},
+ {pg:'pp. 101–102',q:'Why must a comic rhyme not fall on a word like “route” or “either”?',opts:['They are too long','They have two accepted pronunciations, so some readers will miss the rhyme and the joke','They are not English','They are too formal'],ans:1,why:'Rule 1: the rhyme must be unmistakable. Landers also lists bow, row and envelope.'},
+ {pg:'p. 102',q:'Why is Polonius’s “Brevity is the soul of wit” a jest on Shakespeare’s part?',opts:['Polonius is a rambling, loquacious old man','Polonius is a poet','The line rhymes','Hamlet says it'],ans:0,why:'Rule 2 holds anyway: comic verse has no room for extra syllables.'},
+ {pg:'p. 102',q:'Which form shows rule 3 (save the humorous rhyme for last) most clearly?',opts:['The sonnet','The limerick','Blank verse','The ode'],ans:1,why:'Landers calls it the quintessentially English-language humorous verse form.'},
+ {pg:'p. 102',q:'In the vampire poem, what is the twist?',opts:['The vampire is a poet','The legends are wrong: the biter, not the bitten, is transformed, and the narrator had bitten Ogden Nash','The vampire cannot rhyme','The vampire translates poetry'],ans:1,why:'So the vampire now writes like Nash. Rule 4: sound trumps meaning.'},
+ {pg:'p. 102',q:'What freedom would a translator of the vampire poem out of English have?',opts:['None','Free rein to add whatever it took to keep the comic tone (e.g. Drácula / imaculado in Spanish)','Only to add footnotes','Only to cut lines'],ans:1,why:'The comic effect matters more than the literal content.'},
+ {pg:'p. 102',q:'Which “unrhymable” English words does Landers list?',opts:['orange, silver, Wednesday, purple, month','love, dove, above','cat, hat, mat','sea, tree, free'],ans:0,why:'Then he shows each can be rhymed with ingenuity.'},
+ {pg:'p. 102',q:'Which surprising rhyme of Ogden Nash does Landers cite?',opts:['Kleenex / V-necks','orange / door hinge','silver / chilver','month / dunth'],ans:0,why:'Proof that, with humour as the goal, anything can be rhymed.'},
+ {pg:'p. 102',q:'What do the “orange” and “month” examples show?',opts:['Some English words can never rhyme','With enough ingenuity, anything can be rhymed when humour is the goal','Fruit cannot appear in poems','Comic verse should avoid rhyme'],ans:1,why:'“Assuming humor rather than deathless literature is the goal.”'},
+ {pg:'p. 102',q:'Which primer on the mechanics of verse does Landers recommend?',opts:['The introduction to Wood’s Complete Rhyming Dictionary (revised by Ronald Bogus)','Newmark’s Textbook of Translation','Lathey’s Translating Children’s Literature','Bassnett’s Translation Studies'],ans:0,why:'For advanced insights he adds Weissbort, ed., Translating Poetry: The Double Labyrinth (1989).'}
 ],'Check');
+
+/* true or false */
+var TF=[
+ ['Landers claims to be an expert translator of poetry.',0,'He is “a translator primarily of fiction” and defers to poetry experts (p. 97).'],
+ ['Ciardi called translation “the art of failure”.',1,'p. 97.'],
+ ['Landers says rhyme and scansion are the biggest challenge of translating poetry.',0,'Ambiguity and polysemy are the bigger challenge (p. 97).'],
+ ['Wood believes poetry can only be recreated, not translated.',1,'pp. 97–98.'],
+ ['Landers thinks English readers accept blank verse as poetry.',1,'Unrhymed iambic pentameter is acceptable for many (p. 98).'],
+ ['Landers insists that every translated poem must rhyme.',0,'“Go with whatever works”, as long as it stands as a poem (p. 98).'],
+ ['Landers’ discussion of rhyme assumes translation into English.',1,'p. 98.'],
+ ['Shapiro agrees that English is rhyme-poor.',0,'He argues English’s vast lexicon more than compensates (pp. 98–99).'],
+ ['Quevedo wrote in rhyme-poor English.',0,'He wrote in rhyme-friendly Spanish, and still resented the “tyranny of rhyme” (p. 99).'],
+ ['Classical Greek and Roman poetry did not rhyme.',1,'p. 99: verse is not synonymous with rhyme.'],
+ ['According to Landers, a translator of poetry must have published poems of his or her own.',0,'Poetic sensitivity is required; being a poet is not (p. 99).'],
+ ['Landers says every translation must be read aloud.',1,'“…should – make that must – be read aloud for sonority” (p. 100).'],
+ ['Buarque had deliberately planned the double meaning of viram.',0,'It had not occurred to him consciously (p. 100).'],
+ ['Landers gives a fixed rule for how much padding is allowed.',0,'It is an individual aesthetic decision (p. 100).'],
+ ['Du Val’s first version of the Trilussa poem was never published.',0,'It was “duly published” (p. 101).'],
+ ['Du Val stopped revising the poem once his second version was published.',0,'Years later he still caught himself reworking it (p. 101).'],
+ ['Landers says humorous verse must rhyme.',1,'Rule 1 (p. 101).'],
+ ['In comic verse, the funny rhyme should come first.',0,'Save it for last: “lederhosen” after “frozen” (p. 102).'],
+ ['In comic verse, meaning is more important than sound.',0,'Rule 4: sound trumps meaning (p. 102).'],
+ ['Landers says “month” can never be rhymed.',0,'He offers a rhyme with “hundred and oneth” (p. 102).']
+];
+document.getElementById('tf-qs').innerHTML=TF.map(function(t,i){return '<div class="ex-card"><div class="ex-num">Statement '+(i+1)+'</div><div class="ex-q">'+t[0]+'</div><div class="tfrow"><button class="ex-opt" id="tf'+i+'-1" onclick="tfAns('+i+',1)">True</button><button class="ex-opt" id="tf'+i+'-0" onclick="tfAns('+i+',0)">False</button></div><div class="ex-feedback" id="tf'+i+'-fb"></div></div>';}).join('');
+var tfDone=0,tfRight=0;
+function tfAns(i,v){var a=document.getElementById('tf'+i+'-1'),b=document.getElementById('tf'+i+'-0');if(a.disabled)return;a.disabled=b.disabled=true;var ok=(v===TF[i][1]);document.getElementById('tf'+i+'-'+TF[i][1]).classList.add('correct-ans');if(!ok)document.getElementById('tf'+i+'-'+v).classList.add('wrong-ans');var fb=document.getElementById('tf'+i+'-fb');fb.innerHTML=(ok?'<strong>Yes.</strong> ':'<strong>Not quite.</strong> ')+TF[i][2];fb.className='ex-feedback show '+(ok?'fb-correct':'fb-wrong');tfDone++;if(ok)tfRight++;document.getElementById('tf-score').textContent=tfRight+' / '+tfDone+' correct so far ('+TF.length+' statements)';}
+
+/* who said it */
+var WHO_N=['John Ciardi','Robert Frost','Clement Wood','Jorge Iglesias','Norman R. Shapiro','Francisco Quevedo','Paul Valéry','John Du Val','Chico Buarque','Polonius (Shakespeare)','Ogden Nash','Poets advising translators'];
+var WHO=[
+ ['Translation is “the art of failure”.',0],
+ ['Poetry is “what is lost in translation”.',1],
+ ['“Poetry cannot be translated; it can only be recreated in the new language.”',2],
+ ['“A translator isn’t more important than the poem he’s translating.”',3],
+ ['English’s vast lexicon more than compensates for the Romance advantage in rhyme.',4],
+ ['A sonnet in which, “to end the quatrain”, a virtuous lady is turned into a whore.',5],
+ ['“A poem is never finished, only abandoned.”',6],
+ ['The four English syllables “requires little” read “like there’s bread in the mouth”.',7],
+ ['A line in which viram can mean both “have seen” and “become”.',8],
+ ['“Brevity is the soul of wit.”',9],
+ ['Rhymed “Kleenex” with “V-necks”.',10],
+ ['“When it’s impossible to preserve both meaning and sound, go with the sound.”',11]
+];
+document.getElementById('who').innerHTML=WHO.map(function(c,i){return '<div class="mrow"><div class="mcase">'+c[0]+'</div><select id="w'+i+'"><option value="">Who?</option>'+WHO_N.map(function(r,j){return '<option value="'+j+'">'+r+'</option>';}).join('')+'</select></div>';}).join('');
+function checkWho(){var bad=0;WHO.forEach(function(c,i){var s=document.getElementById('w'+i);s.classList.remove('good','bad');if(s.value===''||+s.value!==c[1]){bad++;s.classList.add('bad');}else s.classList.add('good');});var fb=document.getElementById('who-fb');fb.className='ex-feedback show '+(bad?'fb-wrong':'fb-correct');fb.innerHTML=bad?'<strong>'+bad+' to fix</strong> (red). Every quotation is on pp. 97–102.':'<strong>All twelve correct.</strong> You know who says what in Landers.';}
 
 /* padding finder */
 var PAD=[[['يا',0],['نَمِرًا',0],['يَتَوَهَّجُ',0],['لَهَبًا',0],['ويُضيءُ',1],['الأرجاءَ',1],['ذَهَبا',1]],[['في',0],['غاباتِ',0],['الليلِ',0],['يَشُقُّ',1],['الحُجُبا',1]]];
@@ -374,6 +480,21 @@ function checkMatch(){var bad=0;CASES.forEach(function(c,i){var s=document.getEl
 
 /* reading check */
 var AQ=[
+ {q:'How do prose translators regard successful poetic translators, according to Landers?',opts:['With suspicion','They stand in awe of them, especially those who preserve metre, rhyme and meaning','As less skilled','As unnecessary'],ans:1,fb:'p. 100: “we translators of ‘mere’ prose stand in awe of successful poetic translators”.'},
+ {q:'How do most experts describe translating poetry well, according to Landers?',opts:['Routine','So difficult as to be called impossible','Easier than prose','Purely technical'],ans:1,fb:'p. 97, the first sentence of his second paragraph.'},
+ {q:'In Wood’s trot, “in faery lands forlorn” becomes…',opts:['“in unreal romantic countries dejected”','“in magic kingdoms”','“in sad fairy lands”','“in lonely places”'],ans:0,fb:'p. 97: every word replaced by a dictionary equivalent, and the poetry is gone.'},
+ {q:'Which pair does Shapiro give as an example of plural nouns rhyming with verb forms?',opts:['sexes/hexes','love/dove','moon/June','padre/madre'],ans:0,fb:'pp. 98–99: apples/dapples, sexes/hexes, facts/acts.'},
+ {q:'In Quevedo’s sonnet, the lady was first said to be more honest than…',opts:['Lucretia','Helen','Penelope','Juliet'],ans:0,fb:'p. 99: then the rhyme forced him to call her a whore.'},
+ {q:'Which half of Buarque’s line was “no problem” for Landers?',opts:['“Some sell marijuana”','“there are some who have seen Jesus”','“Brejo da Cruz”','The title'],ans:0,fb:'p. 100: the trouble was the verb viram in the second half.'},
+ {q:'What might “some who become Jesus” refer to, according to Landers?',opts:['Priests and monks','Long hair and sandals, or perhaps martyrdom','Football players','Pilgrims'],ans:1,fb:'p. 100, Landers’ own guesses.'},
+ {q:'Which ability is part of Landers’ “poetic sensitivity”?',opts:['Typing fast','Reading between and above the lines','Knowing many languages','Writing rhymed poems'],ans:1,fb:'p. 99, together with nuance, sonority, metaphor and simile, allusion, flexibility and humility.'},
+ {q:'What does Landers add about poems that sound good?',opts:['They are always good','Not all of them are good, but a translation that sounds bad is bad','Sound is irrelevant','Only rhymed poems sound good'],ans:1,fb:'p. 100.'},
+ {q:'In the “claustrophile” verse, “orange” is rhymed with…',opts:['“deplore range”','“door hinge”','“storage”','“porridge”'],ans:0,fb:'p. 102: “Understand I deplore range; / I’d wear a grin / Even inside an orange.”'},
+ {q:'How does Landers rhyme “silver”?',opts:['By splitting “verbatim” across the line: “will ver- / batim”','With “chilver”','He says it cannot be done','With “deliver”'],ans:0,fb:'p. 102: “Relatives came to hear the will ver- / batim.”'},
+ {q:'Which Spanish rhyme does Landers suggest for “Drácula”?',opts:['imaculado','espectáculo','oráculo','vehículo'],ans:0,fb:'p. 102, as an example of the free rein a comic translator has.'},
+ {q:'Which is one of Du Val’s rejected drafts?',opts:['“Happiness when all is settled / is a little thing when it comes”','“Happiness is a bee”','“A rose is happiness”','“Little bee, little joy”'],ans:0,fb:'p. 101, one of the drafts that led “further and further away from the goal”.'},
+ {q:'Landers calls Du Val’s account “a case study” of…',opts:['how demanding poetic translation can be','how easy dialect poetry is','how to publish quickly','how to avoid rhyme'],ans:0,fb:'p. 100: and of why prose translators stand in awe of poetic translators.'},
+ {q:'How does Landers describe his own short chapter at the end?',opts:['As complete','As having barely scratched the surface of what is arguably the most complex area of translation','As the final word','As unnecessary'],ans:1,fb:'p. 102.'},
  {q:'Robert Frost’s “put-down” of translation defines poetry as…',opts:['“what is lost in translation”','“memorable speech”','“the art of failure”','“elevated thoughts”'],ans:0,fb:'Frost: poetry is what is lost in translation (p. 97). “The art of failure” is Ciardi’s phrase.'},
  {q:'Clement Wood, whose example Landers uses, was the editor of…',opts:['The Random House Unabridged Dictionary','The Complete Rhyming Dictionary','Delos','Source'],ans:1,fb:'Wood edited The Complete Rhyming Dictionary (p. 97); Landers recommends its introduction as a primer on verse (p. 102).'},
  {q:'Which form do English readers usually consider the most “poetic”, according to Landers?',opts:['Free verse','Iambic pentameter','The limerick','Prose poetry'],ans:1,fb:'Iambic pentameter; unrhymed iambic pentameter (blank verse) is an acceptable alternative for many (p. 98).'},
