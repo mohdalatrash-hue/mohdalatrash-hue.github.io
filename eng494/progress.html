@@ -76,11 +76,11 @@ function fmtTime(s){if(!s)return "0m";var h=Math.floor(s/3600),m=Math.round((s%3
 function fmtDate(ts){if(!ts)return "—";var d=new Date(ts);return ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][d.getMonth()]+" "+d.getDate();}
 function todayISO(){var t=new Date();return t.getFullYear()+"-"+String(t.getMonth()+1).padStart(2,"0")+"-"+String(t.getDate()).padStart(2,"0");}
 function scoreClass(p){return p>=80?"s-hi":p>=60?"s-mid":"s-lo";}
-function expectedWeek(){var ends=[["2026-07-01",1],["2026-07-08",2],["2026-07-15",3],["2026-07-22",4],["2026-07-29",5],["2026-08-05",6],["2026-08-12",7]];var now=todayISO();for(var i=0;i<ends.length;i++){if(now<=ends[i][0])return ends[i][1];}return 8;}
+function expectedWeek(){var ends=[["2026-08-29",1],["2026-09-05",2],["2026-09-12",3],["2026-09-19",4],["2026-09-26",5],["2026-10-03",6],["2026-10-10",7],["2026-10-17",8],["2026-10-24",9],["2026-10-31",10],["2026-11-07",11],["2026-11-14",12],["2026-11-21",13],["2026-11-28",14],["2026-12-05",15],["2026-12-12",16],["2026-12-19",17],["2026-12-26",18]];var now=todayISO();for(var i=0;i<ends.length;i++){if(now<=ends[i][0])return ends[i][1];}return 19;}
 var wsDone=Object.keys(D.workshops).length, exp=expectedWeek();
 var paceEl=document.getElementById("pace");
-if(todayISO()<"2026-06-28"){paceEl.className="pace pre";paceEl.innerHTML="<h3>The course hasn't started yet</h3><p>First class is Sun Jun 28 · 8:00 AM. Open any workshop now — your progress starts counting.</p>";}
-else if(exp>=8){paceEl.className="pace ok";paceEl.innerHTML="<h3>Final stretch</h3><p>Revise with the workshops before the final exam.</p>";}
+if(todayISO()<"2026-08-23"){paceEl.className="pace pre";paceEl.innerHTML="<h3>The course hasn't started yet</h3><p>Semester 481 begins Sun Aug 23. Open any workshop now — your progress starts counting.</p>";}
+else if(exp>=16){paceEl.className="pace ok";paceEl.innerHTML="<h3>Final stretch</h3><p>Weeks 16–17: revise with the workshops and submit the Final Project (Thu 17 Dec). Final exam: Sun 3 Jan 2027.</p>";}
 else if(wsDone>=Math.min(exp-1,4)){paceEl.className="pace ok";paceEl.innerHTML="<h3>✓ Keeping pace</h3><p>The calendar is on <strong>Week "+exp+"</strong>, and you've completed <strong>"+wsDone+"</strong> workshop"+(wsDone===1?"":"s")+". Keep going.</p>";}
 else{paceEl.className="pace behind";paceEl.innerHTML="<h3>A little behind — easy to catch up</h3><p>The calendar is on <strong>Week "+exp+"</strong>; you've completed <strong>"+wsDone+"</strong> workshop"+(wsDone===1?"":"s")+". Open this week's workshop to catch up.</p>";}
 var totalTime=0,pagesVisited=0; for(var p in D.pages){totalTime+=(D.pages[p].timeSec||0);pagesVisited++;}
