@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strategy Studio: One Verse, One Strategy | ENG 494</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="description" content="ENG 494 practice workshop: translate six famous English poems into Arabic, one with each strategy (phonemic, literal, metrical, verse-to-prose, rhymed, free verse), with worked samples, self-checks and model answers.">
+<meta name="theme-color" content="#1a6b3c">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ENG 494">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ENG 494 Literary Translation">
+<meta property="og:title" content="Strategy Studio | ENG 494">
+<meta property="og:description" content="Six famous poems, six strategies: translate into Arabic with worked samples and model answers.">
+<meta property="og:image" content="https://mohdalatrash-hue.github.io/eng494/icon-512.png">
+<meta property="og:url" content="https://mohdalatrash-hue.github.io/eng494/workshop-poetry-studio.html">
+<meta name="twitter:card" content="summary">
+<style>
+body{background:var(--off-white);}
+:root{--ac:#7c3aed;--ac-soft:#f5f3ff;--ac-ink:#5b21b6;}
+.tab-bar{display:flex;gap:4px;background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-xs);padding:6px;margin-bottom:28px;flex-wrap:wrap;}
+.tab-btn{flex:1;min-width:120px;padding:10px 14px;border:none;background:transparent;border-radius:var(--r-md);font-size:13px;font-weight:600;color:var(--text-2);cursor:pointer;transition:all .15s;}
+.tab-btn:hover{background:var(--off-white);} .tab-btn.active{background:var(--ac);color:#fff;}
+.tab-panel{display:none;} .tab-panel.active{display:block;}
+.ex-card{background:var(--white);border-radius:var(--r-xl);box-shadow:var(--shadow-sm);padding:24px;margin-bottom:20px;}
+.ex-num{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);margin-bottom:8px;}
+.ex-q{font-size:15px;font-weight:600;color:var(--text);margin-bottom:16px;line-height:1.6;}
+.ex-opt{padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:14px;cursor:pointer;transition:all .15s;background:var(--white);color:var(--text);text-align:left;display:block;width:100%;margin-bottom:8px;}
+.ex-opt:hover{border-color:var(--text-2);}
+.ex-opt.correct-ans{border-color:#30d158;background:#f0fff4;color:#1a7f45;} .ex-opt.correct-ans::after{content:" ✓";font-weight:800;}
+.ex-opt.wrong-ans{border-color:#e53935;background:#fef2f2;color:#c0392b;} .ex-opt.wrong-ans::after{content:" ✗";font-weight:800;}
+.ex-feedback{margin-top:14px;padding:12px 16px;border-radius:var(--r-md);font-size:13px;line-height:1.7;display:none;} .ex-feedback.show{display:block;}
+.fb-correct{background:#f0fff4;border:1px solid #a2d9b0;color:#14532d;} .fb-wrong{background:#fef2f2;border:1px solid #fca5a5;color:#7f1d1d;}
+.tip-box{background:var(--ac-soft);border:1.5px solid #ddd6fe;border-radius:var(--r-md);padding:14px 16px;font-size:13px;line-height:1.7;color:var(--ac-ink);margin-bottom:20px;} .tip-box strong{color:var(--ac);}
+.prog-bar-wrap{height:6px;background:var(--off-white);border-radius:var(--r-pill);margin-bottom:24px;overflow:hidden;} .prog-bar{height:100%;background:var(--ac);border-radius:var(--r-pill);transition:width .4s;}
+.score-summary{text-align:center;padding:32px 20px;} .score-big{font-size:56px;font-weight:800;color:var(--ac);line-height:1;margin-bottom:8px;} .score-sub{font-size:14px;color:var(--text-2);}
+.excerpt{background:var(--off-white);border-left:3px solid var(--ac);padding:14px 16px;border-radius:0 var(--r-md) var(--r-md) 0;font-size:14px;line-height:1.9;color:var(--text);margin-bottom:10px;font-family:Georgia,serif;white-space:pre-line;}
+.excerpt .cite{display:block;font-family:var(--font);font-size:11px;font-weight:700;color:var(--ac-ink);margin-top:8px;text-transform:none;}
+.tp-input{width:100%;min-height:120px;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--r-md);font-size:15px;font-family:inherit;line-height:1.9;direction:rtl;text-align:right;resize:vertical;} .tp-input:focus{outline:none;border-color:var(--ac);}
+.tp-reveal{display:none;margin-top:16px;padding:16px;border-radius:var(--r-md);background:var(--ac-soft);border:1px solid #ddd6fe;font-size:13.5px;line-height:1.7;color:var(--text);} .tp-reveal.show{display:block;}
+.tp-reveal h4{font-size:13px;font-weight:800;color:var(--ac-ink);text-transform:uppercase;letter-spacing:.05em;margin:12px 0 6px;} .tp-reveal h4:first-child{margin-top:0;}
+.checklist2{list-style:none;padding:0;margin:6px 0 0;} .checklist2 li{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.6;margin-bottom:5px;} .checklist2 li::before{content:"☐";color:var(--ac);font-weight:800;}
+.src-note{font-size:12px;color:var(--text-3);margin-top:8px;}
+
+.tab-btn{min-width:100px;}
+.map-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;}
+.map-c{background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:12px 14px;border-top:3px solid var(--ac);}
+.map-p{font-size:11px;font-weight:800;color:var(--ac);letter-spacing:.05em;text-transform:uppercase;}
+.map-t{font-size:14px;font-weight:700;margin:3px 0 2px;color:var(--text);} .map-s{font-size:12px;color:var(--text-2);line-height:1.5;}
+.task-p{font-size:14px;line-height:1.7;color:var(--text);margin:10px 0;}
+.tp-input.en{direction:ltr;text-align:left;min-height:90px;}
+.ar{direction:rtl;text-align:right;font-family:"Geeza Pro","Noto Naskh Arabic","Amiri","Traditional Arabic",Tahoma,serif;font-size:1.08em;line-height:2;}
+span.ar{display:inline;}
+.vbox{background:var(--off-white);border-radius:var(--r-md);padding:10px 14px;margin:8px 0;}
+.poll{margin:6px 0 10px;} .ex-opt.picked{border-color:var(--ac);background:var(--ac-soft);color:var(--ac-ink);font-weight:600;}
+.pgref{color:var(--ac-ink);}
+.next-row{margin-top:8px;}
+.tp-reveal p{margin:0 0 8px;}
+.pad-line{font-size:22px;margin:6px 0;} .pw{cursor:pointer;padding:2px 6px;border-radius:6px;border:1.5px solid transparent;display:inline-block;}
+.pw:hover{background:var(--off-white);} .pw.sel{background:#fff7d6;border-color:#d9a520;} .pw.good{background:#f0fff4;border-color:#30d158;} .pw.bad{background:#fef2f2;border-color:#e53935;}
+.ck{display:flex;gap:8px;align-items:center;font-size:14px;padding:7px 10px;border-radius:var(--r-md);margin-bottom:4px;border:1.5px solid transparent;cursor:pointer;}
+.ck.good{border-color:#30d158;background:#f0fff4;} .ck.bad{border-color:#e53935;background:#fef2f2;}
+.mrow{display:grid;grid-template-columns:1fr 240px;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);}
+.mcase{font-size:14px;line-height:1.6;} .mrow select{padding:8px;border-radius:var(--r-md);border:1.5px solid var(--border);font-size:13px;width:100%;}
+.mrow select.good{border-color:#30d158;} .mrow select.bad{border-color:#e53935;}
+.tfrow{display:flex;gap:8px;}.tfrow .ex-opt{flex:1;margin:0;}
+.tf-score{font-size:13px;font-weight:700;color:var(--ac-ink);margin:-8px 0 14px;}
+.wc{font-size:12px;color:var(--text-3);margin:4px 0 10px;}
+@media(max-width:640px){.mrow{grid-template-columns:1fr;}.tab-btn{min-width:46%;}}
+
+.strat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;}
+.strat-c{background:var(--white);border-radius:var(--r-md);box-shadow:var(--shadow-xs);padding:12px;border-top:3px solid var(--ac);cursor:pointer;}
+.strat-c:hover{box-shadow:var(--shadow-sm);} .strat-n{font-size:10.5px;font-weight:800;color:var(--ac);text-transform:uppercase;letter-spacing:.06em;}
+.strat-t{font-size:15px;font-weight:700;margin:3px 0 0;color:var(--text);} .strat-a{font-size:14px;line-height:1.6;color:var(--text-2);} .strat-p{font-size:11.5px;color:var(--text-3);}
+.st-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:14px;}
+.st-title{font-size:24px;margin:2px 0 0;} .st-ar{font-size:18px;color:var(--text-2);margin-inline-start:8px;}
+.timer button{border:1.5px solid var(--ac);background:var(--white);color:var(--ac-ink);border-radius:999px;padding:7px 14px;font-weight:700;cursor:pointer;font-size:13px;}
+.tleft{display:inline-block;border-radius:999px;padding:7px 14px;font-weight:800;background:var(--ac-soft);color:var(--ac-ink);font-size:14px;} .tleft.low{background:#fef2f2;color:#b42318;}
+.cost{background:#fff7e6;border-radius:var(--r-md);padding:8px 12px;}
+.dd{display:grid;grid-template-columns:1.4fr 1fr;gap:12px;margin-top:10px;} .dd ol,.dd ul{margin:6px 0 0;padding-left:20px;font-size:14px;line-height:1.65;}
+.do{background:#f0fff4;border-radius:var(--r-md);padding:10px 12px;} .dont{background:#fef2f2;border-radius:var(--r-md);padding:10px 12px;} .dd-h{font-weight:800;font-size:13px;}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:stretch;} .pair .excerpt{margin:0;}
+.arbox{direction:rtl;text-align:right;font-family:"Geeza Pro","Noto Naskh Arabic","Amiri","Traditional Arabic",Tahoma,serif;font-size:18px;line-height:2.1;border-left:none;border-right:3px solid var(--ac);}
+.scan{background:var(--off-white);border-radius:8px;padding:6px 12px;margin:6px 0;font-size:17px;line-height:2;text-align:right;}
+.notes-h{font-size:13px;font-weight:700;margin:12px 0 4px;color:var(--text-2);}
+.ar{direction:rtl;font-family:"Geeza Pro","Noto Naskh Arabic","Amiri","Traditional Arabic",Tahoma,serif;} span.ar{unicode-bidi:isolate;}
+.task-p{font-size:14.5px;line-height:1.7;margin:8px 0;}
+.yt{border:2px solid var(--ac-soft);}
+.bank{font-size:13px;margin:10px 0;display:flex;flex-wrap:wrap;gap:6px;align-items:center;} .bank-h{font-weight:700;} .bw{background:var(--off-white);border-radius:999px;padding:3px 10px;}
+.ar-in{direction:rtl;text-align:right;font-family:"Geeza Pro","Noto Naskh Arabic","Amiri",Tahoma,serif;font-size:17px;line-height:2;min-height:110px;}
+.tp-input.en{direction:ltr;text-align:left;min-height:80px;}
+.ck{display:flex;gap:8px;align-items:flex-start;font-size:14px;padding:5px 2px;cursor:pointer;line-height:1.5;} .ck input{margin-top:4px;}
+.cks{margin:4px 0 12px;}
+.tp-reveal p{margin:8px 0;} .muted2{font-size:13px;color:var(--text-3);}
+.next-row{margin-top:6px;}
+.qsrc{font-size:13px;color:var(--text-2);font-weight:500;margin-bottom:6px;}
+.opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;} .opt-grid .ex-opt{margin:0;}
+@media(max-width:700px){.pair,.dd,.opt-grid{grid-template-columns:1fr;}.st-title{font-size:20px;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="../index.html"><span>🎓</span><span>Qassim University</span></a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="index.html" style="padding:0;color:var(--text-2);">ENG 494</a>
+    <span class="nav-sep">›</span>
+    <a class="nav-link" href="week4.html" style="padding:0;color:var(--text-2);">Unit 3</a>
+    <span class="nav-sep">›</span>
+    <span class="nav-cur">Strategy Studio</span>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:34px;">
+  <div class="hero-eyebrow" style="color:var(--ac);">Unit 3 · Adult Poetry · Final practice workshop</div>
+  <h1>Strategy Studio: One Verse, One Strategy</h1>
+  <p class="hero-sub">Six famous English poems. Six translation strategies. For each one: read the rules, watch a worked Arabic sample, then translate the next lines yourself using the same strategy.</p>
+</div>
+<div class="section-alt" style="padding:0 0 64px;">
+<div class="section-inner">
+
+  <div class="info-box info-amber mb-24" style="text-align:left;">
+    <h3>⏱️ How to work · 40–45 minutes</h3>
+    <p>Do the six stations <strong>in order</strong>, about <strong>6 minutes each</strong> (use the timer on each station). In every station: <strong>1</strong> read the strategy rules, <strong>2</strong> study the worked sample and its notes, <strong>3</strong> translate the “Your turn” lines with the <strong>same</strong> strategy, <strong>4</strong> tick the self-check, <strong>5</strong> only then open the model answer. Finish with the <strong>Final Round</strong> (counts in My Progress). Your translations are saved on this device.</p>
+    <p style="margin-top:8px;">Strategies from Lahlali &amp; Abu Hatab (2014, p. 45), following Bassnett-McGuire (1980). One golden rule: <strong>do not mix strategies inside a station</strong>. A literal translation should look literal; a rhymed one must rhyme.</p>
+  </div>
+
+  <div class="strat-grid mb-24" id="strat-grid"></div>
+
+  <div class="tab-bar" id="tab-bar"></div>
+  <div id="stations"></div>
+
+  <div id="tab-final" class="tab-panel">
+    <div class="tip-box"><strong>🏁 Final round · 12 questions · 5 minutes.</strong> You see an Arabic rendering; name the strategy. Your score is saved in My Progress.</div>
+    <div class="prog-bar-wrap"><div class="prog-bar" id="aq-prog" style="width:0%"></div></div>
+    <div id="aq-container"></div>
+    <div id="aq-score" class="score-summary" style="display:none;"></div>
+    <div class="ex-card" style="margin-top:22px;">
+      <div class="ex-num">Last reflection · 2 minutes</div>
+      <div class="ex-q">Which strategy was hardest for you, and which one would you choose for your Final Project poem? Why?</div>
+      <textarea class="tp-input en" data-k="refl" placeholder="Three sentences…"></textarea>
+    </div>
+  </div>
+
+  <div class="week-nav" style="margin-top:36px;"><a href="week4.html">← Adult Poetry (Weeks 9–12)</a><a href="workshop-poetry.html">Six Strategies workshop →</a></div>
+</div>
+</div>
+<footer><strong>ENG 494 Literary Translation</strong> · Strategy Studio · Qassim University · Semester 481<br><a href="index.html">Course Hub</a> · <a href="week4.html">Adult Poetry</a> · <a href="workshop-rhyme-phonemic.html">Rhyme &amp; Phonemic</a> · <a href="workshop-poetry-landers.html">Landers Lab</a> · <a href="workshop-poetry.html">Six Strategies</a></footer>
+<script>
+var ST=[
+{id:'phon',icon:'🔊',name:'Phonemic',ar:'الترجمة الصوتية',
+ def:'Recreate the <strong>sounds</strong> of the original in Arabic (rhyme inside the line, repeated consonants, the beat, onomatopoeia) while still carrying the meaning.',
+ cost:'Some meaning bends to keep the sound.',
+ poem:'Edgar Allan Poe, “The Raven” (1845), stanza 1',
+ doo:['Find the sound devices first: internal rhyme (dreary/weary), alliteration (nodded, nearly napping), repetition (rapping, rapping).','Give each device an Arabic echo: an internal rhyme pair, a repeated consonant, a repeated word.','Use sound words (onomatopoeia) where English uses them: tapping, rapping.'],
+ dont:['Do not translate word for word and ignore the music.','Do not drop a repetition: if Poe repeats, you repeat.'],
+ sampleEN:'Once upon a midnight dreary, while I pondered, weak and weary,\nOver many a quaint and curious volume of forgotten lore—',
+ sampleAR:'ذاتَ ليلٍ مُوحِشٍ حَزينْ، وأنا أُفكِّرُ، واهِنًا مِسكينْ،\nأُقلِّبُ سِفرًا غريبًا عتيقًا مِن عِلمٍ مَنسيٍّ دَفينْ—',
+ notes:['<strong>dreary / weary</strong> (internal rhyme) → <span class="ar">حزين / مسكين</span>: a rhyme <em>inside</em> the line, as in Poe.','Line 2 ends on the same sound (<span class="ar">دفين</span>), so the chiming continues.','Cost: “weak and weary” became <span class="ar">واهنًا مسكين</span> (“weak, pitiful”); the sound decided the word.'],
+ turnEN:'While I nodded, nearly napping, suddenly there came a tapping,\nAs of some one gently rapping, rapping at my chamber door.',
+ bank:[['nodded','أغفى، نَعَسَ'],['napping','غفوة'],['tapping','نَقْر'],['rapping','دَقّ، طَرْق'],['chamber','حُجرة']],
+ check:['I kept the n-n-n sound of “nodded, nearly napping” (e.g. repeated ن or a repeated word).','I used sound words for tapping and rapping.','I repeated the word for “rapping, rapping”.','Read aloud, my lines have a drumming rhythm.'],
+ model:'وبينما أنا أُغفي، أكادُ أُغفي، إذا بنَقْرٍ خفيفٍ يَنقُرْ،\nكأنَّ أحدًا برِفقٍ يدُقُّ، يدُقُّ على بابِ حُجرتي.',
+ modelNote:'<span class="ar">أُغفي، أكادُ أُغفي</span> imitates the drowsy repetition; <span class="ar">نقرٍ… ينقر</span> and <span class="ar">يدقُّ، يدقُّ</span> imitate tapping and “rapping, rapping”.'},
+{id:'lit',icon:'🔤',name:'Literal',ar:'الترجمة الحرفية',
+ def:'Translate <strong>word for word</strong>, keeping the English words, their order and their images as closely as Arabic grammar allows.',
+ cost:'Accurate on the surface, but often flat, odd or unclear in Arabic. Its value is that it shows you exactly what the original says.',
+ poem:'William Shakespeare, Sonnet 18 (1609), lines 1–4',
+ doo:['Translate every content word; add nothing, cut nothing.','Keep the English images even when they sound strange in Arabic (“summer’s lease”).','Follow English order unless Arabic grammar forces a change.'],
+ dont:['Do not “improve” the line or add beauty.','Do not replace an image with an Arabic idiom (that would be another strategy).'],
+ sampleEN:'Shall I compare thee to a summer’s day?\nThou art more lovely and more temperate:',
+ sampleAR:'هل أُقارِنُكَ بيومٍ صيفيٍّ؟\nأنتَ أكثرُ جمالًا وأكثرُ اعتدالًا:',
+ notes:['Every word has a counterpart: compare → <span class="ar">أقارن</span>, temperate → <span class="ar">اعتدالًا</span>.','Even the colon is kept.','Cost: correct, but no music; “more lovely” becomes the flat <span class="ar">أكثر جمالًا</span>.'],
+ turnEN:'Rough winds do shake the darling buds of May,\nAnd summer’s lease hath all too short a date;',
+ bank:[['rough','خَشِن، عاتٍ'],['darling buds','البراعم الحبيبة'],['lease','عقد إيجار'],['date','تاريخ (انتهاء)'],['all too short','قصير جدًّا']],
+ check:['Every content word in the English has an Arabic word.','I kept “May”, “lease” and “date” as they are, even if they sound odd.','I added no word that is not in the English.','I can now explain why literal translation sounds strange here.'],
+ model:'رياحٌ خشِنةٌ تَهُزُّ البراعمَ الحبيبةَ لِمايو،\nوعقدُ إيجارِ الصيفِ لهُ تاريخٌ قصيرٌ جدًّا؛',
+ modelNote:'Literal translation exposes the metaphor: summer is a <em>tenant</em> whose rental contract expires too soon. Readers of <span class="ar">عقد إيجار الصيف</span> may be puzzled, which is exactly the cost the textbook names.'},
+{id:'met',icon:'🥁',name:'Metrical',ar:'الترجمة الوزنية',
+ def:'Reproduce a <strong>regular metre</strong> in Arabic: give the translation a steady beat that matches the feel of the original line.',
+ cost:'Arabic metres differ from English ones, so words are changed or dropped to fit the beat (the textbook warns it “is not always successful”).',
+ poem:'William Wordsworth, “I Wandered Lonely as a Cloud” (1807), lines 1–4',
+ doo:['Count the English beat: four stresses per line (“I WANdered LONEly AS a CLOUD”).','Choose one Arabic metre and keep it. The sample uses <strong>al-Mutaqārib</strong>: <span class="ar">فَعولُن فَعولُن فَعولُن فَعو</span>.','Tap the beat on the desk as you read your line; every line must tap the same way.'],
+ dont:['Do not mix long and short lines.','Do not force a rhyme; metre is the target here.'],
+ sampleEN:'I wandered lonely as a cloud\nThat floats on high o’er vales and hills,',
+ sampleAR:'تَجَوَّلْتُ وَحْدي كَغَيْمٍ سَرى\nتَهادى على السَّهْلِ فَوْقَ الرُّبى',
+ notes:['Scansion (read right to left); line 2 scans the same way:<div class="ar scan">تَجَوْوَلْ | تُ وَحْدي | كَغَيْمِنْ | سَرى<br>فَعولُن | فَعولُن | فَعولُن | فَعو</div>','Each Arabic line has four beats, like Wordsworth’s four stresses.','Cost: “on high” was dropped, and “vales” became <span class="ar">السهل</span> (plain) to fit the beat.'],
+ turnEN:'When all at once I saw a crowd,\nA host, of golden daffodils;',
+ bank:[['all at once','فجأةً، في لحظة'],['crowd / host','حشد، جموع'],['golden','ذهبيّ، أصفر'],['daffodils','النرجس (البرّي)']],
+ check:['My two lines have the same number of beats.','Read aloud, my lines tap like the sample (ta-TUM-TUM, ta-TUM-TUM…).','I kept the key image: a sudden crowd of golden flowers.','I wrote down one thing I had to change for the metre.'],
+ model:'وَفي لَحْظَةٍ قَدْ رَأَيْتُ الحُشودْ\nجُموعًا مِنَ النَّرْجِسِ الأَصْفَرِ',
+ modelNote:'Both lines are al-Mutaqārib:<div class="ar scan">وَفي لَحْ | ظَتِنْ قَدْ | رَأَيْتُلْ | حُشودْ<br>فَعولُن | فَعولُن | فَعولُن | فَعولْ</div>Cost: “golden” became <span class="ar">الأصفر</span> (yellow) for the beat, and the line-1 rhyme with “cloud” is not attempted.'},
+{id:'prose',icon:'📄',name:'Verse-to-prose',ar:'ترجمة الشعر نثرًا',
+ def:'Render the poem as <strong>clear Arabic prose</strong>: full sentences, normal punctuation, no line breaks, no rhyme or metre.',
+ cost:'Meaning and story come through well; the “beauty of the poetic shape” is lost.',
+ poem:'Percy Bysshe Shelley, “Ozymandias” (1818)',
+ doo:['Join the lines into normal Arabic sentences and paragraphs.','Make the logic explicit: add connectors (<span class="ar">ف، ثمّ، لكنّ</span>) where Arabic prose needs them.','Keep every image and fact of the original.'],
+ dont:['Do not keep the line breaks.','Do not try to rhyme or to scan.'],
+ sampleEN:'I met a traveller from an antique land,\nWho said—“Two vast and trunkless legs of stone\nStand in the desert. . . .',
+ sampleAR:'قابلتُ مسافرًا قادمًا من أرضٍ عريقةٍ في القِدَم، فقال لي: «هناك ساقانِ هائلتانِ من الحجر، بلا جِذْع، تقفانِ وحدهما في الصحراء…»',
+ notes:['One flowing sentence instead of three lines.','Connectors added: <span class="ar">فقال لي</span>, <span class="ar">هناك</span>.','<span class="ar">وحدهما</span> makes explicit what the line break implied. Cost: the strong pause after “stone / Stand” is gone.'],
+ turnEN:'And on the pedestal, these words appear:\nMy name is Ozymandias, King of Kings;\nLook on my Works, ye Mighty, and despair!\nNothing beside remains.',
+ bank:[['pedestal','قاعدة التمثال'],['King of Kings','ملك الملوك'],['ye Mighty','أيها الجبابرة'],['despair','اقنطوا، ابتئسوا'],['beside','سوى ذلك']],
+ check:['My answer is a paragraph, with no line breaks.','The irony is clear: the boast stands among ruins, and nothing remains.','I used normal Arabic punctuation and quotation marks.','Nothing of the original’s content is missing.'],
+ model:'وعلى قاعدة التمثال نُقِشَت هذه الكلمات: «اسمي أوزيماندياس، ملكُ الملوك؛ انظروا إلى أعمالي، أيها الجبابرة، واقنطوا!» ولم يبقَ شيءٌ سوى ذلك.',
+ modelNote:'Clear and complete. Cost: the shock of the short line “Nothing beside remains.” is weaker inside a paragraph.'},
+{id:'rhy',icon:'🎶',name:'Rhymed',ar:'الترجمة المقفّاة',
+ def:'Keep the <strong>rhyme scheme</strong> of the original in Arabic.',
+ cost:'Phonetically right, but often “semantically inappropriate”: words are added or changed to reach the rhyme (Landers’ “padding”).',
+ poem:'Robert Burns, “A Red, Red Rose” (1794)',
+ doo:['Find the scheme first: here <strong>ABCB</strong> (lines 2 and 4 rhyme: June / tune).','Choose the Arabic rhyme word for line 4 <em>before</em> you write line 2, then build both lines toward it.','Mark every word you added only for the rhyme, and keep them as few as possible.'],
+ dont:['Do not rhyme lines that do not rhyme in Burns, and do not leave lines 2 and 4 unrhymed.','Do not let the rhyme change the main meaning.'],
+ sampleEN:'O my Luve’s like a red, red rose\nThat’s newly sprung in June;\nO my Luve’s like the melodie\nThat’s sweetly play’d in tune.',
+ sampleAR:'حبيبتي وردةٌ حمراءُ قانيةٌ\nتفتَّحتْ في ربيعِ العُمْرِ نَدِيَّهْ\nحبيبتي نغمةٌ في العُودِ صافيةٌ\nتُعزَفُ عَذْبًا بأوتارٍ شَجِيَّهْ',
+ notes:['Scheme kept: <span class="ar">نديّه / شجيّه</span> rhyme on lines 2 and 4 (a bonus internal rhyme in <span class="ar">قانية / صافية</span>).','The repeated opening (O my Luve’s…) is kept: <span class="ar">حبيبتي… حبيبتي</span>.','Cost (padding): <span class="ar">العود</span>, <span class="ar">بأوتار</span> and <span class="ar">ربيع العمر</span> are not in Burns; “June” became “the spring of life”.'],
+ turnEN:'As fair art thou, my bonnie lass,\nSo deep in luve am I:\nAnd I will luve thee still, my dear,\nTill a’ the seas gang dry.',
+ bank:[['fair','جميلة، فاتنة'],['bonnie lass','فتاتي الحلوة'],['still','دائمًا، أبدًا'],['till a’ the seas gang dry','حتى تجفّ البحار كلّها']],
+ check:['Lines 2 and 4 rhyme clearly.','The promise (love until the seas run dry) is kept.','I marked the words I added for rhyme, and there are no more than two.','Read aloud, the rhyme falls on the last word.'],
+ model:'فاتنةٌ أنتِ يا حُلوتي\nوغارقٌ أنا في هواكِ\nوسأظلُّ أحبُّكِ يا عزيزتي\nحتى تجفَّ البحارُ… ولا أنساكِ',
+ modelNote:'Rhyme <span class="ar">هواكِ / أنساكِ</span> on lines 2 and 4 (ABCB). Cost: <span class="ar">ولا أنساكِ</span> is padding, added for the rhyme.'},
+{id:'free',icon:'🕊️',name:'Free verse',ar:'الترجمة بالشعر الحرّ',
+ def:'Translate into <strong>free verse</strong>: keep the poem as lines of poetry, aim for the most accurate equivalents, but without fixed rhyme or metre.',
+ cost:'Accurate equivalents, but part of the literary value (rhyme, metre) is lost.',
+ poem:'Emily Dickinson, “‘Hope’ is the thing with feathers” (c. 1861)',
+ doo:['Keep the line breaks and Dickinson’s dashes; they are part of her voice.','Choose the most accurate Arabic word for each image (feathers, perches, gale, abash).','Let Arabic rhythm flow naturally; no forced rhyme.'],
+ dont:['Do not turn the stanza into one prose paragraph (that is verse-to-prose).','Do not add rhyme words.'],
+ sampleEN:'“Hope” is the thing with feathers -\nThat perches in the soul -\nAnd sings the tune without the words -\nAnd never stops - at all -',
+ sampleAR:'«الأملُ» ذلكَ الشيءُ ذو الريشِ —\nيَحُطُّ في الروحِ —\nويُغنّي اللحنَ بلا كلماتٍ —\nولا يتوقّفُ — أبدًا —',
+ notes:['Four lines kept as four lines; every dash kept.','Accurate images: <span class="ar">ذو الريش</span>, <span class="ar">يحطّ</span> (a bird landing).','Cost: no rhyme or metre (Dickinson’s soul / all half-rhyme is gone).'],
+ turnEN:'And sweetest - in the Gale - is heard -\nAnd sore must be the storm -\nThat could abash the little Bird\nThat kept so many warm -',
+ bank:[['gale','عاصفة هوجاء'],['sore','قاسٍ، شديد'],['abash','يُخجِل، يُربِك'],['kept … warm','دفّأ، منح الدفء']],
+ check:['I kept four lines and the dashes.','My words are accurate (gale, sore, abash).','I did not force any rhyme.','The meaning is clear: only a terrible storm could silence hope.'],
+ model:'وأعذبُ ما يُسمَعُ — في العاصفةِ —\nولا بدَّ أن تكونَ العاصفةُ قاسيةً —\nحتى تُربِكَ الطائرَ الصغيرَ\nالذي دفّأ الكثيرين —',
+ modelNote:'Accurate, lineated, faithful to the dashes. Cost: the rhymes heard / Bird and storm / warm are not reproduced.'}
+];
+var SKEY="eng494_strategy_studio_v1";
+function ld(){try{return JSON.parse(localStorage.getItem(SKEY))||{};}catch(e){return {};}}
+function sv(k,v){try{var d=ld();d[k]=v;localStorage.setItem(SKEY,JSON.stringify(d));}catch(e){}}
+function br(t){return t.replace(/\n/g,'<br>');}
+document.getElementById('strat-grid').innerHTML=ST.map(function(s,i){return '<div class="strat-c" onclick="goTab(\''+s.id+'\')"><div class="strat-n">Station '+(i+1)+'</div><div class="strat-t">'+s.icon+' '+s.name+'</div><div class="strat-a ar">'+s.ar+'</div><div class="strat-p">'+s.poem.split(',')[0]+'</div></div>';}).join('');
+document.getElementById('tab-bar').innerHTML=ST.map(function(s,i){return '<button class="tab-btn'+(i?'':' active')+'" data-t="'+s.id+'" onclick="switchTab(\''+s.id+'\',this)">'+s.icon+' '+(i+1)+' · '+s.name+'</button>';}).join('')+'<button class="tab-btn" data-t="final" onclick="switchTab(\'final\',this)">🏁 Final round</button>';
+document.getElementById('stations').innerHTML=ST.map(function(s,i){
+ return '<div id="tab-'+s.id+'" class="tab-panel'+(i?'':' active')+'">'
+ +'<div class="st-head"><div><div class="ex-num">Station '+(i+1)+' of 6 · '+s.poem+'</div><h2 class="st-title">'+s.icon+' '+s.name+' translation <span class="ar st-ar">'+s.ar+'</span></h2></div><div class="timer" id="tm-'+s.id+'"><button onclick="startT(\''+s.id+'\')">▶ 6:00 timer</button></div></div>'
+ +'<div class="ex-card"><div class="ex-num">Step 1 · The strategy</div><p class="task-p">'+s.def+'</p><p class="task-p cost"><strong>Its cost:</strong> '+s.cost+'</p>'
+ +'<div class="dd"><div class="do"><div class="dd-h">✅ Do</div><ol>'+s.doo.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ol></div><div class="dont"><div class="dd-h">⛔ Don’t</div><ul>'+s.dont.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul></div></div></div>'
+ +'<div class="ex-card"><div class="ex-num">Step 2 · Watch it done (worked sample)</div><div class="pair"><div class="excerpt">'+br(s.sampleEN)+'</div><div class="excerpt ar arbox">'+br(s.sampleAR)+'</div></div><div class="notes-h">Why this is '+s.name.toLowerCase()+' translation:</div><ul class="checklist2">'+s.notes.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul></div>'
+ +'<div class="ex-card yt"><div class="ex-num">Step 3 · Your turn: the next lines, same strategy</div><div class="excerpt">'+br(s.turnEN)+'</div>'
+ +'<div class="bank"><span class="bank-h">Word bank:</span> '+s.bank.map(function(b){return '<span class="bw"><em>'+b[0]+'</em> = <span class="ar">'+b[1]+'</span></span>';}).join('')+'</div>'
+ +'<textarea class="tp-input ar-in" data-k="t-'+s.id+'" placeholder="اكتب ترجمتك هنا بأسلوب الاستراتيجية نفسها…"></textarea>'
+ +'<div class="ex-num" style="margin-top:12px">Step 4 · Self-check (tick honestly)</div><div class="cks">'+s.check.map(function(c,j){return '<label class="ck"><input type="checkbox" data-k="c-'+s.id+'-'+j+'"> '+c+'</label>';}).join('')+'</div>'
+ +'<button class="btn btn-outline btn-sm" onclick="showModel(\''+s.id+'\')">Step 5 · Show the model answer</button><div class="ex-feedback" id="mw-'+s.id+'"></div>'
+ +'<div class="tp-reveal" id="m-'+s.id+'"><h4>Model answer</h4><div class="excerpt ar arbox">'+br(s.model)+'</div><p>'+s.modelNote+'</p><p class="muted2">Compare: did you use the same strategy? Your words can differ; your <em>method</em> should match.</p></div></div>'
+ +'<div class="next-row">'+(i<5?'<button class="btn btn-primary btn-sm" style="background:var(--ac)" onclick="goTab(\''+ST[i+1].id+'\')">Next station: '+ST[i+1].name+' →</button>':'<button class="btn btn-primary btn-sm" style="background:var(--ac)" onclick="goTab(\'final\')">Go to the Final round →</button>')+'</div>'
+ +'</div>';}).join('');
+function switchTab(id,btn){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+id).classList.add('active');(btn||document.querySelector('.tab-btn[data-t="'+id+'"]')).classList.add('active');}
+function goTab(id){switchTab(id);window.scrollTo({top:document.getElementById('tab-bar').offsetTop-70,behavior:'smooth'});}
+function showModel(id){var t=document.querySelector('textarea[data-k="t-'+id+'"]');var w=document.getElementById('mw-'+id);if(!t.value.trim()){w.className='ex-feedback show fb-wrong';w.innerHTML='<strong>Write your own translation first.</strong> The model is for comparison, not copying.';return;}w.className='ex-feedback';document.getElementById('m-'+id).classList.add('show');}
+var TM={};
+function startT(id){var el=document.getElementById('tm-'+id);clearInterval(TM[id]);var left=360;function draw(){var m=Math.floor(left/60),s=left%60;el.innerHTML='<span class="tleft'+(left<=60?' low':'')+'">⏱ '+m+':'+(s<10?'0':'')+s+'</span>';}draw();TM[id]=setInterval(function(){left--;if(left<=0){clearInterval(TM[id]);el.innerHTML='<span class="tleft low">⏰ Time: finish and check</span>';return;}draw();},1000);}
+(function(){var d=ld();
+ document.querySelectorAll('textarea[data-k]').forEach(function(t){if(d[t.dataset.k])t.value=d[t.dataset.k];t.addEventListener('input',function(){sv(t.dataset.k,t.value);});});
+ document.querySelectorAll('input[type=checkbox][data-k]').forEach(function(c){if(d[c.dataset.k])c.checked=true;c.addEventListener('change',function(){sv(c.dataset.k,c.checked);});});
+})();
+function shuffleQ(q){if(q._o0===undefined){q._o0=q.opts.slice();q._a0=q.ans;}var idx=q._o0.map(function(_,i){return i;});for(var i=idx.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=idx[i];idx[i]=idx[j];idx[j]=t;}q.opts=idx.map(function(k){return q._o0[k];});q.ans=idx.indexOf(q._a0);return q;}
+var S6=['Phonemic','Literal','Metrical','Verse-to-prose','Rhymed','Free verse'];
+function Q(src,ar,a,fb){return {q:'<div class="qsrc">'+src+'</div><div class="excerpt ar arbox">'+br(ar)+'</div>Which strategy is this?',opts:S6.slice(),ans:a,fb:fb};}
+var AQ=[
+ Q('Poe: “While I nodded, nearly napping, suddenly there came a tapping”','وبينما أنا أُغفي، أكادُ أُغفي، إذا بنَقْرٍ خفيفٍ يَنقُرْ',0,'Phonemic: the repetition and the sound word <span class="ar">نقرٍ… ينقر</span> recreate Poe’s music.'),
+ Q('Shakespeare: “And summer’s lease hath all too short a date”','وعقدُ إيجارِ الصيفِ لهُ تاريخٌ قصيرٌ جدًّا',1,'Literal: every word kept, even the odd “lease” image.'),
+ Q('Wordsworth: “I wandered lonely as a cloud”','تَجَوَّلْتُ وَحْدي كَغَيْمٍ سَرى',2,'Metrical: al-Mutaqārib, <span class="ar">فعولن فعولن فعولن فعو</span>.'),
+ Q('Shelley: “Look on my Works, ye Mighty, and despair! / Nothing beside remains.”','انظروا إلى أعمالي، أيها الجبابرة، واقنطوا! ولم يبقَ شيءٌ سوى ذلك.',3,'Verse-to-prose: one paragraph, normal punctuation, no line breaks.'),
+ Q('Burns: “So deep in luve am I: … Till a’ the seas gang dry.”','وغارقٌ أنا في هواكِ\n…حتى تجفَّ البحارُ… ولا أنساكِ',4,'Rhymed: <span class="ar">هواكِ / أنساكِ</span>; “ولا أنساكِ” is padding for the rhyme.'),
+ Q('Dickinson: “That perches in the soul -”','يَحُطُّ في الروحِ —',5,'Free verse: an accurate image, lines and dashes kept, no rhyme or metre.'),
+ Q('Shakespeare: “Thou art more lovely and more temperate”','أنتَ أكثرُ جمالًا وأكثرُ اعتدالًا',1,'Literal: word for word, flat but exact.'),
+ Q('Burns: “O my Luve’s like a red, red rose / That’s newly sprung in June”','حبيبتي وردةٌ حمراءُ قانيةٌ\nتفتَّحتْ في ربيعِ العُمْرِ نَدِيَّهْ',4,'Rhymed: built toward the rhyme <span class="ar">نديّه / شجيّه</span>, with padding (“ربيع العمر”).'),
+ Q('Poe: “Once upon a midnight dreary, while I pondered, weak and weary”','ذاتَ ليلٍ مُوحِشٍ حَزينْ، وأنا أُفكِّرُ، واهِنًا مِسكينْ',0,'Phonemic: the internal rhyme <span class="ar">حزين / مسكين</span> echoes dreary / weary.'),
+ Q('Shelley: “I met a traveller from an antique land”','قابلتُ مسافرًا قادمًا من أرضٍ عريقةٍ في القِدَم، فقال لي…',3,'Verse-to-prose: sentences joined, connectors added.'),
+ Q('Wordsworth: “A host, of golden daffodils”','جُموعًا مِنَ النَّرْجِسِ الأَصْفَرِ',2,'Metrical: fits the beat; “golden” changed to “yellow” to fit it.'),
+ Q('Dickinson: “And sweetest - in the Gale - is heard -”','وأعذبُ ما يُسمَعُ — في العاصفةِ —',5,'Free verse: accurate and lineated, dashes kept, no forced rhyme.')
+];
+var aqi=0,aqs=0,aqd=false;
+function rAQ(){if(aqi>=AQ.length){sAQ();return;}var q=shuffleQ(AQ[aqi]);document.getElementById('aq-prog').style.width=(aqi/AQ.length*100)+'%';document.getElementById('aq-container').innerHTML=`<div class="ex-card"><div class="ex-num">Question ${aqi+1} of ${AQ.length}</div><div class="ex-q">${q.q}</div><div id="aq-opts" class="opt-grid">${q.opts.map((o,i)=>`<button class="ex-opt" onclick="aAQ(${i})">${o}</button>`).join('')}</div><div class="ex-feedback" id="aq-fb"></div><div><button class="btn btn-primary btn-sm" id="aq-next" style="display:none;margin-top:14px;background:var(--ac);" onclick="nAQ()">Next →</button></div></div>`;aqd=false;}
+function aAQ(i){if(aqd)return;aqd=true;var q=AQ[aqi];document.querySelectorAll('#aq-opts .ex-opt').forEach((b,j)=>{b.disabled=true;if(j===q.ans)b.classList.add('correct-ans');else if(j===i&&i!==q.ans)b.classList.add('wrong-ans');});if(i===q.ans)aqs++;var fb=document.getElementById('aq-fb');fb.innerHTML=q.fb;fb.className='ex-feedback show '+(i===q.ans?'fb-correct':'fb-wrong');document.getElementById('aq-next').style.display='inline-block';}
+function nAQ(){aqi++;rAQ();}
+function sAQ(){document.getElementById('aq-prog').style.width='100%';document.getElementById('aq-container').style.display='none';var pct=Math.round(aqs/AQ.length*100);var el=document.getElementById('aq-score');el.style.display='block';el.innerHTML=`<div class="score-big">${pct}%</div><div class="score-sub">${aqs}/${AQ.length} correct</div><p style="font-size:14px;color:var(--text-2);margin:12px 0 20px;">${pct>=80?'You can tell the six strategies apart. Use them in your Final Project.':'Revisit the stations you missed, then try again.'}</p><button class="btn btn-primary" style="background:var(--ac);" onclick="reAQ()">Retry</button>`;}
+function reAQ(){aqi=0;aqs=0;document.getElementById('aq-container').style.display='block';document.getElementById('aq-score').style.display='none';rAQ();}
+rAQ();
+</script>
+<script src="track.js" defer></script>
+<script src="site.js" defer></script>
+</body>
+</html>
