@@ -9,7 +9,7 @@ function render(){
   tabs+='<button class="rl-tab'+(pi===0?' act':'')+'" id="rl-tab-'+pi+'" onclick="RL.show('+pi+')">'+p.title+'<small id="rl-ts-'+pi+'"></small></button>';
   var qs=p.qs.map(function(q,qi){
    st[pi][qi].ord=shuf(q.o.length);
-   return '<div class="rl-card" id="rl-c-'+pi+'-'+qi+'"><div class="rl-num">Question '+(qi+1)+' of '+p.qs.length+'</div>'+(q.ctx?'<div class="rl-ctx">'+q.ctx+'</div>':'')+'<div class="rl-q">'+q.q+'</div>'+
+   return ((q.h&&(qi===0||p.qs[qi-1].h!==q.h))?'<h3 class="rl-stage">'+q.h+'</h3>':'')+'<div class="rl-card" id="rl-c-'+pi+'-'+qi+'"><div class="rl-num">Question '+(qi+1)+' of '+p.qs.length+'</div>'+(q.ctx?'<div class="rl-ctx">'+q.ctx+'</div>':'')+'<div class="rl-q">'+q.q+'</div>'+
     st[pi][qi].ord.map(function(oi){return '<button class="ex-opt" id="rl-o-'+pi+'-'+qi+'-'+oi+'" onclick="RL.pick('+pi+','+qi+','+oi+')">'+q.o[oi]+'</button>';}).join('')+
     '<div class="rl-fb" id="rl-f-'+pi+'-'+qi+'"></div></div>';}).join('');
   panels+='<div class="rl-panel'+(pi===0?' act':'')+'" id="rl-p-'+pi+'"><div class="rl-read">'+p.read+'</div><div class="rl-bar"><i id="rl-b-'+pi+'"></i></div>'+qs+'</div>';
