@@ -8,6 +8,7 @@ function render(){
  cfg.parts.forEach(function(p,pi){
   tabs+='<button class="rl-tab'+(pi===0?' act':'')+'" id="rl-tab-'+pi+'" onclick="RL.show('+pi+')">'+p.title+'<small id="rl-ts-'+pi+'"></small></button>';
   var qs=p.qs.map(function(q,qi){
+   if(q.type==='tr'){st[pi][qi].tr=true;return ((q.h&&(qi===0||p.qs[qi-1].h!==q.h))?'<h3 class="rl-stage">'+q.h+'</h3>':'')+'<div class="rl-card" id="rl-c-'+pi+'-'+qi+'"><div class="rl-num">Practice session '+(qi+1)+' of '+p.qs.length+'</div><div class="rl-q">'+q.q+'</div>'+(q.ctx?'<div class="rl-ctx">'+q.ctx+'</div>':'')+'<textarea class="rl-ta" id="rl-ta-'+pi+'-'+qi+'" rows="5" placeholder="Write your translation here first..."></textarea><button class="rl-btn" onclick="RL.reveal('+pi+','+qi+')">Show the model and the checklist</button><div class="rl-fb" id="rl-f-'+pi+'-'+qi+'"></div></div>';}
    st[pi][qi].ord=shuf(q.o.length);
    return ((q.h&&(qi===0||p.qs[qi-1].h!==q.h))?'<h3 class="rl-stage">'+q.h+'</h3>':'')+'<div class="rl-card" id="rl-c-'+pi+'-'+qi+'"><div class="rl-num">Question '+(qi+1)+' of '+p.qs.length+'</div>'+(q.ctx?'<div class="rl-ctx">'+q.ctx+'</div>':'')+'<div class="rl-q">'+q.q+'</div>'+
     st[pi][qi].ord.map(function(oi){return '<button class="ex-opt" id="rl-o-'+pi+'-'+qi+'-'+oi+'" onclick="RL.pick('+pi+','+qi+','+oi+')">'+q.o[oi]+'</button>';}).join('')+
@@ -23,7 +24,7 @@ function upd(pi){
  var p=cfg.parts[pi],done=0,good=0;
  st[pi].forEach(function(s){if(s.done){done++;if(s.first)good++;}});
  document.getElementById('rl-b-'+pi).style.width=(done/p.qs.length*100)+'%';
- document.getElementById('rl-ts-'+pi).textContent=done?(' '+good+'/'+p.qs.length):'';
+ document.getElementById('rl-ts-'+pi).textContent=done?(' '+(p.qs[0]&&p.qs[0].type==='tr'?done:good)+'/'+p.qs.length):'';
 }
 function pick(pi,qi,oi){
  var q=cfg.parts[pi].qs[qi],s=st[pi][qi];
@@ -43,6 +44,14 @@ function pick(pi,qi,oi){
   fb.innerHTML='<b>Not quite.</b> '+why+src(q)+'<div style="margin-top:6px;"><b>Try again:</b> pick another answer.</div>';
  }
 }
+function reveal(pi,qi){
+ var q=cfg.parts[pi].qs[qi],s=st[pi][qi],fb=document.getElementById('rl-f-'+pi+'-'+qi);
+ var mine=document.getElementById('rl-ta-'+pi+'-'+qi).value;
+ s.done=true;s.first=false;
+ fb.className='rl-fb show ok';
+ fb.innerHTML='<b>Model translation</b><div class="rl-model">'+q.model+'</div><b>Check your own version</b><ul class="rl-chk">'+q.check.map(function(c,i){return '<li><label><input type="checkbox"> '+c+'</label></li>';}).join('')+'</ul>'+(q.note?'<div style="margin-top:6px;">'+q.note+'</div>':'')+src(q);
+ upd(pi);
+}
 function show(pi){
  cur=pi;
  document.querySelectorAll('.rl-panel').forEach(function(e){e.classList.remove('act');});
@@ -55,6 +64,7 @@ function summary(){
  var tot=0,good=0,ans=0,rows='',miss='';
  cfg.parts.forEach(function(p,pi){
   var d=0,g=0;
+  if(p.qs[0]&&p.qs[0].type==='tr'){var o=0;st[pi].forEach(function(s){if(s.done)o++;});rows+='<li><b>'+p.title+'</b>: '+o+' of '+p.qs.length+' sessions opened (not scored)</li>';return;}
   st[pi].forEach(function(s,qi){tot++;if(s.done){d++;ans++;if(s.first)g++;else miss+='<li><b>'+p.title+' &middot; Q'+(qi+1)+'</b> &mdash; reread <b>'+(p.qs[qi].p||'')+'</b></li>';}});
   good+=g;rows+='<li><b>'+p.title+'</b>: '+g+' of '+p.qs.length+' right first time'+(d<p.qs.length?' ('+(p.qs.length-d)+' unanswered)':'')+'</li>';
  });
@@ -72,5 +82,5 @@ function init(c){
  st=cfg.parts.map(function(p){return p.qs.map(function(){return{first:null,done:false};});});
  render();
 }
-return{init:init,pick:pick,show:show,reset:reset};
+return{init:init,pick:pick,show:show,reset:reset,reveal:reveal};
 })();
